@@ -76,22 +76,6 @@ services:
     ports:
     - 5353:53/udp
     - 8053:80
-  shellshock:
-    image: vulnerables/cve-2014-6271
-    container_name: shellshock
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.6.1
-    ports:
-    - 8881:80
-  heartbleed:
-    image: vulnerables/cve-2014-0160
-    container_name: heartbleed
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.6.2
-    ports:
-    - 8443:443
   apache-cve-2021-41773:
     image: vulnerables/cve-2021-41773
     container_name: apache-path-traversal
@@ -194,6 +178,7 @@ services:
   railsgoat:
     image: owasp/railsgoat
     container_name: railsgoat
+    command: bash -c "bundle exec rails db:setup && bundle exec rails server -b 0.0.0.0 -p 3000"
     networks:
       vulnnet:
         ipv4_address: 172.30.8.3
@@ -450,22 +435,6 @@ services:
     ports:
     - 1025:1025
     - 1080:1080
-  postfix-dovecot:
-    image: tvial/docker-mailserver:latest
-    container_name: mailserver
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.17.2
-    ports:
-    - '2526:25'
-    - 1431:143
-    - 9931:993
-    environment:
-    - ENABLE_SPAMASSASSIN=0
-    - ENABLE_CLAMAV=0
-    - ENABLE_FAIL2BAN=0
-    - ENABLE_POSTGREY=0
-    - ONE_DIR=1
   squid-old:
     image: sameersbn/squid:3.3.8-23
     container_name: squid-old
@@ -474,14 +443,6 @@ services:
         ipv4_address: 172.30.18.1
     ports:
     - 3128:3128
-  haproxy-old:
-    image: haproxy:1.5
-    container_name: haproxy-old
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.18.2
-    ports:
-    - 8024:80
   kibana-old:
     image: kibana:4.6
     container_name: kibana-old
