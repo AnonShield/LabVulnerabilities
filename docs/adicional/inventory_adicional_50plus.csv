@@ -1,0 +1,107 @@
+Categoria,Container,Imagem Docker,Porta,Serviços,CVEs Estimadas,Tipo
+OS Antigo,ubuntu14,ubuntu:14.04,-,Sistema Operacional,500+,Infrastructure
+OS Antigo,ubuntu16,ubuntu:16.04,-,Sistema Operacional,300+,Infrastructure
+OS Antigo,debian8,debian:jessie,-,Sistema Operacional,600+,Infrastructure
+OS Antigo,debian9,debian:stretch,-,Sistema Operacional,400+,Infrastructure
+OS Antigo,centos6,centos:6,-,Sistema Operacional,700+,Infrastructure
+OS Antigo,centos7,centos:7,-,Sistema Operacional,200+,Infrastructure
+OS Antigo,alpine37,alpine:3.7,-,Sistema Operacional,100+,Infrastructure
+OS Antigo,fedora28,fedora:28,-,Sistema Operacional,300+,Infrastructure
+Web Server,apache22,httpd:2.2,8050,HTTP/Apache,150+,Web
+Web Server,apache246,httpd:2.4.6,8051,HTTP/Apache,100+,Web
+Web Server,nginx110,nginx:1.10,8052,HTTP/Nginx,80+,Web
+Web Server,nginx112,nginx:1.12,8053,HTTP/Nginx,60+,Web
+Web Server,nginx114,nginx:1.14,8054,HTTP/Nginx,40+,Web
+Web Server,lighttpd,sebp/lighttpd,8055,HTTP/Lighttpd,30+,Web
+Web Server,caddy1,caddy:1.0.0,8056,HTTP/Caddy,20+,Web
+Java Server,tomcat6,tomcat:6,8060,HTTP/Tomcat,500+,Web
+Java Server,tomcat7,tomcat:7.0.70,8061,HTTP/Tomcat,300+,Web
+Java Server,tomcat8,tomcat:8.0,8062,HTTP/Tomcat,200+,Web
+Java Server,tomcat850,tomcat:8.5.0,8063,HTTP/Tomcat,150+,Web
+Java Server,jboss7,jboss/wildfly:8.2.1.Final,8064,HTTP/JBoss,1500+,Web
+Java Server,wildfly9,jboss/wildfly:9.0.2.Final,8065,HTTP/WildFly,1900+,Web
+Java Server,wildfly10,jboss/wildfly:10.1.0.Final,8066,HTTP/WildFly,1800+,Web
+Java Server,jetty92,jetty:9.2,8067,HTTP/Jetty,200+,Web
+Java Server,glassfish4,glassfish:4.1,8068,HTTP/GlassFish,300+,Web
+Database,mysql55,mysql:5.5,33062,MySQL,200+,Database
+Database,mysql56,mysql:5.6,33063,MySQL,150+,Database
+Database,mariadb10,mariadb:10.0,33064,MariaDB,100+,Database
+Database,pg93,postgres:9.3,54322,PostgreSQL,150+,Database
+Database,pg95,postgres:9.5,54323,PostgreSQL,100+,Database
+Database,mongo32,mongo:3.2,27018,MongoDB,80+,Database
+Database,mongo36,mongo:3.6,27019,MongoDB,60+,Database
+Database,redis32,redis:3.2,6380,Redis,40+,Database
+Database,redis50,redis:5.0,6381,Redis,30+,Database
+Database,cassandra22,cassandra:2.2,9043,Cassandra,50+,Database
+Database,couchdb16,couchdb:1.6,5985,CouchDB,40+,Database
+Language,python27,python:2.7,-,Python Runtime,200+,Runtime
+Language,python35,python:3.5,-,Python Runtime,100+,Runtime
+Language,python36,python:3.6,-,Python Runtime,80+,Runtime
+Language,node6,node:6,-,Node.js Runtime,150+,Runtime
+Language,node8,node:8,-,Node.js Runtime,100+,Runtime
+Language,node10,node:10,-,Node.js Runtime,60+,Runtime
+Language,ruby23,ruby:2.3,-,Ruby Runtime,100+,Runtime
+Language,ruby24,ruby:2.4,-,Ruby Runtime,80+,Runtime
+Language,php56,php:5.6-apache,8070,PHP/Apache,300+,Web
+Language,php70,php:7.0-apache,8071,PHP/Apache,150+,Web
+Language,go19,golang:1.9,-,Go Runtime,50+,Runtime
+Language,jdk8,openjdk:8,-,Java Runtime,100+,Runtime
+Enterprise,jenkins260,jenkins/jenkins:2.60,8080,CI/CD,500+,CI/CD
+Enterprise,jenkins2150,jenkins/jenkins:2.150,8081,CI/CD,300+,CI/CD
+Enterprise,nexus2,sonatype/nexus:2.14.4,8082,Repository Manager,200+,DevOps
+Enterprise,nexus3,sonatype/nexus3:3.0.0,8083,Repository Manager,150+,DevOps
+Enterprise,sonar67,sonarqube:6.7,9001,Code Quality,100+,DevOps
+Enterprise,sonar70,sonarqube:7.0,9002,Code Quality,80+,DevOps
+Enterprise,gitlab10,gitlab/gitlab-ce:10.0.0-ce.0,8085,Git/CI/CD,400+,DevOps
+Enterprise,gogs011,gogs/gogs:0.11,3002,Git Server,100+,DevOps
+Enterprise,gitea14,gitea/gitea:1.4,3003,Git Server,80+,DevOps
+Message Queue,rabbit36,rabbitmq:3.6-management,5673,AMQP,80+,Messaging
+Message Queue,rabbit37,rabbitmq:3.7-management,5674,AMQP,60+,Messaging
+Message Queue,kafka011,wurstmeister/kafka:2.11-0.11.0.3,9093,Kafka,50+,Messaging
+Message Queue,activemq514,rmohr/activemq:5.14.3,61617,JMS,100+,Messaging
+Message Queue,activemq515,rmohr/activemq:5.15.0,61618,JMS,80+,Messaging
+Monitoring,es24,elasticsearch:2.4,9201,Search/Analytics,200+,Monitoring
+Monitoring,es56,elasticsearch:5.6,9202,Search/Analytics,150+,Monitoring
+Monitoring,es60,elasticsearch:6.0.0,9203,Search/Analytics,100+,Monitoring
+Monitoring,kibana46,kibana:4.6,5602,Visualization,100+,Monitoring
+Monitoring,kibana56,kibana:5.6,5603,Visualization,80+,Monitoring
+Monitoring,logstash56,logstash:5.6,5045,Log Processing,80+,Monitoring
+Monitoring,grafana46,grafana/grafana:4.6.0,3004,Visualization,60+,Monitoring
+Monitoring,grafana50,grafana/grafana:5.0.0,3005,Visualization,50+,Monitoring
+Monitoring,prom18,prom/prometheus:v1.8.0,9091,Metrics,40+,Monitoring
+Monitoring,influx13,influxdb:1.3,8087,Time Series DB,30+,Monitoring
+Monitoring,nagios,jasonrivers/nagios,8088,Network Monitoring,100+,Monitoring
+Monitoring,zabbix40,zabbix/zabbix-server-mysql:ubuntu-4.0-latest,10052,Infrastructure Monitoring,80+,Monitoring
+Proxy,haproxy15,haproxy:1.5,8090,Load Balancer,60+,Network
+Proxy,haproxy16,haproxy:1.6,8091,Load Balancer,50+,Network
+Proxy,haproxy17,haproxy:1.7,8092,Load Balancer,40+,Network
+Proxy,squid35,sameersbn/squid:3.5.27-2,3129,HTTP Proxy,50+,Network
+Proxy,traefik15,traefik:1.5,8093,Reverse Proxy,40+,Network
+Proxy,varnish41,varnish:4.1,8094,HTTP Cache,30+,Network
+CMS,wp46,wordpress:4.6,8095,CMS/Blog,150+,Web
+CMS,wp49,wordpress:4.9,8096,CMS/Blog,100+,Web
+CMS,drupal7,drupal:7,8097,CMS,200+,Web
+CMS,drupal85,drupal:8.5,8098,CMS,100+,Web
+CMS,joomla38,joomla:3.8,8099,CMS,80+,Web
+CMS,magento22,bitnami/magento:2.2,8100,E-commerce,150+,Web
+CMS,pma46,phpmyadmin/phpmyadmin:4.6,8101,DB Admin,80+,Web
+CMS,pma48,phpmyadmin/phpmyadmin:4.8,8102,DB Admin,60+,Web
+CMS,adminer42,adminer:4.2,8103,DB Admin,40+,Web
+CMS,roundcube12,roundcube/roundcubemail:1.2.x,8104,Webmail,50+,Web
+CMS,owncloud9,owncloud:9,8105,File Sharing,100+,Web
+CMS,nextcloud12,nextcloud:12,8106,File Sharing,80+,Web
+CMS,mediawiki128,mediawiki:1.28,8107,Wiki,60+,Web
+CMS,redmine33,redmine:3.3,3006,Project Management,50+,Web
+Network,openssh,linuxserver/openssh-server,2224,SSH,30+,Network
+Network,vsftpd,fauria/vsftpd,2123,FTP,40+,Network
+Network,proftpd,hauptmedia/proftpd,2124,FTP,50+,Network
+Network,postfix,catatnight/postfix,2526,SMTP,30+,Network
+Network,dovecot,dovecot/dovecot,1431,IMAP/POP3,40+,Network
+Network,bind,sameersbn/bind:9.11.3-20190706,5354,DNS,50+,Network
+Network,memcached14,memcached:1.4,11212,Cache,30+,Network
+Network,memcached15,memcached:1.5,11213,Cache,25+,Network
+Pentest Lab,dvna,appsecco/dvna,9094,Node.js Vulnerable App,50+,Training
+Pentest Lab,vulnlab,dvja/dvja,8108,Java Vulnerable App,40+,Training
+Pentest Lab,ssrflab,youyouorz/ssrf-vulnerable-lab,8109,SSRF Lab,10+,Training
+Pentest Lab,sqli,acgpiano/sqli-labs,8110,SQL Injection Lab,30+,Training
+Pentest Lab,wavsep,yourselfscan/wavsep,8113,Web App Scanner Benchmark,50+,Training

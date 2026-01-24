@@ -1,0 +1,1309 @@
+# =============================================================================
+# VULNERABILITY SCAN LAB - 100+ APLICAÇÕES VULNERÁVEIS
+# Para paper SBRC - Scan com OpenVAS
+# =============================================================================
+# 
+# INSTRUÇÕES DE USO:
+# 1. docker-compose pull    (baixar todas as imagens)
+# 2. docker-compose up -d   (iniciar todos os containers)
+# 3. docker-compose ps      (verificar status)
+# 4. Aguardar ~5min para todos os serviços iniciarem
+# 5. Rodar scan OpenVAS na rede 172.30.0.0/16
+#
+# REDE: Todos os containers estão na rede 172.30.0.0/16
+# =============================================================================
+
+version: '3.8'
+
+networks:
+  vulnnet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.30.0.0/16
+
+services:
+
+  # ===========================================================================
+  # CATEGORIA 1: METASPLOITABLE / SISTEMAS COMPLETOS (Múltiplos serviços)
+  # ===========================================================================
+  
+  metasploitable2:
+    image: tleemcjr/metasploitable2
+    container_name: metasploitable2
+    # Serviços: FTP(21), SSH(22), Telnet(23), SMTP(25), HTTP(80), SMB(139,445), MySQL(3306), PostgreSQL(5432), VNC(5900)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.1.1
+    tty: true
+    stdin_open: true
+    command: /bin/bash -c "/etc/init.d/networking start && /etc/init.d/xinetd start && /etc/init.d/apache2 start && /etc/init.d/ssh start && /etc/init.d/mysql start && /etc/init.d/postgresql start && /etc/init.d/samba start && sleep infinity"
+
+  metasploitable3-web:
+    image: tleemcjr/metasploitable3-linux
+    container_name: metasploitable3
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.1.2
+    tty: true
+
+  # ===========================================================================
+  # CATEGORIA 2: SERVIÇOS DE REDE - FTP
+  # ===========================================================================
+
+  vsftpd-backdoor:
+    image: vulnerables/vsftpd-backdoor
+    container_name: vsftpd-backdoor
+    # vsftpd 2.3.4 com backdoor (CVE-2011-2523)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.2.1
+    ports:
+      - "2121:21"
+      - "6200:6200"
+
+  proftpd-vuln:
+    image: infosecwarrior/ftp:v1
+    container_name: proftpd-vuln
+    # ProFTPD vulnerável
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.2.2
+    ports:
+      - "2122:21"
+
+  # ===========================================================================
+  # CATEGORIA 3: SERVIÇOS DE REDE - SSH
+  # ===========================================================================
+
+  ssh-cve-2016-6515:
+    image: vulnerables/cve-2016-6515
+    container_name: ssh-vuln-dos
+    # OpenSSH DoS (CVE-2016-6515)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.3.1
+    ports:
+      - "2222:22"
+
+  ubuntu-sshd-old:
+    image: rastasheep/ubuntu-sshd:14.04
+    container_name: ubuntu-ssh-old
+    # Ubuntu 14.04 com SSH antigo (root:root)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.3.2
+    ports:
+      - "2223:22"
+
+  # ===========================================================================
+  # CATEGORIA 4: SERVIÇOS DE REDE - SMB/SAMBA
+  # ===========================================================================
+
+  sambacry:
+    image: vulnerables/cve-2017-7494
+    container_name: sambacry
+    # SambaCry RCE (CVE-2017-7494) - Samba 4.5.9
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.4.1
+    ports:
+      - "4451:445"
+      - "1391:139"
+
+  # ===========================================================================
+  # CATEGORIA 5: SERVIÇOS DE REDE - DNS
+  # ===========================================================================
+
+  dns-vuln:
+    image: infosecwarrior/dns-lab:v2
+    container_name: dns-vuln
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.5.1
+    ports:
+      - "5353:53/udp"
+      - "8053:80"
+
+  # ===========================================================================
+  # CATEGORIA 6: VULNERABILIDADES CLÁSSICAS (CVEs)
+  # ===========================================================================
+
+  shellshock:
+    image: vulnerables/cve-2014-6271
+    container_name: shellshock
+    # Bash Shellshock (CVE-2014-6271)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.6.1
+    ports:
+      - "8881:80"
+
+  heartbleed:
+    image: vulnerables/cve-2014-0160
+    container_name: heartbleed
+    # OpenSSL Heartbleed (CVE-2014-0160)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.6.2
+    ports:
+      - "8443:443"
+
+  apache-cve-2021-41773:
+    image: vulnerables/cve-2021-41773
+    container_name: apache-path-traversal
+    # Apache Path Traversal/RCE (CVE-2021-41773)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.6.3
+    ports:
+      - "8882:80"
+
+  log4shell:
+    image: ghcr.io/christophetd/log4shell-vulnerable-app
+    container_name: log4shell
+    # Log4j RCE (CVE-2021-44228)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.6.4
+    ports:
+      - "8883:8080"
+
+  spring-oauth-rce:
+    image: vulnerables/spring-security-oauth-rce
+    container_name: spring-oauth-rce
+    # Spring Security OAuth RCE
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.6.5
+    ports:
+      - "8884:8080"
+
+  phpmailer-rce:
+    image: vulnerables/phpmailer-rce
+    container_name: phpmailer-rce
+    # PHPMailer < 5.2.18 RCE
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.6.6
+    ports:
+      - "8885:80"
+
+  struts2-cve-2017-5638:
+    image: piesecurity/apache-struts2-cve-2017-5638
+    container_name: struts2-rce
+    # Apache Struts2 RCE (CVE-2017-5638) - Equifax breach
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.6.7
+    ports:
+      - "8886:8080"
+
+  tomcat-cgi:
+    image: vulnerables/tomcat-cgi
+    container_name: tomcat-cgi
+    # Tomcat CGI vulnerável
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.6.8
+    ports:
+      - "8887:8080"
+
+  haraka-rce:
+    image: vulnerables/haraka-rce
+    container_name: haraka-rce
+    # Haraka SMTP 2.8.9 RCE
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.6.9
+    ports:
+      - "2525:25"
+
+  # ===========================================================================
+  # CATEGORIA 7: APLICAÇÕES WEB - E-COMMERCE / LOJAS
+  # ===========================================================================
+
+  juice-shop:
+    image: bkimminich/juice-shop
+    container_name: juice-shop
+    # OWASP Juice Shop - Aplicação moderna vulnerável
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.7.1
+    ports:
+      - "3000:3000"
+
+  hackazon:
+    image: ianwijaya/hackazon
+    container_name: hackazon
+    # Hackazon - E-commerce vulnerável
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.7.2
+    ports:
+      - "8001:80"
+
+  altoromutual:
+    image: hysnsec/altoro-mutual
+    container_name: altoromutual
+    # Altoro Mutual - Banco fictício vulnerável
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.7.3
+    ports:
+      - "8002:8080"
+
+  # ===========================================================================
+  # CATEGORIA 8: APLICAÇÕES WEB - OWASP GOAT SERIES
+  # ===========================================================================
+
+  webgoat:
+    image: webgoat/webgoat
+    container_name: webgoat
+    # OWASP WebGoat - Ensino de segurança
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.8.1
+    ports:
+      - "8003:8080"
+      - "9090:9090"
+    environment:
+      - WEBGOAT_PORT=8080
+
+  nodegoat:
+    image: cider/nodegoat
+    container_name: nodegoat
+    # OWASP NodeGoat - Node.js vulnerável
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.8.2
+    ports:
+      - "4000:4000"
+
+  railsgoat:
+    image: owasp/railsgoat
+    container_name: railsgoat
+    # OWASP RailsGoat - Ruby on Rails vulnerável
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.8.3
+    ports:
+      - "3001:3000"
+
+  security-shepherd:
+    image: ismisepaul/securityshepherd
+    container_name: security-shepherd
+    # OWASP Security Shepherd
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.8.4
+    ports:
+      - "8004:80"
+
+  # ===========================================================================
+  # CATEGORIA 9: APLICAÇÕES WEB - LABS CLÁSSICOS (PHP)
+  # ===========================================================================
+
+  dvwa:
+    image: vulnerables/web-dvwa
+    container_name: dvwa
+    # Damn Vulnerable Web Application
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.9.1
+    ports:
+      - "8005:80"
+
+  bwapp:
+    image: raesene/bwapp
+    container_name: bwapp
+    # bWAPP - Buggy Web Application
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.9.2
+    ports:
+      - "8006:80"
+
+  mutillidae:
+    image: citizenstig/nowasp
+    container_name: mutillidae
+    # OWASP Mutillidae II
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.9.3
+    ports:
+      - "8007:80"
+
+  xvwa:
+    image: vulnerables/xvwa
+    container_name: xvwa
+    # XVWA - Xtreme Vulnerable Web Application
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.9.4
+    ports:
+      - "8008:80"
+
+  wavsep:
+    image: yourwavsep/wavsep
+    container_name: wavsep
+    # WAVSEP - Web Application Vulnerability Scanner Evaluation Project
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.9.5
+    ports:
+      - "8009:8080"
+
+  hackme-bank:
+    image: yourwaf/hackme-bank
+    container_name: hackme-bank
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.9.6
+    ports:
+      - "8010:80"
+
+  webgoat-legacy:
+    image: danmx/docker-owasp-webgoat
+    container_name: webgoat-legacy
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.9.7
+    ports:
+      - "8011:8080"
+
+  # ===========================================================================
+  # CATEGORIA 10: APIs VULNERÁVEIS (REST/GraphQL)
+  # ===========================================================================
+
+  crapi:
+    image: crapi/crapi
+    container_name: crapi
+    # OWASP crAPI - Completely Ridiculous API
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.10.1
+    ports:
+      - "8012:8888"
+
+  vampi:
+    image: erev0s/vampi
+    container_name: vampi
+    # VAmPI - Vulnerable API
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.10.2
+    ports:
+      - "5002:5000"
+
+  tiredful-api:
+    image: payatu/tiredful-api
+    container_name: tiredful-api
+    # Tiredful API - REST API vulnerável
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.10.3
+    ports:
+      - "8013:8000"
+
+  damn-vulnerable-graphql:
+    image: dolevf/dvga
+    container_name: dvga
+    # Damn Vulnerable GraphQL Application
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.10.4
+    ports:
+      - "5013:5013"
+
+  generic-university:
+    image: yourwaf/generic-university
+    container_name: generic-university
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.10.5
+    ports:
+      - "8014:8080"
+
+  # ===========================================================================
+  # CATEGORIA 11: CMS VULNERÁVEIS (WordPress, Joomla, Drupal)
+  # ===========================================================================
+
+  wordpress-vuln:
+    image: wpscanteam/vulnerablewordpress
+    container_name: wordpress-vuln
+    # WordPress vulnerável com plugins antigos
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.11.1
+    ports:
+      - "8015:80"
+
+  # ===========================================================================
+  # CATEGORIA 12: INFRAESTRUTURA EMPRESARIAL
+  # ===========================================================================
+
+  jenkins-vuln:
+    image: vulnerables/jenkins
+    container_name: jenkins-vuln
+    # Jenkins vulnerável
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.12.1
+    ports:
+      - "8016:8080"
+      - "50000:50000"
+
+  gitlab-vuln:
+    image: vulnerables/gitlab
+    container_name: gitlab-vuln
+    # GitLab vulnerável
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.12.2
+    ports:
+      - "8017:80"
+
+  # ===========================================================================
+  # CATEGORIA 13: DESAFIOS ESPECÍFICOS (SSTI, XXE, Deserialization)
+  # ===========================================================================
+
+  ssti-lab:
+    image: abdullahceylan/ssti-labs
+    container_name: ssti-lab
+    # Server-Side Template Injection Labs
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.13.1
+    ports:
+      - "8018:5000"
+
+  xxe-lab:
+    image: yourwaf/xxe-lab
+    container_name: xxe-lab
+    # XXE Injection Lab
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.13.2
+    ports:
+      - "8019:80"
+
+  # ===========================================================================
+  # CATEGORIA 14: BANCOS DE DADOS VULNERÁVEIS
+  # ===========================================================================
+
+  mysql-old:
+    image: mysql:5.5
+    container_name: mysql-old
+    # MySQL 5.5 (versão antiga com vulnerabilidades conhecidas)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.14.1
+    ports:
+      - "33061:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: testdb
+
+  postgres-old:
+    image: postgres:9.4
+    container_name: postgres-old
+    # PostgreSQL 9.4 (versão antiga)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.14.2
+    ports:
+      - "54321:5432"
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: testdb
+
+  mongodb-noauth:
+    image: mongo:3.4
+    container_name: mongodb-noauth
+    # MongoDB 3.4 sem autenticação
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.14.3
+    ports:
+      - "27017:27017"
+
+  redis-noauth:
+    image: redis:4.0
+    container_name: redis-noauth
+    # Redis 4.0 sem autenticação (RCE via SLAVEOF)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.14.4
+    ports:
+      - "6379:6379"
+
+  elasticsearch-old:
+    image: elasticsearch:1.4.2
+    container_name: elasticsearch-old
+    # Elasticsearch 1.4.2 (CVE-2014-3120 - RCE via scripting)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.14.5
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      - discovery.type=single-node
+
+  couchdb-old:
+    image: couchdb:1.6
+    container_name: couchdb-old
+    # CouchDB 1.6 (CVE-2017-12635/12636)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.14.6
+    ports:
+      - "5984:5984"
+
+  # ===========================================================================
+  # CATEGORIA 15: SERVIDORES WEB VULNERÁVEIS
+  # ===========================================================================
+
+  nginx-old:
+    image: nginx:1.10
+    container_name: nginx-old
+    # Nginx 1.10 (versão antiga)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.15.1
+    ports:
+      - "8020:80"
+
+  apache-old:
+    image: httpd:2.2
+    container_name: apache-old
+    # Apache 2.2 (versão antiga com múltiplas CVEs)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.15.2
+    ports:
+      - "8021:80"
+
+  lighttpd:
+    image: sebp/lighttpd
+    container_name: lighttpd
+    # Lighttpd
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.15.3
+    ports:
+      - "8022:80"
+
+  # ===========================================================================
+  # CATEGORIA 16: APLICAÇÕES JAVA VULNERÁVEIS
+  # ===========================================================================
+
+  weblogic-vuln:
+    image: ismaleiva90/weblogic12
+    container_name: weblogic-vuln
+    # Oracle WebLogic (múltiplas CVEs de desserialização)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.16.1
+    ports:
+      - "7001:7001"
+
+  jboss-vuln:
+    image: vulnerables/jboss
+    container_name: jboss-vuln
+    # JBoss vulnerável
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.16.2
+    ports:
+      - "8023:8080"
+
+  # ===========================================================================
+  # CATEGORIA 17: SERVIÇOS DE EMAIL
+  # ===========================================================================
+
+  mailcatcher:
+    image: schickling/mailcatcher
+    container_name: mailcatcher
+    # MailCatcher - SMTP para testes
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.17.1
+    ports:
+      - "1025:1025"
+      - "1080:1080"
+
+  postfix-dovecot:
+    image: tvial/docker-mailserver:latest
+    container_name: mailserver
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.17.2
+    ports:
+      - "2526:25"
+      - "1431:143"
+      - "9931:993"
+    environment:
+      - ENABLE_SPAMASSASSIN=0
+      - ENABLE_CLAMAV=0
+      - ENABLE_FAIL2BAN=0
+      - ENABLE_POSTGREY=0
+      - ONE_DIR=1
+
+  # ===========================================================================
+  # CATEGORIA 18: PROXY / LOAD BALANCER
+  # ===========================================================================
+
+  squid-old:
+    image: sameersbn/squid:3.3.8-23
+    container_name: squid-old
+    # Squid 3.3.8 (versão antiga)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.18.1
+    ports:
+      - "3128:3128"
+
+  haproxy-old:
+    image: haproxy:1.5
+    container_name: haproxy-old
+    # HAProxy 1.5 (versão antiga)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.18.2
+    ports:
+      - "8024:80"
+
+  # ===========================================================================
+  # CATEGORIA 19: MONITORAMENTO / LOGGING
+  # ===========================================================================
+
+  kibana-old:
+    image: kibana:4.6
+    container_name: kibana-old
+    # Kibana 4.6 (protótipo pollution e outras CVEs)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.19.1
+    ports:
+      - "5601:5601"
+    environment:
+      - ELASTICSEARCH_URL=http://elasticsearch-old:9200
+
+  grafana-old:
+    image: grafana/grafana:5.1.0
+    container_name: grafana-old
+    # Grafana 5.1.0 (CVE-2018-19039 - Path Traversal)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.19.2
+    ports:
+      - "3003:3000"
+
+  # ===========================================================================
+  # CATEGORIA 20: MESSAGE QUEUES
+  # ===========================================================================
+
+  rabbitmq-old:
+    image: rabbitmq:3.6-management
+    container_name: rabbitmq-old
+    # RabbitMQ 3.6 com management plugin
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.20.1
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+
+  activemq-old:
+    image: rmohr/activemq:5.14.3
+    container_name: activemq-old
+    # ActiveMQ 5.14.3 (CVE-2016-3088)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.20.2
+    ports:
+      - "61616:61616"
+      - "8161:8161"
+
+  # ===========================================================================
+  # CATEGORIA 21: CONTAINERS / ORQUESTRAÇÃO
+  # ===========================================================================
+
+  docker-registry-noauth:
+    image: registry:2
+    container_name: docker-registry
+    # Docker Registry sem autenticação
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.21.1
+    ports:
+      - "5000:5000"
+
+  # ===========================================================================
+  # CATEGORIA 22: NODE.JS VULNERÁVEIS
+  # ===========================================================================
+
+  nodejs-goat:
+    image: cider/nodegoat
+    container_name: nodejs-goat
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.22.1
+    ports:
+      - "4001:4000"
+
+  express-old:
+    image: node:6.14
+    container_name: node-old
+    # Node.js 6.14 (versão antiga com vulnerabilidades)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.22.2
+    command: tail -f /dev/null
+    ports:
+      - "3004:3000"
+
+  # ===========================================================================
+  # CATEGORIA 23: PYTHON/DJANGO/FLASK VULNERÁVEIS  
+  # ===========================================================================
+
+  flask-vulnerable:
+    image: abdullahceylan/ssti-labs
+    container_name: flask-ssti
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.23.1
+    ports:
+      - "5003:5000"
+
+  # ===========================================================================
+  # CATEGORIA 24: PHP FRAMEWORKS VULNERÁVEIS
+  # ===========================================================================
+
+  laravel-debug:
+    image: vulnerables/laravel-debug
+    container_name: laravel-debug
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.24.1
+    ports:
+      - "8025:80"
+
+  # ===========================================================================
+  # CATEGORIA 25: NETWORK SERVICES MISC
+  # ===========================================================================
+
+  memcached-old:
+    image: memcached:1.4
+    container_name: memcached-old
+    # Memcached 1.4 (DDoS amplification, data exposure)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.25.1
+    ports:
+      - "11211:11211"
+
+  nfs-server:
+    image: itsthenetwork/nfs-server-alpine
+    container_name: nfs-server
+    # NFS Server
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.25.2
+    privileged: true
+    environment:
+      - SHARED_DIRECTORY=/data
+    ports:
+      - "2049:2049"
+
+  # ===========================================================================
+  # CATEGORIA 26: APLICAÇÕES ESPECÍFICAS EXTRAS
+  # ===========================================================================
+
+  phpmyadmin-old:
+    image: phpmyadmin/phpmyadmin:4.6
+    container_name: phpmyadmin-old
+    # phpMyAdmin 4.6 (versão antiga)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.26.1
+    ports:
+      - "8026:80"
+    environment:
+      - PMA_HOST=mysql-old
+
+  adminer:
+    image: adminer:4.2
+    container_name: adminer-old
+    # Adminer 4.2 (versão antiga)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.26.2
+    ports:
+      - "8027:8080"
+
+  portainer-old:
+    image: portainer/portainer:1.20.0
+    container_name: portainer-old
+    # Portainer 1.20.0 (versão antiga)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.26.3
+    ports:
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  # ===========================================================================
+  # CATEGORIA 27: CTF / DESAFIOS ADICIONAIS
+  # ===========================================================================
+
+  picoctf:
+    image: picoctf/picoctf
+    container_name: picoctf
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.27.1
+    ports:
+      - "8028:80"
+
+  google-gruyere:
+    image: elgg/elgg
+    container_name: elgg
+    # Elgg - Rede social vulnerável
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.27.2
+    ports:
+      - "8029:80"
+
+  # ===========================================================================
+  # CATEGORIA 28: VOIP / TELEFONIA
+  # ===========================================================================
+
+  asterisk:
+    image: andrius/asterisk
+    container_name: asterisk
+    # Asterisk VoIP
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.28.1
+    ports:
+      - "5060:5060/udp"
+      - "10000-10010:10000-10010/udp"
+
+  # ===========================================================================
+  # CATEGORIA 29: SERVIÇOS LDAP/DIRECTORY
+  # ===========================================================================
+
+  openldap:
+    image: osixia/openldap:1.2.0
+    container_name: openldap
+    # OpenLDAP 1.2.0
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.29.1
+    ports:
+      - "3891:389"
+      - "6361:636"
+    environment:
+      - LDAP_ORGANISATION=VulnLab
+      - LDAP_DOMAIN=vulnlab.local
+      - LDAP_ADMIN_PASSWORD=admin
+
+  phpldapadmin:
+    image: osixia/phpldapadmin:0.7.1
+    container_name: phpldapadmin
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.29.2
+    ports:
+      - "8030:80"
+    environment:
+      - PHPLDAPADMIN_LDAP_HOSTS=openldap
+
+  # ===========================================================================
+  # CATEGORIA 30: SNMP / MONITORAMENTO DE REDE
+  # ===========================================================================
+
+  snmpd:
+    image: polinux/snmpd
+    container_name: snmpd
+    # SNMP Daemon
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.30.1
+    ports:
+      - "1611:161/udp"
+
+  # ===========================================================================
+  # CATEGORIA 31: FILE SHARING
+  # ===========================================================================
+
+  owncloud-old:
+    image: owncloud:9.1
+    container_name: owncloud-old
+    # ownCloud 9.1 (versão antiga)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.31.1
+    ports:
+      - "8031:80"
+
+  seafile:
+    image: seafileltd/seafile:6.2.5
+    container_name: seafile-old
+    # Seafile 6.2.5 (versão antiga)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.31.2
+    ports:
+      - "8032:80"
+
+  # ===========================================================================
+  # CATEGORIA 32: WIKIS / DOCUMENTAÇÃO
+  # ===========================================================================
+
+  mediawiki-old:
+    image: mediawiki:1.27
+    container_name: mediawiki-old
+    # MediaWiki 1.27 (versão antiga)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.32.1
+    ports:
+      - "8033:80"
+
+  dokuwiki:
+    image: mprasil/dokuwiki
+    container_name: dokuwiki
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.32.2
+    ports:
+      - "8034:80"
+
+  # ===========================================================================
+  # CATEGORIA 33: E-LEARNING
+  # ===========================================================================
+
+  moodle-old:
+    image: bitnami/moodle:3.5
+    container_name: moodle-old
+    # Moodle 3.5 (versão antiga)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.33.1
+    ports:
+      - "8035:8080"
+    environment:
+      - MOODLE_DATABASE_TYPE=mysqli
+      - MOODLE_DATABASE_HOST=mysql-old
+      - MOODLE_DATABASE_NAME=moodle
+      - MOODLE_DATABASE_USER=root
+      - MOODLE_DATABASE_PASSWORD=root
+
+  # ===========================================================================
+  # CATEGORIA 34: TICKETING / HELPDESK
+  # ===========================================================================
+
+  osticket:
+    image: osticket/osticket
+    container_name: osticket
+    # osTicket
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.34.1
+    ports:
+      - "8036:80"
+
+  # ===========================================================================
+  # CATEGORIA 35: ERP / CRM
+  # ===========================================================================
+
+  suitecrm:
+    image: bitnami/suitecrm:7.10
+    container_name: suitecrm-old
+    # SuiteCRM 7.10 (versão antiga)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.35.1
+    ports:
+      - "8037:8080"
+
+  # ===========================================================================
+  # CATEGORIA 36: CI/CD
+  # ===========================================================================
+
+  drone-ci:
+    image: drone/drone:0.8
+    container_name: drone-ci-old
+    # Drone CI 0.8 (versão antiga)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.36.1
+    ports:
+      - "8038:8000"
+
+  # ===========================================================================
+  # CATEGORIA 37: CHAT / COMUNICAÇÃO
+  # ===========================================================================
+
+  rocketchat-old:
+    image: rocketchat/rocket.chat:0.70
+    container_name: rocketchat-old
+    # Rocket.Chat 0.70 (versão antiga)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.37.1
+    ports:
+      - "3005:3000"
+    environment:
+      - MONGO_URL=mongodb://mongodb-noauth:27017/rocketchat
+
+  # ===========================================================================
+  # CATEGORIA 38: APLICAÇÕES EXTRAS VULNERÁVEIS
+  # ===========================================================================
+
+  wrongsecrets:
+    image: jeroenwillemsen/wrongsecrets:latest
+    container_name: wrongsecrets
+    # OWASP WrongSecrets - Práticas ruins de secrets
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.38.1
+    ports:
+      - "8039:8080"
+
+  vulnerable-flask:
+    image: abdullahceylan/ssti-labs
+    container_name: vulnerable-flask
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.38.2
+    ports:
+      - "5004:5000"
+
+  # ===========================================================================
+  # CATEGORIA 39: MAIS SERVIÇOS WEB
+  # ===========================================================================
+
+  wackopicko:
+    image: vulnerables/web-wackopicko
+    container_name: wackopicko
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.39.1
+    ports:
+      - "8040:80"
+
+  sqlol:
+    image: yourwaf/sqlol
+    container_name: sqlol
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.39.2
+    ports:
+      - "8041:80"
+
+  # ===========================================================================
+  # CATEGORIA 40: APLICAÇÕES MOBILE BACKEND
+  # ===========================================================================
+
+  insecure-bank:
+    image: yourwaf/insecure-bank
+    container_name: insecure-bank
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.40.1
+    ports:
+      - "8042:8888"
+
+  # ===========================================================================
+  # CATEGORIA 41: CONTAINERS PENTEST IN DOCKER
+  # ===========================================================================
+
+  pentest-shellshock:
+    image: swordfishsecurity/shellshock
+    container_name: pentest-shellshock
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.41.1
+    ports:
+      - "8043:80"
+
+  # ===========================================================================
+  # CATEGORIA 42: VULNERABILITY AS A SERVICE (VAAS)
+  # ===========================================================================
+
+  vaas-shellshock:
+    image: hmlio/vaas-cve-2014-6271
+    container_name: vaas-shellshock
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.42.1
+    ports:
+      - "8044:80"
+
+  vaas-heartbleed:
+    image: hmlio/vaas-cve-2014-0160
+    container_name: vaas-heartbleed
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.42.2
+    ports:
+      - "8445:443"
+
+  # ===========================================================================
+  # CATEGORIA 43: SECURITY NINJAS
+  # ===========================================================================
+
+  security-ninjas:
+    image: opendns/security-ninjas
+    container_name: security-ninjas
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.43.1
+    ports:
+      - "8045:80"
+
+  # ===========================================================================
+  # CATEGORIA 44: TOMCAT VULNERÁVEL
+  # ===========================================================================
+
+  tomcat7-vuln:
+    image: tomcat:7.0.94
+    container_name: tomcat7-vuln
+    # Tomcat 7.0.94 (versão antiga)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.44.1
+    ports:
+      - "8046:8080"
+
+  tomcat-ghostcat:
+    image: vulnerables/ghostcat
+    container_name: tomcat-ghostcat
+    # Tomcat Ghostcat (CVE-2020-1938)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.44.2
+    ports:
+      - "8047:8080"
+      - "8009:8009"
+
+  # ===========================================================================
+  # CATEGORIA 45: SOLR / LUCENE
+  # ===========================================================================
+
+  solr-old:
+    image: solr:6.6
+    container_name: solr-old
+    # Apache Solr 6.6 (versão antiga)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.45.1
+    ports:
+      - "8983:8983"
+
+  # ===========================================================================
+  # CATEGORIA 46: ZOOKEEPER
+  # ===========================================================================
+
+  zookeeper-old:
+    image: zookeeper:3.4
+    container_name: zookeeper-old
+    # Apache Zookeeper 3.4
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.46.1
+    ports:
+      - "2181:2181"
+
+  # ===========================================================================
+  # CATEGORIA 47: KAFKA
+  # ===========================================================================
+
+  kafka-old:
+    image: wurstmeister/kafka:2.11-0.10.2.2
+    container_name: kafka-old
+    # Kafka antiga
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.47.1
+    ports:
+      - "9092:9092"
+    environment:
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper-old:2181
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://172.30.47.1:9092
+
+  # ===========================================================================
+  # CATEGORIA 48: CONSUL
+  # ===========================================================================
+
+  consul-old:
+    image: consul:0.9.0
+    container_name: consul-old
+    # Consul 0.9.0 (versão antiga)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.48.1
+    ports:
+      - "8500:8500"
+      - "8600:8600/udp"
+
+  # ===========================================================================
+  # CATEGORIA 49: VAULT
+  # ===========================================================================
+
+  vault-old:
+    image: vault:0.9.0
+    container_name: vault-old
+    # HashiCorp Vault 0.9.0 (versão antiga)
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.49.1
+    ports:
+      - "8200:8200"
+    environment:
+      - VAULT_DEV_ROOT_TOKEN_ID=myroot
+      - VAULT_DEV_LISTEN_ADDRESS=0.0.0.0:8200
+    cap_add:
+      - IPC_LOCK
+
+  # ===========================================================================
+  # CATEGORIA 50: MISC FINAL
+  # ===========================================================================
+
+  httpbin:
+    image: kennethreitz/httpbin
+    container_name: httpbin
+    # HTTPBin para testes
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.50.1
+    ports:
+      - "8048:80"
+
+  requestbin:
+    image: crccheck/requestbin
+    container_name: requestbin
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.50.2
+    ports:
+      - "8049:80"
+
+  echo-server:
+    image: jmalloc/echo-server
+    container_name: echo-server
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.50.3
+    ports:
+      - "8050:8080"

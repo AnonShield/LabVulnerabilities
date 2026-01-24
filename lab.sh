@@ -1,0 +1,139 @@
+#!/bin/bash
+# =============================================================================
+# VULNERABILITY LAB SETUP SCRIPT
+# Para paper SBRC - Scan com OpenVAS
+# =============================================================================
+
+set -e
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+echo -e "${BLUE}"
+echo "╔════════════════════════════════════════════════════════════════════════╗"
+echo "║           VULNERABILITY SCAN LAB - SETUP SCRIPT                       ║"
+echo "║           100+ Aplicações Vulneráveis para OpenVAS                     ║"
+echo "╚════════════════════════════════════════════════════════════════════════╝"
+echo -e "${NC}"
+
+# Verificar se Docker está instalado
+if ! command -v docker &> /dev/null; then
+    echo -e "${RED}[ERRO] Docker não está instalado!${NC}"
+    echo "Instale com: curl -fsSL https://get.docker.com | sh"
+    exit 1
+fi
+
+# Verificar se Docker Compose está disponível
+if ! docker compose version &> /dev/null; then
+    echo -e "${RED}[ERRO] Docker Compose não está disponível!${NC}"
+    exit 1
+fi
+
+# Função para mostrar progresso
+show_progress() {
+    echo -e "${YELLOW}[INFO] $1${NC}"
+}
+
+# Função para sucesso
+show_success() {
+    echo -e "${GREEN}[OK] $1${NC}"
+}
+
+# Menu principal
+case "${1:-}" in
+    pull)
+        show_progress "Baixando todas as imagens Docker..."
+        docker compose pull --ignore-pull-failures
+        show_success "Download concluído!"
+        ;;
+    
+    start)
+        show_progress "Iniciando todos os containers..."
+        docker compose up -d
+        show_success "Containers iniciados!"
+        echo ""
+        echo -e "${BLUE}Aguarde ~5 minutos para todos os serviços iniciarem.${NC}"
+        echo -e "${BLUE}Rede do lab: 172.30.0.0/16${NC}"
+        ;;
+    
+    stop)
+        show_progress "Parando todos os containers..."
+        docker compose down
+        show_success "Containers parados!"
+        ;;
+    
+    status)
+        echo -e "${BLUE}=== STATUS DOS CONTAINERS ===${NC}"
+        docker compose ps
+        echo ""
+        echo -e "${BLUE}=== TOTAL DE CONTAINERS ===${NC}"
+        RUNNING=$(docker compose ps --status running -q | wc -l)
+        TOTAL=$(docker compose ps -q | wc -l)
+        echo -e "Running: ${GREEN}$RUNNING${NC} / Total: $TOTAL"
+        ;;
+    
+    logs)
+        if [ -z "${2:-}" ]; then
+            echo "Uso: $0 logs <nome-container>"
+            exit 1
+        fi
+        docker compose logs -f "$2"
+        ;;
+    
+    ips)
+        echo -e "${BLUE}=== IPs DOS CONTAINERS ===${NC}"
+        docker compose ps -q | xargs -I {} docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' {}
+        ;;
+    
+    scan-targets)
+        echo -e "${BLUE}=== LISTA DE ALVOS PARA OPENVAS ===${NC}"
+        echo "Rede: 172.30.0.0/16"
+        echo ""
+        echo "Ou use os IPs específicos:"
+        docker compose ps -q | xargs -I {} docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' {} | sort -t. -k3,3n -k4,4n
+        ;;
+    
+    export-targets)
+        echo -e "${BLUE}Exportando lista de IPs para targets.txt...${NC}"
+        docker compose ps -q | xargs -I {} docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' {} | sort -t. -k3,3n -k4,4n > targets.txt
+        show_success "Arquivo targets.txt criado com $(wc -l < targets.txt) alvos!"
+        ;;
+    
+    restart)
+        show_progress "Reiniciando todos os containers..."
+        docker compose restart
+        show_success "Containers reiniciados!"
+        ;;
+    
+    clean)
+        show_progress "Removendo containers e volumes..."
+        docker compose down -v --remove-orphans
+        show_success "Limpeza concluída!"
+        ;;
+    
+    stats)
+        echo -e "${BLUE}=== ESTATÍSTICAS DE RECURSOS ===${NC}"
+        docker stats --no-stream
+        ;;
+    
+    *)
+        echo "Uso: $0 {pull|start|stop|status|logs|ips|scan-targets|export-targets|restart|clean|stats}"
+        echo ""
+        echo "Comandos:"
+        echo "  pull          - Baixar todas as imagens Docker"
+        echo "  start         - Iniciar todos os containers"
+        echo "  stop          - Parar todos os containers"
+        echo "  status        - Ver status dos containers"
+        echo "  logs <nome>   - Ver logs de um container específico"
+        echo "  ips           - Listar IPs de todos os containers"
+        echo "  scan-targets  - Mostrar lista de alvos para scan"
+        echo "  export-targets- Exportar IPs para arquivo targets.txt"
+        echo "  restart       - Reiniciar todos os containers"
+        echo "  clean         - Remover containers e volumes"
+        echo "  stats         - Ver uso de recursos"
+        exit 1
+        ;;
+esac

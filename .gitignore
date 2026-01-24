@@ -1,0 +1,26 @@
+# Python
+venv/
+openvas_venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Docker
+.dockerignore
+
+# Build artifacts
+build/
+dist/
+
+# Generated files
+targets.txt
+targets_full.txt
+run_containers.sh
+inventory_full.csv
+
+# IDE / Editor specific
+.vscode/
+.idea/
+*.swp
+*.swo
