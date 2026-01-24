@@ -4,7 +4,7 @@ networks:
     driver: bridge
     ipam:
       config:
-      - subnet: 172.30.0.0/16
+      - subnet: 172.30.0.0/15
 services:
   metasploitable2:
     image: tleemcjr/metasploitable2
@@ -19,14 +19,14 @@ services:
       && /etc/init.d/postgresql-8.3 start && /etc/init.d/samba start && sleep
       infinity"
   metasploitable3-web:
-    image: tleemcjr/metasploitable3-linux
+    image: rapid7/metasploitable3-ub1404
     container_name: metasploitable3
     networks:
       vulnnet:
         ipv4_address: 172.30.1.2
     tty: true
   vsftpd-backdoor:
-    image: vulnerables/vsftpd-backdoor
+    image: c0ny1/vsftpd-2.3.4-backdoor
     container_name: vsftpd-backdoor
     networks:
       vulnnet:
@@ -77,7 +77,7 @@ services:
     - 5353:53/udp
     - 8053:80
   apache-cve-2021-41773:
-    image: vulnerables/cve-2021-41773
+    image: httpd:2.4.49
     container_name: apache-path-traversal
     networks:
       vulnnet:
@@ -92,22 +92,6 @@ services:
         ipv4_address: 172.30.6.4
     ports:
     - 8883:8080
-  spring-oauth-rce:
-    image: vulnerables/spring-security-oauth-rce
-    container_name: spring-oauth-rce
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.6.5
-    ports:
-    - 8884:8080
-  phpmailer-rce:
-    image: vulnerables/phpmailer-rce
-    container_name: phpmailer-rce
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.6.6
-    ports:
-    - 8885:80
   struts2-cve-2017-5638:
     image: piesecurity/apache-struts2-cve-2017-5638
     container_name: struts2-rce
@@ -116,22 +100,6 @@ services:
         ipv4_address: 172.30.6.7
     ports:
     - 8886:8080
-  tomcat-cgi:
-    image: vulnerables/tomcat-cgi
-    container_name: tomcat-cgi
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.6.8
-    ports:
-    - 8887:8080
-  haraka-rce:
-    image: vulnerables/haraka-rce
-    container_name: haraka-rce
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.6.9
-    ports:
-    - '2525:25'
   juice-shop:
     image: bkimminich/juice-shop
     container_name: juice-shop
@@ -168,7 +136,7 @@ services:
     environment:
     - WEBGOAT_PORT=8080
   nodegoat:
-    image: cider/nodegoat
+    image: owasp/nodegoat:latest
     container_name: nodegoat
     networks:
       vulnnet:
@@ -232,16 +200,8 @@ services:
     networks:
       vulnnet:
         ipv4_address: 172.31.1.110
-  hackme-bank:
-    image: yourwaf/hackme-bank
-    container_name: hackme-bank
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.9.6
-    ports:
-    - 8010:80
   webgoat-legacy:
-    image: danmx/docker-owasp-webgoat
+    image: webgoat/webgoat:v8.1.0
     container_name: webgoat-legacy
     networks:
       vulnnet:
@@ -249,7 +209,7 @@ services:
     ports:
     - 8011:8080
   crapi:
-    image: crapi/crapi
+    image: owasp/crapi:latest
     container_name: crapi
     networks:
       vulnnet:
@@ -264,14 +224,6 @@ services:
         ipv4_address: 172.30.10.2
     ports:
     - 5002:5000
-  tiredful-api:
-    image: payatu/tiredful-api
-    container_name: tiredful-api
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.10.3
-    ports:
-    - 8013:8000
   damn-vulnerable-graphql:
     image: dolevf/dvga
     container_name: dvga
@@ -280,16 +232,8 @@ services:
         ipv4_address: 172.30.10.4
     ports:
     - 5013:5013
-  generic-university:
-    image: yourwaf/generic-university
-    container_name: generic-university
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.10.5
-    ports:
-    - 8014:8080
   wordpress-vuln:
-    image: wpscanteam/vulnerablewordpress
+    image: wordpress:4.6
     container_name: wordpress-vuln
     networks:
       vulnnet:
@@ -297,7 +241,7 @@ services:
     ports:
     - 8015:80
   jenkins-vuln:
-    image: vulnerables/jenkins
+    image: jenkins/jenkins:2.60
     container_name: jenkins-vuln
     networks:
       vulnnet:
@@ -306,7 +250,7 @@ services:
     - 8016:8080
     - 50000:50000
   gitlab-vuln:
-    image: vulnerables/gitlab
+    image: gitlab/gitlab-ce:10.0.0-ce.0
     container_name: gitlab-vuln
     networks:
       vulnnet:
@@ -314,21 +258,14 @@ services:
     ports:
     - 8017:80
   ssti-lab:
-    image: abdullahceylan/ssti-labs
+    image: kmmanoj/ssti-lab
     container_name: ssti-lab
     networks:
       vulnnet:
         ipv4_address: 172.30.13.1
     ports:
     - 8018:5000
-  xxe-lab:
-    image: yourwaf/xxe-lab
-    container_name: xxe-lab
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.13.2
-    ports:
-    - 8019:80
+
   mysql-old:
     image: mysql:5.5
     container_name: mysql-old
@@ -366,9 +303,9 @@ services:
       vulnnet:
         ipv4_address: 172.30.14.4
     ports:
-    - 6379:6379
+    - 6382:6379
   elasticsearch-old:
-    image: elasticsearch:1.4.2
+    image: elasticsearch:2.4.6
     container_name: elasticsearch-old
     networks:
       vulnnet:
@@ -411,7 +348,7 @@ services:
       vulnnet:
         ipv4_address: 172.31.1.14
   weblogic-vuln:
-    image: ismaleiva90/weblogic12
+    image: ismaleiva90/weblogic12:12.2.1.3
     container_name: weblogic-vuln
     networks:
       vulnnet:
@@ -419,7 +356,7 @@ services:
     ports:
     - 7001:7001
   jboss-vuln:
-    image: vulnerables/jboss
+    image: jboss/wildfly:8.2.1.Final
     container_name: jboss-vuln
     networks:
       vulnnet:
@@ -490,14 +427,7 @@ services:
         ipv4_address: 172.30.21.1
     ports:
     - 5000:5000
-  nodejs-goat:
-    image: cider/nodegoat
-    container_name: nodejs-goat
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.22.1
-    ports:
-    - 4001:4000
+
   express-old:
     image: node:6.14
     container_name: node-old
@@ -507,22 +437,8 @@ services:
     command: tail -f /dev/null
     ports:
     - 3004:3000
-  flask-vulnerable:
-    image: abdullahceylan/ssti-labs
-    container_name: flask-ssti
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.23.1
-    ports:
-    - 5003:5000
-  laravel-debug:
-    image: vulnerables/laravel-debug
-    container_name: laravel-debug
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.24.1
-    ports:
-    - 8025:80
+
+
   memcached-old:
     image: memcached:1.4
     container_name: memcached-old
@@ -549,22 +465,8 @@ services:
         ipv4_address: 172.30.26.2
     ports:
     - 8027:8080
-  picoctf:
-    image: picoctf/picoctf
-    container_name: picoctf
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.27.1
-    ports:
-    - 8028:80
-  google-gruyere:
-    image: elgg/elgg
-    container_name: elgg
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.27.2
-    ports:
-    - 8029:80
+
+
   asterisk:
     image: andrius/asterisk
     container_name: asterisk
@@ -613,14 +515,7 @@ services:
         ipv4_address: 172.30.31.1
     ports:
     - 8031:80
-  seafile:
-    image: seafileltd/seafile:6.2.5
-    container_name: seafile-old
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.31.2
-    ports:
-    - 8032:80
+
   mediawiki-old:
     image: mediawiki:1.27
     container_name: mediawiki-old
@@ -638,7 +533,7 @@ services:
     ports:
     - 8034:80
   moodle-old:
-    image: bitnami/moodle:3.5
+    image: bitnami/moodle:3.9
     container_name: moodle-old
     networks:
       vulnnet:
@@ -652,7 +547,7 @@ services:
     - MOODLE_DATABASE_USER=root
     - MOODLE_DATABASE_PASSWORD=root
   suitecrm:
-    image: bitnami/suitecrm:7.10
+    image: bitnami/suitecrm:7.11
     container_name: suitecrm-old
     networks:
       vulnnet:
@@ -660,53 +555,18 @@ services:
     ports:
     - 8037:8080
   wrongsecrets:
-    image: jeroenwillemsen/wrongsecrets:latest
+    image: jeroenwillemsen/wrongsecrets:1.5.4
     container_name: wrongsecrets
     networks:
       vulnnet:
         ipv4_address: 172.30.38.1
     ports:
     - 8039:8080
-  vulnerable-flask:
-    image: abdullahceylan/ssti-labs
-    container_name: vulnerable-flask
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.38.2
-    ports:
-    - 5004:5000
-  wackopicko:
-    image: vulnerables/web-wackopicko
-    container_name: wackopicko
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.39.1
-    ports:
-    - 8040:80
-  sqlol:
-    image: yourwaf/sqlol
-    container_name: sqlol
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.39.2
-    ports:
-    - 8041:80
-  insecure-bank:
-    image: yourwaf/insecure-bank
-    container_name: insecure-bank
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.40.1
-    ports:
-    - 8042:8888
-  pentest-shellshock:
-    image: swordfishsecurity/shellshock
-    container_name: pentest-shellshock
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.41.1
-    ports:
-    - 8043:80
+
+
+
+
+
   vaas-shellshock:
     image: hmlio/vaas-cve-2014-6271
     container_name: vaas-shellshock
@@ -740,7 +600,7 @@ services:
     ports:
     - 8046:8080
   tomcat-ghostcat:
-    image: vulnerables/ghostcat
+    image: vulhub/tomcat:9.0.30
     container_name: tomcat-ghostcat
     networks:
       vulnnet:
@@ -972,7 +832,7 @@ services:
     ports:
     - 8067:8080
     container_name: jetty92
-    image: jetty:9.2
+    image: jetty:9.2.28-jre8
     networks:
       vulnnet:
         ipv4_address: 172.31.1.23
@@ -1238,9 +1098,9 @@ services:
         ipv4_address: 172.31.1.56
   gitea14:
     ports:
-    - 3003:3000
+    - 3010:3000
     container_name: gitea14
-    image: gitea/gitea:1.4
+    image: gitea/gitea:1.4.0
     networks:
       vulnnet:
         ipv4_address: 172.31.1.57
