@@ -612,7 +612,6 @@ services:
         ipv4_address: 172.31.1.8
     ports:
     - 8150:80
-    container_name: apache22
     image: httpd:2.2
     networks:
       vulnnet:
