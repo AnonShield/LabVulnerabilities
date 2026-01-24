@@ -22,13 +22,13 @@ O ambiente é totalmente automatizado via `docker-compose` e gerenciado por um �
 | **Web Apps Vulneráveis** | DVWA, Juice Shop, WebGoat, bWAPP, Mutillidae, HackTheBox apps |
 | **CVEs Famosas** | Shellshock, Heartbleed, Log4Shell, Spring4Shell, Apache Path Traversal |
 | **Serviços Desatualizados** | MySQL 5.5, PostgreSQL 9.3, Redis sem auth, MongoDB sem auth |
-| **Metasploitable** | Metasploitable 2 e 3 |
-| **APIs Vulneráveis** | DVGA (GraphQL), VAmPI, crAPI, Tiredful API |
-| **CMS Vulneráveis** | WordPress, Drupal, Joomla, Magento (versões antigas) |
-| **Servidores Web** | Apache 2.2, Nginx 1.10, Tomcat 6/7/8, JBoss, WebLogic |
-| **DevOps/CI** | Jenkins, GitLab, Nexus, SonarQube (versões vulneráveis) |
-| **Mensageria** | RabbitMQ, Kafka, ActiveMQ |
-| **Monitoramento** | Grafana, Kibana, Elasticsearch (versões antigas) |
+| **Metasploitable** | Metasploitable 2 |
+| **APIs Vulneráveis** | DVGA (GraphQL), VAmPI |
+| **CMS Vulneráveis** | WordPress, Drupal, Joomla |
+| **Servidores Web** | Apache 2.2, Nginx 1.10, Tomcat 6/7/8 |
+| **DevOps/CI** | GitLab, SonarQube (versões vulneráveis) |
+| **Mensageria** | RabbitMQ, Kafka |
+| **Monitoramento** | Kibana, Elasticsearch (versões antigas) |
 
 ---
 
