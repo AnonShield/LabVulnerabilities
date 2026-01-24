@@ -1,7 +1,7 @@
 #!/bin/bash
 # =============================================================================
-# VULNERABILITY LAB SETUP SCRIPT
-# Para paper SBRC - Scan com OpenVAS
+# VULNLAB - Laboratório de Aplicações Vulneráveis
+# Ambiente para pentest, treinamento em segurança e testes com scanners
 # =============================================================================
 
 set -e
@@ -14,21 +14,18 @@ NC='\033[0m' # No Color
 
 echo -e "${BLUE}"
 echo "╔════════════════════════════════════════════════════════════════════════╗"
-echo "║           VULNERABILITY SCAN LAB - SETUP SCRIPT                       ║"
-echo "║           100+ Aplicações Vulneráveis para OpenVAS                     ║"
+echo "║                    VULNLAB - Vulnerability Lab                         ║"
+echo "║          Laboratório de Aplicações Vulneráveis para Pentest            ║"
 echo "╚════════════════════════════════════════════════════════════════════════╝"
 echo -e "${NC}"
 
-# Verificar se Docker está instalado
-if ! command -v docker &> /dev/null; then
-    echo -e "${RED}[ERRO] Docker não está instalado!${NC}"
-    echo "Instale com: curl -fsSL https://get.docker.com | sh"
-    exit 1
-fi
-
-# Verificar se Docker Compose está disponível
-if ! docker compose version &> /dev/null; then
-    echo -e "${RED}[ERRO] Docker Compose não está disponível!${NC}"
+# Detect docker compose command
+if docker compose version &> /dev/null; then
+    COMPOSE_CMD="docker compose"
+elif docker-compose --version &> /dev/null; then
+    COMPOSE_CMD="docker-compose"
+else
+    echo -e "${RED}[ERRO] Docker Compose não está instalado ou não está no PATH!${NC}"
     exit 1
 fi
 
@@ -46,33 +43,60 @@ show_success() {
 case "${1:-}" in
     pull)
         show_progress "Baixando todas as imagens Docker..."
-        docker compose pull --ignore-pull-failures
+        $COMPOSE_CMD pull --ignore-pull-failures
         show_success "Download concluído!"
         ;;
     
     start)
-        show_progress "Iniciando todos os containers..."
-        docker compose up -d
-        show_success "Containers iniciados!"
+        # Shift past the 'start' command
+        shift
+        
+        if [ "$#" -gt 0 ]; then
+            show_progress "Iniciando um subconjunto de containers (Smoke Test)..."
+            SERVICES="$@"
+        else
+            show_progress "Iniciando todos os containers de forma resiliente..."
+            SERVICES=$($COMPOSE_CMD config --services)
+        fi
+        
+        # Certifique-se de que o diretório de logs exista
+        mkdir -p logs
+
+        for SERVICE in $SERVICES; do
+            echo -e "${YELLOW}--> Iniciando serviço: $SERVICE...${NC}"
+            # Tenta iniciar o serviço, redirecionando a saída para /dev/null
+            if $COMPOSE_CMD up -d --no-deps $SERVICE &> /dev/null; then
+                echo -e "${GREEN}    Serviço $SERVICE iniciado com sucesso.${NC}"
+            else
+                echo -e "${RED}    ERRO ao iniciar o serviço $SERVICE. Salvando log em logs/$SERVICE.log${NC}"
+                # Se falhar, execute novamente para capturar o log de erro
+                $COMPOSE_CMD up --no-deps $SERVICE &> logs/$SERVICE.log || true
+            fi
+        done
+        
+        show_success "Processo de inicialização concluído!"
         echo ""
-        echo -e "${BLUE}Aguarde ~5 minutos para todos os serviços iniciarem.${NC}"
-        echo -e "${BLUE}Rede do lab: 172.30.0.0/16${NC}"
+        echo -e "${BLUE}Aguarde os serviços iniciarem completamente.${NC}"
         ;;
     
     stop)
         show_progress "Parando todos os containers..."
-        docker compose down
+        $COMPOSE_CMD down
         show_success "Containers parados!"
         ;;
     
     status)
-        echo -e "${BLUE}=== STATUS DOS CONTAINERS ===${NC}"
-        docker compose ps
+        echo -e "${BLUE}=== STATUS DE TODOS OS CONTAINERS ===${NC}"
+        $COMPOSE_CMD ps -a
         echo ""
-        echo -e "${BLUE}=== TOTAL DE CONTAINERS ===${NC}"
-        RUNNING=$(docker compose ps --status running -q | wc -l)
-        TOTAL=$(docker compose ps -q | wc -l)
-        echo -e "Running: ${GREEN}$RUNNING${NC} / Total: $TOTAL"
+        echo -e "${BLUE}=== RESUMO ===${NC}"
+        # Usar docker diretamente para contagem mais confiável
+        RUNNING=$(docker ps -q 2>/dev/null | wc -l)
+        TOTAL=$(docker ps -a -q 2>/dev/null | wc -l)
+        EXITED=$((TOTAL - RUNNING))
+        echo -e "Em execução: ${GREEN}$RUNNING${NC}"
+        echo -e "Parados/Com erro: ${RED}$EXITED${NC}"
+        echo -e "Total: $TOTAL"
         ;;
     
     logs)
@@ -80,37 +104,39 @@ case "${1:-}" in
             echo "Uso: $0 logs <nome-container>"
             exit 1
         fi
-        docker compose logs -f "$2"
+        $COMPOSE_CMD logs -f "$2"
         ;;
     
     ips)
         echo -e "${BLUE}=== IPs DOS CONTAINERS ===${NC}"
-        docker compose ps -q | xargs -I {} docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' {}
+        $COMPOSE_CMD ps -q | xargs -I {} docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' {} | sed 's/^\///' | sort -t. -k1,1n -k2,2n -k3,3n -k4,4n
         ;;
     
     scan-targets)
         echo -e "${BLUE}=== LISTA DE ALVOS PARA OPENVAS ===${NC}"
-        echo "Rede: 172.30.0.0/16"
+        echo "Redes: 172.30.0.0/16, 172.31.0.0/16"
         echo ""
         echo "Ou use os IPs específicos:"
-        docker compose ps -q | xargs -I {} docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' {} | sort -t. -k3,3n -k4,4n
+        $COMPOSE_CMD ps -q | xargs -I {} docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' {} | grep -v '^$' | sort -t. -k1,1n -k2,2n -k3,3n -k4,4n
         ;;
     
     export-targets)
         echo -e "${BLUE}Exportando lista de IPs para targets.txt...${NC}"
-        docker compose ps -q | xargs -I {} docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' {} | sort -t. -k3,3n -k4,4n > targets.txt
+        $COMPOSE_CMD ps -q | xargs -I {} docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' {} | grep -v '^$' | sort -t. -k1,1n -k2,2n -k3,3n -k4,4n > targets.txt
         show_success "Arquivo targets.txt criado com $(wc -l < targets.txt) alvos!"
         ;;
     
     restart)
         show_progress "Reiniciando todos os containers..."
-        docker compose restart
+        $COMPOSE_CMD restart
         show_success "Containers reiniciados!"
         ;;
     
     clean)
-        show_progress "Removendo containers e volumes..."
-        docker compose down -v --remove-orphans
+        show_progress "Parando e removendo containers do compose..."
+        $COMPOSE_CMD down -v
+        show_progress "Removendo quaisquer containers parados remanescentes..."
+        docker container prune -f
         show_success "Limpeza concluída!"
         ;;
     
@@ -118,13 +144,14 @@ case "${1:-}" in
         echo -e "${BLUE}=== ESTATÍSTICAS DE RECURSOS ===${NC}"
         docker stats --no-stream
         ;;
-    
+        
     *)
         echo "Uso: $0 {pull|start|stop|status|logs|ips|scan-targets|export-targets|restart|clean|stats}"
+        echo "Para smoke test: $0 start <serviço1> <serviço2> ..."
         echo ""
         echo "Comandos:"
         echo "  pull          - Baixar todas as imagens Docker"
-        echo "  start         - Iniciar todos os containers"
+        echo "  start         - Iniciar todos os containers (ou um subconjunto)"
         echo "  stop          - Parar todos os containers"
         echo "  status        - Ver status dos containers"
         echo "  logs <nome>   - Ver logs de um container específico"
