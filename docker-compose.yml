@@ -19,15 +19,7 @@ services:
       && /etc/init.d/postgresql-8.3 start && /etc/init.d/samba start && sleep
       infinity"
 
-  vsftpd-backdoor:
-    image: c0ny1/vsftpd-2.3.4-backdoor
-    container_name: vsftpd-backdoor
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.2.1
-    ports:
-    - '2121:21'
-    - 6200:6200
+
   proftpd-vuln:
     image: infosecwarrior/ftp:v1
     container_name: proftpd-vuln
@@ -86,14 +78,7 @@ services:
         ipv4_address: 172.30.6.4
     ports:
     - 8883:8080
-  struts2-cve-2017-5638:
-    image: piesecurity/apache-struts2-cve-2017-5638
-    container_name: struts2-rce
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.6.7
-    ports:
-    - 8886:8080
+
   juice-shop:
     image: bkimminich/juice-shop
     container_name: juice-shop
@@ -110,14 +95,7 @@ services:
         ipv4_address: 172.30.7.2
     ports:
     - 8001:80
-  altoromutual:
-    image: hysnsec/altoro-mutual
-    container_name: altoromutual
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.7.3
-    ports:
-    - 8002:8080
+
   webgoat:
     image: webgoat/webgoat
     container_name: webgoat
@@ -129,14 +107,7 @@ services:
     - 9090:9090
     environment:
     - WEBGOAT_PORT=8080
-  nodegoat:
-    image: owasp/nodegoat:latest
-    container_name: nodegoat
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.8.2
-    ports:
-    - 4000:4000
+
   railsgoat:
     image: owasp/railsgoat
     container_name: railsgoat
@@ -179,37 +150,23 @@ services:
     ports:
     - 8007:80
   xvwa:
-    image: vulnerables/xvwa
+    image: tuxotron/xvwa
     container_name: xvwa
     networks:
       vulnnet:
         ipv4_address: 172.30.9.4
     ports:
     - 8008:80
-  wavsep:
-    ports:
-    - 8113:8080
-    container_name: wavsep
-    image: yourselfscan/wavsep
-    networks:
-      vulnnet:
-        ipv4_address: 172.31.1.110
+
   webgoat-legacy:
-    image: webgoat/webgoat:v8.1.0
+    image: webgoat/webgoat
     container_name: webgoat-legacy
     networks:
       vulnnet:
         ipv4_address: 172.30.9.7
     ports:
     - 8011:8080
-  crapi:
-    image: owasp/crapi:latest
-    container_name: crapi
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.10.1
-    ports:
-    - 8012:8888
+
   vampi:
     image: erev0s/vampi
     container_name: vampi
@@ -234,15 +191,7 @@ services:
         ipv4_address: 172.30.11.1
     ports:
     - 8015:80
-  jenkins-vuln:
-    image: jenkins/jenkins:2.60
-    container_name: jenkins-vuln
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.12.1
-    ports:
-    - 8016:8080
-    - 50000:50000
+
   gitlab-vuln:
     image: gitlab/gitlab-ce:10.0.0-ce.0
     container_name: gitlab-vuln
@@ -251,14 +200,7 @@ services:
         ipv4_address: 172.30.12.2
     ports:
     - 8017:80
-  ssti-lab:
-    image: kmmanoj/ssti-lab
-    container_name: ssti-lab
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.13.1
-    ports:
-    - 8018:5000
+
 
   mysql-old:
     image: mysql:5.5
@@ -341,22 +283,8 @@ services:
     networks:
       vulnnet:
         ipv4_address: 172.31.1.14
-  weblogic-vuln:
-    image: ismaleiva90/weblogic12:12.2.1.3
-    container_name: weblogic-vuln
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.16.1
-    ports:
-    - 7001:7001
-  jboss-vuln:
-    image: jboss/wildfly:8.2.1.Final
-    container_name: jboss-vuln
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.16.2
-    ports:
-    - 8023:8080
+
+
   mailcatcher:
     image: schickling/mailcatcher
     container_name: mailcatcher
@@ -557,9 +485,14 @@ services:
     ports:
     - 8039:8080
 
-
-
-
+  wackopicko:
+    image: adamdoupe/wackopicko
+    container_name: wackopicko
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.39.1
+    ports:
+    - 8040:80
 
   vaas-shellshock:
     image: hmlio/vaas-cve-2014-6271
@@ -569,6 +502,12 @@ services:
         ipv4_address: 172.30.42.1
     ports:
     - 8044:80
+
+
+
+
+
+
   vaas-heartbleed:
     image: hmlio/vaas-cve-2014-0160
     container_name: vaas-heartbleed
@@ -822,14 +761,7 @@ services:
     networks:
       vulnnet:
         ipv4_address: 172.31.1.22
-  jetty92:
-    ports:
-    - 8067:8080
-    container_name: jetty92
-    image: jetty:9.2.28-jre8
-    networks:
-      vulnnet:
-        ipv4_address: 172.31.1.23
+
     image: oracle/glassfish:4.1
     networks:
       vulnnet:
@@ -1133,15 +1065,7 @@ services:
     networks:
       vulnnet:
         ipv4_address: 172.31.1.61
-  activemq515:
-    ports:
-    - 61618:61616
-    - 8163:8161
-    container_name: activemq515
-    image: rmohr/activemq:5.15.0
-    networks:
-      vulnnet:
-        ipv4_address: 172.31.1.62
+
   zeromq:
     ports:
     - 5556:5555
@@ -1198,22 +1122,8 @@ services:
     networks:
       vulnnet:
         ipv4_address: 172.31.1.69
-  grafana46:
-    ports:
-    - 3004:3000
-    container_name: grafana46
-    image: grafana/grafana:4.6.0
-    networks:
-      vulnnet:
-        ipv4_address: 172.31.1.70
-  grafana50:
-    ports:
-    - 3005:3000
-    container_name: grafana50
-    image: grafana/grafana:5.0.0
-    networks:
-      vulnnet:
-        ipv4_address: 172.31.1.71
+
+
   influx13:
     ports:
     - 8087:8086
@@ -1326,14 +1236,7 @@ services:
     networks:
       vulnnet:
         ipv4_address: 172.31.1.86
-  magento22:
-    ports:
-    - 8100:80
-    container_name: magento22
-    image: bitnami/magento:2.2
-    networks:
-      vulnnet:
-        ipv4_address: 172.31.1.87
+
   pma46:
     ports:
     - 8101:80
@@ -1414,14 +1317,7 @@ services:
     networks:
       vulnnet:
         ipv4_address: 172.31.1.97
-  proftpd:
-    ports:
-    - '2124:21'
-    container_name: proftpd
-    image: hauptmedia/proftpd
-    networks:
-      vulnnet:
-        ipv4_address: 172.31.1.98
+
   postfix:
     ports:
     - '2526:25'
@@ -1470,14 +1366,7 @@ services:
     networks:
       vulnnet:
         ipv4_address: 172.31.1.104
-  vulnlab:
-    ports:
-    - 8108:8080
-    container_name: vulnlab
-    image: dvja/dvja
-    networks:
-      vulnnet:
-        ipv4_address: 172.31.1.105
+
   ssrflab:
     ports:
     - 8109:80
@@ -1494,22 +1383,8 @@ services:
     networks:
       vulnnet:
         ipv4_address: 172.31.1.107
-  xsslab:
-    ports:
-    - 8111:80
-    container_name: xsslab
-    image: vulnerables/xss-vulnerability-lab
-    networks:
-      vulnnet:
-        ipv4_address: 172.31.1.108
-  uploadlab:
-    ports:
-    - 8112:80
-    container_name: uploadlab
-    image: vulnerables/file-upload
-    networks:
-      vulnnet:
-        ipv4_address: 172.31.1.109
+
+
   prometheus-old:
     ports:
     - 9091:9090
