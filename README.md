@@ -617,154 +617,190 @@ curl -X POST 'http://127.0.0.1:8080/scriptText' \
 
 ### OpenVAS (Greenbone Vulnerability Management)
 
-O OpenVAS é um scanner de vulnerabilidades open-source. Este guia mostra como escanear os containers do VulnLab.
+O OpenVAS é um scanner de vulnerabilidades open-source. Este guia mostra como executar o OpenVAS em Docker e escanear os containers do VulnLab.
 
-#### Passo 1: Exportar Alvos do VulnLab
+#### Passo 1: Iniciar o OpenVAS em Container
 
 ```bash
-# Exportar IPs para arquivo
-./lab.sh export-targets
+# Criar volume para persistência dos dados
+docker volume create openvas
 
-# Verificar arquivo gerado
-cat targets.txt
-# Output: 172.30.1.1,172.30.2.2,172.30.3.1,...
+# Iniciar o container OpenVAS
+# IMPORTANTE: Defina uma senha segura para o admin
+docker run --detach \
+  --publish 8080:9392 \
+  -e PASSWORD="SuaSenhaSegura123" \
+  --volume openvas:/data \
+  --name openvas \
+  immauss/openvas
 
-# Alternativa: listar IPs diretamente
+# Aguardar inicialização (pode levar 5-10 minutos na primeira vez)
+# Acompanhe os logs:
+docker logs -f openvas
+
+# Quando aparecer "Greenbone Vulnerability Manager started" está pronto
+```
+
+> **Nota:** A primeira inicialização baixa as definições de vulnerabilidades (~1.5GB) e pode demorar alguns minutos.
+
+#### Passo 2: Conectar OpenVAS à Rede do VulnLab
+
+Para que o OpenVAS consiga escanear os containers do VulnLab, ele precisa estar conectado à mesma rede (`vulnnet`).
+
+```bash
+# Verificar o nome da rede do VulnLab
+docker network ls | grep vuln
+# Output: xxxxxxxxxxxx   trabalho_vulnnet   bridge    local
+
+# Conectar o container OpenVAS à rede vulnnet
+docker network connect trabalho_vulnnet openvas
+
+# Verificar se a conexão foi feita
+docker inspect openvas | grep -A 10 "Networks"
+
+# Testar conectividade (de dentro do OpenVAS)
+docker exec openvas ping -c 2 172.30.9.1  # IP do DVWA
+```
+
+> **Importante:** O nome da rede pode variar dependendo do diretório. Use `docker network ls` para verificar o nome exato (geralmente `<pasta>_vulnnet`).
+
+#### Passo 3: Obter os IPs dos Alvos
+
+```bash
+# Listar IPs de todos os containers do VulnLab
 ./lab.sh ips
 
-# Exportar apenas IPs específicos (web apps)
-./lab.sh ips | grep -E "dvwa|juice-shop|webgoat" | awk '{print $2}' > web-targets.txt
-```
-
-#### Passo 2: Criar Target no OpenVAS (via Web UI)
-
-1. Acesse o Greenbone Security Assistant (GSA): `https://localhost:9392`
-2. Navegue para **Configuration → Targets → New Target**
-3. Configure:
-   - **Name:** `VulnLab-Full` ou `VulnLab-WebApps`
-   - **Hosts:** Cole o conteúdo do `targets.txt` ou use `172.30.0.0/15`
-   - **Port List:** `All TCP and Nmap top 100 UDP`
-
-#### Passo 3: Criar Target via CLI (gvm-cli)
-
-```bash
-# Definir variáveis
-OPENVAS_USER="admin"
-OPENVAS_PASS="sua_senha"
-TARGETS=$(cat targets.txt | tr '\n' ',' | sed 's/,$//')
-
-# Criar target
-gvm-cli --gmp-username $OPENVAS_USER --gmp-password $OPENVAS_PASS socket \
-  --xml "<create_target>
-    <name>VulnLab-$(date +%Y%m%d)</name>
-    <hosts>$TARGETS</hosts>
-    <port_list id='33d0cd82-57c6-11e1-8ed1-406186ea4fc5'/>
-  </create_target>"
-
-# Resposta esperada (salve o ID retornado)
-# <create_target_response status="201" id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"/>
-```
-
-#### Passo 4: Criar e Executar Task (Scan)
-
-```bash
-# IDs de referência do OpenVAS
-# Full and Fast: daba56c8-73ec-11df-a475-002264764cea
-# Full and Deep: 698f691e-7489-11df-9d8c-002264764cea
-
-# Criar task (substitua TARGET_ID pelo ID obtido no passo anterior)
-TARGET_ID="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-CONFIG_ID="daba56c8-73ec-11df-a475-002264764cea"  # Full and Fast
-SCANNER_ID="08b69003-5fc2-4037-a479-93b440211c73" # OpenVAS Default
-
-gvm-cli --gmp-username $OPENVAS_USER --gmp-password $OPENVAS_PASS socket \
-  --xml "<create_task>
-    <name>Scan-VulnLab-$(date +%Y%m%d)</name>
-    <target id='$TARGET_ID'/>
-    <config id='$CONFIG_ID'/>
-    <scanner id='$SCANNER_ID'/>
-  </create_task>"
-
-# Iniciar o scan (substitua TASK_ID)
-TASK_ID="yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy"
-
-gvm-cli --gmp-username $OPENVAS_USER --gmp-password $OPENVAS_PASS socket \
-  --xml "<start_task task_id='$TASK_ID'/>"
-```
-
-#### Passo 5: Monitorar e Obter Resultados
-
-```bash
-# Verificar status do scan
-gvm-cli --gmp-username $OPENVAS_USER --gmp-password $OPENVAS_PASS socket \
-  --xml "<get_tasks task_id='$TASK_ID'/>"
-
-# Listar relatórios
-gvm-cli --gmp-username $OPENVAS_USER --gmp-password $OPENVAS_PASS socket \
-  --xml "<get_reports/>"
-
-# Exportar relatório em PDF (substitua REPORT_ID)
-REPORT_ID="zzzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz"
-
-gvm-cli --gmp-username $OPENVAS_USER --gmp-password $OPENVAS_PASS socket \
-  --xml "<get_reports report_id='$REPORT_ID' format_id='c402cc3e-b531-11e1-9163-406186ea4fc5'/>" \
-  | xmllint --xpath "//report_format" - | base64 -d > vulnlab-report.pdf
-```
-
-#### Exemplo Completo: Script de Automação
-
-```bash
-#!/bin/bash
-# scan-vulnlab.sh - Automatiza scan do VulnLab com OpenVAS
-
-OPENVAS_USER="admin"
-OPENVAS_PASS="admin"
-SOCKET="/var/run/gvmd/gvmd.sock"
-
-# 1. Exportar alvos
-cd ~/LabVulnerabilities
+# Exportar para arquivo
 ./lab.sh export-targets
-TARGETS=$(cat targets.txt | tr '\n' ',' | sed 's/,$//')
+cat targets.txt
 
-echo "[*] Alvos: $TARGETS"
+# Exemplo de output:
+# 172.30.1.1    metasploitable2
+# 172.30.7.1    juice-shop
+# 172.30.9.1    dvwa
+# ...
+```
 
-# 2. Criar target
-echo "[*] Criando target no OpenVAS..."
-TARGET_RESPONSE=$(gvm-cli --gmp-username $OPENVAS_USER --gmp-password $OPENVAS_PASS socket \
-  --xml "<create_target><name>VulnLab-Auto</name><hosts>$TARGETS</hosts></create_target>")
+#### Passo 4: Acessar a Interface Web do OpenVAS
 
-TARGET_ID=$(echo $TARGET_RESPONSE | grep -oP 'id="\K[^"]+')
-echo "[+] Target ID: $TARGET_ID"
+1. Abra o navegador e acesse: **https://localhost:8080**
 
-# 3. Criar task
-echo "[*] Criando task..."
-TASK_RESPONSE=$(gvm-cli --gmp-username $OPENVAS_USER --gmp-password $OPENVAS_PASS socket \
-  --xml "<create_task>
-    <name>VulnLab-Scan</name>
-    <target id='$TARGET_ID'/>
-    <config id='daba56c8-73ec-11df-a475-002264764cea'/>
-    <scanner id='08b69003-5fc2-4037-a479-93b440211c73'/>
-  </create_task>")
+2. Aceite o certificado autoassinado (aviso de segurança)
 
-TASK_ID=$(echo $TASK_RESPONSE | grep -oP 'id="\K[^"]+')
-echo "[+] Task ID: $TASK_ID"
+3. Faça login:
+   - **Username:** `admin`
+   - **Password:** A senha que você definiu no Passo 1
 
-# 4. Iniciar scan
-echo "[*] Iniciando scan..."
-gvm-cli --gmp-username $OPENVAS_USER --gmp-password $OPENVAS_PASS socket \
-  --xml "<start_task task_id='$TASK_ID'/>"
+#### Passo 5: Criar um Target (Alvo)
 
-echo "[+] Scan iniciado! Acompanhe em https://localhost:9392"
+1. No menu superior, vá para: **Configuration → Targets**
+
+2. Clique no ícone **⭐ (New Target)** no canto superior esquerdo
+
+3. Preencha os campos:
+   - **Name:** `VulnLab-WebApps` (ou nome descritivo)
+   - **Hosts - Manual:** Cole os IPs dos alvos, separados por vírgula:
+     ```
+     172.30.9.1, 172.30.7.1, 172.30.8.1, 172.30.9.2, 172.30.9.3
+     ```
+     Ou para escanear toda a rede:
+     ```
+     172.30.0.0/16
+     ```
+   - **Port List:** Selecione `All TCP and Nmap top 100 UDP`
+
+4. Clique em **Save**
+
+#### Passo 6: Criar e Executar uma Task (Scan)
+
+1. No menu superior, vá para: **Scans → Tasks**
+
+2. Clique no ícone **⭐ (New Task)** no canto superior esquerdo
+
+3. Preencha os campos:
+   - **Name:** `Scan-VulnLab`
+   - **Scan Targets:** Selecione o target criado (`VulnLab-WebApps`)
+   - **Scanner:** `OpenVAS Default`
+   - **Scan Config:**
+     - `Full and fast` - Para scan rápido (~30 min para poucos hosts)
+     - `Full and deep` - Para scan completo (~2-4 horas)
+
+4. Clique em **Save**
+
+5. Na lista de tasks, clique no ícone **▶ (Start)** para iniciar o scan
+
+#### Passo 7: Acompanhar e Visualizar Resultados
+
+1. **Acompanhar progresso:**
+   - Vá para **Scans → Tasks**
+   - A coluna **Status** mostra o progresso (%)
+   - Clique no nome da task para ver detalhes
+
+2. **Ver vulnerabilidades encontradas:**
+   - Vá para **Scans → Results**
+   - Filtre por severidade: High, Medium, Low
+
+3. **Gerar relatório:**
+   - Vá para **Scans → Reports**
+   - Clique no relatório desejado
+   - Clique no ícone **⬇ Download** e escolha o formato (PDF, HTML, CSV, XML)
+
+#### Exemplo Completo: Scan das Web Apps
+
+```bash
+# 1. Certifique-se que o VulnLab está rodando
+./lab.sh start dvwa juice-shop webgoat bwapp
+
+# 2. Verifique os IPs
+./lab.sh ips | grep -E "dvwa|juice|webgoat|bwapp"
+# 172.30.9.1    dvwa
+# 172.30.7.1    juice-shop
+# 172.30.8.1    webgoat
+# 172.30.9.2    bwapp
+
+# 3. Inicie o OpenVAS (se não estiver rodando)
+docker start openvas
+
+# 4. Conecte à rede (se ainda não conectou)
+docker network connect trabalho_vulnnet openvas
+
+# 5. Acesse https://localhost:8080 e crie:
+#    - Target: "WebApps" com hosts: 172.30.9.1, 172.30.7.1, 172.30.8.1, 172.30.9.2
+#    - Task: "Scan-WebApps" com config "Full and fast"
+#    - Inicie o scan e aguarde os resultados
+```
+
+#### Comandos Úteis
+
+```bash
+# Parar o OpenVAS
+docker stop openvas
+
+# Iniciar o OpenVAS novamente
+docker start openvas
+
+# Ver logs do OpenVAS
+docker logs -f openvas
+
+# Remover o OpenVAS (mantém dados no volume)
+docker rm openvas
+
+# Remover tudo (incluindo dados)
+docker rm openvas
+docker volume rm openvas
+
+# Atualizar definições de vulnerabilidade
+docker exec -it openvas greenbone-feed-sync
 ```
 
 #### Scans Recomendados por Categoria
 
-| Categoria | Alvos | Scan Config | Tempo Estimado |
-|-----------|-------|-------------|----------------|
-| **Web Apps** | `172.30.7.0/24, 172.30.8.0/24, 172.30.9.0/24` | Full and Fast | 30-60 min |
-| **Databases** | `172.30.14.0/24` | Full and Deep | 45-90 min |
-| **CVEs Críticas** | `172.30.3.1, 172.30.4.1, 172.30.6.3, 172.30.6.4` | Full and Deep | 20-40 min |
-| **Infra Completa** | `172.30.0.0/15` | Discovery + Full | 4-8 horas |
+| Categoria | Hosts (para o Target) | Scan Config | Tempo Estimado |
+|-----------|----------------------|-------------|----------------|
+| **Web Apps** | `172.30.7.1, 172.30.8.1, 172.30.9.1, 172.30.9.2, 172.30.9.3` | Full and fast | 30-60 min |
+| **Databases** | `172.30.14.1, 172.30.14.2, 172.30.14.3, 172.30.14.4` | Full and fast | 20-40 min |
+| **CVEs Críticas** | `172.30.3.1, 172.30.4.1, 172.30.6.3, 172.30.6.4` | Full and deep | 30-60 min |
+| **Rede Completa** | `172.30.0.0/16` | Discovery | 1-2 horas |
 
 ---
 
