@@ -615,39 +615,270 @@ curl -X POST 'http://127.0.0.1:8080/scriptText' \
 
 ## Integração com Ferramentas de Segurança
 
-### Scanners de Vulnerabilidade
+### OpenVAS (Greenbone Vulnerability Management)
+
+O OpenVAS é um scanner de vulnerabilidades open-source. Este guia mostra como escanear os containers do VulnLab.
+
+#### Passo 1: Exportar Alvos do VulnLab
 
 ```bash
-# Exportar alvos
+# Exportar IPs para arquivo
 ./lab.sh export-targets
 
-# OpenVAS
-gvm-cli --gmp-username admin --gmp-password admin socket \
-        --xml "<create_target><name>VulnLab</name><hosts>$(cat targets.txt)</hosts></create_target>"
+# Verificar arquivo gerado
+cat targets.txt
+# Output: 172.30.1.1,172.30.2.2,172.30.3.1,...
 
-# Nessus
-nessuscli scan --targets targets.txt
+# Alternativa: listar IPs diretamente
+./lab.sh ips
 
-# Nuclei
-nuclei -l targets.txt -t cves/
-
-# Nikto
-nikto -h 127.0.0.1 -p 8005,3000,8003
+# Exportar apenas IPs específicos (web apps)
+./lab.sh ips | grep -E "dvwa|juice-shop|webgoat" | awk '{print $2}' > web-targets.txt
 ```
+
+#### Passo 2: Criar Target no OpenVAS (via Web UI)
+
+1. Acesse o Greenbone Security Assistant (GSA): `https://localhost:9392`
+2. Navegue para **Configuration → Targets → New Target**
+3. Configure:
+   - **Name:** `VulnLab-Full` ou `VulnLab-WebApps`
+   - **Hosts:** Cole o conteúdo do `targets.txt` ou use `172.30.0.0/15`
+   - **Port List:** `All TCP and Nmap top 100 UDP`
+
+#### Passo 3: Criar Target via CLI (gvm-cli)
+
+```bash
+# Definir variáveis
+OPENVAS_USER="admin"
+OPENVAS_PASS="sua_senha"
+TARGETS=$(cat targets.txt | tr '\n' ',' | sed 's/,$//')
+
+# Criar target
+gvm-cli --gmp-username $OPENVAS_USER --gmp-password $OPENVAS_PASS socket \
+  --xml "<create_target>
+    <name>VulnLab-$(date +%Y%m%d)</name>
+    <hosts>$TARGETS</hosts>
+    <port_list id='33d0cd82-57c6-11e1-8ed1-406186ea4fc5'/>
+  </create_target>"
+
+# Resposta esperada (salve o ID retornado)
+# <create_target_response status="201" id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"/>
+```
+
+#### Passo 4: Criar e Executar Task (Scan)
+
+```bash
+# IDs de referência do OpenVAS
+# Full and Fast: daba56c8-73ec-11df-a475-002264764cea
+# Full and Deep: 698f691e-7489-11df-9d8c-002264764cea
+
+# Criar task (substitua TARGET_ID pelo ID obtido no passo anterior)
+TARGET_ID="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+CONFIG_ID="daba56c8-73ec-11df-a475-002264764cea"  # Full and Fast
+SCANNER_ID="08b69003-5fc2-4037-a479-93b440211c73" # OpenVAS Default
+
+gvm-cli --gmp-username $OPENVAS_USER --gmp-password $OPENVAS_PASS socket \
+  --xml "<create_task>
+    <name>Scan-VulnLab-$(date +%Y%m%d)</name>
+    <target id='$TARGET_ID'/>
+    <config id='$CONFIG_ID'/>
+    <scanner id='$SCANNER_ID'/>
+  </create_task>"
+
+# Iniciar o scan (substitua TASK_ID)
+TASK_ID="yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy"
+
+gvm-cli --gmp-username $OPENVAS_USER --gmp-password $OPENVAS_PASS socket \
+  --xml "<start_task task_id='$TASK_ID'/>"
+```
+
+#### Passo 5: Monitorar e Obter Resultados
+
+```bash
+# Verificar status do scan
+gvm-cli --gmp-username $OPENVAS_USER --gmp-password $OPENVAS_PASS socket \
+  --xml "<get_tasks task_id='$TASK_ID'/>"
+
+# Listar relatórios
+gvm-cli --gmp-username $OPENVAS_USER --gmp-password $OPENVAS_PASS socket \
+  --xml "<get_reports/>"
+
+# Exportar relatório em PDF (substitua REPORT_ID)
+REPORT_ID="zzzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz"
+
+gvm-cli --gmp-username $OPENVAS_USER --gmp-password $OPENVAS_PASS socket \
+  --xml "<get_reports report_id='$REPORT_ID' format_id='c402cc3e-b531-11e1-9163-406186ea4fc5'/>" \
+  | xmllint --xpath "//report_format" - | base64 -d > vulnlab-report.pdf
+```
+
+#### Exemplo Completo: Script de Automação
+
+```bash
+#!/bin/bash
+# scan-vulnlab.sh - Automatiza scan do VulnLab com OpenVAS
+
+OPENVAS_USER="admin"
+OPENVAS_PASS="admin"
+SOCKET="/var/run/gvmd/gvmd.sock"
+
+# 1. Exportar alvos
+cd ~/LabVulnerabilities
+./lab.sh export-targets
+TARGETS=$(cat targets.txt | tr '\n' ',' | sed 's/,$//')
+
+echo "[*] Alvos: $TARGETS"
+
+# 2. Criar target
+echo "[*] Criando target no OpenVAS..."
+TARGET_RESPONSE=$(gvm-cli --gmp-username $OPENVAS_USER --gmp-password $OPENVAS_PASS socket \
+  --xml "<create_target><name>VulnLab-Auto</name><hosts>$TARGETS</hosts></create_target>")
+
+TARGET_ID=$(echo $TARGET_RESPONSE | grep -oP 'id="\K[^"]+')
+echo "[+] Target ID: $TARGET_ID"
+
+# 3. Criar task
+echo "[*] Criando task..."
+TASK_RESPONSE=$(gvm-cli --gmp-username $OPENVAS_USER --gmp-password $OPENVAS_PASS socket \
+  --xml "<create_task>
+    <name>VulnLab-Scan</name>
+    <target id='$TARGET_ID'/>
+    <config id='daba56c8-73ec-11df-a475-002264764cea'/>
+    <scanner id='08b69003-5fc2-4037-a479-93b440211c73'/>
+  </create_task>")
+
+TASK_ID=$(echo $TASK_RESPONSE | grep -oP 'id="\K[^"]+')
+echo "[+] Task ID: $TASK_ID"
+
+# 4. Iniciar scan
+echo "[*] Iniciando scan..."
+gvm-cli --gmp-username $OPENVAS_USER --gmp-password $OPENVAS_PASS socket \
+  --xml "<start_task task_id='$TASK_ID'/>"
+
+echo "[+] Scan iniciado! Acompanhe em https://localhost:9392"
+```
+
+#### Scans Recomendados por Categoria
+
+| Categoria | Alvos | Scan Config | Tempo Estimado |
+|-----------|-------|-------------|----------------|
+| **Web Apps** | `172.30.7.0/24, 172.30.8.0/24, 172.30.9.0/24` | Full and Fast | 30-60 min |
+| **Databases** | `172.30.14.0/24` | Full and Deep | 45-90 min |
+| **CVEs Críticas** | `172.30.3.1, 172.30.4.1, 172.30.6.3, 172.30.6.4` | Full and Deep | 20-40 min |
+| **Infra Completa** | `172.30.0.0/15` | Discovery + Full | 4-8 horas |
+
+---
+
+### Outros Scanners
+
+#### Nessus
+
+```bash
+# Importar alvos
+./lab.sh export-targets
+
+# Via CLI (se disponível)
+nessuscli scan --targets targets.txt --policy "Basic Network Scan"
+
+# Via API
+curl -k -X POST "https://localhost:8834/scans" \
+  -H "X-ApiKeys: accessKey=xxx;secretKey=yyy" \
+  -d '{"uuid":"template-uuid","settings":{"name":"VulnLab","text_targets":"'$(cat targets.txt)'"}}'
+```
+
+#### Nuclei
+
+```bash
+# Scan básico com templates de CVE
+nuclei -l targets.txt -t cves/ -o nuclei-results.txt
+
+# Scan completo
+nuclei -l targets.txt -t cves/,vulnerabilities/,misconfiguration/ -severity critical,high
+
+# Scan específico para web apps
+echo "http://127.0.0.1:8005
+http://127.0.0.1:3000
+http://127.0.0.1:8003" > web-urls.txt
+
+nuclei -l web-urls.txt -t http/cves/,http/vulnerabilities/ -o web-vulns.txt
+```
+
+#### Nikto
+
+```bash
+# Scan de aplicação web específica
+nikto -h 127.0.0.1 -p 8005 -o dvwa-nikto.html -Format html
+
+# Scan múltiplas portas
+nikto -h 127.0.0.1 -p 8005,3000,8003,8001 -o web-nikto.txt
+
+# Scan com tuning específico
+nikto -h http://127.0.0.1:8005 -Tuning 9 -o sqli-xss-scan.txt
+```
+
+---
 
 ### Ferramentas de Pentest
 
+#### Metasploit Framework
+
 ```bash
-# Metasploit
+# Iniciar Metasploit com banco de dados
+msfdb init
 msfconsole -q
-db_nmap -sV 172.30.0.0/16
+
+# Dentro do msfconsole:
+# Configurar workspace
+workspace -a vulnlab
+
+# Scan de rede
+db_nmap -sV -sC 172.30.0.0/16 -oA vulnlab-nmap
+
+# Listar hosts descobertos
+hosts
+
+# Listar serviços
+services
+
+# Buscar vulnerabilidades conhecidas
 vulns
 
-# SQLMap
-sqlmap -u "http://127.0.0.1:8005/vulnerabilities/sqli/?id=1&Submit=Submit" --cookie="PHPSESSID=xxx;security=low"
+# Exemplo: explorar SambaCry (CVE-2017-7494)
+use exploit/linux/samba/is_known_pipename
+set RHOSTS 172.30.4.1
+set RPORT 445
+exploit
+```
 
-# Burp Suite
-# Configure proxy para 127.0.0.1:8080 e navegue para os alvos
+#### SQLMap
+
+```bash
+# DVWA - SQL Injection (requer login primeiro)
+# 1. Faça login no DVWA e obtenha o cookie PHPSESSID
+# 2. Configure security level para "low"
+
+sqlmap -u "http://127.0.0.1:8005/vulnerabilities/sqli/?id=1&Submit=Submit" \
+  --cookie="PHPSESSID=abc123;security=low" \
+  --dbs
+
+# Enumerar tabelas
+sqlmap -u "http://127.0.0.1:8005/vulnerabilities/sqli/?id=1&Submit=Submit" \
+  --cookie="PHPSESSID=abc123;security=low" \
+  -D dvwa --tables
+
+# SQLi Labs
+sqlmap -u "http://127.0.0.1:8110/Less-1/?id=1" --dbs --batch
+```
+
+#### Burp Suite
+
+```text
+1. Configure o proxy: 127.0.0.1:8080
+2. Adicione ao escopo:
+   - http://127.0.0.1:8005 (DVWA)
+   - http://127.0.0.1:3000 (Juice Shop)
+   - http://127.0.0.1:8003 (WebGoat)
+3. Navegue pelas aplicações para capturar requests
+4. Use o Intruder para fuzzing e Scanner para detecção automática
 ```
 
 ---
