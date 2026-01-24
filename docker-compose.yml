@@ -18,13 +18,7 @@ services:
       && /etc/init.d/apache2 start && /etc/init.d/ssh start && /etc/init.d/mysql start
       && /etc/init.d/postgresql-8.3 start && /etc/init.d/samba start && sleep
       infinity"
-  metasploitable3-web:
-    image: rapid7/metasploitable3-ub1404
-    container_name: metasploitable3
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.1.2
-    tty: true
+
   vsftpd-backdoor:
     image: c0ny1/vsftpd-2.3.4-backdoor
     container_name: vsftpd-backdoor
