@@ -622,7 +622,7 @@ services:
     ports:
       - 127.0.0.1:8051:80
     container_name: apache246
-    image: httpd:2.4.6
+    image: httpd:2.4.25
     networks:
       vulnnet:
         ipv4_address: 172.31.1.10
