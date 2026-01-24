@@ -896,7 +896,7 @@ services:
 
   jenkins260:
     ports:
-      - 127.0.0.1:8080:8080
+      - 127.0.0.1:8079:8080
     container_name: jenkins260
     image: jenkins/jenkins:2.60
     networks:
