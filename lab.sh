@@ -114,7 +114,7 @@ case "${1:-}" in
     
     scan-targets)
         echo -e "${BLUE}=== LISTA DE ALVOS PARA OPENVAS ===${NC}"
-        echo "Redes: 172.30.0.0/16, 172.31.0.0/16"
+        echo "Redes: 172.30.0.0/15"
         echo ""
         echo "Ou use os IPs específicos:"
         $COMPOSE_CMD ps -q | xargs -I {} docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' {} | grep -v '^$' | sort -t. -k1,1n -k2,2n -k3,3n -k4,4n

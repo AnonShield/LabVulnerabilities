@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**VulnLab** é um ambiente de laboratório com mais de **150 containers Docker** intencionalmente vulneráveis, projetado para:
+**VulnLab** é um ambiente de laboratório com **diversos containers Docker** intencionalmente vulneráveis, projetado para:
 
 - **Testes de Penetração (Pentest)**
 - **Treinamento em Segurança da Informação**
@@ -105,7 +105,7 @@ chmod +x lab.sh
 
 Todos os containers operam em uma rede Docker isolada:
 
-- **Subnet:** `172.30.0.0/16` e `172.31.0.0/16`
+- **Subnet:** `172.30.0.0/15`
 - **Nome da rede:** `vulnnet`
 
 ---
