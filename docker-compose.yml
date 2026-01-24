@@ -149,14 +149,7 @@ services:
         ipv4_address: 172.30.9.3
     ports:
     - 8007:80
-  xvwa:
-    image: tuxotron/xvwa
-    container_name: xvwa
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.9.4
-    ports:
-    - 8008:80
+
 
   webgoat-legacy:
     image: webgoat/webgoat
@@ -454,36 +447,9 @@ services:
         ipv4_address: 172.30.32.2
     ports:
     - 8034:80
-  moodle-old:
-    image: bitnami/moodle:3.9
-    container_name: moodle-old
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.33.1
-    ports:
-    - 8035:8080
-    environment:
-    - MOODLE_DATABASE_TYPE=mysqli
-    - MOODLE_DATABASE_HOST=mysql-old
-    - MOODLE_DATABASE_NAME=moodle
-    - MOODLE_DATABASE_USER=root
-    - MOODLE_DATABASE_PASSWORD=root
-  suitecrm:
-    image: bitnami/suitecrm:7.11
-    container_name: suitecrm-old
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.35.1
-    ports:
-    - 8037:8080
-  wrongsecrets:
-    image: jeroenwillemsen/wrongsecrets:1.5.4
-    container_name: wrongsecrets
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.38.1
-    ports:
-    - 8039:8080
+
+
+
 
   wackopicko:
     image: adamdoupe/wackopicko
@@ -494,36 +460,15 @@ services:
     ports:
     - 8040:80
 
-  vaas-shellshock:
-    image: hmlio/vaas-cve-2014-6271
-    container_name: vaas-shellshock
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.42.1
-    ports:
-    - 8044:80
 
 
 
 
 
 
-  vaas-heartbleed:
-    image: hmlio/vaas-cve-2014-0160
-    container_name: vaas-heartbleed
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.42.2
-    ports:
-    - 8445:443
-  security-ninjas:
-    image: opendns/security-ninjas
-    container_name: security-ninjas
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.43.1
-    ports:
-    - 8045:80
+
+
+
   tomcat7-vuln:
     image: tomcat:7.0.94
     container_name: tomcat7-vuln
@@ -729,14 +674,7 @@ services:
     networks:
       vulnnet:
         ipv4_address: 172.31.1.18
-  tomcat850:
-    ports:
-    - 8063:8080
-    container_name: tomcat850
-    image: tomcat:8.5.0
-    networks:
-      vulnnet:
-        ipv4_address: 172.31.1.19
+
   jboss7:
     ports:
     - 8064:8080
@@ -943,13 +881,7 @@ services:
     networks:
       vulnnet:
         ipv4_address: 172.31.1.46
-  jdk8:
-    container_name: jdk8
-    image: openjdk:8
-    command: tail -f /dev/null
-    networks:
-      vulnnet:
-        ipv4_address: 172.31.1.47
+
   jenkins260:
     ports:
     - 8080:8080
@@ -974,14 +906,7 @@ services:
     networks:
       vulnnet:
         ipv4_address: 172.31.1.50
-  nexus3:
-    ports:
-    - 8083:8081
-    container_name: nexus3
-    image: sonatype/nexus3:3.0.0
-    networks:
-      vulnnet:
-        ipv4_address: 172.31.1.51
+
   sonar67:
     ports:
     - 9001:9000
@@ -1066,14 +991,7 @@ services:
       vulnnet:
         ipv4_address: 172.31.1.61
 
-  zeromq:
-    ports:
-    - 5556:5555
-    container_name: zeromq
-    image: zeromq/zeromq
-    networks:
-      vulnnet:
-        ipv4_address: 172.31.1.63
+
   es24:
     ports:
     - 9201:9200
@@ -1090,14 +1008,7 @@ services:
     networks:
       vulnnet:
         ipv4_address: 172.31.1.65
-  es60:
-    ports:
-    - 9203:9200
-    container_name: es60
-    image: elasticsearch:6.0.0
-    networks:
-      vulnnet:
-        ipv4_address: 172.31.1.66
+
   kibana46:
     ports:
     - 5602:5601
@@ -1188,14 +1099,7 @@ services:
     networks:
       vulnnet:
         ipv4_address: 172.31.1.80
-  varnish41:
-    ports:
-    - 8094:80
-    container_name: varnish41
-    image: varnish:4.1
-    networks:
-      vulnnet:
-        ipv4_address: 172.31.1.81
+
   wp46:
     ports:
     - 8095:80
@@ -1261,14 +1165,7 @@ services:
     networks:
       vulnnet:
         ipv4_address: 172.31.1.90
-  roundcube12:
-    ports:
-    - 8104:80
-    container_name: roundcube12
-    image: roundcube/roundcubemail:1.2.x
-    networks:
-      vulnnet:
-        ipv4_address: 172.31.1.91
+
   owncloud9:
     ports:
     - 8105:80
@@ -1318,14 +1215,7 @@ services:
       vulnnet:
         ipv4_address: 172.31.1.97
 
-  postfix:
-    ports:
-    - '2526:25'
-    container_name: postfix
-    image: catatnight/postfix
-    networks:
-      vulnnet:
-        ipv4_address: 172.31.1.99
+
   dovecot:
     ports:
     - 1431:143
