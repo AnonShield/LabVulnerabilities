@@ -19,6 +19,11 @@ targets_full.txt
 run_containers.sh
 inventory_full.csv
 
+# Logs
+logs/
+start.log
+*.log
+
 # IDE / Editor specific
 .vscode/
 .idea/
