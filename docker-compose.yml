@@ -712,7 +712,7 @@ services:
       - 127.0.0.1:8067:8080
       - 127.0.0.1:4848:4848
     container_name: glassfish41
-    image: oracle/glassfish:4.1
+    image: glassfish:4.1
     networks:
       vulnnet:
         ipv4_address: 172.31.1.24
