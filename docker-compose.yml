@@ -610,8 +610,10 @@ services:
     networks:
       vulnnet:
         ipv4_address: 172.31.1.8
+  apache22:
     ports:
       - 127.0.0.1:8150:80
+    container_name: apache22
     image: httpd:2.2
     networks:
       vulnnet:
@@ -624,6 +626,7 @@ services:
     networks:
       vulnnet:
         ipv4_address: 172.31.1.10
+  nginx110:
     ports:
       - 127.0.0.1:8152:80
     container_name: nginx110
@@ -631,6 +634,7 @@ services:
     networks:
       vulnnet:
         ipv4_address: 172.31.1.11
+  nginx112:
     ports:
       - 127.0.0.1:8153:80
     container_name: nginx112
@@ -638,6 +642,7 @@ services:
     networks:
       vulnnet:
         ipv4_address: 172.31.1.12
+  nginx114:
     ports:
       - 127.0.0.1:8154:80
     container_name: nginx114
@@ -645,6 +650,10 @@ services:
     networks:
       vulnnet:
         ipv4_address: 172.31.1.13
+  caddy20:
+    ports:
+      - 127.0.0.1:8155:80
+    container_name: caddy20
     image: caddy:2.0.0
     networks:
       vulnnet:
