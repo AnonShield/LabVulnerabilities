@@ -390,7 +390,7 @@ services:
         ipv4_address: 172.30.28.1
     ports:
       - 127.0.0.1:5060:5060/udp
-    - 127.0.0.1:10000-10010:10000-10010/udp
+      - 127.0.0.1:10000-10010:10000-10010/udp
   openldap:
     image: osixia/openldap:1.2.0
     container_name: openldap
@@ -698,7 +698,11 @@ services:
     networks:
       vulnnet:
         ipv4_address: 172.31.1.22
-
+  glassfish41:
+    ports:
+      - 127.0.0.1:8067:8080
+      - 127.0.0.1:4848:4848
+    container_name: glassfish41
     image: oracle/glassfish:4.1
     networks:
       vulnnet:
