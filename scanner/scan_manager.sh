@@ -168,7 +168,7 @@ main() {
         else
             # 4. Executa o scan
             log_info "Iniciando scan para $ip..."
-            ./run.sh single "$ip" --config config.yaml -v
+            ./run.sh single "$ip" --config config.yaml -v --service-name "$service"
             if [ $? -ne 0 ]; then
                 log_error "O scan para o serviço '$service' ($ip) falhou."
                 # Não continuamos, pois pode ser um problema com o OpenVAS

@@ -39,6 +39,7 @@ except ImportError:
 
 @dataclass
 class Config:
+    service_name: Optional[str] = None
     """Configuração do scanner."""
     # Conexão GVM
     host: str = "127.0.0.1"
@@ -440,12 +441,31 @@ class GVMClient:
 
         try:
             with self._get_gmp() as gmp:
-                response = gmp.get_report(
-                    report_id=report_id,
-                    report_format_id=format_id,
-                    ignore_pagination=True,
-                    details=True
+                # A abordagem correta para esta API: criar um filtro temporário com
+                # as regras exatas e usá-lo para buscar o relatório.
+                filter_term = "apply_overrides=0 levels=chmlgf rows=-1 min_qod=0 notes=1 overrides=1"
+                
+                filter_id_resp = gmp.create_filter(
+                    name=f"Temp-Full-Report-Filter-{time.time()}",
+                    term=filter_term,
+                    comment="Filtro temporário para obter todos os resultados para o relatório."
                 )
+                filter_id = filter_id_resp.get("id")
+
+                if not filter_id:
+                    raise RuntimeError("Falha ao criar filtro temporário para o relatório.")
+
+                try:
+                    response = gmp.get_report(
+                        report_id=report_id,
+                        report_format_id=format_id,
+                        ignore_pagination=True,
+                        filter_id=filter_id
+                    )
+                finally:
+                    # Garante que o filtro temporário seja sempre deletado
+                    gmp.delete_filter(filter_id)
+
 
                 report = response.find("report")
                 if report is None:
@@ -611,8 +631,15 @@ class OpenVASScanner:
     def _download_reports(self, ip: str, report_id: str) -> list:
         """Baixa relatórios em múltiplos formatos."""
         downloaded = []
-        ip_safe = ip.replace(".", "_")
-        ip_dir = self.output_dir / ip_safe
+        # Determinar o nome base para arquivos e pastas
+        if self.config.service_name:
+            base_name = f"openvas_{self.config.service_name}"
+            ip_dir = self.output_dir / base_name
+        else:
+            base_name = f"scan_{ip.replace('.', '_')}"
+            ip_dir = self.output_dir / ip.replace('.', '_')
+
+        self.logger.info(f"Salvando relatórios em: {ip_dir}")
         ip_dir.mkdir(exist_ok=True)
 
         for format_name in self.config.report_formats:
@@ -620,16 +647,19 @@ class OpenVASScanner:
 
             content = self.client.get_report(report_id, format_name)
             if content:
-                ext = format_name.lower()
-                filename = f"scan_{ip_safe}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.{ext}"
+                file_suffix = f"{datetime.now().strftime('%Y%m%d_%H%M%S')}.{format_name.lower()}"
+                filename = f"{base_name}_{file_suffix}"
                 filepath = ip_dir / filename
-
-                mode = "wb" if isinstance(content, bytes) else "w"
-                with open(filepath, mode) as f:
-                    f.write(content)
-
-                downloaded.append(str(filepath))
-                self.logger.info(f"  Salvo: {filepath}")
+                
+                try:
+                    with open(filepath, "wb") as f:
+                        f.write(content)
+                    self.logger.info(f"  Salvo: {filepath.relative_to(self.output_dir.parent)}")
+                    downloaded = True
+                except Exception as e:
+                    self.logger.error(f"Erro ao salvar arquivo {filepath}: {e}")
+            else:
+                self.logger.warning(f"Não foi possível baixar o relatório no formato {format_name}.")
 
         return downloaded
 
@@ -759,6 +789,7 @@ Exemplos:
     parser.add_argument("--cleanup", action="store_true", help="Deletar após scan")
     parser.add_argument("--reset", action="store_true", help="Resetar estado")
     parser.add_argument("--dry-run", action="store_true", help="Apenas listar IPs")
+    parser.add_argument('--service-name', help='Nome do serviço para usar nos relatórios')
 
     args = parser.parse_args()
 
@@ -771,6 +802,7 @@ Exemplos:
     config.password = args.password
     config.output_dir = args.output
     config.cleanup_after_scan = args.cleanup
+    config.service_name = args.service_name
 
     if args.file:
         ips = load_ips_from_file(args.file)
