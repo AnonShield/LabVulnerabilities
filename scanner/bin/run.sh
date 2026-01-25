@@ -8,18 +8,20 @@
 # ============================================================================
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd "$SCRIPT_DIR"
+PROJECT_ROOT="$(cd "${SCRIPT_DIR}/../.." && pwd)"
+SCANNER_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
+cd "$SCANNER_DIR"
 
 # Carrega biblioteca comum
-source "${SCRIPT_DIR}/../lib/common.sh"
+source "${PROJECT_ROOT}/lib/common.sh"
 
 # Ativar ambiente virtual (exceto para setup e help)
 if [[ "$1" != "setup" && "$1" != "help" && "$1" != "--help" && "$1" != "-h" ]]; then
-    if [ -d "venv" ]; then
-        source venv/bin/activate
+    if [ -d "${SCANNER_DIR}/venv" ]; then
+        source "${SCANNER_DIR}/venv/bin/activate"
     else
         echo -e "${COLOR_RED}ERRO: Ambiente virtual não encontrado. Execute primeiro:${COLOR_NC}"
-        echo "  ./setup.sh"
+        echo "  ${SCRIPT_DIR}/setup.sh"
         exit 1
     fi
 fi
@@ -108,12 +110,12 @@ case "${1:-help}" in
 
     custom)
         check_openvas
-        if [ ! -f "../targets.txt" ]; then
+        if [ ! -f "${PROJECT_ROOT}/targets.txt" ]; then
             echo -e "${COLOR_YELLOW}Gerando targets.txt...${COLOR_NC}"
-            cd .. && ./lab.sh export-targets && cd scanner
+            "${PROJECT_ROOT}/lab.sh" export-targets
         fi
         echo -e "${COLOR_BLUE}Escaneando IPs de targets.txt...${COLOR_NC}"
-        python3 openvas_scanner.py -f ../targets.txt "${@:2}"
+        python3 openvas_scanner.py -f "${PROJECT_ROOT}/targets.txt" "${@:2}"
         ;;
 
     single)

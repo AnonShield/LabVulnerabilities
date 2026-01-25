@@ -21,18 +21,20 @@
 set -o pipefail
 
 # Navega para o diretório do script para que os caminhos relativos funcionem
-SCANNER_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "${SCRIPT_DIR}/../.." && pwd)"
+SCANNER_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
 cd "$SCANNER_DIR"
 
 # Carrega biblioteca comum
-source "${SCANNER_DIR}/../lib/common.sh"
+source "${PROJECT_ROOT}/lib/common.sh"
 
 # Configura traps para cleanup
 setup_traps
 
-LAB_SCRIPT="../lab.sh"
-COMPOSE_FILE="../docker-compose.yml"
-STATE_FILE="./scanner_state.json"
+LAB_SCRIPT="${PROJECT_ROOT}/lab.sh"
+COMPOSE_FILE="${PROJECT_ROOT}/docker-compose.yml"
+STATE_FILE="${SCANNER_DIR}/scanner_state.json"
 
 # Alias para compatibilidade
 log_ok() { log_success "$1"; }
@@ -183,7 +185,7 @@ main() {
         else
             # 4. Executa o scan
             log_info "Iniciando scan para $ip..."
-            ./run.sh single "$ip" --config config.yaml -v --service-name "$service"
+            "${SCRIPT_DIR}/run.sh" single "$ip" --config "${SCANNER_DIR}/config.yaml" -v --service-name "$service"
             if [ $? -ne 0 ]; then
                 log_error "O scan para o serviço '$service' ($ip) falhou."
                 # Não continuamos, pois pode ser um problema com o OpenVAS
