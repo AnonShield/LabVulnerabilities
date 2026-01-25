@@ -23,8 +23,8 @@ show_banner "VULNLAB - Vulnerability Lab" "Laboratório de Aplicações Vulnerá
 # Detecta o comando docker compose
 COMPOSE_CMD=$(detect_compose_cmd) || exit 1
 
-# Configura trap para cleanup em caso de interrupção
-setup_traps
+# Nota: setup_traps removido pois interfere com exit codes em scripts simples
+# Para scripts mais complexos com cleanup, ative: setup_traps
 
 # Valida se o docker-compose.yml existe
 require_file "${SCRIPT_DIR}/docker-compose.yml" || exit 1
@@ -97,6 +97,7 @@ case "${1:-}" in
         echo ""
         echo -e "Resumo: ${COLOR_GREEN}$SUCCESS_COUNT sucesso${COLOR_NC} | ${COLOR_RED}$FAIL_COUNT falhas${COLOR_NC}"
         echo -e "${COLOR_BLUE}Aguarde os serviços iniciarem completamente.${COLOR_NC}"
+        true  # Garante exit code 0
         ;;
     
     stop)

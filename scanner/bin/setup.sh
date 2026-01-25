@@ -9,10 +9,12 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd "$SCRIPT_DIR"
+PROJECT_ROOT="$(cd "${SCRIPT_DIR}/../.." && pwd)"
+SCANNER_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
+cd "$SCANNER_DIR"
 
 # Carrega biblioteca comum
-source "${SCRIPT_DIR}/../lib/common.sh"
+source "${PROJECT_ROOT}/lib/common.sh"
 
 show_banner "OpenVAS Automated Scanner - Setup"
 
@@ -87,16 +89,13 @@ echo "Setup concluído!"
 echo ""
 echo "Para usar o scanner:"
 echo ""
-echo "  # Escanear IPs específicos"
-echo "  python3 openvas_scanner.py -i 172.30.9.1 172.30.7.1"
+echo "  # Executar o orquestrador (recomendado para scans completos)"
+echo "  ${SCRIPT_DIR}/scan_manager.sh"
 echo ""
-echo "  # Escanear de um arquivo"
-echo "  python3 openvas_scanner.py -f ../targets.txt"
+echo "  # Escanear IPs específicos (usando o wrapper)"
+echo "  ${SCRIPT_DIR}/run.sh single 172.30.9.1"
 echo ""
-echo "  # Escanear todos os containers do VulnLab"
-echo "  python3 openvas_scanner.py --auto"
-echo ""
-echo "  # Ver todas as opções"
-echo "  python3 openvas_scanner.py --help"
+echo "  # Ver todas as opções do wrapper"
+echo "  ${SCRIPT_DIR}/run.sh --help"
 echo ""
 echo "════════════════════════════════════════════════════════════════"
