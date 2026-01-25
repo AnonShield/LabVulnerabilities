@@ -1,8 +1,15 @@
 # ============================================================================
 # OpenVAS Scanner - Configuração
+#
+# Nota: As credenciais podem ser sobrescritas por variáveis de ambiente:
+#   - GVM_HOST, GVM_PORT, GVM_USERNAME, GVM_PASSWORD
+#
+# Para usar variáveis de ambiente, crie um arquivo .env na raiz do projeto
+# baseado no .env.example
 # ============================================================================
 
 # Conexão com o GVM (Greenbone Vulnerability Manager)
+# Valores padrão - use argumentos CLI ou variáveis de ambiente para sobrescrever
 host: "127.0.0.1"
 port: 9390
 username: "admin"

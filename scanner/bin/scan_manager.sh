@@ -3,7 +3,7 @@
 # VulnLab Scan Orchestrator - Gerenciador de Scans Sequenciais
 #
 # Autor: VulnLab Project
-# Versão: 1.0.0
+# Versão: 1.1.0
 #
 # Este script gerencia o ciclo de vida dos containers do VulnLab para
 # escanear um por vez, economizando recursos de sistema (RAM).
@@ -24,34 +24,18 @@ set -o pipefail
 SCANNER_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCANNER_DIR"
 
+# Carrega biblioteca comum
+source "${SCANNER_DIR}/../lib/common.sh"
+
+# Configura traps para cleanup
+setup_traps
+
 LAB_SCRIPT="../lab.sh"
 COMPOSE_FILE="../docker-compose.yml"
 STATE_FILE="./scanner_state.json"
 
-# Cores
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-BLUE='\033[0;34m'
-YELLOW='\033[0;33m'
-NC='\033[0m'
-
-# --- Funções Auxiliares ---
-
-log_info() {
-    echo -e "${BLUE}INFO: $1${NC}"
-}
-
-log_ok() {
-    echo -e "${GREEN}OK: $1${NC}"
-}
-
-log_warn() {
-    echo -e "${YELLOW}WARN: $1${NC}"
-}
-
-log_error() {
-    echo -e "${RED}ERROR: $1${NC}"
-}
+# Alias para compatibilidade
+log_ok() { log_success "$1"; }
 
 # Verifica se os scripts e arquivos necessários existem
 check_deps() {
@@ -142,17 +126,48 @@ main() {
         log_info "============================================================="
 
         # 1. Inicia o container
-        log_info "Subindo o container para o serviço '$service'ப்பான"
+        log_info "Subindo o container para o serviço '$service'..."
         "$LAB_SCRIPT" start "$service" >/dev/null 2>&1
         if [ $? -ne 0 ]; then
             log_error "Falha ao iniciar o serviço '$service'. Pulando."
             continue
         fi
 
-        # 2. Aguarda e obtém o IP
-        log_info "Aguardando 15s para o container estabilizar..."
-        sleep 15
-        
+        # 2. Aguarda o container ficar saudável
+        log_info "Aguardando o container ficar saudável..."
+        local wait_time=0
+        local max_wait=120 # Timeout de 2 minutos
+        local container_id
+        container_id=$(docker-compose -f "$COMPOSE_FILE" ps -q "$service")
+
+        while [ $wait_time -lt $max_wait ]; do
+            local health_status
+            health_status=$(docker inspect -f '{{if .State.Health}}{{.State.Health.Status}}{{else}}no-healthcheck{{end}}' "$container_id")
+            
+            if [ "$health_status" == "healthy" ]; then
+                log_ok "Container está saudável!"
+                break
+            fi
+            
+            # Se não há healthcheck, consideramos pronto após 20s
+            if [ "$health_status" == "no-healthcheck" ]; then
+                log_warn "Serviço '$service' não possui health check. Aguardando 20s."
+                sleep 20
+                break
+            fi
+
+            sleep 5
+            wait_time=$((wait_time + 5))
+            echo -n "."
+        done
+        echo "" # Nova linha após os pontos de espera
+
+        if [ $wait_time -ge $max_wait ]; then
+            log_error "Timeout: O container para o serviço '$service' não ficou saudável em $max_wait segundos. Pulando."
+            "$LAB_SCRIPT" stop "$service" >/dev/null 2>&1
+            continue
+        fi
+
         local ip
         ip=$(get_container_ip "$service")
         if [ -z "$ip" ]; then
@@ -176,7 +191,7 @@ main() {
         fi
         
         # 5. Para o container para liberar recursos
-        log_info "Derrubando o container para o serviço '$service'ப்பான"
+        log_info "Derrubando o container para o serviço '$service'..."
         "$LAB_SCRIPT" stop "$service" >/dev/null 2>&1
         log_ok "Serviço '$service' parado."
         

@@ -1,59 +1,80 @@
+# =============================================================================
+# VulnLab - .gitignore
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Arquivos de Ambiente e Credenciais (IMPORTANTE!)
+# -----------------------------------------------------------------------------
+.env
+.env.local
+*.env
+
+# -----------------------------------------------------------------------------
 # Python
-venv/
-openvas_venv/
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-# Docker
-.dockerignore
-
-# Build artifacts
-build/
-dist/
-
-# Generated files
-targets.txt
-targets_full.txt
-run_containers.sh
-inventory_full.csv
-
-# Logs
-logs/
-start.log
-*.log
-
-# IDE / Editor specific
-.vscode/
-.idea/
-*.swp
-*.swo
-failed_containers.csv
-
-# Ambientes Virtuais Python
+# -----------------------------------------------------------------------------
 venv/
 *venv/
-openvas_venv/
-
-# Arquivos de log e estado
-*.log
-logs/
-scanner/logs/
-scanner_state.json
-
-# Relatórios e saídas
-scanner/reports/
-targets.txt
-relatorio_host.pdf
-
-# Arquivos de cache e compilados Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
 
-# Arquivos locais de desenvolvimento
-a.sh
-.claude/
+# -----------------------------------------------------------------------------
+# Logs e Estado
+# -----------------------------------------------------------------------------
+logs/
+*.log
+scanner/logs/
+scanner_state.json
+scanner/scanner_state.json
+
+# -----------------------------------------------------------------------------
+# Relatórios e Saídas Geradas
+# -----------------------------------------------------------------------------
+scanner/reports/
+targets.txt
+targets_full.txt
+inventory_full.csv
+relatorio_host.pdf
+
+# -----------------------------------------------------------------------------
+# Arquivos Temporários e de Build
+# -----------------------------------------------------------------------------
+build/
+dist/
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+
+# -----------------------------------------------------------------------------
+# IDE e Editores
+# -----------------------------------------------------------------------------
 .vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.claude/
+
+# -----------------------------------------------------------------------------
+# Docker
+# -----------------------------------------------------------------------------
+.dockerignore
+
+# -----------------------------------------------------------------------------
+# Arquivos Locais de Desenvolvimento
+# -----------------------------------------------------------------------------
+a.sh
+run_containers.sh
+failed_containers.csv
+
+# -----------------------------------------------------------------------------
+# Sistema Operacional
+# -----------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
