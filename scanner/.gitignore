@@ -1,0 +1,13 @@
+# Ambiente virtual Python
+venv/
+
+# Arquivos de estado e logs do scanner
+scanner_state.json
+logs/
+
+# Relatórios gerados
+reports/
+
+# Arquivos de cache Python
+__pycache__/
+*.pyc

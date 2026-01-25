@@ -30,3 +30,7 @@ start.log
 *.swp
 *.swo
 failed_containers.csv
+
+# Arquivos locais
+a.sh
+relatorio_host.pdf
