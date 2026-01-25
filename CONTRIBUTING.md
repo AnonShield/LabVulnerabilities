@@ -1,108 +1,108 @@
-# Guia de Contribuição - VulnLab
+# Contributing Guide - VulnLab
 
-Obrigado por considerar contribuir com o VulnLab! Este documento fornece diretrizes e boas práticas para contribuições.
+Thank you for considering contributing to VulnLab! This document provides guidelines and best practices for contributions.
 
-## Sumário
+## Table of Contents
 
-- [Código de Conduta](#código-de-conduta)
-- [Como Contribuir](#como-contribuir)
-- [Padrões de Código](#padrões-de-código)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Adicionando Novos Containers](#adicionando-novos-containers)
-- [Testes](#testes)
-- [Processo de Review](#processo-de-review)
-
----
-
-## Código de Conduta
-
-Este projeto segue princípios de respeito mútuo e colaboração construtiva. Esperamos que todos os contribuidores:
-
-- Sejam respeitosos e inclusivos
-- Aceitem críticas construtivas
-- Foquem no que é melhor para a comunidade
-- Mantenham comunicação profissional
+- [Code of Conduct](#code-of-conduct)
+- [How to Contribute](#how-to-contribute)
+- [Code Standards](#code-standards)
+- [Project Structure](#project-structure)
+- [Adding New Containers](#adding-new-containers)
+- [Testing](#testing)
+- [Review Process](#review-process)
 
 ---
 
-## Como Contribuir
+## Code of Conduct
 
-### 1. Reportando Bugs
+This project adheres to principles of mutual respect and constructive collaboration. We expect all contributors to:
 
-Antes de reportar um bug:
+- Be respectful and inclusive
+- Accept constructive criticism
+- Focus on what is best for the community
+- Maintain professional communication
 
-1. Verifique se já não existe uma issue aberta
-2. Tente reproduzir o problema em uma instalação limpa
-3. Colete informações relevantes (versão do Docker, SO, logs)
+---
 
-Ao criar a issue, inclua:
+## How to Contribute
 
-- Descrição clara do problema
-- Passos para reproduzir
-- Comportamento esperado vs. atual
-- Logs relevantes
-- Ambiente (SO, versões)
+### 1. Reporting Bugs
 
-### 2. Sugerindo Melhorias
+Before reporting a bug:
 
-Para sugestões de melhorias:
+1. Check if an open issue already exists.
+2. Try to reproduce the problem in a clean installation.
+3. Collect relevant information (Docker version, OS, logs).
 
-1. Verifique se já não existe uma issue similar
-2. Descreva claramente a melhoria proposta
-3. Explique o benefício para o projeto
-4. Se possível, sugira uma implementação
+When creating the issue, include:
+
+- A clear description of the problem.
+- Steps to reproduce.
+- Expected vs. actual behavior.
+- Relevant logs.
+- Environment (OS, versions).
+
+### 2. Suggesting Enhancements
+
+For enhancement suggestions:
+
+1. Check if a similar issue already exists.
+2. Clearly describe the proposed enhancement.
+3. Explain the benefit to the project.
+4. If possible, suggest an implementation.
 
 ### 3. Pull Requests
 
-#### Processo
+#### Process
 
-1. Fork o repositório
-2. Crie uma branch para sua feature: `git checkout -b feature/nova-funcionalidade`
-3. Faça commits atômicos e descritivos
-4. Atualize a documentação se necessário
-5. Teste suas alterações
-6. Abra um Pull Request
+1. Fork the repository.
+2. Create a branch for your feature: `git checkout -b feature/new-feature`
+3. Make atomic and descriptive commits.
+4. Update the documentation if necessary.
+5. Test your changes.
+6. Open a Pull Request.
 
-#### Convenções de Commits
+#### Commit Conventions
 
-Use mensagens de commit claras e descritivas:
+Use clear and descriptive commit messages:
 
 ```
-tipo(escopo): descrição breve
+type(scope): short description
 
-Corpo opcional com mais detalhes.
+Optional body with more details.
 
 Refs: #123
 ```
 
-**Tipos:**
-- `feat`: Nova funcionalidade
-- `fix`: Correção de bug
-- `docs`: Alterações na documentação
-- `style`: Formatação (não afeta código)
-- `refactor`: Refatoração de código
-- `test`: Adição ou correção de testes
-- `chore`: Tarefas de manutenção
+**Types:**
+- `feat`: A new feature
+- `fix`: A bug fix
+- `docs`: Documentation only changes
+- `style`: Formatting (does not affect code)
+- `refactor`: Code refactoring
+- `test`: Adding or correcting tests
+- `chore`: Maintenance tasks
 
-**Exemplos:**
+**Examples:**
 ```
-feat(scanner): adiciona suporte a múltiplos formatos de relatório
-fix(lab): corrige parsing de IPs no comando ips
-docs(readme): atualiza seção de instalação
+feat(scanner): add support for multiple report formats
+fix(lab): correct IP parsing in the ips command
+docs(readme): update installation section
 ```
 
 ---
 
-## Padrões de Código
+## Code Standards
 
 ### Bash Scripts
 
-- Use `#!/bin/bash` como shebang
-- Inclua `set -e` para falhar em erros
-- Use a biblioteca comum `lib/common.sh`
-- Prefira variáveis com nomes em MAIÚSCULAS
-- Documente funções com comentários
-- Use `shellcheck` para validação
+- Use `#!/bin/bash` as the shebang.
+- Include `set -e` to fail on errors.
+- Use the common library `lib/common.sh`.
+- Prefer uppercase variable names.
+- Document functions with comments.
+- Use `shellcheck` for validation.
 
 ```bash
 #!/bin/bash
@@ -110,166 +110,166 @@ set -e
 
 source "$(dirname "${BASH_SOURCE[0]}")/lib/common.sh"
 
-# Descrição da função
+# Description of the function
 # Args:
-#   $1 - Primeiro argumento
-minha_funcao() {
+#   $1 - First argument
+my_function() {
     local arg1="$1"
-    # implementação
+    # implementation
 }
 ```
 
 ### Python
 
-- Siga PEP 8
-- Use type hints
-- Documente funções com docstrings (Google style)
-- Mantenha funções pequenas e focadas
-- Use logging em vez de print
+- Follow PEP 8.
+- Use type hints.
+- Document functions with docstrings (Google style).
+- Keep functions small and focused.
+- Use logging instead of print.
 
 ```python
-def minha_funcao(param: str) -> bool:
+def my_function(param: str) -> bool:
     """
-    Descrição breve da função.
+    Brief description of the function.
 
     Args:
-        param: Descrição do parâmetro.
+        param: Description of the parameter.
 
     Returns:
-        Descrição do retorno.
+        Description of the return value.
 
     Raises:
-        ValueError: Quando param é inválido.
+        ValueError: When param is invalid.
     """
     pass
 ```
 
 ### Docker Compose
 
-- Use versão 3.8
-- Mantenha binding em `127.0.0.1` para todas as portas
-- Use nomes descritivos para services
-- Documente CVEs conhecidas nos comentários
-- Organize services por categoria
+- Use version 3.8 or higher.
+- Keep binding to `127.0.0.1` for all ports.
+- Use descriptive names for services.
+- Document known CVEs in comments.
+- Organize services by category.
 
 ---
 
-## Estrutura do Projeto
+## Project Structure
 
 ```
 trabalho/
-├── lab.sh                 # Script principal de orquestração
-├── docker-compose.yml     # Definição dos containers
+├── lab.sh                 # Main orchestration script
+├── docker-compose.yml     # Container definitions
 ├── lib/
-│   └── common.sh          # Biblioteca comum de funções
+│   └── common.sh          # Common functions library
 ├── scanner/
-│   ├── openvas_scanner.py # Scanner principal
-│   ├── run.sh             # Wrapper do scanner
-│   └── config.yaml        # Configuração
+│   ├── openvas_scanner.py # Main scanner
+│   ├── run.sh             # Scanner wrapper
+│   └── config.yaml        # Configuration
 ├── scripts/
-│   └── generate_compose.py # Utilitários
+│   └── generate_compose.py # Utilities
 ├── docs/
-│   └── ...                # Documentação adicional
-└── README.md              # Documentação principal
+│   └── ...                # Additional documentation
+└── README.md              # Main documentation
 ```
 
 ---
 
-## Adicionando Novos Containers
+## Adding New Containers
 
 ### Checklist
 
-Antes de adicionar um novo container vulnerável:
+Before adding a new vulnerable container:
 
-- [ ] Verifique se não duplica um existente
-- [ ] Confirme que a imagem está disponível no Docker Hub
-- [ ] Documente as vulnerabilidades conhecidas
-- [ ] Teste localmente
-- [ ] Atualize a documentação
+- [ ] Verify it doesn't duplicate an existing one.
+- [ ] Confirm the image is available on Docker Hub.
+- [ ] Document the known vulnerabilities.
+- [ ] Test locally.
+- [ ] Update the documentation.
 
 ### Template
 
-Adicione ao `docker-compose.yml`:
+Add to `docker-compose.yml`:
 
 ```yaml
-  # CATEGORIA: Nome do Serviço
-  # Vulnerabilidades: CVE-XXXX-YYYY, CVE-ZZZZ-WWWW
-  nome-servico:
-    image: imagem:versao
-    container_name: nome-servico
+  # CATEGORY: Service Name
+  # Vulnerabilities: CVE-XXXX-YYYY, CVE-ZZZZ-WWWW
+  service-name:
+    image: image:version
+    container_name: service-name
     networks:
       vulnnet:
         ipv4_address: 172.30.X.Y
     ports:
-      - 127.0.0.1:PORTA_HOST:PORTA_CONTAINER
+      - "127.0.0.1:HOST_PORT:CONTAINER_PORT"
     environment:
-      - VARIAVEL=valor
+      - VARIABLE=value
 ```
 
-### Atualize o README
+### Update the README
 
-Adicione uma entrada na seção apropriada do catálogo:
+Add an entry in the appropriate section of the catalog:
 
-| Serviço | Imagem | IP | Porta | Vulnerabilidades |
-|---------|--------|-----|-------|------------------|
-| `nome-servico` | `imagem:versao` | `172.30.X.Y` | `PORTA:PORTA` | CVE-XXXX-YYYY |
-
----
-
-## Testes
-
-### Testes Manuais
-
-Antes de submeter um PR:
-
-1. **Sintaxe do Compose:**
-   ```bash
-   docker-compose config
-   ```
-
-2. **Inicialização:**
-   ```bash
-   ./lab.sh start nome-servico
-   ./lab.sh status
-   ```
-
-3. **Conectividade:**
-   ```bash
-   ./lab.sh ips | grep nome-servico
-   curl http://127.0.0.1:PORTA
-   ```
-
-4. **Scripts Bash:**
-   ```bash
-   shellcheck lab.sh scanner/*.sh
-   ```
-
-5. **Scripts Python:**
-   ```bash
-   python -m py_compile scanner/openvas_scanner.py
-   ```
+| Service      | Image          | IP           | Port      | Vulnerabilities |
+|--------------|----------------|--------------|-----------|-----------------|
+| `service-name` | `image:version`| `172.30.X.Y` | `PORT:PORT` | CVE-XXXX-YYYY   |
 
 ---
 
-## Processo de Review
+## Testing
 
-### O que os revisores verificam
+### Manual Tests
 
-1. **Funcionalidade:** O código faz o que deveria?
-2. **Segurança:** Segue as práticas de segurança (binding localhost, etc.)?
-3. **Qualidade:** Código limpo, documentado, sem duplicação?
-4. **Testes:** Foi testado localmente?
-5. **Documentação:** README atualizado se necessário?
+Before submitting a PR:
 
-### Tempo de Review
+1.  **Compose Syntax:**
+    ```bash
+    docker-compose config
+    ```
 
-- PRs simples: 1-3 dias
-- PRs complexos: 3-7 dias
+2.  **Initialization:**
+    ```bash
+    ./lab.sh start service-name
+    ./lab.sh status
+    ```
+
+3.  **Connectivity:**
+    ```bash
+    ./lab.sh ips | grep service-name
+    curl http://127.0.0.1:PORT
+    ```
+
+4.  **Bash Scripts:**
+    ```bash
+    shellcheck lab.sh scanner/*.sh
+    ```
+
+5.  **Python Scripts:**
+    ```bash
+    python -m py_compile scanner/openvas_scanner.py
+    ```
 
 ---
 
-## Dúvidas?
+## Review Process
 
-Se tiver dúvidas sobre como contribuir, abra uma issue com a tag `question` ou entre em contato com os mantenedores.
+### What reviewers check for
 
-Agradecemos sua contribuição!
+1.  **Functionality:** Does the code do what it should?
+2.  **Security:** Does it follow security best practices (localhost binding, etc.)?
+3.  **Quality:** Is the code clean, documented, and without duplication?
+4.  **Tests:** Was it tested locally?
+5.  **Documentation:** Is the README updated if necessary?
+
+### Review Time
+
+-   Simple PRs: 1-3 days
+-   Complex PRs: 3-7 days
+
+---
+
+## Questions?
+
+If you have questions about contributing, open an issue with the `question` tag or contact the maintainers.
+
+We appreciate your contribution!
