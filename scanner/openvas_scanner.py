@@ -54,7 +54,7 @@ class Config:
 
     # Scan
     scan_config_name: str = "Full and fast"
-    port_list_name: str = "All TCP and Nmap top 100 UDP"
+    port_list_name: str = "All IANA assigned TCP and UDP" # Corrigido para o nome exato
     scanner_name: str = "OpenVAS Default"
 
     # Relatórios
@@ -295,7 +295,7 @@ class GVMClient:
         port_lists = gmp.get_port_lists()
         for pl in port_lists.findall(".//port_list"):
             name = pl.find("name").text
-            if name and "all tcp" in name.lower():
+            if name and name.lower() == self.config.port_list_name.lower(): # Busca pelo nome exato configurado
                 self._cache["port_list_id"] = pl.get("id")
                 self.logger.debug(f"Usando port list: {name}")
                 break
