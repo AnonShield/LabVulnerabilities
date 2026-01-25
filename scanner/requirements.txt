@@ -1,0 +1,13 @@
+# OpenVAS Scanner - Dependências Python
+# Instalar com: pip3 install -r requirements.txt
+
+# GVM Tools - Biblioteca oficial da Greenbone
+gvm-tools>=24.0.0
+
+# Parsing de configuração YAML
+PyYAML>=6.0
+
+# Dependências opcionais para desenvolvimento
+# pytest>=7.0.0      # Testes
+# black>=23.0.0      # Formatação
+# mypy>=1.0.0        # Type checking
