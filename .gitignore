@@ -31,6 +31,29 @@ start.log
 *.swo
 failed_containers.csv
 
-# Arquivos locais
-a.sh
+# Ambientes Virtuais Python
+venv/
+*venv/
+openvas_venv/
+
+# Arquivos de log e estado
+*.log
+logs/
+scanner/logs/
+scanner_state.json
+
+# Relatórios e saídas
+scanner/reports/
+targets.txt
 relatorio_host.pdf
+
+# Arquivos de cache e compilados Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Arquivos locais de desenvolvimento
+a.sh
+.claude/
+.vscode/
