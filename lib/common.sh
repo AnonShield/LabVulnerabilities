@@ -1,28 +1,28 @@
 #!/bin/bash
 # =============================================================================
-# VulnLab - Biblioteca Comum de Funções
+# VulnLab - Common Functions Library
 #
-# Este módulo contém funções utilitárias compartilhadas entre os scripts
-# do VulnLab. Aplica o princípio DRY (Don't Repeat Yourself).
+# This module contains shared utility functions for VulnLab scripts.
+# It applies the DRY (Don't Repeat Yourself) principle.
 #
-# Uso:
+# Usage:
 #   source "$(dirname "${BASH_SOURCE[0]}")/lib/common.sh"
-#   ou
-#   source "/caminho/para/lib/common.sh"
+#   or
+#   source "/path/to/lib/common.sh"
 #
-# Autor: VulnLab Project
-# Versão: 1.0.0
+# Author: VulnLab Project
+# Version: 1.1.0
 # =============================================================================
 
-# Evita recarregar se já foi carregado
+# Avoid reloading if already loaded
 [[ -n "${_VULNLAB_COMMON_LOADED:-}" ]] && return 0
 readonly _VULNLAB_COMMON_LOADED=1
 
 # =============================================================================
-# CORES ANSI
+# ANSI COLORS
 # =============================================================================
 
-# Cores para output colorido no terminal
+# Colors for terminal output
 readonly COLOR_RED='\033[0;31m'
 readonly COLOR_GREEN='\033[0;32m'
 readonly COLOR_YELLOW='\033[1;33m'
@@ -32,45 +32,45 @@ readonly COLOR_MAGENTA='\033[0;35m'
 readonly COLOR_NC='\033[0m'  # No Color / Reset
 
 # =============================================================================
-# FUNÇÕES DE LOGGING
+# LOGGING FUNCTIONS
 # =============================================================================
 
-# Log de informação (azul)
+# Log info message (blue)
 log_info() {
     echo -e "${COLOR_BLUE}[INFO]${COLOR_NC} $1"
 }
 
-# Log de sucesso (verde)
+# Log success message (green)
 log_success() {
     echo -e "${COLOR_GREEN}[OK]${COLOR_NC} $1"
 }
 
-# Log de aviso (amarelo)
+# Log warning message (yellow)
 log_warn() {
     echo -e "${COLOR_YELLOW}[WARN]${COLOR_NC} $1"
 }
 
-# Log de erro (vermelho)
+# Log error message (red)
 log_error() {
     echo -e "${COLOR_RED}[ERROR]${COLOR_NC} $1" >&2
 }
 
-# Log de debug (ciano) - só exibe se DEBUG=1
+# Log debug message (cyan) - only displays if DEBUG=1
 log_debug() {
     [[ "${DEBUG:-0}" == "1" ]] && echo -e "${COLOR_CYAN}[DEBUG]${COLOR_NC} $1"
 }
 
-# Log de progresso (amarelo, sem quebra de linha para atualizações)
+# Log progress message (yellow)
 log_progress() {
     echo -e "${COLOR_YELLOW}[INFO]${COLOR_NC} $1"
 }
 
 # =============================================================================
-# FUNÇÕES DE VALIDAÇÃO
+# VALIDATION FUNCTIONS
 # =============================================================================
 
-# Valida se uma string é um endereço IPv4 válido
-# Uso: is_valid_ipv4 "192.168.1.1" && echo "válido"
+# Validate if a string is a valid IPv4 address
+# Usage: is_valid_ipv4 "192.168.1.1" && echo "valid"
 is_valid_ipv4() {
     local ip="$1"
     local regex='^([0-9]{1,3}\.){3}[0-9]{1,3}$'
@@ -79,7 +79,7 @@ is_valid_ipv4() {
         return 1
     fi
 
-    # Verifica se cada octeto está entre 0 e 255
+    # Check if each octet is between 0 and 255
     local IFS='.'
     read -ra octets <<< "$ip"
     for octet in "${octets[@]}"; do
@@ -91,91 +91,99 @@ is_valid_ipv4() {
     return 0
 }
 
-# Verifica se um comando existe no sistema
-# Uso: require_command "docker" || exit 1
+# Check if a command exists on the system
+# Usage: require_command "docker" || exit 1
 require_command() {
     local cmd="$1"
     if ! command -v "$cmd" &> /dev/null; then
-        log_error "Comando '$cmd' não encontrado. Por favor, instale-o primeiro."
+        log_error "Command '$cmd' not found. Please install it first."
         return 1
     fi
     return 0
 }
 
-# Verifica se um arquivo existe
-# Uso: require_file "/path/to/file" || exit 1
+# Check if a file exists
+# Usage: require_file "/path/to/file" || exit 1
 require_file() {
     local file="$1"
     if [[ ! -f "$file" ]]; then
-        log_error "Arquivo não encontrado: $file"
+        log_error "File not found: $file"
         return 1
     fi
     return 0
 }
 
-# Verifica se um diretório existe
-# Uso: require_dir "/path/to/dir" || exit 1
+# Check if a directory exists
+# Usage: require_dir "/path/to/dir" || exit 1
 require_dir() {
     local dir="$1"
     if [[ ! -d "$dir" ]]; then
-        log_error "Diretório não encontrado: $dir"
+        log_error "Directory not found: $dir"
         return 1
     fi
     return 0
 }
 
 # =============================================================================
-# FUNÇÕES DE DOCKER
+# DOCKER FUNCTIONS
 # =============================================================================
 
-# Detecta o comando docker compose (v1 ou v2)
-# Uso: COMPOSE_CMD=$(detect_compose_cmd)
+# Detect the docker compose command (v1 or v2)
+# Usage: COMPOSE_CMD=$(detect_compose_cmd)
 detect_compose_cmd() {
     if docker compose version &> /dev/null; then
         echo "docker compose"
     elif docker-compose --version &> /dev/null; then
         echo "docker-compose"
     else
-        log_error "Docker Compose não está instalado ou não está no PATH!"
+        log_error "Docker Compose is not installed or not in the PATH!"
         return 1
     fi
 }
 
-# Verifica se um container Docker está rodando
-# Uso: is_container_running "container_name" && echo "rodando"
+# Check if a Docker container is running
+# Usage: is_container_running "container_name" && echo "running"
 is_container_running() {
     local container="$1"
     docker ps --format '{{.Names}}' 2>/dev/null | grep -q "^${container}$"
 }
 
-# Obtém o IP de um container Docker
-# Uso: ip=$(get_container_ip "container_name")
+# Get the IP address of a Docker container
+# Usage: ip=$(get_container_ip "container_name")
 get_container_ip() {
     local container="$1"
     docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' "$container" 2>/dev/null
 }
 
+# Get the IP addresses of running containers
+# Usage: get_container_ips
+get_container_ips() {
+    local COMPOSE_CMD
+    COMPOSE_CMD=$(detect_compose_cmd) || exit 1
+    $COMPOSE_CMD ps -q | xargs -I {} docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' {} | sed 's/^\///' | sort -t. -k1,1n -k2,2n -k3,3n -k4,4n
+}
+
 # =============================================================================
-# FUNÇÕES DE LIMPEZA E TRAP
+# CLEANUP AND TRAP FUNCTIONS
 # =============================================================================
 
-# Array para armazenar funções de cleanup
+# Array to store cleanup functions
 declare -a _CLEANUP_FUNCTIONS=()
 
-# Registra uma função para ser executada no cleanup
-# Uso: register_cleanup "minha_funcao_cleanup"
+# Register a function to be executed on cleanup
+# Usage: register_cleanup "my_cleanup_function"
 register_cleanup() {
     _CLEANUP_FUNCTIONS+=("$1")
 }
 
-# Executa todas as funções de cleanup registradas
+# Run all registered cleanup functions
 _run_cleanup() {
     local exit_code=$?
-    log_debug "Executando cleanup (exit code: $exit_code)..."
+    log_debug "Running cleanup (exit code: $exit_code)..."
 
     for func in "${_CLEANUP_FUNCTIONS[@]}"; do
         if declare -f "$func" > /dev/null; then
-            log_debug "Executando: $func"
+            log_debug "Executing: $func"
             "$func" || true
         fi
     done
@@ -183,20 +191,20 @@ _run_cleanup() {
     exit $exit_code
 }
 
-# Configura traps para sinais de interrupção
-# Uso: setup_traps (chamar no início do script)
+# Setup traps for interrupt signals
+# Usage: setup_traps (call at the beginning of the script)
 setup_traps() {
     trap '_run_cleanup' EXIT
-    trap 'log_warn "Interrupção recebida (SIGINT)"; exit 130' INT
-    trap 'log_warn "Terminação recebida (SIGTERM)"; exit 143' TERM
+    trap 'log_warn "Interruption received (SIGINT)"; exit 130' INT
+    trap 'log_warn "Termination received (SIGTERM)"; exit 143' TERM
 }
 
 # =============================================================================
-# FUNÇÕES UTILITÁRIAS
+# UTILITY FUNCTIONS
 # =============================================================================
 
-# Exibe um banner decorativo
-# Uso: show_banner "Título" "Subtítulo"
+# Display a decorative banner
+# Usage: show_banner "Title" "Subtitle"
 show_banner() {
     local title="${1:-VulnLab}"
     local subtitle="${2:-}"
@@ -209,23 +217,23 @@ show_banner() {
     echo -e "${COLOR_NC}"
 }
 
-# Aguarda um número de segundos com feedback visual
-# Uso: wait_with_message 10 "Aguardando serviço inicializar"
+# Wait for a number of seconds with visual feedback
+# Usage: wait_with_message 10 "Waiting for service to start"
 wait_with_message() {
     local seconds="$1"
-    local message="${2:-Aguardando}"
+    local message="${2:-Waiting}"
 
     for ((i=seconds; i>0; i--)); do
-        printf "\r${COLOR_YELLOW}%s... %ds restantes${COLOR_NC}   " "$message" "$i"
+        printf "\r${COLOR_YELLOW}%s... %ds remaining${COLOR_NC}   " "$message" "$i"
         sleep 1
     done
-    printf "\r%-60s\r" " "  # Limpa a linha
+    printf "\r%-60s\r" " "  # Clear the line
 }
 
-# Confirma uma ação com o usuário (y/n)
-# Uso: confirm "Deseja continuar?" && echo "Sim" || echo "Não"
+# Confirm an action with the user (y/n)
+# Usage: confirm "Do you want to continue?" && echo "Yes" || echo "No"
 confirm() {
-    local prompt="${1:-Continuar?}"
+    local prompt="${1:-Continue?}"
     local response
 
     echo -en "${COLOR_YELLOW}${prompt} [y/N]: ${COLOR_NC}"
@@ -241,23 +249,23 @@ confirm() {
     esac
 }
 
-# Cria diretório se não existir
-# Uso: ensure_dir "/path/to/dir"
+# Create a directory if it doesn't exist
+# Usage: ensure_dir "/path/to/dir"
 ensure_dir() {
     local dir="$1"
     if [[ ! -d "$dir" ]]; then
         mkdir -p "$dir"
-        log_debug "Diretório criado: $dir"
+        log_debug "Directory created: $dir"
     fi
 }
 
-# Obtém o diretório raiz do projeto VulnLab
-# Uso: PROJECT_ROOT=$(get_project_root)
+# Get the root directory of the VulnLab project
+# Usage: PROJECT_ROOT=$(get_project_root)
 get_project_root() {
     local script_dir
     script_dir="$(cd "$(dirname "${BASH_SOURCE[1]:-${BASH_SOURCE[0]}}")" && pwd)"
 
-    # Sobe até encontrar o docker-compose.yml
+    # Go up until docker-compose.yml is found
     local dir="$script_dir"
     while [[ "$dir" != "/" ]]; do
         if [[ -f "$dir/docker-compose.yml" ]] && [[ -f "$dir/lab.sh" ]]; then
@@ -267,14 +275,14 @@ get_project_root() {
         dir="$(dirname "$dir")"
     done
 
-    # Fallback: retorna o diretório pai do lib/
+    # Fallback: return the parent directory of lib/
     dirname "$script_dir"
 }
 
 # =============================================================================
-# INICIALIZAÇÃO
+# INITIALIZATION
 # =============================================================================
 
-# Define PROJECT_ROOT se não estiver definido
+# Define PROJECT_ROOT if not set
 : "${PROJECT_ROOT:=$(get_project_root)}"
 export PROJECT_ROOT
