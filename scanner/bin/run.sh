@@ -2,24 +2,23 @@
 # ============================================================================
 # OpenVAS Scanner - Run Script
 # Wrapper conveniente para executar o scanner
+#
+# Autor: VulnLab Project
+# Versão: 1.1.0
 # ============================================================================
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
-# Cores
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[0;33m'
-BLUE='\033[0;34m'
-NC='\033[0m'
+# Carrega biblioteca comum
+source "${SCRIPT_DIR}/../lib/common.sh"
 
 # Ativar ambiente virtual (exceto para setup e help)
 if [[ "$1" != "setup" && "$1" != "help" && "$1" != "--help" && "$1" != "-h" ]]; then
     if [ -d "venv" ]; then
         source venv/bin/activate
     else
-        echo -e "${RED}ERRO: Ambiente virtual não encontrado. Execute primeiro:${NC}"
+        echo -e "${COLOR_RED}ERRO: Ambiente virtual não encontrado. Execute primeiro:${COLOR_NC}"
         echo "  ./setup.sh"
         exit 1
     fi
@@ -54,7 +53,7 @@ show_help() {
 
 check_openvas() {
     if ! docker ps --format '{{.Names}}' | grep -q "^openvas$"; then
-        echo -e "${RED}ERRO: Container OpenVAS não está rodando!${NC}"
+        echo -e "${COLOR_RED}ERRO: Container OpenVAS não está rodando!${COLOR_NC}"
         echo "Inicie com: docker start openvas"
         exit 1
     fi
@@ -63,13 +62,13 @@ check_openvas() {
 case "${1:-help}" in
     all)
         check_openvas
-        echo -e "${BLUE}Escaneando TODOS os containers do VulnLab...${NC}"
+        echo -e "${COLOR_BLUE}Escaneando TODOS os containers do VulnLab...${COLOR_NC}"
         python3 openvas_scanner.py --auto "${@:2}"
         ;;
 
     webapps)
         check_openvas
-        echo -e "${BLUE}Escaneando aplicações web...${NC}"
+        echo -e "${COLOR_BLUE}Escaneando aplicações web...${COLOR_NC}"
         python3 openvas_scanner.py -i \
             172.30.7.1 \
             172.30.7.2 \
@@ -84,7 +83,7 @@ case "${1:-help}" in
 
     databases)
         check_openvas
-        echo -e "${BLUE}Escaneando bancos de dados...${NC}"
+        echo -e "${COLOR_BLUE}Escaneando bancos de dados...${COLOR_NC}"
         python3 openvas_scanner.py -i \
             172.30.14.1 \
             172.30.14.2 \
@@ -97,7 +96,7 @@ case "${1:-help}" in
 
     cves)
         check_openvas
-        echo -e "${BLUE}Escaneando containers com CVEs críticas...${NC}"
+        echo -e "${COLOR_BLUE}Escaneando containers com CVEs críticas...${COLOR_NC}"
         python3 openvas_scanner.py -i \
             172.30.3.1 \
             172.30.4.1 \
@@ -110,26 +109,26 @@ case "${1:-help}" in
     custom)
         check_openvas
         if [ ! -f "../targets.txt" ]; then
-            echo -e "${YELLOW}Gerando targets.txt...${NC}"
+            echo -e "${COLOR_YELLOW}Gerando targets.txt...${COLOR_NC}"
             cd .. && ./lab.sh export-targets && cd scanner
         fi
-        echo -e "${BLUE}Escaneando IPs de targets.txt...${NC}"
+        echo -e "${COLOR_BLUE}Escaneando IPs de targets.txt...${COLOR_NC}"
         python3 openvas_scanner.py -f ../targets.txt "${@:2}"
         ;;
 
     single)
         check_openvas
         if [ -z "$2" ]; then
-            echo -e "${RED}ERRO: Especifique o IP${NC}"
+            echo -e "${COLOR_RED}ERRO: Especifique o IP${COLOR_NC}"
             echo "Uso: $0 single 172.30.9.1"
             exit 1
         fi
-        echo -e "${BLUE}Escaneando $2...${NC}"
+        echo -e "${COLOR_BLUE}Escaneando $2...${COLOR_NC}"
         python3 openvas_scanner.py -i "$2" "${@:3}"
         ;;
 
     status)
-        echo -e "${BLUE}Status dos scans:${NC}"
+        echo -e "${COLOR_BLUE}Status dos scans:${COLOR_NC}"
         if [ -f "scanner_state.json" ]; then
             python3 -c "
 import json
@@ -158,14 +157,14 @@ for ip, scan in list(scans.items())[-5:]:
 
     resume)
         check_openvas
-        echo -e "${BLUE}Retomando scans pendentes...${NC}"
+        echo -e "${COLOR_BLUE}Retomando scans pendentes...${COLOR_NC}"
         python3 openvas_scanner.py --auto
         ;;
 
     reset)
-        echo -e "${YELLOW}Limpando estado...${NC}"
+        echo -e "${COLOR_YELLOW}Limpando estado...${COLOR_NC}"
         rm -f scanner_state.json
-        echo -e "${GREEN}Estado limpo. Próximo scan começará do zero.${NC}"
+        echo -e "${COLOR_GREEN}Estado limpo. Próximo scan começará do zero.${COLOR_NC}"
         ;;
 
     setup)
@@ -177,7 +176,7 @@ for ip, scan in list(scans.items())[-5:]:
         ;;
 
     *)
-        echo -e "${RED}Comando desconhecido: $1${NC}"
+        echo -e "${COLOR_RED}Comando desconhecido: $1${COLOR_NC}"
         show_help
         exit 1
         ;;

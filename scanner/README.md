@@ -26,7 +26,7 @@ A principal funcionalidade é um orquestrador que gerencia o ciclo de vida dos c
 Antes do primeiro uso, execute o script de setup a partir do diretório `scanner/`:
 
 ```bash
-./setup.sh
+./bin/setup.sh
 ```
 
 Isso irá:
@@ -43,13 +43,13 @@ Este método é ideal para máquinas com recursos limitados, pois garante que ap
 Para iniciar o processo completo, execute:
 
 ```bash
-./scan_manager.sh
+./bin/scan_manager.sh
 ```
 
 O script irá:
 1. Ler todos os serviços do `docker-compose.yml` principal.
 2. Para cada serviço:
-   - Iniciar o container.
+   - Iniciar o container e aguardar ficar saudável.
    - Obter seu IP.
    - Chamar o `openvas_scanner.py` para escanear aquele IP.
    - Parar o container.
@@ -63,16 +63,16 @@ O script `run.sh` permite executar scans mais específicos, mas **não gerencia 
 
 ```bash
 # Escanear um único IP (assumindo que o container já está rodando)
-./run.sh single 172.30.9.1
+./bin/run.sh single 172.30.9.1
 
 # Escanear um grupo pré-definido de aplicações web
-./run.sh webapps
+./bin/run.sh webapps
 
 # Ver o status dos scans concluídos
-./run.sh status
+./bin/run.sh status
 
 # Limpar o estado para começar do zero
-./run.sh reset
+./bin/run.sh reset
 ```
 
 ## Relatórios

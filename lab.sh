@@ -2,41 +2,43 @@
 # =============================================================================
 # VULNLAB - Laboratório de Aplicações Vulneráveis
 # Ambiente para pentest, treinamento em segurança e testes com scanners
+#
+# Autor: VulnLab Project
+# Versão: 2.0.0
 # =============================================================================
 
 set -e
 
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-BLUE='\033[0;34m'
-NC='\033[0m' # No Color
+# Carrega biblioteca comum
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "${SCRIPT_DIR}/lib/common.sh"
 
-echo -e "${BLUE}"
-echo "╔════════════════════════════════════════════════════════════════════════╗"
-echo "║                    VULNLAB - Vulnerability Lab                         ║"
-echo "║          Laboratório de Aplicações Vulneráveis para Pentest            ║"
-echo "╚════════════════════════════════════════════════════════════════════════╝"
-echo -e "${NC}"
+# Compatibilidade com funções antigas (alias)
+show_progress() { log_progress "$1"; }
+show_success() { log_success "$1"; }
 
-# Detect docker compose command
-if docker compose version &> /dev/null; then
-    COMPOSE_CMD="docker compose"
-elif docker-compose --version &> /dev/null; then
-    COMPOSE_CMD="docker-compose"
-else
-    echo -e "${RED}[ERRO] Docker Compose não está instalado ou não está no PATH!${NC}"
-    exit 1
-fi
+# Banner
+show_banner "VULNLAB - Vulnerability Lab" "Laboratório de Aplicações Vulneráveis para Pentest"
 
-# Função para mostrar progresso
-show_progress() {
-    echo -e "${YELLOW}[INFO] $1${NC}"
-}
+# Detecta o comando docker compose
+COMPOSE_CMD=$(detect_compose_cmd) || exit 1
 
-# Função para sucesso
-show_success() {
-    echo -e "${GREEN}[OK] $1${NC}"
+# Configura trap para cleanup em caso de interrupção
+setup_traps
+
+# Valida se o docker-compose.yml existe
+require_file "${SCRIPT_DIR}/docker-compose.yml" || exit 1
+
+# Função para validar se um serviço existe no compose
+validate_service() {
+    local service="$1"
+    local all_services
+    all_services=$($COMPOSE_CMD config --services 2>/dev/null)
+    if ! echo "$all_services" | grep -qx "$service"; then
+        log_warn "Serviço '$service' não encontrado no docker-compose.yml"
+        return 1
+    fi
+    return 0
 }
 
 # Menu principal
@@ -50,33 +52,51 @@ case "${1:-}" in
     start)
         # Shift past the 'start' command
         shift
-        
+
         if [ "$#" -gt 0 ]; then
             show_progress "Iniciando um subconjunto de containers (Smoke Test)..."
-            SERVICES="$@"
+            SERVICES=""
+            # Valida cada serviço antes de adicionar à lista
+            for svc in "$@"; do
+                if validate_service "$svc"; then
+                    SERVICES="$SERVICES $svc"
+                fi
+            done
+            SERVICES=$(echo "$SERVICES" | xargs)  # Trim whitespace
+            if [ -z "$SERVICES" ]; then
+                log_error "Nenhum serviço válido especificado."
+                exit 1
+            fi
         else
             show_progress "Iniciando todos os containers de forma resiliente..."
             SERVICES=$($COMPOSE_CMD config --services)
         fi
-        
+
         # Certifique-se de que o diretório de logs exista
-        mkdir -p logs
+        ensure_dir logs
+
+        # Contador de sucesso/falha
+        SUCCESS_COUNT=0
+        FAIL_COUNT=0
 
         for SERVICE in $SERVICES; do
-            echo -e "${YELLOW}--> Iniciando serviço: $SERVICE...${NC}"
+            echo -e "${COLOR_YELLOW}--> Iniciando serviço: $SERVICE...${COLOR_NC}"
             # Tenta iniciar o serviço, redirecionando a saída para /dev/null
-            if $COMPOSE_CMD up -d --no-deps $SERVICE &> /dev/null; then
-                echo -e "${GREEN}    Serviço $SERVICE iniciado com sucesso.${NC}"
+            if $COMPOSE_CMD up -d --no-deps "$SERVICE" &> /dev/null; then
+                echo -e "${COLOR_GREEN}    Serviço $SERVICE iniciado com sucesso.${COLOR_NC}"
+                ((SUCCESS_COUNT++)) || true
             else
-                echo -e "${RED}    ERRO ao iniciar o serviço $SERVICE. Salvando log em logs/$SERVICE.log${NC}"
+                echo -e "${COLOR_RED}    ERRO ao iniciar o serviço $SERVICE. Salvando log em logs/$SERVICE.log${COLOR_NC}"
                 # Se falhar, execute novamente para capturar o log de erro
-                $COMPOSE_CMD up --no-deps $SERVICE &> logs/$SERVICE.log || true
+                $COMPOSE_CMD up --no-deps "$SERVICE" &> "logs/$SERVICE.log" 2>&1 || true
+                ((FAIL_COUNT++)) || true
             fi
         done
-        
+
         show_success "Processo de inicialização concluído!"
         echo ""
-        echo -e "${BLUE}Aguarde os serviços iniciarem completamente.${NC}"
+        echo -e "Resumo: ${COLOR_GREEN}$SUCCESS_COUNT sucesso${COLOR_NC} | ${COLOR_RED}$FAIL_COUNT falhas${COLOR_NC}"
+        echo -e "${COLOR_BLUE}Aguarde os serviços iniciarem completamente.${COLOR_NC}"
         ;;
     
     stop)
@@ -86,16 +106,16 @@ case "${1:-}" in
         ;;
     
     status)
-        echo -e "${BLUE}=== STATUS DE TODOS OS CONTAINERS ===${NC}"
+        echo -e "${COLOR_BLUE}=== STATUS DE TODOS OS CONTAINERS ===${COLOR_NC}"
         $COMPOSE_CMD ps -a
         echo ""
-        echo -e "${BLUE}=== RESUMO ===${NC}"
+        echo -e "${COLOR_BLUE}=== RESUMO ===${COLOR_NC}"
         # Usar docker diretamente para contagem mais confiável
         RUNNING=$(docker ps -q 2>/dev/null | wc -l)
         TOTAL=$(docker ps -a -q 2>/dev/null | wc -l)
         EXITED=$((TOTAL - RUNNING))
-        echo -e "Em execução: ${GREEN}$RUNNING${NC}"
-        echo -e "Parados/Com erro: ${RED}$EXITED${NC}"
+        echo -e "Em execução: ${COLOR_GREEN}$RUNNING${COLOR_NC}"
+        echo -e "Parados/Com erro: ${COLOR_RED}$EXITED${COLOR_NC}"
         echo -e "Total: $TOTAL"
         ;;
     
@@ -108,12 +128,12 @@ case "${1:-}" in
         ;;
     
     ips)
-        echo -e "${BLUE}=== IPs DOS CONTAINERS ===${NC}"
+        echo -e "${COLOR_BLUE}=== IPs DOS CONTAINERS ===${COLOR_NC}"
         $COMPOSE_CMD ps -q | xargs -I {} docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' {} | sed 's/^\///' | sort -t. -k1,1n -k2,2n -k3,3n -k4,4n
         ;;
     
     scan-targets)
-        echo -e "${BLUE}=== LISTA DE ALVOS PARA OPENVAS ===${NC}"
+        echo -e "${COLOR_BLUE}=== LISTA DE ALVOS PARA OPENVAS ===${COLOR_NC}"
         echo "Redes: 172.30.0.0/15"
         echo ""
         echo "Ou use os IPs específicos:"
@@ -121,7 +141,7 @@ case "${1:-}" in
         ;;
     
     export-targets)
-        echo -e "${BLUE}Exportando lista de IPs para targets.txt...${NC}"
+        echo -e "${COLOR_BLUE}Exportando lista de IPs para targets.txt...${COLOR_NC}"
         $COMPOSE_CMD ps -q | xargs -I {} docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' {} | grep -v '^$' | sort -t. -k1,1n -k2,2n -k3,3n -k4,4n > targets.txt
         show_success "Arquivo targets.txt criado com $(wc -l < targets.txt) alvos!"
         ;;
@@ -141,7 +161,7 @@ case "${1:-}" in
         ;;
     
     stats)
-        echo -e "${BLUE}=== ESTATÍSTICAS DE RECURSOS ===${NC}"
+        echo -e "${COLOR_BLUE}=== ESTATÍSTICAS DE RECURSOS ===${COLOR_NC}"
         docker stats --no-stream
         ;;
         

@@ -1,6 +1,9 @@
 #!/bin/bash
 # ============================================================================
 # OpenVAS Scanner - Setup Script
+#
+# Autor: VulnLab Project
+# Versão: 1.1.0
 # ============================================================================
 
 set -e
@@ -8,10 +11,10 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
-echo "╔════════════════════════════════════════════════════════════════╗"
-echo "║           OpenVAS Automated Scanner - Setup                    ║"
-echo "╚════════════════════════════════════════════════════════════════╝"
-echo ""
+# Carrega biblioteca comum
+source "${SCRIPT_DIR}/../lib/common.sh"
+
+show_banner "OpenVAS Automated Scanner - Setup"
 
 # Verificar Python
 echo "[1/5] Verificando Python..."
