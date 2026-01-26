@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker)](https://docs.docker.com/compose/)
-[![Containers](https://img.shields.io/badge/Containers-149-red)](./docker-compose.yml)
+[![Containers](https://img.shields.io/badge/Containers-158-red)](./docker-compose.yml)
 [![Security](https://img.shields.io/badge/Security-Training-orange)](https://owasp.org/)
 
 ---
@@ -37,7 +37,7 @@
 
 ## Overview
 
-**VulnLab** is a containerized lab environment with **149 intentionally vulnerable Docker services**, designed for information security professionals, pentesters, students, and researchers.
+**VulnLab** is a containerized lab environment with **158 intentionally vulnerable Docker services**, designed for information security professionals, pentesters, students, and researchers.
 
 ### Project Goals
 
@@ -53,7 +53,7 @@
 
 ### Key Features
 
-- **149 containers** distributed in 11 categories
+- **158 containers** distributed in 11 categories
 - **Isolated network** (`172.30.0.0/15`) for segmentation
 - **Binding to localhost** (`127.0.0.1`) for security
 - **Unified management** via `lab.sh` script
@@ -281,6 +281,12 @@ Intentionally vulnerable web applications for pentesting, CTF, and OWASP Top 10 
 | `sqli` | `acgpiano/sqli-labs` | `172.31.1.107` | `8110:80` | SQL Injection Labs |
 | `httpbin` | `kennethreitz/httpbin` | `172.30.50.1` | `8048:80` | HTTP Request/Response testing |
 | `echo-server` | `jmalloc/echo-server` | `172.30.50.3` | `8050:8080` | Echo server for testing |
+| `metasploitable3` | `kirscht/metasploitable3-ub1404` | `172.30.1.3` | - | Metasploitable3 Ubuntu 14.04 (SSH, FTP, SMB, HTTP) |
+| `metasploitable3-alt` | `heywoodlh/vulnerable` | `172.30.1.4` | `2124:21, 2225:22, 8112:80, 3307:3306` | Alternative Metasploitable3-based host |
+| `dsvw` | `appsecco/dsvw` | `172.30.40.1` | `8008:8000` | Damn Small Vulnerable Web (lightweight) |
+| `xvwa` | `marcositu/xvwa2020` | `172.30.40.9` | `8108:80` | Xtreme Vulnerable Web Application |
+| `bwapp-alt` | `hackersploit/bwapp-docker` | `172.30.9.4` | `8111:80` | bWAPP alternative image |
+| `railsgoat-alt` | `vulnerables/web-owasp-railsgoat` | `172.30.8.5` | `3007:80` | RailsGoat alternative image |
 
 **Default Credentials:**
 
@@ -290,6 +296,8 @@ Intentionally vulnerable web applications for pentesting, CTF, and OWASP Top 10 
 | WebGoat | `guest` | `guest` |
 | bWAPP | `bee` | `bug` |
 | Juice Shop | Register new user | - |
+| Metasploitable3 | `msfadmin` | `msfadmin` |
+| XVWA | - | No authentication |
 
 ---
 
@@ -304,6 +312,8 @@ Containers configured to reproduce specific documented CVE vulnerabilities.
 | `ssh-cve-2016-6515` | `vulnerables/cve-2016-6515` | `172.30.3.1` | `2222:22` | CVE-2016-6515 | **HIGH (7.5)** |
 | `tomcat-ghostcat` | `vulhub/tomcat:9.0.30` | `172.30.44.2` | `8047:8080, 8009:8009` | CVE-2020-1938 | **CRITICAL (9.8)** |
 | `apache-cve-2021-41773` | `httpd:2.4.49` | `172.30.6.3` | `8882:80` | CVE-2021-41773 | **CRITICAL (9.8)** |
+| `shellshock-lab` | `vulnerables/cve-2014-6271` | `172.30.40.7` | `8104:80` | CVE-2014-6271 | **CRITICAL (9.8)** |
+| `heartbleed-lab` | `vulnerables/cve-2014-0160` | `172.30.40.8` | `8105:443` | CVE-2014-0160 | **CRITICAL (9.8)** |
 
 **CVE Details:**
 
@@ -314,6 +324,8 @@ Containers configured to reproduce specific documented CVE vulnerabilities.
 | CVE-2016-6515 | OpenSSH DoS | DoS via password length | Denial of Service |
 | CVE-2020-1938 | Ghostcat | File Read/Include | Sensitive File Read |
 | CVE-2021-41773 | Apache Path Traversal | Path Traversal/RCE | File Read/RCE |
+| CVE-2014-6271 | Shellshock | Bash Code Injection | Remote Code Execution |
+| CVE-2014-0160 | Heartbleed | OpenSSL Memory Leak | Private Key/Data Leak |
 
 ---
 
@@ -516,6 +528,8 @@ Network protocols, proxy, DNS, LDAP, cache, and other infrastructure services.
 | `pma48` | `phpmyadmin:4.8` | `172.31.1.89` | `8102:80` | CVE-2018-12613 (LFI) |
 | `adminer` | `adminer:4.2` | `172.30.26.2` | `8027:8080` | SSRF |
 | `adminer42` | `adminer:4.2` | `172.31.1.90` | `8103:8080` | Login bypass |
+| `phpldapadmin-remote-dump` | `vulnerables/phpldapadmin-remote-dump` | `172.30.40.5` | `8094:80` | RCE via LDAP dump (CVE) |
+| `metasploit-emulator` | `vulnerables/metasploit-vulnerability-emulator` | `172.30.40.6` | `8100:80` | Emulates 100+ vulnerable services |
 
 ---
 
