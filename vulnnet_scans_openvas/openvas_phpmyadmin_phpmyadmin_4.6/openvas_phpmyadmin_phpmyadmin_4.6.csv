@@ -1,0 +1,690 @@
+IP,Hostname,Port,Port Protocol,CVSS,Severity,QoD,Solution Type,NVT Name,Summary,Specific Result,NVT OID,CVEs,Task ID,Task Name,Timestamp,Result ID,Impact,Solution,Affected Software/OS,Vulnerability Insight,Vulnerability Detection Method,Product Detection Result,BIDs,CERTs,Other References
+      172.31.1.88,pma46.trabalho_vulnnet,80,tcp,0.0,Log,80,"","favicon.ico Based Fingerprinting (HTTP)","HTTP based fingerprinting of web applications based on an
+  exposed 'favicon.ico' file.","The following apps/services were identified:
+
+""phpmyadmin (4.6.x)"" fingerprinted by the file: ""http://pma46.trabalho_vulnnet/favicon.ico""
+
+",1.3.6.1.4.1.25623.1.0.20108,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,969a671d-69b4-4124-a129-9dbb7f636ca4,"","","","","
+Details:
+'favicon.ico' Based Fingerprinting (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.20108)
+Version used: 2023-08-01T13:29:10Z
+","","","",""
+172.31.1.88,pma46.trabalho_vulnnet,80,tcp,0.0,Log,70,"","Allowed HTTP Methods Enumeration","Enumerates which HTTP methods are allowed.","The following list contains the URLs and corresponding supported HTTP methods.
+
+URL                            | HTTP Methods
+----------------------------------------------
+http://pma46.trabalho_vulnnet/ | GET,HEAD,POST
+",1.3.6.1.4.1.25623.1.0.153974,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,728e8dac-dbd3-4480-81e3-4b261f585290,"","","","'- Basic HTTP methods: GET, HEAD, POST, PUT, DELETE, CONNECT,
+  OPTIONS, TRACE
+
+  - Extended HTTP methods: ACL, BASELINE-CONTROL, BIND, CHECKIN, CHECKOUT, COPY, LABEL, LINK, LOCK,
+  MERGE, MKACTIVITY, MKCALENDAR, MKCOL, MKREDIRECTREF, MKWORKSPACE, MOVE, ORDERPATCH, PATCH, PRI,
+  PROPFIND, PROPPATCH, REBIND, REPORT, SEARCH, UNBIND, UNCHECKOUT, UNLINK, UNLOCK, UPDATE,
+  UPDATEREDIRECTREF, VERSION-CONTROL","Sends multiple HTTP requests and checks the responses.
+
+  Disclaimer:
+
+  - This enumeration script is provided 'as is' (means no support is given) and only providing
+  rudimentary information about the possible enabled methods
+
+  - This script doesn't guarantee completeness or full reliability
+
+  For more reliable determination of the enabled HTTP methods please inspect the configuration of
+  the web server manually and directly on the target host.
+Details:
+Allowed HTTP Methods Enumeration
+(OID: 1.3.6.1.4.1.25623.1.0.153974)
+Version used: 2025-02-28T05:38:49Z
+","","","",""
+172.31.1.88,pma46.trabalho_vulnnet,80,tcp,4.8,Medium,80,"Workaround","Cleartext Transmission of Sensitive Information via HTTP","The host / application transmits sensitive information (username, passwords) in
+  cleartext via HTTP.","The following input fields were identified (URL:input name):
+
+http://pma46.trabalho_vulnnet/:pma_password
+",1.3.6.1.4.1.25623.1.0.108440,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,b0402c42-5968-46a1-a51d-85dde606f754,"An attacker could use this situation to compromise or eavesdrop on the
+  HTTP communication between the client and the server using a man-in-the-middle attack to get access to
+  sensitive data like usernames or passwords.","Enforce the transmission of sensitive data via an encrypted SSL/TLS connection.
+  Additionally make sure the host / application is redirecting all users to the secured SSL/TLS connection before
+  allowing to input sensitive data into the mentioned functions.","Hosts / applications which doesn't enforce the transmission of sensitive data via an
+  encrypted SSL/TLS connection.","","Evaluate previous collected information and check if the host / application is not
+  enforcing the transmission of sensitive data via an encrypted SSL/TLS connection.
+
+  The script is currently checking the following:
+
+  - HTTP Basic Authentication (Basic Auth)
+
+  - HTTP Forms (e.g. Login) with input field of type 'password'
+Details:
+Cleartext Transmission of Sensitive Information via HTTP
+(OID: 1.3.6.1.4.1.25623.1.0.108440)
+Version used: 2023-09-07T05:05:21Z
+","","","",""
+172.31.1.88,pma46.trabalho_vulnnet,,,0.0,Log,80,"","CPE Inventory","This routine uses information collected by other routines about
+  CPE identities of operating systems, services and applications detected during the scan.
+
+  Note: Some CPEs for specific products might show up twice or more in the output. Background:
+
+  After a product got renamed or a specific vendor was acquired by another one it might happen that
+  a product gets a new CPE within the NVD CPE Dictionary but older entries are kept with the older
+  CPE.","172.31.1.88|cpe:/a:f5:nginx
+172.31.1.88|cpe:/a:jquery:jquery:1.11.3
+172.31.1.88|cpe:/a:jquery:jquery:2.1.4
+172.31.1.88|cpe:/a:nginx:nginx
+172.31.1.88|cpe:/a:phpmyadmin:phpmyadmin:4.6.6
+172.31.1.88|cpe:/o:linux:kernel
+
+",1.3.6.1.4.1.25623.1.0.810002,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,4380385a-ce4b-461c-838a-d835097745e9,"","","","","
+Details:
+CPE Inventory
+(OID: 1.3.6.1.4.1.25623.1.0.810002)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.31.1.88,pma46.trabalho_vulnnet,,,0.0,Log,80,"","Hostname Determination Reporting","The script reports information on how the hostname of the target
+  was determined.","Hostname determination for IP 172.31.1.88:
+
+Hostname|Source
+pma46.trabalho_vulnnet|Reverse-DNS
+",1.3.6.1.4.1.25623.1.0.108449,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,02de8ff0-c139-4000-84a1-20841c895234,"","","","","
+Details:
+Hostname Determination Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.108449)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.31.1.88,pma46.trabalho_vulnnet,80,tcp,0.0,Log,80,"","HTTP Server Banner Enumeration","This script tries to detect / enumerate different HTTP server
+  banner (e.g. from a frontend, backend or proxy server) by sending various different HTTP requests
+  (valid and invalid ones).","It was possible to enumerate the following HTTP server banner(s):
+
+Server banner | Enumeration technique
+--------------------------------------------------------------------------------
+Server: nginx | Invalid HTTP 00.5 GET request (non-existent HTTP version) to '/'
+",1.3.6.1.4.1.25623.1.0.108708,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,32ff2f8a-87eb-454b-9835-ab207a6d6b41,"","","","","
+Details:
+HTTP Server Banner Enumeration
+(OID: 1.3.6.1.4.1.25623.1.0.108708)
+Version used: 2025-01-31T15:39:24Z
+","","","",""
+172.31.1.88,pma46.trabalho_vulnnet,,,2.1,Low,80,"Mitigation","ICMP Timestamp Reply Information Disclosure","The remote host responded to an ICMP timestamp request.","The following response / ICMP packet has been received:
+- ICMP Type: 14
+- ICMP Code: 0
+",1.3.6.1.4.1.25623.1.0.103190,"CVE-1999-0524",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,b34c938c-c231-44e1-b39d-336370196e7d,"This information could theoretically be used to exploit weak
+  time-based random number generators in other services.","Various mitigations are possible:
+
+  - Disable the support for ICMP timestamp on the remote host completely
+
+  - Protect the remote host by a firewall, and block ICMP packets passing through the firewall in
+  either direction (either completely or only for untrusted networks)","","The Timestamp Reply is an ICMP message which replies to a
+  Timestamp message. It consists of the originating timestamp sent by the sender of the Timestamp as
+  well as a receive timestamp and a transmit timestamp.","Sends an ICMP Timestamp (Type 13) request and checks if a
+  Timestamp Reply (Type 14) is received.
+Details:
+ICMP Timestamp Reply Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.103190)
+Version used: 2025-01-21T05:37:33Z
+","","","DFN-CERT-2014-0658,CB-K15/1514,CB-K14/0632",""
+172.31.1.88,pma46.trabalho_vulnnet,,,0.0,Log,70,"","IP Forwarding Enabled - Active Check","Checks if the remote host has IP forwarding enabled.","It was possible to route a TCP packet through the target host and received an answer which means IP forwarding is enabled.
+",1.3.6.1.4.1.25623.1.0.147205,"CVE-1999-0511",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,30ad3b4e-73f6-48cf-ac84-4dc6edb021b7,"","","","","Sends a crafted Local Link Layer (LLL) frame and checks the
+  response.
+Details:
+IP Forwarding Enabled - Active Check
+(OID: 1.3.6.1.4.1.25623.1.0.147205)
+Version used: 2021-12-03T08:27:06Z
+","","","",""
+172.31.1.88,pma46.trabalho_vulnnet,80,tcp,6.1,Medium,30,"VendorFix","jQuery 1.0.3 < 3.5.0 XSS Vulnerability","jQuery is prone to a cross-site scripting (XSS) vulnerability
+  when appending HTML containing option elements.","Installed version: 2.1.4
+Fixed version:     3.5.0
+Installation
+path / port:       /js/get_scripts.js.php?scripts%5B%5D=jquery/jquery-2.1.4.min.js
+
+Detection info (see OID: 1.3.6.1.4.1.25623.1.0.150658 for more info):
+- Identified file: http://pma46.trabalho_vulnnet/js/get_scripts.js.php?scripts%5B%5D=jquery/jquery-2.1.4.min.js
+- Referenced at:   http://pma46.trabalho_vulnnet/
+",1.3.6.1.4.1.25623.1.0.143813,"CVE-2020-11023",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,bc33039d-a7ec-408f-a5ab-33b84c1d7dc7,"","Update to version 3.5.0 or later.","jQuery versions starting from 1.0.3 and prior to version
+  3.5.0.","Passing HTML containing <option> elements from untrusted
+  sources - even after sanitizing them - to one of jQuery's DOM manipulation methods (i.e. .html(),
+  .append(), and others) may execute untrusted code.","Checks if a vulnerable version is present on the target host.
+Details:
+jQuery 1.0.3 < 3.5.0 XSS Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.143813)
+Version used: 2025-01-31T15:39:24Z
+","","","DFN-CERT-2025-2802,DFN-CERT-2025-1803,DFN-CERT-2025-0559,DFN-CERT-2025-0497,DFN-CERT-2025-0373,DFN-CERT-2025-0348,DFN-CERT-2024-2743,DFN-CERT-2023-2027,DFN-CERT-2023-1197,DFN-CERT-2023-0481,DFN-CERT-2023-0245,DFN-CERT-2022-1988,DFN-CERT-2022-1610,DFN-CERT-2022-0119,DFN-CERT-2022-0074,DFN-CERT-2021-2348,DFN-CERT-2021-1687,DFN-CERT-2021-1111,DFN-CERT-2021-0820,DFN-CERT-2021-0633,DFN-CERT-2021-0563,DFN-CERT-2021-0545,DFN-CERT-2020-2776,DFN-CERT-2020-2423,DFN-CERT-2020-2335,DFN-CERT-2020-2287,DFN-CERT-2020-2227,DFN-CERT-2020-2209,DFN-CERT-2020-2074,DFN-CERT-2020-1743,DFN-CERT-2020-1712,DFN-CERT-2020-1509,DFN-CERT-2020-1506,DFN-CERT-2020-1433,DFN-CERT-2020-1163,DFN-CERT-2020-1099,WID-SEC-2025-1459,WID-SEC-2024-3191,WID-SEC-2024-1872,WID-SEC-2023-0239,WID-SEC-2023-0063,WID-SEC-2022-1347,WID-SEC-2022-1189,WID-SEC-2022-0757,WID-SEC-2022-0732,CB-K21/1085,CB-K21/1067,CB-K21/0418,CB-K20/1049,CB-K20/1027,CB-K20/1025,CB-K20/1024,CB-K20/1021,CB-K20/1008,CB-K20/0870,CB-K20/0800,CB-K20/0705,CB-K20/0521",""
+172.31.1.88,pma46.trabalho_vulnnet,80,tcp,6.1,Medium,30,"VendorFix","jQuery 1.0.3 < 3.5.0 XSS Vulnerability","jQuery is prone to a cross-site scripting (XSS) vulnerability
+  when appending HTML containing option elements.","Installed version: 1.11.3
+Fixed version:     3.5.0
+Installation
+path / port:       /doc/html/_static/jquery.js
+
+Detection info (see OID: 1.3.6.1.4.1.25623.1.0.150658 for more info):
+- Identified file: http://pma46.trabalho_vulnnet/doc/html/_static/jquery.js
+- Referenced at:   http://pma46.trabalho_vulnnet/doc/html/
+",1.3.6.1.4.1.25623.1.0.143813,"CVE-2020-11023",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,98d27eb1-638c-4360-990a-d2c0b6304edc,"","Update to version 3.5.0 or later.","jQuery versions starting from 1.0.3 and prior to version
+  3.5.0.","Passing HTML containing <option> elements from untrusted
+  sources - even after sanitizing them - to one of jQuery's DOM manipulation methods (i.e. .html(),
+  .append(), and others) may execute untrusted code.","Checks if a vulnerable version is present on the target host.
+Details:
+jQuery 1.0.3 < 3.5.0 XSS Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.143813)
+Version used: 2025-01-31T15:39:24Z
+","","","DFN-CERT-2025-2802,DFN-CERT-2025-1803,DFN-CERT-2025-0559,DFN-CERT-2025-0497,DFN-CERT-2025-0373,DFN-CERT-2025-0348,DFN-CERT-2024-2743,DFN-CERT-2023-2027,DFN-CERT-2023-1197,DFN-CERT-2023-0481,DFN-CERT-2023-0245,DFN-CERT-2022-1988,DFN-CERT-2022-1610,DFN-CERT-2022-0119,DFN-CERT-2022-0074,DFN-CERT-2021-2348,DFN-CERT-2021-1687,DFN-CERT-2021-1111,DFN-CERT-2021-0820,DFN-CERT-2021-0633,DFN-CERT-2021-0563,DFN-CERT-2021-0545,DFN-CERT-2020-2776,DFN-CERT-2020-2423,DFN-CERT-2020-2335,DFN-CERT-2020-2287,DFN-CERT-2020-2227,DFN-CERT-2020-2209,DFN-CERT-2020-2074,DFN-CERT-2020-1743,DFN-CERT-2020-1712,DFN-CERT-2020-1509,DFN-CERT-2020-1506,DFN-CERT-2020-1433,DFN-CERT-2020-1163,DFN-CERT-2020-1099,WID-SEC-2025-1459,WID-SEC-2024-3191,WID-SEC-2024-1872,WID-SEC-2023-0239,WID-SEC-2023-0063,WID-SEC-2022-1347,WID-SEC-2022-1189,WID-SEC-2022-0757,WID-SEC-2022-0732,CB-K21/1085,CB-K21/1067,CB-K21/0418,CB-K20/1049,CB-K20/1027,CB-K20/1025,CB-K20/1024,CB-K20/1021,CB-K20/1008,CB-K20/0870,CB-K20/0800,CB-K20/0705,CB-K20/0521",""
+172.31.1.88,pma46.trabalho_vulnnet,80,tcp,6.1,Medium,30,"VendorFix","jQuery 1.2 < 3.5.0 XSS Vulnerability","jQuery is prone to a cross-site scripting (XSS) vulnerability in
+  jQuery.htmlPrefilter and related methods.","Installed version: 2.1.4
+Fixed version:     3.5.0
+Installation
+path / port:       /js/get_scripts.js.php?scripts%5B%5D=jquery/jquery-2.1.4.min.js
+
+Detection info (see OID: 1.3.6.1.4.1.25623.1.0.150658 for more info):
+- Identified file: http://pma46.trabalho_vulnnet/js/get_scripts.js.php?scripts%5B%5D=jquery/jquery-2.1.4.min.js
+- Referenced at:   http://pma46.trabalho_vulnnet/
+",1.3.6.1.4.1.25623.1.0.143812,"CVE-2020-11022",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,03a4d081-a09f-4dea-8938-5b2e59465daa,"","Update to version 3.5.0 or later.","jQuery versions starting from 1.2 and prior to version
+  3.5.0.","Passing HTML from untrusted sources - even after sanitizing it -
+  to one of jQuery's DOM manipulation methods (i.e. .html(), .append(), and others) may execute
+  untrusted code.","Checks if a vulnerable version is present on the target host.
+Details:
+jQuery 1.2 < 3.5.0 XSS Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.143812)
+Version used: 2023-07-14T05:06:08Z
+","","","DFN-CERT-2025-1803,DFN-CERT-2025-0559,DFN-CERT-2025-0041,DFN-CERT-2023-2027,DFN-CERT-2023-1197,DFN-CERT-2023-0481,DFN-CERT-2023-0245,DFN-CERT-2022-1988,DFN-CERT-2022-1670,DFN-CERT-2022-0869,DFN-CERT-2022-0074,DFN-CERT-2021-2190,DFN-CERT-2021-1111,DFN-CERT-2021-0828,DFN-CERT-2021-0826,DFN-CERT-2021-0819,DFN-CERT-2021-0633,DFN-CERT-2021-0545,DFN-CERT-2021-0140,DFN-CERT-2021-0138,DFN-CERT-2021-0135,DFN-CERT-2021-0132,DFN-CERT-2020-2423,DFN-CERT-2020-2335,DFN-CERT-2020-2305,DFN-CERT-2020-2286,DFN-CERT-2020-2227,DFN-CERT-2020-2209,DFN-CERT-2020-2130,DFN-CERT-2020-2074,DFN-CERT-2020-2015,DFN-CERT-2020-2001,DFN-CERT-2020-1838,DFN-CERT-2020-1812,DFN-CERT-2020-1712,DFN-CERT-2020-1509,DFN-CERT-2020-1506,DFN-CERT-2020-1433,DFN-CERT-2020-1163,DFN-CERT-2020-1161,DFN-CERT-2020-1138,DFN-CERT-2020-1099,WID-SEC-2025-1087,WID-SEC-2024-3217,WID-SEC-2024-1872,WID-SEC-2023-0239,WID-SEC-2023-0063,WID-SEC-2022-1767,WID-SEC-2022-1347,WID-SEC-2022-0740,WID-SEC-2022-0732,WID-SEC-2022-0624,CB-K22/0463,CB-K21/1085,CB-K21/0071,CB-K21/0070,CB-K21/0069,CB-K21/0067,CB-K21/0061,CB-K21/0059,CB-K20/1049,CB-K20/1030,CB-K20/1027,CB-K20/1025,CB-K20/1023,CB-K20/1008,CB-K20/0870,CB-K20/0800,CB-K20/0705,CB-K20/0521",""
+172.31.1.88,pma46.trabalho_vulnnet,80,tcp,6.1,Medium,30,"VendorFix","jQuery 1.2 < 3.5.0 XSS Vulnerability","jQuery is prone to a cross-site scripting (XSS) vulnerability in
+  jQuery.htmlPrefilter and related methods.","Installed version: 1.11.3
+Fixed version:     3.5.0
+Installation
+path / port:       /doc/html/_static/jquery.js
+
+Detection info (see OID: 1.3.6.1.4.1.25623.1.0.150658 for more info):
+- Identified file: http://pma46.trabalho_vulnnet/doc/html/_static/jquery.js
+- Referenced at:   http://pma46.trabalho_vulnnet/doc/html/
+",1.3.6.1.4.1.25623.1.0.143812,"CVE-2020-11022",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,de88fcbf-ab95-469c-91ab-0bf03189d239,"","Update to version 3.5.0 or later.","jQuery versions starting from 1.2 and prior to version
+  3.5.0.","Passing HTML from untrusted sources - even after sanitizing it -
+  to one of jQuery's DOM manipulation methods (i.e. .html(), .append(), and others) may execute
+  untrusted code.","Checks if a vulnerable version is present on the target host.
+Details:
+jQuery 1.2 < 3.5.0 XSS Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.143812)
+Version used: 2023-07-14T05:06:08Z
+","","","DFN-CERT-2025-1803,DFN-CERT-2025-0559,DFN-CERT-2025-0041,DFN-CERT-2023-2027,DFN-CERT-2023-1197,DFN-CERT-2023-0481,DFN-CERT-2023-0245,DFN-CERT-2022-1988,DFN-CERT-2022-1670,DFN-CERT-2022-0869,DFN-CERT-2022-0074,DFN-CERT-2021-2190,DFN-CERT-2021-1111,DFN-CERT-2021-0828,DFN-CERT-2021-0826,DFN-CERT-2021-0819,DFN-CERT-2021-0633,DFN-CERT-2021-0545,DFN-CERT-2021-0140,DFN-CERT-2021-0138,DFN-CERT-2021-0135,DFN-CERT-2021-0132,DFN-CERT-2020-2423,DFN-CERT-2020-2335,DFN-CERT-2020-2305,DFN-CERT-2020-2286,DFN-CERT-2020-2227,DFN-CERT-2020-2209,DFN-CERT-2020-2130,DFN-CERT-2020-2074,DFN-CERT-2020-2015,DFN-CERT-2020-2001,DFN-CERT-2020-1838,DFN-CERT-2020-1812,DFN-CERT-2020-1712,DFN-CERT-2020-1509,DFN-CERT-2020-1506,DFN-CERT-2020-1433,DFN-CERT-2020-1163,DFN-CERT-2020-1161,DFN-CERT-2020-1138,DFN-CERT-2020-1099,WID-SEC-2025-1087,WID-SEC-2024-3217,WID-SEC-2024-1872,WID-SEC-2023-0239,WID-SEC-2023-0063,WID-SEC-2022-1767,WID-SEC-2022-1347,WID-SEC-2022-0740,WID-SEC-2022-0732,WID-SEC-2022-0624,CB-K22/0463,CB-K21/1085,CB-K21/0071,CB-K21/0070,CB-K21/0069,CB-K21/0067,CB-K21/0061,CB-K21/0059,CB-K20/1049,CB-K20/1030,CB-K20/1027,CB-K20/1025,CB-K20/1023,CB-K20/1008,CB-K20/0870,CB-K20/0800,CB-K20/0705,CB-K20/0521",""
+172.31.1.88,pma46.trabalho_vulnnet,80,tcp,6.1,Medium,30,"VendorFix","jQuery < 3.0.0 XSS Vulnerability","jQuery is prone to a cross-site scripting (XSS)
+  vulnerability.","Installed version: 1.11.3
+Fixed version:     3.0.0
+Installation
+path / port:       /doc/html/_static/jquery.js
+
+Detection info (see OID: 1.3.6.1.4.1.25623.1.0.150658 for more info):
+- Identified file: http://pma46.trabalho_vulnnet/doc/html/_static/jquery.js
+- Referenced at:   http://pma46.trabalho_vulnnet/doc/html/
+",1.3.6.1.4.1.25623.1.0.141635,"CVE-2015-9251",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,278e5ef7-a57d-4c93-b931-669181dca975,"","Update to version 3.0.0 or later.","jQuery prior to version 3.0.0.","When a cross-domain Ajax request is performed without the
+  dataType option, causing text/javascript responses to be executed.","Checks if a vulnerable version is present on the target host.
+Details:
+jQuery < 3.0.0 XSS Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.141635)
+Version used: 2023-07-14T05:06:08Z
+","","","DFN-CERT-2023-1197,DFN-CERT-2023-0245,DFN-CERT-2020-2423,DFN-CERT-2020-2130,DFN-CERT-2020-0630,DFN-CERT-2020-0590,DFN-CERT-2020-0318,DFN-CERT-2019-2158,DFN-CERT-2019-1455,DFN-CERT-2019-0777,DFN-CERT-2019-0772,DFN-CERT-2019-0119,DFN-CERT-2019-0111,DFN-CERT-2018-2103,DFN-CERT-2018-1163,WID-SEC-2025-1660,WID-SEC-2025-1212,WID-SEC-2024-1872,WID-SEC-2024-1682,WID-SEC-2023-0239,WID-SEC-2022-0673,CB-K22/0045,CB-K20/1030,CB-K20/0309,CB-K20/0041,CB-K19/0911,CB-K19/0909,CB-K19/0615,CB-K19/0321,CB-K19/0313,CB-K19/0054,CB-K19/0052,CB-K19/0049,CB-K19/0048,CB-K19/0046,CB-K18/1006",""
+172.31.1.88,pma46.trabalho_vulnnet,80,tcp,6.1,Medium,30,"VendorFix","jQuery < 3.0.0 XSS Vulnerability","jQuery is prone to a cross-site scripting (XSS)
+  vulnerability.","Installed version: 2.1.4
+Fixed version:     3.0.0
+Installation
+path / port:       /js/get_scripts.js.php?scripts%5B%5D=jquery/jquery-2.1.4.min.js
+
+Detection info (see OID: 1.3.6.1.4.1.25623.1.0.150658 for more info):
+- Identified file: http://pma46.trabalho_vulnnet/js/get_scripts.js.php?scripts%5B%5D=jquery/jquery-2.1.4.min.js
+- Referenced at:   http://pma46.trabalho_vulnnet/
+",1.3.6.1.4.1.25623.1.0.141635,"CVE-2015-9251",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,14680cf5-9721-416e-8e4f-80a2d20b4b7e,"","Update to version 3.0.0 or later.","jQuery prior to version 3.0.0.","When a cross-domain Ajax request is performed without the
+  dataType option, causing text/javascript responses to be executed.","Checks if a vulnerable version is present on the target host.
+Details:
+jQuery < 3.0.0 XSS Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.141635)
+Version used: 2023-07-14T05:06:08Z
+","","","DFN-CERT-2023-1197,DFN-CERT-2023-0245,DFN-CERT-2020-2423,DFN-CERT-2020-2130,DFN-CERT-2020-0630,DFN-CERT-2020-0590,DFN-CERT-2020-0318,DFN-CERT-2019-2158,DFN-CERT-2019-1455,DFN-CERT-2019-0777,DFN-CERT-2019-0772,DFN-CERT-2019-0119,DFN-CERT-2019-0111,DFN-CERT-2018-2103,DFN-CERT-2018-1163,WID-SEC-2025-1660,WID-SEC-2025-1212,WID-SEC-2024-1872,WID-SEC-2024-1682,WID-SEC-2023-0239,WID-SEC-2022-0673,CB-K22/0045,CB-K20/1030,CB-K20/0309,CB-K20/0041,CB-K19/0911,CB-K19/0909,CB-K19/0615,CB-K19/0321,CB-K19/0313,CB-K19/0054,CB-K19/0052,CB-K19/0049,CB-K19/0048,CB-K19/0046,CB-K18/1006",""
+172.31.1.88,pma46.trabalho_vulnnet,80,tcp,6.1,Medium,30,"VendorFix","jQuery < 3.4.0 Object Extensions Vulnerability","jQuery is prone to multiple vulnerabilities regarding property
+  injection in Object.prototype.","Installed version: 2.1.4
+Fixed version:     3.4.0
+Installation
+path / port:       /js/get_scripts.js.php?scripts%5B%5D=jquery/jquery-2.1.4.min.js
+
+Detection info (see OID: 1.3.6.1.4.1.25623.1.0.150658 for more info):
+- Identified file: http://pma46.trabalho_vulnnet/js/get_scripts.js.php?scripts%5B%5D=jquery/jquery-2.1.4.min.js
+- Referenced at:   http://pma46.trabalho_vulnnet/
+",1.3.6.1.4.1.25623.1.0.142314,"CVE-2019-5428,CVE-2019-11358",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,042d8e3e-be77-462e-973f-28157fc5d71e,"","Update to version 3.4.0 or later. Patch diffs are available for
+  older versions.","jQuery prior to version 3.4.0.","The following flaws exist:
+
+  - CVE-2019-5428: A prototype pollution vulnerability exists that allows an attacker to inject
+  properties on Object.prototype.
+
+  - CVE-2019-11358: jQuery mishandles jQuery.extend(true, {}, ...) because of Object.prototype
+  pollution. If an unsanitized source object contained an enumerable __proto__ property, it could
+  extend the native Object.prototype.","Checks if a vulnerable version is present on the target host.
+Details:
+jQuery < 3.4.0 Object Extensions Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.142314)
+Version used: 2023-07-14T05:06:08Z
+","","","DFN-CERT-2025-1803,DFN-CERT-2024-1997,DFN-CERT-2023-2027,DFN-CERT-2023-1197,DFN-CERT-2023-0481,DFN-CERT-2023-0245,DFN-CERT-2022-2467,DFN-CERT-2021-1536,DFN-CERT-2021-1503,DFN-CERT-2021-0826,DFN-CERT-2020-2423,DFN-CERT-2020-2335,DFN-CERT-2020-2286,DFN-CERT-2020-2130,DFN-CERT-2020-1812,DFN-CERT-2020-1574,DFN-CERT-2020-1537,DFN-CERT-2020-1506,DFN-CERT-2020-0772,DFN-CERT-2020-0769,DFN-CERT-2020-0721,DFN-CERT-2020-0276,DFN-CERT-2020-0102,DFN-CERT-2020-0100,DFN-CERT-2019-2169,DFN-CERT-2019-2158,DFN-CERT-2019-2156,DFN-CERT-2019-2126,DFN-CERT-2019-1861,DFN-CERT-2019-1663,DFN-CERT-2019-1460,DFN-CERT-2019-1182,DFN-CERT-2019-1153,DFN-CERT-2019-1118,DFN-CERT-2019-1033,DFN-CERT-2019-0914,DFN-CERT-2019-0899,DFN-CERT-2019-0805,WID-SEC-2024-1872,WID-SEC-2023-1737,WID-SEC-2023-0239,WID-SEC-2022-1948,WID-SEC-2022-1947,WID-SEC-2022-0732,WID-SEC-2022-0673,CB-K22/0045,CB-K21/1083,CB-K20/1049,CB-K20/1030,CB-K20/0800,CB-K20/0710,CB-K20/0324,CB-K20/0314,CB-K20/0309,CB-K20/0106,CB-K20/0041,CB-K20/0037,CB-K20/0034,CB-K19/0921,CB-K19/0920,CB-K19/0916,CB-K19/0911,CB-K19/0909,CB-K19/0619,CB-K19/0504,CB-K19/0329",""
+172.31.1.88,pma46.trabalho_vulnnet,80,tcp,6.1,Medium,30,"VendorFix","jQuery < 3.4.0 Object Extensions Vulnerability","jQuery is prone to multiple vulnerabilities regarding property
+  injection in Object.prototype.","Installed version: 1.11.3
+Fixed version:     3.4.0
+Installation
+path / port:       /doc/html/_static/jquery.js
+
+Detection info (see OID: 1.3.6.1.4.1.25623.1.0.150658 for more info):
+- Identified file: http://pma46.trabalho_vulnnet/doc/html/_static/jquery.js
+- Referenced at:   http://pma46.trabalho_vulnnet/doc/html/
+",1.3.6.1.4.1.25623.1.0.142314,"CVE-2019-5428,CVE-2019-11358",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,37b521d0-076f-487e-9436-8d3cac68a983,"","Update to version 3.4.0 or later. Patch diffs are available for
+  older versions.","jQuery prior to version 3.4.0.","The following flaws exist:
+
+  - CVE-2019-5428: A prototype pollution vulnerability exists that allows an attacker to inject
+  properties on Object.prototype.
+
+  - CVE-2019-11358: jQuery mishandles jQuery.extend(true, {}, ...) because of Object.prototype
+  pollution. If an unsanitized source object contained an enumerable __proto__ property, it could
+  extend the native Object.prototype.","Checks if a vulnerable version is present on the target host.
+Details:
+jQuery < 3.4.0 Object Extensions Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.142314)
+Version used: 2023-07-14T05:06:08Z
+","","","DFN-CERT-2025-1803,DFN-CERT-2024-1997,DFN-CERT-2023-2027,DFN-CERT-2023-1197,DFN-CERT-2023-0481,DFN-CERT-2023-0245,DFN-CERT-2022-2467,DFN-CERT-2021-1536,DFN-CERT-2021-1503,DFN-CERT-2021-0826,DFN-CERT-2020-2423,DFN-CERT-2020-2335,DFN-CERT-2020-2286,DFN-CERT-2020-2130,DFN-CERT-2020-1812,DFN-CERT-2020-1574,DFN-CERT-2020-1537,DFN-CERT-2020-1506,DFN-CERT-2020-0772,DFN-CERT-2020-0769,DFN-CERT-2020-0721,DFN-CERT-2020-0276,DFN-CERT-2020-0102,DFN-CERT-2020-0100,DFN-CERT-2019-2169,DFN-CERT-2019-2158,DFN-CERT-2019-2156,DFN-CERT-2019-2126,DFN-CERT-2019-1861,DFN-CERT-2019-1663,DFN-CERT-2019-1460,DFN-CERT-2019-1182,DFN-CERT-2019-1153,DFN-CERT-2019-1118,DFN-CERT-2019-1033,DFN-CERT-2019-0914,DFN-CERT-2019-0899,DFN-CERT-2019-0805,WID-SEC-2024-1872,WID-SEC-2023-1737,WID-SEC-2023-0239,WID-SEC-2022-1948,WID-SEC-2022-1947,WID-SEC-2022-0732,WID-SEC-2022-0673,CB-K22/0045,CB-K21/1083,CB-K20/1049,CB-K20/1030,CB-K20/0800,CB-K20/0710,CB-K20/0324,CB-K20/0314,CB-K20/0309,CB-K20/0106,CB-K20/0041,CB-K20/0037,CB-K20/0034,CB-K19/0921,CB-K19/0920,CB-K19/0916,CB-K19/0911,CB-K19/0909,CB-K19/0619,CB-K19/0504,CB-K19/0329",""
+172.31.1.88,pma46.trabalho_vulnnet,,,0.0,Log,80,"","jQuery Detection Consolidation","Consolidation of jQuery detections.","Detected jQuery
+
+Version:       1.11.3
+Location:      /doc/html/_static/jquery.js
+CPE:           cpe:/a:jquery:jquery:1.11.3
+
+Concluded from version/product identification result:
+src=""_static/jquery.js
+jQuery JavaScript Library v1.11.3
+
+Concluded from version/product identification location:
+- Identified file: http://pma46.trabalho_vulnnet/doc/html/_static/jquery.js
+- Referenced at:   http://pma46.trabalho_vulnnet/doc/html/
+
+Detected jQuery
+
+Version:       2.1.4
+Location:      /js/get_scripts.js.php?scripts%5B%5D=jquery/jquery-2.1.4.min.js
+CPE:           cpe:/a:jquery:jquery:2.1.4
+
+Concluded from version/product identification result:
+src=""js/get_scripts.js.php?scripts%5B%5D=jquery/jquery-2.1.4.min.js
+
+Concluded from version/product identification location:
+- Identified file: http://pma46.trabalho_vulnnet/js/get_scripts.js.php?scripts%5B%5D=jquery/jquery-2.1.4.min.js
+- Referenced at:   http://pma46.trabalho_vulnnet/
+",1.3.6.1.4.1.25623.1.0.150658,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,ce11e8d1-6ab1-402e-8ec3-52f36605ff07,"","","","","
+Details:
+jQuery Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.150658)
+Version used: 2023-07-14T05:06:08Z
+","","","",""
+172.31.1.88,pma46.trabalho_vulnnet,,,0.0,Log,80,"","nginx Detection Consolidation","Consolidation of nginx detections.","Detected nginx
+
+Version:       unknown
+Location:      80/tcp
+CPE:           cpe:/a:nginx:nginx
+
+Concluded from version/product identification result:
+Server: nginx
+<hr><center>nginx</center>
+
+Concluded from version/product identification location:
+http://pma46.trabalho_vulnnet/vt-test-non-existent.html
+",1.3.6.1.4.1.25623.1.0.113787,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,2dc99ea3-140c-4811-92a7-f7ba835ed2e1,"","","","","
+Details:
+nginx Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.113787)
+Version used: 2022-02-03T09:26:44Z
+","","","",""
+172.31.1.88,pma46.trabalho_vulnnet,,,0.0,Log,80,"","OS Detection Consolidation and Reporting","This script consolidates the OS information detected by several
+  VTs and tries to find the best matching OS.
+
+  Furthermore it reports all previously collected information leading to this best matching OS. It
+  also reports possible additional information which might help to improve the OS detection.
+
+  If any of this information is wrong or could be improved please consider to report these to the
+  referenced community forum.","Best matching OS:
+
+OS:           Linux Kernel
+CPE:          cpe:/o:linux:kernel
+Found by VT:  1.3.6.1.4.1.25623.1.0.102002 (Operating System (OS) Detection (ICMP))
+Concluded from ICMP based OS fingerprint
+Setting key ""Host/runs_unixoide"" based on this information
+",1.3.6.1.4.1.25623.1.0.105937,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,3069eaec-c3a0-45fc-bd9b-7aad9974df7a,"","","","","
+Details:
+OS Detection Consolidation and Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.105937)
+Version used: 2026-01-21T05:50:46Z
+","","","",""
+172.31.1.88,pma46.trabalho_vulnnet,80,tcp,5.9,Medium,30,"VendorFix","phpMyAdmin 4.0 <= 4.8.4 Arbitrary File Read Vulnerability (PMASA-2019-1) - Linux","phpMyAdmin is prone to an arbitrary file read vulnerability.","Installed version: 4.6.6
+Fixed version:     4.8.5
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.112500,"CVE-2019-6799",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,47c717d4-b1fc-4f69-a8ed-8349d56da556,"","Update to version 4.8.5.","phpMyAdmin versions 4.0 through 4.8.4.","When AllowArbitraryServer configuration set to true, with the use of
+  a rogue MySQL server, an attacker can read any file on the server that the web server's user can access.
+
+  phpMyadmin attempts to block the use of LOAD DATA INFILE, but due to a bug in PHP, this check is not honored.
+  Additionally, when using the 'mysql' extension, mysql.allow_local_infile is enabled by default.
+  Both of these conditions allow the attack to occur.","Checks if a vulnerable version is present on the target host.
+Details:
+phpMyAdmin 4.0 <= 4.8.4 Arbitrary File Read Vulnerability (PMASA-2019-1) - L...
+(OID: 1.3.6.1.4.1.25623.1.0.112500)
+Version used: 2024-02-13T05:06:26Z
+","","","DFN-CERT-2019-0419,DFN-CERT-2019-0177,CB-K19/0089",""
+172.31.1.88,pma46.trabalho_vulnnet,80,tcp,5.4,Medium,30,"VendorFix","phpMyAdmin 4.3.x < 4.9.11, 5.2.x < 5.2.1 XSS Vulnerability - Linux","phpMyAdmin is prone to a cross-site scripting (XSS)
+  vulnerability.","Installed version: 4.6.6
+Fixed version:     4.9.11
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.127330,"CVE-2023-25727",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,2983bf0b-b601-45b2-aae6-05a178693f3e,"","Update to version 4.9.11, 5.2.1 or later.","phpMyAdmin version 4.3.x through 4.9.10 and
+  5.2.x prior to 5.2.1.","An authenticated user can trigger a cross-site scripting (XSS)
+  attack by uploading a specially-crafted .sql file through the drag-and-drop interface.","Checks if a vulnerable version is present on the target host.
+Details:
+phpMyAdmin 4.3.x < 4.9.11, 5.2.x < 5.2.1 XSS Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.127330)
+Version used: 2023-10-17T05:05:34Z
+","","","DFN-CERT-2025-0902,DFN-CERT-2023-1479,DFN-CERT-2023-0379,DFN-CERT-2023-0292,WID-SEC-2023-0301",""
+172.31.1.88,pma46.trabalho_vulnnet,80,tcp,6.5,Medium,30,"VendorFix","phpMyAdmin 4.x < 4.8.4 Multiple Vulnerabilities (PMASA-2018-6, PMASA-2018-8) - Linux","phpMyAdmin is prone to multiple security vulnerabilities.","Installed version: 4.6.6
+Fixed version:     4.8.4
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.108513,"CVE-2018-19968,CVE-2018-19970",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,0e34fa6e-1da3-4d6c-b51c-eefdf488dbf8,"","Update to version 4.8.4 or later.","phpMyAdmin versions from at least 4.0 through 4.8.3.","'- A flaw has been found where an attacker can exploit phpMyAdmin to
+  leak the contents of a local file. The attacker must have access to the phpMyAdmin Configuration Storage
+  tables, although these can easily be created in any database to which the attacker has access. An attacker
+  must have valid credentials to log in to phpMyAdmin. This vulnerability does not allow an attacker to
+  circumvent the login system (CVE-2018-19968).
+
+  - A Cross-Site Scripting vulnerability was found in the navigation tree, where an attacker can deliver a
+  payload to a user through a specially-crafted database/table name (CVE-2018-19970).","Checks if a vulnerable version is present on the target host.
+Details:
+phpMyAdmin 4.x < 4.8.4 Multiple Vulnerabilities (PMASA-2018-6, PMASA-2018-8)...
+(OID: 1.3.6.1.4.1.25623.1.0.108513)
+Version used: 2024-02-13T05:06:26Z
+","","","DFN-CERT-2018-2515,CB-K18/1160",""
+172.31.1.88,pma46.trabalho_vulnnet,80,tcp,6.5,Medium,30,"VendorFix","phpMyAdmin < 4.9.0 CSRF Vulnerability (PMASA-2019-4) - Linux","phpMyAdmin is prone to a CSRF vulnerability.","Installed version: 4.6.6
+Fixed version:     4.9.0
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.142499,"CVE-2019-12616",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,67916690-024d-4d03-8998-dc1a70bd3b42,"","Update to version 4.9.0 or later.","phpMyAdmin prior to version 4.9.0.","A vulnerability was found that allows an attacker to trigger a CSRF attack
+  against a phpMyAdmin user. The attacker can trick the user, for instance through a broken <img> tag pointing at
+  the victim's phpMyAdmin database, and the attacker can potentially deliver a payload (such as a specific INSERT
+  or DELETE statement) through the victim.","Checks if a vulnerable version is present on the target host.
+Details:
+phpMyAdmin < 4.9.0 CSRF Vulnerability (PMASA-2019-4) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.142499)
+Version used: 2024-02-13T05:06:26Z
+","","","DFN-CERT-2019-1217,DFN-CERT-2019-1127,CB-K19/0477",""
+172.31.1.88,pma46.trabalho_vulnnet,80,tcp,6.5,Medium,30,"VendorFix","phpMyAdmin < 4.9.1 CSRF Vulnerability - Linux","phpMyAdmin is prone to a CSRF vulnerability.","Installed version: 4.6.6
+Fixed version:     4.9.1
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.142897,"CVE-2019-12922",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,3bc1a226-7fdb-48b3-b81c-5fd7282d283e,"","Update to phpMyAdmin version 4.9.1 or later.","phpMyAdmin version 4.9.0.1 and prior.","A CSRF issue in phpMyAdmin allows deletion of any server in the Setup page.","Checks if a vulnerable version is present on the target host.
+Details:
+phpMyAdmin < 4.9.1 CSRF Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.142897)
+Version used: 2024-02-13T05:06:26Z
+","","","DFN-CERT-2020-0089,DFN-CERT-2019-1975,CB-K19/0836",""
+172.31.1.88,pma46.trabalho_vulnnet,80,tcp,7.5,High,30,"VendorFix","phpMyAdmin < 4.9.10, 5.x < 5.1.3 Information Disclosure Vulnerability - Linux","phpMyAdmin is prone to an information disclosure vulnerability.","Installed version: 4.6.6
+Fixed version:     4.9.10
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.147786,"CVE-2022-0813",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,243e7199-6e2f-4bce-be84-ab234061a7fe,"","Update to version 4.9.10, 5.1.3 or later.","phpMyAdmin prior to version 4.9.10 and version 5.x through
+  5.1.2.","The issue could allow users to cause an error that would reveal
+  the path on disk where phpMyAdmin is running from. This requires the server to be running with
+  display_errors on, which is not the recommended setting for a production environment.","Checks if a vulnerable version is present on the target host.
+Details:
+phpMyAdmin < 4.9.10, 5.x < 5.1.3 Information Disclosure Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.147786)
+Version used: 2023-10-17T05:05:34Z
+","","","DFN-CERT-2023-0379,DFN-CERT-2022-0570,WID-SEC-2023-3005,CB-K22/0304",""
+172.31.1.88,pma46.trabalho_vulnnet,80,tcp,8.8,High,30,"VendorFix","phpMyAdmin < 4.9.4, 5.x < 5.0.1 SQL Injection Vulnerability (PMASA-2020-1) - Linux","phpMyAdmin is prone to an SQL injection vulnerability.","Installed version: 4.6.6
+Fixed version:     4.9.4
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.143346,"CVE-2020-5504",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,b95e068e-7307-48b0-a8a7-2cb73127322c,"A malicious user could inject custom SQL in place of their own username
+  when creating queries to this page. An attacker must have a valid MySQL account to access the server.","Update to version 4.9.4, 5.0.1 or later.","phpMyAdmin prior to version 4.9.4 and 5.x prior to 5.0.1.","An SQL injection flaw has been discovered in the user accounts page.","Checks if a vulnerable version is present on the target host.
+Details:
+phpMyAdmin < 4.9.4, 5.x < 5.0.1 SQL Injection Vulnerability (PMASA-2020-1) -...
+(OID: 1.3.6.1.4.1.25623.1.0.143346)
+Version used: 2024-02-13T05:06:26Z
+","","","DFN-CERT-2020-0488,DFN-CERT-2020-0089,DFN-CERT-2020-0026,WID-SEC-2025-2723,CB-K20/0214,CB-K20/0010",""
+172.31.1.88,pma46.trabalho_vulnnet,80,tcp,8.0,High,30,"VendorFix","phpMyAdmin < 4.9.5, 5.x < 5.0.2 Multiple SQL Injection Vulnerabilities (PMASA-2020-2, PMASA-2020-3, PMASA-2020-4) - Linux","phpMyAdmin is prone to multiple SQL injection vulnerabilities.","Installed version: 4.6.6
+Fixed version:     4.9.5
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.112715,"CVE-2020-10802,CVE-2020-10803,CVE-2020-10804",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,81dfe59a-1a4f-4c86-bc10-989feed07b13,"Successful exploitation would allow an attacker to:
+
+  - create a specially-crafted username and then trick the victim in to performing specific
+  actions with that user account (such as editing its privileges)
+
+  - generate specially-crafted database or table names
+
+  - insert specially-crafted data in to certain database tables, which when retrieved
+  (for instance, through the Browse tab) can trigger an XSS attack","Update to version 4.9.5, 5.0.2 or later.","phpMyAdmin prior to version 4.9.5 and 5.x prior to 5.0.2.","The following SQL injection vulnerabilities exist:
+
+  - An SQL injection vulnerability was found in how phpMyAdmin retrieves the current username
+
+  - An SQL injection vulnerability has been discovered where certain parameters are not properly
+  escaped when generating certain queries for search actions within phpMyAdmin
+
+  - An SQL injection vulnerability was discovered where malicious code could be used to trigger
+  an XSS attack through retrieving and displaying results.","Checks if a vulnerable version is present on the target host.
+Details:
+phpMyAdmin < 4.9.5, 5.x < 5.0.2 Multiple SQL Injection Vulnerabilities (PMAS...
+(OID: 1.3.6.1.4.1.25623.1.0.112715)
+Version used: 2024-02-13T05:06:26Z
+","","","DFN-CERT-2020-2366,DFN-CERT-2020-0998,DFN-CERT-2020-0592,CB-K20/0251",""
+172.31.1.88,pma46.trabalho_vulnnet,80,tcp,6.1,Medium,30,"VendorFix","phpMyAdmin <= 4.8.2 XSS Vulnerability (PMASA-2018-5) - Linux","phpMyAdmin is prone to an authenticated cross-site scripting (XSS) vulnerability.","Installed version: 4.6.6
+Fixed version:     4.8.3
+
+",1.3.6.1.4.1.25623.1.0.113255,"CVE-2018-15605",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,bf48031e-a9b9-4e9a-b3a7-a24c6976a4f9,"","Update to version 4.8.3.","phpMyAdmin through version 4.8.2.","An authenticated attacker could trick a user into importing a specially crafted file,
+  resulting in the attacker gaining control over the user's account.","Checks if a vulnerable version is present on the target host.
+Details:
+phpMyAdmin <= 4.8.2 XSS Vulnerability (PMASA-2018-5) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.113255)
+Version used: 2025-12-11T05:46:19Z
+","","","DFN-CERT-2018-1704,CB-K18/0877",""
+172.31.1.88,pma46.trabalho_vulnnet,80,tcp,8.8,High,30,"WillNotFix","phpMyAdmin <= 5.1.1 CSV Injection Vulnerability - Linux","phpMyAdmin is prone to a CSV injection vulnerability via Export
+  Section.","Installed version: 4.6.6
+Fixed version:     None
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.144898,"CVE-2020-22278",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,c6735ebd-6b2b-4174-93e1-9e8a2a77899b,"","No known solution was made available for at least one year
+  since the disclosure of this vulnerability. Likely none will be provided anymore. General solution
+  options are to upgrade to a newer release, disable respective features, remove the product or
+  replace the product by another one.","phpMyAdmin version 5.1.1 and prior.","NOTE: the vendor disputes this because 'the CSV file is
+  accurately generated based on the database contents.'
+
+  Nevertheless the vendor could implement measures while doing the CSV export which could lower or
+  mitigate the risk originating from this flaw.","Checks if a vulnerable version is present on the target host.
+Details:
+phpMyAdmin <= 5.1.1 CSV Injection Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.144898)
+Version used: 2023-10-17T05:05:34Z
+","","","",""
+172.31.1.88,pma46.trabalho_vulnnet,80,tcp,6.1,Medium,30,"VendorFix","phpMyAdmin Cross-Site Scripting Vulnerability (PMASA-2018-3) - Linux","phpMyAdmin is prone to a cross-site scripting (XSS) vulnerability.","Installed version: 4.6.6
+Fixed version:     4.8.2
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.813451,"CVE-2018-12581",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,f1226bbb-b8eb-46aa-8509-1c78ce63e750,"Successful exploitation will allow an
+  attacker to inject arbitrary web script or HTML via crafted database name.","Upgrade to version 4.8.2 or newer. Please see the references for more information.","phpMyAdmin versions prior to 4.8.2 on Linux","The flaw exists due to insufficient validation
+  of input passed to 'js/designer/move.js' script in phpMyAdmin.","Checks if a vulnerable version is present on the target host.
+Details:
+phpMyAdmin Cross-Site Scripting Vulnerability (PMASA-2018-3) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.813451)
+Version used: 2025-09-12T05:38:45Z
+","","","DFN-CERT-2018-1207,CB-K18/0744",""
+172.31.1.88,pma46.trabalho_vulnnet,80,tcp,0.0,Log,80,"","phpMyAdmin Detection (HTTP)","HTTP based detection of phpMyAdmin.","Detected phpMyAdmin
+
+Version:       4.6.6
+Location:      /
+CPE:           cpe:/a:phpmyadmin:phpmyadmin:4.6.6
+
+Concluded from version/product identification result:
+Version 4.6.6
+
+Concluded from version/product identification location:
+  http://pma46.trabalho_vulnnet/index.php
+  http://pma46.trabalho_vulnnet/README
+
+Extra information:
+- Protected by Username/Password
+",1.3.6.1.4.1.25623.1.0.900129,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,87ef011d-a63e-4147-9a9b-b1982e618c1e,"","","","","
+Details:
+phpMyAdmin Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900129)
+Version used: 2024-02-19T14:37:31Z
+","","","",""
+172.31.1.88,pma46.trabalho_vulnnet,80,tcp,0.0,Log,80,"","Services","This plugin performs service detection.","A web server is running on this port
+",1.3.6.1.4.1.25623.1.0.10330,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,a0669438-a0ac-40b6-9b8e-eb6bfe253220,"","","","This plugin attempts to guess which service is running on the
+  remote port(s). For instance, it searches for a web server which could listen on another port than
+  80 or 443 and makes this information available for other check routines.","
+Details:
+Services
+(OID: 1.3.6.1.4.1.25623.1.0.10330)
+Version used: 2025-03-05T05:38:53Z
+","","","",""
+172.31.1.88,pma46.trabalho_vulnnet,,,2.6,Low,80,"Mitigation","TCP Timestamps Information Disclosure","The remote host implements TCP timestamps and therefore allows
+  to compute the uptime.","It was detected that the host implements RFC1323/RFC7323.
+
+The following timestamps were retrieved with a delay of 1 seconds in-between:
+Packet 1: 2842405620
+Packet 2: 2842406743
+",1.3.6.1.4.1.25623.1.0.80091,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,53bcf6c5-134e-40ad-994b-81e3009eb390,"A side effect of this feature is that the uptime of the remote
+  host can sometimes be computed.","To disable TCP timestamps on linux add the line
+  'net.ipv4.tcp_timestamps = 0' to /etc/sysctl.conf. Execute 'sysctl -p' to apply the settings at
+  runtime.
+
+  To disable TCP timestamps on Windows execute 'netsh int tcp set global timestamps=disabled'
+
+  Starting with Windows Server 2008 and Vista, the timestamp can not be completely disabled.
+
+  The default behavior of the TCP/IP stack on this Systems is to not use the Timestamp options when
+  initiating TCP connections, but use them if the TCP peer that is initiating communication includes
+  them in their synchronize (SYN) segment.
+
+  See the references for more information.","TCP implementations that implement RFC1323/RFC7323.","The remote host implements TCP timestamps, as defined by
+  RFC1323/RFC7323.","Special IP packets are forged and sent with a little delay in
+  between to the target IP. The responses are searched for a timestamps. If found, the timestamps
+  are reported.
+Details:
+TCP Timestamps Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.80091)
+Version used: 2023-12-15T16:10:08Z
+","","","",""
+172.31.1.88,pma46.trabalho_vulnnet,,,0.0,Log,80,"","Traceroute","Collect information about the network route and
+  network distance between the scanner host and the target host.","Network route from scanner (172.30.0.2) to target (172.31.1.88):
+
+172.30.0.2
+172.31.1.88
+
+Network distance between scanner and target: 2
+",1.3.6.1.4.1.25623.1.0.51662,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,5e09ffa0-6669-4b68-b977-39d6789c12e3,"","","","For internal networks, the distances are usually
+  small, often less than 4 hosts between scanner and target. For public targets the
+  distance is greater and might be 10 hosts or more.","A combination of the protocols ICMP and TCP is used
+  to determine the route. This method is applicable for IPv4 only and it is also known as
+  'traceroute'.
+Details:
+Traceroute
+(OID: 1.3.6.1.4.1.25623.1.0.51662)
+Version used: 2022-10-17T11:13:19Z
+","","","",""
+172.31.1.88,pma46.trabalho_vulnnet,80,tcp,0.0,Log,80,"","Web Application Scanning Consolidation / Info Reporting","The script consolidates and reports various information for web
+  application (formerly called 'CGI') scanning.
+
+  This information is based on the following scripts / settings:
+
+  - HTTP-Version Detection (OID: 1.3.6.1.4.1.25623.1.0.100034)
+
+  - No 404 check (OID: 1.3.6.1.4.1.25623.1.0.10386)
+
+  - Web mirroring / webmirror.nasl (OID: 1.3.6.1.4.1.25623.1.0.10662)
+
+  - Directory Scanner / DDI_Directory_Scanner.nasl (OID: 1.3.6.1.4.1.25623.1.0.11032)
+
+  - The configured 'cgi_path' within the 'Scanner Preferences' of the scan config in use
+
+  - The configured 'Enable CGI scanning', 'Enable generic web application scanning' and
+  'Add historic /scripts and /cgi-bin to directories for CGI scanning' within the
+  'Global variable settings' of the scan config in use
+
+  If you think any of this information is wrong please report it to the referenced community
+  forum.","The Hostname/IP ""pma46.trabalho_vulnnet"" was used to access the remote host.
+
+Generic web application scanning is disabled for this host via the ""Enable generic web application scanning"" option within the ""Global variable settings"" of the scan config in use.
+
+Requests to this service are done via HTTP/1.1.
+
+This service seems to be able to host PHP scripts.
+
+This service seems to be able to host ASP scripts.
+
+The User-Agent ""Mozilla/5.0 [en] (X11, U; OpenVAS-VT <version replaced>)"" was used to access the remote host.
+
+Historic /scripts and /cgi-bin are not added to the directories used for web application scanning. You can enable this again with the ""Add historic /scripts and /cgi-bin to directories for CGI scanning"" option within the ""Global variable settings"" of the scan config in use.
+
+A possible recursion was detected during web application scanning:
+
+The service is using a relative URL in one or more HTML references where e.g. /file1.html contains <a href=""subdir/file2.html""> and a subsequent request for subdir/file2.html is linking to subdir/file2.html. This would resolves to subdir/subdir/file2.html causing a recursion. To work around this counter-measures have been enabled but the service should be fixed as well to not use such problematic links. Below an excerpt of URLs is shown to help identify those issues.
+
+Syntax : URL (HTML link)
+
+http://pma46.trabalho_vulnnet/doc/html/ (_static/classic.css)
+http://pma46.trabalho_vulnnet/doc/html/ (_static/doctools.js)
+http://pma46.trabalho_vulnnet/doc/html/ (_static/jquery.js)
+http://pma46.trabalho_vulnnet/doc/html/ (_static/pygments.css)
+http://pma46.trabalho_vulnnet/doc/html/ (_static/underscore.js)
+
+The following directories were used for web application scanning:
+
+http://pma46.trabalho_vulnnet/
+http://pma46.trabalho_vulnnet/doc
+http://pma46.trabalho_vulnnet/doc/html
+http://pma46.trabalho_vulnnet/doc/html/_images
+http://pma46.trabalho_vulnnet/doc/html/_sources
+http://pma46.trabalho_vulnnet/doc/html/_static
+http://pma46.trabalho_vulnnet/sql
+
+While this is not, in and of itself, a bug, you should manually inspect these directories to ensure that they are in compliance with company security standards
+
+The following directories were excluded from web application scanning because the ""Regex pattern to exclude directories from CGI scanning"" setting of the VT ""Global variable settings"" (OID: 1.3.6.1.4.1.25623.1.0.12288) for this scan was: ""/(index\.php|image|img|css|js$|js/|javascript|style|theme|icon|jquery|graphic|grafik|picture|bilder|thumbnail|media/|skins?/)""
+
+http://pma46.trabalho_vulnnet/js
+http://pma46.trabalho_vulnnet/js/codemirror/addon/hint
+http://pma46.trabalho_vulnnet/js/codemirror/addon/lint
+http://pma46.trabalho_vulnnet/js/codemirror/lib
+http://pma46.trabalho_vulnnet/themes
+http://pma46.trabalho_vulnnet/themes/pmahomme/css
+http://pma46.trabalho_vulnnet/themes/pmahomme/img
+http://pma46.trabalho_vulnnet/themes/pmahomme/jquery
+
+The following CGIs were discovered:
+
+Syntax : cginame (arguments [default value])
+
+http://pma46.trabalho_vulnnet/doc/html/search.html (check_keywords [yes] q [] area [default] )
+http://pma46.trabalho_vulnnet/index.php (token [***replaced***] pma_username [] target [index.php] table [] collation_connection [utf8mb4_unicode_ci] lang [] server [1] db [] pma_password [] )
+http://pma46.trabalho_vulnnet/js/get_image.js.php (theme [pmahomme] v [4.6.6] )
+http://pma46.trabalho_vulnnet/js/get_scripts.js.php (v [4.6.6] scripts%5B%5D [jquery/jquery.ba-hashchange-1.3.js] )
+http://pma46.trabalho_vulnnet/js/messages.php (lang [en] db [] collation_connection [utf8mb4_unicode_ci] token [***replaced***] v [4.6.6] )
+http://pma46.trabalho_vulnnet/js/whitelist.php (lang [en] db [] collation_connection [utf8mb4_unicode_ci] token [***replaced***] v [4.6.6] )
+http://pma46.trabalho_vulnnet/phpmyadmin.css.php (nocache [4459207702ltr] )
+http://pma46.trabalho_vulnnet/url.php (url [https%3A%2F%2Fwww.phpmyadmin.net%2F] )
+
+The following cgi scripts were excluded from web application scanning because of the ""Regex pattern to exclude cgi scripts"" setting of the VT ""Web mirroring"" (OID: 1.3.6.1.4.1.25623.1.0.10662) for this scan was: ""\.(js|css)$""
+
+Syntax : cginame (arguments [default value])
+
+http://pma46.trabalho_vulnnet/js/codemirror/addon/hint/show-hint.css (v [4.6.6] )
+http://pma46.trabalho_vulnnet/js/codemirror/addon/lint/lint.css (v [4.6.6] )
+http://pma46.trabalho_vulnnet/js/codemirror/lib/codemirror.css (v [4.6.6] )
+http://pma46.trabalho_vulnnet/themes/pmahomme/css/printview.css (v [4.6.6] )
+",1.3.6.1.4.1.25623.1.0.111038,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:36:57Z,7cd6eae3-21d4-4f16-b52a-9f5bcadc13a4,"","","","","
+Details:
+Web Application Scanning Consolidation / Info Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.111038)
+Version used: 2026-01-13T05:47:36Z
+","","","",""

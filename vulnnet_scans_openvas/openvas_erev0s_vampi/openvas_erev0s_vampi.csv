@@ -1,0 +1,518 @@
+IP,Hostname,Port,Port Protocol,CVSS,Severity,QoD,Solution Type,NVT Name,Summary,Specific Result,NVT OID,CVEs,Task ID,Task Name,Timestamp,Result ID,Impact,Solution,Affected Software/OS,Vulnerability Insight,Vulnerability Detection Method,Product Detection Result,BIDs,CERTs,Other References
+      172.30.10.2,vampi.trabalho_vulnnet,5000,tcp,0.0,Log,70,"","Allowed HTTP Methods Enumeration","Enumerates which HTTP methods are allowed.","The following list contains the URLs and corresponding supported HTTP methods.
+
+URL                                 | HTTP Methods
+-------------------------------------------------------------------------------------------
+http://vampi.trabalho_vulnnet:5000/ | HEAD, GET, OPTIONS (obtained via HTTP OPTIONS method)
+",1.3.6.1.4.1.25623.1.0.153974,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,476da8db-df60-4555-9175-660f4bdcbc55,"","","","'- Basic HTTP methods: GET, HEAD, POST, PUT, DELETE, CONNECT,
+  OPTIONS, TRACE
+
+  - Extended HTTP methods: ACL, BASELINE-CONTROL, BIND, CHECKIN, CHECKOUT, COPY, LABEL, LINK, LOCK,
+  MERGE, MKACTIVITY, MKCALENDAR, MKCOL, MKREDIRECTREF, MKWORKSPACE, MOVE, ORDERPATCH, PATCH, PRI,
+  PROPFIND, PROPPATCH, REBIND, REPORT, SEARCH, UNBIND, UNCHECKOUT, UNLINK, UNLOCK, UPDATE,
+  UPDATEREDIRECTREF, VERSION-CONTROL","Sends multiple HTTP requests and checks the responses.
+
+  Disclaimer:
+
+  - This enumeration script is provided 'as is' (means no support is given) and only providing
+  rudimentary information about the possible enabled methods
+
+  - This script doesn't guarantee completeness or full reliability
+
+  For more reliable determination of the enabled HTTP methods please inspect the configuration of
+  the web server manually and directly on the target host.
+Details:
+Allowed HTTP Methods Enumeration
+(OID: 1.3.6.1.4.1.25623.1.0.153974)
+Version used: 2025-02-28T05:38:49Z
+","","","",""
+172.30.10.2,vampi.trabalho_vulnnet,,,0.0,Log,80,"","CPE Inventory","This routine uses information collected by other routines about
+  CPE identities of operating systems, services and applications detected during the scan.
+
+  Note: Some CPEs for specific products might show up twice or more in the output. Background:
+
+  After a product got renamed or a specific vendor was acquired by another one it might happen that
+  a product gets a new CPE within the NVD CPE Dictionary but older entries are kept with the older
+  CPE.","172.30.10.2|cpe:/a:python:python:3.11.10
+172.30.10.2|cpe:/o:linux:kernel
+
+",1.3.6.1.4.1.25623.1.0.810002,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,30e5d5e8-c2a6-4c14-91c6-cc95356a5afe,"","","","","
+Details:
+CPE Inventory
+(OID: 1.3.6.1.4.1.25623.1.0.810002)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.30.10.2,vampi.trabalho_vulnnet,,,0.0,Log,80,"","Hostname Determination Reporting","The script reports information on how the hostname of the target
+  was determined.","Hostname determination for IP 172.30.10.2:
+
+Hostname|Source
+vampi.trabalho_vulnnet|Reverse-DNS
+",1.3.6.1.4.1.25623.1.0.108449,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,de24d1fd-d657-4fba-8aea-8e5aa235ab87,"","","","","
+Details:
+Hostname Determination Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.108449)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.30.10.2,vampi.trabalho_vulnnet,5000,tcp,0.0,Log,80,"","HTTP Security Headers Detection","All known security headers are being checked on the remote web
+  server.
+
+  On completion a report will hand back whether a specific security header has been implemented
+  (including its value and if it is deprecated) or is missing on the target.","Missing Headers                   | More Information
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Content-Security-Policy           | https://owasp.org/www-project-secure-headers/#content-security-policy
+Cross-Origin-Embedder-Policy      | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Cross-Origin-Opener-Policy        | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Cross-Origin-Resource-Policy      | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Document-Policy                   | https://w3c.github.io/webappsec-feature-policy/document-policy#document-policy-http-header
+Feature-Policy                    | https://owasp.org/www-project-secure-headers/#feature-policy, Note: The Feature Policy header has been renamed to Permissions Policy
+Permissions-Policy                | https://w3c.github.io/webappsec-feature-policy/#permissions-policy-http-header-field
+Referrer-Policy                   | https://owasp.org/www-project-secure-headers/#referrer-policy
+Sec-Fetch-Dest                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-Mode                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-Site                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-User                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+X-Content-Type-Options            | https://owasp.org/www-project-secure-headers/#x-content-type-options
+X-Frame-Options                   | https://owasp.org/www-project-secure-headers/#x-frame-options
+X-Permitted-Cross-Domain-Policies | https://owasp.org/www-project-secure-headers/#x-permitted-cross-domain-policies
+X-XSS-Protection                  | https://owasp.org/www-project-secure-headers/#x-xss-protection, Note: Most major browsers have dropped / deprecated support for this header in 2020.
+",1.3.6.1.4.1.25623.1.0.112081,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,62253a24-2095-46f2-9115-bdbfd978e1b8,"","","","","
+Details:
+HTTP Security Headers Detection
+(OID: 1.3.6.1.4.1.25623.1.0.112081)
+Version used: 2025-03-21T15:40:43Z
+","","","",""
+172.30.10.2,vampi.trabalho_vulnnet,5000,tcp,0.0,Log,80,"","HTTP Server Banner Enumeration","This script tries to detect / enumerate different HTTP server
+  banner (e.g. from a frontend, backend or proxy server) by sending various different HTTP requests
+  (valid and invalid ones).","It was possible to enumerate the following HTTP server banner(s):
+
+Server banner                         | Enumeration technique
+--------------------------------------------------------------------------------------------------------
+Server: Werkzeug/2.2.3 Python/3.11.10 | Invalid HTTP 00.5 GET request (non-existent HTTP version) to '/'
+",1.3.6.1.4.1.25623.1.0.108708,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,9d2e0199-e7ae-48ff-ba17-75eace7d6623,"","","","","
+Details:
+HTTP Server Banner Enumeration
+(OID: 1.3.6.1.4.1.25623.1.0.108708)
+Version used: 2025-01-31T15:39:24Z
+","","","",""
+172.30.10.2,vampi.trabalho_vulnnet,5000,tcp,0.0,Log,80,"","HTTP Server type and version","This script detects and reports the HTTP Server's banner
+  which might provide the type and version of it.","The remote HTTP Server banner is:
+
+Server: Werkzeug/2.2.3 Python/3.11.10
+",1.3.6.1.4.1.25623.1.0.10107,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,d82939a0-99dd-49e4-9328-19f848453751,"","","","","
+Details:
+HTTP Server type and version
+(OID: 1.3.6.1.4.1.25623.1.0.10107)
+Version used: 2023-08-01T13:29:10Z
+","","","",""
+172.30.10.2,vampi.trabalho_vulnnet,,,2.1,Low,80,"Mitigation","ICMP Timestamp Reply Information Disclosure","The remote host responded to an ICMP timestamp request.","The following response / ICMP packet has been received:
+- ICMP Type: 14
+- ICMP Code: 0
+",1.3.6.1.4.1.25623.1.0.103190,"CVE-1999-0524",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,d959515d-bdf4-4a7d-b97c-b33b6db3deaf,"This information could theoretically be used to exploit weak
+  time-based random number generators in other services.","Various mitigations are possible:
+
+  - Disable the support for ICMP timestamp on the remote host completely
+
+  - Protect the remote host by a firewall, and block ICMP packets passing through the firewall in
+  either direction (either completely or only for untrusted networks)","","The Timestamp Reply is an ICMP message which replies to a
+  Timestamp message. It consists of the originating timestamp sent by the sender of the Timestamp as
+  well as a receive timestamp and a transmit timestamp.","Sends an ICMP Timestamp (Type 13) request and checks if a
+  Timestamp Reply (Type 14) is received.
+Details:
+ICMP Timestamp Reply Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.103190)
+Version used: 2025-01-21T05:37:33Z
+","","","DFN-CERT-2014-0658,CB-K15/1514,CB-K14/0632",""
+172.30.10.2,vampi.trabalho_vulnnet,,,0.0,Log,70,"","IP Forwarding Enabled - Active Check","Checks if the remote host has IP forwarding enabled.","It was possible to route a TCP packet through the target host and received an answer which means IP forwarding is enabled.
+",1.3.6.1.4.1.25623.1.0.147205,"CVE-1999-0511",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,4cc69eb1-7291-4bc3-987f-76dc30c3495a,"","","","","Sends a crafted Local Link Layer (LLL) frame and checks the
+  response.
+Details:
+IP Forwarding Enabled - Active Check
+(OID: 1.3.6.1.4.1.25623.1.0.147205)
+Version used: 2021-12-03T08:27:06Z
+","","","",""
+172.30.10.2,vampi.trabalho_vulnnet,,,0.0,Log,80,"","OS Detection Consolidation and Reporting","This script consolidates the OS information detected by several
+  VTs and tries to find the best matching OS.
+
+  Furthermore it reports all previously collected information leading to this best matching OS. It
+  also reports possible additional information which might help to improve the OS detection.
+
+  If any of this information is wrong or could be improved please consider to report these to the
+  referenced community forum.","Best matching OS:
+
+OS:           Linux Kernel
+CPE:          cpe:/o:linux:kernel
+Found by VT:  1.3.6.1.4.1.25623.1.0.102002 (Operating System (OS) Detection (ICMP))
+Concluded from ICMP based OS fingerprint
+Setting key ""Host/runs_unixoide"" based on this information
+",1.3.6.1.4.1.25623.1.0.105937,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,2e663a9d-2ef9-4622-9fb1-4ebda1b1dcc1,"","","","","
+Details:
+OS Detection Consolidation and Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.105937)
+Version used: 2026-01-21T05:50:46Z
+","","","",""
+172.30.10.2,vampi.trabalho_vulnnet,5000,tcp,5.0,Medium,30,"VendorFix","Python zipfile Module Vulnerability (Oct 2025) - Linux","Python is prone to a vulnerability in the 'zipfile' module.","Installed version: 3.11.10
+Fixed version:     3.11.14
+Installation
+path / port:       5000/tcp
+
+",1.3.6.1.4.1.25623.1.0.119138,"CVE-2025-8291",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,901f604b-2779-4695-90a4-9ff036bf5461,"","Update to version 3.9.24, 3.10.19, 3.11.14, 3.12.12, 3.13.10,
+  3.14.1 or later.","Python prior to version 3.9.24, 3.10.x prior to 3.10.19, 3.11.x
+  prior to 3.11.14, 3.12.x prior to 3.12.12, 3.13.x prior to 3.13.10 and 3.14.x prior to 3.14.1.","The 'zipfile' module would not check the validity of the ZIP64
+  End of Central Directory (EOCD) Locator record offset value would not be used to locate the ZIP64
+  EOCD record, instead the ZIP64 EOCD record would be assumed to be the previous record in the ZIP
+  archive. This could be abused to create ZIP archives that are handled differently by the 'zipfile'
+  module compared to other ZIP implementations. Remediation maintains this behavior, but checks that
+  the offset specified in the ZIP64 EOCD Locator record matches the expected value.","Checks if a vulnerable version is present on the target host.
+Details:
+Python 'zipfile' Module Vulnerability (Oct 2025) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.119138)
+Version used: 2025-12-18T05:46:55Z
+","Product: cpe:/a:python:python:3.11.10
+Method: Python Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.112857)
+","","DFN-CERT-2026-0215,DFN-CERT-2026-0167,DFN-CERT-2026-0038,DFN-CERT-2025-3563,DFN-CERT-2025-3555,DFN-CERT-2025-3298,DFN-CERT-2025-3045,DFN-CERT-2025-2812,WID-SEC-2025-2230",""
+172.30.10.2,vampi.trabalho_vulnnet,5000,tcp,5.3,Medium,30,"WillNotFix","Python <= 2.7.18, 3.x <= 3.12.3 Security Bypass Vulnerability - Linux","Python is prone to a security bypass vulnerability in the e-mail
+  module.","Installed version: 3.11.10
+Fixed version:     None
+Installation
+path / port:       5000/tcp
+
+",1.3.6.1.4.1.25623.1.0.104739,"CVE-2023-27043",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,4deeeb8b-ce26-48d8-82f1-a789fe4369e0,"","No known solution was made available for at least one year since
+  the disclosure of this vulnerability. Likely none will be provided anymore. General solution options
+  are to upgrade to a newer release, disable respective features, remove the product or replace the
+  product by another one.
+
+  Note: The vendor mentions, that a patch was included in main branch 3.13. This version is expected
+  to release in October 2024. The patch might be included in the release of version 3.13 or later.","Python versions through 2.7.18 and 3.x through 3.12.3.","The e-mail module incorrectly parses e-mail addresses which
+  contain a special character. This vulnerability allows attackers to send messages from e-mail
+  addresses that would otherwise be rejected.","Checks if a vulnerable version is present on the target host.
+Details:
+Python <= 2.7.18, 3.x <= 3.12.3 Security Bypass Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104739)
+Version used: 2024-05-14T05:05:26Z
+","Product: cpe:/a:python:python:3.11.10
+Method: Python Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.112857)
+","","DFN-CERT-2025-1477,DFN-CERT-2025-1461,DFN-CERT-2025-0809,DFN-CERT-2025-0179,DFN-CERT-2024-3182,DFN-CERT-2024-3141,DFN-CERT-2024-2425,DFN-CERT-2024-2340,DFN-CERT-2024-2186,DFN-CERT-2024-2179,DFN-CERT-2024-1391,DFN-CERT-2024-1325,DFN-CERT-2024-0744,DFN-CERT-2024-0609,DFN-CERT-2024-0605,DFN-CERT-2024-0408,DFN-CERT-2024-0278,DFN-CERT-2024-0227,DFN-CERT-2023-3186,DFN-CERT-2023-2651,WID-SEC-2025-0668,WID-SEC-2025-0225,WID-SEC-2024-3377,WID-SEC-2024-1086,WID-SEC-2024-0423,WID-SEC-2023-1097",""
+172.30.10.2,vampi.trabalho_vulnnet,5000,tcp,7.5,High,30,"WillNotFix","Python <= 3.12.1 RecursionError Vulnerability - Linux","Python is prone to a 'RecursionError' vulnerability.","Installed version: 3.11.10
+Fixed version:     None
+Installation
+path / port:       5000/tcp
+
+",1.3.6.1.4.1.25623.1.0.104814,"CVE-2023-36632",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,aa1351ef-32a7-4b8a-8faa-e261f94cb27a,"","No known solution was made available for at least one year
+  since the disclosure of this vulnerability. Likely none will be provided anymore. General solution
+  options are to upgrade to a newer release, disable respective features, remove the product or
+  replace the product by another one.
+
+  NOTE: email.utils.parseaddr is categorized as a Legacy API in the documentation of the Python
+  email package. Applications should instead use the email.parser.BytesParser or
+  email.parser.Parser class.","The legacy email.utils.parseaddr function in Python through
+  3.12.1.","The legacy email.utils.parseaddr function allows attackers to
+  trigger 'RecursionError: maximum recursion depth exceeded while calling a Python object' via a
+  crafted argument. This argument is plausibly an untrusted value from an application's input data
+  that was supposed to contain a name and an e-mail address.
+
+  NOTE: The vendor's perspective is that this is neither a vulnerability nor a bug. The email
+  package is intended to have size limits and to throw an exception when limits are exceeded.","Checks if a vulnerable version is present on the target host.
+Details:
+Python <= 3.12.1 'RecursionError' Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104814)
+Version used: 2024-02-05T14:36:57Z
+","Product: cpe:/a:python:python:3.11.10
+Method: Python Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.112857)
+","","DFN-CERT-2024-1003,WID-SEC-2025-0225,WID-SEC-2024-0885,WID-SEC-2023-1561",""
+172.30.10.2,vampi.trabalho_vulnnet,5000,tcp,7.8,High,30,"VendorFix","Python Command Injection Vulnerability (Oct 2024) - Linux","Python is prone to a command injection vulnerability in the venv
+  module.","Installed version: 3.11.10
+Fixed version:     3.11.11
+Installation
+path / port:       5000/tcp
+
+",1.3.6.1.4.1.25623.1.0.114839,"CVE-2024-9287",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,f1155e59-84b9-4929-98f5-948c551f70b1,"","Update to version 3.9.21, 3.10.16, 3.11.11, 3.12.8, 3.13.1
+  or later.","Python versions prior to 3.9.21, 3.10.x prior to 3.10.16,
+  3.11.x prior to 3.11.11, 3.12.x prior to 3.12.8 and 3.13.x prior to 3.13.1.","A vulnerability has been found in the venv module and CLI where
+  path names provided when creating a virtual environment were not quoted properly, allowing the
+  virtual environment creator to inject commands into virtual environment 'activation' scripts (ie
+  'source venv/bin/activate'). This means that attacker-controlled virtual environments are able to
+  run commands when the virtual environment is activated. Virtual environments which are not created
+  by an attacker or which aren't activated before being used (ie './venv/bin/python') are not
+  affected.","Checks if a vulnerable version is present on the target host.
+Details:
+Python Command Injection Vulnerability (Oct 2024) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.114839)
+Version used: 2025-02-11T05:38:07Z
+","Product: cpe:/a:python:python:3.11.10
+Method: Python Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.112857)
+","","DFN-CERT-2025-3555,DFN-CERT-2025-1902,DFN-CERT-2025-1682,DFN-CERT-2025-1477,DFN-CERT-2025-1461,DFN-CERT-2025-1148,DFN-CERT-2025-0655,DFN-CERT-2025-0179,DFN-CERT-2024-3255,DFN-CERT-2024-3220,DFN-CERT-2024-3182,DFN-CERT-2024-3141,DFN-CERT-2024-2837,WID-SEC-2025-1567,WID-SEC-2025-1560,WID-SEC-2025-1559,WID-SEC-2024-3270",""
+172.30.10.2,vampi.trabalho_vulnnet,,,0.0,Log,80,"","Python Detection Consolidation","Consolidation of Python detections.","Detected Python
+
+Version:       3.11.10
+Location:      5000/tcp
+CPE:           cpe:/a:python:python:3.11.10
+
+Concluded from version/product identification result:
+Server: Werkzeug/2.2.3 Python/3.11.10
+",1.3.6.1.4.1.25623.1.0.112857,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,a2d3bd0c-ba13-42ab-b0dc-c3c413204573,"","","","","
+Details:
+Python Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.112857)
+Version used: 2021-07-09T08:01:09Z
+","","","",""
+172.30.10.2,vampi.trabalho_vulnnet,5000,tcp,5.3,Medium,30,"VendorFix","Python DoS Vulnerability (Dec 2025) - Linux","Python is prone to a denial of service (DoS) vulnerability.","Installed version: 3.11.10
+Fixed version:     3.13.11
+Installation
+path / port:       5000/tcp
+
+",1.3.6.1.4.1.25623.1.0.133141,"CVE-2025-12084",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,f9274a62-23e9-4643-969e-fca9ceb395a1,"","Update to version 3.13.11, 3.14.2 or later.","Python prior to version 3.13.11 and 3.14.0 prior to 3.14.2.","When building nested elements using xml.dom.minidom methods such
+  as appendChild() that have a dependency on _clear_id_cache() the algorithm is quadratic.
+  Availability can be impacted when building excessively nested documents.","Checks if a vulnerable version is present on the target host.
+Details:
+Python DoS Vulnerability (Dec 2025) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.133141)
+Version used: 2025-12-17T05:46:28Z
+","Product: cpe:/a:python:python:3.11.10
+Method: Python Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.112857)
+","","DFN-CERT-2026-0215,DFN-CERT-2026-0174,DFN-CERT-2026-0167,DFN-CERT-2026-0038,DFN-CERT-2025-3621,DFN-CERT-2025-3496,WID-SEC-2025-2741",""
+172.30.10.2,vampi.trabalho_vulnnet,5000,tcp,5.5,Medium,30,"VendorFix","Python DoS Vulnerability (Dec 2025) - Linux","Python is prone to a denial of service (DoS) vulnerability.","Installed version: 3.11.10
+Fixed version:     3.13.10
+Installation
+path / port:       5000/tcp
+
+",1.3.6.1.4.1.25623.1.0.125553,"CVE-2025-13837",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,5d0222bd-1d2c-4b21-8cf5-d42ca705a08a,"","Update to version 3.13.10, 3.14.1 or later, or to the latest
+  maintenance release of your Python version series (3.10.x, 3.12.x) once patches
+  are available. Please see the references for more information.","Python prior to version 3.13.10 and 3.14.x prior to 3.14.1.
+
+  Note: Fixes have been backported to maintenance branches (3.10, 3.12) but specific
+  patch versions are not yet available.","When loading a plist file, the plistlib module reads data in
+  size specified by the file itself, meaning a malicious file can cause out-of-memory (OOM) and
+  DoS issues.","Checks if a vulnerable version is present on the target host.
+Details:
+Python DoS Vulnerability (Dec 2025) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.125553)
+Version used: 2026-01-16T05:47:38Z
+","Product: cpe:/a:python:python:3.11.10
+Method: Python Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.112857)
+","","DFN-CERT-2026-0215,DFN-CERT-2025-3621,WID-SEC-2025-2706",""
+172.30.10.2,vampi.trabalho_vulnnet,5000,tcp,7.8,High,30,"VendorFix","Python DoS Vulnerability (Jul 2025) - Linux","Python is prone to a denial of service (DoS) vulnerability.","Installed version: 3.11.10
+Fixed version:     3.11.14
+Installation
+path / port:       5000/tcp
+
+",1.3.6.1.4.1.25623.1.0.155051,"CVE-2025-8194",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,2b6027d7-023a-4a42-90f0-29e718f19ba4,"","Update to version 3.9.24, 3.10.19, 3.11.14, 3.12.12, 3.13.6 or
+  later.","Python versions prior to 3.9.24, 3.10.x prior to 3.10.19,
+  3.11.x prior to 3.11.14, 3.12.x prior to 3.12.12 and 3.13.x prior to 3.13.6.","There is a defect in the CPython 'tarfile' module affecting the
+  'TarFile' extraction and entry enumeration APIs. The tar implementation would process tar
+  archives with negative offsets without error, resulting in an infinite loop and deadlock during
+  the parsing of maliciously crafted tar archives.","Checks if a vulnerable version is present on the target host.
+Details:
+Python DoS Vulnerability (Jul 2025) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.155051)
+Version used: 2025-12-18T05:46:55Z
+","Product: cpe:/a:python:python:3.11.10
+Method: Python Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.112857)
+","","DFN-CERT-2026-0215,DFN-CERT-2026-0202,DFN-CERT-2025-3313,DFN-CERT-2025-2372,DFN-CERT-2025-2304,DFN-CERT-2025-2235,DFN-CERT-2025-2212,DFN-CERT-2025-2148,DFN-CERT-2025-2063,WID-SEC-2026-0157,WID-SEC-2026-0153,WID-SEC-2025-2043,WID-SEC-2025-1664",""
+172.30.10.2,vampi.trabalho_vulnnet,5000,tcp,4.0,Medium,30,"VendorFix","Python DoS Vulnerability (Jun 2025) - Linux","Python is prone to a denial of service (DoS) vulnerability.","Installed version: 3.11.10
+Fixed version:     3.11.14
+Installation
+path / port:       5000/tcp
+
+",1.3.6.1.4.1.25623.1.0.154798,"CVE-2025-6069",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,f10c5b1b-9ea9-4899-bd31-c80db4b3de89,"","Update to version 3.9.24, 3.10.19, 3.11.14, 3.12.12, 3.13.6 or
+  later.","Python prior to version 3.9.24, 3.10.x prior to 3.10.19, 3.11.x
+  prior to 3.11.14, 3.12.x prior to 3.12.12 and 3.13.x prior to 3.13.6.","The html.parser.HTMLParser class had worse-case quadratic
+  complexity when processing certain crafted malformed inputs potentially leading to amplified
+  denial of service.","Checks if a vulnerable version is present on the target host.
+Details:
+Python DoS Vulnerability (Jun 2025) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.154798)
+Version used: 2025-12-18T05:46:55Z
+","Product: cpe:/a:python:python:3.11.10
+Method: Python Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.112857)
+","","DFN-CERT-2026-0215,DFN-CERT-2025-3563,DFN-CERT-2025-3555,DFN-CERT-2025-3313,DFN-CERT-2025-3045,DFN-CERT-2025-2304,DFN-CERT-2025-2235,DFN-CERT-2025-2212,DFN-CERT-2025-2148,DFN-CERT-2025-2047,DFN-CERT-2025-1980,DFN-CERT-2025-1868,DFN-CERT-2025-1800,WID-SEC-2025-1470",""
+172.30.10.2,vampi.trabalho_vulnnet,5000,tcp,5.0,Medium,30,"VendorFix","Python DoS Vulnerability (Oct 2025) - Linux","Python is prone to a denial of service (DoS) vulnerability.","Installed version: 3.11.10
+Fixed version:     3.15.0
+Installation
+path / port:       5000/tcp
+
+",1.3.6.1.4.1.25623.1.0.125434,"CVE-2025-6075",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,f7f4e9af-9440-40b2-9d72-ec12b6182f5e,"","Update to Python 3.9.25, 3.15.0 or later, or to the latest
+  maintenance release of your Python version series (3.10.x, 3.12.x, 3.13.x, 3.14.x) once patches
+  are available. Please see the references for more information.","Python versions prior to 3.9.25 and 3.10.x prior to 3.15.0.
+
+  Note: Fixes have been backported to maintenance branches (3.10, 3.12, 3.13, 3.14) but specific
+  patch versions are not yet available.","If the value passed to os.path.expandvars() is user-controlled
+  a performance degradation is possible when expanding environment variables. This vulnerability
+  exhibits quadratic complexity behavior that could be exploited for denial of service attacks.","Checks if a vulnerable version is present on the target host.
+Details:
+Python DoS Vulnerability (Oct 2025) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.125434)
+Version used: 2025-11-05T05:40:07Z
+","Product: cpe:/a:python:python:3.11.10
+Method: Python Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.112857)
+","","DFN-CERT-2026-0215,DFN-CERT-2025-3563,DFN-CERT-2025-3555,DFN-CERT-2025-3298,DFN-CERT-2025-3267,WID-SEC-2025-2468",""
+172.30.10.2,vampi.trabalho_vulnnet,5000,tcp,2.6,Low,30,"VendorFix","Python Improper Input Validation Vulnerability (Jan 2025) - Linux","Python is prone to an improper input validation vulnerability
+  in the urllib.parse.urlsplit and urlparse standard functions.","Installed version: 3.11.10
+Fixed version:     3.11.12
+Installation
+path / port:       5000/tcp
+
+",1.3.6.1.4.1.25623.1.0.171143,"CVE-2025-0938",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,7eecc94a-1d0e-46a2-ac24-106d89b9bd6d,"","Update to version 3.9.22, 3.10.17, 3.11.12, 3.12.9, 3.13.2 or
+  later.","Python versions prior to 3.9.22, 3.10.x prior to 3.10.17,
+  3.11.x prior to 3.11.12, 3.12.x prior to 3.12.9 and 3.13.x prior to 3.13.2.","The Python standard library functions urllib.parse.urlsplit and
+  urlparse accepted domain names that included square brackets which isn't valid according to RFC
+  3986. Square brackets are only meant to be used as delimiters for specifying IPv6 and IPvFuture
+  hosts in URLs. This could result in differential parsing across the Python URL parser and other
+  specification-compliant URL parsers.","Checks if a vulnerable version is present on the target host.
+Details:
+Python Improper Input Validation Vulnerability (Jan 2025) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.171143)
+Version used: 2025-10-10T05:39:02Z
+","Product: cpe:/a:python:python:3.11.10
+Method: Python Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.112857)
+","","DFN-CERT-2025-3555,DFN-CERT-2025-3045,DFN-CERT-2025-1682,DFN-CERT-2025-1477,DFN-CERT-2025-1461,DFN-CERT-2025-0993,DFN-CERT-2025-0717,DFN-CERT-2025-0655,DFN-CERT-2025-0409,DFN-CERT-2025-0399,DFN-CERT-2025-0309,WID-SEC-2025-0233",""
+172.30.10.2,vampi.trabalho_vulnnet,5000,tcp,4.0,Medium,30,"VendorFix","Python Use After Free Vulnerability (May 2025) - Linux","Python is prone to an use after free vulnerability.","Installed version: 3.11.10
+Fixed version:     3.11.13
+Installation
+path / port:       5000/tcp
+
+",1.3.6.1.4.1.25623.1.0.171522,"CVE-2025-4516",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,146bfba3-6742-43fa-a589-be3a3d377e08,"","Update to version 3.9.23, 3.10.18, 3.11.13, 3.12.11, 3.13.4 or
+  later.","Python prior to version 3.9.23, 3.10.x prior to 3.10.18, 3.11.x
+  prior to 3.11.13, 3.12.x prior to 3.12.11 and 3.13.x prior to 3.13.4.","There is an issue in CPython when using bytes.decode(). If you
+  are not using the 'unicode_escape' encoding or an error handler your usage is not affected. To
+  work-around this issue you may stop using the error= handler and instead wrap the bytes.decode()
+  call in a try-except catching the DecodeError.","Checks if a vulnerable version is present on the target host.
+Details:
+Python Use After Free Vulnerability (May 2025) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.171522)
+Version used: 2025-10-10T05:39:02Z
+","Product: cpe:/a:python:python:3.11.10
+Method: Python Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.112857)
+","","DFN-CERT-2026-0215,DFN-CERT-2025-3555,DFN-CERT-2025-2212,DFN-CERT-2025-2047,DFN-CERT-2025-1905,DFN-CERT-2025-1868,DFN-CERT-2025-1682,DFN-CERT-2025-1653,DFN-CERT-2025-1589,DFN-CERT-2025-1558,DFN-CERT-2025-1489,DFN-CERT-2025-1477,WID-SEC-2025-1850,WID-SEC-2025-1080",""
+172.30.10.2,vampi.trabalho_vulnnet,5000,tcp,0.0,Log,80,"","Services","This plugin performs service detection.","A web server is running on this port
+",1.3.6.1.4.1.25623.1.0.10330,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,47acde82-3a7d-4c56-ab3e-35edd7ca888f,"","","","This plugin attempts to guess which service is running on the
+  remote port(s). For instance, it searches for a web server which could listen on another port than
+  80 or 443 and makes this information available for other check routines.","
+Details:
+Services
+(OID: 1.3.6.1.4.1.25623.1.0.10330)
+Version used: 2025-03-05T05:38:53Z
+","","","",""
+172.30.10.2,vampi.trabalho_vulnnet,,,2.6,Low,80,"Mitigation","TCP Timestamps Information Disclosure","The remote host implements TCP timestamps and therefore allows
+  to compute the uptime.","It was detected that the host implements RFC1323/RFC7323.
+
+The following timestamps were retrieved with a delay of 1 seconds in-between:
+Packet 1: 2098160797
+Packet 2: 2098161901
+",1.3.6.1.4.1.25623.1.0.80091,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,9e76e490-8a31-4255-970b-9dfa554ddb97,"A side effect of this feature is that the uptime of the remote
+  host can sometimes be computed.","To disable TCP timestamps on linux add the line
+  'net.ipv4.tcp_timestamps = 0' to /etc/sysctl.conf. Execute 'sysctl -p' to apply the settings at
+  runtime.
+
+  To disable TCP timestamps on Windows execute 'netsh int tcp set global timestamps=disabled'
+
+  Starting with Windows Server 2008 and Vista, the timestamp can not be completely disabled.
+
+  The default behavior of the TCP/IP stack on this Systems is to not use the Timestamp options when
+  initiating TCP connections, but use them if the TCP peer that is initiating communication includes
+  them in their synchronize (SYN) segment.
+
+  See the references for more information.","TCP implementations that implement RFC1323/RFC7323.","The remote host implements TCP timestamps, as defined by
+  RFC1323/RFC7323.","Special IP packets are forged and sent with a little delay in
+  between to the target IP. The responses are searched for a timestamps. If found, the timestamps
+  are reported.
+Details:
+TCP Timestamps Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.80091)
+Version used: 2023-12-15T16:10:08Z
+","","","",""
+172.30.10.2,vampi.trabalho_vulnnet,,,0.0,Log,80,"","Traceroute","Collect information about the network route and
+  network distance between the scanner host and the target host.","Network route from scanner (172.30.0.2) to target (172.30.10.2):
+
+172.30.0.2
+172.30.10.2
+
+Network distance between scanner and target: 2
+",1.3.6.1.4.1.25623.1.0.51662,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,44f8ef42-07db-4a01-bc47-2a9be40584fb,"","","","For internal networks, the distances are usually
+  small, often less than 4 hosts between scanner and target. For public targets the
+  distance is greater and might be 10 hosts or more.","A combination of the protocols ICMP and TCP is used
+  to determine the route. This method is applicable for IPv4 only and it is also known as
+  'traceroute'.
+Details:
+Traceroute
+(OID: 1.3.6.1.4.1.25623.1.0.51662)
+Version used: 2022-10-17T11:13:19Z
+","","","",""
+172.30.10.2,vampi.trabalho_vulnnet,,,0.0,Log,80,"","Unknown OS and Service Banner Reporting","This VT consolidates and reports the information collected by
+  the following VTs:
+
+  - Collect banner of unknown services (OID: 1.3.6.1.4.1.25623.1.0.11154)
+
+  - Service Detection (unknown) with nmap (OID: 1.3.6.1.4.1.25623.1.0.66286)
+
+  - Service Detection (wrapped) with nmap (OID: 1.3.6.1.4.1.25623.1.0.108525)
+
+  - OS Detection Consolidation and Reporting (OID: 1.3.6.1.4.1.25623.1.0.105937)
+
+  If you know any of the information reported here, please send the full output to
+  the referenced community forum.","Unknown banners have been collected which might help to identify the OS running on this host. If these banners containing information about the host OS please report the following information to https://forum.greenbone.net/c/vulnerability-tests/7:
+
+Banner: Server: Werkzeug/2.2.3 Python/3.11.10
+Identified from: HTTP Server banner on port 5000/tcp
+",1.3.6.1.4.1.25623.1.0.108441,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,80549f7f-2c80-4ae6-8c55-9dd4abe10acc,"","","","","
+Details:
+Unknown OS and Service Banner Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.108441)
+Version used: 2023-06-22T10:34:15Z
+","","","",""
+172.30.10.2,vampi.trabalho_vulnnet,5000,tcp,0.0,Log,80,"","Web Application Scanning Consolidation / Info Reporting","The script consolidates and reports various information for web
+  application (formerly called 'CGI') scanning.
+
+  This information is based on the following scripts / settings:
+
+  - HTTP-Version Detection (OID: 1.3.6.1.4.1.25623.1.0.100034)
+
+  - No 404 check (OID: 1.3.6.1.4.1.25623.1.0.10386)
+
+  - Web mirroring / webmirror.nasl (OID: 1.3.6.1.4.1.25623.1.0.10662)
+
+  - Directory Scanner / DDI_Directory_Scanner.nasl (OID: 1.3.6.1.4.1.25623.1.0.11032)
+
+  - The configured 'cgi_path' within the 'Scanner Preferences' of the scan config in use
+
+  - The configured 'Enable CGI scanning', 'Enable generic web application scanning' and
+  'Add historic /scripts and /cgi-bin to directories for CGI scanning' within the
+  'Global variable settings' of the scan config in use
+
+  If you think any of this information is wrong please report it to the referenced community
+  forum.","The Hostname/IP ""vampi.trabalho_vulnnet"" was used to access the remote host.
+
+Generic web application scanning is disabled for this host via the ""Enable generic web application scanning"" option within the ""Global variable settings"" of the scan config in use.
+
+Requests to this service are done via HTTP/1.1.
+
+This service seems to be able to host PHP scripts.
+
+This service seems to be able to host ASP scripts.
+
+The User-Agent ""Mozilla/5.0 [en] (X11, U; OpenVAS-VT <version replaced>)"" was used to access the remote host.
+
+Historic /scripts and /cgi-bin are not added to the directories used for web application scanning. You can enable this again with the ""Add historic /scripts and /cgi-bin to directories for CGI scanning"" option within the ""Global variable settings"" of the scan config in use.
+
+The following directories were used for web application scanning:
+
+http://vampi.trabalho_vulnnet:5000/
+http://vampi.trabalho_vulnnet:5000/ui
+
+While this is not, in and of itself, a bug, you should manually inspect these directories to ensure that they are in compliance with company security standards
+",1.3.6.1.4.1.25623.1.0.111038,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,7a82cffd-2ef2-4261-8417-b0c396ca4f4f,"","","","","
+Details:
+Web Application Scanning Consolidation / Info Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.111038)
+Version used: 2026-01-13T05:47:36Z
+","","","",""

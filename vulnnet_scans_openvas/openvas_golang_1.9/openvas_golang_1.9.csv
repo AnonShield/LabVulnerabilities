@@ -1,0 +1,90 @@
+IP,Hostname,Port,Port Protocol,CVSS,Severity,QoD,Solution Type,NVT Name,Summary,Specific Result,NVT OID,CVEs,Task ID,Task Name,Timestamp,Result ID,Impact,Solution,Affected Software/OS,Vulnerability Insight,Vulnerability Detection Method,Product Detection Result,BIDs,CERTs,Other References
+      172.31.1.46,go19.trabalho_vulnnet,,,0.0,Log,80,"","CPE Inventory","This routine uses information collected by other routines about
+  CPE identities of operating systems, services and applications detected during the scan.
+
+  Note: Some CPEs for specific products might show up twice or more in the output. Background:
+
+  After a product got renamed or a specific vendor was acquired by another one it might happen that
+  a product gets a new CPE within the NVD CPE Dictionary but older entries are kept with the older
+  CPE.","172.31.1.46|cpe:/o:linux:kernel
+
+",1.3.6.1.4.1.25623.1.0.810002,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:15:53Z,6a3c6681-9ae7-4558-a594-cac672d8c882,"","","","","
+Details:
+CPE Inventory
+(OID: 1.3.6.1.4.1.25623.1.0.810002)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.31.1.46,go19.trabalho_vulnnet,,,0.0,Log,80,"","Hostname Determination Reporting","The script reports information on how the hostname of the target
+  was determined.","Hostname determination for IP 172.31.1.46:
+
+Hostname|Source
+go19.trabalho_vulnnet|Reverse-DNS
+",1.3.6.1.4.1.25623.1.0.108449,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:15:53Z,21a5cd4f-544f-481f-8798-95a94f106739,"","","","","
+Details:
+Hostname Determination Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.108449)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.31.1.46,go19.trabalho_vulnnet,,,2.1,Low,80,"Mitigation","ICMP Timestamp Reply Information Disclosure","The remote host responded to an ICMP timestamp request.","The following response / ICMP packet has been received:
+- ICMP Type: 14
+- ICMP Code: 0
+",1.3.6.1.4.1.25623.1.0.103190,"CVE-1999-0524",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:15:53Z,36ad1a71-472e-405f-8136-cd33def63e8c,"This information could theoretically be used to exploit weak
+  time-based random number generators in other services.","Various mitigations are possible:
+
+  - Disable the support for ICMP timestamp on the remote host completely
+
+  - Protect the remote host by a firewall, and block ICMP packets passing through the firewall in
+  either direction (either completely or only for untrusted networks)","","The Timestamp Reply is an ICMP message which replies to a
+  Timestamp message. It consists of the originating timestamp sent by the sender of the Timestamp as
+  well as a receive timestamp and a transmit timestamp.","Sends an ICMP Timestamp (Type 13) request and checks if a
+  Timestamp Reply (Type 14) is received.
+Details:
+ICMP Timestamp Reply Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.103190)
+Version used: 2025-01-21T05:37:33Z
+","","","DFN-CERT-2014-0658,CB-K15/1514,CB-K14/0632",""
+172.31.1.46,go19.trabalho_vulnnet,,,0.0,Log,70,"","IP Forwarding Enabled - Active Check","Checks if the remote host has IP forwarding enabled.","It was possible to route a TCP packet through the target host and received an answer which means IP forwarding is enabled.
+",1.3.6.1.4.1.25623.1.0.147205,"CVE-1999-0511",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:15:53Z,49599bdb-a2af-4038-a9c5-8ee5fda2a764,"","","","","Sends a crafted Local Link Layer (LLL) frame and checks the
+  response.
+Details:
+IP Forwarding Enabled - Active Check
+(OID: 1.3.6.1.4.1.25623.1.0.147205)
+Version used: 2021-12-03T08:27:06Z
+","","","",""
+172.31.1.46,go19.trabalho_vulnnet,,,0.0,Log,80,"","OS Detection Consolidation and Reporting","This script consolidates the OS information detected by several
+  VTs and tries to find the best matching OS.
+
+  Furthermore it reports all previously collected information leading to this best matching OS. It
+  also reports possible additional information which might help to improve the OS detection.
+
+  If any of this information is wrong or could be improved please consider to report these to the
+  referenced community forum.","Best matching OS:
+
+OS:           Linux Kernel
+CPE:          cpe:/o:linux:kernel
+Found by VT:  1.3.6.1.4.1.25623.1.0.102002 (Operating System (OS) Detection (ICMP))
+Concluded from ICMP based OS fingerprint
+Setting key ""Host/runs_unixoide"" based on this information
+",1.3.6.1.4.1.25623.1.0.105937,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:15:53Z,cd2dab7c-2228-4d4a-9a0c-47114e0d6ebd,"","","","","
+Details:
+OS Detection Consolidation and Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.105937)
+Version used: 2026-01-21T05:50:46Z
+","","","",""
+172.31.1.46,go19.trabalho_vulnnet,,,0.0,Log,80,"","Traceroute","Collect information about the network route and
+  network distance between the scanner host and the target host.","Network route from scanner (172.30.0.2) to target (172.31.1.46):
+
+172.30.0.2
+172.31.1.46
+
+Network distance between scanner and target: 2
+",1.3.6.1.4.1.25623.1.0.51662,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:15:53Z,d664a8e7-f303-477c-aa6e-a38ab25c49f6,"","","","For internal networks, the distances are usually
+  small, often less than 4 hosts between scanner and target. For public targets the
+  distance is greater and might be 10 hosts or more.","A combination of the protocols ICMP and TCP is used
+  to determine the route. This method is applicable for IPv4 only and it is also known as
+  'traceroute'.
+Details:
+Traceroute
+(OID: 1.3.6.1.4.1.25623.1.0.51662)
+Version used: 2022-10-17T11:13:19Z
+","","","",""

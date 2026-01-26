@@ -1,0 +1,428 @@
+I Summary
+=========
+
+This document reports on the results of an automatic security scan.
+The report first summarises the results found.
+Then, for each host, the report describes every issue found.
+Please consider the advice given in each description, in order to rectify
+the issue.
+
+All dates are displayed using the timezone "Coordinated Universal Time",
+which is abbreviated "UTC".
+
+Vendor security updates are not trusted.
+
+Overrides are off.  Even when a result has an override, this report uses
+the actual threat of the result.
+
+Notes are included in the report.Information on overrides is included in the report.
+
+This report might not show details of all issues that were found.
+Issues with the threat level "Critical" are not shown.
+Issues with the threat level "Debug" are not shown.
+
+This report contains all 10 results selected by the
+filtering described above.  Before filtering there were 5586 results.
+
+Scan started: Mon Jan 26 01:47:47 2026 UTC
+Scan ended:   Mon Jan 26 14:04:13 2026 UTC
+Task:          hgdfdghgdgd
+
+Host Summary
+************
+
+Host            Critical  High  Medium  Low  Log  False Positive
+172.31.1.58            0     0       0    2    8               0    rabbit36.trabalho_vulnnet
+Total: 1               0     0       0    2    8               0
+
+
+II Results per Host
+===================
+
+Host 172.31.1.58
+****************
+
+Scanning of this host started at: Mon Jan 26 10:59:23 2026 UTC
+Number of results: 10
+
+Port Summary for Host 172.31.1.58
+---------------------------------
+
+Service (Port)          Threat Level
+general/tcp             Low (CVSS: 2.6)
+general/icmp            Low (CVSS: 2.1)
+4369/tcp                Log (CVSS: 0.0)
+5672/tcp                Log (CVSS: 0.0)
+general/CPE-T           Log (CVSS: 0.0)
+
+Security Issues for Host 172.31.1.58
+------------------------------------
+
+Issue
+-----
+NVT:    Advanced Message Queuing Protocol (AMQP) Detection (TCP)
+OID:    1.3.6.1.4.1.25623.1.0.105030
+Threat: Log (CVSS: 0.0)
+Port:   5672/tcp
+
+Summary:
+TCP based detection of services supporting the Advanced Message
+  Queuing Protocol (AMQP).
+
+Vulnerability Detection Result:
+A service supporting the AMQP protocol is running on this host.
+Version:  0.9.1
+Protocol: Basic
+
+Solution:
+
+Log Method:
+Details:
+Advanced Message Queuing Protocol (AMQP) Detection (TCP)
+(OID: 1.3.6.1.4.1.25623.1.0.105030)
+Version used: 2025-03-27T05:38:50Z
+
+References:
+ url: https://www.amqp.org/
+
+
+Issue
+-----
+NVT:    CPE Inventory
+OID:    1.3.6.1.4.1.25623.1.0.810002
+Threat: Log (CVSS: 0.0)
+Port:   general/CPE-T
+
+Summary:
+This routine uses information collected by other routines about
+  CPE identities of operating systems, services and applications detected during!
+ the scan.
+  Note: Some CPEs for specific products might show up twice or more in the outpu!
+t. Background:
+  After a product got renamed or a specific vendor was acquired by another one i!
+t might happen that
+  a product gets a new CPE within the NVD CPE Dictionary but older entries are k!
+ept with the older
+  CPE.
+
+Vulnerability Detection Result:
+172.31.1.58|cpe:/a:vmware:rabbitmq:3.6.16
+172.31.1.58|cpe:/o:linux:kernel
+
+Solution:
+
+Log Method:
+Details:
+CPE Inventory
+(OID: 1.3.6.1.4.1.25623.1.0.810002)
+Version used: 2022-07-27T10:11:28Z
+
+References:
+ url: https://nvd.nist.gov/products/cpe
+
+
+Issue
+-----
+NVT:    Erlang Port Mapper Daemon (epmd) Detection
+OID:    1.3.6.1.4.1.25623.1.0.148849
+Threat: Log (CVSS: 0.0)
+Port:   4369/tcp
+
+Summary:
+Detection of Erlang Port Mapper Daemon (epmd).
+
+Vulnerability Detection Result:
+An Erlang Port Mapper Daemon (epmd) is running at this port.
+The following port mapping was received:
+name rabbit at port 25672
+
+Solution:
+
+Log Method:
+Details:
+Erlang Port Mapper Daemon (epmd) Detection
+(OID: 1.3.6.1.4.1.25623.1.0.148849)
+Version used: 2022-11-03T10:20:15Z
+
+References:
+ url: https://www.erlang.org/doc/man/epmd.html
+
+
+Issue
+-----
+NVT:    Hostname Determination Reporting
+OID:    1.3.6.1.4.1.25623.1.0.108449
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+The script reports information on how the hostname of the target
+  was determined.
+
+Vulnerability Detection Result:
+Hostname determination for IP 172.31.1.58:
+Hostname|Source
+rabbit36.trabalho_vulnnet|Reverse-DNS
+
+Solution:
+
+Log Method:
+Details:
+Hostname Determination Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.108449)
+Version used: 2022-07-27T10:11:28Z
+
+
+Issue
+-----
+NVT:    ICMP Timestamp Reply Information Disclosure
+OID:    1.3.6.1.4.1.25623.1.0.103190
+Threat: Low (CVSS: 2.1)
+Port:   general/icmp
+
+Summary:
+The remote host responded to an ICMP timestamp request.
+
+Vulnerability Detection Result:
+The following response / ICMP packet has been received:
+- ICMP Type: 14
+- ICMP Code: 0
+
+Impact:
+This information could theoretically be used to exploit weak
+  time-based random number generators in other services.
+
+Solution:
+Solution type: Mitigation
+Various mitigations are possible:
+  - Disable the support for ICMP timestamp on the remote host completely
+  - Protect the remote host by a firewall, and block ICMP packets passing throug!
+h the firewall in
+  either direction (either completely or only for untrusted networks)
+
+Vulnerability Insight:
+The Timestamp Reply is an ICMP message which replies to a
+  Timestamp message. It consists of the originating timestamp sent by the sender!
+ of the Timestamp as
+  well as a receive timestamp and a transmit timestamp.
+
+Vulnerability Detection Method:
+Sends an ICMP Timestamp (Type 13) request and checks if a
+  Timestamp Reply (Type 14) is received.
+Details:
+ICMP Timestamp Reply Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.103190)
+Version used: 2025-01-21T05:37:33Z
+
+References:
+ cve: CVE-1999-0524
+ url: https://datatracker.ietf.org/doc/html/rfc792
+ url: https://datatracker.ietf.org/doc/html/rfc2780
+ cert-bund: CB-K15/1514
+ cert-bund: CB-K14/0632
+ dfn-cert: DFN-CERT-2014-0658
+
+
+Issue
+-----
+NVT:    IP Forwarding Enabled - Active Check
+OID:    1.3.6.1.4.1.25623.1.0.147205
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+Checks if the remote host has IP forwarding enabled.
+
+Vulnerability Detection Result:
+It was possible to route a TCP packet through the target host and received an an!
+swer which means IP forwarding is enabled.
+
+Solution:
+
+Log Method:
+Sends a crafted Local Link Layer (LLL) frame and checks the
+  response.
+Details:
+IP Forwarding Enabled - Active Check
+(OID: 1.3.6.1.4.1.25623.1.0.147205)
+Version used: 2021-12-03T08:27:06Z
+
+References:
+ cve: CVE-1999-0511
+
+
+Issue
+-----
+NVT:    OS Detection Consolidation and Reporting
+OID:    1.3.6.1.4.1.25623.1.0.105937
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+This script consolidates the OS information detected by several
+  VTs and tries to find the best matching OS.
+  Furthermore it reports all previously collected information leading to this be!
+st matching OS. It
+  also reports possible additional information which might help to improve the O!
+S detection.
+  If any of this information is wrong or could be improved please consider to re!
+port these to the
+  referenced community forum.
+
+Vulnerability Detection Result:
+Best matching OS:
+OS:           Linux Kernel
+CPE:          cpe:/o:linux:kernel
+Found by VT:  1.3.6.1.4.1.25623.1.0.102002 (Operating System (OS) Detection (ICM!
+P))
+Concluded from ICMP based OS fingerprint
+Setting key "Host/runs_unixoide" based on this information
+
+Solution:
+
+Log Method:
+Details:
+OS Detection Consolidation and Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.105937)
+Version used: 2026-01-21T05:50:46Z
+
+References:
+ url: https://forum.greenbone.net/c/vulnerability-tests/7
+
+
+Issue
+-----
+NVT:    RabbitMQ Server Detection Consolidation
+OID:    1.3.6.1.4.1.25623.1.0.153539
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+Consolidation of RabbitMQ Server detections.
+
+Vulnerability Detection Result:
+Detected RabbitMQ Server
+Version:       3.6.16
+Location:      /
+CPE:           cpe:/a:vmware:rabbitmq:3.6.16
+Detection methods:
+AMQP on port 5672/tcp
+  Concluded from version/product identification result:
+                  capabilitiesF     publisher_confirmst  exchange_exchange_bindi!
+ngst  basic.nackt  consumer_cancel_notifyt  connection.blockedt  consumer_priori!
+tiest  authentication_failure_closet  per_consumer_qost  direct_reply_tot  clust!
+er_nameS    rabbit@fc72734c9544 copyrightS   .Copyright (C) 2007-2018 Pivotal So!
+ftware, Inc. informationS   5Licensed under the MPL.  See http://www.rabbitmq.co!
+m/ platformS    Erlang/OTP 19.2.1 productS    RabbitMQ versionS    3.6.16    AMQ!
+PLAIN PLAIN    en_US
+
+Solution:
+
+Log Method:
+Details:
+RabbitMQ Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.153539)
+Version used: 2025-03-27T05:38:50Z
+
+References:
+ url: https://www.rabbitmq.com/
+
+
+Issue
+-----
+NVT:    TCP Timestamps Information Disclosure
+OID:    1.3.6.1.4.1.25623.1.0.80091
+Threat: Low (CVSS: 2.6)
+Port:   general/tcp
+
+Summary:
+The remote host implements TCP timestamps and therefore allows
+  to compute the uptime.
+
+Vulnerability Detection Result:
+It was detected that the host implements RFC1323/RFC7323.
+The following timestamps were retrieved with a delay of 1 seconds in-between:
+Packet 1: 3024311618
+Packet 2: 3024312714
+
+Impact:
+A side effect of this feature is that the uptime of the remote
+  host can sometimes be computed.
+
+Solution:
+Solution type: Mitigation
+To disable TCP timestamps on linux add the line
+  'net.ipv4.tcp_timestamps = 0' to /etc/sysctl.conf. Execute 'sysctl -p' to appl!
+y the settings at
+  runtime.
+  To disable TCP timestamps on Windows execute 'netsh int tcp set global timesta!
+mps=disabled'
+  Starting with Windows Server 2008 and Vista, the timestamp can not be complete!
+ly disabled.
+  The default behavior of the TCP/IP stack on this Systems is to not use the Tim!
+estamp options when
+  initiating TCP connections, but use them if the TCP peer that is initiating co!
+mmunication includes
+  them in their synchronize (SYN) segment.
+  See the references for more information.
+
+Affected Software/OS:
+TCP implementations that implement RFC1323/RFC7323.
+
+Vulnerability Insight:
+The remote host implements TCP timestamps, as defined by
+  RFC1323/RFC7323.
+
+Vulnerability Detection Method:
+Special IP packets are forged and sent with a little delay in
+  between to the target IP. The responses are searched for a timestamps. If foun!
+d, the timestamps
+  are reported.
+Details:
+TCP Timestamps Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.80091)
+Version used: 2023-12-15T16:10:08Z
+
+References:
+ url: https://datatracker.ietf.org/doc/html/rfc1323
+ url: https://datatracker.ietf.org/doc/html/rfc7323
+ url: https://web.archive.org/web/20151213072445/http://www.microsoft.com/en-us/download/details.aspx?id=9152
+ url: https://www.fortiguard.com/psirt/FG-IR-16-090
+
+
+Issue
+-----
+NVT:    Traceroute
+OID:    1.3.6.1.4.1.25623.1.0.51662
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+Collect information about the network route and
+  network distance between the scanner host and the target host.
+
+Vulnerability Detection Result:
+Network route from scanner (172.30.0.2) to target (172.31.1.58):
+172.30.0.2
+172.31.1.58
+Network distance between scanner and target: 2
+
+Solution:
+
+Vulnerability Insight:
+For internal networks, the distances are usually
+  small, often less than 4 hosts between scanner and target. For public targets !
+the
+  distance is greater and might be 10 hosts or more.
+
+Log Method:
+A combination of the protocols ICMP and TCP is used
+  to determine the route. This method is applicable for IPv4 only and it is also!
+ known as
+  'traceroute'.
+Details:
+Traceroute
+(OID: 1.3.6.1.4.1.25623.1.0.51662)
+Version used: 2022-10-17T11:13:19Z
+
+

@@ -1,0 +1,5645 @@
+I Summary
+=========
+
+This document reports on the results of an automatic security scan.
+The report first summarises the results found.
+Then, for each host, the report describes every issue found.
+Please consider the advice given in each description, in order to rectify
+the issue.
+
+All dates are displayed using the timezone "Coordinated Universal Time",
+which is abbreviated "UTC".
+
+Vendor security updates are not trusted.
+
+Overrides are off.  Even when a result has an override, this report uses
+the actual threat of the result.
+
+Notes are included in the report.Information on overrides is included in the report.
+
+This report might not show details of all issues that were found.
+Issues with the threat level "Critical" are not shown.
+Issues with the threat level "Debug" are not shown.
+
+This report contains all 87 results selected by the
+filtering described above.  Before filtering there were 5586 results.
+
+Scan started: Mon Jan 26 01:47:47 2026 UTC
+Scan ended:   Mon Jan 26 14:04:13 2026 UTC
+Task:          hgdfdghgdgd
+
+Host Summary
+************
+
+Host            Critical  High  Medium  Low  Log  False Positive
+172.31.1.94            0    29      41    3   14               0    mediawiki128.trabalho_vulnnet
+Total: 1               0    29      41    3   14               0
+
+
+II Results per Host
+===================
+
+Host 172.31.1.94
+****************
+
+Scanning of this host started at: Mon Jan 26 06:55:39 2026 UTC
+Number of results: 87
+
+Port Summary for Host 172.31.1.94
+---------------------------------
+
+Service (Port)          Threat Level
+80/tcp                  High (CVSS: 8.8)
+general/tcp             Low (CVSS: 2.6)
+general/icmp            Low (CVSS: 2.1)
+general/CPE-T           Log (CVSS: 0.0)
+
+Security Issues for Host 172.31.1.94
+------------------------------------
+
+Issue
+-----
+NVT:    Apache HTTP Server 'mod_auth_digest' DoS Vulnerability - Linux
+OID:    1.3.6.1.4.1.25623.1.0.812067
+Threat: High (CVSS: 7.5)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.10
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+Apache HTTP Server is prone to a denial of service (DoS) vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 2.4.10
+Fixed version:     2.4.25
+Installation
+path / port:       80/tcp
+
+Impact:
+Successful exploitation will allow remote
+  attackers to cause a denial-of-service condition.
+
+Solution:
+Solution type: VendorFix
+Update to Apache HTTP Server 2.4.25 or
+  later.
+
+Affected Software/OS:
+Apache HTTP Server versions 2.4.23, 2.4.20,
+  2.4.18, 2.4.17, 2.4.16, 2.4.12, 2.4.10, 2.4.9, 2.4.7, 2.4.6, 2.4.4, 2.4.3,
+  2.4.2 and 2.4.1.
+
+Vulnerability Insight:
+The flaw exists due to insufficient handling
+  of malicious input to 'mod_auth_digest'.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server 'mod_auth_digest' DoS Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.812067)
+Version used: 2024-02-15T05:05:40Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.10
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2016-2161
+ url: https://httpd.apache.org/security/vulnerabilities_24.html#CVE-2016-2161
+ url: http://www.securityfocus.com/bid/95076
+ cert-bund: WID-SEC-2025-0370
+ cert-bund: CB-K19/0354
+ cert-bund: CB-K17/1854
+ cert-bund: CB-K17/1622
+ cert-bund: CB-K17/0955
+ cert-bund: CB-K17/0794
+ cert-bund: CB-K17/0704
+ cert-bund: CB-K17/0527
+ cert-bund: CB-K17/0477
+ cert-bund: CB-K16/1995
+ dfn-cert: DFN-CERT-2017-1925
+ dfn-cert: DFN-CERT-2017-1692
+ dfn-cert: DFN-CERT-2017-0988
+ dfn-cert: DFN-CERT-2017-0814
+ dfn-cert: DFN-CERT-2017-0723
+ dfn-cert: DFN-CERT-2017-0532
+ dfn-cert: DFN-CERT-2017-0489
+ dfn-cert: DFN-CERT-2016-2108
+
+
+Issue
+-----
+NVT:    Apache HTTP Server 'mod_lua' Denial of Service Vulnerability (May 2015)
+OID:    1.3.6.1.4.1.25623.1.0.805637
+Threat: Medium (CVSS: 4.3)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.10
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+Apache HTTP Server is prone to a denial of service vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 2.4.10
+Fixed version:     2.4.12
+Installation
+path / port:       80/tcp
+
+Impact:
+Successful exploitation will allow a remote
+  attacker to bypass intended access restrictions in opportunistic
+  circumstances by leveraging multiple Require directives.
+
+Solution:
+Solution type: VendorFix
+Update to version 2.4.12 or later.
+
+Affected Software/OS:
+Apache HTTP Server version 2.3.x through
+  2.4.10.
+
+Vulnerability Insight:
+Flaw is due to a vulnerability in
+  LuaAuthzProvider that is triggered if a user-supplied LUA script is supplied
+  more than once with different arguments.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server 'mod_lua' Denial of Service Vulnerability (May 2015)
+(OID: 1.3.6.1.4.1.25623.1.0.805637)
+Version used: 2024-02-20T05:05:48Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.10
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2014-8109
+ url: http://httpd.apache.org/security/vulnerabilities_24.html
+ url: http://www.securityfocus.com/bid/73040
+ url: http://www.rapid7.com/db/vulnerabilities/apache-httpd-cve-2014-8109
+ cert-bund: CB-K15/1360
+ cert-bund: CB-K15/1188
+ cert-bund: CB-K15/0736
+ cert-bund: CB-K14/1626
+ cert-bund: CB-K14/1592
+ dfn-cert: DFN-CERT-2015-1435
+ dfn-cert: DFN-CERT-2015-1252
+ dfn-cert: DFN-CERT-2015-0771
+ dfn-cert: DFN-CERT-2014-1727
+ dfn-cert: DFN-CERT-2014-1691
+
+
+Issue
+-----
+NVT:    Apache HTTP Server 'mod_lua' Denial of Service Vulnerability -01 (May 2015)
+OID:    1.3.6.1.4.1.25623.1.0.805616
+Threat: Medium (CVSS: 5.0)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.10
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+Apache HTTP Server is prone to a denial of service vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 2.4.10
+Fixed version:     2.4.13
+Installation
+path / port:       80/tcp
+
+Impact:
+Successful exploitation will allow a remote
+  attacker to cause a denial of service via some crafted dimension.
+
+Solution:
+Solution type: VendorFix
+Update to version 2.4.13 or later.
+
+Affected Software/OS:
+Apache HTTP Server versions through
+  2.4.12.
+
+Vulnerability Insight:
+Flaw is due to vulnerability in
+  lua_websocket_read function in lua_request.c in the mod_lua module.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server 'mod_lua' Denial of Service Vulnerability -01 (May 2015)
+(OID: 1.3.6.1.4.1.25623.1.0.805616)
+Version used: 2024-02-20T05:05:48Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.10
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2015-0228
+ url: https://bugs.mageia.org/show_bug.cgi?id=15428
+ url: http://www.securityfocus.com/bid/73041
+ url: http://svn.apache.org/repos/asf/httpd/httpd/branches/2.4.x/CHANGES
+ cert-bund: CB-K15/1360
+ cert-bund: CB-K15/1188
+ cert-bund: CB-K15/1051
+ cert-bund: CB-K15/0273
+ cert-bund: CB-K14/1592
+ dfn-cert: DFN-CERT-2015-1435
+ dfn-cert: DFN-CERT-2015-1252
+ dfn-cert: DFN-CERT-2015-1087
+ dfn-cert: DFN-CERT-2015-0285
+ dfn-cert: DFN-CERT-2014-1691
+
+
+Issue
+-----
+NVT:    Apache HTTP Server 'mod_proxy_fcgi' Denial of Service Vulnerability (May 2015)
+OID:    1.3.6.1.4.1.25623.1.0.805636
+Threat: Medium (CVSS: 5.0)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.10
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+Apache HTTP Server is prone to a denial of service vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 2.4.10
+Fixed version:     2.4.12
+Installation
+path / port:       80/tcp
+
+Impact:
+Successful exploitation will allow a remote
+  attacker to cause a denial of service via specially crafted response.
+
+Solution:
+Solution type: VendorFix
+Update to version 2.4.12 or later.
+
+Affected Software/OS:
+Apache HTTP Server version 2.4.10.
+
+Vulnerability Insight:
+Flaw is due to an out-of-bounds read
+  condition in the 'handle_headers' function in mod_proxy_fcgi that is triggered
+  as user-supplied input is not properly validated when handling responses from
+  FastCGI servers.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server 'mod_proxy_fcgi' Denial of Service Vulnerability (May 201...
+(OID: 1.3.6.1.4.1.25623.1.0.805636)
+Version used: 2024-02-20T05:05:48Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.10
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2014-3583
+ url: https://bugzilla.redhat.com/show_bug.cgi?id=1163555
+ url: http://www.securityfocus.com/bid/71657
+ url: http://httpd.apache.org/security/vulnerabilities_24.html
+ cert-bund: CB-K15/1360
+ cert-bund: CB-K15/1188
+ cert-bund: CB-K15/0559
+ cert-bund: CB-K14/1592
+ dfn-cert: DFN-CERT-2015-1435
+ dfn-cert: DFN-CERT-2015-1252
+ dfn-cert: DFN-CERT-2015-0581
+ dfn-cert: DFN-CERT-2014-1691
+
+
+Issue
+-----
+NVT:    Apache HTTP Server 'Whitespace Defects' Multiple Vulnerabilities
+OID:    1.3.6.1.4.1.25623.1.0.812033
+Threat: High (CVSS: 7.5)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.10
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+Apache HTTP Server is prone to multiple vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 2.4.10
+Fixed version:     2.4.25
+Installation
+path / port:       80/tcp
+
+Impact:
+Successful exploitation will allow remote
+  attackers to conduct request smuggling, response splitting and cache pollution
+  attacks.
+
+Solution:
+Solution type: VendorFix
+Update to Apache HTTP Server 2.2.32 or 2.4.25
+  or later.
+
+Affected Software/OS:
+Apache HTTP Server 2.2.x before 2.2.32 and
+  2.3.x through 2.4.24 prior to 2.4.25.
+
+Vulnerability Insight:
+Multiple flaws exist because the application accepted a
+  broad pattern of unusual whitespace patterns from the user-agent, including
+  bare CR, FF, VTAB in parsing the request line and request header lines, as
+  well as HTAB in parsing the request line. Any bare CR present in request
+  lines was treated as whitespace and remained in the request field member
+  'the_request', while a bare CR in the request header field name would be
+  honored as whitespace, and a bare CR in the request header field value was
+  retained the input headers array. Implied additional whitespace was accepted
+  in the request line and prior to the ':' delimiter of any request header lines!
+.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server 'Whitespace Defects' Multiple Vulnerabilities
+(OID: 1.3.6.1.4.1.25623.1.0.812033)
+Version used: 2022-09-09T10:12:35Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.10
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2016-8743
+ url: https://httpd.apache.org/security/vulnerabilities_22.html
+ url: http://www.securityfocus.com/bid/95077
+ url: https://httpd.apache.org/security/vulnerabilities_24.html
+ cert-bund: WID-SEC-2025-0370
+ cert-bund: CB-K19/0354
+ cert-bund: CB-K18/0066
+ cert-bund: CB-K17/1854
+ cert-bund: CB-K17/1622
+ cert-bund: CB-K17/1279
+ cert-bund: CB-K17/1163
+ cert-bund: CB-K17/0955
+ cert-bund: CB-K17/0794
+ cert-bund: CB-K17/0704
+ cert-bund: CB-K17/0659
+ cert-bund: CB-K17/0527
+ cert-bund: CB-K17/0477
+ cert-bund: CB-K17/0185
+ cert-bund: CB-K16/1995
+ dfn-cert: DFN-CERT-2018-1764
+ dfn-cert: DFN-CERT-2018-1070
+ dfn-cert: DFN-CERT-2018-0077
+ dfn-cert: DFN-CERT-2017-1925
+ dfn-cert: DFN-CERT-2017-1692
+ dfn-cert: DFN-CERT-2017-1327
+ dfn-cert: DFN-CERT-2017-1204
+ dfn-cert: DFN-CERT-2017-0988
+ dfn-cert: DFN-CERT-2017-0814
+ dfn-cert: DFN-CERT-2017-0723
+ dfn-cert: DFN-CERT-2017-0673
+ dfn-cert: DFN-CERT-2017-0532
+ dfn-cert: DFN-CERT-2017-0489
+ dfn-cert: DFN-CERT-2017-0189
+ dfn-cert: DFN-CERT-2016-2108
+
+
+Issue
+-----
+NVT:    Apache HTTP Server 2.4.0 - 2.4.40 Multiple Vulnerabilities - Linux
+OID:    1.3.6.1.4.1.25623.1.0.114143
+Threat: Medium (CVSS: 6.1)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.10
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+Apache HTTP Server is prone to multiple vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 2.4.10
+Fixed version:     2.4.41
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 2.4.41 or later.
+
+Affected Software/OS:
+Apache HTTP Server version 2.4.0 to 2.4.40.
+
+Vulnerability Insight:
+Apache HTTP server is prone to multiple vulnerabilities:
+  - A limited cross-site scripting issue affecting the mod_proxy error page. An !
+attacker
+  could cause the link on the error page to be malformed and instead point to a !
+page of
+  their choice. This would be exploitable where a server was set up with proxyin!
+g enabled
+  but was misconfigured in such a way that the Proxy Error page was displayed. (!
+CVE-2019-10092)
+  - Redirects configured with mod_rewrite that were intended to be self referent!
+ial
+  might be fooled by encoded newlines and redirect instead to an unexpected URL !
+within
+  the request URL. (CVE-2019-10098)
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server 2.4.0 - 2.4.40 Multiple Vulnerabilities - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.114143)
+Version used: 2024-02-15T05:05:40Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.10
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2019-10092
+ cve: CVE-2019-10098
+ url: https://httpd.apache.org/security/vulnerabilities_24.html
+ cert-bund: WID-SEC-2024-1591
+ cert-bund: CB-K20/1030
+ cert-bund: CB-K20/0708
+ cert-bund: CB-K20/0043
+ cert-bund: CB-K19/0909
+ cert-bund: CB-K19/0728
+ dfn-cert: DFN-CERT-2021-1333
+ dfn-cert: DFN-CERT-2021-0540
+ dfn-cert: DFN-CERT-2020-2422
+ dfn-cert: DFN-CERT-2020-2133
+ dfn-cert: DFN-CERT-2020-1124
+ dfn-cert: DFN-CERT-2020-0716
+ dfn-cert: DFN-CERT-2020-0090
+ dfn-cert: DFN-CERT-2019-2592
+ dfn-cert: DFN-CERT-2019-2169
+ dfn-cert: DFN-CERT-2019-1961
+ dfn-cert: DFN-CERT-2019-1810
+ dfn-cert: DFN-CERT-2019-1797
+ dfn-cert: DFN-CERT-2019-1751
+
+
+Issue
+-----
+NVT:    Apache HTTP Server 2.4.0 < 2.4.42 Multiple Vulnerabilities - Linux
+OID:    1.3.6.1.4.1.25623.1.0.143671
+Threat: Medium (CVSS: 6.1)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.10
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+Apache HTTP Server is prone to multiple vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 2.4.10
+Fixed version:     2.4.42
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 2.4.42 or later.
+
+Affected Software/OS:
+Apache HTTP Server version 2.4.0 to 2.4.41.
+
+Vulnerability Insight:
+Apache HTTP Server is prone to multiple vulnerabilities:
+  - mod_rewrite CWE-601 open redirect (CVE-2020-1927)
+  - mod_proxy_ftp use of uninitialized value (CVE-2020-1934)
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server 2.4.0 < 2.4.42 Multiple Vulnerabilities - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.143671)
+Version used: 2024-02-15T05:05:40Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.10
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2020-1927
+ cve: CVE-2020-1934
+ url: https://httpd.apache.org/security/vulnerabilities_24.html
+ cert-bund: WID-SEC-2024-1591
+ cert-bund: WID-SEC-2023-0063
+ cert-bund: WID-SEC-2022-0757
+ cert-bund: CB-K20/1030
+ cert-bund: CB-K20/0708
+ cert-bund: CB-K20/0691
+ cert-bund: CB-K20/0280
+ dfn-cert: DFN-CERT-2022-1610
+ dfn-cert: DFN-CERT-2022-0074
+ dfn-cert: DFN-CERT-2021-1467
+ dfn-cert: DFN-CERT-2020-2422
+ dfn-cert: DFN-CERT-2020-2133
+ dfn-cert: DFN-CERT-2020-1854
+ dfn-cert: DFN-CERT-2020-1793
+ dfn-cert: DFN-CERT-2020-1538
+ dfn-cert: DFN-CERT-2020-1335
+ dfn-cert: DFN-CERT-2020-1289
+ dfn-cert: DFN-CERT-2020-1124
+ dfn-cert: DFN-CERT-2020-0850
+ dfn-cert: DFN-CERT-2020-0835
+ dfn-cert: DFN-CERT-2020-0688
+
+
+Issue
+-----
+NVT:    Apache HTTP Server 2.4.1 < 2.4.24 IP Spoofing Vulnerability - Linux
+OID:    1.3.6.1.4.1.25623.1.0.144376
+Threat: Medium (CVSS: 5.3)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.10
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+Apache HTTP Server is prone to an IP address spoofing vulnerability when
+  proxying using mod_remoteip and mod_rewrite.
+
+Vulnerability Detection Result:
+Installed version: 2.4.10
+Fixed version:     2.4.24
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 2.4.24 or later.
+
+Affected Software/OS:
+Apache HTTP Server version 2.4.1 to 2.4.23.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server 2.4.1 < 2.4.24 IP Spoofing Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.144376)
+Version used: 2024-02-15T05:05:40Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.10
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2020-11985
+ url: https://httpd.apache.org/security/vulnerabilities_24.html
+ cert-bund: WID-SEC-2024-3319
+ cert-bund: CB-K20/0798
+ dfn-cert: DFN-CERT-2020-1905
+ dfn-cert: DFN-CERT-2020-1854
+
+
+Issue
+-----
+NVT:    Apache HTTP Server 2.4.6 - 2.4.46 Tunneling Misconfiguration Vulnerability - Linux
+OID:    1.3.6.1.4.1.25623.1.0.112898
+Threat: Medium (CVSS: 5.3)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.10
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+Apache HTTP Server is prone to a tunneling misconfiguration
+  vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 2.4.10
+Fixed version:     2.4.48
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 2.4.48 or later.
+
+Affected Software/OS:
+Apache HTTP Server versions 2.4.6 to 2.4.46 on Linux.
+
+Vulnerability Insight:
+mod_proxy_wstunnel configured on an URL that is not necessarily
+  upgraded by the origin server was tunneling the whole connection regardless, t!
+hus allowing for
+  subsequent requests on the same connection to pass through with no HTTP valida!
+tion,
+  authentication or authorization possibly configured.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server 2.4.6 - 2.4.46 Tunneling Misconfiguration Vulnerability -...
+(OID: 1.3.6.1.4.1.25623.1.0.112898)
+Version used: 2021-08-24T09:01:06Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.10
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2019-17567
+ url: https://httpd.apache.org/security/vulnerabilities_24.html
+ cert-bund: WID-SEC-2024-1591
+ cert-bund: WID-SEC-2022-0438
+ cert-bund: CB-K21/0646
+ dfn-cert: DFN-CERT-2024-1411
+ dfn-cert: DFN-CERT-2021-2394
+ dfn-cert: DFN-CERT-2021-1273
+
+
+Issue
+-----
+NVT:    Apache HTTP Server 2.4.7 - 2.4.51 Multiple Vulnerabilities - Linux
+OID:    1.3.6.1.4.1.25623.1.0.117854
+Threat: High (CVSS: 8.2)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.10
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+Apache HTTP Server is prone to multiple vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 2.4.10
+Fixed version:     2.4.52
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 2.4.52 or later.
+
+Affected Software/OS:
+Apache HTTP Server version 2.4.7 through 2.4.51.
+
+Vulnerability Insight:
+A crafted URI sent to httpd configured as a forward proxy
+  (ProxyRequests on) can cause a crash (NULL pointer dereference) or, for config!
+urations mixing
+  forward and reverse proxy declarations, can allow for requests to be directed !
+to a declared Unix
+  Domain Socket endpoint (Server Side Request Forgery).
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server 2.4.7 - 2.4.51 Multiple Vulnerabilities - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.117854)
+Version used: 2021-12-23T12:12:57Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.10
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2021-44224
+ url: https://httpd.apache.org/security/vulnerabilities_24.html
+ cert-bund: WID-SEC-2024-2180
+ cert-bund: WID-SEC-2024-1591
+ cert-bund: WID-SEC-2022-1057
+ cert-bund: WID-SEC-2022-0727
+ cert-bund: WID-SEC-2022-0432
+ cert-bund: WID-SEC-2022-0302
+ cert-bund: CB-K22/0619
+ cert-bund: CB-K21/1296
+ dfn-cert: DFN-CERT-2022-2405
+ dfn-cert: DFN-CERT-2022-2167
+ dfn-cert: DFN-CERT-2022-1116
+ dfn-cert: DFN-CERT-2022-1115
+ dfn-cert: DFN-CERT-2022-1114
+ dfn-cert: DFN-CERT-2022-1047
+ dfn-cert: DFN-CERT-2022-0872
+ dfn-cert: DFN-CERT-2022-0068
+ dfn-cert: DFN-CERT-2021-2656
+
+
+Issue
+-----
+NVT:    Apache HTTP Server 2.4.7 - 2.4.65 Authentication Bypass Vulnerability - Linux
+OID:    1.3.6.1.4.1.25623.1.0.125567
+Threat: Medium (CVSS: 5.8)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.10
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+Apache HTTP Server is prone to an authentication bypass
+  vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 2.4.10
+Fixed version:     2.4.66
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 2.4.66 or later.
+
+Affected Software/OS:
+Apache HTTP Server version 2.4.7 through 2.4.65.
+
+Vulnerability Insight:
+mod_userdir+suexec bypass via AllowOverride FileInfo
+  vulnerability in Apache HTTP Server. Users with access to use the RequestHeade!
+r directive in
+  htaccess can cause some CGI scripts to run under an unexpected userid.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server 2.4.7 - 2.4.65 Authentication Bypass Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.125567)
+Version used: 2025-12-05T05:44:55Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.10
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2025-66200
+ url: https://httpd.apache.org/security/vulnerabilities_24.html#2.4.66
+ url: https://www.openwall.com/lists/oss-security/2025/12/04/8
+ cert-bund: WID-SEC-2025-2750
+ dfn-cert: DFN-CERT-2025-3602
+ dfn-cert: DFN-CERT-2025-3581
+ dfn-cert: DFN-CERT-2025-3512
+ dfn-cert: DFN-CERT-2025-3405
+
+
+Issue
+-----
+NVT:    Apache HTTP Server 2.4.x < 2.4.66 Improper Neutralization Vulnerability - Linux
+OID:    1.3.6.1.4.1.25623.1.0.125566
+Threat: Medium (CVSS: 4.3)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.10
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+Apache HTTP Server is prone to an improper neutralization
+  vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 2.4.10
+Fixed version:     2.4.66
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 2.4.66 or later.
+
+Affected Software/OS:
+Apache HTTP Server version 2.4.x prior to 2.4.66.
+
+Vulnerability Insight:
+Improper neutralization of escape, meta, or control sequences
+  vulnerability in Apache HTTP Server through environment variables set via the !
+Apache
+  configuration unexpectedly superseding variables calculated by the server for !
+CGI programs.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server 2.4.x < 2.4.66 Improper Neutralization Vulnerability - Li...
+(OID: 1.3.6.1.4.1.25623.1.0.125566)
+Version used: 2025-12-05T05:44:55Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.10
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2025-65082
+ url: https://httpd.apache.org/security/vulnerabilities_24.html#2.4.66
+ url: https://www.openwall.com/lists/oss-security/2025/12/04/7
+ cert-bund: WID-SEC-2026-0155
+ cert-bund: WID-SEC-2025-2750
+ dfn-cert: DFN-CERT-2026-0214
+ dfn-cert: DFN-CERT-2025-3602
+ dfn-cert: DFN-CERT-2025-3581
+ dfn-cert: DFN-CERT-2025-3512
+ dfn-cert: DFN-CERT-2025-3405
+
+
+Issue
+-----
+NVT:    Apache HTTP Server < 2.4.38 mod_session_cookie Vulnerability - Linux
+OID:    1.3.6.1.4.1.25623.1.0.141964
+Threat: High (CVSS: 7.5)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.10
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+In Apache HTTP Server mod_session checks the session expiry time before
+  decoding the session. This causes session expiry time to be ignored for mod_se!
+ssion_cookie sessions since the
+  expiry time is loaded when the session is decoded.
+
+Vulnerability Detection Result:
+Installed version: 2.4.10
+Fixed version:     2.4.38
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 2.4.38 or later.
+
+Affected Software/OS:
+Apache HTTP Server version 2.4.37 and prior.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server < 2.4.38 mod_session_cookie Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.141964)
+Version used: 2024-02-15T05:05:40Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.10
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2018-17199
+ url: https://httpd.apache.org/security/vulnerabilities_24.html
+ cert-bund: CB-K19/0316
+ cert-bund: CB-K19/0071
+ dfn-cert: DFN-CERT-2021-1069
+ dfn-cert: DFN-CERT-2020-0673
+ dfn-cert: DFN-CERT-2019-2592
+ dfn-cert: DFN-CERT-2019-2456
+ dfn-cert: DFN-CERT-2019-0857
+ dfn-cert: DFN-CERT-2019-0690
+ dfn-cert: DFN-CERT-2019-0687
+ dfn-cert: DFN-CERT-2019-0198
+ dfn-cert: DFN-CERT-2019-0184
+
+
+Issue
+-----
+NVT:    Apache HTTP Server < 2.4.39 mod_auth_digest Access Control Bypass Vulnerability - Linux
+OID:    1.3.6.1.4.1.25623.1.0.142220
+Threat: High (CVSS: 7.5)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.10
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+In Apache HTTP Server, a race condition in mod_auth_digest when running in a
+  threaded server could allow a user with valid credentials to authenticate usin!
+g another username, bypassing
+  configured access control restrictions.
+
+Vulnerability Detection Result:
+Installed version: 2.4.10
+Fixed version:     2.4.39
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 2.4.39 or later.
+
+Affected Software/OS:
+Apache HTTP Server version 2.4.38 and prior.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server < 2.4.39 mod_auth_digest Access Control Bypass Vulnerabil...
+(OID: 1.3.6.1.4.1.25623.1.0.142220)
+Version used: 2024-02-15T05:05:40Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.10
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2019-0217
+ url: https://httpd.apache.org/security/vulnerabilities_24.html
+ cert-bund: WID-SEC-2023-2047
+ cert-bund: CB-K19/0623
+ cert-bund: CB-K19/0267
+ dfn-cert: DFN-CERT-2019-2592
+ dfn-cert: DFN-CERT-2019-2456
+ dfn-cert: DFN-CERT-2019-0736
+ dfn-cert: DFN-CERT-2019-0690
+ dfn-cert: DFN-CERT-2019-0687
+ dfn-cert: DFN-CERT-2019-0680
+ dfn-cert: DFN-CERT-2019-0676
+
+
+Issue
+-----
+NVT:    Apache HTTP Server < 2.4.39 URL Normalization Vulnerability - Linux
+OID:    1.3.6.1.4.1.25623.1.0.142228
+Threat: Medium (CVSS: 5.3)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.10
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+When the path component of a request URL contains multiple consecutive slashes
+  ('/'), directives such as LocationMatch and RewriteRule must account for dupli!
+cates in regular expressions while
+  other aspects of the servers processing will implicitly collapse them.
+
+Vulnerability Detection Result:
+Installed version: 2.4.10
+Fixed version:     2.4.39
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 2.4.39 or later.
+
+Affected Software/OS:
+Apache HTTP Server version 2.4.38 and prior.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server < 2.4.39 URL Normalization Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.142228)
+Version used: 2024-02-15T05:05:40Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.10
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2019-0220
+ url: https://httpd.apache.org/security/vulnerabilities_24.html
+ cert-bund: WID-SEC-2023-2047
+ cert-bund: WID-SEC-2023-1969
+ cert-bund: WID-SEC-2023-1594
+ cert-bund: WID-SEC-2022-0757
+ cert-bund: CB-K20/0708
+ cert-bund: CB-K19/0623
+ cert-bund: CB-K19/0267
+ dfn-cert: DFN-CERT-2022-1610
+ dfn-cert: DFN-CERT-2020-0184
+ dfn-cert: DFN-CERT-2019-2592
+ dfn-cert: DFN-CERT-2019-1519
+ dfn-cert: DFN-CERT-2019-0815
+ dfn-cert: DFN-CERT-2019-0690
+ dfn-cert: DFN-CERT-2019-0687
+ dfn-cert: DFN-CERT-2019-0680
+ dfn-cert: DFN-CERT-2019-0676
+
+
+Issue
+-----
+NVT:    Apache HTTP Server < 2.4.58 'mod_macro' Out-of-bounds Read Vulnerability - Linux
+OID:    1.3.6.1.4.1.25623.1.0.100272
+Threat: High (CVSS: 7.5)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.10
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+Apache HTTP Server is prone to an out-of-bounds read
+  vulnerability in mod_macro.
+
+Vulnerability Detection Result:
+Installed version: 2.4.10
+Fixed version:     2.4.58
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 2.4.58 or later.
+
+Affected Software/OS:
+Apache HTTP Server version 2.4.57 and prior.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server < 2.4.58 'mod_macro' Out-of-bounds Read Vulnerability - L...
+(OID: 1.3.6.1.4.1.25623.1.0.100272)
+Version used: 2024-02-15T05:05:40Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.10
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2023-31122
+ url: https://httpd.apache.org/security/vulnerabilities_24.html#2.4.58
+ url: https://www.openwall.com/lists/oss-security/2023/10/19/4
+ cert-bund: WID-SEC-2024-1226
+ cert-bund: WID-SEC-2024-0899
+ cert-bund: WID-SEC-2024-0869
+ cert-bund: WID-SEC-2024-0769
+ cert-bund: WID-SEC-2024-0107
+ cert-bund: WID-SEC-2023-2917
+ cert-bund: WID-SEC-2023-2712
+ dfn-cert: DFN-CERT-2024-1411
+ dfn-cert: DFN-CERT-2024-1010
+ dfn-cert: DFN-CERT-2024-1000
+ dfn-cert: DFN-CERT-2024-0732
+ dfn-cert: DFN-CERT-2023-2640
+ dfn-cert: DFN-CERT-2023-2583
+
+
+Issue
+-----
+NVT:    Apache HTTP Server < 2.4.59 Multiple Vulnerabilities - Linux
+OID:    1.3.6.1.4.1.25623.1.0.152039
+Threat: High (CVSS: 7.5)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.10
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+Apache HTTP Server is prone to multiple vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 2.4.10
+Fixed version:     2.4.59
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 2.4.59 or later.
+
+Affected Software/OS:
+Apache HTTP Server version 2.4.58 and prior.
+
+Vulnerability Insight:
+The following vulnerabilities exist:
+  - CVE-2023-38709: HTTP response splitting
+  - CVE-2024-24795: HTTP response splitting in multiple modules
+  - CVE-2024-27316: HTTP/2 DoS by memory exhaustion on endless continuation fram!
+es
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server < 2.4.59 Multiple Vulnerabilities - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.152039)
+Version used: 2024-06-07T05:05:42Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.10
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2023-38709
+ cve: CVE-2024-24795
+ cve: CVE-2024-27316
+ url: https://httpd.apache.org/security/vulnerabilities_24.html#2.4.59
+ url: https://kb.cert.org/vuls/id/421644
+ url: https://nowotarski.info/http2-continuation-flood/
+ url: https://nowotarski.info/http2-continuation-flood-technical-details/
+ cert-bund: WID-SEC-2025-1529
+ cert-bund: WID-SEC-2024-1725
+ cert-bund: WID-SEC-2024-1643
+ cert-bund: WID-SEC-2024-1642
+ cert-bund: WID-SEC-2024-1504
+ cert-bund: WID-SEC-2024-1248
+ cert-bund: WID-SEC-2024-1226
+ cert-bund: WID-SEC-2024-0801
+ cert-bund: WID-SEC-2024-0789
+ dfn-cert: DFN-CERT-2025-2802
+ dfn-cert: DFN-CERT-2025-2658
+ dfn-cert: DFN-CERT-2025-2657
+ dfn-cert: DFN-CERT-2024-2900
+ dfn-cert: DFN-CERT-2024-2534
+ dfn-cert: DFN-CERT-2024-2076
+ dfn-cert: DFN-CERT-2024-1958
+ dfn-cert: DFN-CERT-2024-1853
+ dfn-cert: DFN-CERT-2024-1749
+ dfn-cert: DFN-CERT-2024-1697
+ dfn-cert: DFN-CERT-2024-1411
+ dfn-cert: DFN-CERT-2024-1335
+ dfn-cert: DFN-CERT-2024-1238
+ dfn-cert: DFN-CERT-2024-1031
+ dfn-cert: DFN-CERT-2024-1010
+ dfn-cert: DFN-CERT-2024-0964
+ dfn-cert: DFN-CERT-2024-0901
+ dfn-cert: DFN-CERT-2024-0890
+
+
+Issue
+-----
+NVT:    Apache HTTP Server < 2.4.64 Multiple Vulnerabilities - Linux
+OID:    1.3.6.1.4.1.25623.1.0.154909
+Threat: Medium (CVSS: 5.0)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.10
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+Apache HTTP Server is prone to multiple vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 2.4.10
+Fixed version:     2.4.64
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 2.4.64 or later.
+
+Affected Software/OS:
+Apache HTTP Server version 2.4.63 and prior.
+
+Vulnerability Insight:
+The following flaws exist:
+  - CVE-2024-42516: HTTP response splitting
+  - CVE-2024-43204: SSRF with mod_headers setting Content-Type header
+  - CVE-2024-47252: mod_ssl error log variable escaping
+  - CVE-2025-49812: mod_ssl TLS upgrade attack
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server < 2.4.64 Multiple Vulnerabilities - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.154909)
+Version used: 2025-07-11T15:43:14Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.10
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2024-42516
+ cve: CVE-2024-43204
+ cve: CVE-2024-47252
+ cve: CVE-2025-49812
+ url: https://httpd.apache.org/security/vulnerabilities_24.html#2.4.64
+ cert-bund: WID-SEC-2026-0162
+ cert-bund: WID-SEC-2025-1850
+ cert-bund: WID-SEC-2025-1529
+ dfn-cert: DFN-CERT-2026-0205
+ dfn-cert: DFN-CERT-2025-2421
+ dfn-cert: DFN-CERT-2025-2403
+ dfn-cert: DFN-CERT-2025-2402
+ dfn-cert: DFN-CERT-2025-2373
+ dfn-cert: DFN-CERT-2025-2231
+ dfn-cert: DFN-CERT-2025-2182
+ dfn-cert: DFN-CERT-2025-1917
+ dfn-cert: DFN-CERT-2025-1860
+
+
+Issue
+-----
+NVT:    Apache HTTP Server < 2.4.66 SSI Vulnerability - Linux
+OID:    1.3.6.1.4.1.25623.1.0.125564
+Threat: Medium (CVSS: 4.3)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.10
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+Apache HTTP Server is prone to a Server Side Includes (SSI)
+  vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 2.4.10
+Fixed version:     2.4.66
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 2.4.66 or later.
+
+Affected Software/OS:
+Apache HTTP Server prior to version 2.4.66.
+
+Vulnerability Insight:
+Apache HTTP Server with SSI enabled and mod_cgid (but not
+  mod_cgi) passes the shell-escaped query string to #exec cmd='...' directives.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server < 2.4.66 SSI Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.125564)
+Version used: 2025-12-05T05:44:55Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.10
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2025-58098
+ url: https://httpd.apache.org/security/vulnerabilities_24.html#2.4.66
+ url: https://www.openwall.com/lists/oss-security/2025/12/04/5
+ cert-bund: WID-SEC-2026-0153
+ cert-bund: WID-SEC-2025-2750
+ dfn-cert: DFN-CERT-2026-0027
+ dfn-cert: DFN-CERT-2026-0012
+ dfn-cert: DFN-CERT-2025-3602
+ dfn-cert: DFN-CERT-2025-3581
+ dfn-cert: DFN-CERT-2025-3512
+ dfn-cert: DFN-CERT-2025-3405
+
+
+Issue
+-----
+NVT:    Apache HTTP Server CRLF Injection Vulnerability (Dec 2016) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.147044
+Threat: Medium (CVSS: 6.1)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.10
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+Apache HTTP Server is prone to a CRLF injection vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 2.4.10
+Fixed version:     2.4.25
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 2.2.32, 2.4.25 or later.
+
+Affected Software/OS:
+Apache HTTP Server version 2.2.0 through 2.2.31 and 2.4.1
+  through 2.4.23.
+
+Vulnerability Insight:
+Possible CRLF injection allowing HTTP response splitting
+  attacks for sites which use mod_userdir. This issue was mitigated to prohibit !
+CR or LF injection
+  into the 'Location' or other outbound header key or value.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server CRLF Injection Vulnerability (Dec 2016) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.147044)
+Version used: 2021-11-01T14:03:43Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.10
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2016-4975
+ url: https://httpd.apache.org/security/vulnerabilities_22.html
+ url: https://httpd.apache.org/security/vulnerabilities_24.html
+ cert-bund: CB-K19/0354
+ dfn-cert: DFN-CERT-2019-0358
+ dfn-cert: DFN-CERT-2018-1764
+
+
+Issue
+-----
+NVT:    Apache HTTP Server Denial of Service Vulnerability-02 (Apr 2018) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.812849
+Threat: High (CVSS: 7.5)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.10
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+Apache HTTP Server is prone to a denial of service vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 2.4.10
+Fixed version:     2.4.30
+Installation
+path / port:       80/tcp
+
+Impact:
+Successful exploitation will allow an attacker
+  to crash the Apache HTTP Server resulting in denial of service condition.
+
+Solution:
+Solution type: VendorFix
+Update to version 2.4.30 or later. Please see the references for more informatio!
+n.
+
+Affected Software/OS:
+Apache HTTP Server versions 2.4.6, 2.4.7,
+  2.4.9, 2.4.10, 2.4.12, 2.4.16 through 2.4.18, 2.4.20, 2.4.23, and 2.4.25 throu!
+gh
+  2.4.29.
+
+Vulnerability Insight:
+The flaw exists as the Apache HTTP Server
+  fails to sanitize against a specially crafted HTTP request header.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server Denial of Service Vulnerability-02 (Apr 2018) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.812849)
+Version used: 2024-02-09T05:06:25Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.10
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2018-1303
+ url: https://httpd.apache.org/security/vulnerabilities_24.html
+ url: http://www.securityfocus.com/bid/103522
+ cert-bund: CB-K20/1030
+ cert-bund: CB-K18/0535
+ dfn-cert: DFN-CERT-2020-2133
+ dfn-cert: DFN-CERT-2019-0359
+ dfn-cert: DFN-CERT-2019-0351
+ dfn-cert: DFN-CERT-2018-2316
+ dfn-cert: DFN-CERT-2018-0985
+ dfn-cert: DFN-CERT-2018-0570
+
+
+Issue
+-----
+NVT:    Apache HTTP Server Detection Consolidation
+OID:    1.3.6.1.4.1.25623.1.0.117232
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+Consolidation of Apache HTTP Server detections.
+
+Vulnerability Detection Result:
+Detected Apache HTTP Server
+Version:       2.4.10
+Location:      80/tcp
+CPE:           cpe:/a:apache:http_server:2.4.10
+Concluded from version/product identification result:
+Server: Apache/2.4.10 (Debian)
+
+Solution:
+
+Log Method:
+Details:
+Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+Version used: 2024-03-08T15:37:10Z
+
+References:
+ url: https://httpd.apache.org
+
+
+Issue
+-----
+NVT:    Apache HTTP Server DoS Vulnerability (Sep 2014) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.147046
+Threat: Medium (CVSS: 5.0)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.10
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+Apache HTTP Server is prone to a denial of service (DoS)
+  vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 2.4.10
+Fixed version:     2.4.12
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 2.4.12 or later.
+
+Affected Software/OS:
+Apache HTTP Server version 2.4.1 through 2.4.10.
+
+Vulnerability Insight:
+A NULL pointer deference was found in mod_cache. A malicious
+  HTTP server could cause a crash in a caching forward proxy configuration. This!
+ crash would only
+  be a denial of service if using a threaded MPM.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server DoS Vulnerability (Sep 2014) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.147046)
+Version used: 2021-11-01T03:59:12Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.10
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2014-3581
+ url: https://httpd.apache.org/security/vulnerabilities_24.html
+ cert-bund: CB-K15/1841
+ cert-bund: CB-K15/1360
+ cert-bund: CB-K15/1188
+ cert-bund: CB-K15/0469
+ cert-bund: CB-K14/1592
+ cert-bund: CB-K14/1545
+ dfn-cert: DFN-CERT-2015-1950
+ dfn-cert: DFN-CERT-2015-1435
+ dfn-cert: DFN-CERT-2015-1252
+ dfn-cert: DFN-CERT-2015-0495
+ dfn-cert: DFN-CERT-2014-1691
+ dfn-cert: DFN-CERT-2014-1633
+
+
+Issue
+-----
+NVT:    Apache HTTP Server Man-in-the-Middle Attack Vulnerability (Jul 2016) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.808632
+Threat: High (CVSS: 8.1)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.10
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+Apache HTTP Server is prone to a man-in-the-middle attack vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 2.4.10
+Fixed version:     2.4.24
+Installation
+path / port:       80/tcp
+
+Impact:
+Successful exploitation will allow remote
+  attackers to redirect an application's outbound HTTP traffic to an arbitrary
+  proxy server via a crafted proxy header in an HTTP request.
+
+Solution:
+Solution type: VendorFix
+Update to version 2.4.24, or 2.2.32, or later.
+
+Affected Software/OS:
+Apache HTTP Server through 2.4.23.
+  NOTE: Apache HTTP Server 2.2.32 is not vulnerable.
+
+Vulnerability Insight:
+The flaw is due to 'CGI Servlet' does not
+  protect applications from the presence of untrusted client data in the
+  'HTTP_PROXY' environment variable.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server Man-in-the-Middle Attack Vulnerability (Jul 2016) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.808632)
+Version used: 2024-02-08T14:36:53Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.10
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2016-5387
+ url: https://www.apache.org/security/asf-httpoxy-response.txt
+ url: http://www.securityfocus.com/bid/91816
+ cert-bund: WID-SEC-2025-2522
+ cert-bund: WID-SEC-2025-0370
+ cert-bund: CB-K17/2013
+ cert-bund: CB-K17/1854
+ cert-bund: CB-K17/1842
+ cert-bund: CB-K17/1622
+ cert-bund: CB-K17/0527
+ cert-bund: CB-K17/0055
+ cert-bund: CB-K16/1995
+ cert-bund: CB-K16/1620
+ cert-bund: CB-K16/1289
+ cert-bund: CB-K16/1103
+ cert-bund: CB-K16/1088
+ cert-bund: CB-K16/1087
+ dfn-cert: DFN-CERT-2017-2104
+ dfn-cert: DFN-CERT-2017-1926
+ dfn-cert: DFN-CERT-2017-1925
+ dfn-cert: DFN-CERT-2017-1692
+ dfn-cert: DFN-CERT-2017-0532
+ dfn-cert: DFN-CERT-2017-0060
+ dfn-cert: DFN-CERT-2016-2108
+ dfn-cert: DFN-CERT-2016-1717
+ dfn-cert: DFN-CERT-2016-1372
+ dfn-cert: DFN-CERT-2016-1175
+ dfn-cert: DFN-CERT-2016-1162
+ dfn-cert: DFN-CERT-2016-1153
+
+
+Issue
+-----
+NVT:    Apache HTTP Server mod_session_crypto Vulnerability (Dec 2016) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.147045
+Threat: High (CVSS: 7.5)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.10
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+Apache HTTP Server is prone to a vulnerability in mod_session_crypto.
+
+Vulnerability Detection Result:
+Installed version: 2.4.10
+Fixed version:     2.4.25
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 2.4.25 or later.
+
+Affected Software/OS:
+Apache HTTP Server version 2.4.1 through 2.4.23.
+
+Vulnerability Insight:
+mod_sessioncrypto is encrypting its data/cookie using the
+  configured ciphers with possibly either CBC or ECB modes of operation (AES256-!
+CBC by default),
+  hence no selectable or builtin authenticated encryption. This makes it vulnera!
+ble to padding
+  oracle attacks, particularly with CBC. An authentication tag (SipHash MAC) is !
+now added to
+  prevent such attacks.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server mod_session_crypto Vulnerability (Dec 2016) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.147045)
+Version used: 2021-11-01T14:03:43Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.10
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2016-0736
+ url: https://httpd.apache.org/security/vulnerabilities_24.html
+ cert-bund: WID-SEC-2025-0370
+ cert-bund: CB-K19/0354
+ cert-bund: CB-K17/1854
+ cert-bund: CB-K17/1622
+ cert-bund: CB-K17/0955
+ cert-bund: CB-K17/0794
+ cert-bund: CB-K17/0704
+ cert-bund: CB-K17/0527
+ cert-bund: CB-K16/1995
+ dfn-cert: DFN-CERT-2017-1925
+ dfn-cert: DFN-CERT-2017-1692
+ dfn-cert: DFN-CERT-2017-0988
+ dfn-cert: DFN-CERT-2017-0814
+ dfn-cert: DFN-CERT-2017-0723
+ dfn-cert: DFN-CERT-2017-0532
+ dfn-cert: DFN-CERT-2016-2108
+
+
+Issue
+-----
+NVT:    Apache HTTP Server Multiple Vulnerabilities (Aug 2015) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.806018
+Threat: Medium (CVSS: 5.0)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.10
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+Apache HTTP Server is prone to multiple vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 2.4.10
+Fixed version:     2.4.14
+Installation
+path / port:       80/tcp
+
+Impact:
+Successful exploitation will allow remote
+  attackers to bypass intended access restrictions in opportunistic
+  circumstances and to cause cache poisoning or credential hijacking if an
+  intermediary proxy is in use.
+
+Solution:
+Solution type: VendorFix
+Update to version 2.4.14 or later.
+
+Affected Software/OS:
+Apache HTTP Server version 2.4.x before
+  2.4.14.
+
+Vulnerability Insight:
+Multiple flaws are due to:
+  - an error in 'ap_some_auth_required' function in 'server/request.c'
+  script which does not consider that a Require directive may be associated with
+  an authorization setting rather than an authentication setting.
+  - an error in chunked transfer coding implementation.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server Multiple Vulnerabilities (Aug 2015) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.806018)
+Version used: 2024-02-16T05:06:55Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.10
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2015-3185
+ cve: CVE-2015-3183
+ url: http://www.apache.org/dist/httpd/CHANGES_2.4
+ url: http://www.securityfocus.com/bid/75965
+ url: http://www.securityfocus.com/bid/75963
+ url: http://httpd.apache.org/security/vulnerabilities_24.html
+ cert-bund: CB-K17/1558
+ cert-bund: CB-K16/1972
+ cert-bund: CB-K16/1593
+ cert-bund: CB-K16/1102
+ cert-bund: CB-K16/0564
+ cert-bund: CB-K16/0112
+ cert-bund: CB-K16/0090
+ cert-bund: CB-K16/0030
+ cert-bund: CB-K15/1841
+ cert-bund: CB-K15/1578
+ cert-bund: CB-K15/1517
+ cert-bund: CB-K15/1464
+ cert-bund: CB-K15/1360
+ cert-bund: CB-K15/1358
+ cert-bund: CB-K15/1281
+ cert-bund: CB-K15/1188
+ cert-bund: CB-K15/1146
+ cert-bund: CB-K15/1089
+ cert-bund: CB-K15/1051
+ dfn-cert: DFN-CERT-2017-1626
+ dfn-cert: DFN-CERT-2016-2081
+ dfn-cert: DFN-CERT-2016-1692
+ dfn-cert: DFN-CERT-2016-1168
+ dfn-cert: DFN-CERT-2016-0125
+ dfn-cert: DFN-CERT-2016-0101
+ dfn-cert: DFN-CERT-2016-0035
+ dfn-cert: DFN-CERT-2015-1950
+ dfn-cert: DFN-CERT-2015-1665
+ dfn-cert: DFN-CERT-2015-1608
+ dfn-cert: DFN-CERT-2015-1542
+ dfn-cert: DFN-CERT-2015-1435
+ dfn-cert: DFN-CERT-2015-1431
+ dfn-cert: DFN-CERT-2015-1350
+ dfn-cert: DFN-CERT-2015-1252
+ dfn-cert: DFN-CERT-2015-1198
+ dfn-cert: DFN-CERT-2015-1146
+ dfn-cert: DFN-CERT-2015-1087
+
+
+Issue
+-----
+NVT:    Apache HTTP Server Multiple Vulnerabilities (Sep 2014) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.147048
+Threat: Medium (CVSS: 6.8)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.10
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+Apache HTTP Server is prone to multiple vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 2.4.10
+Fixed version:     2.4.12
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 2.2.29, 2.4.12 or later.
+
+Affected Software/OS:
+Apache HTTP Server version 2.2.0 through 2.2.27 and 2.4.1
+  through 2.4.10.
+
+Vulnerability Insight:
+The following vulnerabilities exist:
+  - CVE-2013-5704: HTTP trailers could be used to replace HTTP headers late duri!
+ng request
+  processing, potentially undoing or otherwise confusing modules that examined o!
+r modified
+  request headers earlier. This fix adds the 'MergeTrailers' directive to restor!
+e legacy behavior.
+  - CVE-2014-0118: A resource consumption flaw was found in mod_deflate. If requ!
+est body
+  decompression was configured (using the 'DEFLATE' input filter), a remote atta!
+cker could cause
+  the server to consume significant memory and/or CPU resources. The use of requ!
+est body
+  decompression is not a common configuration.
+  - CVE-2014-0226: A race condition was found in mod_status. An attacker able to!
+ access a public
+  server status page on a server using a threaded MPM could send a carefully cra!
+fted request which
+  could lead to a heap buffer overflow. Note that it is not a default or recomme!
+nded configuration
+  to have a public accessible server status page.
+  - CVE-2014-0231: A flaw was found in mod_cgid. If a server using mod_cgid host!
+ed CGI scripts
+  which did not consume standard input, a remote attacker could cause child proc!
+esses to hang
+  indefinitely, leading to denial of service.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server Multiple Vulnerabilities (Sep 2014) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.147048)
+Version used: 2021-11-01T03:59:12Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.10
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2013-5704
+ cve: CVE-2014-0118
+ cve: CVE-2014-0226
+ cve: CVE-2014-0231
+ url: https://httpd.apache.org/security/vulnerabilities_22.html
+ url: https://httpd.apache.org/security/vulnerabilities_24.html
+ cert-bund: CB-K16/0112
+ cert-bund: CB-K15/1841
+ cert-bund: CB-K15/1517
+ cert-bund: CB-K15/1360
+ cert-bund: CB-K15/1078
+ cert-bund: CB-K15/1011
+ cert-bund: CB-K15/0960
+ cert-bund: CB-K15/0954
+ cert-bund: CB-K15/0806
+ cert-bund: CB-K15/0493
+ cert-bund: CB-K15/0469
+ cert-bund: CB-K15/0079
+ cert-bund: CB-K15/0075
+ cert-bund: CB-K14/1626
+ cert-bund: CB-K14/1592
+ cert-bund: CB-K14/1568
+ cert-bund: CB-K14/1545
+ cert-bund: CB-K14/1095
+ cert-bund: CB-K14/1050
+ cert-bund: CB-K14/1043
+ cert-bund: CB-K14/0969
+ cert-bund: CB-K14/0968
+ cert-bund: CB-K14/0924
+ cert-bund: CB-K14/0883
+ dfn-cert: DFN-CERT-2016-0125
+ dfn-cert: DFN-CERT-2015-1950
+ dfn-cert: DFN-CERT-2015-1608
+ dfn-cert: DFN-CERT-2015-1435
+ dfn-cert: DFN-CERT-2015-1137
+ dfn-cert: DFN-CERT-2015-1069
+ dfn-cert: DFN-CERT-2015-1008
+ dfn-cert: DFN-CERT-2015-1002
+ dfn-cert: DFN-CERT-2015-0842
+ dfn-cert: DFN-CERT-2015-0495
+ dfn-cert: DFN-CERT-2015-0083
+ dfn-cert: DFN-CERT-2015-0079
+ dfn-cert: DFN-CERT-2014-1727
+ dfn-cert: DFN-CERT-2014-1691
+ dfn-cert: DFN-CERT-2014-1668
+ dfn-cert: DFN-CERT-2014-1633
+ dfn-cert: DFN-CERT-2014-1145
+ dfn-cert: DFN-CERT-2014-1094
+ dfn-cert: DFN-CERT-2014-1088
+ dfn-cert: DFN-CERT-2014-1019
+ dfn-cert: DFN-CERT-2014-1017
+ dfn-cert: DFN-CERT-2014-0967
+ dfn-cert: DFN-CERT-2014-0926
+
+
+Issue
+-----
+NVT:    Apache HTTP Server OPTIONS Memory Leak Vulnerability (Optionsbleed) - Version Check
+OID:    1.3.6.1.4.1.25623.1.0.108252
+Threat: High (CVSS: 7.5)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.10
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+Apache HTTP Server allows remote attackers to read
+  secret data from process memory if the Limit directive can be set in a user's !
+.htaccess
+  file, or if httpd.conf has certain misconfigurations, aka Optionsbleed.
+
+Vulnerability Detection Result:
+Installed version: 2.4.10
+Fixed version:     2.4.28
+Installation
+path / port:       80/tcp
+
+Impact:
+The successful exploitation allows the attacker to read
+  chunks of the host's memory.
+
+Solution:
+Solution type: VendorFix
+Update to Apache HTTP Server 2.4.28. For Apache HTTP
+  Server running version 2.2.34 apply the patch linked in the references.
+  As a workaround the usage of .htaccess should be disabled completely via the
+  'AllowOverride None' directive within the webservers configuration. Furthermor!
+e all
+  <Limit> statements within the webserver configuration needs to be verified for
+  invalid HTTP methods.
+
+Affected Software/OS:
+Apache HTTP Server 2.2.x versions up to 2.2.34 and
+  2.4.x below 2.4.28.
+
+Vulnerability Insight:
+Optionsbleed is a use after free error in the Apache
+  HTTP Server that causes a corrupted Allow header to be constructed in response!
+ to HTTP
+  OPTIONS requests. This can leak pieces of arbitrary memory from the server pro!
+cess that
+  may contain secrets. The memory pieces change after multiple requests, so for !
+a vulnerable
+  host an arbitrary number of memory chunks can be leaked.
+  The bug appears if a webmaster tries to use the 'Limit' directive with an inva!
+lid HTTP
+  method.
+  Example .htaccess:
+  <Limit abcxyz>
+  </Limit>
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server OPTIONS Memory Leak Vulnerability (Optionsbleed) - Versio...
+(OID: 1.3.6.1.4.1.25623.1.0.108252)
+Version used: 2025-01-21T05:37:33Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.10
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2017-9798
+ url: http://openwall.com/lists/oss-security/2017/09/18/2
+ url: https://blog.fuzzing-project.org/60-Optionsbleed-HTTP-OPTIONS-method-can-leak-Apaches-server-memory.html
+ url: http://www.securityfocus.com/bid/100872
+ url: https://archive.apache.org/dist/httpd/patches/apply_to_2.2.34/
+ url: https://www.apache.org/dist/httpd/CHANGES_2.4.28
+ cert-bund: WID-SEC-2023-1594
+ cert-bund: CB-K18/1012
+ cert-bund: CB-K18/0800
+ cert-bund: CB-K18/0606
+ cert-bund: CB-K18/0098
+ cert-bund: CB-K18/0066
+ cert-bund: CB-K17/2188
+ cert-bund: CB-K17/2117
+ cert-bund: CB-K17/2021
+ cert-bund: CB-K17/1980
+ cert-bund: CB-K17/1936
+ cert-bund: CB-K17/1871
+ cert-bund: CB-K17/1773
+ cert-bund: CB-K17/1768
+ cert-bund: CB-K17/1587
+ dfn-cert: DFN-CERT-2019-0359
+ dfn-cert: DFN-CERT-2018-2113
+ dfn-cert: DFN-CERT-2018-1070
+ dfn-cert: DFN-CERT-2018-0725
+ dfn-cert: DFN-CERT-2018-0100
+ dfn-cert: DFN-CERT-2018-0077
+ dfn-cert: DFN-CERT-2017-2290
+ dfn-cert: DFN-CERT-2017-2211
+ dfn-cert: DFN-CERT-2017-2108
+ dfn-cert: DFN-CERT-2017-2070
+ dfn-cert: DFN-CERT-2017-2021
+ dfn-cert: DFN-CERT-2017-1954
+ dfn-cert: DFN-CERT-2017-1854
+ dfn-cert: DFN-CERT-2017-1843
+ dfn-cert: DFN-CERT-2017-1659
+
+
+Issue
+-----
+NVT:    Composer composer.lock / composer.json Accessible
+OID:    1.3.6.1.4.1.25623.1.0.108761
+Threat: Log (CVSS: 0.0)
+Port:   80/tcp
+
+Summary:
+The remote host is exposing a 'composer.json' and / or 'composer.lock'
+  file of the Composer dependency manager for PHP. This file(s) might expose som!
+e information about the
+  structure of the web application and the installed software / dependencies on !
+the remote host.
+
+Vulnerability Detection Result:
+The following files have been identified:
+http://mediawiki128.trabalho_vulnnet/composer.json
+http://mediawiki128.trabalho_vulnnet/vendor/composer.json
+
+Solution:
+
+Log Method:
+Details:
+Composer composer.lock / composer.json Accessible
+(OID: 1.3.6.1.4.1.25623.1.0.108761)
+Version used: 2023-12-13T05:05:23Z
+
+References:
+ url: https://getcomposer.org/
+
+
+Issue
+-----
+NVT:    CPE Inventory
+OID:    1.3.6.1.4.1.25623.1.0.810002
+Threat: Log (CVSS: 0.0)
+Port:   general/CPE-T
+
+Summary:
+This routine uses information collected by other routines about
+  CPE identities of operating systems, services and applications detected during!
+ the scan.
+  Note: Some CPEs for specific products might show up twice or more in the outpu!
+t. Background:
+  After a product got renamed or a specific vendor was acquired by another one i!
+t might happen that
+  a product gets a new CPE within the NVD CPE Dictionary but older entries are k!
+ept with the older
+  CPE.
+
+Vulnerability Detection Result:
+172.31.1.94|cpe:/a:apache:http_server:2.4.10
+172.31.1.94|cpe:/a:jquery:jquery:1.11.3
+172.31.1.94|cpe:/a:php:php:7.0.25
+172.31.1.94|cpe:/o:debian:debian_linux:8
+
+Solution:
+
+Log Method:
+Details:
+CPE Inventory
+(OID: 1.3.6.1.4.1.25623.1.0.810002)
+Version used: 2022-07-27T10:11:28Z
+
+References:
+ url: https://nvd.nist.gov/products/cpe
+
+
+Issue
+-----
+NVT:    Hostname Determination Reporting
+OID:    1.3.6.1.4.1.25623.1.0.108449
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+The script reports information on how the hostname of the target
+  was determined.
+
+Vulnerability Detection Result:
+Hostname determination for IP 172.31.1.94:
+Hostname|Source
+mediawiki128.trabalho_vulnnet|Reverse-DNS
+
+Solution:
+
+Log Method:
+Details:
+Hostname Determination Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.108449)
+Version used: 2022-07-27T10:11:28Z
+
+
+Issue
+-----
+NVT:    HTTP Security Headers Detection
+OID:    1.3.6.1.4.1.25623.1.0.112081
+Threat: Log (CVSS: 0.0)
+Port:   80/tcp
+
+Summary:
+All known security headers are being checked on the remote web
+  server.
+  On completion a report will hand back whether a specific security header has b!
+een implemented
+  (including its value and if it is deprecated) or is missing on the target.
+
+Vulnerability Detection Result:
+Header Name            | Header Value
+-------------------------------------
+X-Content-Type-Options | nosniff
+Missing Headers                   | More Information
+--------------------------------------------------------------------------------!
+--------------------------------------------------------------------------------!
+----------------------------------------------
+Content-Security-Policy           | https://owasp.org/www-project-secure-headers!
+/#content-security-policy
+Cross-Origin-Embedder-Policy      | https://scotthelme.co.uk/coop-and-coep/, Not!
+e: This is an upcoming header
+Cross-Origin-Opener-Policy        | https://scotthelme.co.uk/coop-and-coep/, Not!
+e: This is an upcoming header
+Cross-Origin-Resource-Policy      | https://scotthelme.co.uk/coop-and-coep/, Not!
+e: This is an upcoming header
+Document-Policy                   | https://w3c.github.io/webappsec-feature-poli!
+cy/document-policy#document-policy-http-header
+Feature-Policy                    | https://owasp.org/www-project-secure-headers!
+/#feature-policy, Note: The Feature Policy header has been renamed to Permission!
+s Policy
+Permissions-Policy                | https://w3c.github.io/webappsec-feature-poli!
+cy/#permissions-policy-http-header-field
+Referrer-Policy                   | https://owasp.org/www-project-secure-headers!
+/#referrer-policy
+Sec-Fetch-Dest                    | https://developer.mozilla.org/en-US/docs/Web!
+/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header support!
+ed only in newer browsers like e.g. Firefox 90
+Sec-Fetch-Mode                    | https://developer.mozilla.org/en-US/docs/Web!
+/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header support!
+ed only in newer browsers like e.g. Firefox 90
+Sec-Fetch-Site                    | https://developer.mozilla.org/en-US/docs/Web!
+/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header support!
+ed only in newer browsers like e.g. Firefox 90
+Sec-Fetch-User                    | https://developer.mozilla.org/en-US/docs/Web!
+/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header support!
+ed only in newer browsers like e.g. Firefox 90
+X-Frame-Options                   | https://owasp.org/www-project-secure-headers!
+/#x-frame-options
+X-Permitted-Cross-Domain-Policies | https://owasp.org/www-project-secure-headers!
+/#x-permitted-cross-domain-policies
+X-XSS-Protection                  | https://owasp.org/www-project-secure-headers!
+/#x-xss-protection, Note: Most major browsers have dropped / deprecated support !
+for this header in 2020.
+
+Solution:
+
+Log Method:
+Details:
+HTTP Security Headers Detection
+(OID: 1.3.6.1.4.1.25623.1.0.112081)
+Version used: 2025-03-21T15:40:43Z
+
+References:
+ url: https://owasp.org/www-project-secure-headers/
+ url: https://owasp.org/www-project-secure-headers/#div-headers
+ url: https://securityheaders.com/
+
+
+Issue
+-----
+NVT:    HTTP Server Banner Enumeration
+OID:    1.3.6.1.4.1.25623.1.0.108708
+Threat: Log (CVSS: 0.0)
+Port:   80/tcp
+
+Summary:
+This script tries to detect / enumerate different HTTP server
+  banner (e.g. from a frontend, backend or proxy server) by sending various diff!
+erent HTTP requests
+  (valid and invalid ones).
+
+Vulnerability Detection Result:
+It was possible to enumerate the following HTTP server banner(s):
+Server banner                  | Enumeration technique
+--------------------------------------------------------------------------------!
+-----------------
+Server: Apache/2.4.10 (Debian) | Invalid HTTP 00.5 GET request (non-existent HTT!
+P version) to '/'
+X-Powered-By: PHP/7.0.25       | Valid HTTP 1.1 GET request (with extended heade!
+rs) to '/'
+
+Solution:
+
+Log Method:
+Details:
+HTTP Server Banner Enumeration
+(OID: 1.3.6.1.4.1.25623.1.0.108708)
+Version used: 2025-01-31T15:39:24Z
+
+
+Issue
+-----
+NVT:    HTTP Server type and version
+OID:    1.3.6.1.4.1.25623.1.0.10107
+Threat: Log (CVSS: 0.0)
+Port:   80/tcp
+
+Summary:
+This script detects and reports the HTTP Server's banner
+  which might provide the type and version of it.
+
+Vulnerability Detection Result:
+The remote HTTP Server banner is:
+Server: Apache/2.4.10 (Debian)
+
+Solution:
+
+Log Method:
+Details:
+HTTP Server type and version
+(OID: 1.3.6.1.4.1.25623.1.0.10107)
+Version used: 2023-08-01T13:29:10Z
+
+
+Issue
+-----
+NVT:    ICMP Timestamp Reply Information Disclosure
+OID:    1.3.6.1.4.1.25623.1.0.103190
+Threat: Low (CVSS: 2.1)
+Port:   general/icmp
+
+Summary:
+The remote host responded to an ICMP timestamp request.
+
+Vulnerability Detection Result:
+The following response / ICMP packet has been received:
+- ICMP Type: 14
+- ICMP Code: 0
+
+Impact:
+This information could theoretically be used to exploit weak
+  time-based random number generators in other services.
+
+Solution:
+Solution type: Mitigation
+Various mitigations are possible:
+  - Disable the support for ICMP timestamp on the remote host completely
+  - Protect the remote host by a firewall, and block ICMP packets passing throug!
+h the firewall in
+  either direction (either completely or only for untrusted networks)
+
+Vulnerability Insight:
+The Timestamp Reply is an ICMP message which replies to a
+  Timestamp message. It consists of the originating timestamp sent by the sender!
+ of the Timestamp as
+  well as a receive timestamp and a transmit timestamp.
+
+Vulnerability Detection Method:
+Sends an ICMP Timestamp (Type 13) request and checks if a
+  Timestamp Reply (Type 14) is received.
+Details:
+ICMP Timestamp Reply Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.103190)
+Version used: 2025-01-21T05:37:33Z
+
+References:
+ cve: CVE-1999-0524
+ url: https://datatracker.ietf.org/doc/html/rfc792
+ url: https://datatracker.ietf.org/doc/html/rfc2780
+ cert-bund: CB-K15/1514
+ cert-bund: CB-K14/0632
+ dfn-cert: DFN-CERT-2014-0658
+
+
+Issue
+-----
+NVT:    IP Forwarding Enabled - Active Check
+OID:    1.3.6.1.4.1.25623.1.0.147205
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+Checks if the remote host has IP forwarding enabled.
+
+Vulnerability Detection Result:
+It was possible to route a TCP packet through the target host and received an an!
+swer which means IP forwarding is enabled.
+
+Solution:
+
+Log Method:
+Sends a crafted Local Link Layer (LLL) frame and checks the
+  response.
+Details:
+IP Forwarding Enabled - Active Check
+(OID: 1.3.6.1.4.1.25623.1.0.147205)
+Version used: 2021-12-03T08:27:06Z
+
+References:
+ cve: CVE-1999-0511
+
+
+Issue
+-----
+NVT:    jQuery 1.0.3 < 3.5.0 XSS Vulnerability
+OID:    1.3.6.1.4.1.25623.1.0.143813
+Threat: Medium (CVSS: 6.1)
+Port:   80/tcp
+
+Summary:
+jQuery is prone to a cross-site scripting (XSS) vulnerability
+  when appending HTML containing option elements.
+
+Vulnerability Detection Result:
+Installed version: 1.11.3
+Fixed version:     3.5.0
+Installation
+path / port:       /mw-config/../resources/lib/jquery/jquery.js
+Detection info (see OID: 1.3.6.1.4.1.25623.1.0.150658 for more info):
+- Identified file: http://mediawiki128.trabalho_vulnnet/mw-config/../resources/l!
+ib/jquery/jquery.js
+- Referenced at:   http://mediawiki128.trabalho_vulnnet/mw-config/
+
+Solution:
+Solution type: VendorFix
+Update to version 3.5.0 or later.
+
+Affected Software/OS:
+jQuery versions starting from 1.0.3 and prior to version
+  3.5.0.
+
+Vulnerability Insight:
+Passing HTML containing <option> elements from untrusted
+  sources - even after sanitizing them - to one of jQuery's DOM manipulation met!
+hods (i.e. .html(),
+  .append(), and others) may execute untrusted code.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+jQuery 1.0.3 < 3.5.0 XSS Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.143813)
+Version used: 2025-01-31T15:39:24Z
+
+References:
+ cve: CVE-2020-11023
+ cisa: Known Exploited Vulnerability (KEV) catalog
+ url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+ url: https://github.com/jquery/jquery/security/advisories/GHSA-jpcq-cgw6-v4j6
+ url: https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/
+ url: https://masatokinugawa.l0.cm/2020/05/jquery3.5.0-xss.html
+ url: https://security.snyk.io/vuln/SNYK-JS-JQUERY-565129
+ cert-bund: WID-SEC-2025-1459
+ cert-bund: WID-SEC-2024-3191
+ cert-bund: WID-SEC-2024-1872
+ cert-bund: WID-SEC-2023-0239
+ cert-bund: WID-SEC-2023-0063
+ cert-bund: WID-SEC-2022-1347
+ cert-bund: WID-SEC-2022-1189
+ cert-bund: WID-SEC-2022-0757
+ cert-bund: WID-SEC-2022-0732
+ cert-bund: CB-K21/1085
+ cert-bund: CB-K21/1067
+ cert-bund: CB-K21/0418
+ cert-bund: CB-K20/1049
+ cert-bund: CB-K20/1027
+ cert-bund: CB-K20/1025
+ cert-bund: CB-K20/1024
+ cert-bund: CB-K20/1021
+ cert-bund: CB-K20/1008
+ cert-bund: CB-K20/0870
+ cert-bund: CB-K20/0800
+ cert-bund: CB-K20/0705
+ cert-bund: CB-K20/0521
+ dfn-cert: DFN-CERT-2025-2802
+ dfn-cert: DFN-CERT-2025-1803
+ dfn-cert: DFN-CERT-2025-0559
+ dfn-cert: DFN-CERT-2025-0497
+ dfn-cert: DFN-CERT-2025-0373
+ dfn-cert: DFN-CERT-2025-0348
+ dfn-cert: DFN-CERT-2024-2743
+ dfn-cert: DFN-CERT-2023-2027
+ dfn-cert: DFN-CERT-2023-1197
+ dfn-cert: DFN-CERT-2023-0481
+ dfn-cert: DFN-CERT-2023-0245
+ dfn-cert: DFN-CERT-2022-1988
+ dfn-cert: DFN-CERT-2022-1610
+ dfn-cert: DFN-CERT-2022-0119
+ dfn-cert: DFN-CERT-2022-0074
+ dfn-cert: DFN-CERT-2021-2348
+ dfn-cert: DFN-CERT-2021-1687
+ dfn-cert: DFN-CERT-2021-1111
+ dfn-cert: DFN-CERT-2021-0820
+ dfn-cert: DFN-CERT-2021-0633
+ dfn-cert: DFN-CERT-2021-0563
+ dfn-cert: DFN-CERT-2021-0545
+ dfn-cert: DFN-CERT-2020-2776
+ dfn-cert: DFN-CERT-2020-2423
+ dfn-cert: DFN-CERT-2020-2335
+ dfn-cert: DFN-CERT-2020-2287
+ dfn-cert: DFN-CERT-2020-2227
+ dfn-cert: DFN-CERT-2020-2209
+ dfn-cert: DFN-CERT-2020-2074
+ dfn-cert: DFN-CERT-2020-1743
+ dfn-cert: DFN-CERT-2020-1712
+ dfn-cert: DFN-CERT-2020-1509
+ dfn-cert: DFN-CERT-2020-1506
+ dfn-cert: DFN-CERT-2020-1433
+ dfn-cert: DFN-CERT-2020-1163
+ dfn-cert: DFN-CERT-2020-1099
+
+
+Issue
+-----
+NVT:    jQuery 1.2 < 3.5.0 XSS Vulnerability
+OID:    1.3.6.1.4.1.25623.1.0.143812
+Threat: Medium (CVSS: 6.1)
+Port:   80/tcp
+
+Summary:
+jQuery is prone to a cross-site scripting (XSS) vulnerability in
+  jQuery.htmlPrefilter and related methods.
+
+Vulnerability Detection Result:
+Installed version: 1.11.3
+Fixed version:     3.5.0
+Installation
+path / port:       /mw-config/../resources/lib/jquery/jquery.js
+Detection info (see OID: 1.3.6.1.4.1.25623.1.0.150658 for more info):
+- Identified file: http://mediawiki128.trabalho_vulnnet/mw-config/../resources/l!
+ib/jquery/jquery.js
+- Referenced at:   http://mediawiki128.trabalho_vulnnet/mw-config/
+
+Solution:
+Solution type: VendorFix
+Update to version 3.5.0 or later.
+
+Affected Software/OS:
+jQuery versions starting from 1.2 and prior to version
+  3.5.0.
+
+Vulnerability Insight:
+Passing HTML from untrusted sources - even after sanitizing it -
+  to one of jQuery's DOM manipulation methods (i.e. .html(), .append(), and othe!
+rs) may execute
+  untrusted code.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+jQuery 1.2 < 3.5.0 XSS Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.143812)
+Version used: 2023-07-14T05:06:08Z
+
+References:
+ cve: CVE-2020-11022
+ url: https://github.com/jquery/jquery/security/advisories/GHSA-gxr4-xjj5-5px2
+ url: https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/
+ url: https://masatokinugawa.l0.cm/2020/05/jquery3.5.0-xss.html
+ url: https://security.snyk.io/vuln/SNYK-JS-JQUERY-567880
+ cert-bund: WID-SEC-2025-1087
+ cert-bund: WID-SEC-2024-3217
+ cert-bund: WID-SEC-2024-1872
+ cert-bund: WID-SEC-2023-0239
+ cert-bund: WID-SEC-2023-0063
+ cert-bund: WID-SEC-2022-1767
+ cert-bund: WID-SEC-2022-1347
+ cert-bund: WID-SEC-2022-0740
+ cert-bund: WID-SEC-2022-0732
+ cert-bund: WID-SEC-2022-0624
+ cert-bund: CB-K22/0463
+ cert-bund: CB-K21/1085
+ cert-bund: CB-K21/0071
+ cert-bund: CB-K21/0070
+ cert-bund: CB-K21/0069
+ cert-bund: CB-K21/0067
+ cert-bund: CB-K21/0061
+ cert-bund: CB-K21/0059
+ cert-bund: CB-K20/1049
+ cert-bund: CB-K20/1030
+ cert-bund: CB-K20/1027
+ cert-bund: CB-K20/1025
+ cert-bund: CB-K20/1023
+ cert-bund: CB-K20/1008
+ cert-bund: CB-K20/0870
+ cert-bund: CB-K20/0800
+ cert-bund: CB-K20/0705
+ cert-bund: CB-K20/0521
+ dfn-cert: DFN-CERT-2025-1803
+ dfn-cert: DFN-CERT-2025-0559
+ dfn-cert: DFN-CERT-2025-0041
+ dfn-cert: DFN-CERT-2023-2027
+ dfn-cert: DFN-CERT-2023-1197
+ dfn-cert: DFN-CERT-2023-0481
+ dfn-cert: DFN-CERT-2023-0245
+ dfn-cert: DFN-CERT-2022-1988
+ dfn-cert: DFN-CERT-2022-1670
+ dfn-cert: DFN-CERT-2022-0869
+ dfn-cert: DFN-CERT-2022-0074
+ dfn-cert: DFN-CERT-2021-2190
+ dfn-cert: DFN-CERT-2021-1111
+ dfn-cert: DFN-CERT-2021-0828
+ dfn-cert: DFN-CERT-2021-0826
+ dfn-cert: DFN-CERT-2021-0819
+ dfn-cert: DFN-CERT-2021-0633
+ dfn-cert: DFN-CERT-2021-0545
+ dfn-cert: DFN-CERT-2021-0140
+ dfn-cert: DFN-CERT-2021-0138
+ dfn-cert: DFN-CERT-2021-0135
+ dfn-cert: DFN-CERT-2021-0132
+ dfn-cert: DFN-CERT-2020-2423
+ dfn-cert: DFN-CERT-2020-2335
+ dfn-cert: DFN-CERT-2020-2305
+ dfn-cert: DFN-CERT-2020-2286
+ dfn-cert: DFN-CERT-2020-2227
+ dfn-cert: DFN-CERT-2020-2209
+ dfn-cert: DFN-CERT-2020-2130
+ dfn-cert: DFN-CERT-2020-2074
+ dfn-cert: DFN-CERT-2020-2015
+ dfn-cert: DFN-CERT-2020-2001
+ dfn-cert: DFN-CERT-2020-1838
+ dfn-cert: DFN-CERT-2020-1812
+ dfn-cert: DFN-CERT-2020-1712
+ dfn-cert: DFN-CERT-2020-1509
+ dfn-cert: DFN-CERT-2020-1506
+ dfn-cert: DFN-CERT-2020-1433
+ dfn-cert: DFN-CERT-2020-1163
+ dfn-cert: DFN-CERT-2020-1161
+ dfn-cert: DFN-CERT-2020-1138
+ dfn-cert: DFN-CERT-2020-1099
+
+
+Issue
+-----
+NVT:    jQuery < 3.0.0 XSS Vulnerability
+OID:    1.3.6.1.4.1.25623.1.0.141635
+Threat: Medium (CVSS: 6.1)
+Port:   80/tcp
+
+Summary:
+jQuery is prone to a cross-site scripting (XSS)
+  vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 1.11.3
+Fixed version:     3.0.0
+Installation
+path / port:       /mw-config/../resources/lib/jquery/jquery.js
+Detection info (see OID: 1.3.6.1.4.1.25623.1.0.150658 for more info):
+- Identified file: http://mediawiki128.trabalho_vulnnet/mw-config/../resources/l!
+ib/jquery/jquery.js
+- Referenced at:   http://mediawiki128.trabalho_vulnnet/mw-config/
+
+Solution:
+Solution type: VendorFix
+Update to version 3.0.0 or later.
+
+Affected Software/OS:
+jQuery prior to version 3.0.0.
+
+Vulnerability Insight:
+When a cross-domain Ajax request is performed without the
+  dataType option, causing text/javascript responses to be executed.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+jQuery < 3.0.0 XSS Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.141635)
+Version used: 2023-07-14T05:06:08Z
+
+References:
+ cve: CVE-2015-9251
+ url: https://github.com/jquery/jquery/issues/2432
+ cert-bund: WID-SEC-2025-1660
+ cert-bund: WID-SEC-2025-1212
+ cert-bund: WID-SEC-2024-1872
+ cert-bund: WID-SEC-2024-1682
+ cert-bund: WID-SEC-2023-0239
+ cert-bund: WID-SEC-2022-0673
+ cert-bund: CB-K22/0045
+ cert-bund: CB-K20/1030
+ cert-bund: CB-K20/0309
+ cert-bund: CB-K20/0041
+ cert-bund: CB-K19/0911
+ cert-bund: CB-K19/0909
+ cert-bund: CB-K19/0615
+ cert-bund: CB-K19/0321
+ cert-bund: CB-K19/0313
+ cert-bund: CB-K19/0054
+ cert-bund: CB-K19/0052
+ cert-bund: CB-K19/0049
+ cert-bund: CB-K19/0048
+ cert-bund: CB-K19/0046
+ cert-bund: CB-K18/1006
+ dfn-cert: DFN-CERT-2023-1197
+ dfn-cert: DFN-CERT-2023-0245
+ dfn-cert: DFN-CERT-2020-2423
+ dfn-cert: DFN-CERT-2020-2130
+ dfn-cert: DFN-CERT-2020-0630
+ dfn-cert: DFN-CERT-2020-0590
+ dfn-cert: DFN-CERT-2020-0318
+ dfn-cert: DFN-CERT-2019-2158
+ dfn-cert: DFN-CERT-2019-1455
+ dfn-cert: DFN-CERT-2019-0777
+ dfn-cert: DFN-CERT-2019-0772
+ dfn-cert: DFN-CERT-2019-0119
+ dfn-cert: DFN-CERT-2019-0111
+ dfn-cert: DFN-CERT-2018-2103
+ dfn-cert: DFN-CERT-2018-1163
+
+
+Issue
+-----
+NVT:    jQuery < 3.4.0 Object Extensions Vulnerability
+OID:    1.3.6.1.4.1.25623.1.0.142314
+Threat: Medium (CVSS: 6.1)
+Port:   80/tcp
+
+Summary:
+jQuery is prone to multiple vulnerabilities regarding property
+  injection in Object.prototype.
+
+Vulnerability Detection Result:
+Installed version: 1.11.3
+Fixed version:     3.4.0
+Installation
+path / port:       /mw-config/../resources/lib/jquery/jquery.js
+Detection info (see OID: 1.3.6.1.4.1.25623.1.0.150658 for more info):
+- Identified file: http://mediawiki128.trabalho_vulnnet/mw-config/../resources/l!
+ib/jquery/jquery.js
+- Referenced at:   http://mediawiki128.trabalho_vulnnet/mw-config/
+
+Solution:
+Solution type: VendorFix
+Update to version 3.4.0 or later. Patch diffs are available for
+  older versions.
+
+Affected Software/OS:
+jQuery prior to version 3.4.0.
+
+Vulnerability Insight:
+The following flaws exist:
+  - CVE-2019-5428: A prototype pollution vulnerability exists that allows an att!
+acker to inject
+  properties on Object.prototype.
+  - CVE-2019-11358: jQuery mishandles jQuery.extend(true, {}, ...) because of Ob!
+ject.prototype
+  pollution. If an unsanitized source object contained an enumerable __proto__ p!
+roperty, it could
+  extend the native Object.prototype.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+jQuery < 3.4.0 Object Extensions Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.142314)
+Version used: 2023-07-14T05:06:08Z
+
+References:
+ cve: CVE-2019-5428
+ cve: CVE-2019-11358
+ url: https://blog.jquery.com/2019/04/10/jquery-3-4-0-released/
+ url: https://github.com/DanielRuf/snyk-js-jquery-174006?files=1
+ cert-bund: WID-SEC-2024-1872
+ cert-bund: WID-SEC-2023-1737
+ cert-bund: WID-SEC-2023-0239
+ cert-bund: WID-SEC-2022-1948
+ cert-bund: WID-SEC-2022-1947
+ cert-bund: WID-SEC-2022-0732
+ cert-bund: WID-SEC-2022-0673
+ cert-bund: CB-K22/0045
+ cert-bund: CB-K21/1083
+ cert-bund: CB-K20/1049
+ cert-bund: CB-K20/1030
+ cert-bund: CB-K20/0800
+ cert-bund: CB-K20/0710
+ cert-bund: CB-K20/0324
+ cert-bund: CB-K20/0314
+ cert-bund: CB-K20/0309
+ cert-bund: CB-K20/0106
+ cert-bund: CB-K20/0041
+ cert-bund: CB-K20/0037
+ cert-bund: CB-K20/0034
+ cert-bund: CB-K19/0921
+ cert-bund: CB-K19/0920
+ cert-bund: CB-K19/0916
+ cert-bund: CB-K19/0911
+ cert-bund: CB-K19/0909
+ cert-bund: CB-K19/0619
+ cert-bund: CB-K19/0504
+ cert-bund: CB-K19/0329
+ dfn-cert: DFN-CERT-2025-1803
+ dfn-cert: DFN-CERT-2024-1997
+ dfn-cert: DFN-CERT-2023-2027
+ dfn-cert: DFN-CERT-2023-1197
+ dfn-cert: DFN-CERT-2023-0481
+ dfn-cert: DFN-CERT-2023-0245
+ dfn-cert: DFN-CERT-2022-2467
+ dfn-cert: DFN-CERT-2021-1536
+ dfn-cert: DFN-CERT-2021-1503
+ dfn-cert: DFN-CERT-2021-0826
+ dfn-cert: DFN-CERT-2020-2423
+ dfn-cert: DFN-CERT-2020-2335
+ dfn-cert: DFN-CERT-2020-2286
+ dfn-cert: DFN-CERT-2020-2130
+ dfn-cert: DFN-CERT-2020-1812
+ dfn-cert: DFN-CERT-2020-1574
+ dfn-cert: DFN-CERT-2020-1537
+ dfn-cert: DFN-CERT-2020-1506
+ dfn-cert: DFN-CERT-2020-0772
+ dfn-cert: DFN-CERT-2020-0769
+ dfn-cert: DFN-CERT-2020-0721
+ dfn-cert: DFN-CERT-2020-0276
+ dfn-cert: DFN-CERT-2020-0102
+ dfn-cert: DFN-CERT-2020-0100
+ dfn-cert: DFN-CERT-2019-2169
+ dfn-cert: DFN-CERT-2019-2158
+ dfn-cert: DFN-CERT-2019-2156
+ dfn-cert: DFN-CERT-2019-2126
+ dfn-cert: DFN-CERT-2019-1861
+ dfn-cert: DFN-CERT-2019-1663
+ dfn-cert: DFN-CERT-2019-1460
+ dfn-cert: DFN-CERT-2019-1182
+ dfn-cert: DFN-CERT-2019-1153
+ dfn-cert: DFN-CERT-2019-1118
+ dfn-cert: DFN-CERT-2019-1033
+ dfn-cert: DFN-CERT-2019-0914
+ dfn-cert: DFN-CERT-2019-0899
+ dfn-cert: DFN-CERT-2019-0805
+
+
+Issue
+-----
+NVT:    jQuery Detection Consolidation
+OID:    1.3.6.1.4.1.25623.1.0.150658
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+Consolidation of jQuery detections.
+
+Vulnerability Detection Result:
+Detected jQuery
+Version:       1.11.3
+Location:      /mw-config/../resources/lib/jquery/jquery.js
+CPE:           cpe:/a:jquery:jquery:1.11.3
+Concluded from version/product identification result:
+src="../resources/lib/jquery/jquery.js
+jQuery JavaScript Library v1.11.3
+Concluded from version/product identification location:
+- Identified file: http://mediawiki128.trabalho_vulnnet/mw-config/../resources/l!
+ib/jquery/jquery.js
+- Referenced at:   http://mediawiki128.trabalho_vulnnet/mw-config/
+
+Solution:
+
+Log Method:
+Details:
+jQuery Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.150658)
+Version used: 2023-07-14T05:06:08Z
+
+References:
+ url: https://jquery.com/
+
+
+Issue
+-----
+NVT:    Missing 'HttpOnly' Cookie Attribute (HTTP)
+OID:    1.3.6.1.4.1.25623.1.0.105925
+Threat: Medium (CVSS: 5.0)
+Port:   80/tcp
+
+Summary:
+The remote HTTP web server / application is missing to set the
+  'HttpOnly' cookie attribute for one or more sent HTTP cookie.
+
+Vulnerability Detection Result:
+The cookie(s):
+Set-Cookie: mw_installer_session=***replaced***; path=/
+is/are missing the "HttpOnly" cookie attribute.
+
+Solution:
+Solution type: Mitigation
+- Set the 'HttpOnly' cookie attribute for any session cookie
+  - Evaluate / do an own assessment of the security impact on the web server / a!
+pplication and create
+  an override for this result if there is none (this can't be checked automatica!
+lly by this VT)
+
+Affected Software/OS:
+Any web application with session handling in cookies.
+
+Vulnerability Insight:
+The flaw exists if a session cookie is not using the 'HttpOnly'
+  cookie attribute.
+  This allows a cookie to be accessed by JavaScript which could lead to session !
+hijacking
+  attacks.
+
+Vulnerability Detection Method:
+Checks all cookies sent by the remote HTTP web server /
+  application for a missing 'HttpOnly' cookie attribute.
+Details:
+Missing 'HttpOnly' Cookie Attribute (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.105925)
+Version used: 2024-01-12T16:12:12Z
+
+References:
+ url: https://www.rfc-editor.org/rfc/rfc6265#section-5.2.6
+ url: https://owasp.org/www-community/HttpOnly
+ url: https://wiki.owasp.org/index.php/Testing_for_cookies_attributes_(OTG-SESS-002)
+
+
+Issue
+-----
+NVT:    OS Detection Consolidation and Reporting
+OID:    1.3.6.1.4.1.25623.1.0.105937
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+This script consolidates the OS information detected by several
+  VTs and tries to find the best matching OS.
+  Furthermore it reports all previously collected information leading to this be!
+st matching OS. It
+  also reports possible additional information which might help to improve the O!
+S detection.
+  If any of this information is wrong or could be improved please consider to re!
+port these to the
+  referenced community forum.
+
+Vulnerability Detection Result:
+Best matching OS:
+OS:           Debian GNU/Linux 8
+Version:      8
+CPE:          cpe:/o:debian:debian_linux:8
+Found by VT:  1.3.6.1.4.1.25623.1.0.111067 (Operating System (OS) Detection (HTT!
+P))
+Concluded from HTTP Server banner on port 80/tcp: Server: Apache/2.4.10 (Debian)
+Setting key "Host/runs_unixoide" based on this information
+
+Solution:
+
+Log Method:
+Details:
+OS Detection Consolidation and Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.105937)
+Version used: 2026-01-21T05:50:46Z
+
+References:
+ url: https://forum.greenbone.net/c/vulnerability-tests/7
+
+
+Issue
+-----
+NVT:    PHP 'CVE-2017-7189' Improper Input Validation Vulnerability - Linux
+OID:    1.3.6.1.4.1.25623.1.0.108874
+Threat: High (CVSS: 7.5)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is improperly validating input from untrusted input.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     None
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: WillNotFix
+No solution was made available by the vendor. General
+  solution options are to upgrade to a newer release, disable respective feature!
+s, remove the
+  product or replace the product by another one.
+  Note: PHP versions 7.0.18 and 7.1.4 introduced a fix which was reverted again !
+in version 7.0.19 /
+  7.1.5 respectively and the fix wasn't introduced again as of today (08-2020).
+
+Affected Software/OS:
+All PHP versions since 4.3.0 up to the latest 7.x versions.
+  Note: PHP versions 7.0.18 and 7.1.4 introduced a fix which was reverted again !
+in version 7.0.19 /
+  7.1.5 respectively.
+
+Vulnerability Insight:
+main/streams/xp_socket.c in PHP misparses fsockopen calls,
+  such as by interpreting fsockopen('127.0.0.1:80', 443) as if the address/port !
+were
+  127.0.0.1:80:443, which is later truncated to 127.0.0.1:80. This behavior has !
+a security risk if
+  the explicitly provided port number (i.e., 443 in this example) is hardcoded i!
+nto an application
+  as a security policy, but the hostname argument (i.e., 127.0.0.1:80 in this ex!
+ample) is obtained
+  from untrusted input.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP 'CVE-2017-7189' Improper Input Validation Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.108874)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2017-7189
+ url: https://bugs.php.net/bug.php?id=74192
+ url: https://bugs.php.net/bug.php?id=74429
+ url: https://github.com/php/php-src/commit/bab0b99f376dac9170ac81382a5ed526938d595a
+
+
+Issue
+-----
+NVT:    PHP 'Transfer-Encoding: chunked' XSS Vulnerability - Active Check
+OID:    1.3.6.1.4.1.25623.1.0.814021
+Threat: Medium (CVSS: 6.1)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to a cross-site scripting (XSS) vulnerability.
+
+Vulnerability Detection Result:
+Vulnerable URL: http://mediawiki128.trabalho_vulnnet/index.php
+Header:    "Transfer-Encoding: chunked"
+POST-Data: <script>alert(document.cookie)</script>
+
+Impact:
+Successful exploitation allows a remote attacker to execute
+  arbitrary script code in the browser of an unsuspecting user in the context of!
+ the affected site.
+  This may allow the attacker to steal cookie-based authentication credentials a!
+nd to launch
+  other attacks.
+
+Solution:
+Solution type: VendorFix
+Update to PHP 5.6.38, 7.2.10, 7.1.22 or later. Please see
+  the references for more information.
+
+Affected Software/OS:
+'sapi/apache2handler/sapi_apache2.c' component in PHP before
+  5.6.38, 7.0.x before 7.0.32, 7.1.x before 7.1.22, and 7.2.x before 7.2.10.
+
+Vulnerability Insight:
+The flaw is due to the bucket brigade is mishandled in the
+  php_handler function in 'sapi/apache2handler/sapi_apache2.c' script.
+
+Vulnerability Detection Method:
+Sends a crafted HTTP POST request and confirms the
+  vulnerability from the response.
+Details:
+PHP 'Transfer-Encoding: chunked' XSS Vulnerability - Active Check
+(OID: 1.3.6.1.4.1.25623.1.0.814021)
+Version used: 2025-04-30T05:39:51Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2018-17082
+ url: http://php.net/ChangeLog-5.php
+ url: http://php.net/ChangeLog-7.php
+ url: https://bugs.php.net/bug.php?id=76582
+ cert-bund: WID-SEC-2022-2129
+ cert-bund: CB-K18/0920
+ dfn-cert: DFN-CERT-2022-2638
+ dfn-cert: DFN-CERT-2019-1737
+ dfn-cert: DFN-CERT-2018-2435
+ dfn-cert: DFN-CERT-2018-1960
+ dfn-cert: DFN-CERT-2018-1843
+
+
+Issue
+-----
+NVT:    PHP 5.3.7 - 7.3.31, 7.4.x < 7.4.25, 8.0.x < 8.0.12 Security Update (Oct 2021) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.117752
+Threat: High (CVSS: 7.0)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP released new versions which includes a security fix.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     7.3.32 (not released yet)
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 7.3.32 (not released yet), 7.4.25, 8.0.12
+  or later.
+
+Affected Software/OS:
+PHP versions 5.3.7 through 7.3.31, 7.4.x through 7.4.24 and
+  8.0.x through 8.0.11.
+  Note: While the referenced CVE is only listing PHP 7.3.x, 7.4.x and 8.0.x as a!
+ffected the security
+  research team is stating in the linked blog post that all versions down to 5.3!
+.7 are affected.
+
+Vulnerability Insight:
+Fixed bug #81026 (PHP-FPM oob R/W in root process leading to
+  privilege escalation).
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP 5.3.7 - 7.3.31, 7.4.x < 7.4.25, 8.0.x < 8.0.12 Security Update (Oct 2021...
+(OID: 1.3.6.1.4.1.25623.1.0.117752)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2021-21703
+ url: https://www.php.net/ChangeLog-7.php#7.3.32
+ url: https://www.php.net/ChangeLog-7.php#7.4.25
+ url: https://www.php.net/ChangeLog-8.php#8.0.12
+ url: http://bugs.php.net/81026
+ url: https://www.ambionics.io/blog/php-fpm-local-root
+ cert-bund: WID-SEC-2023-1737
+ cert-bund: WID-SEC-2022-0624
+ cert-bund: WID-SEC-2022-0586
+ cert-bund: CB-K21/1106
+ dfn-cert: DFN-CERT-2023-1600
+ dfn-cert: DFN-CERT-2022-2639
+ dfn-cert: DFN-CERT-2022-2638
+ dfn-cert: DFN-CERT-2022-2337
+ dfn-cert: DFN-CERT-2022-1493
+ dfn-cert: DFN-CERT-2022-1046
+ dfn-cert: DFN-CERT-2022-0485
+ dfn-cert: DFN-CERT-2021-2586
+ dfn-cert: DFN-CERT-2021-2474
+ dfn-cert: DFN-CERT-2021-2200
+
+
+Issue
+-----
+NVT:    PHP 5.6.x < 5.6.38, 7.x < 7.0.33, 7.1.x < 7.1.25, 7.2.x < 7.2.13 Multiple Vulnerabilities (Dec 2018) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.108507
+Threat: High (CVSS: 7.5)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to multiple security vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     7.0.33
+Installation
+path / port:       80/tcp
+
+Impact:
+Successful exploitation will allow remote attackers to execute
+  remote code on the affected application/system and/or cause a cause a denial o!
+f service.
+
+Solution:
+Solution type: VendorFix
+Update to version 5.6.39, 7.0.33, 7.1.25, 7.2.13, 7.3.0 or
+  later.
+
+Affected Software/OS:
+PHP versions 5.6.x prior to 5.6.39, 7.0.x prior to 7.0.33,
+  7.1.x prior to 7.1.25 and 7.2.x prior to 7.2.13.
+
+Vulnerability Insight:
+The following flaws exist:
+  - CVE-2018-19518: The imap_open functions which allows to run arbitrary shell !
+commands via mailbox
+  parameter.
+  - CVE-2018-20783: Heap Buffer Overflow in phar_parse_pharfile.
+  - CVE-2018-19396: ext/standard/var_unserializer.c allows attackers to cause a !
+denial of service
+  (application crash) via an unserialize call for the com, dotnet, or variant cl!
+ass.
+  - CVE-2018-19395: Denial of service because com and com_safearray_proxy return!
+ NULL in
+  com_properties_get in ext/com_dotnet/com_handlers.c, as demonstrated by a seri!
+alize call on
+  COM('WScript.Shell').
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP 5.6.x < 5.6.38, 7.x < 7.0.33, 7.1.x < 7.1.25, 7.2.x < 7.2.13 Multiple Vu...
+(OID: 1.3.6.1.4.1.25623.1.0.108507)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2018-19395
+ cve: CVE-2018-19396
+ cve: CVE-2018-19518
+ cve: CVE-2018-20783
+ url: https://bugs.php.net/bug.php?id=76428
+ url: https://bugs.php.net/bug.php?id=77153
+ url: https://bugs.php.net/bug.php?id=77160
+ url: https://bugs.php.net/bug.php?id=77143
+ url: http://www.securityfocus.com/bid/106018
+ url: https://github.com/Bo0oM/PHP_imap_open_exploit/blob/master/exploit.php
+ url: https://www.exploit-db.com/exploits/45914/
+ url: https://www.openwall.com/lists/oss-security/2018/11/22/3
+ cert-bund: CB-K18/1118
+ dfn-cert: DFN-CERT-2022-2638
+ dfn-cert: DFN-CERT-2020-0898
+ dfn-cert: DFN-CERT-2019-2283
+ dfn-cert: DFN-CERT-2019-1737
+ dfn-cert: DFN-CERT-2019-1181
+ dfn-cert: DFN-CERT-2019-1052
+ dfn-cert: DFN-CERT-2019-0804
+ dfn-cert: DFN-CERT-2019-0698
+ dfn-cert: DFN-CERT-2019-0440
+ dfn-cert: DFN-CERT-2018-2488
+ dfn-cert: DFN-CERT-2018-2476
+
+
+Issue
+-----
+NVT:    PHP 5.x < 5.6.39, 7.x < 7.0.33, 7.1.x < 7.1.26, 7.2.x < 7.2.14 DoS Vulnerability - Linux
+OID:    1.3.6.1.4.1.25623.1.0.108505
+Threat: High (CVSS: 7.5)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to a denial of service (DoS) vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     7.0.33
+Installation
+path / port:       80/tcp
+
+Impact:
+Successful exploitation will allow attackers to cause a denial
+  of service of the affected application.
+
+Solution:
+Solution type: VendorFix
+Update to version 5.6.39, 7.0.33, 7.1.26, 7.2.14, 7.3.0 or
+  later.
+
+Affected Software/OS:
+PHP versions 5.x prior to 5.6.39, 7.0.x prior to 7.0.33,
+  7.1.x prior to 7.1.26 and 7.2.x prior to 7.2.14.
+
+Vulnerability Insight:
+A NULL pointer dereference and application crash via an empty
+  string occurs in the message argument to the imap_mail function of ext/imap/ph!
+p_imap.c.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP 5.x < 5.6.39, 7.x < 7.0.33, 7.1.x < 7.1.26, 7.2.x < 7.2.14 DoS Vulnerabi...
+(OID: 1.3.6.1.4.1.25623.1.0.108505)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2018-19935
+ url: https://bugs.php.net/bug.php?id=77020
+ url: http://www.securityfocus.com/bid/106143
+ cert-bund: WID-SEC-2022-2128
+ cert-bund: CB-K18/1154
+ dfn-cert: DFN-CERT-2022-2638
+ dfn-cert: DFN-CERT-2019-1181
+ dfn-cert: DFN-CERT-2019-0313
+ dfn-cert: DFN-CERT-2019-0044
+ dfn-cert: DFN-CERT-2018-2476
+
+
+Issue
+-----
+NVT:    PHP 5.x < 7.1.20, 7.2.x < 7.2.8, 7.3.0alpha1 < 7.3.0alpha3 DoS Vulnerability - Linux
+OID:    1.3.6.1.4.1.25623.1.0.812520
+Threat: Medium (CVSS: 6.5)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to a denial of service (DoS) vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     7.1.20
+Installation
+path / port:       80/tcp
+
+Impact:
+Successfully exploitation will allow an attacker to consume
+  100% of the CPU, and consume disk space with a large volume of error logs, as !
+demonstrated by an
+  attack by a customer of a shared-hosting facility.
+
+Solution:
+Solution type: VendorFix
+Update to version 7.1.20, 7.2.8, 7.3.0alpha3 or later.
+
+Affected Software/OS:
+PHP versions 5.x, 7.0.x, 7.1.x prior to 7.1.20, 7.2.x prior
+  to 7.2.8 and 7.3.x prior to 7.3.0alpha3 on Linux.
+
+Vulnerability Insight:
+The flaw exists due to the php-fpm master process restarts a
+  child process in an endless loop when using program execution functions with a!
+ non-blocking STDIN
+  stream.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP 5.x < 7.1.20, 7.2.x < 7.2.8, 7.3.0alpha1 < 7.3.0alpha3 DoS Vulnerability...
+(OID: 1.3.6.1.4.1.25623.1.0.812520)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2015-9253
+ url: https://bugs.php.net/bug.php?id=73342
+ url: https://bugs.php.net/bug.php?id=70185
+ url: https://github.com/php/php-src/pull/3287
+ url: https://www.futureweb.at/security/CVE-2015-9253
+ dfn-cert: DFN-CERT-2022-2638
+ dfn-cert: DFN-CERT-2022-0485
+ dfn-cert: DFN-CERT-2022-0455
+ dfn-cert: DFN-CERT-2022-0431
+ dfn-cert: DFN-CERT-2020-0337
+ dfn-cert: DFN-CERT-2018-1882
+
+
+Issue
+-----
+NVT:    PHP 7.x < 7.0.27, 7.1.x < 7.1.13, 7.2.0 Unspecified Vulnerability - Linux
+OID:    1.3.6.1.4.1.25623.1.0.813904
+Threat: High (CVSS: 7.5)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to an unspecified vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     7.0.27
+Installation
+path / port:       80/tcp
+
+Impact:
+Successful exploitation will allow attackers to cause
+  segmentation fault.
+
+Solution:
+Solution type: VendorFix
+Update to version 7.0.27, 7.1.13, 7.2.1 or later.
+
+Affected Software/OS:
+PHP versions 7.0.x prior to 7.0.27, 7.1.x prior to 7.1.13 and
+  7.2.x prior to 7.2.1 on Linux.
+
+Vulnerability Insight:
+The flaw exists due to an inappropriate parsing of HTTP
+  response 'http_header_value' in 'ext/standard/http_fopen_wrapper.c'.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP 7.x < 7.0.27, 7.1.x < 7.1.13, 7.2.0 Unspecified Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.813904)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2018-14884
+ url: https://bugs.php.net/bug.php?id=75535
+ dfn-cert: DFN-CERT-2019-1737
+
+
+Issue
+-----
+NVT:    PHP < 5.6.33, 7.x < 7.0.27, 7.1.x < 7.1.13, 7.2.x < 7.2.1 Multiple Vulnerabilities - Linux
+OID:    1.3.6.1.4.1.25623.1.0.812735
+Threat: Medium (CVSS: 6.1)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to multiple vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     7.0.27
+Installation
+path / port:       80/tcp
+
+Impact:
+Successfully exploiting these issues allows attacker to execute
+  arbitrary script code in the browser of an unsuspecting user in the context of!
+ the affected site.
+  This may allow the attacker to steal cookie-based authentication credentials a!
+nd to launch other
+  attacks and will also lead to a denial of service and exhausting the server re!
+sources.
+
+Solution:
+Solution type: VendorFix
+Update to version 5.6.33, 7.0.27, 7.1.13, 7.2.1 or later.
+
+Affected Software/OS:
+PHP prior to version 5.6.33, 7.0.x prior to 7.0.27, 7.1.x
+  prior to 7.1.13 and 7.2.x prior to 7.2.1.
+
+Vulnerability Insight:
+The following flaws exist:
+  - CVE-2018-5712: Input validation error on the PHAR 404 error page via the URI!
+ of a request for a
+  .phar file.
+  - CVE-2018-5711: Integer signedness error in gd_gif_in.c in the GD Graphics Li!
+brary (aka
+  libgd).
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 5.6.33, 7.x < 7.0.27, 7.1.x < 7.1.13, 7.2.x < 7.2.1 Multiple Vulnerabi...
+(OID: 1.3.6.1.4.1.25623.1.0.812735)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2018-5711
+ cve: CVE-2018-5712
+ url: http://php.net/ChangeLog-5.php
+ url: http://php.net/ChangeLog-7.php
+ url: https://bugs.php.net/bug.php?id=74782
+ url: https://bugs.php.net/bug.php?id=75571
+ cert-bund: WID-SEC-2024-0991
+ cert-bund: WID-SEC-2024-0990
+ cert-bund: CB-K20/0307
+ cert-bund: CB-K18/0498
+ cert-bund: CB-K18/0270
+ cert-bund: CB-K18/0188
+ cert-bund: CB-K18/0174
+ dfn-cert: DFN-CERT-2020-0774
+ dfn-cert: DFN-CERT-2020-0680
+ dfn-cert: DFN-CERT-2019-1737
+ dfn-cert: DFN-CERT-2019-0362
+ dfn-cert: DFN-CERT-2019-0212
+ dfn-cert: DFN-CERT-2019-0204
+ dfn-cert: DFN-CERT-2018-1739
+ dfn-cert: DFN-CERT-2018-0835
+ dfn-cert: DFN-CERT-2018-0733
+ dfn-cert: DFN-CERT-2018-0576
+ dfn-cert: DFN-CERT-2018-0537
+ dfn-cert: DFN-CERT-2018-0290
+ dfn-cert: DFN-CERT-2018-0205
+ dfn-cert: DFN-CERT-2018-0191
+
+
+Issue
+-----
+NVT:    PHP < 5.6.35, 7.x < 7.0.29, 7.1.x < 7.1.16, 7.2.x < 7.2.4 Security Bypass Vulnerability (May 2018) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.813162
+Threat: Medium (CVSS: 4.7)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to a security bypass vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     7.0.29
+Installation
+path / port:       80/tcp
+
+Impact:
+Successful exploitation will allow an attacker to bypass
+  security restrictions and access sensitive configuration data for other accoun!
+ts directly in the
+  PHP worker process's memory.
+
+Solution:
+Solution type: VendorFix
+Update to version 5.6.35, 7.0.29, 7.1.16, 7.2.4 or later.
+
+Affected Software/OS:
+PHP prior to version 5.6.35, 7.x prior to 7.0.29, 7.1.x prior
+  to 7.1.16 and 7.2.x prior to 7.2.4 on Linux.
+
+Vulnerability Insight:
+The flaw exists as the dumpable FPM child processes allow
+  bypassing opcache access controls.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 5.6.35, 7.x < 7.0.29, 7.1.x < 7.1.16, 7.2.x < 7.2.4 Security Bypass Vu...
+(OID: 1.3.6.1.4.1.25623.1.0.813162)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2018-10545
+ url: http://www.php.net/ChangeLog-5.php#5.6.35
+ url: http://www.php.net/ChangeLog-7.php#7.0.29
+ url: http://www.php.net/ChangeLog-7.php#7.1.16
+ url: http://www.php.net/ChangeLog-7.php#7.2.4
+ cert-bund: CB-K18/0633
+ dfn-cert: DFN-CERT-2019-1737
+ dfn-cert: DFN-CERT-2018-1232
+ dfn-cert: DFN-CERT-2018-0920
+ dfn-cert: DFN-CERT-2018-0877
+
+
+Issue
+-----
+NVT:    PHP < 5.6.36, 7.x < 7.0.30, 7.1.x < 7.1.17, 7.2.x < 7.2.5 Multiple Vulnerabilities (May 2018) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.813160
+Threat: High (CVSS: 8.8)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to multiple vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     7.0.30
+Installation
+path / port:       80/tcp
+
+Impact:
+Successful exploitation will allow an attacker to conduct XSS
+  attacks, crash PHP, conduct denial of service condition and execute arbitrary !
+code in the context
+  of the affected application.
+
+Solution:
+Solution type: VendorFix
+Update to version 5.6.36, 7.0.30, 7.1.17, 7.2.5 or later.
+
+Affected Software/OS:
+PHP prior to version 5.6.36, 7.0.x prior to 7.0.30, 7.1.x
+  prior to 7.1.17 and 7.2.x prior to 7.2.5 on Linux.
+
+Vulnerability Insight:
+The following flaws exist:
+  - CVE-2018-10549: Out of bounds read error in 'exif_read_data' function while !
+processing crafted
+  JPG data.
+  - CVE-2018-10546: An error in stream filter 'convert.iconv' which leads to inf!
+inite loop on
+  invalid sequence.
+  - CVE-2018-10548: An error in the LDAP module of PHP which allows a malicious !
+LDAP server or
+  man-in-the-middle attacker to crash PHP.
+  - CVE-2018-10547: An error in the 'phar_do_404()' function in 'ext/phar/phar_o!
+bject.c' script
+  which returns parts of the request unfiltered, leading to another XSS vector. !
+This is due to
+  incomplete fix for CVE-2018-5712.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 5.6.36, 7.x < 7.0.30, 7.1.x < 7.1.17, 7.2.x < 7.2.5 Multiple Vulnerabi...
+(OID: 1.3.6.1.4.1.25623.1.0.813160)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2018-10546
+ cve: CVE-2018-10547
+ cve: CVE-2018-10548
+ cve: CVE-2018-10549
+ url: http://www.php.net/ChangeLog-5.php#5.6.36
+ url: http://www.php.net/ChangeLog-7.php#7.0.30
+ url: http://www.php.net/ChangeLog-7.php#7.1.17
+ url: http://www.php.net/ChangeLog-7.php#7.2.5
+ cert-bund: CB-K18/0633
+ dfn-cert: DFN-CERT-2020-0680
+ dfn-cert: DFN-CERT-2019-1737
+ dfn-cert: DFN-CERT-2018-1232
+ dfn-cert: DFN-CERT-2018-0920
+ dfn-cert: DFN-CERT-2018-0877
+
+
+Issue
+-----
+NVT:    PHP < 7.2.26 Multiple Vulnerabilities (Dec 2019) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.143276
+Threat: Medium (CVSS: 6.5)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to multiple vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     7.2.26
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 7.2.26 or later.
+
+Affected Software/OS:
+PHP versions before 7.2.26.
+
+Vulnerability Insight:
+PHP is prone to multiple vulnerabilities:
+  - Buffer underflow in bc_shift_addsub (CVE-2019-11046)
+  - DirectoryIterator class silently truncates after a null byte (CVE-2019-11045!
+)
+  - Use-after-free in exif parsing under memory sanitizer (CVE-2019-11050)
+  - Heap-buffer-overflow READ in exif (CVE-2019-11047)
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 7.2.26 Multiple Vulnerabilities (Dec 2019) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.143276)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2019-11045
+ cve: CVE-2019-11046
+ cve: CVE-2019-11047
+ cve: CVE-2019-11050
+ url: https://www.php.net/ChangeLog-7.php#7.2.26
+ cert-bund: WID-SEC-2022-2122
+ cert-bund: CB-K20/1199
+ cert-bund: CB-K19/1099
+ dfn-cert: DFN-CERT-2022-2638
+ dfn-cert: DFN-CERT-2020-2627
+ dfn-cert: DFN-CERT-2020-1964
+ dfn-cert: DFN-CERT-2020-0415
+ dfn-cert: DFN-CERT-2020-0382
+ dfn-cert: DFN-CERT-2020-0339
+ dfn-cert: DFN-CERT-2019-2709
+ dfn-cert: DFN-CERT-2019-2659
+
+
+Issue
+-----
+NVT:    PHP < 7.2.28 Multiple Vulnerabilities (Feb 2020) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.143541
+Threat: High (CVSS: 7.5)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to multiple vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     7.2.28
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 7.2.28 or later.
+
+Affected Software/OS:
+PHP versions before 7.2.28.
+
+Vulnerability Insight:
+PHP is prone to multiple vulnerabilities:
+  - Null Pointer Dereference in PHP Session Upload Progress (CVE-2020-7062)
+  - Files added to tar with Phar::buildFromIterator have all-access permissions !
+(CVE-2020-7063)
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 7.2.28 Multiple Vulnerabilities (Feb 2020) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.143541)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2020-7062
+ cve: CVE-2020-7063
+ url: https://www.php.net/ChangeLog-7.php#7.2.28
+ cert-bund: WID-SEC-2022-2119
+ cert-bund: CB-K20/0147
+ dfn-cert: DFN-CERT-2022-2638
+ dfn-cert: DFN-CERT-2020-2627
+ dfn-cert: DFN-CERT-2020-1964
+ dfn-cert: DFN-CERT-2020-1438
+ dfn-cert: DFN-CERT-2020-0787
+ dfn-cert: DFN-CERT-2020-0518
+ dfn-cert: DFN-CERT-2020-0485
+ dfn-cert: DFN-CERT-2020-0341
+
+
+Issue
+-----
+NVT:    PHP < 7.2.29 Multiple Vulnerabilities (Mar 2020) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.143615
+Threat: Medium (CVSS: 5.4)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to multiple vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     7.2.29
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 7.2.29 or later.
+
+Affected Software/OS:
+PHP versions before 7.2.29.
+
+Vulnerability Insight:
+PHP is prone to multiple vulnerabilities:
+  - Use-of-uninitialized-value in exif (CVE-2020-7064)
+  - get_headers() silently truncates after a null byte (CVE-2020-7066)
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 7.2.29 Multiple Vulnerabilities (Mar 2020) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.143615)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2020-7064
+ cve: CVE-2020-7066
+ url: https://www.php.net/ChangeLog-7.php#7.2.29
+ cert-bund: WID-SEC-2022-2118
+ cert-bund: CB-K21/0068
+ cert-bund: CB-K20/1199
+ cert-bund: CB-K20/0239
+ dfn-cert: DFN-CERT-2022-2638
+ dfn-cert: DFN-CERT-2020-2627
+ dfn-cert: DFN-CERT-2020-1964
+ dfn-cert: DFN-CERT-2020-1438
+ dfn-cert: DFN-CERT-2020-1202
+ dfn-cert: DFN-CERT-2020-0965
+ dfn-cert: DFN-CERT-2020-0851
+ dfn-cert: DFN-CERT-2020-0787
+ dfn-cert: DFN-CERT-2020-0554
+
+
+Issue
+-----
+NVT:    PHP < 7.2.30, 7.3 < 7.3.17, 7.4 < 7.4.5 DoS Vulnerability (Apr 2020) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.143722
+Threat: High (CVSS: 7.5)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to a denial of service (DoS) vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     7.2.30
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 7.2.30, 7.3.17, 7.4.5 or later.
+
+Affected Software/OS:
+PHP versions prior 7.2.30, 7.3 prior 7.3.17 and 7.4 prior to
+  7.4.5.
+
+Vulnerability Insight:
+If 'CHARSET_EBCDIC' is defined (usually, on systems with
+  EBCDIC encoding support), an out-of-bounds read can occur using a malformed ur!
+l-encoded string.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 7.2.30, 7.3 < 7.3.17, 7.4 < 7.4.5 DoS Vulnerability (Apr 2020) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.143722)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2020-7067
+ url: https://www.php.net/ChangeLog-7.php#7.2.30
+ url: https://www.php.net/ChangeLog-7.php#7.3.17
+ url: https://www.php.net/ChangeLog-7.php#7.4.5
+ cert-bund: CB-K20/1199
+ cert-bund: CB-K20/0336
+ dfn-cert: DFN-CERT-2020-1438
+ dfn-cert: DFN-CERT-2020-0851
+ dfn-cert: DFN-CERT-2020-0751
+
+
+Issue
+-----
+NVT:    PHP < 7.2.31, 7.3 < 7.3.18, 7.4 < 7.4.6 Multiple DoS Vulnerabilities (May 2020) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.143913
+Threat: Medium (CVSS: 5.3)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to two Denial-of-Service vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     7.2.31
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 7.2.31, 7.3.18, 7.4.6 or later.
+
+Affected Software/OS:
+PHP versions prior 7.2.31, 7.3 prior 7.3.18 and 7.4 prior to
+  7.4.6.
+
+Vulnerability Insight:
+The following flaws exist:
+  - Long filenames cause OOM and temp files to not be cleaned
+  - Long variables in multipart/form-data cause OOM and temp files are not clean!
+ed
+  leading to a Denial-of-Service condition (CVE-2019-11048).
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 7.2.31, 7.3 < 7.3.18, 7.4 < 7.4.6 Multiple DoS Vulnerabilities (May 20...
+(OID: 1.3.6.1.4.1.25623.1.0.143913)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2019-11048
+ url: https://www.php.net/ChangeLog-7.php#7.2.31
+ url: https://www.php.net/ChangeLog-7.php#7.3.18
+ url: https://www.php.net/ChangeLog-7.php#7.4.6
+ url: https://bugs.php.net/bug.php?id=78875
+ url: https://bugs.php.net/bug.php?id=78876
+ cert-bund: WID-SEC-2022-2117
+ cert-bund: CB-K20/1199
+ cert-bund: CB-K20/0467
+ dfn-cert: DFN-CERT-2022-2638
+ dfn-cert: DFN-CERT-2020-2627
+ dfn-cert: DFN-CERT-2020-2006
+ dfn-cert: DFN-CERT-2020-1964
+ dfn-cert: DFN-CERT-2020-1438
+ dfn-cert: DFN-CERT-2020-1376
+ dfn-cert: DFN-CERT-2020-1202
+ dfn-cert: DFN-CERT-2020-1019
+
+
+Issue
+-----
+NVT:    PHP < 7.2.33, 7.3 < 7.3.21, 7.4 < 7.4.9 DoS Vulnerability (Aug 2020) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.144365
+Threat: Low (CVSS: 3.6)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to a denial of service vulnerability in the
+  phar_parse_zipfile function.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     7.2.33
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 7.2.33, 7.3.21, 7.4.9 or later.
+
+Affected Software/OS:
+PHP versions prior 7.2.33, 7.3 prior 7.3.21 and 7.4 prior to
+  7.4.9.
+
+Vulnerability Insight:
+The phar_parse_zipfile function had use-after-free
+  vulnerability because of mishandling of the actual_alias variable.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 7.2.33, 7.3 < 7.3.21, 7.4 < 7.4.9 DoS Vulnerability (Aug 2020) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.144365)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2020-7068
+ url: https://www.php.net/ChangeLog-7.php#7.2.33
+ url: https://www.php.net/ChangeLog-7.php#7.3.21
+ url: https://www.php.net/ChangeLog-7.php#7.4.9
+ cert-bund: WID-SEC-2022-2116
+ cert-bund: CB-K20/0788
+ dfn-cert: DFN-CERT-2022-2639
+ dfn-cert: DFN-CERT-2022-2638
+ dfn-cert: DFN-CERT-2021-2373
+ dfn-cert: DFN-CERT-2021-1645
+ dfn-cert: DFN-CERT-2021-1453
+ dfn-cert: DFN-CERT-2021-0380
+ dfn-cert: DFN-CERT-2020-1910
+ dfn-cert: DFN-CERT-2020-1732
+
+
+Issue
+-----
+NVT:    PHP < 7.2.34, 7.3 < 7.3.23, 7.4 < 7.4.11 Multiple Vulnerabilities (Oct 2020) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.144694
+Threat: Medium (CVSS: 6.5)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to multiple vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     7.2.34
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 7.2.34, 7.3.23, 7.4.11 or later.
+
+Affected Software/OS:
+PHP versions prior 7.2.34, 7.3 prior 7.3.23 and 7.4 prior to
+  7.4.11.
+
+Vulnerability Insight:
+The following vulnerabilities exist:
+  - Wrong ciphertext/tag in AES-CCM encryption for a 12 bytes IV (CVE-2020-7069)
+  - PHP parses encoded cookie names so malicious '__Host-' cookies can be sent (!
+CVE-2020-7070)
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 7.2.34, 7.3 < 7.3.23, 7.4 < 7.4.11 Multiple Vulnerabilities (Oct 2020)...
+(OID: 1.3.6.1.4.1.25623.1.0.144694)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2020-7069
+ cve: CVE-2020-7070
+ url: https://www.php.net/ChangeLog-7.php#7.2.34
+ url: https://www.php.net/ChangeLog-7.php#7.3.23
+ url: https://www.php.net/ChangeLog-7.php#7.4.11
+ cert-bund: WID-SEC-2022-2115
+ cert-bund: CB-K20/0949
+ dfn-cert: DFN-CERT-2022-2639
+ dfn-cert: DFN-CERT-2022-2638
+ dfn-cert: DFN-CERT-2021-2373
+ dfn-cert: DFN-CERT-2021-1645
+ dfn-cert: DFN-CERT-2021-0380
+ dfn-cert: DFN-CERT-2021-0002
+ dfn-cert: DFN-CERT-2020-2187
+ dfn-cert: DFN-CERT-2020-2111
+
+
+Issue
+-----
+NVT:    PHP < 7.3.26, 7.4.x < 7.4.14, 8.0.x < 8.0.1 Filter Vulnerability (Jan 2021) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.145114
+Threat: Medium (CVSS: 5.3)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to a vulnerability where FILTER_VALIDATE_URL
+  accepts URLs with invalid userinfo.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     7.3.26
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 7.3.26, 7.4.14, 8.0.1 or later.
+
+Affected Software/OS:
+PHP versions prior to 7.3.26, 7.4.x prior to 7.4.14 and 8.0.x
+  prior to 8.0.1.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 7.3.26, 7.4.x < 7.4.14, 8.0.x < 8.0.1 Filter Vulnerability (Jan 2021) ...
+(OID: 1.3.6.1.4.1.25623.1.0.145114)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2020-7071
+ url: https://www.php.net/ChangeLog-7.php#7.3.26
+ url: https://www.php.net/ChangeLog-7.php#7.4.14
+ url: https://www.php.net/ChangeLog-8.php#8.0.1
+ cert-bund: WID-SEC-2023-1737
+ cert-bund: WID-SEC-2022-2114
+ cert-bund: CB-K21/0009
+ dfn-cert: DFN-CERT-2024-2707
+ dfn-cert: DFN-CERT-2024-1586
+ dfn-cert: DFN-CERT-2023-1600
+ dfn-cert: DFN-CERT-2022-2639
+ dfn-cert: DFN-CERT-2022-2638
+ dfn-cert: DFN-CERT-2021-2373
+ dfn-cert: DFN-CERT-2021-1645
+ dfn-cert: DFN-CERT-2021-1509
+ dfn-cert: DFN-CERT-2021-1453
+ dfn-cert: DFN-CERT-2021-0380
+ dfn-cert: DFN-CERT-2021-0013
+
+
+Issue
+-----
+NVT:    PHP < 7.3.27, 7.4.x < 7.4.15, 8.0.x < 8.0.2 NULL Deference Vulnerability (Feb 2021) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.145323
+Threat: High (CVSS: 7.5)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to a NULL dereference vulnerability in the
+  SoapClient.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     7.3.27
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 7.3.27, 7.4.15, 8.0.2 or later.
+
+Affected Software/OS:
+PHP versions prior to 7.3.27, 7.4.x prior to 7.4.15 and 8.0.x
+  prior to 8.0.2.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 7.3.27, 7.4.x < 7.4.15, 8.0.x < 8.0.2 NULL Deference Vulnerability (Fe...
+(OID: 1.3.6.1.4.1.25623.1.0.145323)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2021-21702
+ url: https://www.php.net/ChangeLog-7.php#7.3.27
+ url: https://www.php.net/ChangeLog-7.php#7.4.15
+ url: https://www.php.net/ChangeLog-8.php#8.0.2
+ cert-bund: WID-SEC-2023-1737
+ cert-bund: WID-SEC-2022-2113
+ cert-bund: CB-K21/0124
+ dfn-cert: DFN-CERT-2023-1600
+ dfn-cert: DFN-CERT-2022-2639
+ dfn-cert: DFN-CERT-2022-2638
+ dfn-cert: DFN-CERT-2022-0904
+ dfn-cert: DFN-CERT-2021-2373
+ dfn-cert: DFN-CERT-2021-1645
+ dfn-cert: DFN-CERT-2021-1509
+ dfn-cert: DFN-CERT-2021-1453
+ dfn-cert: DFN-CERT-2021-0556
+ dfn-cert: DFN-CERT-2021-0380
+ dfn-cert: DFN-CERT-2021-0246
+
+
+Issue
+-----
+NVT:    PHP < 7.3.28, 7.4.x < 7.4.18 IMAP Header Injection Vulnerability (Apr 2021) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.145869
+Threat: Medium (CVSS: 5.0)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to an IMAP header injection vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     7.3.28
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 7.3.28, 7.4.18 or later.
+
+Affected Software/OS:
+PHP versions prior to 7.3.28 and 7.4.x through 7.4.17.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 7.3.28, 7.4.x < 7.4.18 IMAP Header Injection Vulnerability (Apr 2021) ...
+(OID: 1.3.6.1.4.1.25623.1.0.145869)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ url: https://www.php.net/ChangeLog-7.php#7.3.28
+ url: https://www.php.net/ChangeLog-7.php#7.4.18
+
+
+Issue
+-----
+NVT:    PHP < 7.3.29 Multiple Vulnerabilities (Jul 2021) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.117524
+Threat: Medium (CVSS: 5.9)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to multiple vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     7.3.29
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 7.3.29 or later.
+
+Affected Software/OS:
+PHP versions prior to 7.3.29.
+
+Vulnerability Insight:
+The following flaws exist:
+  - CVE-2021-21705: SSRF bypass in FILTER_VALIDATE_URL.
+  - CVE-2021-21704: Stack buffer overflow in firebird_info_cb.
+  - CVE-2021-21704: SIGSEGV in firebird_handle_doer.
+  - CVE-2021-21704: SIGSEGV in firebird_stmt_execute.
+  - CVE-2021-21704: Crash while parsing blob data in firebird_fetch_blob.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 7.3.29 Multiple Vulnerabilities (Jul 2021) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.117524)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2021-21704
+ cve: CVE-2021-21705
+ url: https://www.php.net/ChangeLog-7.php#7.3.29
+ url: http://bugs.php.net/81122
+ url: http://bugs.php.net/76448
+ url: http://bugs.php.net/76449
+ url: http://bugs.php.net/76450
+ url: http://bugs.php.net/76452
+ cert-bund: WID-SEC-2023-1737
+ cert-bund: WID-SEC-2022-1577
+ cert-bund: WID-SEC-2022-0624
+ cert-bund: CB-K21/0705
+ dfn-cert: DFN-CERT-2023-1600
+ dfn-cert: DFN-CERT-2022-2639
+ dfn-cert: DFN-CERT-2022-2638
+ dfn-cert: DFN-CERT-2022-1046
+ dfn-cert: DFN-CERT-2021-2185
+ dfn-cert: DFN-CERT-2021-1676
+ dfn-cert: DFN-CERT-2021-1645
+ dfn-cert: DFN-CERT-2021-1627
+ dfn-cert: DFN-CERT-2021-1509
+ dfn-cert: DFN-CERT-2021-1453
+ dfn-cert: DFN-CERT-2021-1419
+
+
+Issue
+-----
+NVT:    PHP < 7.3.30, 7.4.x < 7.4.23, 8.0.x < 8.0.10 Security Update (Aug 2021) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.146584
+Threat: Medium (CVSS: 5.0)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP released new versions which include security fixes.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     7.3.30
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 7.3.30, 7.4.23, 8.0.10 or later.
+
+Affected Software/OS:
+PHP versions prior to 7.3.30, 7.4.x through 7.4.22 and 8.0.x
+  through 8.0.9.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 7.3.30, 7.4.x < 7.4.23, 8.0.x < 8.0.10 Security Update (Aug 2021) - Li...
+(OID: 1.3.6.1.4.1.25623.1.0.146584)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ url: https://www.php.net/ChangeLog-7.php#7.3.30
+ url: https://www.php.net/ChangeLog-7.php#7.4.23
+ url: https://www.php.net/ChangeLog-8.php#8.0.10
+
+
+Issue
+-----
+NVT:    PHP < 7.3.31, 7.4.x < 7.4.24, 8.0.x < 8.0.11 Security Update (Sep 2021) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.117694
+Threat: Medium (CVSS: 6.5)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP released new versions which includes a security fix.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     7.3.31
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 7.3.31, 7.4.24, 8.0.11 or later.
+
+Affected Software/OS:
+PHP versions prior to 7.3.31, 7.4.x through 7.4.23 and 8.0.x
+  through 8.0.10.
+
+Vulnerability Insight:
+Fixed bug #81420 (ZipArchive::extractTo extracts outside of
+  destination).
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 7.3.31, 7.4.x < 7.4.24, 8.0.x < 8.0.11 Security Update (Sep 2021) - Li...
+(OID: 1.3.6.1.4.1.25623.1.0.117694)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2021-21706
+ url: https://www.php.net/ChangeLog-7.php#7.3.31
+ url: https://www.php.net/ChangeLog-7.php#7.4.24
+ url: https://www.php.net/ChangeLog-8.php#8.0.11
+ url: http://bugs.php.net/81420
+ cert-bund: WID-SEC-2022-2112
+ cert-bund: CB-K21/1008
+ dfn-cert: DFN-CERT-2022-2639
+ dfn-cert: DFN-CERT-2021-2474
+ dfn-cert: DFN-CERT-2021-1994
+
+
+Issue
+-----
+NVT:    PHP < 7.3.33, 7.4.x < 7.4.26, 8.0.x < 8.0.13 Security Update (Nov 2021) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.147187
+Threat: Medium (CVSS: 5.3)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP released new versions which include a security fix.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     7.3.33
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 7.3.33, 7.4.26, 8.0.13 or later.
+
+Affected Software/OS:
+PHP prior to version 7.3.33 and version 7.4.x through 7.4.25
+  and 8.0.x through 8.0.12.
+
+Vulnerability Insight:
+Fixed bug #79971 (special character is breaking the path in
+  xml function).
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 7.3.33, 7.4.x < 7.4.26, 8.0.x < 8.0.13 Security Update (Nov 2021) - Li...
+(OID: 1.3.6.1.4.1.25623.1.0.147187)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2021-21707
+ url: https://www.php.net/ChangeLog-7.php#7.3.33
+ url: https://www.php.net/ChangeLog-7.php#7.4.26
+ url: https://www.php.net/ChangeLog-8.php#8.0.13
+ url: http://bugs.php.net/79971
+ cert-bund: WID-SEC-2023-1737
+ cert-bund: WID-SEC-2022-1767
+ cert-bund: WID-SEC-2022-0587
+ cert-bund: WID-SEC-2022-0432
+ cert-bund: WID-SEC-2022-0302
+ cert-bund: CB-K21/1213
+ dfn-cert: DFN-CERT-2023-1600
+ dfn-cert: DFN-CERT-2022-2869
+ dfn-cert: DFN-CERT-2022-2639
+ dfn-cert: DFN-CERT-2022-2638
+ dfn-cert: DFN-CERT-2022-2598
+ dfn-cert: DFN-CERT-2022-2499
+ dfn-cert: DFN-CERT-2022-1516
+ dfn-cert: DFN-CERT-2022-1493
+ dfn-cert: DFN-CERT-2022-0557
+ dfn-cert: DFN-CERT-2022-0485
+ dfn-cert: DFN-CERT-2022-0455
+ dfn-cert: DFN-CERT-2022-0431
+ dfn-cert: DFN-CERT-2022-0407
+ dfn-cert: DFN-CERT-2022-0110
+ dfn-cert: DFN-CERT-2021-2474
+ dfn-cert: DFN-CERT-2021-2436
+
+
+Issue
+-----
+NVT:    PHP < 7.4.30, 8.0.x < 8.0.20, 8.1.x < 8.1.7 Security Update (Jun 2022) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.148249
+Threat: High (CVSS: 8.8)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP released new versions which include a security fix.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     7.4.30
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 7.4.30, 8.0.20, 8.1.7 or later.
+
+Affected Software/OS:
+PHP prior to version 7.4.30, 8.0.x through 8.0.19 and 8.1.x
+  through 8.1.6.
+
+Vulnerability Insight:
+The following vulnerabilities exist:
+  - CVE-2022-31625: Uninitialized array in pg_query_params()
+  - CVE-2022-31626: mysqlnd/pdo password buffer overflow
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 7.4.30, 8.0.x < 8.0.20, 8.1.x < 8.1.7 Security Update (Jun 2022) - Lin...
+(OID: 1.3.6.1.4.1.25623.1.0.148249)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2022-31625
+ cve: CVE-2022-31626
+ url: https://www.php.net/ChangeLog-7.php#7.4.30
+ url: https://www.php.net/ChangeLog-8.php#8.0.20
+ url: https://www.php.net/ChangeLog-8.php#8.1.7
+ url: https://bugs.php.net/bug.php?id=81720
+ url: https://bugs.php.net/bug.php?id=81719
+ cert-bund: WID-SEC-2023-1737
+ cert-bund: WID-SEC-2022-0255
+ cert-bund: CB-K22/0700
+ dfn-cert: DFN-CERT-2023-1600
+ dfn-cert: DFN-CERT-2022-2869
+ dfn-cert: DFN-CERT-2022-2639
+ dfn-cert: DFN-CERT-2022-2638
+ dfn-cert: DFN-CERT-2022-2598
+ dfn-cert: DFN-CERT-2022-2500
+ dfn-cert: DFN-CERT-2022-2323
+ dfn-cert: DFN-CERT-2022-1881
+ dfn-cert: DFN-CERT-2022-1552
+ dfn-cert: DFN-CERT-2022-1516
+ dfn-cert: DFN-CERT-2022-1493
+ dfn-cert: DFN-CERT-2022-1473
+ dfn-cert: DFN-CERT-2022-1288
+
+
+Issue
+-----
+NVT:    PHP < 7.4.31, 8.0.x < 8.0.24, 8.1.x < 8.1.11 Security Update - Linux
+OID:    1.3.6.1.4.1.25623.1.0.104331
+Threat: Medium (CVSS: 6.5)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to multiple vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     7.4.31
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 7.4.31, 8.0.24, 8.1.11 or later.
+
+Affected Software/OS:
+PHP versions prior to 7.4.31, 8.0.x prior to 8.0.24 and 8.1.x
+  prior to 8.1.11.
+
+Vulnerability Insight:
+The following vulnerabilities exist:
+  - CVE-2022-31628: The phar uncompressor code would recursively uncompress 'qui!
+nes' gzip files,
+  resulting in an infinite loop.
+  - CVE-2022-31629: The vulnerability enables network and same-site attackers to!
+ set a standard
+  insecure cookie in the victim's browser which is treated as a '__Host-' or '__!
+Secure-' cookie by
+  PHP applications.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 7.4.31, 8.0.x < 8.0.24, 8.1.x < 8.1.11 Security Update - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104331)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2022-31628
+ cve: CVE-2022-31629
+ url: https://www.php.net/ChangeLog-7.php#7.4.31
+ url: https://www.php.net/ChangeLog-8.php#8.0.24
+ url: https://www.php.net/ChangeLog-8.php#8.1.11
+ url: https://bugs.php.net/bug.php?id=81726
+ url: https://bugs.php.net/bug.php?id=81727
+ cert-bund: WID-SEC-2023-1737
+ cert-bund: WID-SEC-2023-0561
+ cert-bund: WID-SEC-2023-0137
+ cert-bund: WID-SEC-2022-1567
+ dfn-cert: DFN-CERT-2024-1192
+ dfn-cert: DFN-CERT-2023-1600
+ dfn-cert: DFN-CERT-2023-0422
+ dfn-cert: DFN-CERT-2022-2869
+ dfn-cert: DFN-CERT-2022-2639
+ dfn-cert: DFN-CERT-2022-2638
+ dfn-cert: DFN-CERT-2022-2598
+ dfn-cert: DFN-CERT-2022-2523
+ dfn-cert: DFN-CERT-2022-2337
+ dfn-cert: DFN-CERT-2022-2157
+
+
+Issue
+-----
+NVT:    PHP < 8.0.22, 8.1.x < 8.1.9 Security Update - Linux
+OID:    1.3.6.1.4.1.25623.1.0.104644
+Threat: Medium (CVSS: 5.5)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to a buffer overflow vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     8.0.22/8.1.9/8.2.0
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 8.0.22, 8.1.9, 8.2.0 or later.
+
+Affected Software/OS:
+PHP versions prior to 8.0.22 and 8.1.x prior to 8.1.9.
+
+Vulnerability Insight:
+Fixed potential overflow for the builtin server via the
+  PHP_CLI_SERVER_WORKERS environment variable.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 8.0.22, 8.1.x < 8.1.9 Security Update - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104644)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2022-4900
+ url: https://www.php.net/ChangeLog-8.php#8.2.0
+ url: https://www.php.net/ChangeLog-8.php#8.1.9
+ url: https://www.php.net/ChangeLog-8.php#8.0.22
+ url: https://github.com/php/php-src/issues/8989
+ url: https://github.com/php/php-src/pull/9000
+ url: https://github.com/php/php-src/commit/789a37f14405e2d1a05a76c9fb4ed2d49d4580d5
+ url: https://bugzilla.redhat.com/show_bug.cgi?id=2179880
+ cert-bund: WID-SEC-2023-0695
+ dfn-cert: DFN-CERT-2024-2707
+ dfn-cert: DFN-CERT-2024-1132
+ dfn-cert: DFN-CERT-2023-0681
+
+
+Issue
+-----
+NVT:    PHP < 8.0.27, 8.1.x < 8.1.14, 8.2.x < 8.2.1 Security Update - Linux
+OID:    1.3.6.1.4.1.25623.1.0.149069
+Threat: High (CVSS: 7.8)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to an integer overflow vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     8.0.27
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 8.0.27, 8.1.14, 8.2.1 or later.
+
+Affected Software/OS:
+PHP prior to version 8.0.27, version 8.1.x through 8.1.13 and
+  8.2.0.
+
+Vulnerability Insight:
+Due to an uncaught integer overflow, PDO::quote() of
+  PDO_SQLite may return a not properly quoted string.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 8.0.27, 8.1.x < 8.1.14, 8.2.x < 8.2.1 Security Update - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.149069)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2022-31631
+ url: https://www.php.net/ChangeLog-8.php#8.0.27
+ url: https://www.php.net/ChangeLog-8.php#8.1.14
+ url: https://www.php.net/ChangeLog-8.php#8.2.1
+ cert-bund: WID-SEC-2023-0035
+ dfn-cert: DFN-CERT-2023-0435
+ dfn-cert: DFN-CERT-2023-0422
+ dfn-cert: DFN-CERT-2023-0071
+ dfn-cert: DFN-CERT-2023-0034
+
+
+Issue
+-----
+NVT:    PHP < 8.0.28, 8.1.x < 8.1.16, 8.2.x < 8.2.3 Security Update - Linux
+OID:    1.3.6.1.4.1.25623.1.0.104541
+Threat: High (CVSS: 8.1)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to multiple vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     8.0.28
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 8.0.28, 8.1.16, 8.2.3 or later.
+
+Affected Software/OS:
+PHP versions prior to 8.0.28, 8.1.x prior to 8.1.16 and 8.2.x
+  prior to 8.2.3.
+
+Vulnerability Insight:
+The following flaws exist:
+  - CVE-2023-0567: Fixed bug #81744 (Password_verify() always return true with s!
+ome hash)
+  - CVE-2023-0568: Fixed bug #81746 (1-byte array overrun in common path resolve!
+ code)
+  - CVE-2023-0662: Fixed bug GHSA-54hq-v5wp-fqgv (DOS vulnerability when parsing!
+ multipart request
+  body)
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 8.0.28, 8.1.x < 8.1.16, 8.2.x < 8.2.3 Security Update - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104541)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2023-0567
+ cve: CVE-2023-0568
+ cve: CVE-2023-0662
+ url: https://www.php.net/ChangeLog-8.php#8.2.3
+ url: https://www.php.net/ChangeLog-8.php#8.1.16
+ url: https://www.php.net/ChangeLog-8.php#8.0.28
+ url: https://www.php.net/archive/2023.php#2023-02-14-2
+ url: https://www.php.net/archive/2023.php#2023-02-14-3
+ url: https://www.php.net/archive/2023.php#2023-02-14-1
+ url: http://bugs.php.net/81744
+ url: http://bugs.php.net/81746
+ url: https://github.com/php/php-src/security/advisories/GHSA-54hq-v5wp-fqgv
+ url: https://github.com/php/php-src/security/advisories/GHSA-7fj2-8x79-rjf4
+ cert-bund: WID-SEC-2023-2671
+ cert-bund: WID-SEC-2023-1424
+ cert-bund: WID-SEC-2023-1022
+ cert-bund: WID-SEC-2023-0383
+ dfn-cert: DFN-CERT-2024-3330
+ dfn-cert: DFN-CERT-2024-2681
+ dfn-cert: DFN-CERT-2023-2570
+ dfn-cert: DFN-CERT-2023-2538
+ dfn-cert: DFN-CERT-2023-0994
+ dfn-cert: DFN-CERT-2023-0884
+ dfn-cert: DFN-CERT-2023-0462
+ dfn-cert: DFN-CERT-2023-0435
+ dfn-cert: DFN-CERT-2023-0336
+
+
+Issue
+-----
+NVT:    PHP < 8.0.29, 8.1.x < 8.1.20, 8.2.x < 8.2.7 Security Update - Linux
+OID:    1.3.6.1.4.1.25623.1.0.149760
+Threat: Medium (CVSS: 4.3)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to a missing error check and insufficient random
+  bytes in HTTP Digest authentication for SOAP vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     8.0.29
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 8.0.29, 8.1.10, 8.2.7 or later.
+
+Affected Software/OS:
+PHP prior to version 8.0.29, 8.1.x prior to 8.1.20 and 8.2.x
+  prior to 8.2.7.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 8.0.29, 8.1.x < 8.1.20, 8.2.x < 8.2.7 Security Update - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.149760)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2023-3247
+ url: https://www.php.net/ChangeLog-8.php#8.0.29
+ url: https://www.php.net/ChangeLog-8.php#8.1.20
+ url: https://www.php.net/ChangeLog-8.php#8.2.7
+ url: https://github.com/php/php-src/security/advisories/GHSA-76gg-c692-v2mw
+ cert-bund: WID-SEC-2023-2917
+ cert-bund: WID-SEC-2023-2680
+ cert-bund: WID-SEC-2023-1506
+ dfn-cert: DFN-CERT-2024-3330
+ dfn-cert: DFN-CERT-2023-2570
+ dfn-cert: DFN-CERT-2023-2542
+ dfn-cert: DFN-CERT-2023-1328
+
+
+Issue
+-----
+NVT:    PHP < 8.1.28, 8.2.x < 8.2.18, 8.3.x < 8.3.6 Security Update (GHSA-h746-cjrr-wfmr) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.152118
+Threat: Medium (CVSS: 5.8)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to a vulnerability in password_verify.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     8.1.28
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 8.1.28, 8.2.18, 8.3.6 or later.
+
+Affected Software/OS:
+PHP prior to version 8.1.28, version 8.2.x through 8.2.17 and
+  8.3.x through 8.3.5.
+
+Vulnerability Insight:
+If a password stored with password_hash starts with a null
+  byte (\x00), testing a blank string as the password via password_verify will i!
+ncorrectly return
+  true.
+  If a user were able to create a password with a leading null byte (unlikely, b!
+ut syntactically
+  valid), an attacker could trivially compromise the victim's account by attempt!
+ing to sign in with
+  a blank string.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 8.1.28, 8.2.x < 8.2.18, 8.3.x < 8.3.6 Security Update (GHSA-h746-cjrr-...
+(OID: 1.3.6.1.4.1.25623.1.0.152118)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2024-3096
+ url: https://github.com/php/php-src/security/advisories/GHSA-h746-cjrr-wfmr
+ url: https://www.php.net/ChangeLog-8.php#8.1.28
+ url: https://www.php.net/ChangeLog-8.php#8.2.18
+ url: https://www.php.net/ChangeLog-8.php#8.3.6
+ cert-bund: WID-SEC-2024-0867
+ dfn-cert: DFN-CERT-2025-1211
+ dfn-cert: DFN-CERT-2024-3330
+ dfn-cert: DFN-CERT-2024-3329
+ dfn-cert: DFN-CERT-2024-1574
+ dfn-cert: DFN-CERT-2024-1192
+ dfn-cert: DFN-CERT-2024-1132
+ dfn-cert: DFN-CERT-2024-1115
+ dfn-cert: DFN-CERT-2024-0993
+ dfn-cert: DFN-CERT-2024-0962
+
+
+Issue
+-----
+NVT:    PHP < 8.1.30, 8.2.x < 8.2.24, 8.3.x < 8.3.12 Multiple Vulnerabilities - Linux
+OID:    1.3.6.1.4.1.25623.1.0.114787
+Threat: High (CVSS: 8.8)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to multiple vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     8.1.30
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 8.1.30, 8.2.24, 8.3.12 or later.
+
+Affected Software/OS:
+PHP versions prior to 8.1.30, 8.2.x prior to 8.2.24 and 8.3.x
+  prior to 8.3.12.
+
+Vulnerability Insight:
+The following vulnerabilities exist:
+  - CVE-2024-8925, CVE-2024-8928: Erroneous parsing of multipart form data
+  - CVE-2024-8926: Bypass of CVE-2024-4577, Parameter Injection Vulnerability
+  - CVE-2024-8927: cgi.force_redirect configuration is bypassable due to the env!
+ironment variable
+  collision
+  - CVE-2024-9026: Logs from children may be altered
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 8.1.30, 8.2.x < 8.2.24, 8.3.x < 8.3.12 Multiple Vulnerabilities - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.114787)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2024-8925
+ cve: CVE-2024-8926
+ cve: CVE-2024-8927
+ cve: CVE-2024-8928
+ cve: CVE-2024-9026
+ url: https://www.php.net/ChangeLog-8.php#8.1.30
+ url: https://www.php.net/ChangeLog-8.php#8.2.24
+ url: https://www.php.net/ChangeLog-8.php#8.3.12
+ url: https://github.com/php/php-src/security/advisories/GHSA-9pqp-7h25-4f32
+ url: https://github.com/php/php-src/security/advisories/GHSA-p99j-rfp4-xqvq
+ url: https://github.com/php/php-src/security/advisories/GHSA-94p6-54jq-9mwp
+ url: https://github.com/php/php-src/security/advisories/GHSA-865w-9rf3-2wh5
+ url: https://bugzilla.redhat.com/show_bug.cgi?id=2317439
+ url: https://thephp.foundation/blog/2025/04/10/php-core-security-audit-results/
+ url: https://ostif.org/php-audit-complete/
+ url: https://blog.quarkslab.com/security-audit-of-php-src.html
+ url: https://www.openwall.com/lists/oss-security/2025/04/12/2
+ cert-bund: WID-SEC-2025-0137
+ cert-bund: WID-SEC-2024-3116
+ cert-bund: WID-SEC-2024-2230
+ dfn-cert: DFN-CERT-2025-1211
+ dfn-cert: DFN-CERT-2025-0168
+ dfn-cert: DFN-CERT-2024-3330
+ dfn-cert: DFN-CERT-2024-3329
+ dfn-cert: DFN-CERT-2024-2707
+ dfn-cert: DFN-CERT-2024-2591
+ dfn-cert: DFN-CERT-2024-2550
+
+
+Issue
+-----
+NVT:    PHP < 8.1.33, 8.2.x < 8.2.29, 8.3.x < 8.3.23, 8.4.x < 8.4.10 Multiple Vulnerabilities - Linux
+OID:    1.3.6.1.4.1.25623.1.0.154869
+Threat: High (CVSS: 7.5)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to multiple vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     8.1.33
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 8.1.33, 8.2.29, 8.3.23, 8.4.10 or later.
+
+Affected Software/OS:
+PHP versions prior to 8.1.33, 8.2.x prior to 8.2.29, 8.3.x
+  prior to 8.3.23 and 8.4.x prior to 8.4.10.
+
+Vulnerability Insight:
+The following vulnerabilities exist:
+  - CVE-2025-1220: Null byte termination in hostnames
+  - CVE-2025-1735: pgsql extension does not check for errors during escaping
+  - CVE-2025-6491: NULL pointer dereference in PHP SOAP extension via large XML !
+namespace prefix
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 8.1.33, 8.2.x < 8.2.29, 8.3.x < 8.3.23, 8.4.x < 8.4.10 Multiple Vulner...
+(OID: 1.3.6.1.4.1.25623.1.0.154869)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2025-1220
+ cve: CVE-2025-1735
+ cve: CVE-2025-6491
+ url: https://www.php.net/ChangeLog-8.php#8.1.33
+ url: https://www.php.net/ChangeLog-8.php#8.2.29
+ url: https://www.php.net/ChangeLog-8.php#8.3.23
+ url: https://www.php.net/ChangeLog-8.php#8.4.10
+ url: https://github.com/php/php-src/security/advisories/GHSA-3cr5-j632-f35r
+ url: https://github.com/php/php-src/security/advisories/GHSA-hrwm-9436-5mv3
+ url: https://github.com/php/php-src/security/advisories/GHSA-453j-q27h-5p8x
+ cert-bund: WID-SEC-2025-1460
+ dfn-cert: DFN-CERT-2025-1785
+
+
+Issue
+-----
+NVT:    PHP < 8.2.30, 8.3.x < 8.3.29, 8.4.x < 8.4.16 Multiple Vulnerabilities - Linux
+OID:    1.3.6.1.4.1.25623.1.0.156071
+Threat: High (CVSS: 8.2)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to multiple vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     8.2.30
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 8.2.30, 8.3.29, 8.4.16 or later.
+
+Affected Software/OS:
+PHP versions prior to 8.2.30, 8.3.x prior to 8.3.29 and 8.4.x
+  prior to 8.4.16.
+
+Vulnerability Insight:
+The following flaws exist:
+  - CVE-2025-14177: Information leak of memory in getimagesize
+  - CVE-2025-14178: Heap buffer overflow in array_merge()
+  - CVE-2025-14180: PDO quoting result null deref
+  - No CVE: Null byte termination in dns_get_record()
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 8.2.30, 8.3.x < 8.3.29, 8.4.x < 8.4.16 Multiple Vulnerabilities - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.156071)
+Version used: 2026-01-12T05:50:06Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2025-14177
+ cve: CVE-2025-14178
+ cve: CVE-2025-14180
+ url: https://www.php.net/ChangeLog-8.php#8.2.30
+ url: https://www.php.net/ChangeLog-8.php#8.3.29
+ url: https://www.php.net/ChangeLog-8.php#8.4.16
+ url: https://github.com/php/php-src/security/advisories/GHSA-3237-qqm7-mfv7
+ url: https://github.com/php/php-src/security/advisories/GHSA-h96m-rvf9-jgm2
+ url: https://github.com/php/php-src/security/advisories/GHSA-8xr5-qppj-gvwj
+ url: https://github.com/php/php-src/security/advisories/GHSA-www2-q4fc-65wf
+ dfn-cert: DFN-CERT-2025-3544
+
+
+Issue
+-----
+NVT:    PHP Detection Consolidation
+OID:    1.3.6.1.4.1.25623.1.0.171722
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+Consolidation of PHP detections.
+
+Vulnerability Detection Result:
+Detected PHP
+Version:       7.0.25
+Location:      80/tcp
+CPE:           cpe:/a:php:php:7.0.25
+Concluded from version/product identification result:
+X-Powered-By: PHP/7.0.25
+Concluded from version/product identification location:
+http://mediawiki128.trabalho_vulnnet/
+
+Solution:
+
+Log Method:
+Details:
+PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+Version used: 2025-09-24T05:39:03Z
+
+References:
+ url: https://www.php.net/
+
+
+Issue
+-----
+NVT:    PHP Heap Use-After-Free Vulnerability (Sep 2019) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.108635
+Threat: Medium (CVSS: 6.8)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to a heap-based use-after-free vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     7.1.32
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 7.1.32 or later.
+
+Affected Software/OS:
+PHP versions before 7.1.32.
+
+Vulnerability Insight:
+PHP is prone to a heap use-after-free in pcrelib (cmb).
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP Heap Use-After-Free Vulnerability (Sep 2019) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.108635)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ url: http://bugs.php.net/75457
+ url: https://www.php.net/ChangeLog-7.php#7.1.32
+
+
+Issue
+-----
+NVT:    PHP Memory Disclosure Vulnerability - Linux
+OID:    1.3.6.1.4.1.25623.1.0.142046
+Threat: High (CVSS: 7.5)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+dns_get_record misparses a DNS response, which can allow a
+  hostile DNS server to cause PHP to misuse memcpy, leading to read operations g!
+oing past the buffer
+  allocated for DNS data. This affects php_parserr in ext/standard/dns.c for DNS!
+_CAA and DNS_ANY
+  queries.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     7.1.26
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 7.1.26, 7.2.14, 7.3.2 or later.
+
+Affected Software/OS:
+PHP version 7.x before 7.1.26, 7.2.x before 7.2.14 and 7.3.x
+  before 7.3.2.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP Memory Disclosure Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.142046)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2019-9022
+ url: https://bugs.php.net/bug.php?id=77369
+ cert-bund: WID-SEC-2022-2127
+ cert-bund: CB-K19/0166
+ dfn-cert: DFN-CERT-2022-2638
+ dfn-cert: DFN-CERT-2020-0898
+ dfn-cert: DFN-CERT-2019-2283
+ dfn-cert: DFN-CERT-2019-1737
+ dfn-cert: DFN-CERT-2019-1181
+ dfn-cert: DFN-CERT-2019-0648
+ dfn-cert: DFN-CERT-2019-0434
+
+
+Issue
+-----
+NVT:    PHP Multiple Heap Buffer Overflow and Information Disclosure Vulnerabilities (Aug 2018) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.813901
+Threat: High (CVSS: 7.5)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to multiple heap buffer overflow and information
+  disclosure vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     7.0.31
+Installation
+path / port:       80/tcp
+
+Impact:
+Successful exploitation will allow attackers to cause heap
+  overflow, denial of service and disclose sensitive information.
+
+Solution:
+Solution type: VendorFix
+Update to version 5.6.37, 7.0.31, 7.1.20 or 7.2.8 or
+  later.
+
+Affected Software/OS:
+PHP prior to version 5.6.37, 7.x prior to 7.0.31, 7.1.x prior
+  to 7.1.20 and 7.2.x prior to 7.2.8.
+
+Vulnerability Insight:
+The following flaws exist:
+  - CVE-2018-14851: exif_process_IFD_in_MAKERNOTE function in exif.c file suffer!
+s from improper
+  validation against crafted JPEG files.
+  - CVE-2018-14883: exif_thumbnail_extract function in exif.c file suffers from !
+improper validation
+  of length of 'ImageInfo->Thumbnail.offset + ImageInfo->Thumbnail.size'
+  - CVE-2018-15132: linkinfo function on windows doesn't implement openbasedir c!
+heck.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP Multiple Heap Buffer Overflow and Information Disclosure Vulnerabilities...
+(OID: 1.3.6.1.4.1.25623.1.0.813901)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2018-14851
+ cve: CVE-2018-14883
+ cve: CVE-2018-15132
+ url: https://access.redhat.com/security/cve/cve-2018-14851
+ url: https://bugs.php.net/bug.php?id=76557
+ url: https://bugs.php.net/bug.php?id=76423
+ url: https://bugs.php.net/bug.php?id=76459
+ cert-bund: WID-SEC-2022-2130
+ cert-bund: CB-K18/0838
+ dfn-cert: DFN-CERT-2022-2638
+ dfn-cert: DFN-CERT-2019-1737
+ dfn-cert: DFN-CERT-2018-2116
+ dfn-cert: DFN-CERT-2018-1882
+ dfn-cert: DFN-CERT-2018-1835
+ dfn-cert: DFN-CERT-2018-1834
+ dfn-cert: DFN-CERT-2018-1777
+ dfn-cert: DFN-CERT-2018-1655
+
+
+Issue
+-----
+NVT:    PHP Multiple Vulnerabilities (Aug 2019) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.142695
+Threat: High (CVSS: 7.1)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to multiple heap-based buffer overflows
+  vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     7.1.31
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 7.1.31, 7.2.21, 7.3.8 or later.
+
+Affected Software/OS:
+PHP version 7.x before 7.1.31, 7.2.x before 7.2.21 and 7.3.x
+  before 7.3.8.
+
+Vulnerability Insight:
+PHP is prone to multiple vulnerabilities:
+  - Heap-buffer-overflow on exif_scan_thumbnail (CVE-2019-11041)
+  - Heap-buffer-overflow on exif_process_user_comment (CVE-2019-11042)
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP Multiple Vulnerabilities (Aug 2019) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.142695)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2019-11041
+ cve: CVE-2019-11042
+ url: https://bugs.php.net/bug.php?id=78256
+ url: https://bugs.php.net/bug.php?id=78222
+ cert-bund: WID-SEC-2022-2123
+ cert-bund: CB-K20/1199
+ cert-bund: CB-K19/0880
+ cert-bund: CB-K19/0684
+ dfn-cert: DFN-CERT-2022-2638
+ dfn-cert: DFN-CERT-2020-1964
+ dfn-cert: DFN-CERT-2020-0898
+ dfn-cert: DFN-CERT-2020-0415
+ dfn-cert: DFN-CERT-2019-2283
+ dfn-cert: DFN-CERT-2019-2092
+ dfn-cert: DFN-CERT-2019-1978
+ dfn-cert: DFN-CERT-2019-1967
+ dfn-cert: DFN-CERT-2019-1796
+ dfn-cert: DFN-CERT-2019-1557
+
+
+Issue
+-----
+NVT:    PHP Multiple Vulnerabilities (Sep 2019) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.108637
+Threat: Medium (CVSS: 6.8)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:7.0.25
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to multiple vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 7.0.25
+Fixed version:     7.2.22
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 7.2.22, 7.3.9 or later.
+
+Affected Software/OS:
+PHP versions before 7.2.22 and 7.3.x before 7.3.9.
+
+Vulnerability Insight:
+PHP is prone to multiple vulnerabilities:
+  - Buffer overflow in zendparse
+  - Cast to object confuses GC, causes crash
+  - Exif crash (bus error) due to wrong alignment and invalid cast
+  - Use-after-free in FPM master event handling
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP Multiple Vulnerabilities (Sep 2019) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.108637)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:7.0.25
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ url: http://bugs.php.net/78363
+ url: http://bugs.php.net/78379
+ url: http://bugs.php.net/78333
+ url: http://bugs.php.net/77185
+ url: https://www.php.net/ChangeLog-7.php#7.3.9
+ url: https://www.php.net/ChangeLog-7.php#7.2.22
+
+
+Issue
+-----
+NVT:    Services
+OID:    1.3.6.1.4.1.25623.1.0.10330
+Threat: Log (CVSS: 0.0)
+Port:   80/tcp
+
+Summary:
+This plugin performs service detection.
+
+Vulnerability Detection Result:
+A web server is running on this port
+
+Solution:
+
+Vulnerability Insight:
+This plugin attempts to guess which service is running on the
+  remote port(s). For instance, it searches for a web server which could listen !
+on another port than
+  80 or 443 and makes this information available for other check routines.
+
+Log Method:
+Details:
+Services
+(OID: 1.3.6.1.4.1.25623.1.0.10330)
+Version used: 2025-03-05T05:38:53Z
+
+
+Issue
+-----
+NVT:    TCP Timestamps Information Disclosure
+OID:    1.3.6.1.4.1.25623.1.0.80091
+Threat: Low (CVSS: 2.6)
+Port:   general/tcp
+
+Summary:
+The remote host implements TCP timestamps and therefore allows
+  to compute the uptime.
+
+Vulnerability Detection Result:
+It was detected that the host implements RFC1323/RFC7323.
+The following timestamps were retrieved with a delay of 1 seconds in-between:
+Packet 1: 773011727
+Packet 2: 773012819
+
+Impact:
+A side effect of this feature is that the uptime of the remote
+  host can sometimes be computed.
+
+Solution:
+Solution type: Mitigation
+To disable TCP timestamps on linux add the line
+  'net.ipv4.tcp_timestamps = 0' to /etc/sysctl.conf. Execute 'sysctl -p' to appl!
+y the settings at
+  runtime.
+  To disable TCP timestamps on Windows execute 'netsh int tcp set global timesta!
+mps=disabled'
+  Starting with Windows Server 2008 and Vista, the timestamp can not be complete!
+ly disabled.
+  The default behavior of the TCP/IP stack on this Systems is to not use the Tim!
+estamp options when
+  initiating TCP connections, but use them if the TCP peer that is initiating co!
+mmunication includes
+  them in their synchronize (SYN) segment.
+  See the references for more information.
+
+Affected Software/OS:
+TCP implementations that implement RFC1323/RFC7323.
+
+Vulnerability Insight:
+The remote host implements TCP timestamps, as defined by
+  RFC1323/RFC7323.
+
+Vulnerability Detection Method:
+Special IP packets are forged and sent with a little delay in
+  between to the target IP. The responses are searched for a timestamps. If foun!
+d, the timestamps
+  are reported.
+Details:
+TCP Timestamps Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.80091)
+Version used: 2023-12-15T16:10:08Z
+
+References:
+ url: https://datatracker.ietf.org/doc/html/rfc1323
+ url: https://datatracker.ietf.org/doc/html/rfc7323
+ url: https://web.archive.org/web/20151213072445/http://www.microsoft.com/en-us/download/details.aspx?id=9152
+ url: https://www.fortiguard.com/psirt/FG-IR-16-090
+
+
+Issue
+-----
+NVT:    Traceroute
+OID:    1.3.6.1.4.1.25623.1.0.51662
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+Collect information about the network route and
+  network distance between the scanner host and the target host.
+
+Vulnerability Detection Result:
+Network route from scanner (172.30.0.2) to target (172.31.1.94):
+172.30.0.2
+172.31.1.94
+Network distance between scanner and target: 2
+
+Solution:
+
+Vulnerability Insight:
+For internal networks, the distances are usually
+  small, often less than 4 hosts between scanner and target. For public targets !
+the
+  distance is greater and might be 10 hosts or more.
+
+Log Method:
+A combination of the protocols ICMP and TCP is used
+  to determine the route. This method is applicable for IPv4 only and it is also!
+ known as
+  'traceroute'.
+Details:
+Traceroute
+(OID: 1.3.6.1.4.1.25623.1.0.51662)
+Version used: 2022-10-17T11:13:19Z
+
+
+Issue
+-----
+NVT:    Web Application Scanning Consolidation / Info Reporting
+OID:    1.3.6.1.4.1.25623.1.0.111038
+Threat: Log (CVSS: 0.0)
+Port:   80/tcp
+
+Summary:
+The script consolidates and reports various information for web
+  application (formerly called 'CGI') scanning.
+  This information is based on the following scripts / settings:
+  - HTTP-Version Detection (OID: 1.3.6.1.4.1.25623.1.0.100034)
+  - No 404 check (OID: 1.3.6.1.4.1.25623.1.0.10386)
+  - Web mirroring / webmirror.nasl (OID: 1.3.6.1.4.1.25623.1.0.10662)
+  - Directory Scanner / DDI_Directory_Scanner.nasl (OID: 1.3.6.1.4.1.25623.1.0.1!
+1032)
+  - The configured 'cgi_path' within the 'Scanner Preferences' of the scan confi!
+g in use
+  - The configured 'Enable CGI scanning', 'Enable generic web application scanni!
+ng' and
+  'Add historic /scripts and /cgi-bin to directories for CGI scanning' within th!
+e
+  'Global variable settings' of the scan config in use
+  If you think any of this information is wrong please report it to the referenc!
+ed community
+  forum.
+
+Vulnerability Detection Result:
+The Hostname/IP "mediawiki128.trabalho_vulnnet" was used to access the remote ho!
+st.
+Generic web application scanning is disabled for this host via the "Enable gener!
+ic web application scanning" option within the "Global variable settings" of the!
+ scan config in use.
+Requests to this service are done via HTTP/1.1.
+This service seems to be able to host PHP scripts.
+This service seems to be able to host ASP scripts.
+The User-Agent "Mozilla/5.0 [en] (X11, U; OpenVAS-VT <version replaced>)" was us!
+ed to access the remote host.
+Historic /scripts and /cgi-bin are not added to the directories used for web app!
+lication scanning. You can enable this again with the "Add historic /scripts and!
+ /cgi-bin to directories for CGI scanning" option within the "Global variable se!
+ttings" of the scan config in use.
+The following directories were used for web application scanning:
+http://mediawiki128.trabalho_vulnnet/
+http://mediawiki128.trabalho_vulnnet/docs
+http://mediawiki128.trabalho_vulnnet/mw-config
+http://mediawiki128.trabalho_vulnnet/resources
+http://mediawiki128.trabalho_vulnnet/resources/assets
+http://mediawiki128.trabalho_vulnnet/skins
+http://mediawiki128.trabalho_vulnnet/vendor
+While this is not, in and of itself, a bug, you should manually inspect these di!
+rectories to ensure that they are in compliance with company security standards
+The following directories were excluded from web application scanning because th!
+e "Regex pattern to exclude directories from CGI scanning" setting of the VT "Gl!
+obal variable settings" (OID: 1.3.6.1.4.1.25623.1.0.12288) for this scan was: "/!
+(index\.php|image|img|css|js$|js/|javascript|style|theme|icon|jquery|graphic|gra!
+fik|picture|bilder|thumbnail|media/|skins?/)"
+http://mediawiki128.trabalho_vulnnet/icons
+http://mediawiki128.trabalho_vulnnet/images
+http://mediawiki128.trabalho_vulnnet/index.php/Home
+http://mediawiki128.trabalho_vulnnet/index.php/Home/login
+http://mediawiki128.trabalho_vulnnet/index.php/installer
+http://mediawiki128.trabalho_vulnnet/index.php/s
+http://mediawiki128.trabalho_vulnnet/index.php/wp-json
+http://mediawiki128.trabalho_vulnnet/resources/lib/jquery
+The following CGIs were discovered:
+Syntax : cginame (arguments [default value])
+http://mediawiki128.trabalho_vulnnet/mw-config/ (lastPage [Language] LanguageReq!
+uestTime [1769416517] uselang [] enter-continue [Continue Ã¢Â\x0086Â\x0092] Cont!
+Lang [] page [Restart] submit-continue [Continue Ã¢Â\x0086Â\x0092] )
+http://mediawiki128.trabalho_vulnnet/mw-config/index.php (uselang [] LanguageReq!
+uestTime [1769416517] lastPage [Language] enter-continue [Continue Ã¢Â\x0086Â\x0!
+092] ContLang [] css [1] page [Restart] submit-continue [Continue Ã¢Â\x0086Â\x00!
+92] )
+
+Solution:
+
+Log Method:
+Details:
+Web Application Scanning Consolidation / Info Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.111038)
+Version used: 2026-01-13T05:47:36Z
+
+References:
+ url: https://forum.greenbone.net/c/vulnerability-tests/7
+
+

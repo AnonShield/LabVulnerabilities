@@ -1,0 +1,346 @@
+IP,Hostname,Port,Port Protocol,CVSS,Severity,QoD,Solution Type,NVT Name,Summary,Specific Result,NVT OID,CVEs,Task ID,Task Name,Timestamp,Result ID,Impact,Solution,Affected Software/OS,Vulnerability Insight,Vulnerability Detection Method,Product Detection Result,BIDs,CERTs,Other References
+      172.31.1.96,openssh.trabalho_vulnnet,,,0.0,Log,80,"","CPE Inventory","This routine uses information collected by other routines about
+  CPE identities of operating systems, services and applications detected during the scan.
+
+  Note: Some CPEs for specific products might show up twice or more in the output. Background:
+
+  After a product got renamed or a specific vendor was acquired by another one it might happen that
+  a product gets a new CPE within the NVD CPE Dictionary but older entries are kept with the older
+  CPE.","172.31.1.96|cpe:/a:openbsd:openssh:10.2
+172.31.1.96|cpe:/o:linux:kernel
+
+",1.3.6.1.4.1.25623.1.0.810002,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T08:38:24Z,e36bf00d-80f8-4adc-a31b-e84509b6246f,"","","","","
+Details:
+CPE Inventory
+(OID: 1.3.6.1.4.1.25623.1.0.810002)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.31.1.96,openssh.trabalho_vulnnet,,,0.0,Log,80,"","Hostname Determination Reporting","The script reports information on how the hostname of the target
+  was determined.","Hostname determination for IP 172.31.1.96:
+
+Hostname|Source
+openssh.trabalho_vulnnet|Reverse-DNS
+",1.3.6.1.4.1.25623.1.0.108449,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T08:38:24Z,6a7c0e54-f900-4ce6-8fc4-3dbdf3e4f7eb,"","","","","
+Details:
+Hostname Determination Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.108449)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.31.1.96,openssh.trabalho_vulnnet,,,2.1,Low,80,"Mitigation","ICMP Timestamp Reply Information Disclosure","The remote host responded to an ICMP timestamp request.","The following response / ICMP packet has been received:
+- ICMP Type: 14
+- ICMP Code: 0
+",1.3.6.1.4.1.25623.1.0.103190,"CVE-1999-0524",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T08:38:24Z,5ed1abcb-451b-4959-991c-cef246d703e1,"This information could theoretically be used to exploit weak
+  time-based random number generators in other services.","Various mitigations are possible:
+
+  - Disable the support for ICMP timestamp on the remote host completely
+
+  - Protect the remote host by a firewall, and block ICMP packets passing through the firewall in
+  either direction (either completely or only for untrusted networks)","","The Timestamp Reply is an ICMP message which replies to a
+  Timestamp message. It consists of the originating timestamp sent by the sender of the Timestamp as
+  well as a receive timestamp and a transmit timestamp.","Sends an ICMP Timestamp (Type 13) request and checks if a
+  Timestamp Reply (Type 14) is received.
+Details:
+ICMP Timestamp Reply Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.103190)
+Version used: 2025-01-21T05:37:33Z
+","","","DFN-CERT-2014-0658,CB-K15/1514,CB-K14/0632",""
+172.31.1.96,openssh.trabalho_vulnnet,,,0.0,Log,70,"","IP Forwarding Enabled - Active Check","Checks if the remote host has IP forwarding enabled.","It was possible to route a TCP packet through the target host and received an answer which means IP forwarding is enabled.
+",1.3.6.1.4.1.25623.1.0.147205,"CVE-1999-0511",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T08:38:24Z,1e7069ba-1234-4a5e-980b-2b01cba6f74c,"","","","","Sends a crafted Local Link Layer (LLL) frame and checks the
+  response.
+Details:
+IP Forwarding Enabled - Active Check
+(OID: 1.3.6.1.4.1.25623.1.0.147205)
+Version used: 2021-12-03T08:27:06Z
+","","","",""
+172.31.1.96,openssh.trabalho_vulnnet,,,0.0,Log,80,"","OpenSSH Detection Consolidation","Consolidation of OpenSSH detections.","Detected OpenSSH Server
+
+Version:       10.2
+Location:      2222/tcp
+CPE:           cpe:/a:openbsd:openssh:10.2
+
+Concluded from version/product identification result:
+SSH-2.0-OpenSSH_10.2
+",1.3.6.1.4.1.25623.1.0.108577,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T08:38:24Z,f3251f64-f909-417b-90e3-23accfaf4f68,"","","","","
+Details:
+OpenSSH Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.108577)
+Version used: 2024-12-13T05:05:32Z
+","","","",""
+172.31.1.96,openssh.trabalho_vulnnet,2222,tcp,5.3,Medium,50,"WillNotFix","OpenSSH Information Disclosure Vulnerability (CVE-2016-20012)","OpenBSD OpenSSH is prone to an information disclosure
+  vulnerability.","Installed version: 10.2
+Fixed version:     None
+Installation
+path / port:       2222/tcp
+
+",1.3.6.1.4.1.25623.1.0.117777,"CVE-2016-20012",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T08:38:24Z,6010a9df-e160-4c79-8ee3-073999cecb56,"","No known solution was made available for at least one year since
+  the disclosure of this vulnerability. Likely none will be provided anymore. General solution options
+  are to upgrade to a newer release, disable respective features, remove the product or replace the
+  product by another one.","All currently OpenSSH versions are known to be affected.","OpenSSH allows remote attackers, who have a suspicion that a
+  certain combination of username and public key is known to an SSH server, to test whether this
+  suspicion is correct. This occurs because a challenge is sent only when that combination could be
+  valid for a login session.","Checks if a vulnerable version is present on the target host.
+Details:
+OpenSSH Information Disclosure Vulnerability (CVE-2016-20012)
+(OID: 1.3.6.1.4.1.25623.1.0.117777)
+Version used: 2022-11-24T10:18:54Z
+","Product: cpe:/a:openbsd:openssh:10.2
+Method: OpenSSH Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.108577)
+","","DFN-CERT-2024-1260,WID-SEC-2024-1082,WID-SEC-2024-0229,CB-K21/0979",""
+172.31.1.96,openssh.trabalho_vulnnet,,,0.0,Log,80,"","OS Detection Consolidation and Reporting","This script consolidates the OS information detected by several
+  VTs and tries to find the best matching OS.
+
+  Furthermore it reports all previously collected information leading to this best matching OS. It
+  also reports possible additional information which might help to improve the OS detection.
+
+  If any of this information is wrong or could be improved please consider to report these to the
+  referenced community forum.","Best matching OS:
+
+OS:           Linux Kernel
+CPE:          cpe:/o:linux:kernel
+Found by VT:  1.3.6.1.4.1.25623.1.0.102002 (Operating System (OS) Detection (ICMP))
+Concluded from ICMP based OS fingerprint
+Setting key ""Host/runs_unixoide"" based on this information
+",1.3.6.1.4.1.25623.1.0.105937,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T08:38:24Z,d69266a6-66cf-45b3-a337-da73bc8a33a2,"","","","","
+Details:
+OS Detection Consolidation and Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.105937)
+Version used: 2026-01-21T05:50:46Z
+","","","",""
+172.31.1.96,openssh.trabalho_vulnnet,2222,tcp,4.0,Medium,30,"VendorFix","PKCS 1 Version 1.5 Session Key Retrieval","You are running SSH protocol version 1.5.","Vulnerability was detected according to the Vulnerability Detection Method.",1.3.6.1.4.1.25623.1.0.11342,"CVE-2001-0361",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T08:38:24Z,bcd90281-8b63-4036-8eba-39689569d658,"This version allows a remote attacker to decrypt and/or
+  alter traffic via an attack on PKCS#1 version 1.5 knows as a Bleichenbacher attack.","Patch and new version are available from SSH/OpenSSH.","OpenSSH up to version 2.3.0, AppGate, and SSH Communications Security
+  ssh-1 up to version 1.2.31 have the vulnerability present, although it may not be exploitable due to configurations.","","
+Details:
+PKCS 1 Version 1.5 Session Key Retrieval
+(OID: 1.3.6.1.4.1.25623.1.0.11342)
+Version used: 2023-08-03T05:05:16Z
+","","","",""
+172.31.1.96,openssh.trabalho_vulnnet,2222,tcp,0.0,Log,80,"","PQC Key Exchange (KEX) Algorithm(s) Supported (SSH)","The remote SSH server is configured to allow / support at least
+  ONE Post-Quantum Cryptography (PQC) key exchange (KEX) algorithm(s).","The remote SSH server supports the following PQC KEX algorithm(s):
+ - mlkem768x25519-sha256
+ - sntrup761x25519-sha512
+ - sntrup761x25519-sha512@openssh.com
+",1.3.6.1.4.1.25623.1.0.119215,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T08:38:24Z,1c9b9b67-5be9-4dc7-a001-374cde09b1fc,"","","","","Checks the (previously collected) supported KEX algorithms of
+  the remote SSH server.
+
+  Currently the following PQC KEX algorithms are defined / getting used for this check:
+
+  - sntrup761x25519-sha512@openssh.com
+
+  - sntrup761x25519-sha512
+
+  - mlkem768x25519-sha256
+
+  - sntrup4591761x25519-sha512@tinyssh.org
+
+  - ecdh-nistp256-kyber-512r3-sha256-d00@openquantumsafe.org
+
+  - ecdh-nistp384-kyber-768r3-sha384-d00@openquantumsafe.org
+
+  - ecdh-nistp521-kyber-1024r3-sha512-d00@openquantumsafe.org
+
+  - x25519-kyber-512r3-sha256-d00@amazon.com
+
+  - mlkem1024nistp384-sha384
+
+  - mlkem768nistp256-sha256
+
+  - curve25519-frodokem1344-sha512@ssh.com
+
+  - ecdh-nistp521-kyber1024-sha512@ssh.com
+Details:
+PQC Key Exchange (KEX) Algorithm(s) Supported (SSH)
+(OID: 1.3.6.1.4.1.25623.1.0.119215)
+Version used: 2025-10-31T05:40:56Z
+","Product: cpe:/a:ietf:secure_shell_protocol
+Method: SSH Protocol Algorithms Supported
+(OID: 1.3.6.1.4.1.25623.1.0.105565)
+","","",""
+172.31.1.96,openssh.trabalho_vulnnet,2222,tcp,5.9,Medium,30,"VendorFix","Prefix Truncation Attacks in SSH Specification (Terrapin Attack)","The remote SSH server is supporting an specific encryption
+  algorithm or MAC. Parts of their SSH specification are vulnerable to a novel prefix truncation
+  attack (a.k.a. Terrapin attack).","The remote SSH server supports the following possible affected client-to-server encryption algorithm(s):
+
+chacha20-poly1305@openssh.com
+
+The remote SSH server supports the following possible affected server-to-client encryption algorithm(s):
+
+chacha20-poly1305@openssh.com
+
+The remote SSH server supports the following ""strict kex"" algorithm as a possible mitigation:
+
+kex-strict-s-v00@openssh.com
+",1.3.6.1.4.1.25623.1.0.114238,"CVE-2023-48795,CVE-2024-41909",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T08:38:24Z,294869fe-85f5-420c-b360-3c3ad964aaa1,"","'- Update OpenSSH to version 9.6 or later
+
+  - Update Apache MINA SSHD to version 2.12.0 or later
+
+  - For other products please contact the vendor for possible fixes / updates
+
+  Mitigation:
+
+  - To mitigate this protocol vulnerability, OpenSSH suggested a so-called 'strict kex' which alters
+  the SSH handshake to ensure a Man-in-the-Middle attacker cannot introduce unauthenticated messages
+  as well as convey sequence number manipulation across handshakes. Support for strict key exchange
+  has been added to a variety of SSH implementations, including OpenSSH itself, PuTTY, libssh, and
+  more.
+
+  Warning: To take effect, both the client and server must support this countermeasure.
+
+  As a stop-gap measure, peers may also (temporarily) disable the affected algorithms and use
+  unaffected alternatives like AES-GCM instead until patches are available.","Systems supporting the following encryption algorithm and/or
+  MACs:
+
+  - ChaCha20-Poly1305 (chacha20-poly1305@openssh.com) encryption algorithm
+
+  - CBC encryption algorithm and Encrypt-then-MAC (*-etm@openssh.com) MAC","Parts of the SSH specification are vulnerable to a novel prefix
+  truncation attack (a.k.a. Terrapin attack), which allows a man-in-the-middle attacker to strip an
+  arbitrary number of messages right after the initial key exchange, breaking SSH extension
+  negotiation (RFC8308) in the process and thus downgrading connection security.","Checks the supported algorithms and MACs of the remote SSH
+  server.
+
+  Note: This VT has a low QoD because mitigation is possible / available via software updates.
+Details:
+Prefix Truncation Attacks in SSH Specification (Terrapin Attack)
+(OID: 1.3.6.1.4.1.25623.1.0.114238)
+Version used: 2025-04-23T05:39:47Z
+","Product: cpe:/a:ietf:secure_shell_protocol
+Method: SSH Protocol Algorithms Supported
+(OID: 1.3.6.1.4.1.25623.1.0.105565)
+","","DFN-CERT-2026-0097,DFN-CERT-2025-3629,DFN-CERT-2025-3272,DFN-CERT-2025-2941,DFN-CERT-2025-2058,DFN-CERT-2025-2037,DFN-CERT-2025-1447,DFN-CERT-2025-1177,DFN-CERT-2025-1025,DFN-CERT-2025-0660,DFN-CERT-2025-0502,DFN-CERT-2025-0294,DFN-CERT-2025-0173,DFN-CERT-2025-0165,DFN-CERT-2025-0024,DFN-CERT-2024-3171,DFN-CERT-2024-2818,DFN-CERT-2024-2759,DFN-CERT-2024-2741,DFN-CERT-2024-2602,DFN-CERT-2024-2573,DFN-CERT-2024-2392,DFN-CERT-2024-2210,DFN-CERT-2024-2209,DFN-CERT-2024-2194,DFN-CERT-2024-2169,DFN-CERT-2024-2048,DFN-CERT-2024-2030,DFN-CERT-2024-2028,DFN-CERT-2024-1930,DFN-CERT-2024-1895,DFN-CERT-2024-1869,DFN-CERT-2024-1868,DFN-CERT-2024-1865,DFN-CERT-2024-1862,DFN-CERT-2024-1854,DFN-CERT-2024-1846,DFN-CERT-2024-1817,DFN-CERT-2024-1715,DFN-CERT-2024-1698,DFN-CERT-2024-1688,DFN-CERT-2024-1655,DFN-CERT-2024-1600,DFN-CERT-2024-1443,DFN-CERT-2024-1442,DFN-CERT-2024-1413,DFN-CERT-2024-1382,DFN-CERT-2024-1380,DFN-CERT-2024-1373,DFN-CERT-2024-1260,DFN-CERT-2024-1259,DFN-CERT-2024-1108,DFN-CERT-2024-1061,DFN-CERT-2024-1029,DFN-CERT-2024-1003,DFN-CERT-2024-1000,DFN-CERT-2024-0896,DFN-CERT-2024-0779,DFN-CERT-2024-0762,DFN-CERT-2024-0744,DFN-CERT-2024-0698,DFN-CERT-2024-0633,DFN-CERT-2024-0619,DFN-CERT-2024-0618,DFN-CERT-2024-0616,DFN-CERT-2024-0597,DFN-CERT-2024-0545,DFN-CERT-2024-0526,DFN-CERT-2024-0491,DFN-CERT-2024-0451,DFN-CERT-2024-0440,DFN-CERT-2024-0420,DFN-CERT-2024-0388,DFN-CERT-2024-0343,DFN-CERT-2024-0306,DFN-CERT-2024-0299,DFN-CERT-2024-0285,DFN-CERT-2024-0267,DFN-CERT-2024-0251,DFN-CERT-2024-0215,DFN-CERT-2024-0211,DFN-CERT-2024-0164,DFN-CERT-2024-0154,DFN-CERT-2024-0101,DFN-CERT-2024-0092,DFN-CERT-2024-0088,DFN-CERT-2024-0067,DFN-CERT-2024-0063,DFN-CERT-2024-0062,DFN-CERT-2024-0024,DFN-CERT-2024-0013,DFN-CERT-2023-3219,DFN-CERT-2023-3218,DFN-CERT-2023-3210,DFN-CERT-2023-3201,DFN-CERT-2023-3200,DFN-CERT-2023-3195,DFN-CERT-2023-3193,DFN-CERT-2023-3191,DFN-CERT-2023-3185,DFN-CERT-2023-3184,DFN-CERT-2023-3183,DFN-CERT-2023-3182,DFN-CERT-2023-3175,WID-SEC-2025-2359,WID-SEC-2025-0810,WID-SEC-2025-0168,WID-SEC-2025-0144,WID-SEC-2025-0139,WID-SEC-2024-3377,WID-SEC-2024-3320,WID-SEC-2024-3221,WID-SEC-2024-3198,WID-SEC-2024-3195,WID-SEC-2024-1913,WID-SEC-2024-1781,WID-SEC-2024-1701,WID-SEC-2024-1656,WID-SEC-2024-1655,WID-SEC-2024-1643,WID-SEC-2024-1642,WID-SEC-2024-1639,WID-SEC-2024-1637,WID-SEC-2024-1630,WID-SEC-2024-1474,WID-SEC-2024-1248,WID-SEC-2024-1228,WID-SEC-2024-1186,WID-SEC-2024-1082,WID-SEC-2024-0899,WID-SEC-2024-0892,WID-SEC-2024-0889,WID-SEC-2024-0885,WID-SEC-2024-0874,WID-SEC-2024-0869,WID-SEC-2024-0578,WID-SEC-2024-0564,WID-SEC-2024-0523,WID-SEC-2023-3174",""
+172.31.1.96,openssh.trabalho_vulnnet,2222,tcp,0.0,Log,80,"","Services","This plugin performs service detection.","An ssh server is running on this port
+",1.3.6.1.4.1.25623.1.0.10330,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T08:38:24Z,0d37e13d-8455-4928-9eb8-3021052c7482,"","","","This plugin attempts to guess which service is running on the
+  remote port(s). For instance, it searches for a web server which could listen on another port than
+  80 or 443 and makes this information available for other check routines.","
+Details:
+Services
+(OID: 1.3.6.1.4.1.25623.1.0.10330)
+Version used: 2025-03-05T05:38:53Z
+","","","",""
+172.31.1.96,openssh.trabalho_vulnnet,2222,tcp,0.0,Log,80,"","SSH Protocol Algorithms Supported","This script detects which algorithms are supported by the remote
+  SSH service.","The following options are supported by the remote SSH service:
+
+kex_algorithms:
+mlkem768x25519-sha256,sntrup761x25519-sha512,sntrup761x25519-sha512@openssh.com,curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,ext-info-s,kex-strict-s-v00@openssh.com
+
+server_host_key_algorithms:
+ecdsa-sha2-nistp256,ssh-ed25519,rsa-sha2-512,rsa-sha2-256
+
+encryption_algorithms_client_to_server:
+chacha20-poly1305@openssh.com,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr
+
+encryption_algorithms_server_to_client:
+chacha20-poly1305@openssh.com,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr
+
+mac_algorithms_client_to_server:
+umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+
+mac_algorithms_server_to_client:
+umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+
+compression_algorithms_client_to_server:
+none,zlib@openssh.com
+
+compression_algorithms_server_to_client:
+none,zlib@openssh.com
+",1.3.6.1.4.1.25623.1.0.105565,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T08:38:24Z,fbf1f33c-a9f3-4b39-a9e6-20b7600d4f6b,"","","","","
+Details:
+SSH Protocol Algorithms Supported
+(OID: 1.3.6.1.4.1.25623.1.0.105565)
+Version used: 2026-01-21T05:50:46Z
+","","","",""
+172.31.1.96,openssh.trabalho_vulnnet,2222,tcp,0.0,Log,80,"","SSH Server type and version","This detects the SSH Server's type and version by connecting to
+  the server and processing the buffer received.","Remote SSH server banner: SSH-2.0-OpenSSH_10.2
+Remote SSH supported authentication: publickey,keyboard-interactive
+Remote SSH text/login banner: (not available)
+
+This is probably (a):
+
+- OpenSSH
+
+Concluded from remote connection attempt with credentials:
+
+Login:    OpenVASVT
+Password: OpenVASVT
+",1.3.6.1.4.1.25623.1.0.10267,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T08:38:24Z,97d14004-0275-4927-8ce8-3a90d25d93d4,"","","","This information gives potential attackers additional
+  information about the system they are attacking. Versions and Types should be omitted where
+  possible.","
+Details:
+SSH Server type and version
+(OID: 1.3.6.1.4.1.25623.1.0.10267)
+Version used: 2025-11-13T05:40:19Z
+","","","",""
+172.31.1.96,openssh.trabalho_vulnnet,,,2.6,Low,80,"Mitigation","TCP Timestamps Information Disclosure","The remote host implements TCP timestamps and therefore allows
+  to compute the uptime.","It was detected that the host implements RFC1323/RFC7323.
+
+The following timestamps were retrieved with a delay of 1 seconds in-between:
+Packet 1: 1690339510
+Packet 2: 1690340582
+",1.3.6.1.4.1.25623.1.0.80091,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T08:38:24Z,bab5de15-c69d-4e8f-b1f0-228ed701efc4,"A side effect of this feature is that the uptime of the remote
+  host can sometimes be computed.","To disable TCP timestamps on linux add the line
+  'net.ipv4.tcp_timestamps = 0' to /etc/sysctl.conf. Execute 'sysctl -p' to apply the settings at
+  runtime.
+
+  To disable TCP timestamps on Windows execute 'netsh int tcp set global timestamps=disabled'
+
+  Starting with Windows Server 2008 and Vista, the timestamp can not be completely disabled.
+
+  The default behavior of the TCP/IP stack on this Systems is to not use the Timestamp options when
+  initiating TCP connections, but use them if the TCP peer that is initiating communication includes
+  them in their synchronize (SYN) segment.
+
+  See the references for more information.","TCP implementations that implement RFC1323/RFC7323.","The remote host implements TCP timestamps, as defined by
+  RFC1323/RFC7323.","Special IP packets are forged and sent with a little delay in
+  between to the target IP. The responses are searched for a timestamps. If found, the timestamps
+  are reported.
+Details:
+TCP Timestamps Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.80091)
+Version used: 2023-12-15T16:10:08Z
+","","","",""
+172.31.1.96,openssh.trabalho_vulnnet,,,0.0,Log,80,"","Traceroute","Collect information about the network route and
+  network distance between the scanner host and the target host.","Network route from scanner (172.30.0.2) to target (172.31.1.96):
+
+172.30.0.2
+172.31.1.96
+
+Network distance between scanner and target: 2
+",1.3.6.1.4.1.25623.1.0.51662,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T08:38:24Z,c88624d3-cce8-431d-8c14-03a805bd80d0,"","","","For internal networks, the distances are usually
+  small, often less than 4 hosts between scanner and target. For public targets the
+  distance is greater and might be 10 hosts or more.","A combination of the protocols ICMP and TCP is used
+  to determine the route. This method is applicable for IPv4 only and it is also known as
+  'traceroute'.
+Details:
+Traceroute
+(OID: 1.3.6.1.4.1.25623.1.0.51662)
+Version used: 2022-10-17T11:13:19Z
+","","","",""
+172.31.1.96,openssh.trabalho_vulnnet,2222,tcp,2.6,Low,80,"Mitigation","Weak MAC Algorithm(s) Supported (SSH)","The remote SSH server is configured to allow / support weak MAC
+  algorithm(s).","The remote SSH server supports the following weak client-to-server MAC algorithm(s):
+
+umac-64-etm@openssh.com
+umac-64@openssh.com
+
+
+The remote SSH server supports the following weak server-to-client MAC algorithm(s):
+
+umac-64-etm@openssh.com
+umac-64@openssh.com
+",1.3.6.1.4.1.25623.1.0.105610,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T08:38:24Z,e8b03776-2818-4c5b-9601-d7a31beb6283,"","Disable the reported weak MAC algorithm(s).","","","Checks the supported MAC algorithms (client-to-server and
+  server-to-client) of the remote SSH server.
+
+  Currently weak MAC algorithms are defined as the following:
+
+  - MD5 based algorithms
+
+  - 96-bit based algorithms
+
+  - 64-bit based algorithms
+
+  - 'none' algorithm
+Details:
+Weak MAC Algorithm(s) Supported (SSH)
+(OID: 1.3.6.1.4.1.25623.1.0.105610)
+Version used: 2024-06-14T05:05:48Z
+","Product: cpe:/a:ietf:secure_shell_protocol
+Method: SSH Protocol Algorithms Supported
+(OID: 1.3.6.1.4.1.25623.1.0.105565)
+","","",""

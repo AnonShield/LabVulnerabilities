@@ -1,0 +1,1248 @@
+IP,Hostname,Port,Port Protocol,CVSS,Severity,QoD,Solution Type,NVT Name,Summary,Specific Result,NVT OID,CVEs,Task ID,Task Name,Timestamp,Result ID,Impact,Solution,Affected Software/OS,Vulnerability Insight,Vulnerability Detection Method,Product Detection Result,BIDs,CERTs,Other References
+      172.30.18.1,squid-old.trabalho_vulnnet,,,0.0,Log,80,"","CPE Inventory","This routine uses information collected by other routines about
+  CPE identities of operating systems, services and applications detected during the scan.
+
+  Note: Some CPEs for specific products might show up twice or more in the output. Background:
+
+  After a product got renamed or a specific vendor was acquired by another one it might happen that
+  a product gets a new CPE within the NVD CPE Dictionary but older entries are kept with the older
+  CPE.","172.30.18.1|cpe:/a:squid-cache:squid:3.3.8
+172.30.18.1|cpe:/o:linux:kernel
+
+",1.3.6.1.4.1.25623.1.0.810002,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,2ff7f1d6-4018-4db0-881b-b28624034669,"","","","","
+Details:
+CPE Inventory
+(OID: 1.3.6.1.4.1.25623.1.0.810002)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.30.18.1,squid-old.trabalho_vulnnet,,,0.0,Log,80,"","Hostname Determination Reporting","The script reports information on how the hostname of the target
+  was determined.","Hostname determination for IP 172.30.18.1:
+
+Hostname|Source
+squid-old.trabalho_vulnnet|Reverse-DNS
+",1.3.6.1.4.1.25623.1.0.108449,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,3170b30e-6d01-4e18-ade1-7ce2ce22465b,"","","","","
+Details:
+Hostname Determination Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.108449)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,0.0,Log,80,"","HTTP Security Headers Detection","All known security headers are being checked on the remote web
+  server.
+
+  On completion a report will hand back whether a specific security header has been implemented
+  (including its value and if it is deprecated) or is missing on the target.","Missing Headers                   | More Information
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Content-Security-Policy           | https://owasp.org/www-project-secure-headers/#content-security-policy
+Cross-Origin-Embedder-Policy      | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Cross-Origin-Opener-Policy        | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Cross-Origin-Resource-Policy      | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Document-Policy                   | https://w3c.github.io/webappsec-feature-policy/document-policy#document-policy-http-header
+Feature-Policy                    | https://owasp.org/www-project-secure-headers/#feature-policy, Note: The Feature Policy header has been renamed to Permissions Policy
+Permissions-Policy                | https://w3c.github.io/webappsec-feature-policy/#permissions-policy-http-header-field
+Referrer-Policy                   | https://owasp.org/www-project-secure-headers/#referrer-policy
+Sec-Fetch-Dest                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-Mode                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-Site                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-User                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+X-Content-Type-Options            | https://owasp.org/www-project-secure-headers/#x-content-type-options
+X-Frame-Options                   | https://owasp.org/www-project-secure-headers/#x-frame-options
+X-Permitted-Cross-Domain-Policies | https://owasp.org/www-project-secure-headers/#x-permitted-cross-domain-policies
+X-XSS-Protection                  | https://owasp.org/www-project-secure-headers/#x-xss-protection, Note: Most major browsers have dropped / deprecated support for this header in 2020.
+",1.3.6.1.4.1.25623.1.0.112081,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,57a228e5-0ce2-4f7e-9dd6-27d0c8301fe0,"","","","","
+Details:
+HTTP Security Headers Detection
+(OID: 1.3.6.1.4.1.25623.1.0.112081)
+Version used: 2025-03-21T15:40:43Z
+","","","",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,0.0,Log,80,"","HTTP Server Banner Enumeration","This script tries to detect / enumerate different HTTP server
+  banner (e.g. from a frontend, backend or proxy server) by sending various different HTTP requests
+  (valid and invalid ones).","It was possible to enumerate the following HTTP server banner(s):
+
+Server banner       | Enumeration technique
+--------------------------------------------------------------------------------------
+Server: squid/3.3.8 | Invalid HTTP 00.5 GET request (non-existent HTTP version) to '/'
+",1.3.6.1.4.1.25623.1.0.108708,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,f037012a-6a01-47f8-9979-c55b79cc3694,"","","","","
+Details:
+HTTP Server Banner Enumeration
+(OID: 1.3.6.1.4.1.25623.1.0.108708)
+Version used: 2025-01-31T15:39:24Z
+","","","",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,0.0,Log,80,"","HTTP Server type and version","This script detects and reports the HTTP Server's banner
+  which might provide the type and version of it.","The remote HTTP Server banner is:
+
+Server: squid/3.3.8
+",1.3.6.1.4.1.25623.1.0.10107,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,4864dfe5-ce3e-4e27-b3f6-39c937867022,"","","","","
+Details:
+HTTP Server type and version
+(OID: 1.3.6.1.4.1.25623.1.0.10107)
+Version used: 2023-08-01T13:29:10Z
+","","","",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,0.0,Log,70,"","HTTP TRACE Method Enabled","Transparent or reverse HTTP proxies may be implement on some
+  sites.","The GET method revealed those proxies on the way to this web server :
+HTTP/1.1     995dd3a6446f (squid/3.3.8)
+
+",1.3.6.1.4.1.25623.1.0.11040,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,81768b48-c714-47ee-a000-732fd9fa3607,"","","","","
+Details:
+HTTP TRACE Method Enabled
+(OID: 1.3.6.1.4.1.25623.1.0.11040)
+Version used: 2025-01-31T15:39:24Z
+","","","",""
+172.30.18.1,squid-old.trabalho_vulnnet,,,2.1,Low,80,"Mitigation","ICMP Timestamp Reply Information Disclosure","The remote host responded to an ICMP timestamp request.","The following response / ICMP packet has been received:
+- ICMP Type: 14
+- ICMP Code: 0
+",1.3.6.1.4.1.25623.1.0.103190,"CVE-1999-0524",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,1a6f7cbb-2e39-4267-b562-5098acaae53a,"This information could theoretically be used to exploit weak
+  time-based random number generators in other services.","Various mitigations are possible:
+
+  - Disable the support for ICMP timestamp on the remote host completely
+
+  - Protect the remote host by a firewall, and block ICMP packets passing through the firewall in
+  either direction (either completely or only for untrusted networks)","","The Timestamp Reply is an ICMP message which replies to a
+  Timestamp message. It consists of the originating timestamp sent by the sender of the Timestamp as
+  well as a receive timestamp and a transmit timestamp.","Sends an ICMP Timestamp (Type 13) request and checks if a
+  Timestamp Reply (Type 14) is received.
+Details:
+ICMP Timestamp Reply Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.103190)
+Version used: 2025-01-21T05:37:33Z
+","","","DFN-CERT-2014-0658,CB-K15/1514,CB-K14/0632",""
+172.30.18.1,squid-old.trabalho_vulnnet,,,0.0,Log,70,"","IP Forwarding Enabled - Active Check","Checks if the remote host has IP forwarding enabled.","It was possible to route a TCP packet through the target host and received an answer which means IP forwarding is enabled.
+",1.3.6.1.4.1.25623.1.0.147205,"CVE-1999-0511",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,90af9f0e-aa34-4fef-b2e2-4c6642b4e8ef,"","","","","Sends a crafted Local Link Layer (LLL) frame and checks the
+  response.
+Details:
+IP Forwarding Enabled - Active Check
+(OID: 1.3.6.1.4.1.25623.1.0.147205)
+Version used: 2021-12-03T08:27:06Z
+","","","",""
+172.30.18.1,squid-old.trabalho_vulnnet,,,0.0,Log,80,"","OS Detection Consolidation and Reporting","This script consolidates the OS information detected by several
+  VTs and tries to find the best matching OS.
+
+  Furthermore it reports all previously collected information leading to this best matching OS. It
+  also reports possible additional information which might help to improve the OS detection.
+
+  If any of this information is wrong or could be improved please consider to report these to the
+  referenced community forum.","Best matching OS:
+
+OS:           Linux Kernel
+CPE:          cpe:/o:linux:kernel
+Found by VT:  1.3.6.1.4.1.25623.1.0.102002 (Operating System (OS) Detection (ICMP))
+Concluded from ICMP based OS fingerprint
+Setting key ""Host/runs_unixoide"" based on this information
+",1.3.6.1.4.1.25623.1.0.105937,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,fa218e79-a773-4223-badd-f11d9fa70ca9,"","","","","
+Details:
+OS Detection Consolidation and Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.105937)
+Version used: 2026-01-21T05:50:46Z
+","","","",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,0.0,Log,80,"","Services","This plugin performs service detection.","An HTTP proxy is running on this port
+",1.3.6.1.4.1.25623.1.0.10330,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,a76f7b8b-6914-45d3-ad6b-08f07012fdf6,"","","","This plugin attempts to guess which service is running on the
+  remote port(s). For instance, it searches for a web server which could listen on another port than
+  80 or 443 and makes this information available for other check routines.","
+Details:
+Services
+(OID: 1.3.6.1.4.1.25623.1.0.10330)
+Version used: 2025-03-05T05:38:53Z
+","","","",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,0.0,Log,80,"","Services","This plugin performs service detection.","A web server is running on this port
+",1.3.6.1.4.1.25623.1.0.10330,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,10105d9d-4d5e-41b7-a2c1-2addc57ee88f,"","","","This plugin attempts to guess which service is running on the
+  remote port(s). For instance, it searches for a web server which could listen on another port than
+  80 or 443 and makes this information available for other check routines.","
+Details:
+Services
+(OID: 1.3.6.1.4.1.25623.1.0.10330)
+Version used: 2025-03-05T05:38:53Z
+","","","",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,6.8,Medium,30,"VendorFix","Squid cache_peer Security Bypass Vulnerability (SQUID-2015:2)","Squid is prone to an access bypass vulnerability.","Installed version: 3.3.8
+Fixed version:     3.5.6
+
+",1.3.6.1.4.1.25623.1.0.806518,"CVE-2015-5400",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,954d2ae5-fce3-4296-9bcf-57da72f93c0a,"Successful exploitation will allow remote
+  attackers to bypass security in an explicit gateway proxy.","Update to version 3.5.6 or later.","Squid version 3.5.5 and prior.","The flaw is due to improper handling of
+  CONNECT method peer responses when configured with cache_peer.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid 'cache_peer' Security Bypass Vulnerability (SQUID-2015:2)
+(OID: 1.3.6.1.4.1.25623.1.0.806518)
+Version used: 2023-07-25T05:05:58Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2016-1297,DFN-CERT-2016-1296,DFN-CERT-2016-0406,DFN-CERT-2015-1499,DFN-CERT-2015-1029,CB-K16/1228,CB-K16/1227,CB-K16/0388,CB-K15/1423,CB-K15/0975",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,4.9,Medium,30,"VendorFix","Squid 1.0 < 4.14, 5.0 < 5.0.5 DoS Vulnerability (GHSA-m47m-9hvw-7447, SQUID-2021:3)","Squid is prone to a denial of service (DoS) vulnerability in
+  the Cache Manager.","Installed version: 3.3.8
+Fixed version:     4.15
+Installation
+path / port:       3128/tcp
+
+",1.3.6.1.4.1.25623.1.0.146028,"CVE-2021-28652",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,78eb5b72-3bee-4e12-a690-44871a24d223,"","Update to version 4.15, 5.0.6 or later. See the referenced vendor
+  advisory for a workaround.","Squid version 1.0 through 4.14 and 5.0 through 5.0.5.","Due to an incorrect parser validation bug Squid is vulnerable to
+  a DoS attack against the Cache Manager API.
+
+  This problem allows a trusted client to trigger memory leaks which over time lead to a DoS against
+  Squid and the machine it is operating on.
+
+  This attack is limited to clients with Cache Manager API access privilege.
+
+  This flaw was part of the 'Squid Caching Proxy Security Audit: 55 vulnerabilities and 35 0days'
+  publication in October 2023 and filed as 'Memory Leak in CacheManager URI Parsing'.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid 1.0 < 4.14, 5.0 < 5.0.5 DoS Vulnerability (GHSA-m47m-9hvw-7447, SQUID-...
+(OID: 1.3.6.1.4.1.25623.1.0.146028)
+Version used: 2024-11-01T05:05:36Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2021-2438,DFN-CERT-2021-0997,WID-SEC-2022-0672,CB-K21/0500",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,6.5,Medium,30,"VendorFix","Squid 2.0 - 4.17, 5.0.1 < 5.6 DoS Vulnerability (GHSA-f5cp-6rh3-284w, SQUID-2021:7)","Squid is prone to a denial of service (DoS) vulnerability.","Installed version: 3.3.8
+Fixed version:     5.6
+Installation
+path / port:       3128/tcp
+
+",1.3.6.1.4.1.25623.1.0.148471,"CVE-2021-46784",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,0c5be573-322f-44e0-9ec6-c16c801a5e8c,"","Update to version 5.6 or later.","Squid version 2.0 through 4.17 and 5.0.1 through 5.5.","Due to improper buffer management Squid is vulnerable to a
+  denial of service attack when processing Gopher server responses.
+
+  This flaw was part of the 'Squid Caching Proxy Security Audit: 55 vulnerabilities and 35 0days'
+  publication in October 2023 and filed as 'Assertion in Gopher Response Handling'.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid 2.0 - 4.17, 5.0.1 < 5.6 DoS Vulnerability (GHSA-f5cp-6rh3-284w, SQUID-...
+(OID: 1.3.6.1.4.1.25623.1.0.148471)
+Version used: 2024-11-01T05:05:36Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2023-1947,DFN-CERT-2022-1573,DFN-CERT-2022-1558,DFN-CERT-2022-1552,DFN-CERT-2022-1435,DFN-CERT-2022-1401,WID-SEC-2023-2917,WID-SEC-2022-0385",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,7.5,High,30,"VendorFix","Squid 2.0 < 4.14, 5.0.1 < 5.0.5 DoS Vulnerability (GHSA-ch36-9jhx-phm4, SQUID-2021:1)","Squid is prone to a denial of service (DoS) vulnerability in
+  the URN processing.","Installed version: 3.3.8
+Fixed version:     4.15
+Installation
+path / port:       3128/tcp
+
+",1.3.6.1.4.1.25623.1.0.146030,"CVE-2021-28651",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,6ac2f4d5-d32e-45f0-8ba3-a2ef80f45546,"","Update to version 4.15, 5.0.6 or later. See the referenced vendor
+  advisory for a workaround.","Squid version 2.0 through 4.14 and 5.0.1 through 5.0.5.","Due to a buffer management bug Squid is vulnerable to a DoS
+  attack against the server it is operating on.
+
+  This attack is limited to proxies which attempt to resolve a 'urn:' resource identifier. Support
+  for this resolving is enabled by default in all Squid.
+
+  This problem allows a malicious server in collaboration with a trusted client to consume
+  arbitrarily large amounts of memory on the server running Squid.
+
+  Lack of available memory resources impacts all services on the machine running Squid. Once
+  initiated the DoS situation will persist until Squid is shutdown.
+
+  This flaw was part of the 'Squid Caching Proxy Security Audit: 55 vulnerabilities and 35 0days'
+  publication in October 2023 and filed as 'RFC 2141 / 2169 (URN) Response Parsing Memory Leak'.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid 2.0 < 4.14, 5.0.1 < 5.0.5 DoS Vulnerability (GHSA-ch36-9jhx-phm4, SQUI...
+(OID: 1.3.6.1.4.1.25623.1.0.146030)
+Version used: 2024-11-01T05:05:36Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2025-2311,DFN-CERT-2024-1684,DFN-CERT-2022-1573,DFN-CERT-2022-0600,DFN-CERT-2021-2438,DFN-CERT-2021-0997,WID-SEC-2022-0672,CB-K21/0500",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,8.6,High,30,"VendorFix","Squid 2.0 < 4.14, 5.0.1 < 5.0.5 HTTP Request Smuggling Vulnerability","Squid is prone to an HTTP request smuggling vulnerability.","Installed version: 3.3.8
+Fixed version:     4.14
+Installation
+path / port:       3128/tcp
+
+",1.3.6.1.4.1.25623.1.0.145600,"CVE-2020-25097",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,a00d85d8-251b-44e2-8cd0-f0f1965fbb76,"","Update to version 4.13, 5.0.5 or later. See the referenced vendor
+  advisory for a workaround.","Squid version 2.0 through 4.13 and 5.0.1 through 5.0.4.","Due to improper input validation, it allows a trusted client to perform
+  HTTP Request Smuggling and access services otherwise forbidden by the security controls. This occurs for
+  certain uri_whitespace configuration settings.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid 2.0 < 4.14, 5.0.1 < 5.0.5 HTTP Request Smuggling Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.145600)
+Version used: 2022-07-20T10:33:02Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2022-1573,DFN-CERT-2022-0600,DFN-CERT-2021-2438,DFN-CERT-2021-0997,DFN-CERT-2021-0807,DFN-CERT-2021-0643,DFN-CERT-2021-0587,WID-SEC-2022-0670,CB-K21/0241",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,6.5,Medium,30,"VendorFix","Squid 2.5.STABLE2 < 4.15, 5.0.1 < 5.0.6 Multiple DoS Vulnerabilities (GHSA-pxwq-f3qr-w2xf, SQUID-2021:4)","Squid is prone to multiple denial of service (DoS) vulnerabilities.","Installed version: 3.3.8
+Fixed version:     4.15
+Installation
+path / port:       3128/tcp
+
+",1.3.6.1.4.1.25623.1.0.146027,"CVE-2021-31806,CVE-2021-31807,CVE-2021-31808",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,ef9a9dba-4a1f-4600-9942-d26e07a5fa93,"","Update to version 4.15, 5.0.6 or later.","Squid version 2.5.STABLE2 through 2.7.STABLE9, 3.0 through 4.14
+  and 5.0.1 through 5.0.5.","The following vulnerabilities exist:
+
+  - CVE-2021-31806: Due to an incorrect input validation bug Squid is vulnerable to a DoS attack
+    against all clients using the proxy.
+
+  - CVE-2021-31807: Due to an incorrect memory management bug Squid is vulnerable to a DoS attack
+    against all clients using the proxy.
+
+  - CVE-2021-31808: Due to an integer overflow bug Squid is vulnerable to a DoS attack against all
+    clients using the proxy.
+
+  These flaws were part of the 'Squid Caching Proxy Security Audit: 55 vulnerabilities and 35 0days'
+  publication in October 2023 and filed as 'Partial Content Parsing Use-After-Free', 'Integer
+  Overflow in Range Header' and 'Unsatisfiable Range Requests Assertion'.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid 2.5.STABLE2 < 4.15, 5.0.1 < 5.0.6 Multiple DoS Vulnerabilities (GHSA-p...
+(OID: 1.3.6.1.4.1.25623.1.0.146027)
+Version used: 2024-11-01T05:05:36Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2021-2438,DFN-CERT-2021-0997,WID-SEC-2023-0456,WID-SEC-2022-0672,CB-K21/0588,CB-K21/0500",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,7.5,High,30,"VendorFix","Squid 3.1 <= 3.5.22, 4.0 <= 4.0.16 Information Disclosure Vulnerability (SQUID-2016:11) - Linux","Squid is prone to an information disclosure vulnerability.","Installed version: 3.3.8
+Fixed version:     3.5.23
+
+",1.3.6.1.4.1.25623.1.0.106479,"CVE-2016-10002",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,c0eb4db6-00a4-48d5-a9ab-6a0a24e4c198,"A remote attacker may discover private and sensitive information
+  about another clients browsing session. Potentially including credentials which allow access to
+  further sensitive resources.","Update to version 3.5.23, 4.0.17 or later.","Squid versions 3.1 through 3.5.22 and 4.0 through 4.0.16.","Due to incorrect HTTP conditional request handling Squid
+  can deliver responses containing private data to clients it should not have reached.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid 3.1 <= 3.5.22, 4.0 <= 4.0.16 Information Disclosure Vulnerability (SQU...
+(OID: 1.3.6.1.4.1.25623.1.0.106479)
+Version used: 2022-07-20T10:33:02Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2017-0068,DFN-CERT-2017-0055,DFN-CERT-2016-2139,DFN-CERT-2016-2087,WID-SEC-2023-1362,CB-K17/0067,CB-K17/0050,CB-K16/2025,CB-K16/1975",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,6.5,Medium,30,"VendorFix","Squid < 4.15, 5.0.x < 5.0.6 DoS Vulnerability (GHSA-572g-rvwr-6c7f, SQUID-2021:5)","Squid is prone to a denial of service (DoS) vulnerability.","Installed version: 3.3.8
+Fixed version:     4.15
+Installation
+path / port:       3128/tcp
+
+",1.3.6.1.4.1.25623.1.0.146026,"CVE-2021-33620",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,37747a2b-6c70-4a36-a356-8913d81c232e,"","Update to version 4.15, 5.0.6 or later.","Squid versions prior to 4.15 and 5.0.0 through 5.0.5.","Due to an input validation bug Squid is vulnerable to a DoS
+  against all clients using the proxy.
+
+  This problem allows a remote server to perform a DoS when delivering HTTP Response messages. The
+  issue trigger is a header which can be expected to exist in HTTP traffic without any malicious
+  intent by the server.
+
+  This flaw was part of the 'Squid Caching Proxy Security Audit: 55 vulnerabilities and 35 0days'
+  publication in October 2023 and filed as 'Crash in Content-Range Response Header Logic'.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid < 4.15, 5.0.x < 5.0.6 DoS Vulnerability (GHSA-572g-rvwr-6c7f, SQUID-20...
+(OID: 1.3.6.1.4.1.25623.1.0.146026)
+Version used: 2024-11-01T05:05:36Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2022-1558,DFN-CERT-2021-2438,DFN-CERT-2021-0997,WID-SEC-2022-0642,CB-K21/0595",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,6.1,Medium,30,"VendorFix","Squid < 7.0.1 XSS Vulnerability (SQUID-2023:6)","Squid is prone to a cross-site scripting (XSS) vulnerability in
+  cachemgr.cgi.","Installed version: 3.3.8
+Fixed version:     7.0.1
+
+",1.3.6.1.4.1.25623.1.0.143623,"CVE-2019-18860",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,4d624655-f095-4758-832a-f528cc80ec25,"","Update to version 7.0.1 or later.","Squid versions prior to version 7.0.1.","Squid, when certain web browsers are used, mishandles HTML
+  in the host (aka hostname) parameter to cachemgr.cgi.
+
+  Note: This flaw had received an incomplete fix in version 4.9 back in 2019.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid < 7.0.1 XSS Vulnerability (SQUID-2023:6)
+(OID: 1.3.6.1.4.1.25623.1.0.143623)
+Version used: 2025-11-11T05:40:18Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2026-0218,DFN-CERT-2020-2389,DFN-CERT-2020-1848,DFN-CERT-2020-1608,DFN-CERT-2020-1491,DFN-CERT-2020-1393,DFN-CERT-2020-1031,DFN-CERT-2020-0901,WID-SEC-2023-2759,CB-K20/0407",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,4.5,Medium,30,"WillNotFix","Squid <= 4.14 Privilege Escalation Vulnerability","Squid is prone to a privilege escalation vulnerability.","Installed version: 3.3.8
+Fixed version:     No known solution
+Installation
+path / port:       3128/tcp
+
+",1.3.6.1.4.1.25623.1.0.113674,"CVE-2019-12522",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,8f4d2ada-a0e9-44af-80e2-182d1245cc1a,"This behaviour makes it trivial for an attacker who has
+  compromised the child process to escalate their privileges back to root.","No known solution was made available for at least one year since the disclosure
+  of this vulnerability. Likely none will be provided anymore. General solution options are to upgrade to a newer
+  release, disable respective features, remove the product or replace the product by another one.","Squid through version 4.7.","When Squid is run as root, it spawns its child processes as a
+  lesser user, by default the user nobody. This is done via the leave_suid call. leave_suid leaves
+  the Saved UID as 0.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid <= 4.14 Privilege Escalation Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.113674)
+Version used: 2022-07-20T10:33:02Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,2.1,Low,30,"NoneAvailable","Squid Buffer Overflow Vulnerability (Sep 2025)","Squid is prone to a buffer overflow vulnerability as it
+  mishandles ASN.1 encoding of long SNMP OIDs.","Installed version: 3.3.8
+Fixed version:     None
+Installation
+path / port:       3128/tcp
+
+",1.3.6.1.4.1.25623.1.0.155471,"CVE-2025-59362",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,68bccd12-9221-4e65-945a-07f52bd20220,"","No known solution is available as of 30th September, 2025.
+  Information regarding this issue will be updated once solution details are available.","Squid version 7.1 and prior.","A stack-based buffer overflow vulnerability exists in the SNMP
+  (Simple Network Management Protocol) message processing component of Squid Cache. The flaw is
+  present in the asn_build_objid function located in the lib/snmplib/asn1.c library, which is
+  responsible for encoding Object Identifiers (OIDs) into the ASN.1 BER format for SNMP
+  responses.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid Buffer Overflow Vulnerability (Sep 2025)
+(OID: 1.3.6.1.4.1.25623.1.0.155471)
+Version used: 2025-10-01T05:39:08Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2025-3150,DFN-CERT-2025-2910,DFN-CERT-2025-2816,DFN-CERT-2025-2758,WID-SEC-2025-2143",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,8.6,High,30,"VendorFix","Squid Buffer Overflow Vulnerability (SQUID-2022:2)","Squid is prone to a buffer overflow vulnerability in SSPI and
+  SMB authentication.","Installed version: 3.3.8
+Fixed version:     5.7
+Installation
+path / port:       3128/tcp
+
+",1.3.6.1.4.1.25623.1.0.148788,"CVE-2022-41318",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,670e981a-e5ec-4b08-b657-72042d00d969,"This problem allows a remote client to perform a denial of
+  service attack when Squid is configured to use NTLM or Negotiate authentication with one of the
+  vulnerable helpers.
+
+  This problem allows a remote client to extract sensitive information from machine memory when
+  Squid is configured to use NTLM or Negotiate authentication with one of the vulnerable helpers.
+  The scope of this information includes user credentials in decrypted forms, and also arbitrary
+  memory areas beyond Squid and the helper itself.
+
+  This attack is limited to authentication helpers built using the libntlmauth library shipped by
+  Squid.","Update to version 5.7 or later.","Squid version 2.5.STABLE1 through 2.7.STABLE9, 3.x through
+  3.5.28, 4.x through 4.17 and 5.x through 5.6.","Due to an incorrect integer overflow protection Squid SSPI and
+  SMB authentication helpers are vulnerable to a buffer overflow attack.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid Buffer Overflow Vulnerability (SQUID-2022:2)
+(OID: 1.3.6.1.4.1.25623.1.0.148788)
+Version used: 2023-10-19T05:05:21Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2024-1684,DFN-CERT-2022-2129,WID-SEC-2022-1505",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,0.0,Log,80,"","Squid Detection (HTTP)","HTTP based detection of the Squid.","Detected Squid
+
+Version:       3.3.8
+Location:      3128/tcp
+CPE:           cpe:/a:squid-cache:squid:3.3.8
+
+Concluded from version/product identification result:
+Server: squid/3.3.8
+",1.3.6.1.4.1.25623.1.0.900611,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,673d59b5-39d2-4016-9718-2211b767fbea,"","","","","
+Details:
+Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+Version used: 2024-06-11T05:05:40Z
+","","","",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,7.5,High,30,"VendorFix","Squid DoS Vulnerability (GHSA-73m6-jm96-c6r3, SQUID-2023:4)","Squid is prone to a denial of service (DoS) vulnerability in
+  the SSL Certificate validation.","Installed version: 3.3.8
+Fixed version:     6.4
+Installation
+path / port:       3128/tcp
+
+",1.3.6.1.4.1.25623.1.0.151251,"CVE-2023-46724",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,6a4a987c-ad31-40f8-a188-2fc79e538868,"","Update to version 6.4 or later.","Squid version 3.3.0.1 through 6.3.","Due to an Improper Validation of Specified Index bug Squid is
+  vulnerable to a Denial of Service attack against SSL Certificate validation.
+
+  This flaw was part of the 'Squid Caching Proxy Security Audit: 55 vulnerabilities and 35 0days'
+  publication in October 2023 and filed as 'Buffer UnderRead in SSL CN Parsing'.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid DoS Vulnerability (GHSA-73m6-jm96-c6r3, SQUID-2023:4)
+(OID: 1.3.6.1.4.1.25623.1.0.151251)
+Version used: 2024-11-01T05:05:36Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2024-0970,DFN-CERT-2024-0642,DFN-CERT-2024-0214,DFN-CERT-2024-0038,DFN-CERT-2024-0026,DFN-CERT-2023-3192,DFN-CERT-2023-2934,DFN-CERT-2023-2746,DFN-CERT-2023-2609,WID-SEC-2023-2801",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,7.5,High,30,"VendorFix","Squid DoS Vulnerability (GHSA-8w9r-p88v-mmx9, SQUID-2023:7)","Squid is prone to a denial of service (DoS) vulnerability.","Installed version: 3.3.8
+Fixed version:     6.5
+Installation
+path / port:       3128/tcp
+
+",1.3.6.1.4.1.25623.1.0.114206,"CVE-2023-49285",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,f723c813-b469-4a32-adaf-9c02c781b10a,"","Update to version 6.5 or later.","Squid versions 2.2 through 5.9 and 6.0 through 6.4.","Due to a Buffer Overread bug Squid is vulnerable to a Denial of
+  Service attack against Squid HTTP Message processing.
+
+  This flaw was part of the 'Squid Caching Proxy Security Audit: 55 vulnerabilities and 35 0days'
+  publication in October 2023 and filed as '1-Byte Buffer OverRead in RFC 1123 date/time
+  Handling'.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid DoS Vulnerability (GHSA-8w9r-p88v-mmx9, SQUID-2023:7)
+(OID: 1.3.6.1.4.1.25623.1.0.114206)
+Version used: 2024-11-01T05:05:36Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2024-1684,DFN-CERT-2024-0970,DFN-CERT-2024-0642,DFN-CERT-2024-0214,DFN-CERT-2024-0172,DFN-CERT-2024-0039,DFN-CERT-2024-0038,DFN-CERT-2024-0026,DFN-CERT-2023-3192,DFN-CERT-2023-3036,WID-SEC-2024-1248,WID-SEC-2023-3049",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,7.5,High,30,"VendorFix","Squid DoS Vulnerability (GHSA-cg5h-v6vc-w33f, SQUID-2021:8)","Squid is prone to a denial of service (DoS) vulnerability in
+  the Gopher gateway.","Installed version: 3.3.8
+Fixed version:     6.0.1
+Installation
+path / port:       3128/tcp
+
+",1.3.6.1.4.1.25623.1.0.151071,"CVE-2023-46728",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,fffb54c1-3c4a-4d63-ace0-291a49d034e8,"","Update to version 6.0.1 or later.
+
+  As a workaround reject all gopher URL requests. Please see the referenced vendor advisory for more
+  information.
+
+  Note: Removing the gopher port 70 from the Safe_ports ACL is not sufficient to avoid this
+  vulnerability.","Squid version 2.x and later prior to version 6.0.1.","Due to a NULL pointer dereference bug Squid is vulnerable to a
+  Denial of Service attack against Squid's Gopher gateway.
+
+  The gopher protocol is always available and enabled in Squid prior to Squid 6.0.1.
+
+  Responses triggering this bug are possible to be received from any gopher server, even those
+  without malicious intent.
+
+  This flaw was part of the 'Squid Caching Proxy Security Audit: 55 vulnerabilities and 35 0days'
+  publication in October 2023 and filed as 'Null Pointer Dereference in Gopher Response
+  Handling'.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid DoS Vulnerability (GHSA-cg5h-v6vc-w33f, SQUID-2021:8)
+(OID: 1.3.6.1.4.1.25623.1.0.151071)
+Version used: 2024-11-01T05:05:36Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2025-2676,DFN-CERT-2024-0970,DFN-CERT-2024-0214,DFN-CERT-2024-0039,DFN-CERT-2024-0038,DFN-CERT-2024-0026,DFN-CERT-2023-3192,DFN-CERT-2023-2956,DFN-CERT-2023-2934,WID-SEC-2024-1248,WID-SEC-2023-2837",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,7.5,High,30,"VendorFix","Squid DoS Vulnerability (GHSA-h5x6-w8mv-xfpr, SQUID-2024:2)","Squid is prone to a denial of service (DoS) vulnerability.","Installed version: 3.3.8
+Fixed version:     6.5
+Installation
+path / port:       3128/tcp
+
+",1.3.6.1.4.1.25623.1.0.151739,"CVE-2024-25617",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,497132d5-5f9a-4d91-907d-a0d945a3c832,"","Update to version 6.5 or later.","Squid versions prior to 6.5.","Due to a Collapse of Data into Unsafe Value bug, Squid may be
+  vulnerable to a Denial of Service attack against HTTP header parsing.
+
+  This flaw was part of the 'Squid Caching Proxy Security Audit: 55 vulnerabilities and 35 0days'
+  publication in October 2023 and filed as 'Memory Leak in HTTP Response Parsing'.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid DoS Vulnerability (GHSA-h5x6-w8mv-xfpr, SQUID-2024:2)
+(OID: 1.3.6.1.4.1.25623.1.0.151739)
+Version used: 2025-01-13T08:32:03Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2024-1684,DFN-CERT-2024-0970,DFN-CERT-2024-0956,DFN-CERT-2024-0894,DFN-CERT-2024-0742,DFN-CERT-2024-0642,DFN-CERT-2024-0554,DFN-CERT-2024-0491,WID-SEC-2024-1248,WID-SEC-2024-0396",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,6.5,Medium,30,"VendorFix","Squid DoS Vulnerability (GHSA-j49p-553x-48rx, SQUID-2023:11)","Squid is prone to a denial of service (DoS) vulnerability.","Installed version: 3.3.8
+Fixed version:     6.6
+Installation
+path / port:       3128/tcp
+
+",1.3.6.1.4.1.25623.1.0.151598,"CVE-2024-23638",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,fdafa426-9520-4791-a40c-ae9ffde07dd8,"","Update to version 6.6 or later.","Squid versions prior to 6.6.","Due to an expired pointer reference bug Squid is vulnerable to
+  a denial of service attack against Cache Manager error responses.
+
+  This flaw was part of the 'Squid Caching Proxy Security Audit: 55 vulnerabilities and 35 0days'
+  publication in October 2023 and filed as 'Use-After-Free in Cache Manager Errors'.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid DoS Vulnerability (GHSA-j49p-553x-48rx, SQUID-2023:11)
+(OID: 1.3.6.1.4.1.25623.1.0.151598)
+Version used: 2024-11-01T05:05:36Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2024-3050,DFN-CERT-2024-1935,DFN-CERT-2024-1413,DFN-CERT-2024-1017,DFN-CERT-2024-0956,DFN-CERT-2024-0642,DFN-CERT-2024-0290,WID-SEC-2024-0180",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,7.8,High,30,"VendorFix","Squid DoS Vulnerability (GHSA-jm7h-w5q5-jpq9, SQUID-2020:13)","Squid is prone to a denial of service (DoS) vulnerability.","Installed version: 3.3.8
+Fixed version:     6.0.1
+Installation
+path / port:       3128/tcp
+
+",1.3.6.1.4.1.25623.1.0.150942,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,9b3e0ec5-ffd3-4faa-ad3a-368faf6424d2,"","Update to version 6.0.1 or later.
+
+  As a workaround reject all gopher URL requests. Please see the referenced vendor advisory for more
+  information.","Squid prior to version 6.0.1.","This problem allows a remote gopher: server to trigger a buffer
+  overflow by delivering large gopher protocol responses. On most operating systems with memory
+  protection this will halt Squid service immediately, causing a denial of service to all Squid
+  clients.
+
+  The gopher protocol is always available and enabled in Squid prior to Squid 6.0.1.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid DoS Vulnerability (GHSA-jm7h-w5q5-jpq9, SQUID-2020:13)
+(OID: 1.3.6.1.4.1.25623.1.0.150942)
+Version used: 2023-09-08T05:06:21Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,7.5,High,30,"VendorFix","Squid DoS Vulnerability (GHSA-phqj-m8gv-cq4g, SQUID-2023:3)","Squid is prone to a denial of service (DoS) vulnerability.","Installed version: 3.3.8
+Fixed version:     6.4
+Installation
+path / port:       3128/tcp
+
+",1.3.6.1.4.1.25623.1.0.100832,"CVE-2023-46847",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,cc19152f-7d3f-48af-ae63-73e5912dfd0f,"","Update to version 6.4 or later.","Squid versions 3.2.0.1 through 5.9 and 6.0 through 6.3.","Due to a buffer overflow bug Squid is vulnerable to a Denial of
+  Service attack against HTTP Digest Authentication.
+
+  This flaw was part of the 'Squid Caching Proxy Security Audit: 55 vulnerabilities and 35 0days'
+  publication in October 2023 and filed as 'Buffer Overflow in Digest Authentication'.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid DoS Vulnerability (GHSA-phqj-m8gv-cq4g, SQUID-2023:3)
+(OID: 1.3.6.1.4.1.25623.1.0.100832)
+Version used: 2024-11-01T05:05:36Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2024-0642,DFN-CERT-2024-0039,DFN-CERT-2023-2934,DFN-CERT-2023-2782,DFN-CERT-2023-2781,DFN-CERT-2023-2746,DFN-CERT-2023-2712,DFN-CERT-2023-2609,WID-SEC-2024-1248,WID-SEC-2023-2725",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,7.5,High,30,"VendorFix","Squid DoS Vulnerability (GHSA-wgq4-4cfg-c4x3, SQUID-2023:10)","Squid is prone to a denial of service (DoS) vulnerability.","Installed version: 3.3.8
+Fixed version:     6.6
+Installation
+path / port:       3128/tcp
+
+",1.3.6.1.4.1.25623.1.0.151403,"CVE-2023-50269",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,d78ba7a9-ea00-4cc2-99ff-1d342691679a,"","Update to version 6.6 or later.","Squid version 2.6 through 6.5.","Due to an uncontrolled recursion bug, Squid may be vulnerable
+  to denial of service attack against HTTP request parsing.
+
+  This flaw was part of the 'Squid Caching Proxy Security Audit: 55 vulnerabilities and 35 0days'
+  publication in October 2023 and filed as 'X-Forwarded-For Stack Overflow'.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid DoS Vulnerability (GHSA-wgq4-4cfg-c4x3, SQUID-2023:10)
+(OID: 1.3.6.1.4.1.25623.1.0.151403)
+Version used: 2024-11-01T05:05:36Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2024-1684,DFN-CERT-2024-1413,DFN-CERT-2024-0970,DFN-CERT-2024-0742,DFN-CERT-2024-0642,DFN-CERT-2024-0290,DFN-CERT-2024-0214,DFN-CERT-2024-0172,DFN-CERT-2024-0039,DFN-CERT-2023-3192,DFN-CERT-2023-3162,WID-SEC-2023-3150",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,4.9,Medium,30,"VendorFix","Squid DoS Vulnerability (GHSA-wgvf-q977-9xjg, SQUID-2024:3)","Squid is prone to a denial of service (DoS) vulnerability in ESI
+  processing.","Installed version: 3.3.8
+Fixed version:     6.10
+Installation
+path / port:       3128/tcp
+
+",1.3.6.1.4.1.25623.1.0.114674,"CVE-2024-37894",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,2cbbc92c-3fb9-4892-9132-7fb32e1a11e5,"","Update to version 6.10 or later.","Squid version 3.0 through 6.9.","Due to an Out-of-bounds Write error when assigning ESI
+  variables, Squid is susceptible to a Memory Corruption error, which can result in a Denial of
+  Service.
+
+  This flaw was part of the 'Squid Caching Proxy Security Audit: 55 vulnerabilities and 35 0days'
+  publication in October 2023 and filed as 'Buffer Underflow in ESI'.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid DoS Vulnerability (GHSA-wgvf-q977-9xjg, SQUID-2024:3)
+(OID: 1.3.6.1.4.1.25623.1.0.114674)
+Version used: 2024-11-01T05:05:36Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2025-2816,DFN-CERT-2025-1905,DFN-CERT-2025-0630,DFN-CERT-2024-1935,DFN-CERT-2024-1706,WID-SEC-2025-1850,WID-SEC-2024-1447",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,7.5,High,30,"VendorFix","Squid DoS Vulnerability (GHSA-xggx-9329-3c27, SQUID-2023:8)","Squid is prone to a denial of service (DoS) vulnerability.","Installed version: 3.3.8
+Fixed version:     6.5
+Installation
+path / port:       3128/tcp
+
+",1.3.6.1.4.1.25623.1.0.114208,"CVE-2023-49286",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,85d31749-459a-4f5e-a403-7cff23c74f56,"","Update to version 6.5 or later.","Squid versions prior to 6.5.","Due to an Incorrect Check of Function Return Value bug Squid is
+  vulnerable to a Denial of Service attack against its Helper process management.
+
+  This flaw was part of the 'Squid Caching Proxy Security Audit: 55 vulnerabilities and 35 0days'
+  publication in October 2023 and filed as 'Assertion in Squid Helper Process Creator'.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid DoS Vulnerability (GHSA-xggx-9329-3c27, SQUID-2023:8)
+(OID: 1.3.6.1.4.1.25623.1.0.114208)
+Version used: 2024-11-01T05:05:36Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2024-1684,DFN-CERT-2024-0970,DFN-CERT-2024-0642,DFN-CERT-2024-0214,DFN-CERT-2024-0172,DFN-CERT-2024-0039,DFN-CERT-2024-0038,DFN-CERT-2024-0026,DFN-CERT-2023-3192,DFN-CERT-2023-3036,WID-SEC-2024-1248,WID-SEC-2023-3049",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,5.9,Medium,30,"VendorFix","Squid DoS Vulnerability (SQUID-2018:3)","Squid is prone to a denial of service (DoS) vulnerability.","Installed version: 3.3.8
+Fixed version:     4.0.13
+Installation
+path / port:       3128/tcp
+
+",1.3.6.1.4.1.25623.1.0.813402,"CVE-2018-1172",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,915c96f7-9d6c-44c3-a6cc-ae34ed0035f2,"Successful exploitation will allow remote
+  attackers to cause a denial of service.","Update to version 4.0.13 or later.
+
+  A patch and workaround is also available. Please see the references for more information.","Squid versions 3.1.12.2 through 3.1.23,
+  3.2.0.8 through 3.2.14 and 3.3 through 4.0.12.","The flaw exists due to incorrect pointer
+  handling.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid DoS Vulnerability (SQUID-2018:3)
+(OID: 1.3.6.1.4.1.25623.1.0.813402)
+Version used: 2023-07-20T05:05:18Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2018-0757,CB-K18/0619",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,5.0,Medium,30,"VendorFix","Squid HTTP Range Request Handling DoS Vulnerability (SQUID-2014:2)","Squid is prone to a denial of service (DoS) vulnerability.","Installed version: 3.3.8
+Fixed version:     3.3.13
+
+",1.3.6.1.4.1.25623.1.0.806106,"CVE-2014-3609",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,75936f68-955e-4ded-a8d8-424ccdea6d7a,"Successful exploitation will allow remote attackers to cause a
+  denial of service.","Apply the patch or update to version 3.4.7, 3.3.13 or later.","Squid versions 3.x through 3.3.12 and 3.4 through 3.4.6.","Due to incorrect input validation in request parsing Squid
+  is vulnerable to a denial of service attack when processing Range requests.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid HTTP Range Request Handling DoS Vulnerability (SQUID-2014:2)
+(OID: 1.3.6.1.4.1.25623.1.0.806106)
+Version used: 2023-07-25T05:05:58Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2014-1156,DFN-CERT-2014-1124,CB-K14/1101,CB-K14/1081",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,7.5,High,30,"VendorFix","Squid Information Disclosure Vulnerability (GHSA-c8cc-phh7-xmxr, SQUID-2025:2)","Squid is prone to an information disclosure vulnerability.","Installed version: 3.3.8
+Fixed version:     7.2
+Installation
+path / port:       3128/tcp
+
+",1.3.6.1.4.1.25623.1.0.134026,"CVE-2025-62168",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,341d7320-93c6-44ef-90ba-658bc8a9c9ff,"","Update to version 7.2 or later.","Squid prior to version 7.2.","Due to a failure to redact HTTP Authentication credentials
+  Squid is vulnerable to an information disclosure attack.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid Information Disclosure Vulnerability (GHSA-c8cc-phh7-xmxr, SQUID-2025:...
+(OID: 1.3.6.1.4.1.25623.1.0.134026)
+Version used: 2025-10-31T05:40:56Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2026-0218,DFN-CERT-2025-3150,DFN-CERT-2025-2910,DFN-CERT-2025-2897,WID-SEC-2025-2334",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,5.3,Medium,30,"VendorFix","Squid Information Disclosure Vulnerability (SQUID-2020:12)","Squid is prone to an information disclosure vulnerability.","Installed version: 3.3.8
+Fixed version:     4.17
+Installation
+path / port:       3128/tcp
+
+",1.3.6.1.4.1.25623.1.0.113797,"CVE-2021-28116",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,c71d5f86-baa2-48cb-83b4-5f7f7e213378,"Successful exploitation would allow an attacker to
+  read sensitive information.","Update to version 4.17, 5.2 or later.","Squid proxy version 2.6 through 2.7.STABLE9, 3.x through 3.5.28,
+  4.x through 4.16 and 5.x through 5.1.","The vulnerability exists because of an out-of-bounds read
+  in WCCP protocol data.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid Information Disclosure Vulnerability (SQUID-2020:12)
+(OID: 1.3.6.1.4.1.25623.1.0.113797)
+Version used: 2022-07-20T10:33:02Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2022-1552,DFN-CERT-2022-1435,DFN-CERT-2021-2438,DFN-CERT-2021-2076,DFN-CERT-2021-2062,DFN-CERT-2021-0997,WID-SEC-2022-0481,CB-K21/0259",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,7.8,High,70,"WillNotFix","Squid Multiple 0-Day Vulnerabilities (Oct 2023)","Squid is prone to multiple zero-day (0-day) vulnerabilities.","Installed version: 3.3.8
+Fixed version:     None
+Installation
+path / port:       3128/tcp
+
+",1.3.6.1.4.1.25623.1.0.100439,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,faf05fef-d504-46c6-be2c-3fdeec33644c,"","No known solution was made available for at least one year
+  since the disclosure of this vulnerability. Likely none will be provided anymore. General solution
+  options are to upgrade to a newer release, disable respective features, remove the product or
+  replace the product by another one.
+
+  Notes:
+
+  - It seems that some of the flaws could be mitigated by workarounds (listed in the referenced
+  GitHub Gist) via either configuration changes and/or by disabling some features / functionality
+  of Squid during build time
+
+  - If only these workarounds have been applied and the risk is accepted that these workarounds
+  might not fully mitigate the relevant flaw(s) please create an override for this result","As of 10/2024 the situation about the versions affected by the
+  previous listed vulnerabilities is largely unclear (The security researcher only stated that all
+  vulnerabilities were discovered in squid-5.0.5 and the vendor only published a few advisories so
+  far).
+
+  Due to this unclear situation all Squid versions are currently assumed to be vulnerable by the not
+  yet fixed flaws.","The following flaws have been reported in 2021 to the vendor and
+  seems to be not fixed yet:
+
+  - One-Byte Buffer OverRead in HTTP Request Header Parsing
+
+  - strlen(NULL) Crash Using Digest Authentication GHSA-254c-93q9-cp53
+
+  - Gopher Assertion Crash
+
+  - Whois Assertion Crash
+
+  - RFC 2141 / 2169 (URN) Assertion Crash
+
+  - Assertion in Negotiate/NTLM Authentication Using Pipeline Prefetching
+
+  - Assertion on IPv6 Host Requests with --disable-ipv6
+
+  - Assertion Crash on Unexpected 'HTTP/1.1 100 Continue' Response Header
+
+  - Pipeline Prefetch Assertion With Double 'Expect:100-continue' Request Headers
+
+  - Pipeline Prefetch Assertion With Invalid Headers
+
+  - Assertion Crash in Deferred Requests
+
+  - Assertion in Digest Authentication
+
+  - FTP Authentication Crash
+
+  - Assertion Crash In HTTP Response Headers Handling
+
+  - Implicit Assertion in Stream Handling
+
+  Note: One GHSA advisory has been provided by the security researcher but is not published /
+  available yet.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid Multiple 0-Day Vulnerabilities (Oct 2023)
+(OID: 1.3.6.1.4.1.25623.1.0.100439)
+Version used: 2024-11-01T05:05:36Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,7.5,High,30,"VendorFix","Squid Multiple DoS Vulnerabilities (GHSA-543m-w2m2-g255, SQUID-2023:2)","Squid is prone to multiple denial of service (DoS)
+  vulnerabilities.","Installed version: 3.3.8
+Fixed version:     6.4
+Installation
+path / port:       3128/tcp
+
+",1.3.6.1.4.1.25623.1.0.100705,"CVE-2023-5824",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,04428564-7356-49ce-a450-30e740988d88,"","Update to version 6.4 or later.","Squid versions prior to 6.4.","The following flaws exist:
+
+  - Due to an Improper Handling of Structural Elements bug Squid is vulnerable to a Denial of
+  Service attack against HTTP and HTTPS clients.
+
+  - Due to an Incomplete Filtering of Special Elements bug Squid is vulnerable to a Denial of
+  Service attack against HTTP and HTTPS clients.
+
+  These flaws were part of the 'Squid Caching Proxy Security Audit: 55 vulnerabilities and 35 0days'
+  publication in October 2023 and filed as 'Cache Poisoning by Large Stored Response Headers (With
+  Bonus XSS)'.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid Multiple DoS Vulnerabilities (GHSA-543m-w2m2-g255, SQUID-2023:2)
+(OID: 1.3.6.1.4.1.25623.1.0.100705)
+Version used: 2024-11-01T05:05:36Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2025-2676,DFN-CERT-2025-2302,DFN-CERT-2024-0956,DFN-CERT-2024-0214,DFN-CERT-2024-0038,DFN-CERT-2023-2949,DFN-CERT-2023-2609,WID-SEC-2024-1248,WID-SEC-2023-2725",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,7.5,High,30,"VendorFix","Squid Multiple DoS Vulnerabilities (GHSA-f975-v7qw-q7hj, SQUID-2024:4)","Squid is prone to multiple denial of service (DoS)
+  vulnerabilities due to multiple issues in ESI.","Installed version: 3.3.8
+Fixed version:     7.0
+Installation
+path / port:       3128/tcp
+
+",1.3.6.1.4.1.25623.1.0.114851,"CVE-2024-45802",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,ed03c404-f40f-4e95-b088-75496773b82b,"","Update to version 7.0 or later.","Squid version 3.0 through 6.x.","Due to Input Validation, Premature Release of Resource During
+  Expected Lifetime, and Missing Release of Resource after Effective Lifetime bugs, Squid is
+  vulnerable to Denial of Service attacks by a trusted server against all clients using the proxy.
+
+  These flaws were part of the 'Squid Caching Proxy Security Audit: 55 vulnerabilities and 35 0days'
+  publication in October 2023 and filed as:
+
+  - Memory Leak in ESI Error Processing
+
+  - Assertion in ESI Header Handling
+
+  - Use-After-Free in ESI 'Try' (and 'Choose') Processing
+
+  - Use-After-Free in ESI Expression Evaluation
+
+  - Assertion Due to 0 ESI 'when' Checking
+
+  - Assertion Using ESI's When Directive
+
+  - Assertion in ESI Variable Assignment (String)
+
+  - Assertion in ESI Variable Assignment
+
+  - Null Pointer Dereference In ESI's esi:include and esi:when","Checks if a vulnerable version is present on the target host.
+Details:
+Squid Multiple DoS Vulnerabilities (GHSA-f975-v7qw-q7hj, SQUID-2024:4)
+(OID: 1.3.6.1.4.1.25623.1.0.114851)
+Version used: 2024-11-07T05:05:35Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2025-1905,DFN-CERT-2025-0630,DFN-CERT-2024-3050,DFN-CERT-2024-2909,WID-SEC-2025-1850,WID-SEC-2024-3280",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,7.5,High,30,"VendorFix","Squid Multiple DoS Vulnerabilities (SQUID-2016:2) - Linux","Squid is prone to multiple denial of service (DoS)
+  vulnerabilities.","Installed version: 3.3.8
+Fixed version:     3.5.15
+
+",1.3.6.1.4.1.25623.1.0.807451,"CVE-2016-2571,CVE-2016-2570,CVE-2016-2569",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,08db260e-c0cb-4880-a313-3734cd265954,"Successful exploitation will allow remote HTTP servers to cause a
+  denial of service.","Update to version 3.5.15, 4.0.7 or later.","Squid version 3.x before 3.5.15 and 4.x before 4.0.7.","Multiple flaws exist due to:
+
+  - The 'http.cc' script proceeds with the storage of certain data after a response parsing failure.
+
+  - The Edge Side Includes (ESI) parser does not check buffer limits during XML parsing.
+
+  - An improper appending of data to String objects.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid Multiple DoS Vulnerabilities (SQUID-2016:2) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.807451)
+Version used: 2023-07-21T05:05:22Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2018-0238,DFN-CERT-2016-1824,DFN-CERT-2016-1297,DFN-CERT-2016-1296,DFN-CERT-2016-0750,DFN-CERT-2016-0718,DFN-CERT-2016-0406,DFN-CERT-2016-0398,DFN-CERT-2016-0331,WID-SEC-2022-2284,CB-K18/0220,CB-K16/1737,CB-K16/1228,CB-K16/1227,CB-K16/0708,CB-K16/0670,CB-K16/0388,CB-K16/0363,CB-K16/0305",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,8.2,High,30,"VendorFix","Squid Multiple DoS Vulnerabilities (SQUID-2016:3, SQUID-2016:4) - Linux","Squid is prone to multiple denial of service (DoS)
+  vulnerabilities.","Installed version: 3.3.8
+Fixed version:     3.5.16
+
+",1.3.6.1.4.1.25623.1.0.807794,"CVE-2016-3947,CVE-2016-3948",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,6b75831e-8fe4-4b81-813f-243e6a36c059,"Successful exploitation will allow remote HTTP servers to cause a
+  denial of service, or write sensitive information to log files.","Update to version 3.5.16, 4.0.8 or later.","Squid version 3.x before 3.5.16 and 4.x before 4.0.8.","Multiple flaws exist due to:
+
+  - A buffer overrun in the 'Icmp6::Recv' function in 'icmp/Icmp6.cc' script in the 'pinger' process.
+
+  - An incorrect bounds checking while processing HTTP responses.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid Multiple DoS Vulnerabilities (SQUID-2016:3, SQUID-2016:4) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.807794)
+Version used: 2023-07-21T05:05:22Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2018-0238,DFN-CERT-2016-1824,DFN-CERT-2016-1297,DFN-CERT-2016-1296,DFN-CERT-2016-0866,DFN-CERT-2016-0750,DFN-CERT-2016-0718,DFN-CERT-2016-0539,WID-SEC-2022-2283,CB-K18/0220,CB-K16/1737,CB-K16/1228,CB-K16/1227,CB-K16/0815,CB-K16/0708,CB-K16/0670,CB-K16/0498",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,7.5,High,30,"VendorFix","Squid Multiple DoS Vulnerabilities (SQUID-2016:9) - Linux","Squid is prone to multiple denial of service (DoS)
+  vulnerabilities.","Installed version: 3.3.8
+Fixed version:     3.5.18
+
+",1.3.6.1.4.1.25623.1.0.808039,"CVE-2016-4555,CVE-2016-4556",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,44e296f3-9bd4-4cb7-a598-4f44a2ed028c,"Successful exploitation will allow remote attackers to cause a
+  denial of service.","Update to version 3.5.18, 4.0.10 or later.","Squid version 3.x before 3.5.18 and 4.x before 4.0.10.","Multiple flaws exist due to an incorrect pointer handling and
+  reference counting when processing ESI responses.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid Multiple DoS Vulnerabilities (SQUID-2016:9) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.808039)
+Version used: 2023-07-20T05:05:17Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2016-1297,DFN-CERT-2016-1296,DFN-CERT-2016-0866,DFN-CERT-2016-0750,DFN-CERT-2016-0723,CB-K16/1228,CB-K16/1227,CB-K16/0815,CB-K16/0708,CB-K16/0675",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,7.5,High,30,"VendorFix","Squid Multiple Security Update Advisories (SQUID-2019:9, SQUID-2019:11)","Squid is prone to multiple vulnerabilities.","Installed version: 3.3.8
+Fixed version:     4.9
+
+",1.3.6.1.4.1.25623.1.0.143191,"CVE-2019-18677,CVE-2019-18679",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,3cbb1cfb-4ebb-4ac5-b39c-9d732319258a,"","Update to version 4.9 or later.","Squid versions 2.x, 3.x through 3.5.28 and 4.x through 4.8.","The following flaws exist:
+
+  - CVE-2019-18677: Cross-Site Request Forgery issue in HTTP Request processing
+
+  - CVE-2019-18679: Information Disclosure issue in HTTP Digest Authentication","Checks if a vulnerable version is present on the target host.
+Details:
+Squid Multiple Security Update Advisories (SQUID-2019:9, SQUID-2019:11)
+(OID: 1.3.6.1.4.1.25623.1.0.143191)
+Version used: 2023-10-27T16:11:33Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2020-2389,DFN-CERT-2020-1848,DFN-CERT-2020-1491,DFN-CERT-2020-0982,DFN-CERT-2020-0527,DFN-CERT-2019-2599,DFN-CERT-2019-2565,DFN-CERT-2019-2500,DFN-CERT-2019-2414,DFN-CERT-2019-2332,WID-SEC-2023-1391,WID-SEC-2022-1592,CB-K19/0975,CB-K19/0966",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,7.5,High,30,"VendorFix","Squid Multiple Security Update Advisories (SQUID-2020:1, SQUID-2020:2, SQUID-2020:3)","Squid is prone to multiple vulnerabilities.","Installed version: 3.3.8
+Fixed version:     4.10
+
+",1.3.6.1.4.1.25623.1.0.143454,"CVE-2019-12528,CVE-2020-8449,CVE-2020-8450,CVE-2020-8517",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,2bc1ba4b-5220-4305-9e7e-6bb97df45ff3,"","Update to version 4.10 or later.","Squid versions 2.x, 3.x through 3.5.28 and 4.x through 4.9.","The following flaws exist:
+
+  - CVE-2019-12528: Information Disclosure issue in FTP Gateway
+
+  - CVE-2020-8449, CVE-2020-8450: Improper Input Validation issues in HTTP Request processing
+
+  - CVE-2020-8517: Buffer Overflow issue in ext_lm_group_acl helper","Checks if a vulnerable version is present on the target host.
+Details:
+Squid Multiple Security Update Advisories (SQUID-2020:1, SQUID-2020:2, SQUID...
+(OID: 1.3.6.1.4.1.25623.1.0.143454)
+Version used: 2023-10-20T16:09:12Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2020-2389,DFN-CERT-2020-2146,DFN-CERT-2020-1848,DFN-CERT-2020-1491,DFN-CERT-2020-1078,DFN-CERT-2020-0982,DFN-CERT-2020-0901,DFN-CERT-2020-0527,DFN-CERT-2020-0229,WID-SEC-2023-1361,CB-K20/1030,CB-K20/0093",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,8.8,High,30,"VendorFix","Squid Multiple Vulnerabilities (SQUID-2016:5, SQUID-2016:6) - Linux","Squid is prone to multiple vulnerabilities.","Installed version: 3.3.8
+Fixed version:     3.5.17
+
+",1.3.6.1.4.1.25623.1.0.807963,"CVE-2016-4051,CVE-2016-4052,CVE-2016-4053,CVE-2016-4054",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,7d1eba12-fa90-4fbb-87b2-6fd6fde9344a,"Successful exploitation will allow remote attackers to cause a
+  denial of service, execute arbitrary code, or obtain sensitive stack layout information.","Update to version 3.5.17, 4.0.9 or later.","Squid version 3.x before 3.5.17 and 4.x
+  before 4.0.9.","Multiple flaws exist due to:
+
+  - A buffer overflow in the cachemgr.cgi tool.
+
+  - Multiple on-stack buffer overflow from incorrect bounds calculation in Squid ESI processing.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid Multiple Vulnerabilities (SQUID-2016:5, SQUID-2016:6) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.807963)
+Version used: 2023-07-21T05:05:22Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2016-1379,DFN-CERT-2016-1297,DFN-CERT-2016-1296,DFN-CERT-2016-0866,DFN-CERT-2016-0750,DFN-CERT-2016-0718,DFN-CERT-2016-0655,CB-K16/1294,CB-K16/1228,CB-K16/1227,CB-K16/0815,CB-K16/0708,CB-K16/0670,CB-K16/0605",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,8.6,High,30,"VendorFix","Squid Poisoning Vulnerability (SQUID-2016:7) - Linux","Squid is prone to a cache poisoning vulnerability.","Installed version: 3.3.8
+Fixed version:     3.5.18
+
+",1.3.6.1.4.1.25623.1.0.808051,"CVE-2016-4553",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,350da17d-d1e0-4ecb-ba81-2d461c420577,"Successful exploitation will allow remote attackers to cause
+  cache poisoning.","Update to version 3.5.18, 4.0.10 or later.","Squid version 3.2.0.11 through 3.5.17 and 4.x before
+  4.0.10.","The flaw exists due to an incorrect data validation of
+  intercepted HTTP Request messages.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid Poisoning Vulnerability (SQUID-2016:7) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.808051)
+Version used: 2023-07-20T05:05:17Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2016-1297,DFN-CERT-2016-1296,DFN-CERT-2016-0866,DFN-CERT-2016-0750,DFN-CERT-2016-0723,CB-K16/1228,CB-K16/1227,CB-K16/0815,CB-K16/0708,CB-K16/0675",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,8.6,High,30,"VendorFix","Squid Poisoning Vulnerability (SQUID-2016:8) - Linux","Squid is prone to a cache poisoning vulnerability.","Installed version: 3.3.8
+Fixed version:     3.5.18
+
+",1.3.6.1.4.1.25623.1.0.808041,"CVE-2016-4554",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,4b435df9-ffc8-4e50-bee4-324492f84a7b,"Successful exploitation will allow remote attackers to cause
+  cache poisoning and to bypass of same-origin security policy.","Update to version 3.5.18 or later.","Squid version prior to 3.5.18.","The flaw exists due to an incorrect input validation in HTTP
+  Request processing.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid Poisoning Vulnerability (SQUID-2016:8) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.808041)
+Version used: 2023-07-21T05:05:22Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2016-1379,DFN-CERT-2016-1297,DFN-CERT-2016-1296,DFN-CERT-2016-0866,DFN-CERT-2016-0750,DFN-CERT-2016-0723,CB-K16/1294,CB-K16/1228,CB-K16/1227,CB-K16/0815,CB-K16/0708,CB-K16/0675",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,5.3,Medium,30,"VendorFix","Squid Request/Response Smuggling Vulnerability (GHSA-j83v-w3p4-5cqh, SQUID-2023:1)","Squid is prone to a request/response smuggling vulnerability.","Installed version: 3.3.8
+Fixed version:     6.4
+Installation
+path / port:       3128/tcp
+
+",1.3.6.1.4.1.25623.1.0.100765,"CVE-2023-46846",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,4e01969b-7085-43bf-ae76-20f9712e3958,"","Update to version 6.4 or later.","Squid versions 2.6 through 6.3.","Due to chunked decoder lenience Squid is vulnerable to
+  Request/Response smuggling attacks when parsing HTTP/1.1 and ICAP messages.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid Request/Response Smuggling Vulnerability (GHSA-j83v-w3p4-5cqh, SQUID-2...
+(OID: 1.3.6.1.4.1.25623.1.0.100765)
+Version used: 2023-11-16T05:05:14Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2024-3343,DFN-CERT-2024-0642,DFN-CERT-2024-0039,DFN-CERT-2023-2934,DFN-CERT-2023-2781,DFN-CERT-2023-2746,DFN-CERT-2023-2712,DFN-CERT-2023-2609,WID-SEC-2024-1248,WID-SEC-2023-2725",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,7.5,High,30,"VendorFix","Squid Security Update Advisory (SQUID-2018:1)","Squid is vulnerable to denial of service attack when
+  processing ESI responses.","Installed version: 3.3.8
+Fixed version:     4.0.23
+
+",1.3.6.1.4.1.25623.1.0.107294,"CVE-2018-1000024",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,4a153c26-7eeb-4f0f-acc4-f34bc94e3ee3,"This problem allows a remote server delivering certain ESI
+  response syntax to trigger a denial of service for all clients accessing the Squid service.","Update to version 4.0.23 or later. Patches are available,
+  please see the references for details.","Squid versions 3.x through 3.5.27, 4.x through 4.0.22
+  with specific deployment variants described in the referenced Advisory.","Due to unrelated changes Squid-3.5 has become vulnerable
+  to some regular ESI server responses also triggering this issue. This problem is limited to
+  the Squid custom ESI parser.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid Security Update Advisory (SQUID-2018:1)
+(OID: 1.3.6.1.4.1.25623.1.0.107294)
+Version used: 2023-07-20T05:05:18Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2019-1466,DFN-CERT-2018-0238,DFN-CERT-2018-0147,WID-SEC-2022-2282,CB-K18/0220,CB-K18/0135",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,7.5,High,30,"VendorFix","Squid Security Update Advisory (SQUID-2018:2)","Squid is vulnerable to denial of service (DoS) attack
+  when processing ESI responses.","Installed version: 3.3.8
+Fixed version:     See references
+
+",1.3.6.1.4.1.25623.1.0.107297,"CVE-2018-1000027",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,dd5b52de-4e56-4939-93df-850614a4c58a,"This problem allows a remote server delivering certain
+  ESI response syntax to trigger a denial of service for all clients accessing the Squid service.","Update to version 4.0.23 or later.","Squid versions 3.x through 3.5.27 and 4.x through 4.0.22
+  with specific deployment variants described in the referenced advisory.","Due to incorrect pointer handling Squid is vulnerable
+  to denial of service attack when processing ESI responses or downloading intermediate CA
+  certificates.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid Security Update Advisory (SQUID-2018:2)
+(OID: 1.3.6.1.4.1.25623.1.0.107297)
+Version used: 2023-07-20T05:05:18Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2019-1466,DFN-CERT-2018-0238,DFN-CERT-2018-0147,WID-SEC-2022-2282,CB-K18/0220,CB-K18/0135",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,6.1,Medium,30,"VendorFix","Squid Security Update Advisory (SQUID-2018:4)","Squid is prone to a cross-site scripting vulnerability to incorrect input
+  handling when generating HTTPS response messages about TLS errors.","Installed version: 3.3.8
+Fixed version:     4.4
+
+",1.3.6.1.4.1.25623.1.0.142629,"CVE-2018-19131",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,96bc3b2d-4d19-4a3b-9757-f86aeb8aec29,"","Update to version 4.4 or later.","Squid proxy versions 3.1.12.1 through 3.1.23, 3.2.0.4 through
+  3.5.28 and 4.x through 4.3.","This problem allows a malicious HTTPS server to trigger error page delivery to
+  a client and also inject arbitrary HTML code into the resulting error response.
+
+  This problem is limited to Squid built with TLS / SSL support.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid Security Update Advisory (SQUID-2018:4)
+(OID: 1.3.6.1.4.1.25623.1.0.142629)
+Version used: 2022-07-20T10:33:02Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2018-2563,DFN-CERT-2018-2193,WID-SEC-2023-2717,CB-K18/1038",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,6.1,Medium,30,"VendorFix","Squid Security Update Advisory (SQUID-2019:6)","Squid is prone to multiple cross-site scripting vulnerabilities due to
+  incorrect input handling in the cachemgr.cgi tool.","Installed version: 3.3.8
+Fixed version:     4.8
+
+",1.3.6.1.4.1.25623.1.0.142634,"CVE-2019-13345",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,a5bea811-9160-4321-b4a9-57ce87e5f61a,"","Update to version 4.8 or later.","Squid proxy versions 2.x, 3.x through 3.5.28 and 4.x through 4.7.","This allows a malicious server to embed URLs in its content such that user
+  credentials and other information can be extracted from a client or administrator with access to the Squid
+  cachemgr.cgi tool URL.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid Security Update Advisory (SQUID-2019:6)
+(OID: 1.3.6.1.4.1.25623.1.0.142634)
+Version used: 2022-07-20T10:33:02Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2020-1848,DFN-CERT-2020-1491,DFN-CERT-2019-2500,DFN-CERT-2019-2414,DFN-CERT-2019-1660,DFN-CERT-2019-1656,DFN-CERT-2019-1466,DFN-CERT-2019-1437,DFN-CERT-2019-1427,DFN-CERT-2019-1360,CB-K19/0578",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,8.8,High,30,"VendorFix","Squid Security Update Advisory (SQUID-2020:7)","Squid is prone to a cache poisoning vulnerability.","Installed version: 3.3.8
+Fixed version:     4.12
+
+",1.3.6.1.4.1.25623.1.0.144212,"CVE-2020-15049",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,3f21ecc3-dec6-47b2-aedd-d2091f72a909,"","Update to version 4.12, 5.0.3 or later.","Squid versions 2.0 through 2.STABLE9, 3.0 through 3.5.28,
+  4.0 through 4.11 and 5.0.1 through 5.0.2.","Due to incorrect input validation Squid is vulnerable to a Request Smuggling
+  and Poisoning attack against the HTTP cache.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid Security Update Advisory (SQUID-2020:7)
+(OID: 1.3.6.1.4.1.25623.1.0.144212)
+Version used: 2022-07-20T10:33:02Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2021-0643,DFN-CERT-2020-2389,DFN-CERT-2020-2146,DFN-CERT-2020-2104,DFN-CERT-2020-1848,DFN-CERT-2020-1608,DFN-CERT-2020-1576,DFN-CERT-2020-1361,CB-K20/1030,CB-K20/0644",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,5.9,Medium,30,"VendorFix","Squid Security Update Advisory SQUID-2018:5","Squid is prone to a denial of service vulnerability due to a memory leak
+  in the SNMP query rejection code.","Installed version: 3.3.8
+Fixed version:     4.4
+
+",1.3.6.1.4.1.25623.1.0.142628,"CVE-2018-19132",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,aba3acbe-f094-4088-95a0-7c7cc067f04e,"","Update to version 4.4 or later.","Squid versions 3.2.0.10 - 3.5.28, 4.x - 4.3.","This problem allows a remote attacker to consume all memory available to the
+  Squid process, causing it to crash.
+
+  In environments where per-process memory restrictions are not enforced strictly, or configured to large values
+  this may also affect other processes operating on the same machine. Leading to a much worse denial of service
+  situation.
+
+  This problem is limited to Squid built with SNMP support and receiving SNMP traffic.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid Security Update Advisory SQUID-2018:5
+(OID: 1.3.6.1.4.1.25623.1.0.142628)
+Version used: 2022-07-20T10:33:02Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2020-1491,DFN-CERT-2019-1437,DFN-CERT-2018-2415,DFN-CERT-2018-2193,WID-SEC-2023-2717,CB-K18/1038",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,5.9,Medium,30,"VendorFix","Squid Security Update Advisory SQUID-2019:2","Squid is prone to a denial of service vulnerability due to incorrect buffer
+  management when processing HTTP Basic Authentication credentials.","Installed version: 3.3.8
+Fixed version:     4.8
+
+",1.3.6.1.4.1.25623.1.0.142631,"CVE-2019-12529",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,7f340cf4-5898-4470-b9f4-24feba9fd46f,"","Update to version 4.8 or later.","Squid versions 2.x - 2.7.STABLE9, 3.x - 3.5.28 and 4.x - 4.7.","Due to incorrect string termination the Basic authentication credentials
+  decoder may access memory outside the decode buffer.
+
+  On systems with memory access protections this can result in the Squid process being terminated unexpectedly.
+  Resulting in a denial of service for all clients using the proxy.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid Security Update Advisory SQUID-2019:2
+(OID: 1.3.6.1.4.1.25623.1.0.142631)
+Version used: 2022-07-20T10:33:02Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2020-2389,DFN-CERT-2020-1848,DFN-CERT-2020-1491,DFN-CERT-2019-2414,DFN-CERT-2019-1656,DFN-CERT-2019-1492,DFN-CERT-2019-1481,DFN-CERT-2019-1427,WID-SEC-2023-2486,CB-K19/0608",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,7.5,High,30,"VendorFix","Squid Security Update Advisory SQUID-2020:6","Squid is prone to a denial of service vulnerability in the TLS handshake.","Installed version: 3.3.8
+Fixed version:     4.12
+
+",1.3.6.1.4.1.25623.1.0.144211,"CVE-2020-14058",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,c5f6fd90-b054-4c82-98d1-e993b1e56af9,"","Update to version 4.12, 5.0.3 or later.","Squid versions 3.x - 3.5.28, 4.x - 4.11 and 5.x - 5.0.2.","Due to use of a potentially dangerous function Squid and the default
+  certificate validation helper are vulnerable to a denial of service attack when processing TLS certificates.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid Security Update Advisory SQUID-2020:6
+(OID: 1.3.6.1.4.1.25623.1.0.144211)
+Version used: 2022-07-20T10:33:02Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2020-2389,DFN-CERT-2020-1393,DFN-CERT-2020-1361,WID-SEC-2023-1360,CB-K20/0615",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,6.5,Medium,30,"VendorFix","Squid Security Update Advisory SQUID-2020:8 SQUID-2020:10","Squid is prone to multiple vulnerabilities.","Installed version: 3.3.8
+Fixed version:     4.13
+
+",1.3.6.1.4.1.25623.1.0.144524,"CVE-2020-15810,CVE-2020-15811",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,56dc40ff-8f07-48bb-af5c-a8bab7b7874f,"These vulnerabilities may lead to cache poisoning.","Update to version 4.13, 5.0.4 or later.","Squid versions 2.5 - 3.5.28, 4.0 - 4.12 and 5.0.1 - 5.0.3.","The following vulnerabilities exist:
+
+  - HTTP(S) request smuggling (CVE-2020-15810)
+
+  - HTTP(S) request splitting (CVE-2020-15811)","Checks if a vulnerable version is present on the target host.
+Details:
+Squid Security Update Advisory SQUID-2020:8 SQUID-2020:10
+(OID: 1.3.6.1.4.1.25623.1.0.144524)
+Version used: 2022-07-20T10:33:02Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2022-0593,DFN-CERT-2020-2146,DFN-CERT-2020-2104,DFN-CERT-2020-1927,DFN-CERT-2020-1842,WID-SEC-2023-2470,CB-K20/1030,CB-K20/0838",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,7.5,High,30,"VendorFix","Squid Security Update Advisory SQUID-2020:9","Squid is prone to a denial of service vulnerability when processing Cache
+  Digest responses.","Installed version: 3.3.8
+Fixed version:     4.13
+
+",1.3.6.1.4.1.25623.1.0.144458,"CVE-2020-24606",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,08211cb8-84e0-4410-852c-58d3b249932c,"This problem allows a trusted peer to perform a Denial of Service by
+  consuming all available CPU cycles on the machine running Squid when handling a crafted Cache Digest response
+  message.
+
+  This attack is limited to Squid using cache_peer with cache digests feature.","Update to version 4.13, 5.0.4 or later.","Squid versions 3.0 - 4.12 and 5.0.1 - 5.0.3.","Due to Improper Input Validation Squid is vulnerable to a denial of service
+  attack against the machine operating Squid.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid Security Update Advisory SQUID-2020:9
+(OID: 1.3.6.1.4.1.25623.1.0.144458)
+Version used: 2022-07-20T10:33:02Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2020-2389,DFN-CERT-2020-2303,DFN-CERT-2020-2146,DFN-CERT-2020-2104,DFN-CERT-2020-1842,WID-SEC-2023-2470,CB-K20/1030,CB-K20/1015,CB-K20/0838",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,2.6,Low,30,"VendorFix","Squid SSL-Bump Certificate Validation Bypass Vulnerability (SQUID-2015:1)","Squid is prone to certificate validation bypass vulnerability.","Installed version: 3.3.8
+Fixed version:     3.3.14
+
+",1.3.6.1.4.1.25623.1.0.806104,"CVE-2015-3455",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,b83ada4e-d0ab-4bd7-be25-015893fbc82b,"Successful exploitation will allow remote
+  attackers to bypass client certificate validation.","Update to version 3.5.4, 3.4.13, 3.3.14, 3.2.14 or later.","Squid versions 3.2 through 3.2.13, 3.3 through 3.3.13,
+  3.4 through 3.4.12 and 3.5 through 3.5.3.","The client-first SSL-bump feature does not
+  properly validate X.509 server certificate domain and hostname fields. A remote
+  server can create a specially crafted certificate to bypass client certificate
+  validation.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid SSL-Bump Certificate Validation Bypass Vulnerability (SQUID-2015:1)
+(OID: 1.3.6.1.4.1.25623.1.0.806104)
+Version used: 2023-07-25T05:05:58Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2016-1297,DFN-CERT-2016-0406,DFN-CERT-2015-1499,DFN-CERT-2015-0641,CB-K16/1228,CB-K16/0388,CB-K15/1423,CB-K15/0612",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,5.0,Medium,30,"VendorFix","Squid SSL-Bump HTTPS Requests Processing DoS Vulnerability (SQUID-2014:1)","Squid is prone to a denial of service (DoS) vulnerability.","Installed version: 3.3.8
+Fixed version:     3.3.12
+
+",1.3.6.1.4.1.25623.1.0.806107,"CVE-2014-0128",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,c6267d39-1beb-4f77-9199-7b533ba81b58,"Successful exploitation will allow remote attackers to cause a
+  denial of service.","Apply the patch or update to version 3.4.4, 3.3.11 or later.","Squid versions 3.1 through 3.3.11 and 3.4 through
+  3.4.3.","Due to incorrect state management Squid is vulnerable to a
+  denial of service attack when processing certain HTTPS requests.","Checks if a vulnerable version is present on the target host.
+Details:
+Squid SSL-Bump HTTPS Requests Processing DoS Vulnerability (SQUID-2014:1)
+(OID: 1.3.6.1.4.1.25623.1.0.806107)
+Version used: 2023-07-25T05:05:58Z
+","Product: cpe:/a:squid-cache:squid:3.3.8
+Method: Squid Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.900611)
+","","DFN-CERT-2016-1296,DFN-CERT-2014-0326,CB-K16/1227,CB-K14/0312",""
+172.30.18.1,squid-old.trabalho_vulnnet,,,2.6,Low,80,"Mitigation","TCP Timestamps Information Disclosure","The remote host implements TCP timestamps and therefore allows
+  to compute the uptime.","It was detected that the host implements RFC1323/RFC7323.
+
+The following timestamps were retrieved with a delay of 1 seconds in-between:
+Packet 1: 4219338359
+Packet 2: 4219339451
+",1.3.6.1.4.1.25623.1.0.80091,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,23b34202-9388-48b0-9f90-cb81f1715930,"A side effect of this feature is that the uptime of the remote
+  host can sometimes be computed.","To disable TCP timestamps on linux add the line
+  'net.ipv4.tcp_timestamps = 0' to /etc/sysctl.conf. Execute 'sysctl -p' to apply the settings at
+  runtime.
+
+  To disable TCP timestamps on Windows execute 'netsh int tcp set global timestamps=disabled'
+
+  Starting with Windows Server 2008 and Vista, the timestamp can not be completely disabled.
+
+  The default behavior of the TCP/IP stack on this Systems is to not use the Timestamp options when
+  initiating TCP connections, but use them if the TCP peer that is initiating communication includes
+  them in their synchronize (SYN) segment.
+
+  See the references for more information.","TCP implementations that implement RFC1323/RFC7323.","The remote host implements TCP timestamps, as defined by
+  RFC1323/RFC7323.","Special IP packets are forged and sent with a little delay in
+  between to the target IP. The responses are searched for a timestamps. If found, the timestamps
+  are reported.
+Details:
+TCP Timestamps Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.80091)
+Version used: 2023-12-15T16:10:08Z
+","","","",""
+172.30.18.1,squid-old.trabalho_vulnnet,,,0.0,Log,80,"","Traceroute","Collect information about the network route and
+  network distance between the scanner host and the target host.","Network route from scanner (172.30.0.2) to target (172.30.18.1):
+
+172.30.0.2
+172.30.18.1
+
+Network distance between scanner and target: 2
+",1.3.6.1.4.1.25623.1.0.51662,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,b5ebd05a-59ec-423b-af92-72f90bc32155,"","","","For internal networks, the distances are usually
+  small, often less than 4 hosts between scanner and target. For public targets the
+  distance is greater and might be 10 hosts or more.","A combination of the protocols ICMP and TCP is used
+  to determine the route. This method is applicable for IPv4 only and it is also known as
+  'traceroute'.
+Details:
+Traceroute
+(OID: 1.3.6.1.4.1.25623.1.0.51662)
+Version used: 2022-10-17T11:13:19Z
+","","","",""
+172.30.18.1,squid-old.trabalho_vulnnet,3128,tcp,0.0,Log,80,"","Web Application Scanning Consolidation / Info Reporting","The script consolidates and reports various information for web
+  application (formerly called 'CGI') scanning.
+
+  This information is based on the following scripts / settings:
+
+  - HTTP-Version Detection (OID: 1.3.6.1.4.1.25623.1.0.100034)
+
+  - No 404 check (OID: 1.3.6.1.4.1.25623.1.0.10386)
+
+  - Web mirroring / webmirror.nasl (OID: 1.3.6.1.4.1.25623.1.0.10662)
+
+  - Directory Scanner / DDI_Directory_Scanner.nasl (OID: 1.3.6.1.4.1.25623.1.0.11032)
+
+  - The configured 'cgi_path' within the 'Scanner Preferences' of the scan config in use
+
+  - The configured 'Enable CGI scanning', 'Enable generic web application scanning' and
+  'Add historic /scripts and /cgi-bin to directories for CGI scanning' within the
+  'Global variable settings' of the scan config in use
+
+  If you think any of this information is wrong please report it to the referenced community
+  forum.","The Hostname/IP ""squid-old.trabalho_vulnnet"" was used to access the remote host.
+
+Generic web application scanning is disabled for this host via the ""Enable generic web application scanning"" option within the ""Global variable settings"" of the scan config in use.
+
+Requests to this service are done via HTTP/1.1.
+
+This service seems to be able to host PHP scripts.
+
+This service seems to be able to host ASP scripts.
+
+The User-Agent ""Mozilla/5.0 [en] (X11, U; OpenVAS-VT <version replaced>)"" was used to access the remote host.
+
+Historic /scripts and /cgi-bin are not added to the directories used for web application scanning. You can enable this again with the ""Add historic /scripts and /cgi-bin to directories for CGI scanning"" option within the ""Global variable settings"" of the scan config in use.
+
+The following directories were used for web application scanning:
+
+http://squid-old.trabalho_vulnnet:3128/
+
+While this is not, in and of itself, a bug, you should manually inspect these directories to ensure that they are in compliance with company security standards
+",1.3.6.1.4.1.25623.1.0.111038,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:32:18Z,bb17c819-768b-4b37-b1d8-fe59cdb13163,"","","","","
+Details:
+Web Application Scanning Consolidation / Info Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.111038)
+Version used: 2026-01-13T05:47:36Z
+","","","",""

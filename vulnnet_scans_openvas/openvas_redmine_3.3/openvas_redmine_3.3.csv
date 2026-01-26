@@ -1,0 +1,339 @@
+IP,Hostname,Port,Port Protocol,CVSS,Severity,QoD,Solution Type,NVT Name,Summary,Specific Result,NVT OID,CVEs,Task ID,Task Name,Timestamp,Result ID,Impact,Solution,Affected Software/OS,Vulnerability Insight,Vulnerability Detection Method,Product Detection Result,BIDs,CERTs,Other References
+      172.31.1.95,redmine33.trabalho_vulnnet,3000,tcp,0.0,Log,70,"","Allowed HTTP Methods Enumeration","Enumerates which HTTP methods are allowed.","The following list contains the URLs and corresponding supported HTTP methods.
+
+URL                                     | HTTP Methods
+--------------------------------------------------------------------------------
+http://redmine33.trabalho_vulnnet:3000/ | GET,HEAD,POST,PUT,DELETE,OPTIONS,TRACE
+",1.3.6.1.4.1.25623.1.0.153974,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:09:36Z,8ac73af8-8d0d-4ef7-b9c0-8bb93bdc4e69,"","","","'- Basic HTTP methods: GET, HEAD, POST, PUT, DELETE, CONNECT,
+  OPTIONS, TRACE
+
+  - Extended HTTP methods: ACL, BASELINE-CONTROL, BIND, CHECKIN, CHECKOUT, COPY, LABEL, LINK, LOCK,
+  MERGE, MKACTIVITY, MKCALENDAR, MKCOL, MKREDIRECTREF, MKWORKSPACE, MOVE, ORDERPATCH, PATCH, PRI,
+  PROPFIND, PROPPATCH, REBIND, REPORT, SEARCH, UNBIND, UNCHECKOUT, UNLINK, UNLOCK, UPDATE,
+  UPDATEREDIRECTREF, VERSION-CONTROL","Sends multiple HTTP requests and checks the responses.
+
+  Disclaimer:
+
+  - This enumeration script is provided 'as is' (means no support is given) and only providing
+  rudimentary information about the possible enabled methods
+
+  - This script doesn't guarantee completeness or full reliability
+
+  For more reliable determination of the enabled HTTP methods please inspect the configuration of
+  the web server manually and directly on the target host.
+Details:
+Allowed HTTP Methods Enumeration
+(OID: 1.3.6.1.4.1.25623.1.0.153974)
+Version used: 2025-02-28T05:38:49Z
+","","","",""
+172.31.1.95,redmine33.trabalho_vulnnet,3000,tcp,4.8,Medium,80,"Workaround","Cleartext Transmission of Sensitive Information via HTTP","The host / application transmits sensitive information (username, passwords) in
+  cleartext via HTTP.","The following input fields were identified (URL:input name):
+
+http://redmine33.trabalho_vulnnet:3000/account/register:user[password]
+http://redmine33.trabalho_vulnnet:3000/login:password
+http://redmine33.trabalho_vulnnet:3000/login?back_url=http%3A%2F%2Fredmine33.trabalho_vulnnet%3A3000%2Fadmin:password
+http://redmine33.trabalho_vulnnet:3000/login?back_url=http%3A%2F%2Fredmine33.trabalho_vulnnet%3A3000%2Fmy:password
+http://redmine33.trabalho_vulnnet:3000/login?back_url=http%3A%2F%2Fredmine33.trabalho_vulnnet%3A3000%2Fsettings:password
+http://redmine33.trabalho_vulnnet:3000/login?back_url=http%3A%2F%2Fredmine33.trabalho_vulnnet%3A3000%2Fusers:password
+",1.3.6.1.4.1.25623.1.0.108440,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:09:36Z,e5ddea80-0bfc-474b-bc63-7bbdfc480fcb,"An attacker could use this situation to compromise or eavesdrop on the
+  HTTP communication between the client and the server using a man-in-the-middle attack to get access to
+  sensitive data like usernames or passwords.","Enforce the transmission of sensitive data via an encrypted SSL/TLS connection.
+  Additionally make sure the host / application is redirecting all users to the secured SSL/TLS connection before
+  allowing to input sensitive data into the mentioned functions.","Hosts / applications which doesn't enforce the transmission of sensitive data via an
+  encrypted SSL/TLS connection.","","Evaluate previous collected information and check if the host / application is not
+  enforcing the transmission of sensitive data via an encrypted SSL/TLS connection.
+
+  The script is currently checking the following:
+
+  - HTTP Basic Authentication (Basic Auth)
+
+  - HTTP Forms (e.g. Login) with input field of type 'password'
+Details:
+Cleartext Transmission of Sensitive Information via HTTP
+(OID: 1.3.6.1.4.1.25623.1.0.108440)
+Version used: 2023-09-07T05:05:21Z
+","","","",""
+172.31.1.95,redmine33.trabalho_vulnnet,,,0.0,Log,80,"","CPE Inventory","This routine uses information collected by other routines about
+  CPE identities of operating systems, services and applications detected during the scan.
+
+  Note: Some CPEs for specific products might show up twice or more in the output. Background:
+
+  After a product got renamed or a specific vendor was acquired by another one it might happen that
+  a product gets a new CPE within the NVD CPE Dictionary but older entries are kept with the older
+  CPE.","172.31.1.95|cpe:/a:ruby-lang:ruby:2.3.8
+172.31.1.95|cpe:/a:ruby-lang:webrick:1.3.1
+172.31.1.95|cpe:/o:linux:kernel
+
+",1.3.6.1.4.1.25623.1.0.810002,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:09:36Z,1ea79f54-e04b-4ac9-afaf-a44784acf8e5,"","","","","
+Details:
+CPE Inventory
+(OID: 1.3.6.1.4.1.25623.1.0.810002)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.31.1.95,redmine33.trabalho_vulnnet,,,0.0,Log,80,"","Hostname Determination Reporting","The script reports information on how the hostname of the target
+  was determined.","Hostname determination for IP 172.31.1.95:
+
+Hostname|Source
+redmine33.trabalho_vulnnet|Reverse-DNS
+",1.3.6.1.4.1.25623.1.0.108449,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:09:36Z,660faa5c-8e2b-42ce-8c38-da5564dde04f,"","","","","
+Details:
+Hostname Determination Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.108449)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.31.1.95,redmine33.trabalho_vulnnet,3000,tcp,0.0,Log,80,"","HTTP Security Headers Detection","All known security headers are being checked on the remote web
+  server.
+
+  On completion a report will hand back whether a specific security header has been implemented
+  (including its value and if it is deprecated) or is missing on the target.","Header Name            | Header Value
+--------------------------------------
+X-Content-Type-Options | nosniff
+X-Frame-Options        | SAMEORIGIN
+X-Xss-Protection       | 1; mode=block
+
+Missing Headers                   | More Information
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Content-Security-Policy           | https://owasp.org/www-project-secure-headers/#content-security-policy
+Cross-Origin-Embedder-Policy      | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Cross-Origin-Opener-Policy        | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Cross-Origin-Resource-Policy      | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Document-Policy                   | https://w3c.github.io/webappsec-feature-policy/document-policy#document-policy-http-header
+Feature-Policy                    | https://owasp.org/www-project-secure-headers/#feature-policy, Note: The Feature Policy header has been renamed to Permissions Policy
+Permissions-Policy                | https://w3c.github.io/webappsec-feature-policy/#permissions-policy-http-header-field
+Referrer-Policy                   | https://owasp.org/www-project-secure-headers/#referrer-policy
+Sec-Fetch-Dest                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-Mode                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-Site                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-User                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+X-Permitted-Cross-Domain-Policies | https://owasp.org/www-project-secure-headers/#x-permitted-cross-domain-policies
+",1.3.6.1.4.1.25623.1.0.112081,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:09:36Z,5221524b-70bc-4c50-8936-8fedc1ae98c9,"","","","","
+Details:
+HTTP Security Headers Detection
+(OID: 1.3.6.1.4.1.25623.1.0.112081)
+Version used: 2025-03-21T15:40:43Z
+","","","",""
+172.31.1.95,redmine33.trabalho_vulnnet,3000,tcp,0.0,Log,80,"","HTTP Server Banner Enumeration","This script tries to detect / enumerate different HTTP server
+  banner (e.g. from a frontend, backend or proxy server) by sending various different HTTP requests
+  (valid and invalid ones).","It was possible to enumerate the following HTTP server banner(s):
+
+Server banner                                 | Enumeration technique
+------------------------------------------------------------------------------------------
+Server: WEBrick/1.3.1 (Ruby/2.3.8/2018-10-18) | Valid HTTP 1.0 GET request to '/index.htm'
+",1.3.6.1.4.1.25623.1.0.108708,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:09:36Z,1c0a1b14-6e24-491f-8d92-618d0abfe8fa,"","","","","
+Details:
+HTTP Server Banner Enumeration
+(OID: 1.3.6.1.4.1.25623.1.0.108708)
+Version used: 2025-01-31T15:39:24Z
+","","","",""
+172.31.1.95,redmine33.trabalho_vulnnet,3000,tcp,0.0,Log,80,"","HTTP Server type and version","This script detects and reports the HTTP Server's banner
+  which might provide the type and version of it.","The remote HTTP Server banner is:
+
+Server: WEBrick/1.3.1 (Ruby/2.3.8/2018-10-18)
+",1.3.6.1.4.1.25623.1.0.10107,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:09:36Z,548d6c60-9632-4662-89fb-6000d914b07d,"","","","","
+Details:
+HTTP Server type and version
+(OID: 1.3.6.1.4.1.25623.1.0.10107)
+Version used: 2023-08-01T13:29:10Z
+","","","",""
+172.31.1.95,redmine33.trabalho_vulnnet,,,2.1,Low,80,"Mitigation","ICMP Timestamp Reply Information Disclosure","The remote host responded to an ICMP timestamp request.","The following response / ICMP packet has been received:
+- ICMP Type: 14
+- ICMP Code: 0
+",1.3.6.1.4.1.25623.1.0.103190,"CVE-1999-0524",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:09:36Z,3b4d4637-bccf-4d09-b58f-e43e9808ecb3,"This information could theoretically be used to exploit weak
+  time-based random number generators in other services.","Various mitigations are possible:
+
+  - Disable the support for ICMP timestamp on the remote host completely
+
+  - Protect the remote host by a firewall, and block ICMP packets passing through the firewall in
+  either direction (either completely or only for untrusted networks)","","The Timestamp Reply is an ICMP message which replies to a
+  Timestamp message. It consists of the originating timestamp sent by the sender of the Timestamp as
+  well as a receive timestamp and a transmit timestamp.","Sends an ICMP Timestamp (Type 13) request and checks if a
+  Timestamp Reply (Type 14) is received.
+Details:
+ICMP Timestamp Reply Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.103190)
+Version used: 2025-01-21T05:37:33Z
+","","","DFN-CERT-2014-0658,CB-K15/1514,CB-K14/0632",""
+172.31.1.95,redmine33.trabalho_vulnnet,,,0.0,Log,70,"","IP Forwarding Enabled - Active Check","Checks if the remote host has IP forwarding enabled.","It was possible to route a TCP packet through the target host and received an answer which means IP forwarding is enabled.
+",1.3.6.1.4.1.25623.1.0.147205,"CVE-1999-0511",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:09:36Z,75b2de15-d865-4479-9f8f-3cd38fc229e1,"","","","","Sends a crafted Local Link Layer (LLL) frame and checks the
+  response.
+Details:
+IP Forwarding Enabled - Active Check
+(OID: 1.3.6.1.4.1.25623.1.0.147205)
+Version used: 2021-12-03T08:27:06Z
+","","","",""
+172.31.1.95,redmine33.trabalho_vulnnet,,,0.0,Log,80,"","OS Detection Consolidation and Reporting","This script consolidates the OS information detected by several
+  VTs and tries to find the best matching OS.
+
+  Furthermore it reports all previously collected information leading to this best matching OS. It
+  also reports possible additional information which might help to improve the OS detection.
+
+  If any of this information is wrong or could be improved please consider to report these to the
+  referenced community forum.","Best matching OS:
+
+OS:           Linux Kernel
+CPE:          cpe:/o:linux:kernel
+Found by VT:  1.3.6.1.4.1.25623.1.0.102002 (Operating System (OS) Detection (ICMP))
+Concluded from ICMP based OS fingerprint
+Setting key ""Host/runs_unixoide"" based on this information
+",1.3.6.1.4.1.25623.1.0.105937,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:09:36Z,2622a108-3d14-4bfd-8209-a7835e7f1bbc,"","","","","
+Details:
+OS Detection Consolidation and Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.105937)
+Version used: 2026-01-21T05:50:46Z
+","","","",""
+172.31.1.95,redmine33.trabalho_vulnnet,,,0.0,Log,80,"","Ruby Detection Consolidation","Consolidation of Ruby detections.","Detected Ruby
+
+Version:       2.3.8
+Location:      3000/tcp
+CPE:           cpe:/a:ruby-lang:ruby:2.3.8
+
+Concluded from version/product identification result:
+Server: WEBrick/1.3.1 (Ruby/2.3.8
+
+Extra information:
+
+Detected via HTTP on port 3000/tcp
+",1.3.6.1.4.1.25623.1.0.113710,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:09:36Z,15c75091-7cad-49f8-920d-a73c7629d770,"","","","","
+Details:
+Ruby Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.113710)
+Version used: 2025-09-09T05:38:49Z
+","","","",""
+172.31.1.95,redmine33.trabalho_vulnnet,3000,tcp,0.0,Log,80,"","Services","This plugin performs service detection.","A web server is running on this port
+",1.3.6.1.4.1.25623.1.0.10330,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:09:36Z,50feb0b2-653b-40e2-90ad-93ec03caaf85,"","","","This plugin attempts to guess which service is running on the
+  remote port(s). For instance, it searches for a web server which could listen on another port than
+  80 or 443 and makes this information available for other check routines.","
+Details:
+Services
+(OID: 1.3.6.1.4.1.25623.1.0.10330)
+Version used: 2025-03-05T05:38:53Z
+","","","",""
+172.31.1.95,redmine33.trabalho_vulnnet,,,2.6,Low,80,"Mitigation","TCP Timestamps Information Disclosure","The remote host implements TCP timestamps and therefore allows
+  to compute the uptime.","It was detected that the host implements RFC1323/RFC7323.
+
+The following timestamps were retrieved with a delay of 1 seconds in-between:
+Packet 1: 1251768278
+Packet 2: 1251769394
+",1.3.6.1.4.1.25623.1.0.80091,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:09:36Z,826235cd-58ae-481d-b332-238318872250,"A side effect of this feature is that the uptime of the remote
+  host can sometimes be computed.","To disable TCP timestamps on linux add the line
+  'net.ipv4.tcp_timestamps = 0' to /etc/sysctl.conf. Execute 'sysctl -p' to apply the settings at
+  runtime.
+
+  To disable TCP timestamps on Windows execute 'netsh int tcp set global timestamps=disabled'
+
+  Starting with Windows Server 2008 and Vista, the timestamp can not be completely disabled.
+
+  The default behavior of the TCP/IP stack on this Systems is to not use the Timestamp options when
+  initiating TCP connections, but use them if the TCP peer that is initiating communication includes
+  them in their synchronize (SYN) segment.
+
+  See the references for more information.","TCP implementations that implement RFC1323/RFC7323.","The remote host implements TCP timestamps, as defined by
+  RFC1323/RFC7323.","Special IP packets are forged and sent with a little delay in
+  between to the target IP. The responses are searched for a timestamps. If found, the timestamps
+  are reported.
+Details:
+TCP Timestamps Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.80091)
+Version used: 2023-12-15T16:10:08Z
+","","","",""
+172.31.1.95,redmine33.trabalho_vulnnet,,,0.0,Log,80,"","Traceroute","Collect information about the network route and
+  network distance between the scanner host and the target host.","Network route from scanner (172.30.0.2) to target (172.31.1.95):
+
+172.30.0.2
+172.31.1.95
+
+Network distance between scanner and target: 2
+",1.3.6.1.4.1.25623.1.0.51662,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:09:36Z,626c38e7-2190-48cf-bbb6-a2a0d9ded47c,"","","","For internal networks, the distances are usually
+  small, often less than 4 hosts between scanner and target. For public targets the
+  distance is greater and might be 10 hosts or more.","A combination of the protocols ICMP and TCP is used
+  to determine the route. This method is applicable for IPv4 only and it is also known as
+  'traceroute'.
+Details:
+Traceroute
+(OID: 1.3.6.1.4.1.25623.1.0.51662)
+Version used: 2022-10-17T11:13:19Z
+","","","",""
+172.31.1.95,redmine33.trabalho_vulnnet,3000,tcp,0.0,Log,80,"","Web Application Scanning Consolidation / Info Reporting","The script consolidates and reports various information for web
+  application (formerly called 'CGI') scanning.
+
+  This information is based on the following scripts / settings:
+
+  - HTTP-Version Detection (OID: 1.3.6.1.4.1.25623.1.0.100034)
+
+  - No 404 check (OID: 1.3.6.1.4.1.25623.1.0.10386)
+
+  - Web mirroring / webmirror.nasl (OID: 1.3.6.1.4.1.25623.1.0.10662)
+
+  - Directory Scanner / DDI_Directory_Scanner.nasl (OID: 1.3.6.1.4.1.25623.1.0.11032)
+
+  - The configured 'cgi_path' within the 'Scanner Preferences' of the scan config in use
+
+  - The configured 'Enable CGI scanning', 'Enable generic web application scanning' and
+  'Add historic /scripts and /cgi-bin to directories for CGI scanning' within the
+  'Global variable settings' of the scan config in use
+
+  If you think any of this information is wrong please report it to the referenced community
+  forum.","The Hostname/IP ""redmine33.trabalho_vulnnet"" was used to access the remote host.
+
+Generic web application scanning is disabled for this host via the ""Enable generic web application scanning"" option within the ""Global variable settings"" of the scan config in use.
+
+Requests to this service are done via HTTP/1.1.
+
+This service seems to be able to host PHP scripts.
+
+This service seems to be able to host ASP scripts.
+
+The User-Agent ""Mozilla/5.0 [en] (X11, U; OpenVAS-VT <version replaced>)"" was used to access the remote host.
+
+Historic /scripts and /cgi-bin are not added to the directories used for web application scanning. You can enable this again with the ""Add historic /scripts and /cgi-bin to directories for CGI scanning"" option within the ""Global variable settings"" of the scan config in use.
+
+The following directories were used for web application scanning:
+
+http://redmine33.trabalho_vulnnet:3000/
+http://redmine33.trabalho_vulnnet:3000/account
+http://redmine33.trabalho_vulnnet:3000/login
+http://redmine33.trabalho_vulnnet:3000/news
+http://redmine33.trabalho_vulnnet:3000/projects
+http://redmine33.trabalho_vulnnet:3000/search
+
+While this is not, in and of itself, a bug, you should manually inspect these directories to ensure that they are in compliance with company security standards
+
+The following directories were excluded from web application scanning because the ""Regex pattern to exclude directories from CGI scanning"" setting of the VT ""Global variable settings"" (OID: 1.3.6.1.4.1.25623.1.0.12288) for this scan was: ""/(index\.php|image|img|css|js$|js/|javascript|style|theme|icon|jquery|graphic|grafik|picture|bilder|thumbnail|media/|skins?/)""
+
+http://redmine33.trabalho_vulnnet:3000/javascripts
+http://redmine33.trabalho_vulnnet:3000/stylesheets
+http://redmine33.trabalho_vulnnet:3000/stylesheets/jquery
+
+The following CGIs were discovered:
+
+Syntax : cginame (arguments [default value])
+
+http://redmine33.trabalho_vulnnet:3000/account/lost_password (utf8 [&#x2713;] authenticity_token [***replaced***] mail [] commit [Submit] )
+http://redmine33.trabalho_vulnnet:3000/account/register (utf8 [&#x2713;] authenticity_token [***replaced***] user[login] [] user[password] [] user[password_confirmation] [] user[firstname] [] user[lastname] [] user[mail] [] pref[hide_mail] [0] pref[hide_mail] [1] user[language] [] commit [Submit] )
+http://redmine33.trabalho_vulnnet:3000/activity (show_news [1] show_changesets [1] submit [Apply] show_time_entries [1] show_wiki_edits [1] show_messages [1] show_documents [1] show_files [1] utf8 [&#x2713;] from [2025-12-27] show_issues [1] )
+http://redmine33.trabalho_vulnnet:3000/issues (t[] [] c[] [description] set_filter [1] f[] [] available_columns[] [] group_by [] utf8 [&#x2713;] )
+http://redmine33.trabalho_vulnnet:3000/issues.csv (utf8 [&#x2713;] set_filter [1] f[] [status_id] op[status_id] [o] v[status_id][] [] sort [id:desc] csv[columns] [] csv[columns] [all] csv[description] [1] )
+http://redmine33.trabalho_vulnnet:3000/login (back_url [http://redmine33.trabalho_vulnnet:3000/admin] password [] authenticity_token [***replaced***] login [Login &#187;] username [] utf8 [&#x2713;] )
+http://redmine33.trabalho_vulnnet:3000/projects (utf8 [&#x2713;] closed [1] )
+http://redmine33.trabalho_vulnnet:3000/search (documents [1] open_issues [1] projects [1] issues [1] commit [Submit] options [] titles_only [1] attachments [only] wiki_pages [1] messages [1] q [] all_words [1] utf8 [&#x2713;] changesets [1] news [1] )
+",1.3.6.1.4.1.25623.1.0.111038,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:09:36Z,3d4e47f3-cd17-4786-9cb8-8359a4374b31,"","","","","
+Details:
+Web Application Scanning Consolidation / Info Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.111038)
+Version used: 2026-01-13T05:47:36Z
+","","","",""
+172.31.1.95,redmine33.trabalho_vulnnet,3000,tcp,0.0,Log,80,"","WEBrick Detection (HTTP)","HTTP based detection of WEBrick. In addition this script also
+  tries to detect Ruby itself.","Detected WEBrick
+
+Version:       1.3.1
+Location:      3000/tcp
+CPE:           cpe:/a:ruby-lang:webrick:1.3.1
+
+Concluded from version/product identification result:
+Server: WEBrick/1.3.1 (Ruby/2.3.8/2018-10-18)
+",1.3.6.1.4.1.25623.1.0.112709,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:09:36Z,2b614575-a502-4fdd-87e3-178e6bec4c8d,"","","","","
+Details:
+WEBrick Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.112709)
+Version used: 2025-09-09T05:38:49Z
+","","","",""

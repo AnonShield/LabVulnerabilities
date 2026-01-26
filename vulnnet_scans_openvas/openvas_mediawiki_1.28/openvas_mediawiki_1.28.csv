@@ -1,0 +1,1708 @@
+IP,Hostname,Port,Port Protocol,CVSS,Severity,QoD,Solution Type,NVT Name,Summary,Specific Result,NVT OID,CVEs,Task ID,Task Name,Timestamp,Result ID,Impact,Solution,Affected Software/OS,Vulnerability Insight,Vulnerability Detection Method,Product Detection Result,BIDs,CERTs,Other References
+      172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,7.5,High,30,"VendorFix","Apache HTTP Server mod_auth_digest DoS Vulnerability - Linux","Apache HTTP Server is prone to a denial of service (DoS) vulnerability.","Installed version: 2.4.10
+Fixed version:     2.4.25
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.812067,"CVE-2016-2161",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,39c46544-7198-45b2-bcbe-7f631be03275,"Successful exploitation will allow remote
+  attackers to cause a denial-of-service condition.","Update to Apache HTTP Server 2.4.25 or
+  later.","Apache HTTP Server versions 2.4.23, 2.4.20,
+  2.4.18, 2.4.17, 2.4.16, 2.4.12, 2.4.10, 2.4.9, 2.4.7, 2.4.6, 2.4.4, 2.4.3,
+  2.4.2 and 2.4.1.","The flaw exists due to insufficient handling
+  of malicious input to 'mod_auth_digest'.","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server 'mod_auth_digest' DoS Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.812067)
+Version used: 2024-02-15T05:05:40Z
+","Product: cpe:/a:apache:http_server:2.4.10
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2017-1925,DFN-CERT-2017-1692,DFN-CERT-2017-0988,DFN-CERT-2017-0814,DFN-CERT-2017-0723,DFN-CERT-2017-0532,DFN-CERT-2017-0489,DFN-CERT-2016-2108,WID-SEC-2025-0370,CB-K19/0354,CB-K17/1854,CB-K17/1622,CB-K17/0955,CB-K17/0794,CB-K17/0704,CB-K17/0527,CB-K17/0477,CB-K16/1995",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,4.3,Medium,30,"VendorFix","Apache HTTP Server mod_lua Denial of Service Vulnerability (May 2015)","Apache HTTP Server is prone to a denial of service vulnerability.","Installed version: 2.4.10
+Fixed version:     2.4.12
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.805637,"CVE-2014-8109",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,2a83550e-e967-46e9-bc88-b382168f2b9c,"Successful exploitation will allow a remote
+  attacker to bypass intended access restrictions in opportunistic
+  circumstances by leveraging multiple Require directives.","Update to version 2.4.12 or later.","Apache HTTP Server version 2.3.x through
+  2.4.10.","Flaw is due to a vulnerability in
+  LuaAuthzProvider that is triggered if a user-supplied LUA script is supplied
+  more than once with different arguments.","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server 'mod_lua' Denial of Service Vulnerability (May 2015)
+(OID: 1.3.6.1.4.1.25623.1.0.805637)
+Version used: 2024-02-20T05:05:48Z
+","Product: cpe:/a:apache:http_server:2.4.10
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2015-1435,DFN-CERT-2015-1252,DFN-CERT-2015-0771,DFN-CERT-2014-1727,DFN-CERT-2014-1691,CB-K15/1360,CB-K15/1188,CB-K15/0736,CB-K14/1626,CB-K14/1592",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,5.0,Medium,30,"VendorFix","Apache HTTP Server mod_lua Denial of Service Vulnerability -01 (May 2015)","Apache HTTP Server is prone to a denial of service vulnerability.","Installed version: 2.4.10
+Fixed version:     2.4.13
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.805616,"CVE-2015-0228",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,cb82ea89-bf5c-4566-9eec-ed89c38c30ad,"Successful exploitation will allow a remote
+  attacker to cause a denial of service via some crafted dimension.","Update to version 2.4.13 or later.","Apache HTTP Server versions through
+  2.4.12.","Flaw is due to vulnerability in
+  lua_websocket_read function in lua_request.c in the mod_lua module.","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server 'mod_lua' Denial of Service Vulnerability -01 (May 2015)
+(OID: 1.3.6.1.4.1.25623.1.0.805616)
+Version used: 2024-02-20T05:05:48Z
+","Product: cpe:/a:apache:http_server:2.4.10
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2015-1435,DFN-CERT-2015-1252,DFN-CERT-2015-1087,DFN-CERT-2015-0285,DFN-CERT-2014-1691,CB-K15/1360,CB-K15/1188,CB-K15/1051,CB-K15/0273,CB-K14/1592",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,5.0,Medium,30,"VendorFix","Apache HTTP Server mod_proxy_fcgi Denial of Service Vulnerability (May 2015)","Apache HTTP Server is prone to a denial of service vulnerability.","Installed version: 2.4.10
+Fixed version:     2.4.12
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.805636,"CVE-2014-3583",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,25ec0e29-2b98-4768-8062-51da3153c9db,"Successful exploitation will allow a remote
+  attacker to cause a denial of service via specially crafted response.","Update to version 2.4.12 or later.","Apache HTTP Server version 2.4.10.","Flaw is due to an out-of-bounds read
+  condition in the 'handle_headers' function in mod_proxy_fcgi that is triggered
+  as user-supplied input is not properly validated when handling responses from
+  FastCGI servers.","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server 'mod_proxy_fcgi' Denial of Service Vulnerability (May 201...
+(OID: 1.3.6.1.4.1.25623.1.0.805636)
+Version used: 2024-02-20T05:05:48Z
+","Product: cpe:/a:apache:http_server:2.4.10
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2015-1435,DFN-CERT-2015-1252,DFN-CERT-2015-0581,DFN-CERT-2014-1691,CB-K15/1360,CB-K15/1188,CB-K15/0559,CB-K14/1592",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,7.5,High,30,"VendorFix","Apache HTTP Server Whitespace Defects Multiple Vulnerabilities","Apache HTTP Server is prone to multiple vulnerabilities.","Installed version: 2.4.10
+Fixed version:     2.4.25
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.812033,"CVE-2016-8743",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,f8b91871-1ee1-49bd-96c1-a0f276587e35,"Successful exploitation will allow remote
+  attackers to conduct request smuggling, response splitting and cache pollution
+  attacks.","Update to Apache HTTP Server 2.2.32 or 2.4.25
+  or later.","Apache HTTP Server 2.2.x before 2.2.32 and
+  2.3.x through 2.4.24 prior to 2.4.25.","Multiple flaws exist because the application accepted a
+  broad pattern of unusual whitespace patterns from the user-agent, including
+  bare CR, FF, VTAB in parsing the request line and request header lines, as
+  well as HTAB in parsing the request line. Any bare CR present in request
+  lines was treated as whitespace and remained in the request field member
+  'the_request', while a bare CR in the request header field name would be
+  honored as whitespace, and a bare CR in the request header field value was
+  retained the input headers array. Implied additional whitespace was accepted
+  in the request line and prior to the ':' delimiter of any request header lines.","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server 'Whitespace Defects' Multiple Vulnerabilities
+(OID: 1.3.6.1.4.1.25623.1.0.812033)
+Version used: 2022-09-09T10:12:35Z
+","Product: cpe:/a:apache:http_server:2.4.10
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2018-1764,DFN-CERT-2018-1070,DFN-CERT-2018-0077,DFN-CERT-2017-1925,DFN-CERT-2017-1692,DFN-CERT-2017-1327,DFN-CERT-2017-1204,DFN-CERT-2017-0988,DFN-CERT-2017-0814,DFN-CERT-2017-0723,DFN-CERT-2017-0673,DFN-CERT-2017-0532,DFN-CERT-2017-0489,DFN-CERT-2017-0189,DFN-CERT-2016-2108,WID-SEC-2025-0370,CB-K19/0354,CB-K18/0066,CB-K17/1854,CB-K17/1622,CB-K17/1279,CB-K17/1163,CB-K17/0955,CB-K17/0794,CB-K17/0704,CB-K17/0659,CB-K17/0527,CB-K17/0477,CB-K17/0185,CB-K16/1995",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,6.1,Medium,30,"VendorFix","Apache HTTP Server 2.4.0 - 2.4.40 Multiple Vulnerabilities - Linux","Apache HTTP Server is prone to multiple vulnerabilities.","Installed version: 2.4.10
+Fixed version:     2.4.41
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.114143,"CVE-2019-10092,CVE-2019-10098",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,7ceb7492-7eab-4462-8937-439454882b34,"","Update to version 2.4.41 or later.","Apache HTTP Server version 2.4.0 to 2.4.40.","Apache HTTP server is prone to multiple vulnerabilities:
+
+  - A limited cross-site scripting issue affecting the mod_proxy error page. An attacker
+  could cause the link on the error page to be malformed and instead point to a page of
+  their choice. This would be exploitable where a server was set up with proxying enabled
+  but was misconfigured in such a way that the Proxy Error page was displayed. (CVE-2019-10092)
+
+  - Redirects configured with mod_rewrite that were intended to be self referential
+  might be fooled by encoded newlines and redirect instead to an unexpected URL within
+  the request URL. (CVE-2019-10098)","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server 2.4.0 - 2.4.40 Multiple Vulnerabilities - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.114143)
+Version used: 2024-02-15T05:05:40Z
+","Product: cpe:/a:apache:http_server:2.4.10
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2021-1333,DFN-CERT-2021-0540,DFN-CERT-2020-2422,DFN-CERT-2020-2133,DFN-CERT-2020-1124,DFN-CERT-2020-0716,DFN-CERT-2020-0090,DFN-CERT-2019-2592,DFN-CERT-2019-2169,DFN-CERT-2019-1961,DFN-CERT-2019-1810,DFN-CERT-2019-1797,DFN-CERT-2019-1751,WID-SEC-2024-1591,CB-K20/1030,CB-K20/0708,CB-K20/0043,CB-K19/0909,CB-K19/0728",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,6.1,Medium,30,"VendorFix","Apache HTTP Server 2.4.0 < 2.4.42 Multiple Vulnerabilities - Linux","Apache HTTP Server is prone to multiple vulnerabilities.","Installed version: 2.4.10
+Fixed version:     2.4.42
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.143671,"CVE-2020-1927,CVE-2020-1934",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,2d8dd867-0988-4b7b-90e1-f40c8810cb42,"","Update to version 2.4.42 or later.","Apache HTTP Server version 2.4.0 to 2.4.41.","Apache HTTP Server is prone to multiple vulnerabilities:
+
+  - mod_rewrite CWE-601 open redirect (CVE-2020-1927)
+
+  - mod_proxy_ftp use of uninitialized value (CVE-2020-1934)","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server 2.4.0 < 2.4.42 Multiple Vulnerabilities - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.143671)
+Version used: 2024-02-15T05:05:40Z
+","Product: cpe:/a:apache:http_server:2.4.10
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2022-1610,DFN-CERT-2022-0074,DFN-CERT-2021-1467,DFN-CERT-2020-2422,DFN-CERT-2020-2133,DFN-CERT-2020-1854,DFN-CERT-2020-1793,DFN-CERT-2020-1538,DFN-CERT-2020-1335,DFN-CERT-2020-1289,DFN-CERT-2020-1124,DFN-CERT-2020-0850,DFN-CERT-2020-0835,DFN-CERT-2020-0688,WID-SEC-2024-1591,WID-SEC-2023-0063,WID-SEC-2022-0757,CB-K20/1030,CB-K20/0708,CB-K20/0691,CB-K20/0280",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,5.3,Medium,30,"VendorFix","Apache HTTP Server 2.4.1 < 2.4.24 IP Spoofing Vulnerability - Linux","Apache HTTP Server is prone to an IP address spoofing vulnerability when
+  proxying using mod_remoteip and mod_rewrite.","Installed version: 2.4.10
+Fixed version:     2.4.24
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.144376,"CVE-2020-11985",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,30393524-ea6a-4002-b2bd-439715172d44,"","Update to version 2.4.24 or later.","Apache HTTP Server version 2.4.1 to 2.4.23.","","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server 2.4.1 < 2.4.24 IP Spoofing Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.144376)
+Version used: 2024-02-15T05:05:40Z
+","Product: cpe:/a:apache:http_server:2.4.10
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2020-1905,DFN-CERT-2020-1854,WID-SEC-2024-3319,CB-K20/0798",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,5.3,Medium,30,"VendorFix","Apache HTTP Server 2.4.6 - 2.4.46 Tunneling Misconfiguration Vulnerability - Linux","Apache HTTP Server is prone to a tunneling misconfiguration
+  vulnerability.","Installed version: 2.4.10
+Fixed version:     2.4.48
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.112898,"CVE-2019-17567",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,64ad2702-8b7e-458a-a009-d5a4086a6652,"","Update to version 2.4.48 or later.","Apache HTTP Server versions 2.4.6 to 2.4.46 on Linux.","mod_proxy_wstunnel configured on an URL that is not necessarily
+  upgraded by the origin server was tunneling the whole connection regardless, thus allowing for
+  subsequent requests on the same connection to pass through with no HTTP validation,
+  authentication or authorization possibly configured.","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server 2.4.6 - 2.4.46 Tunneling Misconfiguration Vulnerability -...
+(OID: 1.3.6.1.4.1.25623.1.0.112898)
+Version used: 2021-08-24T09:01:06Z
+","Product: cpe:/a:apache:http_server:2.4.10
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2024-1411,DFN-CERT-2021-2394,DFN-CERT-2021-1273,WID-SEC-2024-1591,WID-SEC-2022-0438,CB-K21/0646",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,8.2,High,30,"VendorFix","Apache HTTP Server 2.4.7 - 2.4.51 Multiple Vulnerabilities - Linux","Apache HTTP Server is prone to multiple vulnerabilities.","Installed version: 2.4.10
+Fixed version:     2.4.52
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.117854,"CVE-2021-44224",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,32705461-dc8b-4d39-938b-e4d4d53d2cdf,"","Update to version 2.4.52 or later.","Apache HTTP Server version 2.4.7 through 2.4.51.","A crafted URI sent to httpd configured as a forward proxy
+  (ProxyRequests on) can cause a crash (NULL pointer dereference) or, for configurations mixing
+  forward and reverse proxy declarations, can allow for requests to be directed to a declared Unix
+  Domain Socket endpoint (Server Side Request Forgery).","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server 2.4.7 - 2.4.51 Multiple Vulnerabilities - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.117854)
+Version used: 2021-12-23T12:12:57Z
+","Product: cpe:/a:apache:http_server:2.4.10
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2022-2405,DFN-CERT-2022-2167,DFN-CERT-2022-1116,DFN-CERT-2022-1115,DFN-CERT-2022-1114,DFN-CERT-2022-1047,DFN-CERT-2022-0872,DFN-CERT-2022-0068,DFN-CERT-2021-2656,WID-SEC-2024-2180,WID-SEC-2024-1591,WID-SEC-2022-1057,WID-SEC-2022-0727,WID-SEC-2022-0432,WID-SEC-2022-0302,CB-K22/0619,CB-K21/1296",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,5.8,Medium,30,"VendorFix","Apache HTTP Server 2.4.7 - 2.4.65 Authentication Bypass Vulnerability - Linux","Apache HTTP Server is prone to an authentication bypass
+  vulnerability.","Installed version: 2.4.10
+Fixed version:     2.4.66
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.125567,"CVE-2025-66200",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,8f200458-2afb-4f05-a5ee-232747882f51,"","Update to version 2.4.66 or later.","Apache HTTP Server version 2.4.7 through 2.4.65.","mod_userdir+suexec bypass via AllowOverride FileInfo
+  vulnerability in Apache HTTP Server. Users with access to use the RequestHeader directive in
+  htaccess can cause some CGI scripts to run under an unexpected userid.","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server 2.4.7 - 2.4.65 Authentication Bypass Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.125567)
+Version used: 2025-12-05T05:44:55Z
+","Product: cpe:/a:apache:http_server:2.4.10
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2025-3602,DFN-CERT-2025-3581,DFN-CERT-2025-3512,DFN-CERT-2025-3405,WID-SEC-2025-2750",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,4.3,Medium,30,"VendorFix","Apache HTTP Server 2.4.x < 2.4.66 Improper Neutralization Vulnerability - Linux","Apache HTTP Server is prone to an improper neutralization
+  vulnerability.","Installed version: 2.4.10
+Fixed version:     2.4.66
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.125566,"CVE-2025-65082",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,67face1c-63b1-4d7d-a2e2-321e039872f3,"","Update to version 2.4.66 or later.","Apache HTTP Server version 2.4.x prior to 2.4.66.","Improper neutralization of escape, meta, or control sequences
+  vulnerability in Apache HTTP Server through environment variables set via the Apache
+  configuration unexpectedly superseding variables calculated by the server for CGI programs.","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server 2.4.x < 2.4.66 Improper Neutralization Vulnerability - Li...
+(OID: 1.3.6.1.4.1.25623.1.0.125566)
+Version used: 2025-12-05T05:44:55Z
+","Product: cpe:/a:apache:http_server:2.4.10
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2026-0214,DFN-CERT-2025-3602,DFN-CERT-2025-3581,DFN-CERT-2025-3512,DFN-CERT-2025-3405,WID-SEC-2026-0155,WID-SEC-2025-2750",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,7.5,High,30,"VendorFix","Apache HTTP Server < 2.4.38 mod_session_cookie Vulnerability - Linux","In Apache HTTP Server mod_session checks the session expiry time before
+  decoding the session. This causes session expiry time to be ignored for mod_session_cookie sessions since the
+  expiry time is loaded when the session is decoded.","Installed version: 2.4.10
+Fixed version:     2.4.38
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.141964,"CVE-2018-17199",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,1e6b0441-3b1b-457d-8bbf-39abdbd5c722,"","Update to version 2.4.38 or later.","Apache HTTP Server version 2.4.37 and prior.","","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server < 2.4.38 mod_session_cookie Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.141964)
+Version used: 2024-02-15T05:05:40Z
+","Product: cpe:/a:apache:http_server:2.4.10
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2021-1069,DFN-CERT-2020-0673,DFN-CERT-2019-2592,DFN-CERT-2019-2456,DFN-CERT-2019-0857,DFN-CERT-2019-0690,DFN-CERT-2019-0687,DFN-CERT-2019-0198,DFN-CERT-2019-0184,CB-K19/0316,CB-K19/0071",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,7.5,High,30,"VendorFix","Apache HTTP Server < 2.4.39 mod_auth_digest Access Control Bypass Vulnerability - Linux","In Apache HTTP Server, a race condition in mod_auth_digest when running in a
+  threaded server could allow a user with valid credentials to authenticate using another username, bypassing
+  configured access control restrictions.","Installed version: 2.4.10
+Fixed version:     2.4.39
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.142220,"CVE-2019-0217",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,5c49727f-037e-461b-8924-1c0aba763e19,"","Update to version 2.4.39 or later.","Apache HTTP Server version 2.4.38 and prior.","","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server < 2.4.39 mod_auth_digest Access Control Bypass Vulnerabil...
+(OID: 1.3.6.1.4.1.25623.1.0.142220)
+Version used: 2024-02-15T05:05:40Z
+","Product: cpe:/a:apache:http_server:2.4.10
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2019-2592,DFN-CERT-2019-2456,DFN-CERT-2019-0736,DFN-CERT-2019-0690,DFN-CERT-2019-0687,DFN-CERT-2019-0680,DFN-CERT-2019-0676,WID-SEC-2023-2047,CB-K19/0623,CB-K19/0267",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,5.3,Medium,30,"VendorFix","Apache HTTP Server < 2.4.39 URL Normalization Vulnerability - Linux","When the path component of a request URL contains multiple consecutive slashes
+  ('/'), directives such as LocationMatch and RewriteRule must account for duplicates in regular expressions while
+  other aspects of the servers processing will implicitly collapse them.","Installed version: 2.4.10
+Fixed version:     2.4.39
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.142228,"CVE-2019-0220",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,a18642a1-ca12-45a4-849e-0c128254f994,"","Update to version 2.4.39 or later.","Apache HTTP Server version 2.4.38 and prior.","","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server < 2.4.39 URL Normalization Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.142228)
+Version used: 2024-02-15T05:05:40Z
+","Product: cpe:/a:apache:http_server:2.4.10
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2022-1610,DFN-CERT-2020-0184,DFN-CERT-2019-2592,DFN-CERT-2019-1519,DFN-CERT-2019-0815,DFN-CERT-2019-0690,DFN-CERT-2019-0687,DFN-CERT-2019-0680,DFN-CERT-2019-0676,WID-SEC-2023-2047,WID-SEC-2023-1969,WID-SEC-2023-1594,WID-SEC-2022-0757,CB-K20/0708,CB-K19/0623,CB-K19/0267",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,7.5,High,30,"VendorFix","Apache HTTP Server < 2.4.58 mod_macro Out-of-bounds Read Vulnerability - Linux","Apache HTTP Server is prone to an out-of-bounds read
+  vulnerability in mod_macro.","Installed version: 2.4.10
+Fixed version:     2.4.58
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.100272,"CVE-2023-31122",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,9fc16386-af4e-451c-a6aa-350dd807c4ae,"","Update to version 2.4.58 or later.","Apache HTTP Server version 2.4.57 and prior.","","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server < 2.4.58 'mod_macro' Out-of-bounds Read Vulnerability - L...
+(OID: 1.3.6.1.4.1.25623.1.0.100272)
+Version used: 2024-02-15T05:05:40Z
+","Product: cpe:/a:apache:http_server:2.4.10
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2024-1411,DFN-CERT-2024-1010,DFN-CERT-2024-1000,DFN-CERT-2024-0732,DFN-CERT-2023-2640,DFN-CERT-2023-2583,WID-SEC-2024-1226,WID-SEC-2024-0899,WID-SEC-2024-0869,WID-SEC-2024-0769,WID-SEC-2024-0107,WID-SEC-2023-2917,WID-SEC-2023-2712",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,7.5,High,30,"VendorFix","Apache HTTP Server < 2.4.59 Multiple Vulnerabilities - Linux","Apache HTTP Server is prone to multiple vulnerabilities.","Installed version: 2.4.10
+Fixed version:     2.4.59
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.152039,"CVE-2023-38709,CVE-2024-24795,CVE-2024-27316",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,4701519e-2b57-4acb-a341-31f1444eeb5a,"","Update to version 2.4.59 or later.","Apache HTTP Server version 2.4.58 and prior.","The following vulnerabilities exist:
+
+  - CVE-2023-38709: HTTP response splitting
+
+  - CVE-2024-24795: HTTP response splitting in multiple modules
+
+  - CVE-2024-27316: HTTP/2 DoS by memory exhaustion on endless continuation frames","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server < 2.4.59 Multiple Vulnerabilities - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.152039)
+Version used: 2024-06-07T05:05:42Z
+","Product: cpe:/a:apache:http_server:2.4.10
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2025-2802,DFN-CERT-2025-2658,DFN-CERT-2025-2657,DFN-CERT-2024-2900,DFN-CERT-2024-2534,DFN-CERT-2024-2076,DFN-CERT-2024-1958,DFN-CERT-2024-1853,DFN-CERT-2024-1749,DFN-CERT-2024-1697,DFN-CERT-2024-1411,DFN-CERT-2024-1335,DFN-CERT-2024-1238,DFN-CERT-2024-1031,DFN-CERT-2024-1010,DFN-CERT-2024-0964,DFN-CERT-2024-0901,DFN-CERT-2024-0890,WID-SEC-2025-1529,WID-SEC-2024-1725,WID-SEC-2024-1643,WID-SEC-2024-1642,WID-SEC-2024-1504,WID-SEC-2024-1248,WID-SEC-2024-1226,WID-SEC-2024-0801,WID-SEC-2024-0789",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,5.0,Medium,30,"VendorFix","Apache HTTP Server < 2.4.64 Multiple Vulnerabilities - Linux","Apache HTTP Server is prone to multiple vulnerabilities.","Installed version: 2.4.10
+Fixed version:     2.4.64
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.154909,"CVE-2024-42516,CVE-2024-43204,CVE-2024-47252,CVE-2025-49812",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,88344a9e-2945-4c73-ba9d-928ba89cdd9f,"","Update to version 2.4.64 or later.","Apache HTTP Server version 2.4.63 and prior.","The following flaws exist:
+
+  - CVE-2024-42516: HTTP response splitting
+
+  - CVE-2024-43204: SSRF with mod_headers setting Content-Type header
+
+  - CVE-2024-47252: mod_ssl error log variable escaping
+
+  - CVE-2025-49812: mod_ssl TLS upgrade attack","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server < 2.4.64 Multiple Vulnerabilities - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.154909)
+Version used: 2025-07-11T15:43:14Z
+","Product: cpe:/a:apache:http_server:2.4.10
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2026-0205,DFN-CERT-2025-2421,DFN-CERT-2025-2403,DFN-CERT-2025-2402,DFN-CERT-2025-2373,DFN-CERT-2025-2231,DFN-CERT-2025-2182,DFN-CERT-2025-1917,DFN-CERT-2025-1860,WID-SEC-2026-0162,WID-SEC-2025-1850,WID-SEC-2025-1529",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,4.3,Medium,30,"VendorFix","Apache HTTP Server < 2.4.66 SSI Vulnerability - Linux","Apache HTTP Server is prone to a Server Side Includes (SSI)
+  vulnerability.","Installed version: 2.4.10
+Fixed version:     2.4.66
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.125564,"CVE-2025-58098",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,5e76fa9d-0347-456f-ba98-2052e77cdbce,"","Update to version 2.4.66 or later.","Apache HTTP Server prior to version 2.4.66.","Apache HTTP Server with SSI enabled and mod_cgid (but not
+  mod_cgi) passes the shell-escaped query string to #exec cmd='...' directives.","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server < 2.4.66 SSI Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.125564)
+Version used: 2025-12-05T05:44:55Z
+","Product: cpe:/a:apache:http_server:2.4.10
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2026-0027,DFN-CERT-2026-0012,DFN-CERT-2025-3602,DFN-CERT-2025-3581,DFN-CERT-2025-3512,DFN-CERT-2025-3405,WID-SEC-2026-0153,WID-SEC-2025-2750",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,6.1,Medium,30,"VendorFix","Apache HTTP Server CRLF Injection Vulnerability (Dec 2016) - Linux","Apache HTTP Server is prone to a CRLF injection vulnerability.","Installed version: 2.4.10
+Fixed version:     2.4.25
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.147044,"CVE-2016-4975",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,b0e2f98c-6a3a-430a-851b-457735dbd4bd,"","Update to version 2.2.32, 2.4.25 or later.","Apache HTTP Server version 2.2.0 through 2.2.31 and 2.4.1
+  through 2.4.23.","Possible CRLF injection allowing HTTP response splitting
+  attacks for sites which use mod_userdir. This issue was mitigated to prohibit CR or LF injection
+  into the 'Location' or other outbound header key or value.","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server CRLF Injection Vulnerability (Dec 2016) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.147044)
+Version used: 2021-11-01T14:03:43Z
+","Product: cpe:/a:apache:http_server:2.4.10
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2019-0358,DFN-CERT-2018-1764,CB-K19/0354",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,7.5,High,30,"VendorFix","Apache HTTP Server Denial of Service Vulnerability-02 (Apr 2018) - Linux","Apache HTTP Server is prone to a denial of service vulnerability.","Installed version: 2.4.10
+Fixed version:     2.4.30
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.812849,"CVE-2018-1303",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,88d0d287-6096-4823-a36d-82a7ae4bb158,"Successful exploitation will allow an attacker
+  to crash the Apache HTTP Server resulting in denial of service condition.","Update to version 2.4.30 or later. Please see the references for more information.","Apache HTTP Server versions 2.4.6, 2.4.7,
+  2.4.9, 2.4.10, 2.4.12, 2.4.16 through 2.4.18, 2.4.20, 2.4.23, and 2.4.25 through
+  2.4.29.","The flaw exists as the Apache HTTP Server
+  fails to sanitize against a specially crafted HTTP request header.","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server Denial of Service Vulnerability-02 (Apr 2018) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.812849)
+Version used: 2024-02-09T05:06:25Z
+","Product: cpe:/a:apache:http_server:2.4.10
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2020-2133,DFN-CERT-2019-0359,DFN-CERT-2019-0351,DFN-CERT-2018-2316,DFN-CERT-2018-0985,DFN-CERT-2018-0570,CB-K20/1030,CB-K18/0535",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,,,0.0,Log,80,"","Apache HTTP Server Detection Consolidation","Consolidation of Apache HTTP Server detections.","Detected Apache HTTP Server
+
+Version:       2.4.10
+Location:      80/tcp
+CPE:           cpe:/a:apache:http_server:2.4.10
+
+Concluded from version/product identification result:
+Server: Apache/2.4.10 (Debian)
+",1.3.6.1.4.1.25623.1.0.117232,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,88623eda-4592-419b-9905-28c831f1b729,"","","","","
+Details:
+Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+Version used: 2024-03-08T15:37:10Z
+","","","",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,5.0,Medium,30,"VendorFix","Apache HTTP Server DoS Vulnerability (Sep 2014) - Linux","Apache HTTP Server is prone to a denial of service (DoS)
+  vulnerability.","Installed version: 2.4.10
+Fixed version:     2.4.12
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.147046,"CVE-2014-3581",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,0cfeba23-4b7e-4e55-afe0-88e8efcd788f,"","Update to version 2.4.12 or later.","Apache HTTP Server version 2.4.1 through 2.4.10.","A NULL pointer deference was found in mod_cache. A malicious
+  HTTP server could cause a crash in a caching forward proxy configuration. This crash would only
+  be a denial of service if using a threaded MPM.","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server DoS Vulnerability (Sep 2014) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.147046)
+Version used: 2021-11-01T03:59:12Z
+","Product: cpe:/a:apache:http_server:2.4.10
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2015-1950,DFN-CERT-2015-1435,DFN-CERT-2015-1252,DFN-CERT-2015-0495,DFN-CERT-2014-1691,DFN-CERT-2014-1633,CB-K15/1841,CB-K15/1360,CB-K15/1188,CB-K15/0469,CB-K14/1592,CB-K14/1545",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,8.1,High,30,"VendorFix","Apache HTTP Server Man-in-the-Middle Attack Vulnerability (Jul 2016) - Linux","Apache HTTP Server is prone to a man-in-the-middle attack vulnerability.","Installed version: 2.4.10
+Fixed version:     2.4.24
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.808632,"CVE-2016-5387",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,734df7bc-21a9-4a3e-9cd0-e1a1cea3f285,"Successful exploitation will allow remote
+  attackers to redirect an application's outbound HTTP traffic to an arbitrary
+  proxy server via a crafted proxy header in an HTTP request.","Update to version 2.4.24, or 2.2.32, or later.","Apache HTTP Server through 2.4.23.
+
+  NOTE: Apache HTTP Server 2.2.32 is not vulnerable.","The flaw is due to 'CGI Servlet' does not
+  protect applications from the presence of untrusted client data in the
+  'HTTP_PROXY' environment variable.","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server Man-in-the-Middle Attack Vulnerability (Jul 2016) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.808632)
+Version used: 2024-02-08T14:36:53Z
+","Product: cpe:/a:apache:http_server:2.4.10
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2017-2104,DFN-CERT-2017-1926,DFN-CERT-2017-1925,DFN-CERT-2017-1692,DFN-CERT-2017-0532,DFN-CERT-2017-0060,DFN-CERT-2016-2108,DFN-CERT-2016-1717,DFN-CERT-2016-1372,DFN-CERT-2016-1175,DFN-CERT-2016-1162,DFN-CERT-2016-1153,WID-SEC-2025-2522,WID-SEC-2025-0370,CB-K17/2013,CB-K17/1854,CB-K17/1842,CB-K17/1622,CB-K17/0527,CB-K17/0055,CB-K16/1995,CB-K16/1620,CB-K16/1289,CB-K16/1103,CB-K16/1088,CB-K16/1087",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,7.5,High,30,"VendorFix","Apache HTTP Server mod_session_crypto Vulnerability (Dec 2016) - Linux","Apache HTTP Server is prone to a vulnerability in mod_session_crypto.","Installed version: 2.4.10
+Fixed version:     2.4.25
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.147045,"CVE-2016-0736",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,bfea5dfd-0a05-44f8-b2e3-504e643660cf,"","Update to version 2.4.25 or later.","Apache HTTP Server version 2.4.1 through 2.4.23.","mod_sessioncrypto is encrypting its data/cookie using the
+  configured ciphers with possibly either CBC or ECB modes of operation (AES256-CBC by default),
+  hence no selectable or builtin authenticated encryption. This makes it vulnerable to padding
+  oracle attacks, particularly with CBC. An authentication tag (SipHash MAC) is now added to
+  prevent such attacks.","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server mod_session_crypto Vulnerability (Dec 2016) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.147045)
+Version used: 2021-11-01T14:03:43Z
+","Product: cpe:/a:apache:http_server:2.4.10
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2017-1925,DFN-CERT-2017-1692,DFN-CERT-2017-0988,DFN-CERT-2017-0814,DFN-CERT-2017-0723,DFN-CERT-2017-0532,DFN-CERT-2016-2108,WID-SEC-2025-0370,CB-K19/0354,CB-K17/1854,CB-K17/1622,CB-K17/0955,CB-K17/0794,CB-K17/0704,CB-K17/0527,CB-K16/1995",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,5.0,Medium,30,"VendorFix","Apache HTTP Server Multiple Vulnerabilities (Aug 2015) - Linux","Apache HTTP Server is prone to multiple vulnerabilities.","Installed version: 2.4.10
+Fixed version:     2.4.14
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.806018,"CVE-2015-3185,CVE-2015-3183",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,be6c134c-1b92-428b-99c5-7f026b65a02d,"Successful exploitation will allow remote
+  attackers to bypass intended access restrictions in opportunistic
+  circumstances and to cause cache poisoning or credential hijacking if an
+  intermediary proxy is in use.","Update to version 2.4.14 or later.","Apache HTTP Server version 2.4.x before
+  2.4.14.","Multiple flaws are due to:
+
+  - an error in 'ap_some_auth_required' function in 'server/request.c'
+  script which does not consider that a Require directive may be associated with
+  an authorization setting rather than an authentication setting.
+
+  - an error in chunked transfer coding implementation.","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server Multiple Vulnerabilities (Aug 2015) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.806018)
+Version used: 2024-02-16T05:06:55Z
+","Product: cpe:/a:apache:http_server:2.4.10
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2017-1626,DFN-CERT-2016-2081,DFN-CERT-2016-1692,DFN-CERT-2016-1168,DFN-CERT-2016-0125,DFN-CERT-2016-0101,DFN-CERT-2016-0035,DFN-CERT-2015-1950,DFN-CERT-2015-1665,DFN-CERT-2015-1608,DFN-CERT-2015-1542,DFN-CERT-2015-1435,DFN-CERT-2015-1431,DFN-CERT-2015-1350,DFN-CERT-2015-1252,DFN-CERT-2015-1198,DFN-CERT-2015-1146,DFN-CERT-2015-1087,CB-K17/1558,CB-K16/1972,CB-K16/1593,CB-K16/1102,CB-K16/0564,CB-K16/0112,CB-K16/0090,CB-K16/0030,CB-K15/1841,CB-K15/1578,CB-K15/1517,CB-K15/1464,CB-K15/1360,CB-K15/1358,CB-K15/1281,CB-K15/1188,CB-K15/1146,CB-K15/1089,CB-K15/1051",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,6.8,Medium,30,"VendorFix","Apache HTTP Server Multiple Vulnerabilities (Sep 2014) - Linux","Apache HTTP Server is prone to multiple vulnerabilities.","Installed version: 2.4.10
+Fixed version:     2.4.12
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.147048,"CVE-2013-5704,CVE-2014-0118,CVE-2014-0226,CVE-2014-0231",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,3460e241-0321-40b1-871f-4640e86fd3f0,"","Update to version 2.2.29, 2.4.12 or later.","Apache HTTP Server version 2.2.0 through 2.2.27 and 2.4.1
+  through 2.4.10.","The following vulnerabilities exist:
+
+  - CVE-2013-5704: HTTP trailers could be used to replace HTTP headers late during request
+  processing, potentially undoing or otherwise confusing modules that examined or modified
+  request headers earlier. This fix adds the 'MergeTrailers' directive to restore legacy behavior.
+
+  - CVE-2014-0118: A resource consumption flaw was found in mod_deflate. If request body
+  decompression was configured (using the 'DEFLATE' input filter), a remote attacker could cause
+  the server to consume significant memory and/or CPU resources. The use of request body
+  decompression is not a common configuration.
+
+  - CVE-2014-0226: A race condition was found in mod_status. An attacker able to access a public
+  server status page on a server using a threaded MPM could send a carefully crafted request which
+  could lead to a heap buffer overflow. Note that it is not a default or recommended configuration
+  to have a public accessible server status page.
+
+  - CVE-2014-0231: A flaw was found in mod_cgid. If a server using mod_cgid hosted CGI scripts
+  which did not consume standard input, a remote attacker could cause child processes to hang
+  indefinitely, leading to denial of service.","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server Multiple Vulnerabilities (Sep 2014) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.147048)
+Version used: 2021-11-01T03:59:12Z
+","Product: cpe:/a:apache:http_server:2.4.10
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2016-0125,DFN-CERT-2015-1950,DFN-CERT-2015-1608,DFN-CERT-2015-1435,DFN-CERT-2015-1137,DFN-CERT-2015-1069,DFN-CERT-2015-1008,DFN-CERT-2015-1002,DFN-CERT-2015-0842,DFN-CERT-2015-0495,DFN-CERT-2015-0083,DFN-CERT-2015-0079,DFN-CERT-2014-1727,DFN-CERT-2014-1691,DFN-CERT-2014-1668,DFN-CERT-2014-1633,DFN-CERT-2014-1145,DFN-CERT-2014-1094,DFN-CERT-2014-1088,DFN-CERT-2014-1019,DFN-CERT-2014-1017,DFN-CERT-2014-0967,DFN-CERT-2014-0926,CB-K16/0112,CB-K15/1841,CB-K15/1517,CB-K15/1360,CB-K15/1078,CB-K15/1011,CB-K15/0960,CB-K15/0954,CB-K15/0806,CB-K15/0493,CB-K15/0469,CB-K15/0079,CB-K15/0075,CB-K14/1626,CB-K14/1592,CB-K14/1568,CB-K14/1545,CB-K14/1095,CB-K14/1050,CB-K14/1043,CB-K14/0969,CB-K14/0968,CB-K14/0924,CB-K14/0883",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,7.5,High,30,"VendorFix","Apache HTTP Server OPTIONS Memory Leak Vulnerability (Optionsbleed) - Version Check","Apache HTTP Server allows remote attackers to read
+  secret data from process memory if the Limit directive can be set in a user's .htaccess
+  file, or if httpd.conf has certain misconfigurations, aka Optionsbleed.","Installed version: 2.4.10
+Fixed version:     2.4.28
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.108252,"CVE-2017-9798",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,b3f95741-aeab-4290-a03d-b3b466266327,"The successful exploitation allows the attacker to read
+  chunks of the host's memory.","Update to Apache HTTP Server 2.4.28. For Apache HTTP
+  Server running version 2.2.34 apply the patch linked in the references.
+
+  As a workaround the usage of .htaccess should be disabled completely via the
+  'AllowOverride None' directive within the webservers configuration. Furthermore all
+  <Limit> statements within the webserver configuration needs to be verified for
+  invalid HTTP methods.","Apache HTTP Server 2.2.x versions up to 2.2.34 and
+  2.4.x below 2.4.28.","Optionsbleed is a use after free error in the Apache
+  HTTP Server that causes a corrupted Allow header to be constructed in response to HTTP
+  OPTIONS requests. This can leak pieces of arbitrary memory from the server process that
+  may contain secrets. The memory pieces change after multiple requests, so for a vulnerable
+  host an arbitrary number of memory chunks can be leaked.
+
+  The bug appears if a webmaster tries to use the 'Limit' directive with an invalid HTTP
+  method.
+
+  Example .htaccess:
+
+  <Limit abcxyz>
+  </Limit>","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server OPTIONS Memory Leak Vulnerability (Optionsbleed) - Versio...
+(OID: 1.3.6.1.4.1.25623.1.0.108252)
+Version used: 2025-01-21T05:37:33Z
+","Product: cpe:/a:apache:http_server:2.4.10
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2019-0359,DFN-CERT-2018-2113,DFN-CERT-2018-1070,DFN-CERT-2018-0725,DFN-CERT-2018-0100,DFN-CERT-2018-0077,DFN-CERT-2017-2290,DFN-CERT-2017-2211,DFN-CERT-2017-2108,DFN-CERT-2017-2070,DFN-CERT-2017-2021,DFN-CERT-2017-1954,DFN-CERT-2017-1854,DFN-CERT-2017-1843,DFN-CERT-2017-1659,WID-SEC-2023-1594,CB-K18/1012,CB-K18/0800,CB-K18/0606,CB-K18/0098,CB-K18/0066,CB-K17/2188,CB-K17/2117,CB-K17/2021,CB-K17/1980,CB-K17/1936,CB-K17/1871,CB-K17/1773,CB-K17/1768,CB-K17/1587",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,0.0,Log,80,"","Composer composer.lock / composer.json Accessible","The remote host is exposing a 'composer.json' and / or 'composer.lock'
+  file of the Composer dependency manager for PHP. This file(s) might expose some information about the
+  structure of the web application and the installed software / dependencies on the remote host.","The following files have been identified:
+
+http://mediawiki128.trabalho_vulnnet/composer.json
+http://mediawiki128.trabalho_vulnnet/vendor/composer.json
+",1.3.6.1.4.1.25623.1.0.108761,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,1e9a7d13-cbe7-4cae-bdb4-5a1645b03ac6,"","","","","
+Details:
+Composer composer.lock / composer.json Accessible
+(OID: 1.3.6.1.4.1.25623.1.0.108761)
+Version used: 2023-12-13T05:05:23Z
+","","","",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,,,0.0,Log,80,"","CPE Inventory","This routine uses information collected by other routines about
+  CPE identities of operating systems, services and applications detected during the scan.
+
+  Note: Some CPEs for specific products might show up twice or more in the output. Background:
+
+  After a product got renamed or a specific vendor was acquired by another one it might happen that
+  a product gets a new CPE within the NVD CPE Dictionary but older entries are kept with the older
+  CPE.","172.31.1.94|cpe:/a:apache:http_server:2.4.10
+172.31.1.94|cpe:/a:jquery:jquery:1.11.3
+172.31.1.94|cpe:/a:php:php:7.0.25
+172.31.1.94|cpe:/o:debian:debian_linux:8
+
+",1.3.6.1.4.1.25623.1.0.810002,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,074b327e-97f6-4861-889a-a1320989e153,"","","","","
+Details:
+CPE Inventory
+(OID: 1.3.6.1.4.1.25623.1.0.810002)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,,,0.0,Log,80,"","Hostname Determination Reporting","The script reports information on how the hostname of the target
+  was determined.","Hostname determination for IP 172.31.1.94:
+
+Hostname|Source
+mediawiki128.trabalho_vulnnet|Reverse-DNS
+",1.3.6.1.4.1.25623.1.0.108449,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,5eaa80a1-12ed-4269-b527-1c84ead5a245,"","","","","
+Details:
+Hostname Determination Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.108449)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,0.0,Log,80,"","HTTP Security Headers Detection","All known security headers are being checked on the remote web
+  server.
+
+  On completion a report will hand back whether a specific security header has been implemented
+  (including its value and if it is deprecated) or is missing on the target.","Header Name            | Header Value
+-------------------------------------
+X-Content-Type-Options | nosniff
+
+Missing Headers                   | More Information
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Content-Security-Policy           | https://owasp.org/www-project-secure-headers/#content-security-policy
+Cross-Origin-Embedder-Policy      | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Cross-Origin-Opener-Policy        | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Cross-Origin-Resource-Policy      | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Document-Policy                   | https://w3c.github.io/webappsec-feature-policy/document-policy#document-policy-http-header
+Feature-Policy                    | https://owasp.org/www-project-secure-headers/#feature-policy, Note: The Feature Policy header has been renamed to Permissions Policy
+Permissions-Policy                | https://w3c.github.io/webappsec-feature-policy/#permissions-policy-http-header-field
+Referrer-Policy                   | https://owasp.org/www-project-secure-headers/#referrer-policy
+Sec-Fetch-Dest                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-Mode                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-Site                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-User                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+X-Frame-Options                   | https://owasp.org/www-project-secure-headers/#x-frame-options
+X-Permitted-Cross-Domain-Policies | https://owasp.org/www-project-secure-headers/#x-permitted-cross-domain-policies
+X-XSS-Protection                  | https://owasp.org/www-project-secure-headers/#x-xss-protection, Note: Most major browsers have dropped / deprecated support for this header in 2020.
+",1.3.6.1.4.1.25623.1.0.112081,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,891ae0f5-6518-4b5d-869b-91e2638829d4,"","","","","
+Details:
+HTTP Security Headers Detection
+(OID: 1.3.6.1.4.1.25623.1.0.112081)
+Version used: 2025-03-21T15:40:43Z
+","","","",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,0.0,Log,80,"","HTTP Server Banner Enumeration","This script tries to detect / enumerate different HTTP server
+  banner (e.g. from a frontend, backend or proxy server) by sending various different HTTP requests
+  (valid and invalid ones).","It was possible to enumerate the following HTTP server banner(s):
+
+Server banner                  | Enumeration technique
+-------------------------------------------------------------------------------------------------
+Server: Apache/2.4.10 (Debian) | Invalid HTTP 00.5 GET request (non-existent HTTP version) to '/'
+X-Powered-By: PHP/7.0.25       | Valid HTTP 1.1 GET request (with extended headers) to '/'
+",1.3.6.1.4.1.25623.1.0.108708,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,55b90db9-35c3-463c-9ab2-0414951d249d,"","","","","
+Details:
+HTTP Server Banner Enumeration
+(OID: 1.3.6.1.4.1.25623.1.0.108708)
+Version used: 2025-01-31T15:39:24Z
+","","","",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,0.0,Log,80,"","HTTP Server type and version","This script detects and reports the HTTP Server's banner
+  which might provide the type and version of it.","The remote HTTP Server banner is:
+
+Server: Apache/2.4.10 (Debian)
+",1.3.6.1.4.1.25623.1.0.10107,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,1de71fdf-f8a2-491f-b1c4-9156694be3ac,"","","","","
+Details:
+HTTP Server type and version
+(OID: 1.3.6.1.4.1.25623.1.0.10107)
+Version used: 2023-08-01T13:29:10Z
+","","","",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,,,2.1,Low,80,"Mitigation","ICMP Timestamp Reply Information Disclosure","The remote host responded to an ICMP timestamp request.","The following response / ICMP packet has been received:
+- ICMP Type: 14
+- ICMP Code: 0
+",1.3.6.1.4.1.25623.1.0.103190,"CVE-1999-0524",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,e0e54440-9987-4d34-b3f0-a5d07d188cfc,"This information could theoretically be used to exploit weak
+  time-based random number generators in other services.","Various mitigations are possible:
+
+  - Disable the support for ICMP timestamp on the remote host completely
+
+  - Protect the remote host by a firewall, and block ICMP packets passing through the firewall in
+  either direction (either completely or only for untrusted networks)","","The Timestamp Reply is an ICMP message which replies to a
+  Timestamp message. It consists of the originating timestamp sent by the sender of the Timestamp as
+  well as a receive timestamp and a transmit timestamp.","Sends an ICMP Timestamp (Type 13) request and checks if a
+  Timestamp Reply (Type 14) is received.
+Details:
+ICMP Timestamp Reply Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.103190)
+Version used: 2025-01-21T05:37:33Z
+","","","DFN-CERT-2014-0658,CB-K15/1514,CB-K14/0632",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,,,0.0,Log,70,"","IP Forwarding Enabled - Active Check","Checks if the remote host has IP forwarding enabled.","It was possible to route a TCP packet through the target host and received an answer which means IP forwarding is enabled.
+",1.3.6.1.4.1.25623.1.0.147205,"CVE-1999-0511",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,88becbf9-6b1e-4aea-8dc5-0595ad75283f,"","","","","Sends a crafted Local Link Layer (LLL) frame and checks the
+  response.
+Details:
+IP Forwarding Enabled - Active Check
+(OID: 1.3.6.1.4.1.25623.1.0.147205)
+Version used: 2021-12-03T08:27:06Z
+","","","",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,6.1,Medium,30,"VendorFix","jQuery 1.0.3 < 3.5.0 XSS Vulnerability","jQuery is prone to a cross-site scripting (XSS) vulnerability
+  when appending HTML containing option elements.","Installed version: 1.11.3
+Fixed version:     3.5.0
+Installation
+path / port:       /mw-config/../resources/lib/jquery/jquery.js
+
+Detection info (see OID: 1.3.6.1.4.1.25623.1.0.150658 for more info):
+- Identified file: http://mediawiki128.trabalho_vulnnet/mw-config/../resources/lib/jquery/jquery.js
+- Referenced at:   http://mediawiki128.trabalho_vulnnet/mw-config/
+",1.3.6.1.4.1.25623.1.0.143813,"CVE-2020-11023",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,8bad4908-c1f6-4b75-ab71-143cd6f65834,"","Update to version 3.5.0 or later.","jQuery versions starting from 1.0.3 and prior to version
+  3.5.0.","Passing HTML containing <option> elements from untrusted
+  sources - even after sanitizing them - to one of jQuery's DOM manipulation methods (i.e. .html(),
+  .append(), and others) may execute untrusted code.","Checks if a vulnerable version is present on the target host.
+Details:
+jQuery 1.0.3 < 3.5.0 XSS Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.143813)
+Version used: 2025-01-31T15:39:24Z
+","","","DFN-CERT-2025-2802,DFN-CERT-2025-1803,DFN-CERT-2025-0559,DFN-CERT-2025-0497,DFN-CERT-2025-0373,DFN-CERT-2025-0348,DFN-CERT-2024-2743,DFN-CERT-2023-2027,DFN-CERT-2023-1197,DFN-CERT-2023-0481,DFN-CERT-2023-0245,DFN-CERT-2022-1988,DFN-CERT-2022-1610,DFN-CERT-2022-0119,DFN-CERT-2022-0074,DFN-CERT-2021-2348,DFN-CERT-2021-1687,DFN-CERT-2021-1111,DFN-CERT-2021-0820,DFN-CERT-2021-0633,DFN-CERT-2021-0563,DFN-CERT-2021-0545,DFN-CERT-2020-2776,DFN-CERT-2020-2423,DFN-CERT-2020-2335,DFN-CERT-2020-2287,DFN-CERT-2020-2227,DFN-CERT-2020-2209,DFN-CERT-2020-2074,DFN-CERT-2020-1743,DFN-CERT-2020-1712,DFN-CERT-2020-1509,DFN-CERT-2020-1506,DFN-CERT-2020-1433,DFN-CERT-2020-1163,DFN-CERT-2020-1099,WID-SEC-2025-1459,WID-SEC-2024-3191,WID-SEC-2024-1872,WID-SEC-2023-0239,WID-SEC-2023-0063,WID-SEC-2022-1347,WID-SEC-2022-1189,WID-SEC-2022-0757,WID-SEC-2022-0732,CB-K21/1085,CB-K21/1067,CB-K21/0418,CB-K20/1049,CB-K20/1027,CB-K20/1025,CB-K20/1024,CB-K20/1021,CB-K20/1008,CB-K20/0870,CB-K20/0800,CB-K20/0705,CB-K20/0521",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,6.1,Medium,30,"VendorFix","jQuery 1.2 < 3.5.0 XSS Vulnerability","jQuery is prone to a cross-site scripting (XSS) vulnerability in
+  jQuery.htmlPrefilter and related methods.","Installed version: 1.11.3
+Fixed version:     3.5.0
+Installation
+path / port:       /mw-config/../resources/lib/jquery/jquery.js
+
+Detection info (see OID: 1.3.6.1.4.1.25623.1.0.150658 for more info):
+- Identified file: http://mediawiki128.trabalho_vulnnet/mw-config/../resources/lib/jquery/jquery.js
+- Referenced at:   http://mediawiki128.trabalho_vulnnet/mw-config/
+",1.3.6.1.4.1.25623.1.0.143812,"CVE-2020-11022",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,5b3058fe-84f9-4659-a6de-ddfb328d31e5,"","Update to version 3.5.0 or later.","jQuery versions starting from 1.2 and prior to version
+  3.5.0.","Passing HTML from untrusted sources - even after sanitizing it -
+  to one of jQuery's DOM manipulation methods (i.e. .html(), .append(), and others) may execute
+  untrusted code.","Checks if a vulnerable version is present on the target host.
+Details:
+jQuery 1.2 < 3.5.0 XSS Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.143812)
+Version used: 2023-07-14T05:06:08Z
+","","","DFN-CERT-2025-1803,DFN-CERT-2025-0559,DFN-CERT-2025-0041,DFN-CERT-2023-2027,DFN-CERT-2023-1197,DFN-CERT-2023-0481,DFN-CERT-2023-0245,DFN-CERT-2022-1988,DFN-CERT-2022-1670,DFN-CERT-2022-0869,DFN-CERT-2022-0074,DFN-CERT-2021-2190,DFN-CERT-2021-1111,DFN-CERT-2021-0828,DFN-CERT-2021-0826,DFN-CERT-2021-0819,DFN-CERT-2021-0633,DFN-CERT-2021-0545,DFN-CERT-2021-0140,DFN-CERT-2021-0138,DFN-CERT-2021-0135,DFN-CERT-2021-0132,DFN-CERT-2020-2423,DFN-CERT-2020-2335,DFN-CERT-2020-2305,DFN-CERT-2020-2286,DFN-CERT-2020-2227,DFN-CERT-2020-2209,DFN-CERT-2020-2130,DFN-CERT-2020-2074,DFN-CERT-2020-2015,DFN-CERT-2020-2001,DFN-CERT-2020-1838,DFN-CERT-2020-1812,DFN-CERT-2020-1712,DFN-CERT-2020-1509,DFN-CERT-2020-1506,DFN-CERT-2020-1433,DFN-CERT-2020-1163,DFN-CERT-2020-1161,DFN-CERT-2020-1138,DFN-CERT-2020-1099,WID-SEC-2025-1087,WID-SEC-2024-3217,WID-SEC-2024-1872,WID-SEC-2023-0239,WID-SEC-2023-0063,WID-SEC-2022-1767,WID-SEC-2022-1347,WID-SEC-2022-0740,WID-SEC-2022-0732,WID-SEC-2022-0624,CB-K22/0463,CB-K21/1085,CB-K21/0071,CB-K21/0070,CB-K21/0069,CB-K21/0067,CB-K21/0061,CB-K21/0059,CB-K20/1049,CB-K20/1030,CB-K20/1027,CB-K20/1025,CB-K20/1023,CB-K20/1008,CB-K20/0870,CB-K20/0800,CB-K20/0705,CB-K20/0521",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,6.1,Medium,30,"VendorFix","jQuery < 3.0.0 XSS Vulnerability","jQuery is prone to a cross-site scripting (XSS)
+  vulnerability.","Installed version: 1.11.3
+Fixed version:     3.0.0
+Installation
+path / port:       /mw-config/../resources/lib/jquery/jquery.js
+
+Detection info (see OID: 1.3.6.1.4.1.25623.1.0.150658 for more info):
+- Identified file: http://mediawiki128.trabalho_vulnnet/mw-config/../resources/lib/jquery/jquery.js
+- Referenced at:   http://mediawiki128.trabalho_vulnnet/mw-config/
+",1.3.6.1.4.1.25623.1.0.141635,"CVE-2015-9251",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,bb9a3032-d5b9-41fa-b619-ffed8443dd70,"","Update to version 3.0.0 or later.","jQuery prior to version 3.0.0.","When a cross-domain Ajax request is performed without the
+  dataType option, causing text/javascript responses to be executed.","Checks if a vulnerable version is present on the target host.
+Details:
+jQuery < 3.0.0 XSS Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.141635)
+Version used: 2023-07-14T05:06:08Z
+","","","DFN-CERT-2023-1197,DFN-CERT-2023-0245,DFN-CERT-2020-2423,DFN-CERT-2020-2130,DFN-CERT-2020-0630,DFN-CERT-2020-0590,DFN-CERT-2020-0318,DFN-CERT-2019-2158,DFN-CERT-2019-1455,DFN-CERT-2019-0777,DFN-CERT-2019-0772,DFN-CERT-2019-0119,DFN-CERT-2019-0111,DFN-CERT-2018-2103,DFN-CERT-2018-1163,WID-SEC-2025-1660,WID-SEC-2025-1212,WID-SEC-2024-1872,WID-SEC-2024-1682,WID-SEC-2023-0239,WID-SEC-2022-0673,CB-K22/0045,CB-K20/1030,CB-K20/0309,CB-K20/0041,CB-K19/0911,CB-K19/0909,CB-K19/0615,CB-K19/0321,CB-K19/0313,CB-K19/0054,CB-K19/0052,CB-K19/0049,CB-K19/0048,CB-K19/0046,CB-K18/1006",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,6.1,Medium,30,"VendorFix","jQuery < 3.4.0 Object Extensions Vulnerability","jQuery is prone to multiple vulnerabilities regarding property
+  injection in Object.prototype.","Installed version: 1.11.3
+Fixed version:     3.4.0
+Installation
+path / port:       /mw-config/../resources/lib/jquery/jquery.js
+
+Detection info (see OID: 1.3.6.1.4.1.25623.1.0.150658 for more info):
+- Identified file: http://mediawiki128.trabalho_vulnnet/mw-config/../resources/lib/jquery/jquery.js
+- Referenced at:   http://mediawiki128.trabalho_vulnnet/mw-config/
+",1.3.6.1.4.1.25623.1.0.142314,"CVE-2019-5428,CVE-2019-11358",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,a893928a-3ebc-4e59-8205-e82ac2ccbe38,"","Update to version 3.4.0 or later. Patch diffs are available for
+  older versions.","jQuery prior to version 3.4.0.","The following flaws exist:
+
+  - CVE-2019-5428: A prototype pollution vulnerability exists that allows an attacker to inject
+  properties on Object.prototype.
+
+  - CVE-2019-11358: jQuery mishandles jQuery.extend(true, {}, ...) because of Object.prototype
+  pollution. If an unsanitized source object contained an enumerable __proto__ property, it could
+  extend the native Object.prototype.","Checks if a vulnerable version is present on the target host.
+Details:
+jQuery < 3.4.0 Object Extensions Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.142314)
+Version used: 2023-07-14T05:06:08Z
+","","","DFN-CERT-2025-1803,DFN-CERT-2024-1997,DFN-CERT-2023-2027,DFN-CERT-2023-1197,DFN-CERT-2023-0481,DFN-CERT-2023-0245,DFN-CERT-2022-2467,DFN-CERT-2021-1536,DFN-CERT-2021-1503,DFN-CERT-2021-0826,DFN-CERT-2020-2423,DFN-CERT-2020-2335,DFN-CERT-2020-2286,DFN-CERT-2020-2130,DFN-CERT-2020-1812,DFN-CERT-2020-1574,DFN-CERT-2020-1537,DFN-CERT-2020-1506,DFN-CERT-2020-0772,DFN-CERT-2020-0769,DFN-CERT-2020-0721,DFN-CERT-2020-0276,DFN-CERT-2020-0102,DFN-CERT-2020-0100,DFN-CERT-2019-2169,DFN-CERT-2019-2158,DFN-CERT-2019-2156,DFN-CERT-2019-2126,DFN-CERT-2019-1861,DFN-CERT-2019-1663,DFN-CERT-2019-1460,DFN-CERT-2019-1182,DFN-CERT-2019-1153,DFN-CERT-2019-1118,DFN-CERT-2019-1033,DFN-CERT-2019-0914,DFN-CERT-2019-0899,DFN-CERT-2019-0805,WID-SEC-2024-1872,WID-SEC-2023-1737,WID-SEC-2023-0239,WID-SEC-2022-1948,WID-SEC-2022-1947,WID-SEC-2022-0732,WID-SEC-2022-0673,CB-K22/0045,CB-K21/1083,CB-K20/1049,CB-K20/1030,CB-K20/0800,CB-K20/0710,CB-K20/0324,CB-K20/0314,CB-K20/0309,CB-K20/0106,CB-K20/0041,CB-K20/0037,CB-K20/0034,CB-K19/0921,CB-K19/0920,CB-K19/0916,CB-K19/0911,CB-K19/0909,CB-K19/0619,CB-K19/0504,CB-K19/0329",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,,,0.0,Log,80,"","jQuery Detection Consolidation","Consolidation of jQuery detections.","Detected jQuery
+
+Version:       1.11.3
+Location:      /mw-config/../resources/lib/jquery/jquery.js
+CPE:           cpe:/a:jquery:jquery:1.11.3
+
+Concluded from version/product identification result:
+src=""../resources/lib/jquery/jquery.js
+jQuery JavaScript Library v1.11.3
+
+Concluded from version/product identification location:
+- Identified file: http://mediawiki128.trabalho_vulnnet/mw-config/../resources/lib/jquery/jquery.js
+- Referenced at:   http://mediawiki128.trabalho_vulnnet/mw-config/
+",1.3.6.1.4.1.25623.1.0.150658,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,cfbdb690-2703-4aa6-a347-6f2d006a5fb2,"","","","","
+Details:
+jQuery Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.150658)
+Version used: 2023-07-14T05:06:08Z
+","","","",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,5.0,Medium,70,"Mitigation","Missing HttpOnly Cookie Attribute (HTTP)","The remote HTTP web server / application is missing to set the
+  'HttpOnly' cookie attribute for one or more sent HTTP cookie.","The cookie(s):
+
+Set-Cookie: mw_installer_session=***replaced***; path=/
+
+is/are missing the ""HttpOnly"" cookie attribute.
+",1.3.6.1.4.1.25623.1.0.105925,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,ea8e89fd-2887-4412-a784-7126918d302e,"","'- Set the 'HttpOnly' cookie attribute for any session cookie
+
+  - Evaluate / do an own assessment of the security impact on the web server / application and create
+  an override for this result if there is none (this can't be checked automatically by this VT)","Any web application with session handling in cookies.","The flaw exists if a session cookie is not using the 'HttpOnly'
+  cookie attribute.
+
+  This allows a cookie to be accessed by JavaScript which could lead to session hijacking
+  attacks.","Checks all cookies sent by the remote HTTP web server /
+  application for a missing 'HttpOnly' cookie attribute.
+Details:
+Missing 'HttpOnly' Cookie Attribute (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.105925)
+Version used: 2024-01-12T16:12:12Z
+","","","",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,,,0.0,Log,80,"","OS Detection Consolidation and Reporting","This script consolidates the OS information detected by several
+  VTs and tries to find the best matching OS.
+
+  Furthermore it reports all previously collected information leading to this best matching OS. It
+  also reports possible additional information which might help to improve the OS detection.
+
+  If any of this information is wrong or could be improved please consider to report these to the
+  referenced community forum.","Best matching OS:
+
+OS:           Debian GNU/Linux 8
+Version:      8
+CPE:          cpe:/o:debian:debian_linux:8
+Found by VT:  1.3.6.1.4.1.25623.1.0.111067 (Operating System (OS) Detection (HTTP))
+Concluded from HTTP Server banner on port 80/tcp: Server: Apache/2.4.10 (Debian)
+Setting key ""Host/runs_unixoide"" based on this information
+",1.3.6.1.4.1.25623.1.0.105937,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,b3b51892-e1f8-4ae9-a2b9-86a9a6fb55d2,"","","","","
+Details:
+OS Detection Consolidation and Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.105937)
+Version used: 2026-01-21T05:50:46Z
+","","","",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,7.5,High,30,"WillNotFix","PHP CVE-2017-7189 Improper Input Validation Vulnerability - Linux","PHP is improperly validating input from untrusted input.","Installed version: 7.0.25
+Fixed version:     None
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.108874,"CVE-2017-7189",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,f39729a2-1a33-4508-822e-ea778ebd13d4,"","No solution was made available by the vendor. General
+  solution options are to upgrade to a newer release, disable respective features, remove the
+  product or replace the product by another one.
+
+  Note: PHP versions 7.0.18 and 7.1.4 introduced a fix which was reverted again in version 7.0.19 /
+  7.1.5 respectively and the fix wasn't introduced again as of today (08-2020).","All PHP versions since 4.3.0 up to the latest 7.x versions.
+
+  Note: PHP versions 7.0.18 and 7.1.4 introduced a fix which was reverted again in version 7.0.19 /
+  7.1.5 respectively.","main/streams/xp_socket.c in PHP misparses fsockopen calls,
+  such as by interpreting fsockopen('127.0.0.1:80', 443) as if the address/port were
+  127.0.0.1:80:443, which is later truncated to 127.0.0.1:80. This behavior has a security risk if
+  the explicitly provided port number (i.e., 443 in this example) is hardcoded into an application
+  as a security policy, but the hostname argument (i.e., 127.0.0.1:80 in this example) is obtained
+  from untrusted input.","Checks if a vulnerable version is present on the target host.
+Details:
+PHP 'CVE-2017-7189' Improper Input Validation Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.108874)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,6.1,Medium,50,"VendorFix","PHP Transfer-Encoding: chunked XSS Vulnerability - Active Check","PHP is prone to a cross-site scripting (XSS) vulnerability.","Vulnerable URL: http://mediawiki128.trabalho_vulnnet/index.php
+Header:    ""Transfer-Encoding: chunked""
+POST-Data: <script>alert(document.cookie)</script>
+",1.3.6.1.4.1.25623.1.0.814021,"CVE-2018-17082",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,8bada5d6-7b02-4ecd-ac68-8674227736de,"Successful exploitation allows a remote attacker to execute
+  arbitrary script code in the browser of an unsuspecting user in the context of the affected site.
+  This may allow the attacker to steal cookie-based authentication credentials and to launch
+  other attacks.","Update to PHP 5.6.38, 7.2.10, 7.1.22 or later. Please see
+  the references for more information.","'sapi/apache2handler/sapi_apache2.c' component in PHP before
+  5.6.38, 7.0.x before 7.0.32, 7.1.x before 7.1.22, and 7.2.x before 7.2.10.","The flaw is due to the bucket brigade is mishandled in the
+  php_handler function in 'sapi/apache2handler/sapi_apache2.c' script.","Sends a crafted HTTP POST request and confirms the
+  vulnerability from the response.
+Details:
+PHP 'Transfer-Encoding: chunked' XSS Vulnerability - Active Check
+(OID: 1.3.6.1.4.1.25623.1.0.814021)
+Version used: 2025-04-30T05:39:51Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2022-2638,DFN-CERT-2019-1737,DFN-CERT-2018-2435,DFN-CERT-2018-1960,DFN-CERT-2018-1843,WID-SEC-2022-2129,CB-K18/0920",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,7.0,High,30,"VendorFix","PHP 5.3.7 - 7.3.31, 7.4.x < 7.4.25, 8.0.x < 8.0.12 Security Update (Oct 2021) - Linux","PHP released new versions which includes a security fix.","Installed version: 7.0.25
+Fixed version:     7.3.32 (not released yet)
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.117752,"CVE-2021-21703",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,4ec76547-1df3-448a-9c60-42e286236f52,"","Update to version 7.3.32 (not released yet), 7.4.25, 8.0.12
+  or later.","PHP versions 5.3.7 through 7.3.31, 7.4.x through 7.4.24 and
+  8.0.x through 8.0.11.
+
+  Note: While the referenced CVE is only listing PHP 7.3.x, 7.4.x and 8.0.x as affected the security
+  research team is stating in the linked blog post that all versions down to 5.3.7 are affected.","Fixed bug #81026 (PHP-FPM oob R/W in root process leading to
+  privilege escalation).","Checks if a vulnerable version is present on the target host.
+Details:
+PHP 5.3.7 - 7.3.31, 7.4.x < 7.4.25, 8.0.x < 8.0.12 Security Update (Oct 2021...
+(OID: 1.3.6.1.4.1.25623.1.0.117752)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2023-1600,DFN-CERT-2022-2639,DFN-CERT-2022-2638,DFN-CERT-2022-2337,DFN-CERT-2022-1493,DFN-CERT-2022-1046,DFN-CERT-2022-0485,DFN-CERT-2021-2586,DFN-CERT-2021-2474,DFN-CERT-2021-2200,WID-SEC-2023-1737,WID-SEC-2022-0624,WID-SEC-2022-0586,CB-K21/1106",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,7.5,High,30,"VendorFix","PHP 5.6.x < 5.6.38, 7.x < 7.0.33, 7.1.x < 7.1.25, 7.2.x < 7.2.13 Multiple Vulnerabilities (Dec 2018) - Linux","PHP is prone to multiple security vulnerabilities.","Installed version: 7.0.25
+Fixed version:     7.0.33
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.108507,"CVE-2018-19395,CVE-2018-19396,CVE-2018-19518,CVE-2018-20783",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,7e0ac838-5781-4b44-9acf-51a25ed24a3e,"Successful exploitation will allow remote attackers to execute
+  remote code on the affected application/system and/or cause a cause a denial of service.","Update to version 5.6.39, 7.0.33, 7.1.25, 7.2.13, 7.3.0 or
+  later.","PHP versions 5.6.x prior to 5.6.39, 7.0.x prior to 7.0.33,
+  7.1.x prior to 7.1.25 and 7.2.x prior to 7.2.13.","The following flaws exist:
+
+  - CVE-2018-19518: The imap_open functions which allows to run arbitrary shell commands via mailbox
+  parameter.
+
+  - CVE-2018-20783: Heap Buffer Overflow in phar_parse_pharfile.
+
+  - CVE-2018-19396: ext/standard/var_unserializer.c allows attackers to cause a denial of service
+  (application crash) via an unserialize call for the com, dotnet, or variant class.
+
+  - CVE-2018-19395: Denial of service because com and com_safearray_proxy return NULL in
+  com_properties_get in ext/com_dotnet/com_handlers.c, as demonstrated by a serialize call on
+  COM('WScript.Shell').","Checks if a vulnerable version is present on the target host.
+Details:
+PHP 5.6.x < 5.6.38, 7.x < 7.0.33, 7.1.x < 7.1.25, 7.2.x < 7.2.13 Multiple Vu...
+(OID: 1.3.6.1.4.1.25623.1.0.108507)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2022-2638,DFN-CERT-2020-0898,DFN-CERT-2019-2283,DFN-CERT-2019-1737,DFN-CERT-2019-1181,DFN-CERT-2019-1052,DFN-CERT-2019-0804,DFN-CERT-2019-0698,DFN-CERT-2019-0440,DFN-CERT-2018-2488,DFN-CERT-2018-2476,CB-K18/1118",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,7.5,High,30,"VendorFix","PHP 5.x < 5.6.39, 7.x < 7.0.33, 7.1.x < 7.1.26, 7.2.x < 7.2.14 DoS Vulnerability - Linux","PHP is prone to a denial of service (DoS) vulnerability.","Installed version: 7.0.25
+Fixed version:     7.0.33
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.108505,"CVE-2018-19935",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,6a2fbdf1-8437-46bf-944c-f9c4862a0ada,"Successful exploitation will allow attackers to cause a denial
+  of service of the affected application.","Update to version 5.6.39, 7.0.33, 7.1.26, 7.2.14, 7.3.0 or
+  later.","PHP versions 5.x prior to 5.6.39, 7.0.x prior to 7.0.33,
+  7.1.x prior to 7.1.26 and 7.2.x prior to 7.2.14.","A NULL pointer dereference and application crash via an empty
+  string occurs in the message argument to the imap_mail function of ext/imap/php_imap.c.","Checks if a vulnerable version is present on the target host.
+Details:
+PHP 5.x < 5.6.39, 7.x < 7.0.33, 7.1.x < 7.1.26, 7.2.x < 7.2.14 DoS Vulnerabi...
+(OID: 1.3.6.1.4.1.25623.1.0.108505)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2022-2638,DFN-CERT-2019-1181,DFN-CERT-2019-0313,DFN-CERT-2019-0044,DFN-CERT-2018-2476,WID-SEC-2022-2128,CB-K18/1154",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,6.5,Medium,30,"VendorFix","PHP 5.x < 7.1.20, 7.2.x < 7.2.8, 7.3.0alpha1 < 7.3.0alpha3 DoS Vulnerability - Linux","PHP is prone to a denial of service (DoS) vulnerability.","Installed version: 7.0.25
+Fixed version:     7.1.20
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.812520,"CVE-2015-9253",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,a8a0b53a-1613-49cd-bd97-557d665c93a2,"Successfully exploitation will allow an attacker to consume
+  100% of the CPU, and consume disk space with a large volume of error logs, as demonstrated by an
+  attack by a customer of a shared-hosting facility.","Update to version 7.1.20, 7.2.8, 7.3.0alpha3 or later.","PHP versions 5.x, 7.0.x, 7.1.x prior to 7.1.20, 7.2.x prior
+  to 7.2.8 and 7.3.x prior to 7.3.0alpha3 on Linux.","The flaw exists due to the php-fpm master process restarts a
+  child process in an endless loop when using program execution functions with a non-blocking STDIN
+  stream.","Checks if a vulnerable version is present on the target host.
+Details:
+PHP 5.x < 7.1.20, 7.2.x < 7.2.8, 7.3.0alpha1 < 7.3.0alpha3 DoS Vulnerability...
+(OID: 1.3.6.1.4.1.25623.1.0.812520)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2022-2638,DFN-CERT-2022-0485,DFN-CERT-2022-0455,DFN-CERT-2022-0431,DFN-CERT-2020-0337,DFN-CERT-2018-1882",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,7.5,High,30,"VendorFix","PHP 7.x < 7.0.27, 7.1.x < 7.1.13, 7.2.0 Unspecified Vulnerability - Linux","PHP is prone to an unspecified vulnerability.","Installed version: 7.0.25
+Fixed version:     7.0.27
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.813904,"CVE-2018-14884",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,5f41b357-9e60-40a3-af63-c3f82bf3de1a,"Successful exploitation will allow attackers to cause
+  segmentation fault.","Update to version 7.0.27, 7.1.13, 7.2.1 or later.","PHP versions 7.0.x prior to 7.0.27, 7.1.x prior to 7.1.13 and
+  7.2.x prior to 7.2.1 on Linux.","The flaw exists due to an inappropriate parsing of HTTP
+  response 'http_header_value' in 'ext/standard/http_fopen_wrapper.c'.","Checks if a vulnerable version is present on the target host.
+Details:
+PHP 7.x < 7.0.27, 7.1.x < 7.1.13, 7.2.0 Unspecified Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.813904)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2019-1737",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,6.1,Medium,30,"VendorFix","PHP < 5.6.33, 7.x < 7.0.27, 7.1.x < 7.1.13, 7.2.x < 7.2.1 Multiple Vulnerabilities - Linux","PHP is prone to multiple vulnerabilities.","Installed version: 7.0.25
+Fixed version:     7.0.27
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.812735,"CVE-2018-5711,CVE-2018-5712",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,77c7ea11-a569-431f-bebb-10a6593fbc58,"Successfully exploiting these issues allows attacker to execute
+  arbitrary script code in the browser of an unsuspecting user in the context of the affected site.
+  This may allow the attacker to steal cookie-based authentication credentials and to launch other
+  attacks and will also lead to a denial of service and exhausting the server resources.","Update to version 5.6.33, 7.0.27, 7.1.13, 7.2.1 or later.","PHP prior to version 5.6.33, 7.0.x prior to 7.0.27, 7.1.x
+  prior to 7.1.13 and 7.2.x prior to 7.2.1.","The following flaws exist:
+
+  - CVE-2018-5712: Input validation error on the PHAR 404 error page via the URI of a request for a
+  .phar file.
+
+  - CVE-2018-5711: Integer signedness error in gd_gif_in.c in the GD Graphics Library (aka
+  libgd).","Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 5.6.33, 7.x < 7.0.27, 7.1.x < 7.1.13, 7.2.x < 7.2.1 Multiple Vulnerabi...
+(OID: 1.3.6.1.4.1.25623.1.0.812735)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2020-0774,DFN-CERT-2020-0680,DFN-CERT-2019-1737,DFN-CERT-2019-0362,DFN-CERT-2019-0212,DFN-CERT-2019-0204,DFN-CERT-2018-1739,DFN-CERT-2018-0835,DFN-CERT-2018-0733,DFN-CERT-2018-0576,DFN-CERT-2018-0537,DFN-CERT-2018-0290,DFN-CERT-2018-0205,DFN-CERT-2018-0191,WID-SEC-2024-0991,WID-SEC-2024-0990,CB-K20/0307,CB-K18/0498,CB-K18/0270,CB-K18/0188,CB-K18/0174",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,4.7,Medium,30,"VendorFix","PHP < 5.6.35, 7.x < 7.0.29, 7.1.x < 7.1.16, 7.2.x < 7.2.4 Security Bypass Vulnerability (May 2018) - Linux","PHP is prone to a security bypass vulnerability.","Installed version: 7.0.25
+Fixed version:     7.0.29
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.813162,"CVE-2018-10545",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,58f83ce0-b06f-4c4a-bf00-1094b2d84105,"Successful exploitation will allow an attacker to bypass
+  security restrictions and access sensitive configuration data for other accounts directly in the
+  PHP worker process's memory.","Update to version 5.6.35, 7.0.29, 7.1.16, 7.2.4 or later.","PHP prior to version 5.6.35, 7.x prior to 7.0.29, 7.1.x prior
+  to 7.1.16 and 7.2.x prior to 7.2.4 on Linux.","The flaw exists as the dumpable FPM child processes allow
+  bypassing opcache access controls.","Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 5.6.35, 7.x < 7.0.29, 7.1.x < 7.1.16, 7.2.x < 7.2.4 Security Bypass Vu...
+(OID: 1.3.6.1.4.1.25623.1.0.813162)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2019-1737,DFN-CERT-2018-1232,DFN-CERT-2018-0920,DFN-CERT-2018-0877,CB-K18/0633",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,8.8,High,30,"VendorFix","PHP < 5.6.36, 7.x < 7.0.30, 7.1.x < 7.1.17, 7.2.x < 7.2.5 Multiple Vulnerabilities (May 2018) - Linux","PHP is prone to multiple vulnerabilities.","Installed version: 7.0.25
+Fixed version:     7.0.30
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.813160,"CVE-2018-10546,CVE-2018-10547,CVE-2018-10548,CVE-2018-10549",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,2ef02379-1f7d-4c20-bf1f-235182bfb201,"Successful exploitation will allow an attacker to conduct XSS
+  attacks, crash PHP, conduct denial of service condition and execute arbitrary code in the context
+  of the affected application.","Update to version 5.6.36, 7.0.30, 7.1.17, 7.2.5 or later.","PHP prior to version 5.6.36, 7.0.x prior to 7.0.30, 7.1.x
+  prior to 7.1.17 and 7.2.x prior to 7.2.5 on Linux.","The following flaws exist:
+
+  - CVE-2018-10549: Out of bounds read error in 'exif_read_data' function while processing crafted
+  JPG data.
+
+  - CVE-2018-10546: An error in stream filter 'convert.iconv' which leads to infinite loop on
+  invalid sequence.
+
+  - CVE-2018-10548: An error in the LDAP module of PHP which allows a malicious LDAP server or
+  man-in-the-middle attacker to crash PHP.
+
+  - CVE-2018-10547: An error in the 'phar_do_404()' function in 'ext/phar/phar_object.c' script
+  which returns parts of the request unfiltered, leading to another XSS vector. This is due to
+  incomplete fix for CVE-2018-5712.","Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 5.6.36, 7.x < 7.0.30, 7.1.x < 7.1.17, 7.2.x < 7.2.5 Multiple Vulnerabi...
+(OID: 1.3.6.1.4.1.25623.1.0.813160)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2020-0680,DFN-CERT-2019-1737,DFN-CERT-2018-1232,DFN-CERT-2018-0920,DFN-CERT-2018-0877,CB-K18/0633",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,6.5,Medium,30,"VendorFix","PHP < 7.2.26 Multiple Vulnerabilities (Dec 2019) - Linux","PHP is prone to multiple vulnerabilities.","Installed version: 7.0.25
+Fixed version:     7.2.26
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.143276,"CVE-2019-11045,CVE-2019-11046,CVE-2019-11047,CVE-2019-11050",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,0950ca10-c4b3-414a-8efb-cf594d6c7a3c,"","Update to version 7.2.26 or later.","PHP versions before 7.2.26.","PHP is prone to multiple vulnerabilities:
+
+  - Buffer underflow in bc_shift_addsub (CVE-2019-11046)
+
+  - DirectoryIterator class silently truncates after a null byte (CVE-2019-11045)
+
+  - Use-after-free in exif parsing under memory sanitizer (CVE-2019-11050)
+
+  - Heap-buffer-overflow READ in exif (CVE-2019-11047)","Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 7.2.26 Multiple Vulnerabilities (Dec 2019) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.143276)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2022-2638,DFN-CERT-2020-2627,DFN-CERT-2020-1964,DFN-CERT-2020-0415,DFN-CERT-2020-0382,DFN-CERT-2020-0339,DFN-CERT-2019-2709,DFN-CERT-2019-2659,WID-SEC-2022-2122,CB-K20/1199,CB-K19/1099",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,7.5,High,30,"VendorFix","PHP < 7.2.28 Multiple Vulnerabilities (Feb 2020) - Linux","PHP is prone to multiple vulnerabilities.","Installed version: 7.0.25
+Fixed version:     7.2.28
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.143541,"CVE-2020-7062,CVE-2020-7063",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,fb78f289-5d6f-4cd8-be0a-b875e2dad6f5,"","Update to version 7.2.28 or later.","PHP versions before 7.2.28.","PHP is prone to multiple vulnerabilities:
+
+  - Null Pointer Dereference in PHP Session Upload Progress (CVE-2020-7062)
+
+  - Files added to tar with Phar::buildFromIterator have all-access permissions (CVE-2020-7063)","Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 7.2.28 Multiple Vulnerabilities (Feb 2020) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.143541)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2022-2638,DFN-CERT-2020-2627,DFN-CERT-2020-1964,DFN-CERT-2020-1438,DFN-CERT-2020-0787,DFN-CERT-2020-0518,DFN-CERT-2020-0485,DFN-CERT-2020-0341,WID-SEC-2022-2119,CB-K20/0147",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,5.4,Medium,30,"VendorFix","PHP < 7.2.29 Multiple Vulnerabilities (Mar 2020) - Linux","PHP is prone to multiple vulnerabilities.","Installed version: 7.0.25
+Fixed version:     7.2.29
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.143615,"CVE-2020-7064,CVE-2020-7066",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,a1942962-be6a-4651-9846-9880432ba008,"","Update to version 7.2.29 or later.","PHP versions before 7.2.29.","PHP is prone to multiple vulnerabilities:
+
+  - Use-of-uninitialized-value in exif (CVE-2020-7064)
+
+  - get_headers() silently truncates after a null byte (CVE-2020-7066)","Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 7.2.29 Multiple Vulnerabilities (Mar 2020) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.143615)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2022-2638,DFN-CERT-2020-2627,DFN-CERT-2020-1964,DFN-CERT-2020-1438,DFN-CERT-2020-1202,DFN-CERT-2020-0965,DFN-CERT-2020-0851,DFN-CERT-2020-0787,DFN-CERT-2020-0554,WID-SEC-2022-2118,CB-K21/0068,CB-K20/1199,CB-K20/0239",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,7.5,High,30,"VendorFix","PHP < 7.2.30, 7.3 < 7.3.17, 7.4 < 7.4.5 DoS Vulnerability (Apr 2020) - Linux","PHP is prone to a denial of service (DoS) vulnerability.","Installed version: 7.0.25
+Fixed version:     7.2.30
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.143722,"CVE-2020-7067",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,24d2bbae-8863-4e6a-a28c-4814f6c3bad6,"","Update to version 7.2.30, 7.3.17, 7.4.5 or later.","PHP versions prior 7.2.30, 7.3 prior 7.3.17 and 7.4 prior to
+  7.4.5.","If 'CHARSET_EBCDIC' is defined (usually, on systems with
+  EBCDIC encoding support), an out-of-bounds read can occur using a malformed url-encoded string.","Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 7.2.30, 7.3 < 7.3.17, 7.4 < 7.4.5 DoS Vulnerability (Apr 2020) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.143722)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2020-1438,DFN-CERT-2020-0851,DFN-CERT-2020-0751,CB-K20/1199,CB-K20/0336",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,5.3,Medium,30,"VendorFix","PHP < 7.2.31, 7.3 < 7.3.18, 7.4 < 7.4.6 Multiple DoS Vulnerabilities (May 2020) - Linux","PHP is prone to two Denial-of-Service vulnerabilities.","Installed version: 7.0.25
+Fixed version:     7.2.31
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.143913,"CVE-2019-11048",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,67a61c88-02b7-4841-86a0-c451a3946ab4,"","Update to version 7.2.31, 7.3.18, 7.4.6 or later.","PHP versions prior 7.2.31, 7.3 prior 7.3.18 and 7.4 prior to
+  7.4.6.","The following flaws exist:
+
+  - Long filenames cause OOM and temp files to not be cleaned
+
+  - Long variables in multipart/form-data cause OOM and temp files are not cleaned
+
+  leading to a Denial-of-Service condition (CVE-2019-11048).","Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 7.2.31, 7.3 < 7.3.18, 7.4 < 7.4.6 Multiple DoS Vulnerabilities (May 20...
+(OID: 1.3.6.1.4.1.25623.1.0.143913)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2022-2638,DFN-CERT-2020-2627,DFN-CERT-2020-2006,DFN-CERT-2020-1964,DFN-CERT-2020-1438,DFN-CERT-2020-1376,DFN-CERT-2020-1202,DFN-CERT-2020-1019,WID-SEC-2022-2117,CB-K20/1199,CB-K20/0467",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,3.6,Low,30,"VendorFix","PHP < 7.2.33, 7.3 < 7.3.21, 7.4 < 7.4.9 DoS Vulnerability (Aug 2020) - Linux","PHP is prone to a denial of service vulnerability in the
+  phar_parse_zipfile function.","Installed version: 7.0.25
+Fixed version:     7.2.33
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.144365,"CVE-2020-7068",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,b12f2ce6-17b5-4191-8017-e0f03a8307f8,"","Update to version 7.2.33, 7.3.21, 7.4.9 or later.","PHP versions prior 7.2.33, 7.3 prior 7.3.21 and 7.4 prior to
+  7.4.9.","The phar_parse_zipfile function had use-after-free
+  vulnerability because of mishandling of the actual_alias variable.","Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 7.2.33, 7.3 < 7.3.21, 7.4 < 7.4.9 DoS Vulnerability (Aug 2020) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.144365)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2022-2639,DFN-CERT-2022-2638,DFN-CERT-2021-2373,DFN-CERT-2021-1645,DFN-CERT-2021-1453,DFN-CERT-2021-0380,DFN-CERT-2020-1910,DFN-CERT-2020-1732,WID-SEC-2022-2116,CB-K20/0788",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,6.5,Medium,30,"VendorFix","PHP < 7.2.34, 7.3 < 7.3.23, 7.4 < 7.4.11 Multiple Vulnerabilities (Oct 2020) - Linux","PHP is prone to multiple vulnerabilities.","Installed version: 7.0.25
+Fixed version:     7.2.34
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.144694,"CVE-2020-7069,CVE-2020-7070",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,a71ed049-50c4-4cba-961a-506f42fd4faf,"","Update to version 7.2.34, 7.3.23, 7.4.11 or later.","PHP versions prior 7.2.34, 7.3 prior 7.3.23 and 7.4 prior to
+  7.4.11.","The following vulnerabilities exist:
+
+  - Wrong ciphertext/tag in AES-CCM encryption for a 12 bytes IV (CVE-2020-7069)
+
+  - PHP parses encoded cookie names so malicious '__Host-' cookies can be sent (CVE-2020-7070)","Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 7.2.34, 7.3 < 7.3.23, 7.4 < 7.4.11 Multiple Vulnerabilities (Oct 2020)...
+(OID: 1.3.6.1.4.1.25623.1.0.144694)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2022-2639,DFN-CERT-2022-2638,DFN-CERT-2021-2373,DFN-CERT-2021-1645,DFN-CERT-2021-0380,DFN-CERT-2021-0002,DFN-CERT-2020-2187,DFN-CERT-2020-2111,WID-SEC-2022-2115,CB-K20/0949",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,5.3,Medium,30,"VendorFix","PHP < 7.3.26, 7.4.x < 7.4.14, 8.0.x < 8.0.1 Filter Vulnerability (Jan 2021) - Linux","PHP is prone to a vulnerability where FILTER_VALIDATE_URL
+  accepts URLs with invalid userinfo.","Installed version: 7.0.25
+Fixed version:     7.3.26
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.145114,"CVE-2020-7071",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,1ae44cb7-cdc1-49e3-a7f3-4005979a82fe,"","Update to version 7.3.26, 7.4.14, 8.0.1 or later.","PHP versions prior to 7.3.26, 7.4.x prior to 7.4.14 and 8.0.x
+  prior to 8.0.1.","","Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 7.3.26, 7.4.x < 7.4.14, 8.0.x < 8.0.1 Filter Vulnerability (Jan 2021) ...
+(OID: 1.3.6.1.4.1.25623.1.0.145114)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2024-2707,DFN-CERT-2024-1586,DFN-CERT-2023-1600,DFN-CERT-2022-2639,DFN-CERT-2022-2638,DFN-CERT-2021-2373,DFN-CERT-2021-1645,DFN-CERT-2021-1509,DFN-CERT-2021-1453,DFN-CERT-2021-0380,DFN-CERT-2021-0013,WID-SEC-2023-1737,WID-SEC-2022-2114,CB-K21/0009",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,7.5,High,30,"VendorFix","PHP < 7.3.27, 7.4.x < 7.4.15, 8.0.x < 8.0.2 NULL Deference Vulnerability (Feb 2021) - Linux","PHP is prone to a NULL dereference vulnerability in the
+  SoapClient.","Installed version: 7.0.25
+Fixed version:     7.3.27
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.145323,"CVE-2021-21702",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,aaa8cbb6-e3c6-4942-945c-781d59100b9d,"","Update to version 7.3.27, 7.4.15, 8.0.2 or later.","PHP versions prior to 7.3.27, 7.4.x prior to 7.4.15 and 8.0.x
+  prior to 8.0.2.","","Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 7.3.27, 7.4.x < 7.4.15, 8.0.x < 8.0.2 NULL Deference Vulnerability (Fe...
+(OID: 1.3.6.1.4.1.25623.1.0.145323)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2023-1600,DFN-CERT-2022-2639,DFN-CERT-2022-2638,DFN-CERT-2022-0904,DFN-CERT-2021-2373,DFN-CERT-2021-1645,DFN-CERT-2021-1509,DFN-CERT-2021-1453,DFN-CERT-2021-0556,DFN-CERT-2021-0380,DFN-CERT-2021-0246,WID-SEC-2023-1737,WID-SEC-2022-2113,CB-K21/0124",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,5.0,Medium,30,"VendorFix","PHP < 7.3.28, 7.4.x < 7.4.18 IMAP Header Injection Vulnerability (Apr 2021) - Linux","PHP is prone to an IMAP header injection vulnerability.","Installed version: 7.0.25
+Fixed version:     7.3.28
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.145869,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,62e66c3a-9d1e-4a02-a946-b8ff4dd88268,"","Update to version 7.3.28, 7.4.18 or later.","PHP versions prior to 7.3.28 and 7.4.x through 7.4.17.","","Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 7.3.28, 7.4.x < 7.4.18 IMAP Header Injection Vulnerability (Apr 2021) ...
+(OID: 1.3.6.1.4.1.25623.1.0.145869)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,5.9,Medium,30,"VendorFix","PHP < 7.3.29 Multiple Vulnerabilities (Jul 2021) - Linux","PHP is prone to multiple vulnerabilities.","Installed version: 7.0.25
+Fixed version:     7.3.29
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.117524,"CVE-2021-21704,CVE-2021-21705",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,9e2c212e-3513-4dc6-9932-165abe8d5b84,"","Update to version 7.3.29 or later.","PHP versions prior to 7.3.29.","The following flaws exist:
+
+  - CVE-2021-21705: SSRF bypass in FILTER_VALIDATE_URL.
+
+  - CVE-2021-21704: Stack buffer overflow in firebird_info_cb.
+
+  - CVE-2021-21704: SIGSEGV in firebird_handle_doer.
+
+  - CVE-2021-21704: SIGSEGV in firebird_stmt_execute.
+
+  - CVE-2021-21704: Crash while parsing blob data in firebird_fetch_blob.","Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 7.3.29 Multiple Vulnerabilities (Jul 2021) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.117524)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2023-1600,DFN-CERT-2022-2639,DFN-CERT-2022-2638,DFN-CERT-2022-1046,DFN-CERT-2021-2185,DFN-CERT-2021-1676,DFN-CERT-2021-1645,DFN-CERT-2021-1627,DFN-CERT-2021-1509,DFN-CERT-2021-1453,DFN-CERT-2021-1419,WID-SEC-2023-1737,WID-SEC-2022-1577,WID-SEC-2022-0624,CB-K21/0705",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,5.0,Medium,30,"VendorFix","PHP < 7.3.30, 7.4.x < 7.4.23, 8.0.x < 8.0.10 Security Update (Aug 2021) - Linux","PHP released new versions which include security fixes.","Installed version: 7.0.25
+Fixed version:     7.3.30
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.146584,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,4b394fb0-cd44-4c4e-a826-b85fc875bf2c,"","Update to version 7.3.30, 7.4.23, 8.0.10 or later.","PHP versions prior to 7.3.30, 7.4.x through 7.4.22 and 8.0.x
+  through 8.0.9.","","Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 7.3.30, 7.4.x < 7.4.23, 8.0.x < 8.0.10 Security Update (Aug 2021) - Li...
+(OID: 1.3.6.1.4.1.25623.1.0.146584)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,6.5,Medium,30,"VendorFix","PHP < 7.3.31, 7.4.x < 7.4.24, 8.0.x < 8.0.11 Security Update (Sep 2021) - Linux","PHP released new versions which includes a security fix.","Installed version: 7.0.25
+Fixed version:     7.3.31
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.117694,"CVE-2021-21706",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,3990fe92-d630-4ab4-ba1d-efce8ecd7f74,"","Update to version 7.3.31, 7.4.24, 8.0.11 or later.","PHP versions prior to 7.3.31, 7.4.x through 7.4.23 and 8.0.x
+  through 8.0.10.","Fixed bug #81420 (ZipArchive::extractTo extracts outside of
+  destination).","Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 7.3.31, 7.4.x < 7.4.24, 8.0.x < 8.0.11 Security Update (Sep 2021) - Li...
+(OID: 1.3.6.1.4.1.25623.1.0.117694)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2022-2639,DFN-CERT-2021-2474,DFN-CERT-2021-1994,WID-SEC-2022-2112,CB-K21/1008",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,5.3,Medium,30,"VendorFix","PHP < 7.3.33, 7.4.x < 7.4.26, 8.0.x < 8.0.13 Security Update (Nov 2021) - Linux","PHP released new versions which include a security fix.","Installed version: 7.0.25
+Fixed version:     7.3.33
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.147187,"CVE-2021-21707",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,e41ea3d3-afa2-4999-8346-772a059a604c,"","Update to version 7.3.33, 7.4.26, 8.0.13 or later.","PHP prior to version 7.3.33 and version 7.4.x through 7.4.25
+  and 8.0.x through 8.0.12.","Fixed bug #79971 (special character is breaking the path in
+  xml function).","Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 7.3.33, 7.4.x < 7.4.26, 8.0.x < 8.0.13 Security Update (Nov 2021) - Li...
+(OID: 1.3.6.1.4.1.25623.1.0.147187)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2023-1600,DFN-CERT-2022-2869,DFN-CERT-2022-2639,DFN-CERT-2022-2638,DFN-CERT-2022-2598,DFN-CERT-2022-2499,DFN-CERT-2022-1516,DFN-CERT-2022-1493,DFN-CERT-2022-0557,DFN-CERT-2022-0485,DFN-CERT-2022-0455,DFN-CERT-2022-0431,DFN-CERT-2022-0407,DFN-CERT-2022-0110,DFN-CERT-2021-2474,DFN-CERT-2021-2436,WID-SEC-2023-1737,WID-SEC-2022-1767,WID-SEC-2022-0587,WID-SEC-2022-0432,WID-SEC-2022-0302,CB-K21/1213",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,8.8,High,30,"VendorFix","PHP < 7.4.30, 8.0.x < 8.0.20, 8.1.x < 8.1.7 Security Update (Jun 2022) - Linux","PHP released new versions which include a security fix.","Installed version: 7.0.25
+Fixed version:     7.4.30
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.148249,"CVE-2022-31625,CVE-2022-31626",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,02248b75-f6bd-4bc4-a04a-be87c4ed675a,"","Update to version 7.4.30, 8.0.20, 8.1.7 or later.","PHP prior to version 7.4.30, 8.0.x through 8.0.19 and 8.1.x
+  through 8.1.6.","The following vulnerabilities exist:
+
+  - CVE-2022-31625: Uninitialized array in pg_query_params()
+
+  - CVE-2022-31626: mysqlnd/pdo password buffer overflow","Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 7.4.30, 8.0.x < 8.0.20, 8.1.x < 8.1.7 Security Update (Jun 2022) - Lin...
+(OID: 1.3.6.1.4.1.25623.1.0.148249)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2023-1600,DFN-CERT-2022-2869,DFN-CERT-2022-2639,DFN-CERT-2022-2638,DFN-CERT-2022-2598,DFN-CERT-2022-2500,DFN-CERT-2022-2323,DFN-CERT-2022-1881,DFN-CERT-2022-1552,DFN-CERT-2022-1516,DFN-CERT-2022-1493,DFN-CERT-2022-1473,DFN-CERT-2022-1288,WID-SEC-2023-1737,WID-SEC-2022-0255,CB-K22/0700",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,6.5,Medium,30,"VendorFix","PHP < 7.4.31, 8.0.x < 8.0.24, 8.1.x < 8.1.11 Security Update - Linux","PHP is prone to multiple vulnerabilities.","Installed version: 7.0.25
+Fixed version:     7.4.31
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.104331,"CVE-2022-31628,CVE-2022-31629",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,bf71d63a-b47f-489d-80e4-b2aedc7c08a7,"","Update to version 7.4.31, 8.0.24, 8.1.11 or later.","PHP versions prior to 7.4.31, 8.0.x prior to 8.0.24 and 8.1.x
+  prior to 8.1.11.","The following vulnerabilities exist:
+
+  - CVE-2022-31628: The phar uncompressor code would recursively uncompress 'quines' gzip files,
+  resulting in an infinite loop.
+
+  - CVE-2022-31629: The vulnerability enables network and same-site attackers to set a standard
+  insecure cookie in the victim's browser which is treated as a '__Host-' or '__Secure-' cookie by
+  PHP applications.","Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 7.4.31, 8.0.x < 8.0.24, 8.1.x < 8.1.11 Security Update - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104331)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2024-1192,DFN-CERT-2023-1600,DFN-CERT-2023-0422,DFN-CERT-2022-2869,DFN-CERT-2022-2639,DFN-CERT-2022-2638,DFN-CERT-2022-2598,DFN-CERT-2022-2523,DFN-CERT-2022-2337,DFN-CERT-2022-2157,WID-SEC-2023-1737,WID-SEC-2023-0561,WID-SEC-2023-0137,WID-SEC-2022-1567",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,5.5,Medium,30,"VendorFix","PHP < 8.0.22, 8.1.x < 8.1.9 Security Update - Linux","PHP is prone to a buffer overflow vulnerability.","Installed version: 7.0.25
+Fixed version:     8.0.22/8.1.9/8.2.0
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.104644,"CVE-2022-4900",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,88f249ee-0397-49eb-8ead-9eab5eb06a26,"","Update to version 8.0.22, 8.1.9, 8.2.0 or later.","PHP versions prior to 8.0.22 and 8.1.x prior to 8.1.9.","Fixed potential overflow for the builtin server via the
+  PHP_CLI_SERVER_WORKERS environment variable.","Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 8.0.22, 8.1.x < 8.1.9 Security Update - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104644)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2024-2707,DFN-CERT-2024-1132,DFN-CERT-2023-0681,WID-SEC-2023-0695",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,7.8,High,30,"VendorFix","PHP < 8.0.27, 8.1.x < 8.1.14, 8.2.x < 8.2.1 Security Update - Linux","PHP is prone to an integer overflow vulnerability.","Installed version: 7.0.25
+Fixed version:     8.0.27
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.149069,"CVE-2022-31631",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,1041f723-f4fe-4ab3-9d66-6ed7be648ebb,"","Update to version 8.0.27, 8.1.14, 8.2.1 or later.","PHP prior to version 8.0.27, version 8.1.x through 8.1.13 and
+  8.2.0.","Due to an uncaught integer overflow, PDO::quote() of
+  PDO_SQLite may return a not properly quoted string.","Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 8.0.27, 8.1.x < 8.1.14, 8.2.x < 8.2.1 Security Update - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.149069)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2023-0435,DFN-CERT-2023-0422,DFN-CERT-2023-0071,DFN-CERT-2023-0034,WID-SEC-2023-0035",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,8.1,High,30,"VendorFix","PHP < 8.0.28, 8.1.x < 8.1.16, 8.2.x < 8.2.3 Security Update - Linux","PHP is prone to multiple vulnerabilities.","Installed version: 7.0.25
+Fixed version:     8.0.28
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.104541,"CVE-2023-0567,CVE-2023-0568,CVE-2023-0662",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,283f911a-e37c-4212-adab-9e10a9249963,"","Update to version 8.0.28, 8.1.16, 8.2.3 or later.","PHP versions prior to 8.0.28, 8.1.x prior to 8.1.16 and 8.2.x
+  prior to 8.2.3.","The following flaws exist:
+
+  - CVE-2023-0567: Fixed bug #81744 (Password_verify() always return true with some hash)
+
+  - CVE-2023-0568: Fixed bug #81746 (1-byte array overrun in common path resolve code)
+
+  - CVE-2023-0662: Fixed bug GHSA-54hq-v5wp-fqgv (DOS vulnerability when parsing multipart request
+  body)","Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 8.0.28, 8.1.x < 8.1.16, 8.2.x < 8.2.3 Security Update - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104541)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2024-3330,DFN-CERT-2024-2681,DFN-CERT-2023-2570,DFN-CERT-2023-2538,DFN-CERT-2023-0994,DFN-CERT-2023-0884,DFN-CERT-2023-0462,DFN-CERT-2023-0435,DFN-CERT-2023-0336,WID-SEC-2023-2671,WID-SEC-2023-1424,WID-SEC-2023-1022,WID-SEC-2023-0383",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,4.3,Medium,30,"VendorFix","PHP < 8.0.29, 8.1.x < 8.1.20, 8.2.x < 8.2.7 Security Update - Linux","PHP is prone to a missing error check and insufficient random
+  bytes in HTTP Digest authentication for SOAP vulnerability.","Installed version: 7.0.25
+Fixed version:     8.0.29
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.149760,"CVE-2023-3247",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,424f5b6b-cd0d-4cf4-ac2d-8acc4d82b915,"","Update to version 8.0.29, 8.1.10, 8.2.7 or later.","PHP prior to version 8.0.29, 8.1.x prior to 8.1.20 and 8.2.x
+  prior to 8.2.7.","","Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 8.0.29, 8.1.x < 8.1.20, 8.2.x < 8.2.7 Security Update - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.149760)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2024-3330,DFN-CERT-2023-2570,DFN-CERT-2023-2542,DFN-CERT-2023-1328,WID-SEC-2023-2917,WID-SEC-2023-2680,WID-SEC-2023-1506",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,5.8,Medium,30,"VendorFix","PHP < 8.1.28, 8.2.x < 8.2.18, 8.3.x < 8.3.6 Security Update (GHSA-h746-cjrr-wfmr) - Linux","PHP is prone to a vulnerability in password_verify.","Installed version: 7.0.25
+Fixed version:     8.1.28
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.152118,"CVE-2024-3096",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,e890f1eb-d839-4f8b-a4f9-ba433fb03767,"","Update to version 8.1.28, 8.2.18, 8.3.6 or later.","PHP prior to version 8.1.28, version 8.2.x through 8.2.17 and
+  8.3.x through 8.3.5.","If a password stored with password_hash starts with a null
+  byte (\x00), testing a blank string as the password via password_verify will incorrectly return
+  true.
+
+  If a user were able to create a password with a leading null byte (unlikely, but syntactically
+  valid), an attacker could trivially compromise the victim's account by attempting to sign in with
+  a blank string.","Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 8.1.28, 8.2.x < 8.2.18, 8.3.x < 8.3.6 Security Update (GHSA-h746-cjrr-...
+(OID: 1.3.6.1.4.1.25623.1.0.152118)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2025-1211,DFN-CERT-2024-3330,DFN-CERT-2024-3329,DFN-CERT-2024-1574,DFN-CERT-2024-1192,DFN-CERT-2024-1132,DFN-CERT-2024-1115,DFN-CERT-2024-0993,DFN-CERT-2024-0962,WID-SEC-2024-0867",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,8.8,High,30,"VendorFix","PHP < 8.1.30, 8.2.x < 8.2.24, 8.3.x < 8.3.12 Multiple Vulnerabilities - Linux","PHP is prone to multiple vulnerabilities.","Installed version: 7.0.25
+Fixed version:     8.1.30
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.114787,"CVE-2024-8925,CVE-2024-8926,CVE-2024-8927,CVE-2024-8928,CVE-2024-9026",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,e870c36d-017f-42cc-a7fc-78b4a79cfdde,"","Update to version 8.1.30, 8.2.24, 8.3.12 or later.","PHP versions prior to 8.1.30, 8.2.x prior to 8.2.24 and 8.3.x
+  prior to 8.3.12.","The following vulnerabilities exist:
+
+  - CVE-2024-8925, CVE-2024-8928: Erroneous parsing of multipart form data
+
+  - CVE-2024-8926: Bypass of CVE-2024-4577, Parameter Injection Vulnerability
+
+  - CVE-2024-8927: cgi.force_redirect configuration is bypassable due to the environment variable
+  collision
+
+  - CVE-2024-9026: Logs from children may be altered","Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 8.1.30, 8.2.x < 8.2.24, 8.3.x < 8.3.12 Multiple Vulnerabilities - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.114787)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2025-1211,DFN-CERT-2025-0168,DFN-CERT-2024-3330,DFN-CERT-2024-3329,DFN-CERT-2024-2707,DFN-CERT-2024-2591,DFN-CERT-2024-2550,WID-SEC-2025-0137,WID-SEC-2024-3116,WID-SEC-2024-2230",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,7.5,High,30,"VendorFix","PHP < 8.1.33, 8.2.x < 8.2.29, 8.3.x < 8.3.23, 8.4.x < 8.4.10 Multiple Vulnerabilities - Linux","PHP is prone to multiple vulnerabilities.","Installed version: 7.0.25
+Fixed version:     8.1.33
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.154869,"CVE-2025-1220,CVE-2025-1735,CVE-2025-6491",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,36b376a1-6ed2-4f35-912b-ce64800021a8,"","Update to version 8.1.33, 8.2.29, 8.3.23, 8.4.10 or later.","PHP versions prior to 8.1.33, 8.2.x prior to 8.2.29, 8.3.x
+  prior to 8.3.23 and 8.4.x prior to 8.4.10.","The following vulnerabilities exist:
+
+  - CVE-2025-1220: Null byte termination in hostnames
+
+  - CVE-2025-1735: pgsql extension does not check for errors during escaping
+
+  - CVE-2025-6491: NULL pointer dereference in PHP SOAP extension via large XML namespace prefix","Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 8.1.33, 8.2.x < 8.2.29, 8.3.x < 8.3.23, 8.4.x < 8.4.10 Multiple Vulner...
+(OID: 1.3.6.1.4.1.25623.1.0.154869)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2025-1785,WID-SEC-2025-1460",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,8.2,High,30,"VendorFix","PHP < 8.2.30, 8.3.x < 8.3.29, 8.4.x < 8.4.16 Multiple Vulnerabilities - Linux","PHP is prone to multiple vulnerabilities.","Installed version: 7.0.25
+Fixed version:     8.2.30
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.156071,"CVE-2025-14177,CVE-2025-14178,CVE-2025-14180",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,94eb4322-b68b-45de-af60-6477b9b5f52c,"","Update to version 8.2.30, 8.3.29, 8.4.16 or later.","PHP versions prior to 8.2.30, 8.3.x prior to 8.3.29 and 8.4.x
+  prior to 8.4.16.","The following flaws exist:
+
+  - CVE-2025-14177: Information leak of memory in getimagesize
+
+  - CVE-2025-14178: Heap buffer overflow in array_merge()
+
+  - CVE-2025-14180: PDO quoting result null deref
+
+  - No CVE: Null byte termination in dns_get_record()","Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 8.2.30, 8.3.x < 8.3.29, 8.4.x < 8.4.16 Multiple Vulnerabilities - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.156071)
+Version used: 2026-01-12T05:50:06Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2025-3544",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,,,0.0,Log,80,"","PHP Detection Consolidation","Consolidation of PHP detections.","Detected PHP
+
+Version:       7.0.25
+Location:      80/tcp
+CPE:           cpe:/a:php:php:7.0.25
+
+Concluded from version/product identification result:
+X-Powered-By: PHP/7.0.25
+
+Concluded from version/product identification location:
+http://mediawiki128.trabalho_vulnnet/
+",1.3.6.1.4.1.25623.1.0.171722,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,c255e499-6d77-47b8-ab02-9a1df9e5d767,"","","","","
+Details:
+PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+Version used: 2025-09-24T05:39:03Z
+","","","",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,6.8,Medium,30,"VendorFix","PHP Heap Use-After-Free Vulnerability (Sep 2019) - Linux","PHP is prone to a heap-based use-after-free vulnerability.","Installed version: 7.0.25
+Fixed version:     7.1.32
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.108635,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,198d8fd5-865d-4d58-9af4-5b58b3e3487f,"","Update to version 7.1.32 or later.","PHP versions before 7.1.32.","PHP is prone to a heap use-after-free in pcrelib (cmb).","Checks if a vulnerable version is present on the target host.
+Details:
+PHP Heap Use-After-Free Vulnerability (Sep 2019) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.108635)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,7.5,High,30,"VendorFix","PHP Memory Disclosure Vulnerability - Linux","dns_get_record misparses a DNS response, which can allow a
+  hostile DNS server to cause PHP to misuse memcpy, leading to read operations going past the buffer
+  allocated for DNS data. This affects php_parserr in ext/standard/dns.c for DNS_CAA and DNS_ANY
+  queries.","Installed version: 7.0.25
+Fixed version:     7.1.26
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.142046,"CVE-2019-9022",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,1cf03a72-e39a-4e70-8f6c-3247a3c50c5f,"","Update to version 7.1.26, 7.2.14, 7.3.2 or later.","PHP version 7.x before 7.1.26, 7.2.x before 7.2.14 and 7.3.x
+  before 7.3.2.","","Checks if a vulnerable version is present on the target host.
+Details:
+PHP Memory Disclosure Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.142046)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2022-2638,DFN-CERT-2020-0898,DFN-CERT-2019-2283,DFN-CERT-2019-1737,DFN-CERT-2019-1181,DFN-CERT-2019-0648,DFN-CERT-2019-0434,WID-SEC-2022-2127,CB-K19/0166",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,7.5,High,30,"VendorFix","PHP Multiple Heap Buffer Overflow and Information Disclosure Vulnerabilities (Aug 2018) - Linux","PHP is prone to multiple heap buffer overflow and information
+  disclosure vulnerabilities.","Installed version: 7.0.25
+Fixed version:     7.0.31
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.813901,"CVE-2018-14851,CVE-2018-14883,CVE-2018-15132",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,eb6f8440-6227-446f-a7ec-c6835c5aed7f,"Successful exploitation will allow attackers to cause heap
+  overflow, denial of service and disclose sensitive information.","Update to version 5.6.37, 7.0.31, 7.1.20 or 7.2.8 or
+  later.","PHP prior to version 5.6.37, 7.x prior to 7.0.31, 7.1.x prior
+  to 7.1.20 and 7.2.x prior to 7.2.8.","The following flaws exist:
+
+  - CVE-2018-14851: exif_process_IFD_in_MAKERNOTE function in exif.c file suffers from improper
+  validation against crafted JPEG files.
+
+  - CVE-2018-14883: exif_thumbnail_extract function in exif.c file suffers from improper validation
+  of length of 'ImageInfo->Thumbnail.offset + ImageInfo->Thumbnail.size'
+
+  - CVE-2018-15132: linkinfo function on windows doesn't implement openbasedir check.","Checks if a vulnerable version is present on the target host.
+Details:
+PHP Multiple Heap Buffer Overflow and Information Disclosure Vulnerabilities...
+(OID: 1.3.6.1.4.1.25623.1.0.813901)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2022-2638,DFN-CERT-2019-1737,DFN-CERT-2018-2116,DFN-CERT-2018-1882,DFN-CERT-2018-1835,DFN-CERT-2018-1834,DFN-CERT-2018-1777,DFN-CERT-2018-1655,WID-SEC-2022-2130,CB-K18/0838",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,7.1,High,30,"VendorFix","PHP Multiple Vulnerabilities (Aug 2019) - Linux","PHP is prone to multiple heap-based buffer overflows
+  vulnerabilities.","Installed version: 7.0.25
+Fixed version:     7.1.31
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.142695,"CVE-2019-11041,CVE-2019-11042",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,9f9938b3-a46f-4970-87ae-2163afa631b0,"","Update to version 7.1.31, 7.2.21, 7.3.8 or later.","PHP version 7.x before 7.1.31, 7.2.x before 7.2.21 and 7.3.x
+  before 7.3.8.","PHP is prone to multiple vulnerabilities:
+
+  - Heap-buffer-overflow on exif_scan_thumbnail (CVE-2019-11041)
+
+  - Heap-buffer-overflow on exif_process_user_comment (CVE-2019-11042)","Checks if a vulnerable version is present on the target host.
+Details:
+PHP Multiple Vulnerabilities (Aug 2019) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.142695)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","DFN-CERT-2022-2638,DFN-CERT-2020-1964,DFN-CERT-2020-0898,DFN-CERT-2020-0415,DFN-CERT-2019-2283,DFN-CERT-2019-2092,DFN-CERT-2019-1978,DFN-CERT-2019-1967,DFN-CERT-2019-1796,DFN-CERT-2019-1557,WID-SEC-2022-2123,CB-K20/1199,CB-K19/0880,CB-K19/0684",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,6.8,Medium,30,"VendorFix","PHP Multiple Vulnerabilities (Sep 2019) - Linux","PHP is prone to multiple vulnerabilities.","Installed version: 7.0.25
+Fixed version:     7.2.22
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.108637,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,5ba58232-f986-4906-bac9-f48e7d3a5974,"","Update to version 7.2.22, 7.3.9 or later.","PHP versions before 7.2.22 and 7.3.x before 7.3.9.","PHP is prone to multiple vulnerabilities:
+
+  - Buffer overflow in zendparse
+
+  - Cast to object confuses GC, causes crash
+
+  - Exif crash (bus error) due to wrong alignment and invalid cast
+
+  - Use-after-free in FPM master event handling","Checks if a vulnerable version is present on the target host.
+Details:
+PHP Multiple Vulnerabilities (Sep 2019) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.108637)
+Version used: 2025-09-24T05:39:03Z
+","Product: cpe:/a:php:php:7.0.25
+Method: PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+","","",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,0.0,Log,80,"","Services","This plugin performs service detection.","A web server is running on this port
+",1.3.6.1.4.1.25623.1.0.10330,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,3fe41e66-067e-46d5-a2f6-835972147711,"","","","This plugin attempts to guess which service is running on the
+  remote port(s). For instance, it searches for a web server which could listen on another port than
+  80 or 443 and makes this information available for other check routines.","
+Details:
+Services
+(OID: 1.3.6.1.4.1.25623.1.0.10330)
+Version used: 2025-03-05T05:38:53Z
+","","","",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,,,2.6,Low,80,"Mitigation","TCP Timestamps Information Disclosure","The remote host implements TCP timestamps and therefore allows
+  to compute the uptime.","It was detected that the host implements RFC1323/RFC7323.
+
+The following timestamps were retrieved with a delay of 1 seconds in-between:
+Packet 1: 773011727
+Packet 2: 773012819
+",1.3.6.1.4.1.25623.1.0.80091,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,9e6ca373-95ea-4626-822e-365ad3e5659d,"A side effect of this feature is that the uptime of the remote
+  host can sometimes be computed.","To disable TCP timestamps on linux add the line
+  'net.ipv4.tcp_timestamps = 0' to /etc/sysctl.conf. Execute 'sysctl -p' to apply the settings at
+  runtime.
+
+  To disable TCP timestamps on Windows execute 'netsh int tcp set global timestamps=disabled'
+
+  Starting with Windows Server 2008 and Vista, the timestamp can not be completely disabled.
+
+  The default behavior of the TCP/IP stack on this Systems is to not use the Timestamp options when
+  initiating TCP connections, but use them if the TCP peer that is initiating communication includes
+  them in their synchronize (SYN) segment.
+
+  See the references for more information.","TCP implementations that implement RFC1323/RFC7323.","The remote host implements TCP timestamps, as defined by
+  RFC1323/RFC7323.","Special IP packets are forged and sent with a little delay in
+  between to the target IP. The responses are searched for a timestamps. If found, the timestamps
+  are reported.
+Details:
+TCP Timestamps Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.80091)
+Version used: 2023-12-15T16:10:08Z
+","","","",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,,,0.0,Log,80,"","Traceroute","Collect information about the network route and
+  network distance between the scanner host and the target host.","Network route from scanner (172.30.0.2) to target (172.31.1.94):
+
+172.30.0.2
+172.31.1.94
+
+Network distance between scanner and target: 2
+",1.3.6.1.4.1.25623.1.0.51662,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,22d291ec-41cf-4f5d-9f35-f1b58eb48e6c,"","","","For internal networks, the distances are usually
+  small, often less than 4 hosts between scanner and target. For public targets the
+  distance is greater and might be 10 hosts or more.","A combination of the protocols ICMP and TCP is used
+  to determine the route. This method is applicable for IPv4 only and it is also known as
+  'traceroute'.
+Details:
+Traceroute
+(OID: 1.3.6.1.4.1.25623.1.0.51662)
+Version used: 2022-10-17T11:13:19Z
+","","","",""
+172.31.1.94,mediawiki128.trabalho_vulnnet,80,tcp,0.0,Log,80,"","Web Application Scanning Consolidation / Info Reporting","The script consolidates and reports various information for web
+  application (formerly called 'CGI') scanning.
+
+  This information is based on the following scripts / settings:
+
+  - HTTP-Version Detection (OID: 1.3.6.1.4.1.25623.1.0.100034)
+
+  - No 404 check (OID: 1.3.6.1.4.1.25623.1.0.10386)
+
+  - Web mirroring / webmirror.nasl (OID: 1.3.6.1.4.1.25623.1.0.10662)
+
+  - Directory Scanner / DDI_Directory_Scanner.nasl (OID: 1.3.6.1.4.1.25623.1.0.11032)
+
+  - The configured 'cgi_path' within the 'Scanner Preferences' of the scan config in use
+
+  - The configured 'Enable CGI scanning', 'Enable generic web application scanning' and
+  'Add historic /scripts and /cgi-bin to directories for CGI scanning' within the
+  'Global variable settings' of the scan config in use
+
+  If you think any of this information is wrong please report it to the referenced community
+  forum.","The Hostname/IP ""mediawiki128.trabalho_vulnnet"" was used to access the remote host.
+
+Generic web application scanning is disabled for this host via the ""Enable generic web application scanning"" option within the ""Global variable settings"" of the scan config in use.
+
+Requests to this service are done via HTTP/1.1.
+
+This service seems to be able to host PHP scripts.
+
+This service seems to be able to host ASP scripts.
+
+The User-Agent ""Mozilla/5.0 [en] (X11, U; OpenVAS-VT <version replaced>)"" was used to access the remote host.
+
+Historic /scripts and /cgi-bin are not added to the directories used for web application scanning. You can enable this again with the ""Add historic /scripts and /cgi-bin to directories for CGI scanning"" option within the ""Global variable settings"" of the scan config in use.
+
+The following directories were used for web application scanning:
+
+http://mediawiki128.trabalho_vulnnet/
+http://mediawiki128.trabalho_vulnnet/docs
+http://mediawiki128.trabalho_vulnnet/mw-config
+http://mediawiki128.trabalho_vulnnet/resources
+http://mediawiki128.trabalho_vulnnet/resources/assets
+http://mediawiki128.trabalho_vulnnet/skins
+http://mediawiki128.trabalho_vulnnet/vendor
+
+While this is not, in and of itself, a bug, you should manually inspect these directories to ensure that they are in compliance with company security standards
+
+The following directories were excluded from web application scanning because the ""Regex pattern to exclude directories from CGI scanning"" setting of the VT ""Global variable settings"" (OID: 1.3.6.1.4.1.25623.1.0.12288) for this scan was: ""/(index\.php|image|img|css|js$|js/|javascript|style|theme|icon|jquery|graphic|grafik|picture|bilder|thumbnail|media/|skins?/)""
+
+http://mediawiki128.trabalho_vulnnet/icons
+http://mediawiki128.trabalho_vulnnet/images
+http://mediawiki128.trabalho_vulnnet/index.php/Home
+http://mediawiki128.trabalho_vulnnet/index.php/Home/login
+http://mediawiki128.trabalho_vulnnet/index.php/installer
+http://mediawiki128.trabalho_vulnnet/index.php/s
+http://mediawiki128.trabalho_vulnnet/index.php/wp-json
+http://mediawiki128.trabalho_vulnnet/resources/lib/jquery
+
+The following CGIs were discovered:
+
+Syntax : cginame (arguments [default value])
+
+http://mediawiki128.trabalho_vulnnet/mw-config/ (lastPage [Language] LanguageRequestTime [1769416517] uselang [] enter-continue [Continue Ã¢Â\x0086Â\x0092] ContLang [] page [Restart] submit-continue [Continue Ã¢Â\x0086Â\x0092] )
+http://mediawiki128.trabalho_vulnnet/mw-config/index.php (uselang [] LanguageRequestTime [1769416517] lastPage [Language] enter-continue [Continue Ã¢Â\x0086Â\x0092] ContLang [] css [1] page [Restart] submit-continue [Continue Ã¢Â\x0086Â\x0092] )
+",1.3.6.1.4.1.25623.1.0.111038,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:55:39Z,0cb3ce8a-c2a7-4032-89b2-004caa2180c5,"","","","","
+Details:
+Web Application Scanning Consolidation / Info Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.111038)
+Version used: 2026-01-13T05:47:36Z
+","","","",""

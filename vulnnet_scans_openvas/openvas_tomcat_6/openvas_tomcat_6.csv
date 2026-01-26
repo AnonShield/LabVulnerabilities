@@ -1,0 +1,762 @@
+IP,Hostname,Port,Port Protocol,CVSS,Severity,QoD,Solution Type,NVT Name,Summary,Specific Result,NVT OID,CVEs,Task ID,Task Name,Timestamp,Result ID,Impact,Solution,Affected Software/OS,Vulnerability Insight,Vulnerability Detection Method,Product Detection Result,BIDs,CERTs,Other References
+      172.31.1.16,tomcat6.trabalho_vulnnet,8080,tcp,0.0,Log,80,"","favicon.ico Based Fingerprinting (HTTP)","HTTP based fingerprinting of web applications based on an
+  exposed 'favicon.ico' file.","The following apps/services were identified:
+
+""Apache Tomcat (5.5.26), Alfresco Community"" fingerprinted by the file: ""http://tomcat6.trabalho_vulnnet:8080/favicon.ico""
+
+",1.3.6.1.4.1.25623.1.0.20108,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,b6dda6e5-59ad-409c-b0b9-62e7c4d2bfef,"","","","","
+Details:
+'favicon.ico' Based Fingerprinting (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.20108)
+Version used: 2023-08-01T13:29:10Z
+","","","",""
+172.31.1.16,tomcat6.trabalho_vulnnet,8080,tcp,0.0,Log,70,"","Allowed HTTP Methods Enumeration","Enumerates which HTTP methods are allowed.","The following list contains the URLs and corresponding supported HTTP methods.
+
+URL                                   | HTTP Methods
+----------------------------------------------------------------------------------------------------------------
+http://tomcat6.trabalho_vulnnet:8080/ | GET, HEAD, POST, PUT, DELETE, OPTIONS (obtained via HTTP OPTIONS method)
+",1.3.6.1.4.1.25623.1.0.153974,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,602ec5ed-235a-497d-b986-e7d94d06696a,"","","","'- Basic HTTP methods: GET, HEAD, POST, PUT, DELETE, CONNECT,
+  OPTIONS, TRACE
+
+  - Extended HTTP methods: ACL, BASELINE-CONTROL, BIND, CHECKIN, CHECKOUT, COPY, LABEL, LINK, LOCK,
+  MERGE, MKACTIVITY, MKCALENDAR, MKCOL, MKREDIRECTREF, MKWORKSPACE, MOVE, ORDERPATCH, PATCH, PRI,
+  PROPFIND, PROPPATCH, REBIND, REPORT, SEARCH, UNBIND, UNCHECKOUT, UNLINK, UNLOCK, UPDATE,
+  UPDATEREDIRECTREF, VERSION-CONTROL","Sends multiple HTTP requests and checks the responses.
+
+  Disclaimer:
+
+  - This enumeration script is provided 'as is' (means no support is given) and only providing
+  rudimentary information about the possible enabled methods
+
+  - This script doesn't guarantee completeness or full reliability
+
+  For more reliable determination of the enabled HTTP methods please inspect the configuration of
+  the web server manually and directly on the target host.
+Details:
+Allowed HTTP Methods Enumeration
+(OID: 1.3.6.1.4.1.25623.1.0.153974)
+Version used: 2025-02-28T05:38:49Z
+","","","",""
+172.31.1.16,tomcat6.trabalho_vulnnet,8009,tcp,0.0,Log,80,"","Apache JServ Protocol (AJP) v1.3 Detection (TCP)","TCP based detection of services supporting the Apache JServ
+  Protocol (AJP) in version 1.3.","A service supporting the Apache JServ Protocol (AJP) v1.3 seems to be running on this port.
+",1.3.6.1.4.1.25623.1.0.108082,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,5f8a3cee-350e-4742-a257-104a1e45067c,"","","","The AJP protocol is used in various products like e.g. Apache
+  Tomcat, JBoss or Wildfly.","
+Details:
+Apache JServ Protocol (AJP) v1.3 Detection (TCP)
+(OID: 1.3.6.1.4.1.25623.1.0.108082)
+Version used: 2025-07-11T05:42:17Z
+","","","",""
+172.31.1.16,tomcat6.trabalho_vulnnet,8080,tcp,8.1,High,30,"Mitigation","Apache Tomcat CGI Servlet MITM Vulnerability","Apache Tomcat is prone to a man-in-the-middle (MITM) vulnerability.","Installed version: 6.0.53
+Fixed version:     Mitigation
+Installation
+path / port:       8080/tcp
+
+",1.3.6.1.4.1.25623.1.0.808629,"CVE-2016-5388",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,7fc898f4-91ef-416c-a261-fd5412ede504,"Successful exploitation will allow remote
+  attackers to conduct MITM attacks on internal server subrequests or direct
+  the server to initiate connections to arbitrary hosts.","Information is available and linked in the references
+  about a configuration or deployment scenario that helps to reduce the risk of the
+  vulnerability.","Apache Tomcat versions 8.5.4 and prior.","The flaw is due to 'CGI Servlet' does
+  not protect applications from the presence of untrusted client data in
+  the 'HTTP_PROXY' environment variable.","Checks if a vulnerable version is present on the target host.
+Details:
+Apache Tomcat 'CGI Servlet' MITM Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.808629)
+Version used: 2023-07-21T05:05:22Z
+","Product: cpe:/a:apache:tomcat:6.0.53
+Method: Apache Tomcat Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.107652)
+","","DFN-CERT-2019-1704,DFN-CERT-2017-1095,DFN-CERT-2017-1068,DFN-CERT-2017-0137,DFN-CERT-2016-1743,DFN-CERT-2016-1726,DFN-CERT-2016-1661,DFN-CERT-2016-1407,DFN-CERT-2016-1153,WID-SEC-2025-2522,CB-K17/1060,CB-K17/1033,CB-K17/0133,CB-K16/1646,CB-K16/1630,CB-K16/1568,CB-K16/1322,CB-K16/1087",""
+172.31.1.16,tomcat6.trabalho_vulnnet,8080,tcp,6.4,Medium,30,"VendorFix","Apache Tomcat Authentication Bypass Vulnerability (Nov 2024) - Linux","Apache Tomcat is prone to an authentication bypass
+  vulnerability.","Installed version: 6.0.53
+Fixed version:     9.0.96
+Installation
+path / port:       8080/tcp
+
+",1.3.6.1.4.1.25623.1.0.153462,"CVE-2024-52316",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,f44eb55e-b101-4841-a989-6fa8641a7f70,"","Update to version 9.0.96, 10.1.31, 11.0.0 or later.","Apache Tomcat versions prior to 9.0.96, 10.0.x through 10.1.30
+  and 11.0.0-M1 through 11.0.0-M26.
+
+  Note: While not explicitly mentioned by the vendor (due to the EOL status of these branches) it is
+  assumed that the whole 10.x branch and all versions prior to 9.x are affected by this flaw. If you
+  disagree with this assessment and want to accept the risk please create an override for this
+  result.","If Tomcat was configured to use a custom Jakarta Authentication
+  (formerly JASPIC) ServerAuthContext component which may throw an exception during the
+  authentication process without explicitly setting an HTTP status to indicate failure, the
+  authentication may not have failed, allowing the user to bypass the authentication process. There
+  are no known Jakarta Authentication components that behave in this way.","Checks if a vulnerable version is present on the target host.
+Details:
+Apache Tomcat Authentication Bypass Vulnerability (Nov 2024) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.153462)
+Version used: 2024-12-19T05:05:34Z
+","Product: cpe:/a:apache:tomcat:6.0.53
+Method: Apache Tomcat Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.107652)
+","","DFN-CERT-2025-2285,DFN-CERT-2025-2098,DFN-CERT-2025-0890,DFN-CERT-2025-0146,DFN-CERT-2025-0134,DFN-CERT-2024-3156,DFN-CERT-2024-3077,WID-SEC-2025-0521,WID-SEC-2024-3684,WID-SEC-2024-3486",""
+172.31.1.16,tomcat6.trabalho_vulnnet,8080,tcp,5.0,Medium,30,"VendorFix","Apache Tomcat CGI Security Constraint Bypass Vulnerability (May 2025) - Linux","Apache Tomcat is prone to a CGI security constraint bypass
+  vulnerability.","Installed version: 6.0.53
+Fixed version:     9.0.105
+Installation
+path / port:       8080/tcp
+
+",1.3.6.1.4.1.25623.1.0.154590,"CVE-2025-46701",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,f67819b8-60dd-47b3-aeda-74e88e32a8d3,"","Update to version 9.0.105, 10.1.41, 11.0.7 or later.","Apache Tomcat version 9.0.104 and prior, 10.x through
+  10.1.40 and 11.0.0-M1 through 11.0.6.
+
+  Note: While not explicitly mentioned by the vendor (due to the EOL status of these branches) it
+  is assumed that the whole 10.x branch and all versions prior to 9.x are affected by these flaws.
+  If you disagree with this assessment and want to accept the risk please create an override for
+  this result.","When running on a case insensitive file system with security
+  constraints configured for the <code>pathInfo</code> component of a URL that mapped to the CGI
+  servlet, it is possible to bypass those security constraints with a specially crafted URL.","Checks if a vulnerable version is present on the target host.
+Details:
+Apache Tomcat CGI Security Constraint Bypass Vulnerability (May 2025) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.154590)
+Version used: 2025-05-30T15:42:19Z
+","Product: cpe:/a:apache:tomcat:6.0.53
+Method: Apache Tomcat Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.107652)
+","","DFN-CERT-2025-2285,DFN-CERT-2025-2098,DFN-CERT-2025-1991,DFN-CERT-2025-1905,DFN-CERT-2025-1780,DFN-CERT-2025-1384,WID-SEC-2025-1850,WID-SEC-2025-1365,WID-SEC-2025-1165",""
+172.31.1.16,tomcat6.trabalho_vulnnet,8080,tcp,7.5,High,1,"Mitigation","Apache Tomcat Clustering DoS Vulnerability (May 2022)","Apache Tomcat is prone to a denial of service (DoS)
+  vulnerability when running with enabled Tomcat clustering over an untrusted network.","Installed version: 6.0.53
+Fixed version:     See solution information
+Installation
+path / port:       8080/tcp
+
+",1.3.6.1.4.1.25623.1.0.104180,"CVE-2022-29885",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,6bcde093-4fbb-4473-a451-27bdb736ac3c,"","'- Don't run Apache Tomcat with enabled Tomcat clustering over
+  an untrusted network
+
+  - Update Apache Tomcat to version 10.1.0-M15, 10.0.21, 9.0.63, 8.5.79 or later to receive the
+  corrected / updated documentation","'- The documentation in Apache Tomcat 8.5.38 through 8.5.78,
+  9.0.13 through 9.0.62, 10.0.0-M1 through 10.0.20 and 10.1.0-M1 to 10.1.0-M14
+
+  - Apache Tomcat when running with enabled Tomcat clustering over an untrusted network","The documentation for the EncryptInterceptor incorrectly stated
+  it enabled Tomcat clustering to run over an untrusted network. This was not correct. While the
+  EncryptInterceptor does provide confidentiality and integrity protection, it does not protect
+  against all risks associated with running over any untrusted network, particularly DoS risks.","Checks if a vulnerable version is present on the target host.
+Details:
+Apache Tomcat Clustering DoS Vulnerability (May 2022)
+(OID: 1.3.6.1.4.1.25623.1.0.104180)
+Version used: 2022-07-22T10:11:18Z
+","Product: cpe:/a:apache:tomcat:6.0.53
+Method: Apache Tomcat Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.107652)
+","","DFN-CERT-2024-1989,DFN-CERT-2024-0762,DFN-CERT-2022-2392,DFN-CERT-2022-2323,DFN-CERT-2022-1070,WID-SEC-2024-1238,WID-SEC-2022-1780,WID-SEC-2022-1767,WID-SEC-2022-0799,WID-SEC-2022-0467,CB-K22/0597",""
+172.31.1.16,tomcat6.trabalho_vulnnet,,,0.0,Log,80,"","Apache Tomcat Detection Consolidation","Consolidation of Apache Tomcat detections.","Detected Apache Tomcat
+
+Version:       6.0.53
+Location:      8080/tcp
+CPE:           cpe:/a:apache:tomcat:6.0.53
+
+Concluded from version/product identification result:
+Tomcat Manager Application""
+
+Concluded from version/product identification location:
+http://tomcat6.trabalho_vulnnet:8080/docs/changelog.html
+http://tomcat6.trabalho_vulnnet:8080/host-manager/html
+http://tomcat6.trabalho_vulnnet:8080/manager/html
+http://tomcat6.trabalho_vulnnet:8080/manager/status
+",1.3.6.1.4.1.25623.1.0.107652,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,5d86239e-a308-4743-b674-7bc2f6fca942,"","","","","
+Details:
+Apache Tomcat Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.107652)
+Version used: 2021-02-17T12:31:13Z
+","","","",""
+172.31.1.16,tomcat6.trabalho_vulnnet,8080,tcp,7.5,High,30,"VendorFix","Apache Tomcat DoS Vulnerability (Feb 2023) - Linux","Apache Tomcat is prone to a denial of service (DoS)
+  vulnerability.","Installed version: 6.0.53
+Fixed version:     8.5.85
+Installation
+path / port:       8080/tcp
+
+",1.3.6.1.4.1.25623.1.0.104550,"CVE-2023-24998",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,87d1acb9-00eb-4d2a-87b6-5fe44086bf27,"","Update to version 8.5.85, 9.0.71, 10.1.5, 11.0.0-M3 or
+  later.","Apache Tomcat versions through 8.5.84, 9.0.0-M1 through 9.0.70,
+  10.x through 10.1.4 and 11.0.0-M1 only.","Apache Tomcat uses a packaged renamed copy of Apache Commons
+  FileUpload to provide the file upload functionality defined in the Jakarta Servlet specification.
+  Apache Tomcat was, therefore, also vulnerable to the Apache Commons FileUpload vulnerability
+  CVE-2023-24998 as there was no limit to the number of request parts processed. This resulted in
+  the possibility of an attacker triggering a DoS with a malicious upload or series of uploads.","Checks if a vulnerable version is present on the target host.
+Details:
+Apache Tomcat DoS Vulnerability (Feb 2023) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104550)
+Version used: 2025-01-21T05:37:33Z
+","Product: cpe:/a:apache:tomcat:6.0.53
+Method: Apache Tomcat Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.107652)
+","","DFN-CERT-2025-1992,DFN-CERT-2024-2151,DFN-CERT-2024-1865,DFN-CERT-2024-1006,DFN-CERT-2024-0059,DFN-CERT-2024-0048,DFN-CERT-2023-2778,DFN-CERT-2023-2545,DFN-CERT-2023-2469,DFN-CERT-2023-2054,DFN-CERT-2023-1648,DFN-CERT-2023-1643,DFN-CERT-2023-1642,DFN-CERT-2023-1423,DFN-CERT-2023-1362,DFN-CERT-2023-1109,DFN-CERT-2023-0902,DFN-CERT-2023-0886,DFN-CERT-2023-0884,DFN-CERT-2023-0881,DFN-CERT-2023-0763,DFN-CERT-2023-0574,DFN-CERT-2023-0540,DFN-CERT-2023-0414,WID-SEC-2025-0810,WID-SEC-2024-1652,WID-SEC-2024-1642,WID-SEC-2024-1637,WID-SEC-2024-1622,WID-SEC-2024-1238,WID-SEC-2024-0890,WID-SEC-2024-0888,WID-SEC-2024-0794,WID-SEC-2024-0124,WID-SEC-2024-0117,WID-SEC-2024-0054,WID-SEC-2023-2688,WID-SEC-2023-2675,WID-SEC-2023-2674,WID-SEC-2023-2625,WID-SEC-2023-2309,WID-SEC-2023-2031,WID-SEC-2023-1817,WID-SEC-2023-1815,WID-SEC-2023-1813,WID-SEC-2023-1812,WID-SEC-2023-1811,WID-SEC-2023-1809,WID-SEC-2023-1808,WID-SEC-2023-1807,WID-SEC-2023-1794,WID-SEC-2023-1792,WID-SEC-2023-1791,WID-SEC-2023-1784,WID-SEC-2023-1783,WID-SEC-2023-1782,WID-SEC-2023-1424,WID-SEC-2023-1142,WID-SEC-2023-1021,WID-SEC-2023-1017,WID-SEC-2023-1016,WID-SEC-2023-1012,WID-SEC-2023-1007,WID-SEC-2023-1005,WID-SEC-2023-0609,WID-SEC-2023-0433",""
+172.31.1.16,tomcat6.trabalho_vulnnet,8080,tcp,7.8,High,30,"VendorFix","Apache Tomcat DoS Vulnerability (Jul 2024) - Linux","Apache Tomcat is prone to a denial of service (DoS)
+  vulnerability.","Installed version: 6.0.53
+Fixed version:     9.0.90
+Installation
+path / port:       8080/tcp
+
+",1.3.6.1.4.1.25623.1.0.152543,"CVE-2024-34750",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,ef0f4fc0-55c0-40bd-9b71-984b13335438,"","Update to version 9.0.90, 10.1.25, 11.0.0-M21 or later.","Apache Tomcat versions prior to 9.0.90, 10.x through 10.1.24
+  and 11.0.0-M1 through 11.0.0-M20.
+
+  Note: While not explicitly mentioned by the vendor (due to the EOL status of these branches) it is
+  assumed that the whole 10.x branch and all versions prior to 9.x are affected by this flaw. If you
+  disagree with this assessment and want to accept the risk please create an override for this
+  result.","When processing an HTTP/2 stream, Tomcat did not handle some
+  cases of excessive HTTP headers correctly. This led to a miscounting of active HTTP/2 streams
+  which in turn led to the use of an incorrect infinite timeout which allowed connections to remain
+  open which should have been closed.","Checks if a vulnerable version is present on the target host.
+Details:
+Apache Tomcat DoS Vulnerability (Jul 2024) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.152543)
+Version used: 2024-12-19T05:05:34Z
+","Product: cpe:/a:apache:tomcat:6.0.53
+Method: Apache Tomcat Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.107652)
+","","DFN-CERT-2025-2098,DFN-CERT-2025-1991,DFN-CERT-2025-1517,DFN-CERT-2025-0170,DFN-CERT-2025-0146,DFN-CERT-2024-2192,DFN-CERT-2024-2031,DFN-CERT-2024-1723,WID-SEC-2025-0163,WID-SEC-2025-0161,WID-SEC-2025-0148,WID-SEC-2025-0144,WID-SEC-2025-0143,WID-SEC-2024-3197,WID-SEC-2024-3195,WID-SEC-2024-2100,WID-SEC-2024-1905,WID-SEC-2024-1522",""
+172.31.1.16,tomcat6.trabalho_vulnnet,8080,tcp,7.8,High,30,"VendorFix","Apache Tomcat DoS Vulnerability (Jul 2025) - Linux","Apache Tomcat is prone to a denial of service (DoS)
+  vulnerability.","Installed version: 6.0.53
+Fixed version:     9.0.107
+Installation
+path / port:       8080/tcp
+
+",1.3.6.1.4.1.25623.1.0.154917,"CVE-2025-52434",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,549331b0-d201-4cf9-a2b4-303ce73556ea,"","Update to version 9.0.107 or later.","Apache Tomcat version 9.0.106 and prior.
+
+  Note: While not explicitly mentioned by the vendor (due to the EOL status of these branches) it
+  is assumed that all versions prior to 9.x are affected by these flaws.
+  If you disagree with this assessment and want to accept the risk please create an override for
+  this result.","A race condition on connection close could trigger a JVM crash
+  when using the APR/Native connector leading to a DoS. This was particularly noticeable with
+  client initiated closes of HTTP/2 connections.","Checks if a vulnerable version is present on the target host.
+Details:
+Apache Tomcat DoS Vulnerability (Jul 2025) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.154917)
+Version used: 2025-07-11T15:43:14Z
+","Product: cpe:/a:apache:tomcat:6.0.53
+Method: Apache Tomcat Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.107652)
+","","DFN-CERT-2025-2957,DFN-CERT-2025-2390,DFN-CERT-2025-2299,DFN-CERT-2025-2056,DFN-CERT-2025-1991,DFN-CERT-2025-1789,WID-SEC-2026-0177,WID-SEC-2025-1905,WID-SEC-2025-1468",""
+172.31.1.16,tomcat6.trabalho_vulnnet,8080,tcp,7.8,High,30,"VendorFix","Apache Tomcat HTTP/2 Protocol DoS Vulnerability (MadeYouReset) - Linux","Apache Tomcat is prone to is prone to a denial of service (DoS)
+  vulnerability in the HTTP/2 protocol dubbed 'MadeYouReset'.","Installed version: 6.0.53
+Fixed version:     9.0.108
+Installation
+path / port:       8080/tcp
+
+",1.3.6.1.4.1.25623.1.0.171672,"CVE-2025-8671,CVE-2025-48989",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,747eed73-2448-4f0f-b212-e1154d5a337c,"","Update to version 9.0.108, 10.1.44, 11.0.10 or later.","Apache Tomcat version 9.0.107 and prior, 10.x through 10.1.43
+  and 11.0.0-M1 through 11.0.9.
+
+  Note: While not explicitly mentioned by the vendor (due to the EOL status of these branches) it
+  is assumed that the whole 10.x branch and all versions prior to 9.x are affected by these flaws.
+  If you disagree with this assessment and want to accept the risk please create an override for
+  this result.","A mismatch caused by client-triggered server-sent stream resets
+  between HTTP/2 specifications and the internal architectures of some HTTP/2 implementations may
+  result in excessive server resource consumption leading to denial-of-service (DoS). By opening
+  streams and then rapidly triggering the server to reset them, using malformed frames or flow
+  control errors, an attacker can exploit incorrect stream accounting. Streams reset by the server
+  are considered closed at the protocol level, even though backend processing continues. This
+  allows a client to cause the server to handle an unbounded number of concurrent streams on a
+  single connection.","Checks if a vulnerable version is present on the target host.
+Details:
+Apache Tomcat HTTP/2 Protocol DoS Vulnerability (MadeYouReset) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.171672)
+Version used: 2025-08-26T05:39:52Z
+","Product: cpe:/a:apache:tomcat:6.0.53
+Method: Apache Tomcat Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.107652)
+","","DFN-CERT-2025-3431,DFN-CERT-2025-2957,DFN-CERT-2025-2390,DFN-CERT-2025-2299,DFN-CERT-2025-2224,DFN-CERT-2025-2219,WID-SEC-2026-0177,WID-SEC-2026-0175,WID-SEC-2026-0173,WID-SEC-2026-0165,WID-SEC-2025-2853,WID-SEC-2025-2373,WID-SEC-2025-2361,WID-SEC-2025-2360,WID-SEC-2025-2357,WID-SEC-2025-2356,WID-SEC-2025-1830",""
+172.31.1.16,tomcat6.trabalho_vulnnet,8080,tcp,4.3,Medium,30,"VendorFix","Apache Tomcat Information Disclosure Vulnerability (Mar 2023) - Linux","Apache Tomcat is prone to an information disclosure
+  vulnerability.","Installed version: 6.0.53
+Fixed version:     8.5.86
+Installation
+path / port:       8080/tcp
+
+",1.3.6.1.4.1.25623.1.0.104653,"CVE-2023-28708",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,248cb912-22c2-42f9-a101-870db6b91ea7,"","Update to version 8.5.86, 9.0.72, 10.1.6, 11.0.0-M3 or later.","Apache Tomcat versions through 8.5.85, 9.0.0-M1 through 9.0.71,
+  10.x through 10.1.5 and 11.0.0-M1 through 11.0.0-M2.","When using the RemoteIpFilter with requests received from a
+  reverse proxy via HTTP that include the X-Forwarded-Proto header set to https, session cookies
+  created by Tomcat did not include the secure attribute. This could result in the user agent
+  transmitting the session cookie over an insecure channel.","Checks if a vulnerable version is present on the target host.
+Details:
+Apache Tomcat Information Disclosure Vulnerability (Mar 2023) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104653)
+Version used: 2024-06-07T05:05:42Z
+","Product: cpe:/a:apache:tomcat:6.0.53
+Method: Apache Tomcat Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.107652)
+","","DFN-CERT-2025-1517,DFN-CERT-2024-3078,DFN-CERT-2023-2778,DFN-CERT-2023-2545,DFN-CERT-2023-2054,DFN-CERT-2023-0772,DFN-CERT-2023-0763,DFN-CERT-2023-0640,WID-SEC-2024-1238,WID-SEC-2024-0528,WID-SEC-2023-2674,WID-SEC-2023-1812,WID-SEC-2023-1808,WID-SEC-2023-1784,WID-SEC-2023-1783,WID-SEC-2023-1782,WID-SEC-2023-1424,WID-SEC-2023-1021,WID-SEC-2023-1017,WID-SEC-2023-0717",""
+172.31.1.16,tomcat6.trabalho_vulnnet,8080,tcp,7.8,High,30,"VendorFix","Apache Tomcat Multiple DoS Vulnerabilities (Jul 2025) - Linux","Apache Tomcat is prone to multiple denial of service (DoS)
+  vulnerabilities.","Installed version: 6.0.53
+Fixed version:     9.0.107
+Installation
+path / port:       8080/tcp
+
+",1.3.6.1.4.1.25623.1.0.154895,"CVE-2025-52520,CVE-2025-53506",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,863f819d-b841-4869-aabe-5e0c73354920,"","Update to version 9.0.107, 10.1.43, 11.0.9 or later.","Apache Tomcat version 9.0.106 and prior, 10.x through 10.1.42
+  and 11.0.0-M1 through 11.0.8.
+
+  Note: While not explicitly mentioned by the vendor (due to the EOL status of these branches) it
+  is assumed that the whole 10.x branch and all versions prior to 9.x are affected by these flaws.
+  If you disagree with this assessment and want to accept the risk please create an override for
+  this result.","The following flaws exist:
+
+  - CVE-2025-52520: DoS due to overflow in file upload limit
+
+  - CVE-2025-53506: DoS via excessive HTTP/2 streams","Checks if a vulnerable version is present on the target host.
+Details:
+Apache Tomcat Multiple DoS Vulnerabilities (Jul 2025) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.154895)
+Version used: 2025-07-11T15:43:14Z
+","Product: cpe:/a:apache:tomcat:6.0.53
+Method: Apache Tomcat Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.107652)
+","","DFN-CERT-2025-2390,DFN-CERT-2025-2335,DFN-CERT-2025-2299,DFN-CERT-2025-2219,DFN-CERT-2025-2168,DFN-CERT-2025-2088,DFN-CERT-2025-2056,DFN-CERT-2025-1991,DFN-CERT-2025-1789,WID-SEC-2025-1905,WID-SEC-2025-1468",""
+172.31.1.16,tomcat6.trabalho_vulnnet,8080,tcp,5.0,Medium,30,"VendorFix","Apache Tomcat Multiple DoS Vulnerabilities (Mar 2024) - Linux","Apache Tomcat is prone to multiple denial of service (DoS)
+  vulnerabilities.","Installed version: 6.0.53
+Fixed version:     8.5.99
+Installation
+path / port:       8080/tcp
+
+",1.3.6.1.4.1.25623.1.0.114427,"CVE-2024-23672,CVE-2024-24549",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,a8940f58-9bf9-4dec-97e1-56b738767a3b,"","Update to version 8.5.99, 9.0.86, 10.1.19, 11.0.0-M17 or
+  later.","Apache Tomcat versions prior to 8.5.99, 9.0.0-M1 through
+  9.0.85, 10.x through 10.1.18 and 11.0.0-M1 through 11.0.0-M16.
+
+  Note: While not explicitly mentioned by the vendor (due to the EOL status of these branches) it is
+  assumed that the whole 10.x branch and all versions prior to 8.5.x are affected by these flaws. If
+  you disagree with this assessment and want to accept the risk please create an override for this
+  result.","The following flaws exist:
+
+  - CVE-2024-23672: WebSocket DoS with incomplete closing handshake
+
+  - CVE-2024-24549: HTTP/2 header handling DoS","Checks if a vulnerable version is present on the target host.
+Details:
+Apache Tomcat Multiple DoS Vulnerabilities (Mar 2024) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.114427)
+Version used: 2024-12-19T05:05:34Z
+","Product: cpe:/a:apache:tomcat:6.0.53
+Method: Apache Tomcat Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.107652)
+","","DFN-CERT-2025-1517,DFN-CERT-2024-3096,DFN-CERT-2024-3078,DFN-CERT-2024-2743,DFN-CERT-2024-1846,DFN-CERT-2024-1372,DFN-CERT-2024-1235,DFN-CERT-2024-1036,DFN-CERT-2024-1011,DFN-CERT-2024-0723,DFN-CERT-2024-0722,DFN-CERT-2024-0697,WID-SEC-2024-3663,WID-SEC-2024-3508,WID-SEC-2024-3377,WID-SEC-2024-3220,WID-SEC-2024-3219,WID-SEC-2024-3196,WID-SEC-2024-3195,WID-SEC-2024-3191,WID-SEC-2024-1656,WID-SEC-2024-1642,WID-SEC-2024-1638,WID-SEC-2024-1622,WID-SEC-2024-1238,WID-SEC-2024-1214,WID-SEC-2024-1210,WID-SEC-2024-0769,WID-SEC-2024-0630",""
+172.31.1.16,tomcat6.trabalho_vulnnet,8080,tcp,5.0,Medium,30,"VendorFix","Apache Tomcat Multiple Vulnerabilities (Dec 2024) - Linux","Apache Tomcat is prone to multiple vulnerabilities.","Installed version: 6.0.53
+Fixed version:     9.0.98
+Installation
+path / port:       8080/tcp
+
+",1.3.6.1.4.1.25623.1.0.114889,"CVE-2024-50379,CVE-2024-54677,CVE-2024-56337",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,c6b6efd8-735d-469f-92e7-a0a030e4396f,"","Update to version 9.0.98, 10.1.34, 11.0.2 or later.
+
+  Vendor note: Users running Tomcat on a case insensitive file system with the default servlet write
+  enabled (readonly initialisation parameter set to the non-default value of false) may need
+  additional configuration to fully mitigate CVE-2024-50379 depending on which version of Java they
+  are using with Tomcat:
+
+  - running on Java 8 or Java 11: the system property sun.io.useCanonCaches must be explicitly set
+  to false (it defaults to true)
+
+  - running on Java 17: the system property sun.io.useCanonCaches, if set, must be set to false (it
+  defaults to false)
+
+  - running on Java 21 onwards: no further configuration is required (the system property and the
+  problematic cache have been removed)","Apache Tomcat versions prior to 9.0.98, 10.x prior to 10.1.34
+  and 11.x prior to 11.0.2.
+
+  Note: While not explicitly mentioned by the vendor (due to the EOL status of these branches) it is
+  assumed that the whole 10.x branch and all versions prior to 9.x are affected by these flaws. If
+  you disagree with this assessment and want to accept the risk please create an override for this
+  result.","The following flaws exist:
+
+  - CVE-2024-50379: Remote code execution (RCE) via write-enabled default servlet
+
+  - CVE-2024-54677: Denial of service (DoS) in examples web application
+
+  - CVE-2024-56337: RCE via write-enabled default servlet - CVE-2024-50379 mitigation was
+  incomplete","Checks if a vulnerable version is present on the target host.
+Details:
+Apache Tomcat Multiple Vulnerabilities (Dec 2024) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.114889)
+Version used: 2024-12-24T05:05:31Z
+","Product: cpe:/a:apache:tomcat:6.0.53
+Method: Apache Tomcat Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.107652)
+","","DFN-CERT-2025-2285,DFN-CERT-2025-2098,DFN-CERT-2025-1991,DFN-CERT-2025-1923,DFN-CERT-2025-1181,DFN-CERT-2025-0974,DFN-CERT-2025-0890,DFN-CERT-2025-0888,DFN-CERT-2025-0766,DFN-CERT-2025-0528,DFN-CERT-2025-0509,DFN-CERT-2025-0444,DFN-CERT-2025-0146,DFN-CERT-2025-0138,DFN-CERT-2025-0134,DFN-CERT-2025-0036,DFN-CERT-2024-3364,WID-SEC-2025-0823,WID-SEC-2025-0819,WID-SEC-2025-0818,WID-SEC-2025-0808,WID-SEC-2025-0719,WID-SEC-2025-0148,WID-SEC-2024-3744,WID-SEC-2024-3722",""
+172.31.1.16,tomcat6.trabalho_vulnnet,8080,tcp,7.8,High,30,"VendorFix","Apache Tomcat Multiple Vulnerabilities (Jun 2025) - Linux","Apache Tomcat is prone to multiple vulnerabilities.","Installed version: 6.0.53
+Fixed version:     9.0.106
+Installation
+path / port:       8080/tcp
+
+",1.3.6.1.4.1.25623.1.0.154754,"CVE-2025-48976,CVE-2025-48988,CVE-2025-49125",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,f7374aa7-1e9a-4125-8839-f9dff160c9a3,"","Update to version 9.0.106, 10.1.42, 11.0.8 or later.","Apache Tomcat version 9.0.105 and prior, 10.x through
+  10.1.41 and 11.0.0-M1 through 11.0.7.
+
+  Note: While not explicitly mentioned by the vendor (due to the EOL status of these branches) it
+  is assumed that the whole 10.x branch and all versions prior to 9.x are affected by these flaws.
+  If you disagree with this assessment and want to accept the risk please create an override for
+  this result.","The following flaws exist:
+
+  - CVE-2025-48976: Denial of service (DoS) in Apache Commons FileUpload
+
+  - CVE-2025-48988: DoS in multipart upload
+
+  - CVE-2025-49125: Security constraint bypass for pre/post-resources","Checks if a vulnerable version is present on the target host.
+Details:
+Apache Tomcat Multiple Vulnerabilities (Jun 2025) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.154754)
+Version used: 2025-06-24T05:41:22Z
+","Product: cpe:/a:apache:tomcat:6.0.53
+Method: Apache Tomcat Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.107652)
+","","DFN-CERT-2026-0205,DFN-CERT-2025-3541,DFN-CERT-2025-3168,DFN-CERT-2025-2941,DFN-CERT-2025-2939,DFN-CERT-2025-2390,DFN-CERT-2025-2335,DFN-CERT-2025-2299,DFN-CERT-2025-2291,DFN-CERT-2025-2098,DFN-CERT-2025-2088,DFN-CERT-2025-2056,DFN-CERT-2025-1992,DFN-CERT-2025-1991,DFN-CERT-2025-1780,DFN-CERT-2025-1739,DFN-CERT-2025-1588,WID-SEC-2026-0177,WID-SEC-2026-0175,WID-SEC-2026-0165,WID-SEC-2026-0163,WID-SEC-2026-0162,WID-SEC-2026-0153,WID-SEC-2025-2853,WID-SEC-2025-2768,WID-SEC-2025-2373,WID-SEC-2025-2372,WID-SEC-2025-2371,WID-SEC-2025-2369,WID-SEC-2025-2366,WID-SEC-2025-2362,WID-SEC-2025-2361,WID-SEC-2025-2360,WID-SEC-2025-2359,WID-SEC-2025-2357,WID-SEC-2025-2356,WID-SEC-2025-2355,WID-SEC-2025-2353,WID-SEC-2025-2351,WID-SEC-2025-1562,WID-SEC-2025-1560,WID-SEC-2025-1559,WID-SEC-2025-1335,WID-SEC-2025-1334",""
+172.31.1.16,tomcat6.trabalho_vulnnet,8080,tcp,6.8,Medium,99,"Mitigation","Apache Tomcat servlet/JSP container default files","The Apache Tomcat servlet/JSP container has default files installed.","The following default files were found : 
+http://tomcat6.trabalho_vulnnet:8080/examples/servlets/index.html
+http://tomcat6.trabalho_vulnnet:8080/examples/jsp/snp/snoop.jsp
+http://tomcat6.trabalho_vulnnet:8080/examples/jsp/index.html
+
+",1.3.6.1.4.1.25623.1.0.12085,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,301ba8b7-633a-4deb-b5b5-2b1fb54f2775,"These files should be removed as they may help an attacker to guess the
+  exact version of the Apache Tomcat which is running on this host and may
+  provide other useful information.","Remove default files, example JSPs and Servlets from the Tomcat
+  Servlet/JSP container.","","Default files, such as documentation, default Servlets and JSPs were found on
+  the Apache Tomcat servlet/JSP container.","
+Details:
+Apache Tomcat servlet/JSP container default files
+(OID: 1.3.6.1.4.1.25623.1.0.12085)
+Version used: 2023-08-01T13:29:10Z
+","Product: cpe:/a:apache:tomcat:6.0.53
+Method: Apache Tomcat Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.107652)
+","","",""
+172.31.1.16,tomcat6.trabalho_vulnnet,8080,tcp,7.8,High,30,"VendorFix","Apache Tomcat Session Fixation Vulnerability (Aug 2025) - Linux","Apache Tomcat is prone to a session fixation vulnerability.","Installed version: 6.0.53
+Fixed version:     9.0.106
+Installation
+path / port:       8080/tcp
+
+",1.3.6.1.4.1.25623.1.0.127945,"CVE-2025-55668",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,6b8b4ed0-91c7-41fa-9f3a-91226e76903a,"","Update to version 9.0.106, 10.1.42, 11.0.8 or later.","Apache Tomcat versions prior to 9.0.106, 10.1.0-M1 through
+  10.1.41 and 11.0.0-M1 through 11.0.7.","If the rewrite valve was enabled for a web application, an
+  attacker was able to craft a URL that, if a victim clicked on it, would cause the  victim's
+  interaction with that resource to occur in the context of the attacker's session.","Checks if a vulnerable version is present on the target host.
+Details:
+Apache Tomcat Session Fixation Vulnerability (Aug 2025) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.127945)
+Version used: 2025-08-21T05:40:06Z
+","Product: cpe:/a:apache:tomcat:6.0.53
+Method: Apache Tomcat Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.107652)
+","","DFN-CERT-2025-1588,WID-SEC-2025-1905,WID-SEC-2025-1826",""
+172.31.1.16,tomcat6.trabalho_vulnnet,8080,tcp,4.8,Medium,80,"Workaround","Cleartext Transmission of Sensitive Information via HTTP","The host / application transmits sensitive information (username, passwords) in
+  cleartext via HTTP.","The following URLs requires Basic Authentication (URL:realm name):
+
+http://tomcat6.trabalho_vulnnet:8080/host-manager/html:""Tomcat Host Manager Application""
+http://tomcat6.trabalho_vulnnet:8080/manager/html:""Tomcat Manager Application""
+http://tomcat6.trabalho_vulnnet:8080/manager/status:""Tomcat Manager Application""
+",1.3.6.1.4.1.25623.1.0.108440,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,3ca72ca0-b9c2-4539-bbc7-1019160fd900,"An attacker could use this situation to compromise or eavesdrop on the
+  HTTP communication between the client and the server using a man-in-the-middle attack to get access to
+  sensitive data like usernames or passwords.","Enforce the transmission of sensitive data via an encrypted SSL/TLS connection.
+  Additionally make sure the host / application is redirecting all users to the secured SSL/TLS connection before
+  allowing to input sensitive data into the mentioned functions.","Hosts / applications which doesn't enforce the transmission of sensitive data via an
+  encrypted SSL/TLS connection.","","Evaluate previous collected information and check if the host / application is not
+  enforcing the transmission of sensitive data via an encrypted SSL/TLS connection.
+
+  The script is currently checking the following:
+
+  - HTTP Basic Authentication (Basic Auth)
+
+  - HTTP Forms (e.g. Login) with input field of type 'password'
+Details:
+Cleartext Transmission of Sensitive Information via HTTP
+(OID: 1.3.6.1.4.1.25623.1.0.108440)
+Version used: 2023-09-07T05:05:21Z
+","","","",""
+172.31.1.16,tomcat6.trabalho_vulnnet,,,0.0,Log,80,"","CPE Inventory","This routine uses information collected by other routines about
+  CPE identities of operating systems, services and applications detected during the scan.
+
+  Note: Some CPEs for specific products might show up twice or more in the output. Background:
+
+  After a product got renamed or a specific vendor was acquired by another one it might happen that
+  a product gets a new CPE within the NVD CPE Dictionary but older entries are kept with the older
+  CPE.","172.31.1.16|cpe:/a:apache:tomcat:6.0.53
+172.31.1.16|cpe:/o:linux:kernel
+
+",1.3.6.1.4.1.25623.1.0.810002,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,b2571000-6641-4a04-a42f-4e5643928cae,"","","","","
+Details:
+CPE Inventory
+(OID: 1.3.6.1.4.1.25623.1.0.810002)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.31.1.16,tomcat6.trabalho_vulnnet,,,0.0,Log,80,"","Hostname Determination Reporting","The script reports information on how the hostname of the target
+  was determined.","Hostname determination for IP 172.31.1.16:
+
+Hostname|Source
+tomcat6.trabalho_vulnnet|Reverse-DNS
+",1.3.6.1.4.1.25623.1.0.108449,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,c5ced14b-ae9a-47d7-8897-f3b658fefe7b,"","","","","
+Details:
+Hostname Determination Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.108449)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.31.1.16,tomcat6.trabalho_vulnnet,8080,tcp,0.0,Log,80,"","HTTP Security Headers Detection","All known security headers are being checked on the remote web
+  server.
+
+  On completion a report will hand back whether a specific security header has been implemented
+  (including its value and if it is deprecated) or is missing on the target.","Missing Headers                   | More Information
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Content-Security-Policy           | https://owasp.org/www-project-secure-headers/#content-security-policy
+Cross-Origin-Embedder-Policy      | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Cross-Origin-Opener-Policy        | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Cross-Origin-Resource-Policy      | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Document-Policy                   | https://w3c.github.io/webappsec-feature-policy/document-policy#document-policy-http-header
+Feature-Policy                    | https://owasp.org/www-project-secure-headers/#feature-policy, Note: The Feature Policy header has been renamed to Permissions Policy
+Permissions-Policy                | https://w3c.github.io/webappsec-feature-policy/#permissions-policy-http-header-field
+Referrer-Policy                   | https://owasp.org/www-project-secure-headers/#referrer-policy
+Sec-Fetch-Dest                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-Mode                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-Site                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-User                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+X-Content-Type-Options            | https://owasp.org/www-project-secure-headers/#x-content-type-options
+X-Frame-Options                   | https://owasp.org/www-project-secure-headers/#x-frame-options
+X-Permitted-Cross-Domain-Policies | https://owasp.org/www-project-secure-headers/#x-permitted-cross-domain-policies
+X-XSS-Protection                  | https://owasp.org/www-project-secure-headers/#x-xss-protection, Note: Most major browsers have dropped / deprecated support for this header in 2020.
+",1.3.6.1.4.1.25623.1.0.112081,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,1926c48e-269c-4fd5-b668-1aedb7fd18f6,"","","","","
+Details:
+HTTP Security Headers Detection
+(OID: 1.3.6.1.4.1.25623.1.0.112081)
+Version used: 2025-03-21T15:40:43Z
+","","","",""
+172.31.1.16,tomcat6.trabalho_vulnnet,8080,tcp,0.0,Log,80,"","HTTP Server Banner Enumeration","This script tries to detect / enumerate different HTTP server
+  banner (e.g. from a frontend, backend or proxy server) by sending various different HTTP requests
+  (valid and invalid ones).","It was possible to enumerate the following HTTP server banner(s):
+
+Server banner             | Enumeration technique
+--------------------------------------------------------------------------------------------
+Server: Apache-Coyote/1.1 | Invalid HTTP 00.5 GET request (non-existent HTTP version) to '/'
+",1.3.6.1.4.1.25623.1.0.108708,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,07c42f96-10d9-46b2-943d-64422a597431,"","","","","
+Details:
+HTTP Server Banner Enumeration
+(OID: 1.3.6.1.4.1.25623.1.0.108708)
+Version used: 2025-01-31T15:39:24Z
+","","","",""
+172.31.1.16,tomcat6.trabalho_vulnnet,8080,tcp,0.0,Log,80,"","HTTP Server type and version","This script detects and reports the HTTP Server's banner
+  which might provide the type and version of it.","The remote HTTP Server banner is:
+
+Server: Apache-Coyote/1.1
+",1.3.6.1.4.1.25623.1.0.10107,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,8d112d7c-f5ba-4472-9af1-fd3f36322fc7,"","","","","
+Details:
+HTTP Server type and version
+(OID: 1.3.6.1.4.1.25623.1.0.10107)
+Version used: 2023-08-01T13:29:10Z
+","","","",""
+172.31.1.16,tomcat6.trabalho_vulnnet,,,2.1,Low,80,"Mitigation","ICMP Timestamp Reply Information Disclosure","The remote host responded to an ICMP timestamp request.","The following response / ICMP packet has been received:
+- ICMP Type: 14
+- ICMP Code: 0
+",1.3.6.1.4.1.25623.1.0.103190,"CVE-1999-0524",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,5312d5f3-b31e-4697-a785-8e38bf6b0203,"This information could theoretically be used to exploit weak
+  time-based random number generators in other services.","Various mitigations are possible:
+
+  - Disable the support for ICMP timestamp on the remote host completely
+
+  - Protect the remote host by a firewall, and block ICMP packets passing through the firewall in
+  either direction (either completely or only for untrusted networks)","","The Timestamp Reply is an ICMP message which replies to a
+  Timestamp message. It consists of the originating timestamp sent by the sender of the Timestamp as
+  well as a receive timestamp and a transmit timestamp.","Sends an ICMP Timestamp (Type 13) request and checks if a
+  Timestamp Reply (Type 14) is received.
+Details:
+ICMP Timestamp Reply Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.103190)
+Version used: 2025-01-21T05:37:33Z
+","","","DFN-CERT-2014-0658,CB-K15/1514,CB-K14/0632",""
+172.31.1.16,tomcat6.trabalho_vulnnet,,,0.0,Log,70,"","IP Forwarding Enabled - Active Check","Checks if the remote host has IP forwarding enabled.","It was possible to route a TCP packet through the target host and received an answer which means IP forwarding is enabled.
+",1.3.6.1.4.1.25623.1.0.147205,"CVE-1999-0511",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,0ff5152c-c99b-418b-b8dc-412296cd92b4,"","","","","Sends a crafted Local Link Layer (LLL) frame and checks the
+  response.
+Details:
+IP Forwarding Enabled - Active Check
+(OID: 1.3.6.1.4.1.25623.1.0.147205)
+Version used: 2021-12-03T08:27:06Z
+","","","",""
+172.31.1.16,tomcat6.trabalho_vulnnet,8009,tcp,0.0,Log,80,"","Oracle Database Detection (TNS service)","TNS service based detection of an Oracle Database Server","A TNS service is running on this port but it refused to honor an attempt to connect to it.
+
+The TNS reply code was: 4
+",1.3.6.1.4.1.25623.1.0.10658,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,b0466033-e5f5-4e43-aa2f-d8489f703959,"","","","","This script sends 'CONNECT_DATA=(COMMAND=VERSION)' command via
+  Oracle tnslsnr, a network interface to the remote Oracle database and try to get the version from
+  the response.
+Details:
+Oracle Database Detection (TNS service)
+(OID: 1.3.6.1.4.1.25623.1.0.10658)
+Version used: 2024-10-29T05:05:46Z
+","","","",""
+172.31.1.16,tomcat6.trabalho_vulnnet,,,0.0,Log,80,"","OS Detection Consolidation and Reporting","This script consolidates the OS information detected by several
+  VTs and tries to find the best matching OS.
+
+  Furthermore it reports all previously collected information leading to this best matching OS. It
+  also reports possible additional information which might help to improve the OS detection.
+
+  If any of this information is wrong or could be improved please consider to report these to the
+  referenced community forum.","Best matching OS:
+
+OS:           Linux Kernel
+CPE:          cpe:/o:linux:kernel
+Found by VT:  1.3.6.1.4.1.25623.1.0.102002 (Operating System (OS) Detection (ICMP))
+Concluded from ICMP based OS fingerprint
+Setting key ""Host/runs_unixoide"" based on this information
+",1.3.6.1.4.1.25623.1.0.105937,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,9c2107e3-6160-432b-8c2d-8136956fab90,"","","","","
+Details:
+OS Detection Consolidation and Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.105937)
+Version used: 2026-01-21T05:50:46Z
+","","","",""
+172.31.1.16,tomcat6.trabalho_vulnnet,8080,tcp,0.0,Log,80,"","Services","This plugin performs service detection.","A web server is running on this port
+",1.3.6.1.4.1.25623.1.0.10330,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,820dd553-f12e-4192-967e-0a4fd7d063a6,"","","","This plugin attempts to guess which service is running on the
+  remote port(s). For instance, it searches for a web server which could listen on another port than
+  80 or 443 and makes this information available for other check routines.","
+Details:
+Services
+(OID: 1.3.6.1.4.1.25623.1.0.10330)
+Version used: 2025-03-05T05:38:53Z
+","","","",""
+172.31.1.16,tomcat6.trabalho_vulnnet,,,2.6,Low,80,"Mitigation","TCP Timestamps Information Disclosure","The remote host implements TCP timestamps and therefore allows
+  to compute the uptime.","It was detected that the host implements RFC1323/RFC7323.
+
+The following timestamps were retrieved with a delay of 1 seconds in-between:
+Packet 1: 3173988152
+Packet 2: 3173989270
+",1.3.6.1.4.1.25623.1.0.80091,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,89f78d5a-dc43-4ca8-9dc3-3f698f6449ca,"A side effect of this feature is that the uptime of the remote
+  host can sometimes be computed.","To disable TCP timestamps on linux add the line
+  'net.ipv4.tcp_timestamps = 0' to /etc/sysctl.conf. Execute 'sysctl -p' to apply the settings at
+  runtime.
+
+  To disable TCP timestamps on Windows execute 'netsh int tcp set global timestamps=disabled'
+
+  Starting with Windows Server 2008 and Vista, the timestamp can not be completely disabled.
+
+  The default behavior of the TCP/IP stack on this Systems is to not use the Timestamp options when
+  initiating TCP connections, but use them if the TCP peer that is initiating communication includes
+  them in their synchronize (SYN) segment.
+
+  See the references for more information.","TCP implementations that implement RFC1323/RFC7323.","The remote host implements TCP timestamps, as defined by
+  RFC1323/RFC7323.","Special IP packets are forged and sent with a little delay in
+  between to the target IP. The responses are searched for a timestamps. If found, the timestamps
+  are reported.
+Details:
+TCP Timestamps Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.80091)
+Version used: 2023-12-15T16:10:08Z
+","","","",""
+172.31.1.16,tomcat6.trabalho_vulnnet,,,0.0,Log,80,"","Traceroute","Collect information about the network route and
+  network distance between the scanner host and the target host.","Network route from scanner (172.30.0.2) to target (172.31.1.16):
+
+172.30.0.2
+172.31.1.16
+
+Network distance between scanner and target: 2
+",1.3.6.1.4.1.25623.1.0.51662,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,616edfda-c1e1-468e-837b-fb6d0b85f173,"","","","For internal networks, the distances are usually
+  small, often less than 4 hosts between scanner and target. For public targets the
+  distance is greater and might be 10 hosts or more.","A combination of the protocols ICMP and TCP is used
+  to determine the route. This method is applicable for IPv4 only and it is also known as
+  'traceroute'.
+Details:
+Traceroute
+(OID: 1.3.6.1.4.1.25623.1.0.51662)
+Version used: 2022-10-17T11:13:19Z
+","","","",""
+172.31.1.16,tomcat6.trabalho_vulnnet,8080,tcp,0.0,Log,80,"","Web Application Scanning Consolidation / Info Reporting","The script consolidates and reports various information for web
+  application (formerly called 'CGI') scanning.
+
+  This information is based on the following scripts / settings:
+
+  - HTTP-Version Detection (OID: 1.3.6.1.4.1.25623.1.0.100034)
+
+  - No 404 check (OID: 1.3.6.1.4.1.25623.1.0.10386)
+
+  - Web mirroring / webmirror.nasl (OID: 1.3.6.1.4.1.25623.1.0.10662)
+
+  - Directory Scanner / DDI_Directory_Scanner.nasl (OID: 1.3.6.1.4.1.25623.1.0.11032)
+
+  - The configured 'cgi_path' within the 'Scanner Preferences' of the scan config in use
+
+  - The configured 'Enable CGI scanning', 'Enable generic web application scanning' and
+  'Add historic /scripts and /cgi-bin to directories for CGI scanning' within the
+  'Global variable settings' of the scan config in use
+
+  If you think any of this information is wrong please report it to the referenced community
+  forum.","The Hostname/IP ""tomcat6.trabalho_vulnnet"" was used to access the remote host.
+
+Generic web application scanning is disabled for this host via the ""Enable generic web application scanning"" option within the ""Global variable settings"" of the scan config in use.
+
+Requests to this service are done via HTTP/1.1.
+
+This service seems to be able to host PHP scripts.
+
+This service seems to be able to host ASP scripts.
+
+The User-Agent ""Mozilla/5.0 [en] (X11, U; OpenVAS-VT <version replaced>)"" was used to access the remote host.
+
+Historic /scripts and /cgi-bin are not added to the directories used for web application scanning. You can enable this again with the ""Add historic /scripts and /cgi-bin to directories for CGI scanning"" option within the ""Global variable settings"" of the scan config in use.
+
+A possible recursion was detected during web application scanning:
+
+The service is using a relative URL in one or more HTML references where e.g. /file1.html contains <a href=""subdir/file2.html""> and a subsequent request for subdir/file2.html is linking to subdir/file2.html. This would resolves to subdir/subdir/file2.html causing a recursion. To work around this counter-measures have been enabled but the service should be fixed as well to not use such problematic links. Below an excerpt of URLs is shown to help identify those issues.
+
+Syntax : URL (HTML link)
+
+http://tomcat6.trabalho_vulnnet:8080/docs/?D=A (api/index.html)
+http://tomcat6.trabalho_vulnnet:8080/docs/?D=A (appdev/index.html)
+http://tomcat6.trabalho_vulnnet:8080/docs/?D=A (architecture/index.html)
+http://tomcat6.trabalho_vulnnet:8080/docs/?D=A (config/index.html)
+http://tomcat6.trabalho_vulnnet:8080/docs/?D=A (funcspecs/index.html)
+
+The following files/directories require authentication and are tested (if enabled) by the script ""HTTP Brute Force Logins With Default Credentials (OID: 1.3.6.1.4.1.25623.1.0.108041)"":
+
+http://tomcat6.trabalho_vulnnet:8080/host-manager/html
+http://tomcat6.trabalho_vulnnet:8080/manager/html
+http://tomcat6.trabalho_vulnnet:8080/manager/status
+
+The following directories were used for web application scanning:
+
+http://tomcat6.trabalho_vulnnet:8080/
+http://tomcat6.trabalho_vulnnet:8080/docs
+http://tomcat6.trabalho_vulnnet:8080/docs/api
+http://tomcat6.trabalho_vulnnet:8080/docs/api/org/apache/juli
+http://tomcat6.trabalho_vulnnet:8080/docs/appdev
+http://tomcat6.trabalho_vulnnet:8080/docs/appdev/sample
+http://tomcat6.trabalho_vulnnet:8080/docs/architecture
+http://tomcat6.trabalho_vulnnet:8080/docs/config
+http://tomcat6.trabalho_vulnnet:8080/docs/funcspecs
+http://tomcat6.trabalho_vulnnet:8080/docs/tribes
+http://tomcat6.trabalho_vulnnet:8080/examples
+http://tomcat6.trabalho_vulnnet:8080/examples/jsp
+http://tomcat6.trabalho_vulnnet:8080/examples/jsp/cal
+http://tomcat6.trabalho_vulnnet:8080/examples/jsp/checkbox
+http://tomcat6.trabalho_vulnnet:8080/examples/jsp/colors
+http://tomcat6.trabalho_vulnnet:8080/examples/jsp/dates
+http://tomcat6.trabalho_vulnnet:8080/examples/jsp/error
+http://tomcat6.trabalho_vulnnet:8080/examples/jsp/forward
+http://tomcat6.trabalho_vulnnet:8080/examples/jsp/include
+http://tomcat6.trabalho_vulnnet:8080/examples/jsp/jsp2/el
+http://tomcat6.trabalho_vulnnet:8080/examples/jsp/jsp2/jspattribute
+http://tomcat6.trabalho_vulnnet:8080/examples/jsp/jsp2/jspx
+http://tomcat6.trabalho_vulnnet:8080/examples/jsp/jsp2/misc
+http://tomcat6.trabalho_vulnnet:8080/examples/jsp/jsp2/simpletag
+http://tomcat6.trabalho_vulnnet:8080/examples/jsp/jsp2/tagfiles
+http://tomcat6.trabalho_vulnnet:8080/examples/jsp/jsptoserv
+http://tomcat6.trabalho_vulnnet:8080/examples/jsp/num
+http://tomcat6.trabalho_vulnnet:8080/examples/jsp/plugin
+http://tomcat6.trabalho_vulnnet:8080/examples/jsp/sessions
+http://tomcat6.trabalho_vulnnet:8080/examples/jsp/simpletag
+http://tomcat6.trabalho_vulnnet:8080/examples/jsp/snp
+http://tomcat6.trabalho_vulnnet:8080/examples/jsp/tagplugin
+http://tomcat6.trabalho_vulnnet:8080/examples/jsp/xml
+http://tomcat6.trabalho_vulnnet:8080/examples/servlets
+http://tomcat6.trabalho_vulnnet:8080/examples/servlets/servlet
+http://tomcat6.trabalho_vulnnet:8080/manager
+
+While this is not, in and of itself, a bug, you should manually inspect these directories to ensure that they are in compliance with company security standards
+
+The following directories were excluded from web application scanning because the ""Regex pattern to exclude directories from CGI scanning"" setting of the VT ""Global variable settings"" (OID: 1.3.6.1.4.1.25623.1.0.12288) for this scan was: ""/(index\.php|image|img|css|js$|js/|javascript|style|theme|icon|jquery|graphic|grafik|picture|bilder|thumbnail|media/|skins?/)""
+
+http://tomcat6.trabalho_vulnnet:8080/docs/images
+http://tomcat6.trabalho_vulnnet:8080/examples/jsp/images
+http://tomcat6.trabalho_vulnnet:8080/examples/servlets/images
+
+The ""Number of pages to mirror"" setting (Current: 200) of the VT ""Web mirroring"" (OID: 1.3.6.1.4.1.25623.1.0.10662) was reached. Raising this limit allows to mirror this host more thoroughly but might increase the scanning time.
+
+The following CGIs were discovered:
+
+Syntax : cginame (arguments [default value])
+
+http://tomcat6.trabalho_vulnnet:8080/examples/jsp/cal/cal1.jsp (name [] email [] action [Submit] )
+http://tomcat6.trabalho_vulnnet:8080/examples/jsp/checkbox/checkresult.jsp (fruit [apples] fruit [grapes] fruit [oranges] fruit [melons] submit [Submit] )
+http://tomcat6.trabalho_vulnnet:8080/examples/jsp/colors/colrs.jsp (action [Submit] action [Hint] )
+http://tomcat6.trabalho_vulnnet:8080/examples/jsp/error/err.jsp (name [] submit [Submit] )
+http://tomcat6.trabalho_vulnnet:8080/examples/jsp/jsp2/el/functions.jsp (foo [JSP+2.0] )
+http://tomcat6.trabalho_vulnnet:8080/examples/jsp/jsp2/el/implicit-objects.jsp (foo [bar] )
+http://tomcat6.trabalho_vulnnet:8080/examples/jsp/sessions/carts.jsp (item [] submit [add] submit [remove] )
+http://tomcat6.trabalho_vulnnet:8080/examples/servlets/servlet/CookieExample (cookiename [] cookievalue [] )
+http://tomcat6.trabalho_vulnnet:8080/examples/servlets/servlet/RequestParamExample (firstname [] lastname [] )
+http://tomcat6.trabalho_vulnnet:8080/examples/servlets/servlet/SessionExample;jsessionid=9834474EC7F5F7D05FAF844AC6057ABD (dataname [] datavalue [] )
+",1.3.6.1.4.1.25623.1.0.111038,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,464893fc-1e39-42a1-8b90-b9e21a591639,"","","","","
+Details:
+Web Application Scanning Consolidation / Info Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.111038)
+Version used: 2026-01-13T05:47:36Z
+","","","",""

@@ -1,0 +1,987 @@
+IP,Hostname,Port,Port Protocol,CVSS,Severity,QoD,Solution Type,NVT Name,Summary,Specific Result,NVT OID,CVEs,Task ID,Task Name,Timestamp,Result ID,Impact,Solution,Affected Software/OS,Vulnerability Insight,Vulnerability Detection Method,Product Detection Result,BIDs,CERTs,Other References
+      172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,,,0.0,Log,80,"","CPE Inventory","This routine uses information collected by other routines about
+  CPE identities of operating systems, services and applications detected during the scan.
+
+  Note: Some CPEs for specific products might show up twice or more in the output. Background:
+
+  After a product got renamed or a specific vendor was acquired by another one it might happen that
+  a product gets a new CPE within the NVD CPE Dictionary but older entries are kept with the older
+  CPE.","172.30.3.2|cpe:/a:ietf:secure_shell_protocol:2.0
+172.30.3.2|cpe:/a:openbsd:openssh:6.6.1p1
+172.30.3.2|cpe:/o:canonical:ubuntu_linux:14.04
+
+",1.3.6.1.4.1.25623.1.0.810002,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,8ac31f5f-0898-4e98-b303-9bf511c2fb1a,"","","","","
+Details:
+CPE Inventory
+(OID: 1.3.6.1.4.1.25623.1.0.810002)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,22,tcp,7.5,High,30,"Mitigation","Diffie-Hellman Ephemeral Key Exchange DoS Vulnerability (SSH, D(HE)ater)","The remote SSH server is supporting Diffie-Hellman ephemeral
+  (DHE) Key Exchange (KEX) algorithms and thus could be prone to a denial of service (DoS)
+  vulnerability.","The remote SSH server supports the following DHE KEX algorithm(s):
+
+diffie-hellman-group1-sha1
+diffie-hellman-group14-sha1
+diffie-hellman-group-exchange-sha1
+diffie-hellman-group-exchange-sha256
+",1.3.6.1.4.1.25623.1.0.117839,"CVE-2002-20001,CVE-2022-40735,CVE-2024-41996",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,a629fdad-49da-4a13-a063-6839801bfa74,"This vulnerability allows remote attackers (from the client side)
+  to send arbitrary numbers that are actually not public keys, and trigger expensive server-side DHE
+  modular-exponentiation calculations, also known as a D(HE)ater attack.
+
+  There could be an increase in CPU usage in the affected component. For OpenSSH, users may observe
+  issues such as a slowdown in SSH connections.","'- DHE key exchange should be disabled if no other mitigation
+  mechanism can be used and either elliptic-curve variant of Diffie-Hellman (ECDHE) or RSA key
+  exchange is supported by the clients. The fact that RSA key exchange is not forward secret should
+  be considered.
+
+  - Limit the maximum number of concurrent connections in e.g. the configuration of the remote
+  server. For OpenSSH this limit can be configured via the 'MaxStartups' option, for other products
+  please refer to the manual of the product in question on configuration possibilities.","","'- CVE-2002-20001: The Diffie-Hellman Key Agreement Protocol
+  allows remote attackers (from the client side) to send arbitrary numbers that are actually not
+  public keys, and trigger expensive server-side DHE modular-exponentiation calculations, aka a
+  D(HE)ater attack. The client needs very little CPU resources and network bandwidth. The attack may
+  be more disruptive in cases where a client can require a server to select its largest supported
+  key size. The basic attack scenario is that the client must claim that it can only communicate
+  with DHE, and the server must be configured to allow DHE.
+
+  - CVE-2022-40735: The Diffie-Hellman Key Agreement Protocol allows use of long exponents that
+  arguably make certain calculations unnecessarily expensive, because the 1996 van Oorschot and
+  Wiener paper found that '(appropriately) short exponents' can be used when there are adequate
+  subgroup constraints, and these short exponents can lead to less expensive calculations than for
+  long exponents. This issue is different from CVE-2002-20001 because it is based on an observation
+  about exponent size, rather than an observation about numbers that are not public keys. The
+  specific situations in which calculation expense would constitute a server-side vulnerability
+  depend on the protocol (e.g., TLS, SSH, or IKE) and the DHE implementation details. In general,
+  there might be an availability concern because of server-side resource consumption from DHE
+  modular-exponentiation calculations. Finally, it is possible for an attacker to exploit this
+  vulnerability and CVE-2002-20001 together.
+
+  - CVE-2024-41996: Validating the order of the public keys in the Diffie-Hellman Key Agreement
+  Protocol, when an approved safe prime is used, allows remote attackers (from the client side) to
+  trigger unnecessarily expensive server-side DHE modular-exponentiation calculations. The client
+  may cause asymmetric resource consumption. The basic attack scenario is that the client must claim
+  that it can only communicate with DHE, and the server must be configured to allow DHE and validate
+  the order of the public key.","Checks the supported KEX algorithms of the remote SSH
+  server.
+Details:
+Diffie-Hellman Ephemeral Key Exchange DoS Vulnerability (SSH, D(HE)ater)
+(OID: 1.3.6.1.4.1.25623.1.0.117839)
+Version used: 2024-10-03T05:05:33Z
+","Product: cpe:/a:ietf:secure_shell_protocol
+Method: SSH Protocol Algorithms Supported
+(OID: 1.3.6.1.4.1.25623.1.0.105565)
+","","DFN-CERT-2025-3324,DFN-CERT-2024-2847,DFN-CERT-2024-2578,DFN-CERT-2024-1671,DFN-CERT-2023-1697,DFN-CERT-2023-1332,DFN-CERT-2022-2147,DFN-CERT-2022-0437,DFN-CERT-2021-2622,WID-SEC-2024-3056,WID-SEC-2023-1886,WID-SEC-2023-1352,WID-SEC-2022-2251,WID-SEC-2022-2000,CB-K22/0224,CB-K21/1276",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,,,0.0,Log,80,"","Hostname Determination Reporting","The script reports information on how the hostname of the target
+  was determined.","Hostname determination for IP 172.30.3.2:
+
+Hostname|Source
+ubuntu-ssh-old.trabalho_vulnnet|Reverse-DNS
+",1.3.6.1.4.1.25623.1.0.108449,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,553589ca-a11f-4dd7-8e9c-fa0b882cce38,"","","","","
+Details:
+Hostname Determination Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.108449)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,,,2.1,Low,80,"Mitigation","ICMP Timestamp Reply Information Disclosure","The remote host responded to an ICMP timestamp request.","The following response / ICMP packet has been received:
+- ICMP Type: 14
+- ICMP Code: 0
+",1.3.6.1.4.1.25623.1.0.103190,"CVE-1999-0524",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,c223ea0e-c3b2-4642-9c30-4ccaff0c4f14,"This information could theoretically be used to exploit weak
+  time-based random number generators in other services.","Various mitigations are possible:
+
+  - Disable the support for ICMP timestamp on the remote host completely
+
+  - Protect the remote host by a firewall, and block ICMP packets passing through the firewall in
+  either direction (either completely or only for untrusted networks)","","The Timestamp Reply is an ICMP message which replies to a
+  Timestamp message. It consists of the originating timestamp sent by the sender of the Timestamp as
+  well as a receive timestamp and a transmit timestamp.","Sends an ICMP Timestamp (Type 13) request and checks if a
+  Timestamp Reply (Type 14) is received.
+Details:
+ICMP Timestamp Reply Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.103190)
+Version used: 2025-01-21T05:37:33Z
+","","","DFN-CERT-2014-0658,CB-K15/1514,CB-K14/0632",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,,,0.0,Log,70,"","IP Forwarding Enabled - Active Check","Checks if the remote host has IP forwarding enabled.","It was possible to route a TCP packet through the target host and received an answer which means IP forwarding is enabled.
+",1.3.6.1.4.1.25623.1.0.147205,"CVE-1999-0511",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,31e0557e-20de-49a5-bb62-ecae1e70d59c,"","","","","Sends a crafted Local Link Layer (LLL) frame and checks the
+  response.
+Details:
+IP Forwarding Enabled - Active Check
+(OID: 1.3.6.1.4.1.25623.1.0.147205)
+Version used: 2021-12-03T08:27:06Z
+","","","",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,22,tcp,2.4,Low,30,"VendorFix","OpenBSD OpenSSH < 10.1 Multiple Vulnerabilities","OpenBSD OpenSSH is prone to multiple vulnerabilities.","Installed version: 6.6.1p1
+Fixed version:     10.1
+Installation
+path / port:       22/tcp
+
+",1.3.6.1.4.1.25623.1.0.119134,"CVE-2025-61984,CVE-2025-61985",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,4201ca8f-a516-4d23-9ed3-fe3b56674943,"","Update to version 10.1 or later.","OpenBSD OpenSSH versions prior to 10.1.","The following flaws exist:
+
+  - CVE-2025-61984: 'ssh' allows control characters in usernames that originate from certain
+  possibly untrusted sources, potentially leading to code execution when a ProxyCommand is used. The
+  untrusted sources are the command line and %-sequence expansion of a configuration file. (A
+  configuration file that provides a complete literal username is not categorized as an untrusted
+  source.)
+
+  - CVE-2025-61985: 'ssh' allows the '\0' character in an ssh:// URI, potentially leading to code
+  execution when a ProxyCommand is used.","Checks if a vulnerable version is present on the target host.
+Details:
+OpenBSD OpenSSH < 10.1 Multiple Vulnerabilities
+(OID: 1.3.6.1.4.1.25623.1.0.119134)
+Version used: 2025-10-08T05:38:55Z
+","Product: cpe:/a:openbsd:openssh:6.6.1p1
+Method: OpenSSH Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.108577)
+","","DFN-CERT-2026-0218,DFN-CERT-2025-3384,DFN-CERT-2025-2768,WID-SEC-2025-2212",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,22,tcp,4.0,Medium,30,"VendorFix","OpenBSD OpenSSH < 9.1 Multiple Vulnerabilities","OpenBSD OpenSSH is prone to multiple vulnerabilities.","Installed version: 6.6.1p1
+Fixed version:     9.1
+Installation
+path / port:       22/tcp
+
+",1.3.6.1.4.1.25623.1.0.127244,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,40c3bf3c-a01e-4fa9-a422-97c6ed76a223,"","Update to version 9.1 or later.","OpenBSD OpenSSH prior to version 9.1.","The following vulnerabilities exist:
+
+  - A one-byte overflow in SSH- banner processing in ssh-keyscan.
+
+  - A double free() in error path of file hashing step in
+   signing/verify code in ssh-keygen.
+
+  - A double-free in error path in ssh-keysign.","Checks if a vulnerable version is present on the target host.
+Details:
+OpenBSD OpenSSH < 9.1 Multiple Vulnerabilities
+(OID: 1.3.6.1.4.1.25623.1.0.127244)
+Version used: 2025-01-21T05:37:33Z
+","Product: cpe:/a:openbsd:openssh:6.6.1p1
+Method: OpenSSH Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.108577)
+","","",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,22,tcp,5.0,Medium,30,"VendorFix","OpenBSD OpenSSH < 9.2 Unspecified Vulnerability","OpenBSD OpenSSH is prone to an unspecified vulnerability.","Installed version: 6.6.1p1
+Fixed version:     9.2
+Installation
+path / port:       22/tcp
+
+",1.3.6.1.4.1.25623.1.0.104512,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,c770609a-fe52-4d65-b404-191b27061156,"","Update to version 9.2 or later.","OpenBSD OpenSSH prior to version 9.2.","If the CanonicalizeHostname and CanonicalizePermittedCNAMEs
+  options were enabled, and the system/libc resolver did not check that names in DNS responses were
+  valid, then use of these options could allow an attacker with control of DNS to include invalid
+  characters (possibly including wildcards) in names added to known_hosts files when they were
+  updated. These names would still have to match the CanonicalizePermittedCNAMEs allow-list, so
+  practical exploitation appears unlikely.","Checks if a vulnerable version is present on the target host.
+Details:
+OpenBSD OpenSSH < 9.2 Unspecified Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.104512)
+Version used: 2025-01-21T05:37:33Z
+","Product: cpe:/a:openbsd:openssh:6.6.1p1
+Method: OpenSSH Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.108577)
+","","",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,22,tcp,5.0,Medium,30,"VendorFix","OpenBSD OpenSSH < 9.3 Unspecified Vulnerability","OpenBSD OpenSSH is prone to an unspecified vulnerability.","Installed version: 6.6.1p1
+Fixed version:     9.3
+Installation
+path / port:       22/tcp
+
+",1.3.6.1.4.1.25623.1.0.104635,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,9729a348-4388-4f6e-8064-a1e201f7a12b,"","Update to version 9.3 or later.","OpenBSD OpenSSH prior to version 9.3.","ssh(1): Portable OpenSSH provides an implementation of the
+  getrrsetbyname(3) function if the standard library does not provide it, for use by the
+  VerifyHostKeyDNS feature. A specifically crafted DNS response could cause this function to perform
+  an out-of-bounds read of adjacent stack data, but this condition does not appear to be exploitable
+  beyond denial-of-service to the ssh(1) client.
+
+  The getrrsetbyname(3) replacement is only included if the system's standard library lacks this
+  function and portable OpenSSH was not compiled with the ldns library (--with-ldns).
+  getrrsetbyname(3) is only invoked if using VerifyHostKeyDNS to fetch SSHFP records.This problem
+  was found by the Coverity static analyzer.","Checks if a vulnerable version is present on the target host.
+Details:
+OpenBSD OpenSSH < 9.3 Unspecified Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.104635)
+Version used: 2025-01-21T05:37:33Z
+","Product: cpe:/a:openbsd:openssh:6.6.1p1
+Method: OpenSSH Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.108577)
+","","",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,22,tcp,6.5,Medium,30,"VendorFix","OpenBSD OpenSSH < 9.6 Multiple Vulnerabilities (Terrapin Attack)","OpenBSD OpenSSH is prone to multiple vulnerabilities.","Installed version: 6.6.1p1
+Fixed version:     9.6
+Installation
+path / port:       22/tcp
+
+",1.3.6.1.4.1.25623.1.0.118572,"CVE-2023-48795,CVE-2023-51384,CVE-2023-51385",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,bcbb3685-b564-40d9-b08e-00347c889631,"","Update to version 9.6 or later.
+
+  Note: Client and Server implementations need to run a fixed version to mitigate the Terrapin
+  flaw.","OpenBSD OpenSSH prior to version 9.6.","The following vulnerabilities exist:
+
+  - CVE-2023-48795: The SSH transport protocol with certain OpenSSH extensions allows remote
+  attackers to bypass integrity checks such that some packets are omitted (from the extension
+  negotiation message), and a client and server may consequently end up with a connection for which
+  some security features have been downgraded or disabled, aka a 'Terrapin attack'.
+
+  - CVE-2023-51384: In ssh-agent certain destination constraints can be incompletely applied. When
+  destination constraints are specified during addition of PKCS#11-hosted private keys, these
+  constraints are only applied to the first key, even if a PKCS#11 token returns multiple keys.
+
+  - CVE-2023-51385: OS command injection might occur if a user name or host name has shell
+  metacharacters, and this name is referenced by an expansion token in certain situations. For
+  example, an untrusted Git repository can have a submodule with shell metacharacters in a user
+  name or host name.","Checks if a vulnerable version is present on the target host.
+Details:
+OpenBSD OpenSSH < 9.6 Multiple Vulnerabilities (Terrapin Attack)
+(OID: 1.3.6.1.4.1.25623.1.0.118572)
+Version used: 2025-10-08T05:38:55Z
+","Product: cpe:/a:openbsd:openssh:6.6.1p1
+Method: OpenSSH Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.108577)
+","","DFN-CERT-2026-0097,DFN-CERT-2025-3629,DFN-CERT-2025-3272,DFN-CERT-2025-2058,DFN-CERT-2025-2037,DFN-CERT-2025-1447,DFN-CERT-2025-1177,DFN-CERT-2025-1025,DFN-CERT-2025-0660,DFN-CERT-2025-0502,DFN-CERT-2025-0294,DFN-CERT-2025-0173,DFN-CERT-2025-0165,DFN-CERT-2025-0024,DFN-CERT-2024-3171,DFN-CERT-2024-2818,DFN-CERT-2024-2759,DFN-CERT-2024-2741,DFN-CERT-2024-2682,DFN-CERT-2024-2602,DFN-CERT-2024-2573,DFN-CERT-2024-2392,DFN-CERT-2024-2210,DFN-CERT-2024-2209,DFN-CERT-2024-2194,DFN-CERT-2024-2169,DFN-CERT-2024-2048,DFN-CERT-2024-2030,DFN-CERT-2024-2028,DFN-CERT-2024-1930,DFN-CERT-2024-1895,DFN-CERT-2024-1869,DFN-CERT-2024-1868,DFN-CERT-2024-1865,DFN-CERT-2024-1862,DFN-CERT-2024-1854,DFN-CERT-2024-1846,DFN-CERT-2024-1817,DFN-CERT-2024-1794,DFN-CERT-2024-1715,DFN-CERT-2024-1698,DFN-CERT-2024-1688,DFN-CERT-2024-1655,DFN-CERT-2024-1600,DFN-CERT-2024-1443,DFN-CERT-2024-1442,DFN-CERT-2024-1413,DFN-CERT-2024-1382,DFN-CERT-2024-1380,DFN-CERT-2024-1373,DFN-CERT-2024-1260,DFN-CERT-2024-1259,DFN-CERT-2024-1108,DFN-CERT-2024-1061,DFN-CERT-2024-1029,DFN-CERT-2024-1003,DFN-CERT-2024-1000,DFN-CERT-2024-0896,DFN-CERT-2024-0779,DFN-CERT-2024-0762,DFN-CERT-2024-0744,DFN-CERT-2024-0698,DFN-CERT-2024-0633,DFN-CERT-2024-0619,DFN-CERT-2024-0618,DFN-CERT-2024-0616,DFN-CERT-2024-0597,DFN-CERT-2024-0545,DFN-CERT-2024-0526,DFN-CERT-2024-0491,DFN-CERT-2024-0480,DFN-CERT-2024-0451,DFN-CERT-2024-0440,DFN-CERT-2024-0420,DFN-CERT-2024-0388,DFN-CERT-2024-0343,DFN-CERT-2024-0306,DFN-CERT-2024-0299,DFN-CERT-2024-0285,DFN-CERT-2024-0267,DFN-CERT-2024-0251,DFN-CERT-2024-0215,DFN-CERT-2024-0211,DFN-CERT-2024-0164,DFN-CERT-2024-0154,DFN-CERT-2024-0101,DFN-CERT-2024-0092,DFN-CERT-2024-0088,DFN-CERT-2024-0067,DFN-CERT-2024-0063,DFN-CERT-2024-0062,DFN-CERT-2024-0024,DFN-CERT-2024-0022,DFN-CERT-2024-0013,DFN-CERT-2023-3219,DFN-CERT-2023-3218,DFN-CERT-2023-3210,DFN-CERT-2023-3201,DFN-CERT-2023-3200,DFN-CERT-2023-3195,DFN-CERT-2023-3193,DFN-CERT-2023-3191,DFN-CERT-2023-3185,DFN-CERT-2023-3184,DFN-CERT-2023-3183,DFN-CERT-2023-3182,DFN-CERT-2023-3175,WID-SEC-2025-0810,WID-SEC-2025-0168,WID-SEC-2025-0144,WID-SEC-2025-0139,WID-SEC-2024-3377,WID-SEC-2024-3320,WID-SEC-2024-3198,WID-SEC-2024-3195,WID-SEC-2024-3140,WID-SEC-2024-1913,WID-SEC-2024-1781,WID-SEC-2024-1701,WID-SEC-2024-1656,WID-SEC-2024-1655,WID-SEC-2024-1643,WID-SEC-2024-1642,WID-SEC-2024-1639,WID-SEC-2024-1637,WID-SEC-2024-1630,WID-SEC-2024-1474,WID-SEC-2024-1248,WID-SEC-2024-1228,WID-SEC-2024-1186,WID-SEC-2024-1082,WID-SEC-2024-0899,WID-SEC-2024-0892,WID-SEC-2024-0889,WID-SEC-2024-0885,WID-SEC-2024-0874,WID-SEC-2024-0869,WID-SEC-2024-0578,WID-SEC-2024-0564,WID-SEC-2024-0523,WID-SEC-2023-3182,WID-SEC-2023-3174",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,22,tcp,6.8,Medium,30,"VendorFix","OpenBSD OpenSSH <= 7.9 Multiple Vulnerabilities","OpenBSD OpenSSH is prone to multiple vulnerabilities.","Installed version: 6.6.1p1
+Fixed version:     8.0
+Installation
+path / port:       22/tcp
+
+",1.3.6.1.4.1.25623.1.0.117786,"CVE-2018-20685,CVE-2019-6109,CVE-2019-6110,CVE-2019-6111",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,02d11451-1b4d-4ab4-b81a-7e8c5e723df0,"","Update to version 8.0 or later.","OpenBSD OpenSSH versions 7.9 and prior.","The following flaws exist:
+
+  - CVE-2018-20685: bypass of intended access restrictions in the scp client
+
+  - CVE-2019-6109, CVE-2019-6110: manipulation of the output in the scp client by a malicious server
+
+  - CVE-2019-6111: overwrite of arbitrary files in the scp client by a malicious server","Checks if a vulnerable version is present on the target host.
+Details:
+OpenBSD OpenSSH <= 7.9 Multiple Vulnerabilities
+(OID: 1.3.6.1.4.1.25623.1.0.117786)
+Version used: 2023-10-20T16:09:12Z
+","Product: cpe:/a:openbsd:openssh:6.6.1p1
+Method: OpenSSH Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.108577)
+","","DFN-CERT-2024-1260,DFN-CERT-2019-2157,DFN-CERT-2019-1470,DFN-CERT-2019-0970,DFN-CERT-2019-0776,DFN-CERT-2019-0563,DFN-CERT-2019-0415,DFN-CERT-2019-0357,DFN-CERT-2019-0275,DFN-CERT-2019-0136,DFN-CERT-2019-0094,WID-SEC-2024-1082,WID-SEC-2024-0872,WID-SEC-2023-1995,WID-SEC-2023-0561,CB-K19/0627,CB-K19/0312,CB-K19/0058,CB-K19/0037",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,22,tcp,7.4,High,30,"WillNotFix","OpenBSD OpenSSH <= 8.6 Command Injection Vulnerability","OpenBSD OpenSSH is prone to a command injection
+  vulnerability.","Installed version: 6.6.1p1
+Fixed version:     None
+Installation
+path / port:       22/tcp
+
+",1.3.6.1.4.1.25623.1.0.113736,"CVE-2020-15778",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,80cf2015-e3fb-4d2c-81b0-3e14b1cab421,"Successful exploitation would allow an attacker to execute
+  arbitrary code on the target machine.","No known solution was made available for at least one year
+  since the disclosure of this vulnerability. Likely none will be provided anymore. General solution
+  options are to upgrade to a newer release, disable respective features, remove the product or
+  replace the product by another one.","OpenBSD OpenSSH through version 8.6 (initially reported for
+  8.3p1).","scp of OpenSSH allows command injection in spc.c via backtick
+  characters in the destination argument.","Checks if a vulnerable version is present on the target host.
+Details:
+OpenBSD OpenSSH <= 8.6 Command Injection Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.113736)
+Version used: 2025-07-29T05:44:59Z
+","Product: cpe:/a:openbsd:openssh:6.6.1p1
+Method: OpenSSH Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.108577)
+","","DFN-CERT-2024-1260,DFN-CERT-2020-1691,WID-SEC-2024-1082,WID-SEC-2023-1599,WID-SEC-2022-2413,WID-SEC-2022-1308,CB-K21/1268",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,22,tcp,5.9,Medium,30,"VendorFix","OpenBSD OpenSSH Information Disclosure Vulnerability (CVE-2020-14145)","OpenBSD OpenSSH is prone to an information disclosure
+  vulnerability.","Installed version: 6.6.1p1
+Fixed version:     8.5
+Installation
+path / port:       22/tcp
+
+",1.3.6.1.4.1.25623.1.0.117785,"CVE-2020-14145",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,fb05058d-d017-4781-9f3f-1f5ee6d740f2,"","Update to version 8.5 or later.","OpenBSD OpenSSH versions 5.7 through 8.4.","The client side in OpenSSH has an Observable Discrepancy leading
+  to an information leak in the algorithm negotiation. This allows man-in-the-middle attackers to
+  target initial connection attempts (where no host key for the server has been cached by the
+  client).","Checks if a vulnerable version is present on the target host.
+Details:
+OpenBSD OpenSSH Information Disclosure Vulnerability (CVE-2020-14145)
+(OID: 1.3.6.1.4.1.25623.1.0.117785)
+Version used: 2021-11-22T14:03:31Z
+","Product: cpe:/a:openbsd:openssh:6.6.1p1
+Method: OpenSSH Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.108577)
+","","DFN-CERT-2024-1260,DFN-CERT-2020-2691,WID-SEC-2024-1591,WID-SEC-2024-1082,WID-SEC-2023-1969,WID-SEC-2023-1599,WID-SEC-2023-0068,CB-K20/0995",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,22,tcp,5.3,Medium,30,"WillNotFix","OpenSSH auth2-gss.c User Enumeration Vulnerability - Linux","OpenSSH is prone to a user enumeration vulnerability.","Installed version: 6.6.1p1
+Fixed version:     None
+Installation
+path / port:       22/tcp
+
+",1.3.6.1.4.1.25623.1.0.813888,"CVE-2018-15919",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,00c81ab9-3f6f-433c-b6a5-282ecbec5f3b,"Successfully exploitation will allow a remote attacker to harvest
+  valid user accounts, which may aid in brute-force attacks.","No known solution was made available for at least one year
+  since the disclosure of this vulnerability. Likely none will be provided anymore. General solution
+  options are to upgrade to a newer release, disable respective features, remove the product or
+  replace the product by another one.","OpenSSH version 5.9 through 7.8.","The flaw exists in the 'auth-gss2.c' source code file of the
+  affected software and is due to insufficient validation of an authentication request packet when
+  the Guide Star Server II (GSS2) component is used on an affected system.","Checks if a vulnerable version is present on the target host.
+Details:
+OpenSSH 'auth2-gss.c' User Enumeration Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.813888)
+Version used: 2021-05-28T07:06:21Z
+","Product: cpe:/a:openbsd:openssh:6.6.1p1
+Method: OpenSSH Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.108577)
+","","DFN-CERT-2024-1260,DFN-CERT-2018-2293,DFN-CERT-2018-2191,WID-SEC-2024-1082,CB-K18/0885",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,22,tcp,7.0,High,30,"VendorFix","OpenSSH 6.2 <= 8.7 Privilege Escalation Vulnerability","OpenSSH is prone to a privilege scalation vulnerability in
+  certain configurations.","Installed version: 6.6.1p1
+Fixed version:     8.8
+Installation
+path / port:       22/tcp
+
+",1.3.6.1.4.1.25623.1.0.117696,"CVE-2021-41617",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,9c7b521b-8058-4da8-a4e6-2ef2198ac14e,"","Update to version 8.8 or later.","OpenSSH versions 6.2 through 8.7.","sshd failed to correctly initialise supplemental groups when
+  executing an AuthorizedKeysCommand or AuthorizedPrincipalsCommand, where a
+  AuthorizedKeysCommandUser or AuthorizedPrincipalsCommandUser directive has been set to run the
+  command as a different user. Instead these commands would inherit the groups that sshd was started
+  with.
+
+  Depending on system configuration, inherited groups may allow
+  AuthorizedKeysCommand/AuthorizedPrincipalsCommand helper programs to gain unintended privilege.
+
+  Neither AuthorizedKeysCommand nor AuthorizedPrincipalsCommand are enabled by default in
+  sshd_config.","Checks if a vulnerable version is present on the target host.
+Details:
+OpenSSH 6.2 <= 8.7 Privilege Escalation Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.117696)
+Version used: 2021-10-11T08:01:31Z
+","Product: cpe:/a:openbsd:openssh:6.6.1p1
+Method: OpenSSH Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.108577)
+","","DFN-CERT-2024-1260,DFN-CERT-2024-0022,DFN-CERT-2023-3218,DFN-CERT-2023-3210,DFN-CERT-2022-1571,DFN-CERT-2022-0579,DFN-CERT-2021-2586,DFN-CERT-2021-2017,DFN-CERT-2021-2015,WID-SEC-2024-1082,WID-SEC-2023-1969,WID-SEC-2023-0426,WID-SEC-2022-1308,WID-SEC-2022-0676,WID-SEC-2022-0534,CB-K22/0310,CB-K22/0011,CB-K21/1268,CB-K21/1017",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,22,tcp,5.3,Medium,30,"VendorFix","OpenSSH < 7.1p2 DoS Vulnerability (Jan 2016)","OpenSSH is prone to a denial of service (DoS) vulnerability.","Installed version: 6.6.1p1
+Fixed version:     7.1p2
+Installation
+path / port:       22/tcp
+
+",1.3.6.1.4.1.25623.1.0.806671,"CVE-2016-1907",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,d02060b1-c5b1-42f5-95ab-518010988fb8,"Successfully exploiting this issue allow remote attackers to
+  cause a denial of service (out-of-bounds read and application crash).","Update to version 7.1p2 or later.","OpenSSH versions before 7.1p2.","The flaw exists due to an error in the 'ssh_packet_read_poll2'
+  function within the 'packet.c' file.","Checks if a vulnerable version is present on the target host.
+Details:
+OpenSSH < 7.1p2 DoS Vulnerability (Jan 2016)
+(OID: 1.3.6.1.4.1.25623.1.0.806671)
+Version used: 2024-12-13T05:05:32Z
+","Product: cpe:/a:openbsd:openssh:6.6.1p1
+Method: OpenSSH Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.108577)
+","","DFN-CERT-2017-0060,DFN-CERT-2016-0733,DFN-CERT-2016-0077,WID-SEC-2024-1055,CB-K17/0055,CB-K16/0684,CB-K16/0068",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,22,tcp,7.5,High,30,"VendorFix","OpenSSH < 7.3 DoS and User Enumeration Vulnerabilities - Linux","OpenSSH is prone to denial of service (DoS) and user enumeration
+  vulnerabilities.","Installed version: 6.6.1p1
+Fixed version:     7.3
+Installation
+path / port:       22/tcp
+
+",1.3.6.1.4.1.25623.1.0.809154,"CVE-2016-6515,CVE-2016-6210",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,139b4b54-dc81-4bb4-8e2f-d84c9c1658f2,"Successfully exploiting this issue allows remote attackers to
+  cause a denial of service (crypt CPU consumption) and to enumerate users by leveraging the timing
+  difference between responses when a large password is provided.","Update to version 7.3 or later.","OpenSSH versions before 7.3 on Linux.","Multiple flaws exist due to:
+
+  - The auth_password function in 'auth-passwd.c' script does not limit password lengths for
+  password authentication.
+
+  - The sshd in OpenSSH, when SHA256 or SHA512 are used for user password hashing uses BLOWFISH
+  hashing on a static password when the username does not exist and it takes much longer to
+  calculate SHA256/SHA512 hash than BLOWFISH hash.","Checks if a vulnerable version is present on the target host.
+Details:
+OpenSSH < 7.3 DoS and User Enumeration Vulnerabilities - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.809154)
+Version used: 2024-12-13T05:05:32Z
+","Product: cpe:/a:openbsd:openssh:6.6.1p1
+Method: OpenSSH Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.108577)
+","","DFN-CERT-2023-1920,DFN-CERT-2019-1408,DFN-CERT-2018-1828,DFN-CERT-2018-1070,DFN-CERT-2018-0046,DFN-CERT-2017-2320,DFN-CERT-2017-2208,DFN-CERT-2017-1831,DFN-CERT-2017-1407,DFN-CERT-2017-1340,DFN-CERT-2017-0060,DFN-CERT-2016-1943,DFN-CERT-2016-1729,DFN-CERT-2016-1576,DFN-CERT-2016-1574,DFN-CERT-2016-1331,DFN-CERT-2016-1243,DFN-CERT-2016-1149,WID-SEC-2023-0450,WID-SEC-2023-0449,CB-K18/0041,CB-K17/2219,CB-K17/2112,CB-K17/1753,CB-K17/1349,CB-K17/1292,CB-K17/0055,CB-K16/1837,CB-K16/1629,CB-K16/1487,CB-K16/1485,CB-K16/1252,CB-K16/1221,CB-K16/1082",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,22,tcp,7.8,High,30,"VendorFix","OpenSSH < 7.4 Multiple Vulnerabilities (Jan 2017) - Linux","OpenSSH is prone to multiple vulnerabilities.","Installed version: 6.6.1p1
+Fixed version:     7.4
+Installation
+path / port:       22/tcp
+
+",1.3.6.1.4.1.25623.1.0.8103256,"CVE-2016-10009,CVE-2016-10010,CVE-2016-10011,CVE-2016-10012,CVE-2016-10708",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,12406b0b-6108-402f-8c41-b988d510a1b3,"Successfully exploiting this issue allows local users to obtain
+  sensitive private-key information, to gain privileges, conduct a senial-of-service condition and
+  allows remote attackers to execute arbitrary local PKCS#11 modules.","Update to version 7.4 or later.","OpenSSH versions before 7.4 on Linux.","Multiple flaws exist due to:
+
+  - An 'authfile.c' script does not properly consider the effects of realloc on buffer contents.
+
+  - The shared memory manager (associated with pre-authentication compression) does not ensure that
+  a bounds check is enforced by all compilers.
+
+  - The sshd in OpenSSH creates forwarded Unix-domain sockets as root, when privilege separation is
+  not used.
+
+  - An untrusted search path vulnerability in ssh-agent.c in ssh-agent.
+
+  - NULL pointer dereference error due to an out-of-sequence NEWKEYS message.","Checks if a vulnerable version is present on the target host.
+Details:
+OpenSSH < 7.4 Multiple Vulnerabilities (Jan 2017) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.8103256)
+Version used: 2024-12-13T05:05:32Z
+","Product: cpe:/a:openbsd:openssh:6.6.1p1
+Method: OpenSSH Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.108577)
+","","DFN-CERT-2021-0776,DFN-CERT-2019-1408,DFN-CERT-2018-2259,DFN-CERT-2018-2191,DFN-CERT-2018-2068,DFN-CERT-2018-1828,DFN-CERT-2018-1568,DFN-CERT-2018-1432,DFN-CERT-2018-1112,DFN-CERT-2018-1070,DFN-CERT-2018-1068,DFN-CERT-2018-0150,DFN-CERT-2018-0046,DFN-CERT-2017-2320,DFN-CERT-2017-2208,DFN-CERT-2017-1340,DFN-CERT-2017-1096,DFN-CERT-2017-0532,DFN-CERT-2017-0386,DFN-CERT-2017-0130,DFN-CERT-2017-0042,DFN-CERT-2016-2099,WID-SEC-2023-1996,CB-K18/0919,CB-K18/0591,CB-K18/0137,CB-K18/0041,CB-K17/2219,CB-K17/2112,CB-K17/1292,CB-K17/1061,CB-K17/0527,CB-K17/0377,CB-K17/0127,CB-K17/0041,CB-K16/1991",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,22,tcp,5.3,Medium,30,"VendorFix","OpenSSH < 7.6 sftp-server Security Bypass Vulnerability - Linux","OpenSSH is prone to a security bypass vulnerability.","Installed version: 6.6.1p1
+Fixed version:     7.6
+Installation
+path / port:       22/tcp
+
+",1.3.6.1.4.1.25623.1.0.812051,"CVE-2017-15906",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,bcbabd20-93ff-40a7-91f7-4fd50cd7b7ee,"Successfully exploiting this issue allows local users to bypass
+  certain security restrictions and perform unauthorized actions. This may lead to further
+  attacks.","Update to version 7.6 or later.","OpenSSH versions prior to 7.6 on Linux.","The flaw exists in the 'process_open' function in sftp-server.c
+  script which does not properly prevent write operations in readonly mode.","Checks if a vulnerable version is present on the target host.
+Details:
+OpenSSH < 7.6 'sftp-server' Security Bypass Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.812051)
+Version used: 2024-12-13T05:05:32Z
+","Product: cpe:/a:openbsd:openssh:6.6.1p1
+Method: OpenSSH Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.108577)
+","","DFN-CERT-2024-1260,DFN-CERT-2019-0362,DFN-CERT-2018-2554,DFN-CERT-2018-2191,DFN-CERT-2018-2068,DFN-CERT-2018-1828,DFN-CERT-2018-1568,DFN-CERT-2018-0150,DFN-CERT-2017-2217,DFN-CERT-2017-2100,DFN-CERT-2017-2093,WID-SEC-2024-1082,CB-K20/0041,CB-K18/0137,CB-K17/2126,CB-K17/2014,CB-K17/2002",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,22,tcp,5.3,Medium,30,"VendorFix","OpenSSH < 7.8 User Enumeration Vulnerability - Linux","OpenSSH is prone to a user enumeration vulnerability.","Installed version: 6.6.1p1
+Fixed version:     7.8
+Installation
+path / port:       22/tcp
+
+",1.3.6.1.4.1.25623.1.0.813864,"CVE-2018-15473",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,a8706330-fd65-4e6c-b7aa-a0d024d68e28,"Successfully exploitation will allow remote attacker to test
+  whether a certain user exists or not (username enumeration) on a target OpenSSH server.","Update to version 7.8 or later.","OpenSSH versions 7.7 and prior.","The flaw is due to not delaying bailout for an invalid
+  authenticating user until after the packet containing the request has been fully parsed, related
+  to auth2-gss.c, auth2-hostbased.c, and auth2-pubkey.c","Checks if a vulnerable version is present on the target host.
+Details:
+OpenSSH < 7.8 User Enumeration Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.813864)
+Version used: 2024-12-13T05:05:32Z
+","Product: cpe:/a:openbsd:openssh:6.6.1p1
+Method: OpenSSH Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.108577)
+","","DFN-CERT-2024-1260,DFN-CERT-2021-2178,DFN-CERT-2020-2189,DFN-CERT-2020-0228,DFN-CERT-2019-2046,DFN-CERT-2019-0857,DFN-CERT-2019-0362,DFN-CERT-2018-2293,DFN-CERT-2018-2259,DFN-CERT-2018-2191,DFN-CERT-2018-1806,DFN-CERT-2018-1696,WID-SEC-2024-1082,CB-K20/0041,CB-K18/1031,CB-K18/0873",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,22,tcp,6.4,Medium,30,"VendorFix","OpenSSH <= 7.2p1 Xauth Command Injection Vulnerability","OpenSSH is prone to an xauth command injection vulnerability.","Installed version: 6.6.1p1
+Fixed version:     7.2p2
+Installation
+path / port:       22/tcp
+
+",1.3.6.1.4.1.25623.1.0.105581,"CVE-2016-3115",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,196a32ff-8bfd-44fd-8f8e-c74ce526da67,"By injecting xauth commands one gains limited* read/write
+  arbitrary files, information leakage or xauth-connect capabilities.","Update to version 7.2p2 or later.","OpenSSH versions before 7.2p2.","An authenticated user may inject arbitrary xauth commands by
+  sending an x11 channel request that includes a newline character in the x11 cookie. The newline
+  acts as a command separator to the xauth binary. This attack requires the server to have
+  'X11Forwarding yes' enabled. Disabling it, mitigates this vector.","Checks if a vulnerable version is present on the target host.
+Details:
+OpenSSH <= 7.2p1 Xauth Command Injection Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.105581)
+Version used: 2024-12-13T05:05:32Z
+","Product: cpe:/a:openbsd:openssh:6.6.1p1
+Method: OpenSSH Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.108577)
+","","DFN-CERT-2018-1828,DFN-CERT-2017-0059,DFN-CERT-2016-1574,DFN-CERT-2016-1174,DFN-CERT-2016-0733,DFN-CERT-2016-0488,DFN-CERT-2016-0486,DFN-CERT-2016-0437,CB-K17/0054,CB-K16/1485,CB-K16/1107,CB-K16/0684,CB-K16/0449,CB-K16/0448,CB-K16/0397",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,22,tcp,7.8,High,30,"VendorFix","OpenSSH <= 7.2p2 Privilege Escalation Vulnerability (May 2016)","OpenSSH is prone to a privilege escalation vulnerability.","Installed version: 6.6.1p1
+Fixed version:     7.2p2-3
+Installation
+path / port:       22/tcp
+
+",1.3.6.1.4.1.25623.1.0.807574,"CVE-2015-8325",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,645397ed-59b4-4815-92c4-a6e2c9822efe,"Successfully exploiting this issue will allow local users to gain
+  privileges.","Update to version 7.2p2-3 or later.","OpenSSH versions through 7.2p2.","The flaw exists due to an error in 'do_setup_env function' in
+  the 'session.c' script in sshd which trigger a crafted environment for the /bin/login program when
+  the UseLogin feature is enabled and PAM is configured to read .pam_environment files in user home
+  directories.","Checks if a vulnerable version is present on the target host.
+Details:
+OpenSSH <= 7.2p2 Privilege Escalation Vulnerability (May 2016)
+(OID: 1.3.6.1.4.1.25623.1.0.807574)
+Version used: 2024-12-13T05:05:32Z
+","Product: cpe:/a:openbsd:openssh:6.6.1p1
+Method: OpenSSH Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.108577)
+","","DFN-CERT-2019-1408,DFN-CERT-2017-1807,DFN-CERT-2017-0060,DFN-CERT-2017-0059,DFN-CERT-2016-1943,DFN-CERT-2016-1576,DFN-CERT-2016-1574,DFN-CERT-2016-1243,DFN-CERT-2016-0864,DFN-CERT-2016-0733,DFN-CERT-2016-0628,WID-SEC-2024-1053,CB-K17/1725,CB-K17/0055,CB-K17/0054,CB-K16/1837,CB-K16/1487,CB-K16/1485,CB-K16/1221,CB-K16/0684,CB-K16/0577",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,22,tcp,8.1,High,30,"VendorFix","OpenSSH Client Information Leak","The OpenSSH client code between 5.4 and 7.1p1 contains experimental support for resuming SSH-connections (roaming).
+  The matching server code has never been shipped, but the client code was enabled by default and could be tricked by a malicious
+  server into leaking client memory to the server, including private client user keys. The authentication of the server host key prevents exploitation
+  by a man-in-the-middle, so this information leak is restricted to connections to malicious or compromised servers.","Installed version: 6.6.1p1
+Fixed version:     7.1p2
+Installation
+path / port:       22/tcp
+
+",1.3.6.1.4.1.25623.1.0.105512,"CVE-2016-0777,CVE-2016-0778",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,544d5d55-0ff7-4a82-984c-1baad752fce1,"","Update to 7.1p2 or newer.","OpenSSH >= 5.4 < 7.1p2","","Checks if a vulnerable version is present on the target host.
+Details:
+OpenSSH Client Information Leak
+(OID: 1.3.6.1.4.1.25623.1.0.105512)
+Version used: 2023-07-25T05:05:58Z
+","Product: cpe:/a:openbsd:openssh:6.6.1p1
+Method: OpenSSH Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.108577)
+","","DFN-CERT-2017-0059,DFN-CERT-2016-0864,DFN-CERT-2016-0609,DFN-CERT-2016-0484,DFN-CERT-2016-0301,DFN-CERT-2016-0077,DFN-CERT-2016-0076,WID-SEC-2024-1055,CB-K17/0054,CB-K16/0565,CB-K16/0446,CB-K16/0275,CB-K16/0069,CB-K16/0068",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,,,0.0,Log,80,"","OpenSSH Detection Consolidation","Consolidation of OpenSSH detections.","Detected OpenSSH Server
+
+Version:       6.6.1p1
+Location:      22/tcp
+CPE:           cpe:/a:openbsd:openssh:6.6.1p1
+
+Concluded from version/product identification result:
+SSH-2.0-OpenSSH_6.6.1p1 Ubuntu-2ubuntu2.10
+",1.3.6.1.4.1.25623.1.0.108577,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,f5ac5181-774b-4605-ac4f-2cb82f836b6f,"","","","","
+Details:
+OpenSSH Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.108577)
+Version used: 2024-12-13T05:05:32Z
+","","","",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,22,tcp,5.3,Medium,50,"WillNotFix","OpenSSH Information Disclosure Vulnerability (CVE-2016-20012)","OpenBSD OpenSSH is prone to an information disclosure
+  vulnerability.","Installed version: 6.6.1p1
+Fixed version:     None
+Installation
+path / port:       22/tcp
+
+",1.3.6.1.4.1.25623.1.0.117777,"CVE-2016-20012",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,9f00f394-5725-4bc7-b36a-11e25cfbd203,"","No known solution was made available for at least one year since
+  the disclosure of this vulnerability. Likely none will be provided anymore. General solution options
+  are to upgrade to a newer release, disable respective features, remove the product or replace the
+  product by another one.","All currently OpenSSH versions are known to be affected.","OpenSSH allows remote attackers, who have a suspicion that a
+  certain combination of username and public key is known to an SSH server, to test whether this
+  suspicion is correct. This occurs because a challenge is sent only when that combination could be
+  valid for a login session.","Checks if a vulnerable version is present on the target host.
+Details:
+OpenSSH Information Disclosure Vulnerability (CVE-2016-20012)
+(OID: 1.3.6.1.4.1.25623.1.0.117777)
+Version used: 2022-11-24T10:18:54Z
+","Product: cpe:/a:openbsd:openssh:6.6.1p1
+Method: OpenSSH Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.108577)
+","","DFN-CERT-2024-1260,WID-SEC-2024-1082,WID-SEC-2024-0229,CB-K21/0979",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,22,tcp,8.5,High,30,"VendorFix","OpenSSH Multiple Vulnerabilities","OpenSSH is prone to multiple vulnerabilities.","Installed version: 6.6.1p1
+Fixed version:     7.0
+Installation
+path / port:       22/tcp
+
+",1.3.6.1.4.1.25623.1.0.806052,"CVE-2015-6564,CVE-2015-6563,CVE-2015-5600",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,c11e461a-94d8-4240-a607-e9d2625bca6c,"Successful exploitation will allow an attacker
+  to gain privileges, to conduct impersonation attacks, to conduct brute-force
+  attacks or cause a denial of service.","Upgrade to OpenSSH 7.0 or later.","OpenSSH versions before 7.0.","Multiple flaws are due to:
+
+  - Use-after-free vulnerability in the 'mm_answer_pam_free_ctx' function in
+  monitor.c in sshd.
+
+  - Vulnerability in 'kbdint_next_device' function in auth2-chall.c in sshd.
+
+  - Vulnerability in the handler for the MONITOR_REQ_PAM_FREE_CTX request.","Checks if a vulnerable version is present on the target host.
+Details:
+OpenSSH Multiple Vulnerabilities
+(OID: 1.3.6.1.4.1.25623.1.0.806052)
+Version used: 2023-07-25T05:05:58Z
+","Product: cpe:/a:openbsd:openssh:6.6.1p1
+Method: OpenSSH Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.108577)
+","","DFN-CERT-2019-1408,DFN-CERT-2018-1828,DFN-CERT-2018-0077,DFN-CERT-2017-0059,DFN-CERT-2016-1841,DFN-CERT-2016-1401,DFN-CERT-2016-1174,DFN-CERT-2016-1168,DFN-CERT-2016-0754,DFN-CERT-2016-0486,DFN-CERT-2015-1794,DFN-CERT-2015-1679,DFN-CERT-2015-1644,DFN-CERT-2015-1632,DFN-CERT-2015-1591,DFN-CERT-2015-1443,DFN-CERT-2015-1406,DFN-CERT-2015-1263,DFN-CERT-2015-1259,DFN-CERT-2015-1252,DFN-CERT-2015-1239,DFN-CERT-2015-1161,DFN-CERT-2015-1159,CB-K18/0066,CB-K17/0054,CB-K16/1733,CB-K16/1315,CB-K16/1107,CB-K16/1102,CB-K16/0694,CB-K16/0448,CB-K15/1696,CB-K15/1591,CB-K15/1561,CB-K15/1550,CB-K15/1510,CB-K15/1369,CB-K15/1334,CB-K15/1247,CB-K15/1212,CB-K15/1194,CB-K15/1188,CB-K15/1105,CB-K15/1103",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,22,tcp,4.3,Medium,30,"VendorFix","OpenSSH Security Bypass Vulnerability","OpenSSH is prone to a security bypass vulnerability.","Installed version: 6.6.1p1
+Fixed version:     6.9
+Installation
+path / port:       22/tcp
+
+",1.3.6.1.4.1.25623.1.0.806049,"CVE-2015-5352",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,7738da1e-e2ca-41b0-a935-4ed7702b80c3,"Successful exploitation will allow remote
+  attackers to bypass intended access restrictions.","Upgrade to OpenSSH version 6.9 or later.","OpenSSH versions before 6.9.","The flaw is due to the refusal
+  deadline was not checked within the x11_open_helper function.","Checks if a vulnerable version is present on the target host.
+Details:
+OpenSSH Security Bypass Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.806049)
+Version used: 2023-07-25T05:05:58Z
+","Product: cpe:/a:openbsd:openssh:6.6.1p1
+Method: OpenSSH Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.108577)
+","","DFN-CERT-2018-1828,DFN-CERT-2017-0059,DFN-CERT-2016-1841,DFN-CERT-2016-1401,DFN-CERT-2016-0864,DFN-CERT-2016-0754,DFN-CERT-2015-1679,DFN-CERT-2015-1406,DFN-CERT-2015-1263,DFN-CERT-2015-0987,CB-K17/0054,CB-K16/1733,CB-K16/1315,CB-K16/0694,CB-K15/1591,CB-K15/1334,CB-K15/1194,CB-K15/0934",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,,,0.0,Log,80,"","OS Detection Consolidation and Reporting","This script consolidates the OS information detected by several
+  VTs and tries to find the best matching OS.
+
+  Furthermore it reports all previously collected information leading to this best matching OS. It
+  also reports possible additional information which might help to improve the OS detection.
+
+  If any of this information is wrong or could be improved please consider to report these to the
+  referenced community forum.","Best matching OS:
+
+OS:           Ubuntu 14.04
+Version:      14.04
+CPE:          cpe:/o:canonical:ubuntu_linux:14.04
+Found by VT:  1.3.6.1.4.1.25623.1.0.105586 (Operating System (OS) Detection (SSH Banner))
+Concluded from SSH banner on port 22/tcp: SSH-2.0-OpenSSH_6.6.1p1 Ubuntu-2ubuntu2.10
+Setting key ""Host/runs_unixoide"" based on this information
+",1.3.6.1.4.1.25623.1.0.105937,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,c6fb4e90-4ec6-49b9-be05-010e05bd5a50,"","","","","
+Details:
+OS Detection Consolidation and Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.105937)
+Version used: 2026-01-21T05:50:46Z
+","","","",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,22,tcp,0.0,Log,80,"Mitigation","PQC Key Exchange (KEX) Algorithm(s) Missing (SSH)","The remote SSH server is configured to NOT allow / support at
+  least ONE Post-Quantum Cryptography (PQC) key exchange (KEX) algorithm(s).","The remote SSH server is NOT supporting at least ONE PQC KEX algorithm.
+",1.3.6.1.4.1.25623.1.0.119214,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,d4884abf-1638-46f0-bc76-ec4c4064b43f,"The connection may be vulnerable to 'store now, decrypt later'
+  attacks.","Update the remote SSH server to a version supporting PQC KEX
+  algorithms (e.g. OpenSSH 8.9 or later) and enable relevant PQC KEX algorithms accordingly.
+
+  Please see the references/manual of the remote SSH server and/or contact the vendor of it for more
+  support.","","","Checks the (previously collected) supported KEX algorithms of
+  the remote SSH server.
+
+  Currently the following PQC KEX algorithms are defined / getting used for this check:
+
+  - sntrup761x25519-sha512@openssh.com
+
+  - sntrup761x25519-sha512
+
+  - mlkem768x25519-sha256
+
+  - sntrup4591761x25519-sha512@tinyssh.org
+
+  - ecdh-nistp256-kyber-512r3-sha256-d00@openquantumsafe.org
+
+  - ecdh-nistp384-kyber-768r3-sha384-d00@openquantumsafe.org
+
+  - ecdh-nistp521-kyber-1024r3-sha512-d00@openquantumsafe.org
+
+  - x25519-kyber-512r3-sha256-d00@amazon.com
+
+  - mlkem1024nistp384-sha384
+
+  - mlkem768nistp256-sha256
+
+  - curve25519-frodokem1344-sha512@ssh.com
+
+  - ecdh-nistp521-kyber1024-sha512@ssh.com
+Details:
+PQC Key Exchange (KEX) Algorithm(s) Missing (SSH)
+(OID: 1.3.6.1.4.1.25623.1.0.119214)
+Version used: 2025-10-31T05:40:56Z
+","Product: cpe:/a:ietf:secure_shell_protocol
+Method: SSH Protocol Algorithms Supported
+(OID: 1.3.6.1.4.1.25623.1.0.105565)
+","","",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,22,tcp,5.9,Medium,30,"VendorFix","Prefix Truncation Attacks in SSH Specification (Terrapin Attack)","The remote SSH server is supporting an specific encryption
+  algorithm or MAC. Parts of their SSH specification are vulnerable to a novel prefix truncation
+  attack (a.k.a. Terrapin attack).","The remote SSH server supports the following possible affected client-to-server MAC algorithm(s):
+
+hmac-md5-96-etm@openssh.com
+hmac-md5-etm@openssh.com
+hmac-ripemd160-etm@openssh.com
+hmac-sha1-96-etm@openssh.com
+hmac-sha1-etm@openssh.com
+hmac-sha2-256-etm@openssh.com
+hmac-sha2-512-etm@openssh.com
+umac-128-etm@openssh.com
+umac-64-etm@openssh.com
+
+together with the following possible affected client-to-server encryption algorithm(s):
+
+3des-cbc
+aes128-cbc
+aes192-cbc
+aes256-cbc
+blowfish-cbc
+cast128-cbc
+rijndael-cbc@lysator.liu.se
+
+The remote SSH server supports the following possible affected server-to-client MAC algorithm(s):
+
+hmac-md5-96-etm@openssh.com
+hmac-md5-etm@openssh.com
+hmac-ripemd160-etm@openssh.com
+hmac-sha1-96-etm@openssh.com
+hmac-sha1-etm@openssh.com
+hmac-sha2-256-etm@openssh.com
+hmac-sha2-512-etm@openssh.com
+umac-128-etm@openssh.com
+umac-64-etm@openssh.com
+
+together with the following possible affected server-to-client encryption algorithm(s):
+
+3des-cbc
+aes128-cbc
+aes192-cbc
+aes256-cbc
+blowfish-cbc
+cast128-cbc
+rijndael-cbc@lysator.liu.se
+
+The remote SSH server supports the following possible affected client-to-server encryption algorithm(s):
+
+chacha20-poly1305@openssh.com
+
+The remote SSH server supports the following possible affected server-to-client encryption algorithm(s):
+
+chacha20-poly1305@openssh.com
+",1.3.6.1.4.1.25623.1.0.114238,"CVE-2023-48795,CVE-2024-41909",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,4d8969af-e48b-4cd4-b538-0b3128a75aaf,"","'- Update OpenSSH to version 9.6 or later
+
+  - Update Apache MINA SSHD to version 2.12.0 or later
+
+  - For other products please contact the vendor for possible fixes / updates
+
+  Mitigation:
+
+  - To mitigate this protocol vulnerability, OpenSSH suggested a so-called 'strict kex' which alters
+  the SSH handshake to ensure a Man-in-the-Middle attacker cannot introduce unauthenticated messages
+  as well as convey sequence number manipulation across handshakes. Support for strict key exchange
+  has been added to a variety of SSH implementations, including OpenSSH itself, PuTTY, libssh, and
+  more.
+
+  Warning: To take effect, both the client and server must support this countermeasure.
+
+  As a stop-gap measure, peers may also (temporarily) disable the affected algorithms and use
+  unaffected alternatives like AES-GCM instead until patches are available.","Systems supporting the following encryption algorithm and/or
+  MACs:
+
+  - ChaCha20-Poly1305 (chacha20-poly1305@openssh.com) encryption algorithm
+
+  - CBC encryption algorithm and Encrypt-then-MAC (*-etm@openssh.com) MAC","Parts of the SSH specification are vulnerable to a novel prefix
+  truncation attack (a.k.a. Terrapin attack), which allows a man-in-the-middle attacker to strip an
+  arbitrary number of messages right after the initial key exchange, breaking SSH extension
+  negotiation (RFC8308) in the process and thus downgrading connection security.","Checks the supported algorithms and MACs of the remote SSH
+  server.
+
+  Note: This VT has a low QoD because mitigation is possible / available via software updates.
+Details:
+Prefix Truncation Attacks in SSH Specification (Terrapin Attack)
+(OID: 1.3.6.1.4.1.25623.1.0.114238)
+Version used: 2025-04-23T05:39:47Z
+","Product: cpe:/a:ietf:secure_shell_protocol
+Method: SSH Protocol Algorithms Supported
+(OID: 1.3.6.1.4.1.25623.1.0.105565)
+","","DFN-CERT-2026-0097,DFN-CERT-2025-3629,DFN-CERT-2025-3272,DFN-CERT-2025-2941,DFN-CERT-2025-2058,DFN-CERT-2025-2037,DFN-CERT-2025-1447,DFN-CERT-2025-1177,DFN-CERT-2025-1025,DFN-CERT-2025-0660,DFN-CERT-2025-0502,DFN-CERT-2025-0294,DFN-CERT-2025-0173,DFN-CERT-2025-0165,DFN-CERT-2025-0024,DFN-CERT-2024-3171,DFN-CERT-2024-2818,DFN-CERT-2024-2759,DFN-CERT-2024-2741,DFN-CERT-2024-2602,DFN-CERT-2024-2573,DFN-CERT-2024-2392,DFN-CERT-2024-2210,DFN-CERT-2024-2209,DFN-CERT-2024-2194,DFN-CERT-2024-2169,DFN-CERT-2024-2048,DFN-CERT-2024-2030,DFN-CERT-2024-2028,DFN-CERT-2024-1930,DFN-CERT-2024-1895,DFN-CERT-2024-1869,DFN-CERT-2024-1868,DFN-CERT-2024-1865,DFN-CERT-2024-1862,DFN-CERT-2024-1854,DFN-CERT-2024-1846,DFN-CERT-2024-1817,DFN-CERT-2024-1715,DFN-CERT-2024-1698,DFN-CERT-2024-1688,DFN-CERT-2024-1655,DFN-CERT-2024-1600,DFN-CERT-2024-1443,DFN-CERT-2024-1442,DFN-CERT-2024-1413,DFN-CERT-2024-1382,DFN-CERT-2024-1380,DFN-CERT-2024-1373,DFN-CERT-2024-1260,DFN-CERT-2024-1259,DFN-CERT-2024-1108,DFN-CERT-2024-1061,DFN-CERT-2024-1029,DFN-CERT-2024-1003,DFN-CERT-2024-1000,DFN-CERT-2024-0896,DFN-CERT-2024-0779,DFN-CERT-2024-0762,DFN-CERT-2024-0744,DFN-CERT-2024-0698,DFN-CERT-2024-0633,DFN-CERT-2024-0619,DFN-CERT-2024-0618,DFN-CERT-2024-0616,DFN-CERT-2024-0597,DFN-CERT-2024-0545,DFN-CERT-2024-0526,DFN-CERT-2024-0491,DFN-CERT-2024-0451,DFN-CERT-2024-0440,DFN-CERT-2024-0420,DFN-CERT-2024-0388,DFN-CERT-2024-0343,DFN-CERT-2024-0306,DFN-CERT-2024-0299,DFN-CERT-2024-0285,DFN-CERT-2024-0267,DFN-CERT-2024-0251,DFN-CERT-2024-0215,DFN-CERT-2024-0211,DFN-CERT-2024-0164,DFN-CERT-2024-0154,DFN-CERT-2024-0101,DFN-CERT-2024-0092,DFN-CERT-2024-0088,DFN-CERT-2024-0067,DFN-CERT-2024-0063,DFN-CERT-2024-0062,DFN-CERT-2024-0024,DFN-CERT-2024-0013,DFN-CERT-2023-3219,DFN-CERT-2023-3218,DFN-CERT-2023-3210,DFN-CERT-2023-3201,DFN-CERT-2023-3200,DFN-CERT-2023-3195,DFN-CERT-2023-3193,DFN-CERT-2023-3191,DFN-CERT-2023-3185,DFN-CERT-2023-3184,DFN-CERT-2023-3183,DFN-CERT-2023-3182,DFN-CERT-2023-3175,WID-SEC-2025-2359,WID-SEC-2025-0810,WID-SEC-2025-0168,WID-SEC-2025-0144,WID-SEC-2025-0139,WID-SEC-2024-3377,WID-SEC-2024-3320,WID-SEC-2024-3221,WID-SEC-2024-3198,WID-SEC-2024-3195,WID-SEC-2024-1913,WID-SEC-2024-1781,WID-SEC-2024-1701,WID-SEC-2024-1656,WID-SEC-2024-1655,WID-SEC-2024-1643,WID-SEC-2024-1642,WID-SEC-2024-1639,WID-SEC-2024-1637,WID-SEC-2024-1630,WID-SEC-2024-1474,WID-SEC-2024-1248,WID-SEC-2024-1228,WID-SEC-2024-1186,WID-SEC-2024-1082,WID-SEC-2024-0899,WID-SEC-2024-0892,WID-SEC-2024-0889,WID-SEC-2024-0885,WID-SEC-2024-0874,WID-SEC-2024-0869,WID-SEC-2024-0578,WID-SEC-2024-0564,WID-SEC-2024-0523,WID-SEC-2023-3174",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,22,tcp,0.0,Log,80,"","Services","This plugin performs service detection.","An ssh server is running on this port
+",1.3.6.1.4.1.25623.1.0.10330,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,417df4f2-73c6-4455-bf2d-af8da5040377,"","","","This plugin attempts to guess which service is running on the
+  remote port(s). For instance, it searches for a web server which could listen on another port than
+  80 or 443 and makes this information available for other check routines.","
+Details:
+Services
+(OID: 1.3.6.1.4.1.25623.1.0.10330)
+Version used: 2025-03-05T05:38:53Z
+","","","",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,22,tcp,0.0,Log,80,"","SSH Protocol Algorithms Supported","This script detects which algorithms are supported by the remote
+  SSH service.","The following options are supported by the remote SSH service:
+
+kex_algorithms:
+curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1
+
+server_host_key_algorithms:
+ssh-rsa,ssh-dss,ecdsa-sha2-nistp256,ssh-ed25519
+
+encryption_algorithms_client_to_server:
+aes128-ctr,aes192-ctr,aes256-ctr,arcfour256,arcfour128,aes128-gcm@openssh.com,aes256-gcm@openssh.com,chacha20-poly1305@openssh.com,aes128-cbc,3des-cbc,blowfish-cbc,cast128-cbc,aes192-cbc,aes256-cbc,arcfour,rijndael-cbc@lysator.liu.se
+
+encryption_algorithms_server_to_client:
+aes128-ctr,aes192-ctr,aes256-ctr,arcfour256,arcfour128,aes128-gcm@openssh.com,aes256-gcm@openssh.com,chacha20-poly1305@openssh.com,aes128-cbc,3des-cbc,blowfish-cbc,cast128-cbc,aes192-cbc,aes256-cbc,arcfour,rijndael-cbc@lysator.liu.se
+
+mac_algorithms_client_to_server:
+hmac-md5-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-ripemd160-etm@openssh.com,hmac-sha1-96-etm@openssh.com,hmac-md5-96-etm@openssh.com,hmac-md5,hmac-sha1,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-ripemd160,hmac-ripemd160@openssh.com,hmac-sha1-96,hmac-md5-96
+
+mac_algorithms_server_to_client:
+hmac-md5-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-ripemd160-etm@openssh.com,hmac-sha1-96-etm@openssh.com,hmac-md5-96-etm@openssh.com,hmac-md5,hmac-sha1,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-ripemd160,hmac-ripemd160@openssh.com,hmac-sha1-96,hmac-md5-96
+
+compression_algorithms_client_to_server:
+none,zlib@openssh.com
+
+compression_algorithms_server_to_client:
+none,zlib@openssh.com
+",1.3.6.1.4.1.25623.1.0.105565,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,28ed3ebc-ee7d-4c58-a050-1c5c00ac086c,"","","","","
+Details:
+SSH Protocol Algorithms Supported
+(OID: 1.3.6.1.4.1.25623.1.0.105565)
+Version used: 2026-01-21T05:50:46Z
+","","","",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,22,tcp,0.0,Log,95,"","SSH Protocol Versions Supported","Identification of SSH protocol versions supported by the remote
+  SSH Server. Also reads the corresponding fingerprints from the service.","The remote SSH Server supports the following SSH Protocol Versions:
+1.99
+2.0
+
+SSHv2 Fingerprint(s):
+ecdsa-sha2-nistp256: f5:6b:ed:e6:7b:6f:e0:a8:18:7a:0e:cd:15:a0:1d:e8
+ssh-ed25519: 39:b6:90:a8:b0:e0:b1:8a:cc:16:5b:83:05:3e:cb:aa
+ssh-rsa: bc:6c:9b:06:20:43:14:3c:63:2d:23:ec:16:04:37:db
+",1.3.6.1.4.1.25623.1.0.100259,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,0e26f901-f9cb-49c8-b1e9-6dc6d4500ce5,"","","","","The following versions are tried: 1.33, 1.5, 1.99 and 2.0.
+Details:
+SSH Protocol Versions Supported
+(OID: 1.3.6.1.4.1.25623.1.0.100259)
+Version used: 2024-06-17T08:31:37Z
+","","","",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,22,tcp,0.0,Log,80,"","SSH Server type and version","This detects the SSH Server's type and version by connecting to
+  the server and processing the buffer received.","Remote SSH server banner: SSH-2.0-OpenSSH_6.6.1p1 Ubuntu-2ubuntu2.10
+Remote SSH supported authentication: password,publickey
+Remote SSH text/login banner: (not available)
+
+This is probably (a):
+
+- OpenSSH
+
+Concluded from remote connection attempt with credentials:
+
+Login:    OpenVASVT
+Password: OpenVASVT
+",1.3.6.1.4.1.25623.1.0.10267,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,998a4676-0d65-45f3-8009-8059a8e19782,"","","","This information gives potential attackers additional
+  information about the system they are attacking. Versions and Types should be omitted where
+  possible.","
+Details:
+SSH Server type and version
+(OID: 1.3.6.1.4.1.25623.1.0.10267)
+Version used: 2025-11-13T05:40:19Z
+","","","",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,,,2.6,Low,80,"Mitigation","TCP Timestamps Information Disclosure","The remote host implements TCP timestamps and therefore allows
+  to compute the uptime.","It was detected that the host implements RFC1323/RFC7323.
+
+The following timestamps were retrieved with a delay of 1 seconds in-between:
+Packet 1: 779760456
+Packet 2: 779761556
+",1.3.6.1.4.1.25623.1.0.80091,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,a6da0f81-71d8-4a30-984c-01ce70aa6427,"A side effect of this feature is that the uptime of the remote
+  host can sometimes be computed.","To disable TCP timestamps on linux add the line
+  'net.ipv4.tcp_timestamps = 0' to /etc/sysctl.conf. Execute 'sysctl -p' to apply the settings at
+  runtime.
+
+  To disable TCP timestamps on Windows execute 'netsh int tcp set global timestamps=disabled'
+
+  Starting with Windows Server 2008 and Vista, the timestamp can not be completely disabled.
+
+  The default behavior of the TCP/IP stack on this Systems is to not use the Timestamp options when
+  initiating TCP connections, but use them if the TCP peer that is initiating communication includes
+  them in their synchronize (SYN) segment.
+
+  See the references for more information.","TCP implementations that implement RFC1323/RFC7323.","The remote host implements TCP timestamps, as defined by
+  RFC1323/RFC7323.","Special IP packets are forged and sent with a little delay in
+  between to the target IP. The responses are searched for a timestamps. If found, the timestamps
+  are reported.
+Details:
+TCP Timestamps Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.80091)
+Version used: 2023-12-15T16:10:08Z
+","","","",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,,,0.0,Log,80,"","Traceroute","Collect information about the network route and
+  network distance between the scanner host and the target host.","Network route from scanner (172.30.0.2) to target (172.30.3.2):
+
+172.30.0.2
+172.30.3.2
+
+Network distance between scanner and target: 2
+",1.3.6.1.4.1.25623.1.0.51662,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,3f17d771-29aa-4006-9642-95f7e33dd0f2,"","","","For internal networks, the distances are usually
+  small, often less than 4 hosts between scanner and target. For public targets the
+  distance is greater and might be 10 hosts or more.","A combination of the protocols ICMP and TCP is used
+  to determine the route. This method is applicable for IPv4 only and it is also known as
+  'traceroute'.
+Details:
+Traceroute
+(OID: 1.3.6.1.4.1.25623.1.0.51662)
+Version used: 2022-10-17T11:13:19Z
+","","","",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,22,tcp,4.3,Medium,80,"Mitigation","Weak Encryption Algorithm(s) Supported (SSH)","The remote SSH server is configured to allow / support weak
+  encryption algorithm(s).","The remote SSH server supports the following weak client-to-server encryption algorithm(s):
+
+3des-cbc
+aes128-cbc
+aes192-cbc
+aes256-cbc
+arcfour
+arcfour128
+arcfour256
+blowfish-cbc
+cast128-cbc
+rijndael-cbc@lysator.liu.se
+
+
+The remote SSH server supports the following weak server-to-client encryption algorithm(s):
+
+3des-cbc
+aes128-cbc
+aes192-cbc
+aes256-cbc
+arcfour
+arcfour128
+arcfour256
+blowfish-cbc
+cast128-cbc
+rijndael-cbc@lysator.liu.se
+",1.3.6.1.4.1.25623.1.0.105611,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,74b70c73-6f87-4b82-86ab-c0c65530c41e,"","Disable the reported weak encryption algorithm(s).","","'- The 'arcfour' cipher is the Arcfour stream cipher with 128-bit
+  keys. The Arcfour cipher is believed to be compatible with the RC4 cipher [SCHNEIER]. Arcfour
+  (and RC4) has problems with weak keys, and should not be used anymore.
+
+  - The 'none' algorithm specifies that no encryption is to be done. Note that this method provides
+  no confidentiality protection, and it is NOT RECOMMENDED to use it.
+
+  - A vulnerability exists in SSH messages that employ CBC mode that may allow an attacker to
+  recover plaintext from a block of ciphertext.","Checks the supported encryption algorithms (client-to-server
+  and server-to-client) of the remote SSH server.
+
+  Currently weak encryption algorithms are defined as the following:
+
+  - Arcfour (RC4) cipher based algorithms
+
+  - 'none' algorithm
+
+  - CBC mode cipher based algorithms
+Details:
+Weak Encryption Algorithm(s) Supported (SSH)
+(OID: 1.3.6.1.4.1.25623.1.0.105611)
+Version used: 2024-06-14T05:05:48Z
+","Product: cpe:/a:ietf:secure_shell_protocol
+Method: SSH Protocol Algorithms Supported
+(OID: 1.3.6.1.4.1.25623.1.0.105565)
+","","",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,22,tcp,5.3,Medium,80,"Mitigation","Weak Host Key Algorithm(s) (SSH)","The remote SSH server is configured to allow / support weak host
+  key algorithm(s).","The remote SSH server supports the following weak host key algorithm(s):
+
+host key algorithm | Description
+-----------------------------------------------------------------------------------------
+ssh-dss            | Digital Signature Algorithm (DSA) / Digital Signature Standard (DSS)
+",1.3.6.1.4.1.25623.1.0.117687,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,b46f79f4-c33c-4641-b064-304915b27d6e,"","Disable the reported weak host key algorithm(s).","","","Checks the supported host key algorithms of the remote SSH
+  server.
+
+  Currently weak host key algorithms are defined as the following:
+
+  - ssh-dss: Digital Signature Algorithm (DSA) / Digital Signature Standard (DSS)
+Details:
+Weak Host Key Algorithm(s) (SSH)
+(OID: 1.3.6.1.4.1.25623.1.0.117687)
+Version used: 2024-06-14T05:05:48Z
+","Product: cpe:/a:ietf:secure_shell_protocol
+Method: SSH Protocol Algorithms Supported
+(OID: 1.3.6.1.4.1.25623.1.0.105565)
+","","",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,22,tcp,5.3,Medium,80,"Mitigation","Weak Key Exchange (KEX) Algorithm(s) Supported (SSH)","The remote SSH server is configured to allow / support weak key
+  exchange (KEX) algorithm(s).","The remote SSH server supports the following weak KEX algorithm(s):
+
+KEX algorithm                      | Reason
+-------------------------------------------------------------------------------------------
+diffie-hellman-group-exchange-sha1 | Using SHA-1
+diffie-hellman-group1-sha1         | Using Oakley Group 2 (a 1024-bit MODP group) and SHA-1
+",1.3.6.1.4.1.25623.1.0.150713,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,888fcff2-d45d-4185-9145-2328ce92b28d,"An attacker can quickly break individual connections.","Disable the reported weak KEX algorithm(s)
+
+  - 1024-bit MODP group / prime KEX algorithms:
+
+  Alternatively use elliptic-curve Diffie-Hellmann in general, e.g. Curve 25519.","","'- 1024-bit MODP group / prime KEX algorithms:
+
+  Millions of HTTPS, SSH, and VPN servers all use the same prime numbers for Diffie-Hellman key
+  exchange. Practitioners believed this was safe as long as new key exchange messages were generated
+  for every connection. However, the first step in the number field sieve-the most efficient
+  algorithm for breaking a Diffie-Hellman connection-is dependent only on this prime.
+
+  A nation-state can break a 1024-bit prime.","Checks the supported KEX algorithms of the remote SSH server.
+
+  Currently weak KEX algorithms are defined as the following:
+
+  - non-elliptic-curve Diffie-Hellmann (DH) KEX algorithms with 1024-bit MODP group / prime
+
+  - ephemerally generated key exchange groups uses SHA-1
+
+  - using RSA 1024-bit modulus key
+Details:
+Weak Key Exchange (KEX) Algorithm(s) Supported (SSH)
+(OID: 1.3.6.1.4.1.25623.1.0.150713)
+Version used: 2024-06-14T05:05:48Z
+","Product: cpe:/a:ietf:secure_shell_protocol
+Method: SSH Protocol Algorithms Supported
+(OID: 1.3.6.1.4.1.25623.1.0.105565)
+","","",""
+172.30.3.2,ubuntu-ssh-old.trabalho_vulnnet,22,tcp,2.6,Low,80,"Mitigation","Weak MAC Algorithm(s) Supported (SSH)","The remote SSH server is configured to allow / support weak MAC
+  algorithm(s).","The remote SSH server supports the following weak client-to-server MAC algorithm(s):
+
+hmac-md5
+hmac-md5-96
+hmac-md5-96-etm@openssh.com
+hmac-md5-etm@openssh.com
+hmac-sha1-96
+hmac-sha1-96-etm@openssh.com
+umac-64-etm@openssh.com
+umac-64@openssh.com
+
+
+The remote SSH server supports the following weak server-to-client MAC algorithm(s):
+
+hmac-md5
+hmac-md5-96
+hmac-md5-96-etm@openssh.com
+hmac-md5-etm@openssh.com
+hmac-sha1-96
+hmac-sha1-96-etm@openssh.com
+umac-64-etm@openssh.com
+umac-64@openssh.com
+",1.3.6.1.4.1.25623.1.0.105610,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:56:34Z,713490ff-3ac9-40ea-8a1a-a5e66e4368ae,"","Disable the reported weak MAC algorithm(s).","","","Checks the supported MAC algorithms (client-to-server and
+  server-to-client) of the remote SSH server.
+
+  Currently weak MAC algorithms are defined as the following:
+
+  - MD5 based algorithms
+
+  - 96-bit based algorithms
+
+  - 64-bit based algorithms
+
+  - 'none' algorithm
+Details:
+Weak MAC Algorithm(s) Supported (SSH)
+(OID: 1.3.6.1.4.1.25623.1.0.105610)
+Version used: 2024-06-14T05:05:48Z
+","Product: cpe:/a:ietf:secure_shell_protocol
+Method: SSH Protocol Algorithms Supported
+(OID: 1.3.6.1.4.1.25623.1.0.105565)
+","","",""

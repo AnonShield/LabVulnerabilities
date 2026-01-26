@@ -1,0 +1,2402 @@
+<report id="2de16342-c6e0-4242-99ec-00d18ca51b42" format_id="5057e5cc-b825-11e4-9d0e-28d24461215b" config_id="" extension="xml" content_type="text/xml"><owner><name>admin</name></owner><name>2026-01-26T01:47:36Z</name><comment /><creation_time>2026-01-26T01:47:36Z</creation_time><modification_time>2026-01-26T14:04:13Z</modification_time><writable>0</writable><in_use>0</in_use><task id="df0632e3-a4eb-4954-8781-6af14a1a4240" /><report_format id="5057e5cc-b825-11e4-9d0e-28d24461215b"><name>Anonymous XML</name></report_format><report id="2de16342-c6e0-4242-99ec-00d18ca51b42">
+  <gmp>
+    <version>22.7</version>
+  </gmp>
+  <sort>
+    <field>name<order>ascending</order></field>
+  </sort>
+  <filters id="">
+    <term>host=127.0.0.1 and apply_overrides=0 and levels=hmlgf and min_qod=0 first=1 rows=10 sort=name</term>
+    <filter>High</filter>
+    <filter>Medium</filter>
+    <filter>Low</filter>
+    <filter>Log</filter>
+    <filter>False Positive</filter>
+    <keywords>
+      <keyword>
+        <column>host</column>
+        <relation>=</relation>
+        <value>127.0.0.1</value>
+      </keyword>
+      <keyword>
+        <column />
+        <relation />
+        <value>and</value>
+      </keyword>
+      <keyword>
+        <column>apply_overrides</column>
+        <relation>=</relation>
+        <value>0</value>
+      </keyword>
+      <keyword>
+        <column />
+        <relation />
+        <value>and</value>
+      </keyword>
+      <keyword>
+        <column>levels</column>
+        <relation>=</relation>
+        <value>hmlgf</value>
+      </keyword>
+      <keyword>
+        <column />
+        <relation />
+        <value>and</value>
+      </keyword>
+      <keyword>
+        <column>min_qod</column>
+        <relation>=</relation>
+        <value>0</value>
+      </keyword>
+      <keyword>
+        <column>first</column>
+        <relation>=</relation>
+        <value>1</value>
+      </keyword>
+      <keyword>
+        <column>rows</column>
+        <relation>=</relation>
+        <value>10</value>
+      </keyword>
+      <keyword>
+        <column>sort</column>
+        <relation>=</relation>
+        <value>name</value>
+      </keyword>
+    </keywords>
+  </filters>
+  <scan_run_status>Done</scan_run_status>
+  <hosts>
+    <count>132</count>
+  </hosts>
+  <closed_cves>
+    <count>0</count>
+  </closed_cves>
+  <vulns>
+    <count>1183</count>
+  </vulns>
+  <os>
+    <count>12</count>
+  </os>
+  <apps>
+    <count>129</count>
+  </apps>
+  <ssl_certs>
+    <count>12</count>
+  </ssl_certs>
+  <task id="df0632e3-a4eb-4954-8781-6af14a1a4240">
+    <comment />
+    <target id="5ab226b8-dc4a-45e7-8ff5-d28356c77d2e">
+      <trash>0</trash>
+      <name>Vulnnet</name>
+      <comment />
+    </target>
+    <progress>100</progress>
+  </task>
+  <timestamp>2026-01-26T01:47:36Z</timestamp>
+  <scan_start>2026-01-26T01:47:47Z</scan_start>
+  <timezone>Coordinated Universal Time</timezone>
+  <timezone_abbrev>UTC</timezone_abbrev>
+  <ports start="1" max="10">
+    <count>60</count>
+    <port><host>127.0.0.1</host>general/icmp<severity>2.1</severity><threat>Low</threat></port>
+    <port><host>127.0.0.1</host>389/tcp<severity>5.0</severity><threat>Medium</threat></port>
+    <port><host>127.0.0.1</host>636/tcp<severity>5.0</severity><threat>Medium</threat></port>
+    <port><host>127.0.0.1</host>general/tcp<severity>2.6</severity><threat>Low</threat></port>
+    <port><host>127.0.0.1</host>general/CPE-T<severity>0.0</severity><threat>Log</threat></port>
+  </ports>
+  <results start="1" max="-1">
+    <result id="6680b07e-aa36-4c84-8e7f-41a2e16aa0e3">
+      <name>CPE Inventory</name>
+      <modification_time>2026-01-26T07:19:19Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:19:19Z</creation_time>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>general/CPE-T</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.810002">
+        <type>nvt</type>
+        <name>CPE Inventory</name>
+        <family>Service detection</family>
+        <cvss_base>0.0</cvss_base>
+        <severities score="0.0">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2009-11-18T10:43:05Z</date>
+            <score>0.0</score>
+            <value>AV:N/AC:L/Au:N/C:N/I:N/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:N/AC:L/Au:N/C:N/I:N/A:N|summary=This routine uses information collected by other routines about
+  CPE identities of operating systems, services and applications detected during the scan.
+
+  Note: Some CPEs for specific products might show up twice or more in the output. Background:
+
+  After a product got renamed or a specific vendor was acquired by another one it might happen that
+  a product gets a new CPE within the NVD CPE Dictionary but older entries are kept with the older
+  CPE.|insight=|affected=|impact=|solution=|vuldetect=|solution_type=</tags>
+        <solution type="" />
+        <refs>
+          <ref type="url" id="https://nvd.nist.gov/products/cpe" />
+        </refs>
+      </nvt>
+      <scan_nvt_version>2022-07-27T10:11:28Z</scan_nvt_version>
+      <threat>Log</threat>
+      <severity>0.0</severity>
+      <qod>
+        <value>80</value>
+        <type />
+      </qod>
+      <original_threat>Log</original_threat>
+      <original_severity>0</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="2d3538d8-29fa-4a5a-b80c-832d254644c7">
+      <name>Hostname Determination Reporting</name>
+      <modification_time>2026-01-26T07:19:19Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:19:19Z</creation_time>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>general/tcp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.108449">
+        <type>nvt</type>
+        <name>Hostname Determination Reporting</name>
+        <family>Service detection</family>
+        <cvss_base>0.0</cvss_base>
+        <severities score="0.0">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2018-07-05T06:03:26Z</date>
+            <score>0.0</score>
+            <value>AV:N/AC:L/Au:N/C:N/I:N/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:N/AC:L/Au:N/C:N/I:N/A:N|summary=The script reports information on how the hostname of the target
+  was determined.|insight=|affected=|impact=|solution=|vuldetect=|solution_type=</tags>
+        <solution type="" />
+      </nvt>
+      <scan_nvt_version>2022-07-27T10:11:28Z</scan_nvt_version>
+      <threat>Log</threat>
+      <severity>0.0</severity>
+      <qod>
+        <value>80</value>
+        <type />
+      </qod>
+      <original_threat>Log</original_threat>
+      <original_severity>0</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="96f161dc-1adb-4be0-822f-836eb85eb0c7">
+      <name>ICMP Timestamp Reply Information Disclosure</name>
+      <modification_time>2026-01-26T07:16:22Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:16:22Z</creation_time>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>general/icmp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.103190">
+        <type>nvt</type>
+        <name>ICMP Timestamp Reply Information Disclosure</name>
+        <family>General</family>
+        <cvss_base>2.1</cvss_base>
+        <severities score="2.1">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2011-07-15T11:32:07Z</date>
+            <score>2.1</score>
+            <value>AV:L/AC:L/Au:N/C:P/I:N/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:L/AC:L/Au:N/C:P/I:N/A:N|summary=The remote host responded to an ICMP timestamp request.|insight=The Timestamp Reply is an ICMP message which replies to a
+  Timestamp message. It consists of the originating timestamp sent by the sender of the Timestamp as
+  well as a receive timestamp and a transmit timestamp.|affected=|impact=This information could theoretically be used to exploit weak
+  time-based random number generators in other services.|solution=Various mitigations are possible:
+
+  - Disable the support for ICMP timestamp on the remote host completely
+
+  - Protect the remote host by a firewall, and block ICMP packets passing through the firewall in
+  either direction (either completely or only for untrusted networks)|vuldetect=Sends an ICMP Timestamp (Type 13) request and checks if a
+  Timestamp Reply (Type 14) is received.|solution_type=Mitigation</tags>
+        <solution type="Mitigation">Various mitigations are possible:
+
+  - Disable the support for ICMP timestamp on the remote host completely
+
+  - Protect the remote host by a firewall, and block ICMP packets passing through the firewall in
+  either direction (either completely or only for untrusted networks)</solution>
+        <refs>
+          <ref type="cve" id="CVE-1999-0524" />
+          <ref type="url" id="https://datatracker.ietf.org/doc/html/rfc792" />
+          <ref type="url" id="https://datatracker.ietf.org/doc/html/rfc2780" />
+          <ref type="cert-bund" id="CB-K15/1514" />
+          <ref type="cert-bund" id="CB-K14/0632" />
+          <ref type="dfn-cert" id="DFN-CERT-2014-0658" />
+        </refs>
+      </nvt>
+      <scan_nvt_version>2025-01-21T05:37:33Z</scan_nvt_version>
+      <threat>Low</threat>
+      <severity>2.1</severity>
+      <qod>
+        <value>80</value>
+        <type />
+      </qod>
+      <original_threat>Low</original_threat>
+      <original_severity>2.1</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="05b47067-bbe3-4475-aa18-2353e0780d62">
+      <name>IP Forwarding Enabled - Active Check</name>
+      <modification_time>2026-01-26T07:16:22Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:16:22Z</creation_time>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>general/tcp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.147205">
+        <type>nvt</type>
+        <name>IP Forwarding Enabled - Active Check</name>
+        <family>General</family>
+        <cvss_base>0.0</cvss_base>
+        <severities score="0.0">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2021-11-24T07:35:11Z</date>
+            <score>0.0</score>
+            <value>AV:A/AC:L/Au:N/C:N/I:N/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:A/AC:L/Au:N/C:N/I:N/A:N|summary=Checks if the remote host has IP forwarding enabled.|insight=|affected=|impact=|solution=|vuldetect=Sends a crafted Local Link Layer (LLL) frame and checks the
+  response.|solution_type=</tags>
+        <solution type="" />
+        <refs>
+          <ref type="cve" id="CVE-1999-0511" />
+        </refs>
+      </nvt>
+      <scan_nvt_version>2021-12-03T08:27:06Z</scan_nvt_version>
+      <threat>Log</threat>
+      <severity>0.0</severity>
+      <qod>
+        <value>70</value>
+        <type />
+      </qod>
+      <original_threat>Log</original_threat>
+      <original_severity>0</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="c09d93b2-36f7-4c9d-9e4f-64b2ab508c14">
+      <name>LDAP Service Detection (TCP)</name>
+      <modification_time>2026-01-26T07:15:17Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:15:17Z</creation_time>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>389/tcp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.100082">
+        <type>nvt</type>
+        <name>LDAP Service Detection (TCP)</name>
+        <family>Service detection</family>
+        <cvss_base>0.0</cvss_base>
+        <severities score="0.0">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2009-03-27T11:39:47Z</date>
+            <score>0.0</score>
+            <value>AV:N/AC:L/Au:N/C:N/I:N/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:N/AC:L/Au:N/C:N/I:N/A:N|summary=TCP based detection of services supporting the Lightweight
+  Directory Access Protocol (LDAP).|insight=The Lightweight Directory Access Protocol, or LDAP is an
+  application protocol for querying and modifying directory services running over TCP/IP.|affected=|impact=|solution=|vuldetect=|solution_type=</tags>
+        <solution type="" />
+      </nvt>
+      <scan_nvt_version>2023-07-12T05:05:05Z</scan_nvt_version>
+      <threat>Log</threat>
+      <severity>0.0</severity>
+      <qod>
+        <value>80</value>
+        <type />
+      </qod>
+      <original_threat>Log</original_threat>
+      <original_severity>0</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="c4dbbf5d-1375-45ba-81f7-dbe9ad6e95ac">
+      <name>OS Detection Consolidation and Reporting</name>
+      <modification_time>2026-01-26T07:16:12Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:16:12Z</creation_time>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>general/tcp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.105937">
+        <type>nvt</type>
+        <name>OS Detection Consolidation and Reporting</name>
+        <family>Product detection</family>
+        <cvss_base>0.0</cvss_base>
+        <severities score="0.0">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2016-02-19T10:19:54Z</date>
+            <score>0.0</score>
+            <value>AV:N/AC:L/Au:N/C:N/I:N/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:N/AC:L/Au:N/C:N/I:N/A:N|summary=This script consolidates the OS information detected by several
+  VTs and tries to find the best matching OS.
+
+  Furthermore it reports all previously collected information leading to this best matching OS. It
+  also reports possible additional information which might help to improve the OS detection.
+
+  If any of this information is wrong or could be improved please consider to report these to the
+  referenced community forum.|insight=|affected=|impact=|solution=|vuldetect=|solution_type=</tags>
+        <solution type="" />
+        <refs>
+          <ref type="url" id="https://forum.greenbone.net/c/vulnerability-tests/7" />
+        </refs>
+      </nvt>
+      <scan_nvt_version>2026-01-21T05:50:46Z</scan_nvt_version>
+      <threat>Log</threat>
+      <severity>0.0</severity>
+      <qod>
+        <value>80</value>
+        <type />
+      </qod>
+      <original_threat>Log</original_threat>
+      <original_severity>0</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="9ceb5ca0-a566-42a1-8655-583dfca7f4f8">
+      <name>SSL/TLS: Certificate - Subject Common Name Does Not Match Server FQDN</name>
+      <modification_time>2026-01-26T07:16:53Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:16:53Z</creation_time>
+      <detection>
+        <result id="455f6ee8-7eb4-4893-b285-4b82ecac9d4b">
+          <details>
+            <detail>
+              <name>product</name>
+              <value>cpe:/a:ietf:transport_layer_security</value>
+            </detail>
+            <detail>
+              <name>location</name>
+              <value>389/tcp</value>
+            </detail>
+            <detail>
+              <name>source_oid</name>
+              <value>1.3.6.1.4.1.25623.1.0.103692</value>
+            </detail>
+            <detail>
+              <name>source_name</name>
+              <value>SSL/TLS: Collect and Report Certificate Details</value>
+            </detail>
+          </details>
+        </result>
+      </detection>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>389/tcp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.103141">
+        <type>nvt</type>
+        <name>SSL/TLS: Certificate - Subject Common Name Does Not Match Server FQDN</name>
+        <family>SSL and TLS</family>
+        <cvss_base>0.0</cvss_base>
+        <severities score="0.0">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2011-04-27T13:13:59Z</date>
+            <score>0.0</score>
+            <value>AV:N/AC:L/Au:N/C:N/I:N/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:N/AC:L/Au:N/C:N/I:N/A:N|summary=The SSL/TLS certificate contains a common name (CN) that does not match the hostname.|insight=|affected=|impact=|solution=|vuldetect=|solution_type=</tags>
+        <solution type="" />
+      </nvt>
+      <scan_nvt_version>2024-06-14T05:05:48Z</scan_nvt_version>
+      <threat>Log</threat>
+      <severity>0.0</severity>
+      <qod>
+        <value>98</value>
+        <type />
+      </qod>
+      <original_threat>Log</original_threat>
+      <original_severity>0</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="e5c51875-1b0e-4b60-b2cc-ed3c5e6301fb">
+      <name>SSL/TLS: Certificate - Subject Common Name Does Not Match Server FQDN</name>
+      <modification_time>2026-01-26T07:16:53Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:16:53Z</creation_time>
+      <detection>
+        <result id="63c7f227-56db-414a-8ef2-d443eed9cef7">
+          <details>
+            <detail>
+              <name>product</name>
+              <value>cpe:/a:ietf:transport_layer_security</value>
+            </detail>
+            <detail>
+              <name>location</name>
+              <value>636/tcp</value>
+            </detail>
+            <detail>
+              <name>source_oid</name>
+              <value>1.3.6.1.4.1.25623.1.0.103692</value>
+            </detail>
+            <detail>
+              <name>source_name</name>
+              <value>SSL/TLS: Collect and Report Certificate Details</value>
+            </detail>
+          </details>
+        </result>
+      </detection>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>636/tcp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.103141">
+        <type>nvt</type>
+        <name>SSL/TLS: Certificate - Subject Common Name Does Not Match Server FQDN</name>
+        <family>SSL and TLS</family>
+        <cvss_base>0.0</cvss_base>
+        <severities score="0.0">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2011-04-27T13:13:59Z</date>
+            <score>0.0</score>
+            <value>AV:N/AC:L/Au:N/C:N/I:N/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:N/AC:L/Au:N/C:N/I:N/A:N|summary=The SSL/TLS certificate contains a common name (CN) that does not match the hostname.|insight=|affected=|impact=|solution=|vuldetect=|solution_type=</tags>
+        <solution type="" />
+      </nvt>
+      <scan_nvt_version>2024-06-14T05:05:48Z</scan_nvt_version>
+      <threat>Log</threat>
+      <severity>0.0</severity>
+      <qod>
+        <value>98</value>
+        <type />
+      </qod>
+      <original_threat>Log</original_threat>
+      <original_severity>0</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="ed0d6957-b794-42ff-8922-7943d76060bf">
+      <name>SSL/TLS: Certificate In Chain Expired</name>
+      <modification_time>2026-01-26T07:16:53Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:16:53Z</creation_time>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>636/tcp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.106237">
+        <type>nvt</type>
+        <name>SSL/TLS: Certificate In Chain Expired</name>
+        <family>SSL and TLS</family>
+        <cvss_base>5.0</cvss_base>
+        <severities score="5.0">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2016-09-09T04:33:30Z</date>
+            <score>5.0</score>
+            <value>AV:N/AC:L/Au:N/C:N/I:P/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:N/AC:L/Au:N/C:N/I:P/A:N|summary=The remote service is using a SSL/TLS certificate chain where
+  one or multiple CA certificates have expired.|insight=Checks if the CA certificates in the SSL/TLS certificate chain
+  have expired.|affected=|impact=|solution=Sign your server certificate with a valid CA certificate.|vuldetect=Checks the expire date of the CA certificates.|solution_type=Mitigation</tags>
+        <solution type="Mitigation">Sign your server certificate with a valid CA certificate.</solution>
+      </nvt>
+      <scan_nvt_version>2021-09-24T07:45:50Z</scan_nvt_version>
+      <threat>Medium</threat>
+      <severity>5.0</severity>
+      <qod>
+        <value>99</value>
+        <type />
+      </qod>
+      <original_threat>Medium</original_threat>
+      <original_severity>5</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="1f2ffa91-94d6-4ee1-bf23-6531feee91d0">
+      <name>SSL/TLS: Certificate In Chain Expired</name>
+      <modification_time>2026-01-26T07:16:53Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:16:53Z</creation_time>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>389/tcp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.106237">
+        <type>nvt</type>
+        <name>SSL/TLS: Certificate In Chain Expired</name>
+        <family>SSL and TLS</family>
+        <cvss_base>5.0</cvss_base>
+        <severities score="5.0">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2016-09-09T04:33:30Z</date>
+            <score>5.0</score>
+            <value>AV:N/AC:L/Au:N/C:N/I:P/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:N/AC:L/Au:N/C:N/I:P/A:N|summary=The remote service is using a SSL/TLS certificate chain where
+  one or multiple CA certificates have expired.|insight=Checks if the CA certificates in the SSL/TLS certificate chain
+  have expired.|affected=|impact=|solution=Sign your server certificate with a valid CA certificate.|vuldetect=Checks the expire date of the CA certificates.|solution_type=Mitigation</tags>
+        <solution type="Mitigation">Sign your server certificate with a valid CA certificate.</solution>
+      </nvt>
+      <scan_nvt_version>2021-09-24T07:45:50Z</scan_nvt_version>
+      <threat>Medium</threat>
+      <severity>5.0</severity>
+      <qod>
+        <value>99</value>
+        <type />
+      </qod>
+      <original_threat>Medium</original_threat>
+      <original_severity>5</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="158f246e-15ca-4e76-a5fd-a0ff06240859">
+      <name>SSL/TLS: Client Certificate Required</name>
+      <modification_time>2026-01-26T07:16:58Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:16:58Z</creation_time>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>389/tcp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.117810">
+        <type>nvt</type>
+        <name>SSL/TLS: Client Certificate Required</name>
+        <family>SSL and TLS</family>
+        <cvss_base>0.0</cvss_base>
+        <severities score="0.0">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2021-12-06T13:43:24Z</date>
+            <score>0.0</score>
+            <value>AV:N/AC:L/Au:N/C:N/I:N/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:N/AC:L/Au:N/C:N/I:N/A:N|summary=The remote SSL/TLS service requires an SSL/TLS client
+  certificate.|insight=|affected=|impact=|solution=|vuldetect=Sends multiple connection requests to the remote SSL/TLS
+  service and attempts to determine if the service requires an SSL/TLS client certificate.|solution_type=</tags>
+        <solution type="" />
+      </nvt>
+      <scan_nvt_version>2024-09-27T05:05:23Z</scan_nvt_version>
+      <threat>Log</threat>
+      <severity>0.0</severity>
+      <qod>
+        <value>80</value>
+        <type />
+      </qod>
+      <original_threat>Log</original_threat>
+      <original_severity>0</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="6983ba62-d93a-47dd-b23c-af8e843a1bc7">
+      <name>SSL/TLS: Client Certificate Required</name>
+      <modification_time>2026-01-26T07:16:58Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:16:58Z</creation_time>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>636/tcp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.117810">
+        <type>nvt</type>
+        <name>SSL/TLS: Client Certificate Required</name>
+        <family>SSL and TLS</family>
+        <cvss_base>0.0</cvss_base>
+        <severities score="0.0">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2021-12-06T13:43:24Z</date>
+            <score>0.0</score>
+            <value>AV:N/AC:L/Au:N/C:N/I:N/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:N/AC:L/Au:N/C:N/I:N/A:N|summary=The remote SSL/TLS service requires an SSL/TLS client
+  certificate.|insight=|affected=|impact=|solution=|vuldetect=Sends multiple connection requests to the remote SSL/TLS
+  service and attempts to determine if the service requires an SSL/TLS client certificate.|solution_type=</tags>
+        <solution type="" />
+      </nvt>
+      <scan_nvt_version>2024-09-27T05:05:23Z</scan_nvt_version>
+      <threat>Log</threat>
+      <severity>0.0</severity>
+      <qod>
+        <value>80</value>
+        <type />
+      </qod>
+      <original_threat>Log</original_threat>
+      <original_severity>0</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="48e113ef-7754-4467-b483-88c306ec41fe">
+      <name>SSL/TLS: Client Certificate Required</name>
+      <modification_time>2026-01-26T07:16:58Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:16:58Z</creation_time>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>636/tcp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.117810">
+        <type>nvt</type>
+        <name>SSL/TLS: Client Certificate Required</name>
+        <family>SSL and TLS</family>
+        <cvss_base>0.0</cvss_base>
+        <severities score="0.0">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2021-12-06T13:43:24Z</date>
+            <score>0.0</score>
+            <value>AV:N/AC:L/Au:N/C:N/I:N/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:N/AC:L/Au:N/C:N/I:N/A:N|summary=The remote SSL/TLS service requires an SSL/TLS client
+  certificate.|insight=|affected=|impact=|solution=|vuldetect=Sends multiple connection requests to the remote SSL/TLS
+  service and attempts to determine if the service requires an SSL/TLS client certificate.|solution_type=</tags>
+        <solution type="" />
+      </nvt>
+      <scan_nvt_version>2024-09-27T05:05:23Z</scan_nvt_version>
+      <threat>Log</threat>
+      <severity>0.0</severity>
+      <qod>
+        <value>80</value>
+        <type />
+      </qod>
+      <original_threat>Log</original_threat>
+      <original_severity>0</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="5dc5f60c-97b5-465a-b9fb-ba6c1855517b">
+      <name>SSL/TLS: Client Certificate Required</name>
+      <modification_time>2026-01-26T07:16:53Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:16:53Z</creation_time>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>389/tcp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.117810">
+        <type>nvt</type>
+        <name>SSL/TLS: Client Certificate Required</name>
+        <family>SSL and TLS</family>
+        <cvss_base>0.0</cvss_base>
+        <severities score="0.0">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2021-12-06T13:43:24Z</date>
+            <score>0.0</score>
+            <value>AV:N/AC:L/Au:N/C:N/I:N/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:N/AC:L/Au:N/C:N/I:N/A:N|summary=The remote SSL/TLS service requires an SSL/TLS client
+  certificate.|insight=|affected=|impact=|solution=|vuldetect=Sends multiple connection requests to the remote SSL/TLS
+  service and attempts to determine if the service requires an SSL/TLS client certificate.|solution_type=</tags>
+        <solution type="" />
+      </nvt>
+      <scan_nvt_version>2024-09-27T05:05:23Z</scan_nvt_version>
+      <threat>Log</threat>
+      <severity>0.0</severity>
+      <qod>
+        <value>80</value>
+        <type />
+      </qod>
+      <original_threat>Log</original_threat>
+      <original_severity>0</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="63c7f227-56db-414a-8ef2-d443eed9cef7">
+      <name>SSL/TLS: Collect and Report Certificate Details</name>
+      <modification_time>2026-01-26T07:16:07Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:16:07Z</creation_time>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>636/tcp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.103692">
+        <type>nvt</type>
+        <name>SSL/TLS: Collect and Report Certificate Details</name>
+        <family>SSL and TLS</family>
+        <cvss_base>0.0</cvss_base>
+        <severities score="0.0">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2013-04-09T12:14:14Z</date>
+            <score>0.0</score>
+            <value>AV:N/AC:L/Au:N/C:N/I:N/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:N/AC:L/Au:N/C:N/I:N/A:N|summary=This script collects and reports the details of all SSL/TLS
+  certificates.
+
+  This data will be used by other tests to verify server certificates.|insight=|affected=|impact=|solution=|vuldetect=|solution_type=</tags>
+        <solution type="" />
+      </nvt>
+      <scan_nvt_version>2024-09-27T05:05:23Z</scan_nvt_version>
+      <threat>Log</threat>
+      <severity>0.0</severity>
+      <qod>
+        <value>98</value>
+        <type />
+      </qod>
+      <original_threat>Log</original_threat>
+      <original_severity>0</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="455f6ee8-7eb4-4893-b285-4b82ecac9d4b">
+      <name>SSL/TLS: Collect and Report Certificate Details</name>
+      <modification_time>2026-01-26T07:16:07Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:16:07Z</creation_time>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>389/tcp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.103692">
+        <type>nvt</type>
+        <name>SSL/TLS: Collect and Report Certificate Details</name>
+        <family>SSL and TLS</family>
+        <cvss_base>0.0</cvss_base>
+        <severities score="0.0">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2013-04-09T12:14:14Z</date>
+            <score>0.0</score>
+            <value>AV:N/AC:L/Au:N/C:N/I:N/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:N/AC:L/Au:N/C:N/I:N/A:N|summary=This script collects and reports the details of all SSL/TLS
+  certificates.
+
+  This data will be used by other tests to verify server certificates.|insight=|affected=|impact=|solution=|vuldetect=|solution_type=</tags>
+        <solution type="" />
+      </nvt>
+      <scan_nvt_version>2024-09-27T05:05:23Z</scan_nvt_version>
+      <threat>Log</threat>
+      <severity>0.0</severity>
+      <qod>
+        <value>98</value>
+        <type />
+      </qod>
+      <original_threat>Log</original_threat>
+      <original_severity>0</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="20111b39-fc4a-4645-afd5-8f9b0af63650">
+      <name>SSL/TLS: Hostname discovery from server certificate</name>
+      <modification_time>2026-01-26T07:16:07Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:16:07Z</creation_time>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>general/tcp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.111010">
+        <type>nvt</type>
+        <name>SSL/TLS: Hostname discovery from server certificate</name>
+        <family>SSL and TLS</family>
+        <cvss_base>0.0</cvss_base>
+        <severities score="0.0">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2015-03-27T11:00:00Z</date>
+            <score>0.0</score>
+            <value>AV:N/AC:L/Au:N/C:N/I:N/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:N/AC:L/Au:N/C:N/I:N/A:N|summary=It was possible to discover an additional hostname
+  of this server from its certificate Common or Subject Alt Name.|insight=|affected=|impact=|solution=|vuldetect=|solution_type=</tags>
+        <solution type="" />
+      </nvt>
+      <scan_nvt_version>2021-11-22T15:32:39Z</scan_nvt_version>
+      <threat>Log</threat>
+      <severity>0.0</severity>
+      <qod>
+        <value>98</value>
+        <type />
+      </qod>
+      <original_threat>Log</original_threat>
+      <original_severity>0</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="50b7c13a-3cb3-4d43-9ac1-0b4b4900e22d">
+      <name>SSL/TLS: LDAP 'Start TLS OID' Detection</name>
+      <modification_time>2026-01-26T07:15:22Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:15:22Z</creation_time>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>389/tcp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.105016">
+        <type>nvt</type>
+        <name>SSL/TLS: LDAP 'Start TLS OID' Detection</name>
+        <family>SSL and TLS</family>
+        <cvss_base>0.0</cvss_base>
+        <severities score="0.0">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2014-04-25T14:18:02Z</date>
+            <score>0.0</score>
+            <value>AV:N/AC:L/Au:N/C:N/I:N/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:N/AC:L/Au:N/C:N/I:N/A:N|summary=Checks if the remote LDAP server supports SSL/TLS with the 'Start TLS' OID.|insight=|affected=|impact=|solution=|vuldetect=|solution_type=</tags>
+        <solution type="" />
+        <refs>
+          <ref type="url" id="https://tools.ietf.org/html/rfc2830" />
+        </refs>
+      </nvt>
+      <scan_nvt_version>2023-07-25T05:05:58Z</scan_nvt_version>
+      <threat>Log</threat>
+      <severity>0.0</severity>
+      <qod>
+        <value>80</value>
+        <type />
+      </qod>
+      <original_threat>Log</original_threat>
+      <original_severity>0</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="cc80afaf-68e4-4907-98a0-34adab8ee24e">
+      <name>SSL/TLS: Report Medium Cipher Suites</name>
+      <modification_time>2026-01-26T07:16:53Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:16:53Z</creation_time>
+      <detection>
+        <result id="feb8bf13-0034-468e-8c27-ee0f4345f4fc">
+          <details>
+            <detail>
+              <name>product</name>
+              <value>cpe:/a:ietf:transport_layer_security</value>
+            </detail>
+            <detail>
+              <name>location</name>
+              <value>389/tcp</value>
+            </detail>
+            <detail>
+              <name>source_oid</name>
+              <value>1.3.6.1.4.1.25623.1.0.802067</value>
+            </detail>
+            <detail>
+              <name>source_name</name>
+              <value>SSL/TLS: Report Supported Cipher Suites</value>
+            </detail>
+          </details>
+        </result>
+      </detection>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>389/tcp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.902816">
+        <type>nvt</type>
+        <name>SSL/TLS: Report Medium Cipher Suites</name>
+        <family>SSL and TLS</family>
+        <cvss_base>0.0</cvss_base>
+        <severities score="0.0">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2012-03-07T08:44:14Z</date>
+            <score>0.0</score>
+            <value>AV:N/AC:L/Au:N/C:N/I:N/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:N/AC:L/Au:N/C:N/I:N/A:N|summary=This routine reports all Medium SSL/TLS cipher suites accepted
+  by a service.|insight=Any cipher suite considered to be secure for only the next 10
+  years is considered as medium.|affected=|impact=|solution=|vuldetect=|solution_type=</tags>
+        <solution type="" />
+      </nvt>
+      <scan_nvt_version>2024-09-27T05:05:23Z</scan_nvt_version>
+      <threat>Log</threat>
+      <severity>0.0</severity>
+      <qod>
+        <value>98</value>
+        <type />
+      </qod>
+      <original_threat>Log</original_threat>
+      <original_severity>0</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="4fc9025e-705b-458c-b9c2-969bb608571d">
+      <name>SSL/TLS: Report Medium Cipher Suites</name>
+      <modification_time>2026-01-26T07:16:53Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:16:53Z</creation_time>
+      <detection>
+        <result id="a72739de-a979-4cb7-ae95-cd8607c7e1c0">
+          <details>
+            <detail>
+              <name>product</name>
+              <value>cpe:/a:ietf:transport_layer_security</value>
+            </detail>
+            <detail>
+              <name>location</name>
+              <value>636/tcp</value>
+            </detail>
+            <detail>
+              <name>source_oid</name>
+              <value>1.3.6.1.4.1.25623.1.0.802067</value>
+            </detail>
+            <detail>
+              <name>source_name</name>
+              <value>SSL/TLS: Report Supported Cipher Suites</value>
+            </detail>
+          </details>
+        </result>
+      </detection>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>636/tcp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.902816">
+        <type>nvt</type>
+        <name>SSL/TLS: Report Medium Cipher Suites</name>
+        <family>SSL and TLS</family>
+        <cvss_base>0.0</cvss_base>
+        <severities score="0.0">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2012-03-07T08:44:14Z</date>
+            <score>0.0</score>
+            <value>AV:N/AC:L/Au:N/C:N/I:N/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:N/AC:L/Au:N/C:N/I:N/A:N|summary=This routine reports all Medium SSL/TLS cipher suites accepted
+  by a service.|insight=Any cipher suite considered to be secure for only the next 10
+  years is considered as medium.|affected=|impact=|solution=|vuldetect=|solution_type=</tags>
+        <solution type="" />
+      </nvt>
+      <scan_nvt_version>2024-09-27T05:05:23Z</scan_nvt_version>
+      <threat>Log</threat>
+      <severity>0.0</severity>
+      <qod>
+        <value>98</value>
+        <type />
+      </qod>
+      <original_threat>Log</original_threat>
+      <original_severity>0</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="8b13d932-e756-4308-a834-21970c5b9da1">
+      <name>SSL/TLS: Report Non Weak Cipher Suites</name>
+      <modification_time>2026-01-26T07:16:53Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:16:53Z</creation_time>
+      <detection>
+        <result id="feb8bf13-0034-468e-8c27-ee0f4345f4fc">
+          <details>
+            <detail>
+              <name>product</name>
+              <value>cpe:/a:ietf:transport_layer_security</value>
+            </detail>
+            <detail>
+              <name>location</name>
+              <value>389/tcp</value>
+            </detail>
+            <detail>
+              <name>source_oid</name>
+              <value>1.3.6.1.4.1.25623.1.0.802067</value>
+            </detail>
+            <detail>
+              <name>source_name</name>
+              <value>SSL/TLS: Report Supported Cipher Suites</value>
+            </detail>
+          </details>
+        </result>
+      </detection>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>389/tcp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.103441">
+        <type>nvt</type>
+        <name>SSL/TLS: Report Non Weak Cipher Suites</name>
+        <family>SSL and TLS</family>
+        <cvss_base>0.0</cvss_base>
+        <severities score="0.0">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2012-03-01T16:16:10Z</date>
+            <score>0.0</score>
+            <value>AV:N/AC:L/Au:N/C:N/I:N/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:N/AC:L/Au:N/C:N/I:N/A:N|summary=This routine reports all Non Weak SSL/TLS cipher suites
+  accepted by a service.|insight=|affected=|impact=|solution=|vuldetect=|solution_type=</tags>
+        <solution type="" />
+      </nvt>
+      <scan_nvt_version>2024-09-27T05:05:23Z</scan_nvt_version>
+      <threat>Log</threat>
+      <severity>0.0</severity>
+      <qod>
+        <value>98</value>
+        <type />
+      </qod>
+      <original_threat>Log</original_threat>
+      <original_severity>0</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="d65d5067-a54e-4bab-87f2-0f212cb6f58c">
+      <name>SSL/TLS: Report Non Weak Cipher Suites</name>
+      <modification_time>2026-01-26T07:16:53Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:16:53Z</creation_time>
+      <detection>
+        <result id="a72739de-a979-4cb7-ae95-cd8607c7e1c0">
+          <details>
+            <detail>
+              <name>product</name>
+              <value>cpe:/a:ietf:transport_layer_security</value>
+            </detail>
+            <detail>
+              <name>location</name>
+              <value>636/tcp</value>
+            </detail>
+            <detail>
+              <name>source_oid</name>
+              <value>1.3.6.1.4.1.25623.1.0.802067</value>
+            </detail>
+            <detail>
+              <name>source_name</name>
+              <value>SSL/TLS: Report Supported Cipher Suites</value>
+            </detail>
+          </details>
+        </result>
+      </detection>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>636/tcp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.103441">
+        <type>nvt</type>
+        <name>SSL/TLS: Report Non Weak Cipher Suites</name>
+        <family>SSL and TLS</family>
+        <cvss_base>0.0</cvss_base>
+        <severities score="0.0">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2012-03-01T16:16:10Z</date>
+            <score>0.0</score>
+            <value>AV:N/AC:L/Au:N/C:N/I:N/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:N/AC:L/Au:N/C:N/I:N/A:N|summary=This routine reports all Non Weak SSL/TLS cipher suites
+  accepted by a service.|insight=|affected=|impact=|solution=|vuldetect=|solution_type=</tags>
+        <solution type="" />
+      </nvt>
+      <scan_nvt_version>2024-09-27T05:05:23Z</scan_nvt_version>
+      <threat>Log</threat>
+      <severity>0.0</severity>
+      <qod>
+        <value>98</value>
+        <type />
+      </qod>
+      <original_threat>Log</original_threat>
+      <original_severity>0</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="4e7098f8-ee0e-4fb9-99b6-1d62bda89481">
+      <name>SSL/TLS: Report Perfect Forward Secrecy (PFS) Cipher Suites</name>
+      <modification_time>2026-01-26T07:16:53Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:16:53Z</creation_time>
+      <detection>
+        <result id="feb8bf13-0034-468e-8c27-ee0f4345f4fc">
+          <details>
+            <detail>
+              <name>product</name>
+              <value>cpe:/a:ietf:transport_layer_security</value>
+            </detail>
+            <detail>
+              <name>location</name>
+              <value>389/tcp</value>
+            </detail>
+            <detail>
+              <name>source_oid</name>
+              <value>1.3.6.1.4.1.25623.1.0.802067</value>
+            </detail>
+            <detail>
+              <name>source_name</name>
+              <value>SSL/TLS: Report Supported Cipher Suites</value>
+            </detail>
+          </details>
+        </result>
+      </detection>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>389/tcp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.105018">
+        <type>nvt</type>
+        <name>SSL/TLS: Report Perfect Forward Secrecy (PFS) Cipher Suites</name>
+        <family>SSL and TLS</family>
+        <cvss_base>0.0</cvss_base>
+        <severities score="0.0">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2014-05-06T13:16:10Z</date>
+            <score>0.0</score>
+            <value>AV:N/AC:L/Au:N/C:N/I:N/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:N/AC:L/Au:N/C:N/I:N/A:N|summary=This routine reports all SSL/TLS cipher suites accepted by a
+  service which are supporting Perfect Forward Secrecy (PFS).|insight=|affected=|impact=|solution=|vuldetect=|solution_type=</tags>
+        <solution type="" />
+      </nvt>
+      <scan_nvt_version>2024-09-30T08:38:05Z</scan_nvt_version>
+      <threat>Log</threat>
+      <severity>0.0</severity>
+      <qod>
+        <value>98</value>
+        <type />
+      </qod>
+      <original_threat>Log</original_threat>
+      <original_severity>0</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="4fe4d831-ce91-4911-bce9-e37c75ae677a">
+      <name>SSL/TLS: Report Perfect Forward Secrecy (PFS) Cipher Suites</name>
+      <modification_time>2026-01-26T07:16:53Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:16:53Z</creation_time>
+      <detection>
+        <result id="a72739de-a979-4cb7-ae95-cd8607c7e1c0">
+          <details>
+            <detail>
+              <name>product</name>
+              <value>cpe:/a:ietf:transport_layer_security</value>
+            </detail>
+            <detail>
+              <name>location</name>
+              <value>636/tcp</value>
+            </detail>
+            <detail>
+              <name>source_oid</name>
+              <value>1.3.6.1.4.1.25623.1.0.802067</value>
+            </detail>
+            <detail>
+              <name>source_name</name>
+              <value>SSL/TLS: Report Supported Cipher Suites</value>
+            </detail>
+          </details>
+        </result>
+      </detection>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>636/tcp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.105018">
+        <type>nvt</type>
+        <name>SSL/TLS: Report Perfect Forward Secrecy (PFS) Cipher Suites</name>
+        <family>SSL and TLS</family>
+        <cvss_base>0.0</cvss_base>
+        <severities score="0.0">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2014-05-06T13:16:10Z</date>
+            <score>0.0</score>
+            <value>AV:N/AC:L/Au:N/C:N/I:N/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:N/AC:L/Au:N/C:N/I:N/A:N|summary=This routine reports all SSL/TLS cipher suites accepted by a
+  service which are supporting Perfect Forward Secrecy (PFS).|insight=|affected=|impact=|solution=|vuldetect=|solution_type=</tags>
+        <solution type="" />
+      </nvt>
+      <scan_nvt_version>2024-09-30T08:38:05Z</scan_nvt_version>
+      <threat>Log</threat>
+      <severity>0.0</severity>
+      <qod>
+        <value>98</value>
+        <type />
+      </qod>
+      <original_threat>Log</original_threat>
+      <original_severity>0</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="feb8bf13-0034-468e-8c27-ee0f4345f4fc">
+      <name>SSL/TLS: Report Supported Cipher Suites</name>
+      <modification_time>2026-01-26T07:16:53Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:16:53Z</creation_time>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>389/tcp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.802067">
+        <type>nvt</type>
+        <name>SSL/TLS: Report Supported Cipher Suites</name>
+        <family>SSL and TLS</family>
+        <cvss_base>0.0</cvss_base>
+        <severities score="0.0">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2014-03-06T11:50:28Z</date>
+            <score>0.0</score>
+            <value>AV:N/AC:L/Au:N/C:N/I:N/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:N/AC:L/Au:N/C:N/I:N/A:N|summary=This routine reports all SSL/TLS cipher suites accepted by a
+  service.|insight=Notes:
+
+  - As the VT 'SSL/TLS: Check Supported Cipher Suites' (OID: 1.3.6.1.4.1.25623.1.0.900234) might run
+  into a timeout the actual reporting of all accepted cipher suites takes place in this VT instead.
+
+  - SSLv2 ciphers are not getting reported as the protocol itself is deprecated, needs to be
+  considered as weak and is reported separately as deprecated.|affected=|impact=|solution=|vuldetect=|solution_type=</tags>
+        <solution type="" />
+      </nvt>
+      <scan_nvt_version>2024-09-27T05:05:23Z</scan_nvt_version>
+      <threat>Log</threat>
+      <severity>0.0</severity>
+      <qod>
+        <value>98</value>
+        <type />
+      </qod>
+      <original_threat>Log</original_threat>
+      <original_severity>0</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="a72739de-a979-4cb7-ae95-cd8607c7e1c0">
+      <name>SSL/TLS: Report Supported Cipher Suites</name>
+      <modification_time>2026-01-26T07:16:53Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:16:53Z</creation_time>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>636/tcp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.802067">
+        <type>nvt</type>
+        <name>SSL/TLS: Report Supported Cipher Suites</name>
+        <family>SSL and TLS</family>
+        <cvss_base>0.0</cvss_base>
+        <severities score="0.0">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2014-03-06T11:50:28Z</date>
+            <score>0.0</score>
+            <value>AV:N/AC:L/Au:N/C:N/I:N/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:N/AC:L/Au:N/C:N/I:N/A:N|summary=This routine reports all SSL/TLS cipher suites accepted by a
+  service.|insight=Notes:
+
+  - As the VT 'SSL/TLS: Check Supported Cipher Suites' (OID: 1.3.6.1.4.1.25623.1.0.900234) might run
+  into a timeout the actual reporting of all accepted cipher suites takes place in this VT instead.
+
+  - SSLv2 ciphers are not getting reported as the protocol itself is deprecated, needs to be
+  considered as weak and is reported separately as deprecated.|affected=|impact=|solution=|vuldetect=|solution_type=</tags>
+        <solution type="" />
+      </nvt>
+      <scan_nvt_version>2024-09-27T05:05:23Z</scan_nvt_version>
+      <threat>Log</threat>
+      <severity>0.0</severity>
+      <qod>
+        <value>98</value>
+        <type />
+      </qod>
+      <original_threat>Log</original_threat>
+      <original_severity>0</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="a76e41b9-8873-4260-9bde-ad1f8ad26e21">
+      <name>SSL/TLS: Safe/Secure Renegotiation Support Status</name>
+      <modification_time>2026-01-26T07:17:18Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:17:18Z</creation_time>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>636/tcp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.117757">
+        <type>nvt</type>
+        <name>SSL/TLS: Safe/Secure Renegotiation Support Status</name>
+        <family>SSL and TLS</family>
+        <cvss_base>0.0</cvss_base>
+        <severities score="0.0">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2021-10-27T11:26:49Z</date>
+            <score>0.0</score>
+            <value>AV:N/AC:L/Au:N/C:N/I:N/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:N/AC:L/Au:N/C:N/I:N/A:N|summary=Checks and reports if a remote SSL/TLS service supports
+  safe/secure renegotiation.|insight=|affected=|impact=|solution=|vuldetect=|solution_type=</tags>
+        <solution type="" />
+        <refs>
+          <ref type="url" id="https://www.gnutls.org/manual/html_node/Safe-renegotiation.html" />
+          <ref type="url" id="https://wiki.openssl.org/index.php/TLS1.3#Renegotiation" />
+          <ref type="url" id="https://datatracker.ietf.org/doc/html/rfc5746" />
+        </refs>
+      </nvt>
+      <scan_nvt_version>2024-09-27T05:05:23Z</scan_nvt_version>
+      <threat>Log</threat>
+      <severity>0.0</severity>
+      <qod>
+        <value>98</value>
+        <type />
+      </qod>
+      <original_threat>Log</original_threat>
+      <original_severity>0</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="46b6c53f-0a2f-4f9c-aca6-be1bb6492bb7">
+      <name>SSL/TLS: Safe/Secure Renegotiation Support Status</name>
+      <modification_time>2026-01-26T07:17:18Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:17:18Z</creation_time>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>636/tcp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.117757">
+        <type>nvt</type>
+        <name>SSL/TLS: Safe/Secure Renegotiation Support Status</name>
+        <family>SSL and TLS</family>
+        <cvss_base>0.0</cvss_base>
+        <severities score="0.0">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2021-10-27T11:26:49Z</date>
+            <score>0.0</score>
+            <value>AV:N/AC:L/Au:N/C:N/I:N/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:N/AC:L/Au:N/C:N/I:N/A:N|summary=Checks and reports if a remote SSL/TLS service supports
+  safe/secure renegotiation.|insight=|affected=|impact=|solution=|vuldetect=|solution_type=</tags>
+        <solution type="" />
+        <refs>
+          <ref type="url" id="https://www.gnutls.org/manual/html_node/Safe-renegotiation.html" />
+          <ref type="url" id="https://wiki.openssl.org/index.php/TLS1.3#Renegotiation" />
+          <ref type="url" id="https://datatracker.ietf.org/doc/html/rfc5746" />
+        </refs>
+      </nvt>
+      <scan_nvt_version>2024-09-27T05:05:23Z</scan_nvt_version>
+      <threat>Log</threat>
+      <severity>0.0</severity>
+      <qod>
+        <value>98</value>
+        <type />
+      </qod>
+      <original_threat>Log</original_threat>
+      <original_severity>0</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="80918bcb-fc3d-40a7-9253-e7ed9c98f30f">
+      <name>SSL/TLS: Safe/Secure Renegotiation Support Status</name>
+      <modification_time>2026-01-26T07:17:08Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:17:08Z</creation_time>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>389/tcp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.117757">
+        <type>nvt</type>
+        <name>SSL/TLS: Safe/Secure Renegotiation Support Status</name>
+        <family>SSL and TLS</family>
+        <cvss_base>0.0</cvss_base>
+        <severities score="0.0">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2021-10-27T11:26:49Z</date>
+            <score>0.0</score>
+            <value>AV:N/AC:L/Au:N/C:N/I:N/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:N/AC:L/Au:N/C:N/I:N/A:N|summary=Checks and reports if a remote SSL/TLS service supports
+  safe/secure renegotiation.|insight=|affected=|impact=|solution=|vuldetect=|solution_type=</tags>
+        <solution type="" />
+        <refs>
+          <ref type="url" id="https://www.gnutls.org/manual/html_node/Safe-renegotiation.html" />
+          <ref type="url" id="https://wiki.openssl.org/index.php/TLS1.3#Renegotiation" />
+          <ref type="url" id="https://datatracker.ietf.org/doc/html/rfc5746" />
+        </refs>
+      </nvt>
+      <scan_nvt_version>2024-09-27T05:05:23Z</scan_nvt_version>
+      <threat>Log</threat>
+      <severity>0.0</severity>
+      <qod>
+        <value>98</value>
+        <type />
+      </qod>
+      <original_threat>Log</original_threat>
+      <original_severity>0</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="bd7c473a-1046-4526-9738-5b184577a4b2">
+      <name>SSL/TLS: Safe/Secure Renegotiation Support Status</name>
+      <modification_time>2026-01-26T07:17:18Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:17:18Z</creation_time>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>389/tcp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.117757">
+        <type>nvt</type>
+        <name>SSL/TLS: Safe/Secure Renegotiation Support Status</name>
+        <family>SSL and TLS</family>
+        <cvss_base>0.0</cvss_base>
+        <severities score="0.0">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2021-10-27T11:26:49Z</date>
+            <score>0.0</score>
+            <value>AV:N/AC:L/Au:N/C:N/I:N/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:N/AC:L/Au:N/C:N/I:N/A:N|summary=Checks and reports if a remote SSL/TLS service supports
+  safe/secure renegotiation.|insight=|affected=|impact=|solution=|vuldetect=|solution_type=</tags>
+        <solution type="" />
+        <refs>
+          <ref type="url" id="https://www.gnutls.org/manual/html_node/Safe-renegotiation.html" />
+          <ref type="url" id="https://wiki.openssl.org/index.php/TLS1.3#Renegotiation" />
+          <ref type="url" id="https://datatracker.ietf.org/doc/html/rfc5746" />
+        </refs>
+      </nvt>
+      <scan_nvt_version>2024-09-27T05:05:23Z</scan_nvt_version>
+      <threat>Log</threat>
+      <severity>0.0</severity>
+      <qod>
+        <value>98</value>
+        <type />
+      </qod>
+      <original_threat>Log</original_threat>
+      <original_severity>0</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="cd694cae-80de-49fc-9489-971550d1ad54">
+      <name>SSL/TLS: Version Detection</name>
+      <modification_time>2026-01-26T07:15:37Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:15:37Z</creation_time>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>389/tcp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.105782">
+        <type>nvt</type>
+        <name>SSL/TLS: Version Detection</name>
+        <family>SSL and TLS</family>
+        <cvss_base>0.0</cvss_base>
+        <severities score="0.0">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2016-06-29T08:54:20Z</date>
+            <score>0.0</score>
+            <value>AV:N/AC:L/Au:N/C:N/I:N/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:N/AC:L/Au:N/C:N/I:N/A:N|summary=Enumeration and reporting of SSL/TLS protocol versions supported
+  by a remote service.|insight=|affected=|impact=|solution=|vuldetect=Sends multiple connection requests to the remote service and
+  attempts to determine the SSL/TLS protocol versions supported by the service from the replies.
+
+  Note: The supported SSL/TLS protocol versions included in the report of this VT are reported
+  independently from the allowed / supported SSL/TLS ciphers.|solution_type=</tags>
+        <solution type="" />
+      </nvt>
+      <scan_nvt_version>2024-09-27T05:05:23Z</scan_nvt_version>
+      <threat>Log</threat>
+      <severity>0.0</severity>
+      <qod>
+        <value>80</value>
+        <type />
+      </qod>
+      <original_threat>Log</original_threat>
+      <original_severity>0</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="25bca472-acc9-4eb9-917f-b2f7823ec28e">
+      <name>SSL/TLS: Version Detection</name>
+      <modification_time>2026-01-26T07:15:22Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:15:22Z</creation_time>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>636/tcp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.105782">
+        <type>nvt</type>
+        <name>SSL/TLS: Version Detection</name>
+        <family>SSL and TLS</family>
+        <cvss_base>0.0</cvss_base>
+        <severities score="0.0">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2016-06-29T08:54:20Z</date>
+            <score>0.0</score>
+            <value>AV:N/AC:L/Au:N/C:N/I:N/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:N/AC:L/Au:N/C:N/I:N/A:N|summary=Enumeration and reporting of SSL/TLS protocol versions supported
+  by a remote service.|insight=|affected=|impact=|solution=|vuldetect=Sends multiple connection requests to the remote service and
+  attempts to determine the SSL/TLS protocol versions supported by the service from the replies.
+
+  Note: The supported SSL/TLS protocol versions included in the report of this VT are reported
+  independently from the allowed / supported SSL/TLS ciphers.|solution_type=</tags>
+        <solution type="" />
+      </nvt>
+      <scan_nvt_version>2024-09-27T05:05:23Z</scan_nvt_version>
+      <threat>Log</threat>
+      <severity>0.0</severity>
+      <qod>
+        <value>80</value>
+        <type />
+      </qod>
+      <original_threat>Log</original_threat>
+      <original_severity>0</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="6e669e8b-727f-4105-86af-28c0a79f8db2">
+      <name>TCP Timestamps Information Disclosure</name>
+      <modification_time>2026-01-26T07:16:27Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:16:27Z</creation_time>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>general/tcp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.80091">
+        <type>nvt</type>
+        <name>TCP Timestamps Information Disclosure</name>
+        <family>General</family>
+        <cvss_base>2.6</cvss_base>
+        <severities score="2.6">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2008-10-24T21:33:44Z</date>
+            <score>2.6</score>
+            <value>AV:N/AC:H/Au:N/C:P/I:N/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:N/AC:H/Au:N/C:P/I:N/A:N|summary=The remote host implements TCP timestamps and therefore allows
+  to compute the uptime.|insight=The remote host implements TCP timestamps, as defined by
+  RFC1323/RFC7323.|affected=TCP implementations that implement RFC1323/RFC7323.|impact=A side effect of this feature is that the uptime of the remote
+  host can sometimes be computed.|solution=To disable TCP timestamps on linux add the line
+  'net.ipv4.tcp_timestamps = 0' to /etc/sysctl.conf. Execute 'sysctl -p' to apply the settings at
+  runtime.
+
+  To disable TCP timestamps on Windows execute 'netsh int tcp set global timestamps=disabled'
+
+  Starting with Windows Server 2008 and Vista, the timestamp can not be completely disabled.
+
+  The default behavior of the TCP/IP stack on this Systems is to not use the Timestamp options when
+  initiating TCP connections, but use them if the TCP peer that is initiating communication includes
+  them in their synchronize (SYN) segment.
+
+  See the references for more information.|vuldetect=Special IP packets are forged and sent with a little delay in
+  between to the target IP. The responses are searched for a timestamps. If found, the timestamps
+  are reported.|solution_type=Mitigation</tags>
+        <solution type="Mitigation">To disable TCP timestamps on linux add the line
+  'net.ipv4.tcp_timestamps = 0' to /etc/sysctl.conf. Execute 'sysctl -p' to apply the settings at
+  runtime.
+
+  To disable TCP timestamps on Windows execute 'netsh int tcp set global timestamps=disabled'
+
+  Starting with Windows Server 2008 and Vista, the timestamp can not be completely disabled.
+
+  The default behavior of the TCP/IP stack on this Systems is to not use the Timestamp options when
+  initiating TCP connections, but use them if the TCP peer that is initiating communication includes
+  them in their synchronize (SYN) segment.
+
+  See the references for more information.</solution>
+        <refs>
+          <ref type="url" id="https://datatracker.ietf.org/doc/html/rfc1323" />
+          <ref type="url" id="https://datatracker.ietf.org/doc/html/rfc7323" />
+          <ref type="url" id="https://web.archive.org/web/20151213072445/http://www.microsoft.com/en-us/download/details.aspx?id=9152" />
+          <ref type="url" id="https://www.fortiguard.com/psirt/FG-IR-16-090" />
+        </refs>
+      </nvt>
+      <scan_nvt_version>2023-12-15T16:10:08Z</scan_nvt_version>
+      <threat>Low</threat>
+      <severity>2.6</severity>
+      <qod>
+        <value>80</value>
+        <type />
+      </qod>
+      <original_threat>Low</original_threat>
+      <original_severity>2.6</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="41fab376-55f8-4d57-ab06-bb373bbf0746">
+      <name>Traceroute</name>
+      <modification_time>2026-01-26T07:16:27Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:16:27Z</creation_time>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>general/tcp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.51662">
+        <type>nvt</type>
+        <name>Traceroute</name>
+        <family>General</family>
+        <cvss_base>0.0</cvss_base>
+        <severities score="0.0">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2010-07-08T17:27:45Z</date>
+            <score>0.0</score>
+            <value>AV:N/AC:L/Au:N/C:N/I:N/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:N/AC:L/Au:N/C:N/I:N/A:N|summary=Collect information about the network route and
+  network distance between the scanner host and the target host.|insight=For internal networks, the distances are usually
+  small, often less than 4 hosts between scanner and target. For public targets the
+  distance is greater and might be 10 hosts or more.|affected=|impact=|solution=|vuldetect=A combination of the protocols ICMP and TCP is used
+  to determine the route. This method is applicable for IPv4 only and it is also known as
+  'traceroute'.|solution_type=</tags>
+        <solution type="" />
+      </nvt>
+      <scan_nvt_version>2022-10-17T11:13:19Z</scan_nvt_version>
+      <threat>Log</threat>
+      <severity>0.0</severity>
+      <qod>
+        <value>80</value>
+        <type />
+      </qod>
+      <original_threat>Log</original_threat>
+      <original_severity>0</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+    <result id="521ba343-205f-47ef-9cef-916c4f30a592">
+      <name>Unknown OS and Service Banner Reporting</name>
+      <modification_time>2026-01-26T07:17:13Z</modification_time>
+      <comment />
+      <creation_time>2026-01-26T07:17:13Z</creation_time>
+      <host>127.0.0.1<asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" /><hostname /></host>
+      <port>636/tcp</port>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.108441">
+        <type>nvt</type>
+        <name>Unknown OS and Service Banner Reporting</name>
+        <family>Service detection</family>
+        <cvss_base>0.0</cvss_base>
+        <severities score="0.0">
+          <severity type="cvss_base_v2">
+            <origin />
+            <date>2018-05-02T08:53:41Z</date>
+            <score>0.0</score>
+            <value>AV:N/AC:L/Au:N/C:N/I:N/A:N</value>
+          </severity>
+        </severities>
+        <tags>cvss_base_vector=AV:N/AC:L/Au:N/C:N/I:N/A:N|summary=This VT consolidates and reports the information collected by
+  the following VTs:
+
+  - Collect banner of unknown services (OID: 1.3.6.1.4.1.25623.1.0.11154)
+
+  - Service Detection (unknown) with nmap (OID: 1.3.6.1.4.1.25623.1.0.66286)
+
+  - Service Detection (wrapped) with nmap (OID: 1.3.6.1.4.1.25623.1.0.108525)
+
+  - OS Detection Consolidation and Reporting (OID: 1.3.6.1.4.1.25623.1.0.105937)
+
+  If you know any of the information reported here, please send the full output to
+  the referenced community forum.|insight=|affected=|impact=|solution=|vuldetect=|solution_type=</tags>
+        <solution type="" />
+        <refs>
+          <ref type="url" id="https://forum.greenbone.net/c/vulnerability-tests/7" />
+        </refs>
+      </nvt>
+      <scan_nvt_version>2023-06-22T10:34:15Z</scan_nvt_version>
+      <threat>Log</threat>
+      <severity>0.0</severity>
+      <qod>
+        <value>80</value>
+        <type />
+      </qod>
+      <original_threat>Log</original_threat>
+      <original_severity>0</original_severity>
+      <compliance>undefined</compliance>
+    </result>
+  </results>
+  <result_count>5586<full>5586</full><filtered>35</filtered><critical><full>842</full><filtered>0</filtered></critical><hole deprecated="1"><full>1249</full><filtered>0</filtered></hole><high><full>1249</full><filtered>0</filtered></high><info deprecated="1"><full>353</full><filtered>2</filtered></info><low><full>353</full><filtered>2</filtered></low><log><full>1605</full><filtered>31</filtered></log><warning deprecated="1"><full>1537</full><filtered>2</filtered></warning><medium><full>1537</full><filtered>2</filtered></medium><false_positive><full>0</full><filtered>0</filtered></false_positive></result_count>
+  <severity>
+    <full>10.0</full>
+    <filtered>5.0</filtered>
+  </severity>
+  <host>
+    <ip>127.0.0.1</ip>
+    <asset asset_id="5acd59d1-4eb6-492b-9d17-194f6b5849b9" />
+    <start>2026-01-26T05:34:47Z</start>
+    <end>2026-01-26T07:19:16Z</end>
+    <port_count>
+      <page>2</page>
+    </port_count>
+    <result_count>
+      <page>35</page>
+      <critical>
+        <page>0</page>
+      </critical>
+      <hole deprecated="1">
+        <page>0</page>
+      </hole>
+      <high>
+        <page>0</page>
+      </high>
+      <warning deprecated="1">
+        <page>2</page>
+      </warning>
+      <medium>
+        <page>2</page>
+      </medium>
+      <info deprecated="1">
+        <page>2</page>
+      </info>
+      <low>
+        <page>2</page>
+      </low>
+      <log>
+        <page>31</page>
+      </log>
+      <false_positive>
+        <page>0</page>
+      </false_positive>
+    </result_count>
+    <detail>
+      <name>scanned_with_scanner</name>
+      <value>23.31.5</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.103739</name>
+        <description>Host Scan End</description>
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>EXIT_CODE</name>
+      <value>EXIT_NOTVULN</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.805142</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>ports</name>
+      <value>389,636</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.900239</name>
+        <description>Check Open TCP Ports</description>
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>best_os_txt</name>
+      <value>Linux Kernel</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.102002;</name>
+        <description>Operating System (OS) Detection (ICMP)</description>
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>App</name>
+      <value>cpe:/a:ietf:transport_layer_security:1.2</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.105782</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>EXIT_CODE</name>
+      <value>EXIT_NOTVULN</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.117840</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>hostname</name>
+      <value />
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.103997</name>
+        <description>Host Details</description>
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>SSL/TLS: Report Supported Cipher Suites</name>
+      <value>cpe:/a:ietf:transport_layer_security</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.802067</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>TLS/port</name>
+      <value>636</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.103823</name>
+        <description>SSL/TLS: Version Detection Report</description>
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>EXIT_CODE</name>
+      <value>EXIT_NOTVULN</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.105880</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>cpe:/a:ietf:transport_layer_security:1.2</name>
+      <value>389/tcp</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.105782</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>cpe:/a:ietf:transport_layer_security:1.2</name>
+      <value>636/tcp</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.105782</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>EXIT_CODE</name>
+      <value>EXIT_NOTVULN</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.150710</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>hostname_determination</name>
+      <value>127.0.0.1,,Reverse-DNS</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.108449</name>
+        <description>Hostname Determination Reporting</description>
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>EXIT_CODE</name>
+      <value>EXIT_NOTVULN</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.10722</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>EXIT_CODE</name>
+      <value>EXIT_NOTVULN</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.105891</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>cpe:/a:ietf:transport_layer_security</name>
+      <value>636/tcp</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.103692</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>scanned_with_feedversion</name>
+      <value>202601231702</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.103739</name>
+        <description>Host Scan End</description>
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>EXIT_CODE</name>
+      <value>EXIT_NOTVULN</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.108560</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>EXIT_CODE</name>
+      <value>EXIT_NOTVULN</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.103674</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>cpe:/a:ietf:transport_layer_security</name>
+      <value>389/tcp</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.802067</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>scanned_with_feedtype</name>
+      <value>Greenbone Community Feed</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.103739</name>
+        <description>Host Scan End</description>
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>TLS/port</name>
+      <value>389</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.103823</name>
+        <description>SSL/TLS: Version Detection Report</description>
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>SSL/TLS: Collect and Report Certificate Details</name>
+      <value>cpe:/a:ietf:transport_layer_security</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.103692</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>EXIT_CODE</name>
+      <value>EXIT_NOTVULN</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.10723</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>cpe:/o:linux:kernel</name>
+      <value>general/tcp</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.105937</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>EXIT_CODE</name>
+      <value>EXIT_NOTVULN</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.150749</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>EXIT_CODE</name>
+      <value>EXIT_NOTVULN</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.105042</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>OS</name>
+      <value>cpe:/o:linux:kernel</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.102002</name>
+        <description>Operating System (OS) Detection (ICMP)</description>
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>OS</name>
+      <value>Linux Kernel</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.102002</name>
+        <description>Operating System (OS) Detection (ICMP)</description>
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>cpe:/a:ietf:transport_layer_security</name>
+      <value>389/tcp</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.103692</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>scanned_with_feedvendor</name>
+      <value>Greenbone AG</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.103739</name>
+        <description>Host Scan End</description>
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>TLS/636</name>
+      <value>TLSv1.2</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.103823</name>
+        <description>SSL/TLS: Version Detection Report</description>
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>tcp_ports</name>
+      <value>389,636</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.900239</name>
+        <description>Check Open TCP Ports</description>
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>scanned_with_feedname</name>
+      <value>GCF</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.103739</name>
+        <description>Host Scan End</description>
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>EXIT_CODE</name>
+      <value>EXIT_NOTVULN</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.802455</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>cpe:/a:ietf:transport_layer_security</name>
+      <value>636/tcp</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.802067</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>EXIT_CODE</name>
+      <value>EXIT_NOTVULN</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.117761</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>EXIT_CODE</name>
+      <value>EXIT_NOTVULN</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.103936</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>EXIT_CODE</name>
+      <value>EXIT_NOTVULN</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.805188</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>EXIT_CODE</name>
+      <value>EXIT_NOTVULN</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.150711</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>EXIT_CODE</name>
+      <value>EXIT_NOTVULN</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.103549</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>EXIT_CODE</name>
+      <value>EXIT_NOTVULN</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.106223</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>Services</name>
+      <value>389,tcp,ldap</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.100082</name>
+        <description>Service detection (1.3.6.1.4.1.25623.1.0.100082)</description>
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>EXIT_CODE</name>
+      <value>EXIT_NOTVULN</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.15405</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>EXIT_CODE</name>
+      <value>EXIT_NOTVULN</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.12104</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>best_os_cpe</name>
+      <value>cpe:/o:linux:kernel</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.102002;</name>
+        <description>Operating System (OS) Detection (ICMP)</description>
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>OS-Detection</name>
+      <value>cpe:/o:linux:kernel</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.105937</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>EXIT_CODE</name>
+      <value>EXIT_NOTVULN</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.117758</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>EXIT_CODE</name>
+      <value>EXIT_NOTVULN</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.147122</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>hostname_determination</name>
+      <value>127.0.0.1,,SSL/TLS server certificate</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.108449</name>
+        <description>Hostname Determination Reporting</description>
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>DNS-via-SSL-TLS-Cert</name>
+      <value>ebc5cc83c2f7</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.111010</name>
+        <description>SSL/TLS: Hostname discovery from server certificate</description>
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>EXIT_CODE</name>
+      <value>EXIT_NOTVULN</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.902815</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>EXIT_CODE</name>
+      <value>EXIT_NOTVULN</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.107183</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>hostname</name>
+      <value />
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.103997</name>
+        <description>Host Details</description>
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>EXIT_CODE</name>
+      <value>EXIT_NOTVULN</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.117274</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>EXIT_CODE</name>
+      <value>EXIT_NOTVULN</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.11913</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>TLS/389</name>
+      <value>TLSv1.2</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.103823</name>
+        <description>SSL/TLS: Version Detection Report</description>
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>EXIT_CODE</name>
+      <value>EXIT_NOTVULN</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.111012</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+    <detail>
+      <name>EXIT_CODE</name>
+      <value>EXIT_NOTVULN</value>
+      <source>
+        <type>nvt</type>
+        <name>1.3.6.1.4.1.25623.1.0.802454</name>
+        <description />
+      </source>
+      <extra />
+    </detail>
+  </host>
+  <tls_certificates>
+    <tls_certificate>
+      <name>C0734BA2BF7875F7443552F0AD1B5E00DE985ABBC37A740D6BDEC049B5E93A3E</name>
+      <certificate format="DER">MIIC/TCCAoOgAwIBAgIUJlvAOGG+d2gA6yAs/2qiqm3VgSswCgYIKoZIzj0EAwMwgZYxCzAJBgNVBAYTAlVTMRUwEwYDVQQKEwxBMUEgQ2FyIFdhc2gxJDAiBgNVBAsTG0luZm9ybWF0aW9uIFRlY2hub2xvZ3kgRGVwLjEUMBIGA1UEBxMLQWxidXF1ZXJxdWUxEzARBgNVBAgTCk5ldyBNZXhpY28xHzAdBgNVBAMTFmRvY2tlci1saWdodC1iYXNlaW1hZ2UwHhcNMjYwMTI1MjExODAwWhcNMjcwMTI1MjExODAwWjCBjDELMAkGA1UEBhMCVVMxEzARBgNVBAgTCk5ldyBNZXhpY28xFDASBgNVBAcTC0FsYnVxdWVycXVlMRUwEwYDVQQKEwxBMUEgQ2FyIFdhc2gxJDAiBgNVBAsTG0luZm9ybWF0aW9uIFRlY2hub2xvZ3kgRGVwLjEVMBMGA1UEAxMMZWJjNWNjODNjMmY3MHYwEAYHKoZIzj0CAQYFK4EEACIDYgAEDsTdwvgrXNKFg/RkyalWxvKIFBNNEcBjH3oRmHhsvbcCKDHIMlwJOhFb9MOQAdH0WjQqYDPdMr/JXM12SLLTMqOnjjtJugbN1wJy9rt50gHgRbfcyQhrsq7B1wguGlaDo4GZMIGWMA4GA1UdDwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQUAKL7FyNrc968aOno5myY2ze3LVowHwYDVR0jBBgwFoAUT6XpeiVcMBicYtOXhbpQsoeubvgwFwYDVR0RBBAwDoIMZWJjNWNjODNjMmY3MAoGCCqGSM49BAMDA2gAMGUCMQDj2HiSwhjL8UE0pbqBBzVxCyPuaYB9p6xeUUN/VLx3Ni0yj7W5aj6LN+b6U6pSgTECMFmCs4hq1b7JZZg/Buiz+NayDTKRJN8ltH3sG/X8oL4NQpkmvfiUtiU+4Rf6wD+SFQ==</certificate>
+      <sha256_fingerprint>C0734BA2BF7875F7443552F0AD1B5E00DE985ABBC37A740D6BDEC049B5E93A3E</sha256_fingerprint>
+      <md5_fingerprint>46:7a:7d:9c:e8:20:3b:d3:20:15:97:10:58:54:80:28</md5_fingerprint>
+      <valid>1</valid>
+      <activation_time>2026-01-25T21:18:00Z</activation_time>
+      <expiration_time>2027-01-25T21:18:00Z</expiration_time>
+      <subject_dn>C=US,ST=New Mexico,L=Albuquerque,O=A1A Car Wash,OU=Information Technology Dep.,CN=ebc5cc83c2f7</subject_dn>
+      <issuer_dn>CN=docker-light-baseimage,ST=New Mexico,L=Albuquerque,OU=Information Technology Dep.,O=A1A Car Wash,C=US</issuer_dn>
+      <serial>265BC03861BE776800EB202CFF6AA2AA6DD5812B</serial>
+      <host>
+        <ip>127.0.0.1</ip>
+        <hostname />
+      </host>
+      <ports>
+        <port>636</port>
+        <port>389</port>
+      </ports>
+    </tls_certificate>
+  </tls_certificates>
+  <scan_end>2026-01-26T14:04:13Z</scan_end>
+  <errors>
+    <count>6</count>
+    <error>
+      <host>127.0.0.5<asset asset_id="1db8345e-fb0f-47a6-bb83-ecca87f78727" /></host>
+      <port>general/tcp</port>
+      <description>NVT timed out after 1800 seconds.</description>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.106756">
+        <type>nvt</type>
+        <name>Generic HTTP Directory Traversal / File Inclusion (Web Root) - Active Check</name>
+        <cvss_base>7.8</cvss_base>
+      </nvt>
+      <scan_nvt_version>2026-01-15T05:47:46Z</scan_nvt_version>
+      <severity>-3</severity>
+    </error>
+    <error>
+      <host>127.0.0.6<asset asset_id="d3544904-5476-43ba-9ce7-d89fb4198219" /></host>
+      <port>general/tcp</port>
+      <description>NVT timed out after 600 seconds.</description>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.108708">
+        <type>nvt</type>
+        <name>HTTP Server Banner Enumeration</name>
+        <cvss_base>0.0</cvss_base>
+      </nvt>
+      <scan_nvt_version>2025-01-31T15:39:24Z</scan_nvt_version>
+      <severity>-3</severity>
+    </error>
+    <error>
+      <host>127.0.0.7<asset asset_id="320ebf77-2c0e-4e77-8bc5-077cd390cc3c" /></host>
+      <port>general/tcp</port>
+      <description>NVT timed out after 600 seconds.</description>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.108708">
+        <type>nvt</type>
+        <name>HTTP Server Banner Enumeration</name>
+        <cvss_base>0.0</cvss_base>
+      </nvt>
+      <scan_nvt_version>2025-01-31T15:39:24Z</scan_nvt_version>
+      <severity>-3</severity>
+    </error>
+    <error>
+      <host>127.0.0.8<asset asset_id="8f3d64aa-d883-43f7-8078-77f8af8256b3" /></host>
+      <port>general/tcp</port>
+      <description>NVT timed out after 600 seconds.</description>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.108708">
+        <type>nvt</type>
+        <name>HTTP Server Banner Enumeration</name>
+        <cvss_base>0.0</cvss_base>
+      </nvt>
+      <scan_nvt_version>2025-01-31T15:39:24Z</scan_nvt_version>
+      <severity>-3</severity>
+    </error>
+    <error>
+      <host>127.0.0.9<asset asset_id="d1a45dd5-4352-4670-8a8f-766720a2dae7" /></host>
+      <port>general/tcp</port>
+      <description>NVT timed out after 320 seconds.</description>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.117498">
+        <type>nvt</type>
+        <name>FCKeditor Detection (HTTP)</name>
+        <cvss_base>0.0</cvss_base>
+      </nvt>
+      <scan_nvt_version>2025-06-24T05:41:22Z</scan_nvt_version>
+      <severity>-3</severity>
+    </error>
+    <error>
+      <host>127.0.0.10<asset asset_id="815b2a42-0728-4ccc-9ab4-6841bf69b894" /></host>
+      <port>general/tcp</port>
+      <description>NVT timed out after 600 seconds.</description>
+      <nvt oid="1.3.6.1.4.1.25623.1.0.11040">
+        <type>nvt</type>
+        <name>HTTP TRACE Method Enabled</name>
+        <cvss_base>0.0</cvss_base>
+      </nvt>
+      <scan_nvt_version>2025-01-31T15:39:24Z</scan_nvt_version>
+      <severity>-3</severity>
+    </error>
+  </errors>
+  <report_format />
+</report>
+</report>

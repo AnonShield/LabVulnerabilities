@@ -1,0 +1,1013 @@
+I Summary
+=========
+
+This document reports on the results of an automatic security scan.
+The report first summarises the results found.
+Then, for each host, the report describes every issue found.
+Please consider the advice given in each description, in order to rectify
+the issue.
+
+All dates are displayed using the timezone "Coordinated Universal Time",
+which is abbreviated "UTC".
+
+Vendor security updates are not trusted.
+
+Overrides are off.  Even when a result has an override, this report uses
+the actual threat of the result.
+
+Notes are included in the report.Information on overrides is included in the report.
+
+This report might not show details of all issues that were found.
+Issues with the threat level "Critical" are not shown.
+Issues with the threat level "Debug" are not shown.
+
+This report contains all 21 results selected by the
+filtering described above.  Before filtering there were 5586 results.
+
+Scan started: Mon Jan 26 01:47:47 2026 UTC
+Scan ended:   Mon Jan 26 14:04:13 2026 UTC
+Task:          hgdfdghgdgd
+
+Host Summary
+************
+
+Host            Critical  High  Medium  Low  Log  False Positive
+172.30.14.5            0     3       5    3   10               0    elasticsearch-old.trabalho_vulnnet
+Total: 1               0     3       5    3   10               0
+
+
+II Results per Host
+===================
+
+Host 172.30.14.5
+****************
+
+Scanning of this host started at: Mon Jan 26 01:48:40 2026 UTC
+Number of results: 21
+
+Port Summary for Host 172.30.14.5
+---------------------------------
+
+Service (Port)          Threat Level
+9200/tcp                High (CVSS: 8.8)
+general/tcp             Low (CVSS: 2.6)
+general/icmp            Low (CVSS: 2.1)
+9300/tcp                Log (CVSS: 0.0)
+general/CPE-T           Log (CVSS: 0.0)
+
+Security Issues for Host 172.30.14.5
+------------------------------------
+
+Issue
+-----
+NVT:    CPE Inventory
+OID:    1.3.6.1.4.1.25623.1.0.810002
+Threat: Log (CVSS: 0.0)
+Port:   general/CPE-T
+
+Summary:
+This routine uses information collected by other routines about
+  CPE identities of operating systems, services and applications detected during!
+ the scan.
+  Note: Some CPEs for specific products might show up twice or more in the outpu!
+t. Background:
+  After a product got renamed or a specific vendor was acquired by another one i!
+t might happen that
+  a product gets a new CPE within the NVD CPE Dictionary but older entries are k!
+ept with the older
+  CPE.
+
+Vulnerability Detection Result:
+172.30.14.5|cpe:/a:elastic:elasticsearch:2.4.6
+172.30.14.5|cpe:/a:elasticsearch:elasticsearch:2.4.6
+172.30.14.5|cpe:/o:linux:kernel
+
+Solution:
+
+Log Method:
+Details:
+CPE Inventory
+(OID: 1.3.6.1.4.1.25623.1.0.810002)
+Version used: 2022-07-27T10:11:28Z
+
+References:
+ url: https://nvd.nist.gov/products/cpe
+
+
+Issue
+-----
+NVT:    Elastic Elasticsearch 'CVE-2018-3831' Information Disclosure Vulnerability - Linux
+OID:    1.3.6.1.4.1.25623.1.0.113275
+Threat: High (CVSS: 8.8)
+Port:   9200/tcp
+
+Summary:
+Elasticsearch is prone to an information disclosure vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 2.4.6
+Fixed version:     5.6.12
+
+Impact:
+Successful exploitation would allow an authenticated attacker to acquire valid l!
+ogin credentials.
+
+Solution:
+Solution type: VendorFix
+Update to version 5.6.12 or 6.4.1 respectively.
+
+Affected Software/OS:
+Elasticsearch versions through 5.6.11 and 6.0.0 through 6.4.0.
+
+Vulnerability Insight:
+The _cluster/settings API, when queried, could leak sensitive configuration info!
+rmation
+  such as passwords, tokens or usernames.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Elastic Elasticsearch 'CVE-2018-3831' Information Disclosure Vulnerability -...
+(OID: 1.3.6.1.4.1.25623.1.0.113275)
+Version used: 2025-09-03T08:26:15Z
+
+References:
+ cve: CVE-2018-3831
+ url: https://discuss.elastic.co/t/elastic-stack-6-4-1-and-5-6-12-security-update/149035
+ url: https://www.elastic.co/community/security
+ dfn-cert: DFN-CERT-2025-2802
+ dfn-cert: DFN-CERT-2020-1653
+
+
+Issue
+-----
+NVT:    Elastic Elasticsearch < 6.3.0 Information Exposure Vulnerability (ESA-2018-11)
+OID:    1.3.6.1.4.1.25623.1.0.117168
+Threat: High (CVSS: 8.1)
+Port:   9200/tcp
+
+Summary:
+Elasticsearch is prone to an information exposure vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 2.4.6
+Fixed version:     6.3.0
+Installation
+path / port:       /
+
+Impact:
+When the repository-azure plugin is set to log at TRACE level Azure
+  credentials can be inadvertently logged.
+
+Solution:
+Solution type: VendorFix
+Update to version 6.3.0 or later.
+
+Affected Software/OS:
+Elasticsearch prior to version 6.3.0.
+
+Vulnerability Insight:
+A sensitive data disclosure flaw was found in the Elasticsearch
+  repository-azure (formerly elasticsearch-cloud-azure) plugin.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Elastic Elasticsearch < 6.3.0 Information Exposure Vulnerability (ESA-2018-1...
+(OID: 1.3.6.1.4.1.25623.1.0.117168)
+Version used: 2025-09-03T08:26:15Z
+
+References:
+ cve: CVE-2018-3827
+ url: https://discuss.elastic.co/t/elastic-stack-6-3-0-and-5-6-10-security-update/135777
+ url: https://www.elastic.co/community/security
+
+
+Issue
+-----
+NVT:    Elastic Elasticsearch < 6.8.12, 7.x < 7.9.0 Information Disclosure Vulnerability - Linux
+OID:    1.3.6.1.4.1.25623.1.0.144430
+Threat: Medium (CVSS: 6.5)
+Port:   9200/tcp
+
+Summary:
+Elasticsearch is prone to a field disclosure vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 2.4.6
+Fixed version:     6.8.12
+Installation
+path / port:       /
+
+Impact:
+An attacker could gain additional permissions against a restricted index.
+
+Solution:
+Solution type: VendorFix
+Update to version 6.8.12, 7.9.1 or later.
+
+Affected Software/OS:
+Elasticsearch prior to version 6.8.12 and 7.9.0.
+
+Vulnerability Insight:
+A field disclosure flaw was found in Elasticsearch when running a scrolling
+  search with Field Level Security. If a user runs the same query another more p!
+rivileged user recently ran, the
+  scrolling search can leak fields that should be hidden.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Elastic Elasticsearch < 6.8.12, 7.x < 7.9.0 Information Disclosure Vulnerabi...
+(OID: 1.3.6.1.4.1.25623.1.0.144430)
+Version used: 2025-09-03T08:26:15Z
+
+References:
+ cve: CVE-2020-7019
+ url: https://discuss.elastic.co/t/elastic-stack-7-9-0-and-6-8-12-security-update/245456
+
+
+Issue
+-----
+NVT:    Elastic Elasticsearch < 6.8.2, 7.x < 7.2.1 Information Disclosure Vulnerability (ESA-2019-07) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.117161
+Threat: Medium (CVSS: 5.9)
+Port:   9200/tcp
+
+Summary:
+Elasticsearch is prone to an information disclosure vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 2.4.6
+Fixed version:     6.8.2
+Installation
+path / port:       /
+
+Impact:
+On a system with multiple users submitting requests, it could be possible
+  for an attacker to gain access to response header containing sensitive data fr!
+om another user.
+
+Solution:
+Solution type: VendorFix
+Update to version 6.8.2 or 7.2.1 respectively.
+
+Affected Software/OS:
+Elasticsearch through version 6.8.1 and version 7.0.0 through 7.2.0.
+
+Vulnerability Insight:
+A race condition flaw was found in the response headers Elasticsearch
+  returns to a request.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Elastic Elasticsearch < 6.8.2, 7.x < 7.2.1 Information Disclosure Vulnerabil...
+(OID: 1.3.6.1.4.1.25623.1.0.117161)
+Version used: 2025-09-03T08:26:15Z
+
+References:
+ cve: CVE-2019-7614
+ url: https://discuss.elastic.co/t/elastic-stack-6-8-2-and-7-2-1-security-update/192963
+ url: https://www.elastic.co/community/security/
+ cert-bund: WID-SEC-2024-3184
+
+
+Issue
+-----
+NVT:    Elastic Elasticsearch Detection Consolidation
+OID:    1.3.6.1.4.1.25623.1.0.125293
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+Consolidation of Elastic Elasticsearch detections.
+
+Vulnerability Detection Result:
+Detected Elastic Elasticsearch
+Version:       2.4.6
+Location:      /
+CPE:           cpe:/a:elastic:elasticsearch:2.4.6
+Concluded from version/product identification result:
+number" : "2.4.6",
+Extra information:
+Collected information (truncated) from http://elasticsearch-old.trabalho_vulnnet!
+:9200/_cat/indices?v :
+health status index                  pri rep docs.count docs.deleted store.size !
+pri.store.size 
+yellow open   eval-stdin.php           5   1          0            0       795b !
+          795b 
+yellow open   php-cgi                  5   1          0            0       795b !
+          795b 
+yellow open   index.cfm                5   1          0            0       795b !
+          795b 
+yellow open   cgi                      5   1          0            0       795b !
+          795b 
+yellow open   fm                       5   1          0            0       795b !
+          795b 
+yellow open   php4                     5   1          0            0       795b !
+          795b 
+yellow open   php5                     5   1          0            0       795b !
+          795b 
+yellow open   admin                    5   1          0            0       795b !
+          795b 
+yellow open   index.htm                5   1          0            0       795b !
+          795b 
+yellow open   datalife                 5
+
+Solution:
+
+Log Method:
+Details:
+Elastic Elasticsearch Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.125293)
+Version used: 2025-09-05T15:40:40Z
+
+References:
+ url: https://www.elastic.co/
+
+
+Issue
+-----
+NVT:    Elastic Elasticsearch DoS Vulnerability (ESA-2021-15)
+OID:    1.3.6.1.4.1.25623.1.0.146386
+Threat: Medium (CVSS: 6.5)
+Port:   9200/tcp
+
+Summary:
+Elasticsearch is prone to a denial of service (DoS) vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 2.4.6
+Fixed version:     6.8.17
+Installation
+path / port:       /
+
+Solution:
+Solution type: VendorFix
+Update to version 6.8.17, 7.13.3 or later.
+
+Affected Software/OS:
+Elasticsearch prior to version 6.8.17 and 7.x prior to 7.13.3.
+
+Vulnerability Insight:
+An uncontrolled recursion vulnerability that could lead to a
+  denial of service attack was identified in the Elasticsearch Grok parser. A us!
+er with the ability
+  to submit arbitrary queries to Elasticsearch could create a malicious Grok que!
+ry that will crash
+  the Elasticsearch node.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Elastic Elasticsearch DoS Vulnerability (ESA-2021-15)
+(OID: 1.3.6.1.4.1.25623.1.0.146386)
+Version used: 2025-09-03T08:26:15Z
+
+References:
+ cve: CVE-2021-22144
+ url: https://discuss.elastic.co/t/elasticsearch-7-13-3-and-6-8-17-security-update/278100
+ cert-bund: WID-SEC-2022-1777
+ dfn-cert: DFN-CERT-2025-0933
+ dfn-cert: DFN-CERT-2022-2315
+
+
+Issue
+-----
+NVT:    Elastic Elasticsearch Information Disclosure Vulnerability (ESA-2020-13)
+OID:    1.3.6.1.4.1.25623.1.0.117181
+Threat: Low (CVSS: 3.1)
+Port:   9200/tcp
+
+Summary:
+Elasticsearch is prone to an information disclosure vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 2.4.6
+Fixed version:     6.8.13
+Installation
+path / port:       /
+
+Impact:
+This could result in the search disclosing the existence of documents
+  the attacker should not be able to view. This could result in an attacker gain!
+ing additional insight
+  into potentially sensitive indices.
+
+Solution:
+Solution type: VendorFix
+Update to version 6.8.13, 7.9.2 or later.
+
+Affected Software/OS:
+Elasticsearch versions before 6.8.13 and 7.x before 7.9.2.
+
+Vulnerability Insight:
+A document disclosure flaw was found in Elasticsearch when Document or
+  Field Level Security is used. Search queries do not properly preserve security!
+ permissions when executing
+  certain complex queries.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Elastic Elasticsearch Information Disclosure Vulnerability (ESA-2020-13)
+(OID: 1.3.6.1.4.1.25623.1.0.117181)
+Version used: 2025-09-03T08:26:15Z
+
+References:
+ cve: CVE-2020-7020
+ url: https://discuss.elastic.co/t/elastic-stack-7-9-3-and-6-8-13-security-update/253033
+ url: https://www.elastic.co/community/security
+ cert-bund: WID-SEC-2022-0607
+ dfn-cert: DFN-CERT-2025-0933
+ dfn-cert: DFN-CERT-2022-1530
+
+
+Issue
+-----
+NVT:    Elastic Elasticsearch Information Disclosure Vulnerability (ESA-2021-03)
+OID:    1.3.6.1.4.1.25623.1.0.145383
+Threat: Medium (CVSS: 4.9)
+Port:   9200/tcp
+
+Summary:
+Elasticsearch is prone to an information disclosure vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 2.4.6
+Fixed version:     6.8.14
+Installation
+path / port:       /
+
+Impact:
+This could allow an Elasticsearch administrator to view sensitive details.
+
+Solution:
+Solution type: VendorFix
+Update to version 6.8.14, 7.10.0 or later.
+
+Affected Software/OS:
+Elasticsearch versions prior to 6.8.14 and 7.0.0 prior to 7.10.0.
+
+Vulnerability Insight:
+Elasticsearch has an information disclosure issue when audit logging and
+  the emit_request_body option is enabled. The Elasticsearch audit log could con!
+tain sensitive information
+  such as password hashes or authentication tokens.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Elastic Elasticsearch Information Disclosure Vulnerability (ESA-2021-03)
+(OID: 1.3.6.1.4.1.25623.1.0.145383)
+Version used: 2025-09-03T08:26:15Z
+
+References:
+ cve: CVE-2020-7021
+ url: https://discuss.elastic.co/t/elastic-stack-7-11-0-and-6-8-14-security-update/263915
+ url: https://www.elastic.co/community/security
+ dfn-cert: DFN-CERT-2025-0933
+
+
+Issue
+-----
+NVT:    Elastic Elasticsearch Multiple Vulnerabilities (ESA-2021-06, ESA-2021-08)
+OID:    1.3.6.1.4.1.25623.1.0.145940
+Threat: Medium (CVSS: 5.3)
+Port:   9200/tcp
+
+Summary:
+Elasticsearch is prone to multiple vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 2.4.6
+Fixed version:     6.8.15
+Installation
+path / port:       /
+
+Impact:
+This could lead to disclosing the existence of documents and
+  fields the attacker should not be able to view or result in an attacker gainin!
+g additional insight
+  into potentially sensitive indices.
+
+Solution:
+Solution type: VendorFix
+Update to version 6.8.15, 7.12.0 or later.
+
+Affected Software/OS:
+Elasticsearch versions prior to versions 6.8.15 or 7.12.0.
+
+Vulnerability Insight:
+The following vulnerabilities exist:
+  - CVE-2021-22135: Suggester & Profile API information disclosure flaw
+  - CVE-2021-22137: Field disclosure flaw
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Elastic Elasticsearch Multiple Vulnerabilities (ESA-2021-06, ESA-2021-08)
+(OID: 1.3.6.1.4.1.25623.1.0.145940)
+Version used: 2025-09-03T08:26:15Z
+
+References:
+ cve: CVE-2021-22135
+ cve: CVE-2021-22137
+ url: https://discuss.elastic.co/t/elastic-stack-7-12-0-and-6-8-15-security-update/268125
+ cert-bund: WID-SEC-2022-0720
+ dfn-cert: DFN-CERT-2025-0933
+
+
+Issue
+-----
+NVT:    Elastic Elasticsearch Security < 5.6.15 / 6.x < 6.6.1 Permission Issue (ESA-2019-04)
+OID:    1.3.6.1.4.1.25623.1.0.117170
+Threat: High (CVSS: 8.1)
+Port:   9200/tcp
+
+Summary:
+Elasticsearch Security is prone to a permission issue.
+
+Vulnerability Detection Result:
+Installed version: 2.4.6
+Fixed version:     5.6.15
+Installation
+path / port:       /
+
+Impact:
+This flaw could result in an attacker gaining additional permissions against
+  a restricted index.
+
+Solution:
+Solution type: VendorFix
+Update to version 5.6.15, 6.6.1 or later.
+  Users unable to update can change the xpack.security.dls_fls.enabled setting t!
+o true in their elasticsearch.yml
+  file. The default setting for this option is true.
+
+Affected Software/OS:
+Elasticsearch Security versions before 5.6.15 and 6.6.1.
+
+Vulnerability Insight:
+A permission issue was found in Elasticsearch when Field Level Security
+  and Document Level Security are disabled and the _aliases, _shrink, or _split !
+endpoints are used. If the
+  elasticsearch.yml file has xpack.security.dls_fls.enabled set to false, certai!
+n permission checks are
+  skipped when users perform one of the actions mentioned above, to make existin!
+g data available under a new
+  index/alias name.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Elastic Elasticsearch Security < 5.6.15 / 6.x < 6.6.1 Permission Issue (ESA-...
+(OID: 1.3.6.1.4.1.25623.1.0.117170)
+Version used: 2025-09-03T08:26:15Z
+
+References:
+ cve: CVE-2019-7611
+ url: https://discuss.elastic.co/t/elastic-stack-6-6-1-and-5-6-15-security-update/169077
+ url: https://www.elastic.co/community/security
+ dfn-cert: DFN-CERT-2025-0933
+
+
+Issue
+-----
+NVT:    Hostname Determination Reporting
+OID:    1.3.6.1.4.1.25623.1.0.108449
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+The script reports information on how the hostname of the target
+  was determined.
+
+Vulnerability Detection Result:
+Hostname determination for IP 172.30.14.5:
+Hostname|Source
+elasticsearch-old.trabalho_vulnnet|Reverse-DNS
+
+Solution:
+
+Log Method:
+Details:
+Hostname Determination Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.108449)
+Version used: 2022-07-27T10:11:28Z
+
+
+Issue
+-----
+NVT:    HTTP Security Headers Detection
+OID:    1.3.6.1.4.1.25623.1.0.112081
+Threat: Log (CVSS: 0.0)
+Port:   9200/tcp
+
+Summary:
+All known security headers are being checked on the remote web
+  server.
+  On completion a report will hand back whether a specific security header has b!
+een implemented
+  (including its value and if it is deprecated) or is missing on the target.
+
+Vulnerability Detection Result:
+Missing Headers                   | More Information
+--------------------------------------------------------------------------------!
+--------------------------------------------------------------------------------!
+----------------------------------------------
+Content-Security-Policy           | https://owasp.org/www-project-secure-headers!
+/#content-security-policy
+Cross-Origin-Embedder-Policy      | https://scotthelme.co.uk/coop-and-coep/, Not!
+e: This is an upcoming header
+Cross-Origin-Opener-Policy        | https://scotthelme.co.uk/coop-and-coep/, Not!
+e: This is an upcoming header
+Cross-Origin-Resource-Policy      | https://scotthelme.co.uk/coop-and-coep/, Not!
+e: This is an upcoming header
+Document-Policy                   | https://w3c.github.io/webappsec-feature-poli!
+cy/document-policy#document-policy-http-header
+Feature-Policy                    | https://owasp.org/www-project-secure-headers!
+/#feature-policy, Note: The Feature Policy header has been renamed to Permission!
+s Policy
+Permissions-Policy                | https://w3c.github.io/webappsec-feature-poli!
+cy/#permissions-policy-http-header-field
+Referrer-Policy                   | https://owasp.org/www-project-secure-headers!
+/#referrer-policy
+Sec-Fetch-Dest                    | https://developer.mozilla.org/en-US/docs/Web!
+/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header support!
+ed only in newer browsers like e.g. Firefox 90
+Sec-Fetch-Mode                    | https://developer.mozilla.org/en-US/docs/Web!
+/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header support!
+ed only in newer browsers like e.g. Firefox 90
+Sec-Fetch-Site                    | https://developer.mozilla.org/en-US/docs/Web!
+/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header support!
+ed only in newer browsers like e.g. Firefox 90
+Sec-Fetch-User                    | https://developer.mozilla.org/en-US/docs/Web!
+/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header support!
+ed only in newer browsers like e.g. Firefox 90
+X-Content-Type-Options            | https://owasp.org/www-project-secure-headers!
+/#x-content-type-options
+X-Frame-Options                   | https://owasp.org/www-project-secure-headers!
+/#x-frame-options
+X-Permitted-Cross-Domain-Policies | https://owasp.org/www-project-secure-headers!
+/#x-permitted-cross-domain-policies
+X-XSS-Protection                  | https://owasp.org/www-project-secure-headers!
+/#x-xss-protection, Note: Most major browsers have dropped / deprecated support !
+for this header in 2020.
+
+Solution:
+
+Log Method:
+Details:
+HTTP Security Headers Detection
+(OID: 1.3.6.1.4.1.25623.1.0.112081)
+Version used: 2025-03-21T15:40:43Z
+
+References:
+ url: https://owasp.org/www-project-secure-headers/
+ url: https://owasp.org/www-project-secure-headers/#div-headers
+ url: https://securityheaders.com/
+
+
+Issue
+-----
+NVT:    ICMP Timestamp Reply Information Disclosure
+OID:    1.3.6.1.4.1.25623.1.0.103190
+Threat: Low (CVSS: 2.1)
+Port:   general/icmp
+
+Summary:
+The remote host responded to an ICMP timestamp request.
+
+Vulnerability Detection Result:
+The following response / ICMP packet has been received:
+- ICMP Type: 14
+- ICMP Code: 0
+
+Impact:
+This information could theoretically be used to exploit weak
+  time-based random number generators in other services.
+
+Solution:
+Solution type: Mitigation
+Various mitigations are possible:
+  - Disable the support for ICMP timestamp on the remote host completely
+  - Protect the remote host by a firewall, and block ICMP packets passing throug!
+h the firewall in
+  either direction (either completely or only for untrusted networks)
+
+Vulnerability Insight:
+The Timestamp Reply is an ICMP message which replies to a
+  Timestamp message. It consists of the originating timestamp sent by the sender!
+ of the Timestamp as
+  well as a receive timestamp and a transmit timestamp.
+
+Vulnerability Detection Method:
+Sends an ICMP Timestamp (Type 13) request and checks if a
+  Timestamp Reply (Type 14) is received.
+Details:
+ICMP Timestamp Reply Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.103190)
+Version used: 2025-01-21T05:37:33Z
+
+References:
+ cve: CVE-1999-0524
+ url: https://datatracker.ietf.org/doc/html/rfc792
+ url: https://datatracker.ietf.org/doc/html/rfc2780
+ cert-bund: CB-K15/1514
+ cert-bund: CB-K14/0632
+ dfn-cert: DFN-CERT-2014-0658
+
+
+Issue
+-----
+NVT:    IP Forwarding Enabled - Active Check
+OID:    1.3.6.1.4.1.25623.1.0.147205
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+Checks if the remote host has IP forwarding enabled.
+
+Vulnerability Detection Result:
+It was possible to route a TCP packet through the target host and received an an!
+swer which means IP forwarding is enabled.
+
+Solution:
+
+Log Method:
+Sends a crafted Local Link Layer (LLL) frame and checks the
+  response.
+Details:
+IP Forwarding Enabled - Active Check
+(OID: 1.3.6.1.4.1.25623.1.0.147205)
+Version used: 2021-12-03T08:27:06Z
+
+References:
+ cve: CVE-1999-0511
+
+
+Issue
+-----
+NVT:    OS Detection Consolidation and Reporting
+OID:    1.3.6.1.4.1.25623.1.0.105937
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+This script consolidates the OS information detected by several
+  VTs and tries to find the best matching OS.
+  Furthermore it reports all previously collected information leading to this be!
+st matching OS. It
+  also reports possible additional information which might help to improve the O!
+S detection.
+  If any of this information is wrong or could be improved please consider to re!
+port these to the
+  referenced community forum.
+
+Vulnerability Detection Result:
+Best matching OS:
+OS:           Linux Kernel
+CPE:          cpe:/o:linux:kernel
+Found by VT:  1.3.6.1.4.1.25623.1.0.102002 (Operating System (OS) Detection (ICM!
+P))
+Concluded from ICMP based OS fingerprint
+Setting key "Host/runs_unixoide" based on this information
+
+Solution:
+
+Log Method:
+Details:
+OS Detection Consolidation and Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.105937)
+Version used: 2026-01-21T05:50:46Z
+
+References:
+ url: https://forum.greenbone.net/c/vulnerability-tests/7
+
+
+Issue
+-----
+NVT:    Service Detection with 'GET' Request
+OID:    1.3.6.1.4.1.25623.1.0.17975
+Threat: Log (CVSS: 0.0)
+Port:   9300/tcp
+
+Summary:
+This plugin performs service detection.
+
+Vulnerability Detection Result:
+An Elasticsearch Binary API / inter-cluster communication service seems to be ru!
+nning on this port.
+
+Solution:
+
+Vulnerability Insight:
+This plugin is a complement of the plugin 'Services' (OID:
+  1.3.6.1.4.1.25623.1.0.10330). It sends a HTTP 'GET' request to the remaining u!
+nknown services and
+  tries to identify them.
+
+Log Method:
+Details:
+Service Detection with 'GET' Request
+(OID: 1.3.6.1.4.1.25623.1.0.17975)
+Version used: 2025-09-12T15:39:53Z
+
+
+Issue
+-----
+NVT:    Services
+OID:    1.3.6.1.4.1.25623.1.0.10330
+Threat: Log (CVSS: 0.0)
+Port:   9200/tcp
+
+Summary:
+This plugin performs service detection.
+
+Vulnerability Detection Result:
+A web server is running on this port
+
+Solution:
+
+Vulnerability Insight:
+This plugin attempts to guess which service is running on the
+  remote port(s). For instance, it searches for a web server which could listen !
+on another port than
+  80 or 443 and makes this information available for other check routines.
+
+Log Method:
+Details:
+Services
+(OID: 1.3.6.1.4.1.25623.1.0.10330)
+Version used: 2025-03-05T05:38:53Z
+
+
+Issue
+-----
+NVT:    TCP Timestamps Information Disclosure
+OID:    1.3.6.1.4.1.25623.1.0.80091
+Threat: Low (CVSS: 2.6)
+Port:   general/tcp
+
+Summary:
+The remote host implements TCP timestamps and therefore allows
+  to compute the uptime.
+
+Vulnerability Detection Result:
+It was detected that the host implements RFC1323/RFC7323.
+The following timestamps were retrieved with a delay of 1 seconds in-between:
+Packet 1: 3559475662
+Packet 2: 3559476774
+
+Impact:
+A side effect of this feature is that the uptime of the remote
+  host can sometimes be computed.
+
+Solution:
+Solution type: Mitigation
+To disable TCP timestamps on linux add the line
+  'net.ipv4.tcp_timestamps = 0' to /etc/sysctl.conf. Execute 'sysctl -p' to appl!
+y the settings at
+  runtime.
+  To disable TCP timestamps on Windows execute 'netsh int tcp set global timesta!
+mps=disabled'
+  Starting with Windows Server 2008 and Vista, the timestamp can not be complete!
+ly disabled.
+  The default behavior of the TCP/IP stack on this Systems is to not use the Tim!
+estamp options when
+  initiating TCP connections, but use them if the TCP peer that is initiating co!
+mmunication includes
+  them in their synchronize (SYN) segment.
+  See the references for more information.
+
+Affected Software/OS:
+TCP implementations that implement RFC1323/RFC7323.
+
+Vulnerability Insight:
+The remote host implements TCP timestamps, as defined by
+  RFC1323/RFC7323.
+
+Vulnerability Detection Method:
+Special IP packets are forged and sent with a little delay in
+  between to the target IP. The responses are searched for a timestamps. If foun!
+d, the timestamps
+  are reported.
+Details:
+TCP Timestamps Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.80091)
+Version used: 2023-12-15T16:10:08Z
+
+References:
+ url: https://datatracker.ietf.org/doc/html/rfc1323
+ url: https://datatracker.ietf.org/doc/html/rfc7323
+ url: https://web.archive.org/web/20151213072445/http://www.microsoft.com/en-us/download/details.aspx?id=9152
+ url: https://www.fortiguard.com/psirt/FG-IR-16-090
+
+
+Issue
+-----
+NVT:    Traceroute
+OID:    1.3.6.1.4.1.25623.1.0.51662
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+Collect information about the network route and
+  network distance between the scanner host and the target host.
+
+Vulnerability Detection Result:
+Network route from scanner (172.30.0.2) to target (172.30.14.5):
+172.30.0.2
+172.30.14.5
+Network distance between scanner and target: 2
+
+Solution:
+
+Vulnerability Insight:
+For internal networks, the distances are usually
+  small, often less than 4 hosts between scanner and target. For public targets !
+the
+  distance is greater and might be 10 hosts or more.
+
+Log Method:
+A combination of the protocols ICMP and TCP is used
+  to determine the route. This method is applicable for IPv4 only and it is also!
+ known as
+  'traceroute'.
+Details:
+Traceroute
+(OID: 1.3.6.1.4.1.25623.1.0.51662)
+Version used: 2022-10-17T11:13:19Z
+
+
+Issue
+-----
+NVT:    Web Application Scanning Consolidation / Info Reporting
+OID:    1.3.6.1.4.1.25623.1.0.111038
+Threat: Log (CVSS: 0.0)
+Port:   9200/tcp
+
+Summary:
+The script consolidates and reports various information for web
+  application (formerly called 'CGI') scanning.
+  This information is based on the following scripts / settings:
+  - HTTP-Version Detection (OID: 1.3.6.1.4.1.25623.1.0.100034)
+  - No 404 check (OID: 1.3.6.1.4.1.25623.1.0.10386)
+  - Web mirroring / webmirror.nasl (OID: 1.3.6.1.4.1.25623.1.0.10662)
+  - Directory Scanner / DDI_Directory_Scanner.nasl (OID: 1.3.6.1.4.1.25623.1.0.1!
+1032)
+  - The configured 'cgi_path' within the 'Scanner Preferences' of the scan confi!
+g in use
+  - The configured 'Enable CGI scanning', 'Enable generic web application scanni!
+ng' and
+  'Add historic /scripts and /cgi-bin to directories for CGI scanning' within th!
+e
+  'Global variable settings' of the scan config in use
+  If you think any of this information is wrong please report it to the referenc!
+ed community
+  forum.
+
+Vulnerability Detection Result:
+The Hostname/IP "elasticsearch-old.trabalho_vulnnet" was used to access the remo!
+te host.
+Generic web application scanning is disabled for this host via the "Enable gener!
+ic web application scanning" option within the "Global variable settings" of the!
+ scan config in use.
+Requests to this service are done via HTTP/1.1.
+This service seems to be able to host PHP scripts.
+This service seems to be able to host ASP scripts.
+The User-Agent "Mozilla/5.0 [en] (X11, U; OpenVAS-VT <version replaced>)" was us!
+ed to access the remote host.
+Historic /scripts and /cgi-bin are not added to the directories used for web app!
+lication scanning. You can enable this again with the "Add historic /scripts and!
+ /cgi-bin to directories for CGI scanning" option within the "Global variable se!
+ttings" of the scan config in use.
+The following directories were used for web application scanning:
+http://elasticsearch-old.trabalho_vulnnet:9200/
+http://elasticsearch-old.trabalho_vulnnet:9200/admin
+http://elasticsearch-old.trabalho_vulnnet:9200/ajaxfilemanager
+http://elasticsearch-old.trabalho_vulnnet:9200/cgi
+http://elasticsearch-old.trabalho_vulnnet:9200/cgi-bin
+http://elasticsearch-old.trabalho_vulnnet:9200/file
+http://elasticsearch-old.trabalho_vulnnet:9200/filemanager
+http://elasticsearch-old.trabalho_vulnnet:9200/fm
+http://elasticsearch-old.trabalho_vulnnet:9200/perl
+http://elasticsearch-old.trabalho_vulnnet:9200/php
+http://elasticsearch-old.trabalho_vulnnet:9200/php-cgi
+While this is not, in and of itself, a bug, you should manually inspect these di!
+rectories to ensure that they are in compliance with company security standards
+
+Solution:
+
+Log Method:
+Details:
+Web Application Scanning Consolidation / Info Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.111038)
+Version used: 2026-01-13T05:47:36Z
+
+References:
+ url: https://forum.greenbone.net/c/vulnerability-tests/7
+
+

@@ -1,0 +1,643 @@
+IP,Hostname,Port,Port Protocol,CVSS,Severity,QoD,Solution Type,NVT Name,Summary,Specific Result,NVT OID,CVEs,Task ID,Task Name,Timestamp,Result ID,Impact,Solution,Affected Software/OS,Vulnerability Insight,Vulnerability Detection Method,Product Detection Result,BIDs,CERTs,Other References
+      172.30.29.1,openldap.trabalho_vulnnet,,,0.0,Log,80,"","CPE Inventory","This routine uses information collected by other routines about
+  CPE identities of operating systems, services and applications detected during the scan.
+
+  Note: Some CPEs for specific products might show up twice or more in the output. Background:
+
+  After a product got renamed or a specific vendor was acquired by another one it might happen that
+  a product gets a new CPE within the NVD CPE Dictionary but older entries are kept with the older
+  CPE.","172.30.29.1|cpe:/a:ietf:transport_layer_security:1.2
+172.30.29.1|cpe:/o:linux:kernel
+
+",1.3.6.1.4.1.25623.1.0.810002,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,6680b07e-aa36-4c84-8e7f-41a2e16aa0e3,"","","","","
+Details:
+CPE Inventory
+(OID: 1.3.6.1.4.1.25623.1.0.810002)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.30.29.1,openldap.trabalho_vulnnet,,,0.0,Log,80,"","Hostname Determination Reporting","The script reports information on how the hostname of the target
+  was determined.","Hostname determination for IP 172.30.29.1:
+
+Hostname|Source
+ebc5cc83c2f7|SSL/TLS server certificate
+openldap.trabalho_vulnnet|Reverse-DNS
+",1.3.6.1.4.1.25623.1.0.108449,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,2d3538d8-29fa-4a5a-b80c-832d254644c7,"","","","","
+Details:
+Hostname Determination Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.108449)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.30.29.1,openldap.trabalho_vulnnet,,,2.1,Low,80,"Mitigation","ICMP Timestamp Reply Information Disclosure","The remote host responded to an ICMP timestamp request.","The following response / ICMP packet has been received:
+- ICMP Type: 14
+- ICMP Code: 0
+",1.3.6.1.4.1.25623.1.0.103190,"CVE-1999-0524",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,96f161dc-1adb-4be0-822f-836eb85eb0c7,"This information could theoretically be used to exploit weak
+  time-based random number generators in other services.","Various mitigations are possible:
+
+  - Disable the support for ICMP timestamp on the remote host completely
+
+  - Protect the remote host by a firewall, and block ICMP packets passing through the firewall in
+  either direction (either completely or only for untrusted networks)","","The Timestamp Reply is an ICMP message which replies to a
+  Timestamp message. It consists of the originating timestamp sent by the sender of the Timestamp as
+  well as a receive timestamp and a transmit timestamp.","Sends an ICMP Timestamp (Type 13) request and checks if a
+  Timestamp Reply (Type 14) is received.
+Details:
+ICMP Timestamp Reply Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.103190)
+Version used: 2025-01-21T05:37:33Z
+","","","DFN-CERT-2014-0658,CB-K15/1514,CB-K14/0632",""
+172.30.29.1,openldap.trabalho_vulnnet,,,0.0,Log,70,"","IP Forwarding Enabled - Active Check","Checks if the remote host has IP forwarding enabled.","It was possible to route a TCP packet through the target host and received an answer which means IP forwarding is enabled.
+",1.3.6.1.4.1.25623.1.0.147205,"CVE-1999-0511",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,05b47067-bbe3-4475-aa18-2353e0780d62,"","","","","Sends a crafted Local Link Layer (LLL) frame and checks the
+  response.
+Details:
+IP Forwarding Enabled - Active Check
+(OID: 1.3.6.1.4.1.25623.1.0.147205)
+Version used: 2021-12-03T08:27:06Z
+","","","",""
+172.30.29.1,openldap.trabalho_vulnnet,389,tcp,0.0,Log,80,"","LDAP Service Detection (TCP)","TCP based detection of services supporting the Lightweight
+  Directory Access Protocol (LDAP).","The LDAP Server supports LDAPv3.
+",1.3.6.1.4.1.25623.1.0.100082,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,c09d93b2-36f7-4c9d-9e4f-64b2ab508c14,"","","","The Lightweight Directory Access Protocol, or LDAP is an
+  application protocol for querying and modifying directory services running over TCP/IP.","
+Details:
+LDAP Service Detection (TCP)
+(OID: 1.3.6.1.4.1.25623.1.0.100082)
+Version used: 2023-07-12T05:05:05Z
+","","","",""
+172.30.29.1,openldap.trabalho_vulnnet,,,0.0,Log,80,"","OS Detection Consolidation and Reporting","This script consolidates the OS information detected by several
+  VTs and tries to find the best matching OS.
+
+  Furthermore it reports all previously collected information leading to this best matching OS. It
+  also reports possible additional information which might help to improve the OS detection.
+
+  If any of this information is wrong or could be improved please consider to report these to the
+  referenced community forum.","Best matching OS:
+
+OS:           Linux Kernel
+CPE:          cpe:/o:linux:kernel
+Found by VT:  1.3.6.1.4.1.25623.1.0.102002 (Operating System (OS) Detection (ICMP))
+Concluded from ICMP based OS fingerprint
+Setting key ""Host/runs_unixoide"" based on this information
+",1.3.6.1.4.1.25623.1.0.105937,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,c4dbbf5d-1375-45ba-81f7-dbe9ad6e95ac,"","","","","
+Details:
+OS Detection Consolidation and Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.105937)
+Version used: 2026-01-21T05:50:46Z
+","","","",""
+172.30.29.1,openldap.trabalho_vulnnet,389,tcp,0.0,Log,98,"","SSL/TLS: Certificate - Subject Common Name Does Not Match Server FQDN","The SSL/TLS certificate contains a common name (CN) that does not match the hostname.","The certificate of the remote service contains a common name (CN) that does not match the hostname ""openldap.trabalho_vulnnet"".
+
+Certificate details:
+fingerprint (SHA-1)             | 2571BE1CA737CA2368BFA49831F3E8D1D15E287F
+fingerprint (SHA-256)           | C0734BA2BF7875F7443552F0AD1B5E00DE985ABBC37A740D6BDEC049B5E93A3E
+issued by                       | CN=docker-light-baseimage,ST=New Mexico,L=Albuquerque,OU=Information Technology Dep.,O=A1A Car Wash,C=US
+public key algorithm            | EC/ECDSA
+public key size (bits)          | 384
+serial                          | 265BC03861BE776800EB202CFF6AA2AA6DD5812B
+signature algorithm             | ecdsa-with-SHA384
+subject                         | CN=ebc5cc83c2f7,OU=Information Technology Dep.,O=A1A Car Wash,L=Albuquerque,ST=New Mexico,C=US
+subject alternative names (SAN) | ebc5cc83c2f7
+valid from                      | 2026-01-25 21:18:00 UTC
+valid until                     | 2027-01-25 21:18:00 UTC
+",1.3.6.1.4.1.25623.1.0.103141,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,9ceb5ca0-a566-42a1-8655-583dfca7f4f8,"","","","","
+Details:
+SSL/TLS: Certificate - Subject Common Name Does Not Match Server FQDN
+(OID: 1.3.6.1.4.1.25623.1.0.103141)
+Version used: 2024-06-14T05:05:48Z
+","Product: cpe:/a:ietf:transport_layer_security
+Method: SSL/TLS: Collect and Report Certificate Details
+(OID: 1.3.6.1.4.1.25623.1.0.103692)
+","","",""
+172.30.29.1,openldap.trabalho_vulnnet,636,tcp,0.0,Log,98,"","SSL/TLS: Certificate - Subject Common Name Does Not Match Server FQDN","The SSL/TLS certificate contains a common name (CN) that does not match the hostname.","The certificate of the remote service contains a common name (CN) that does not match the hostname ""openldap.trabalho_vulnnet"".
+
+Certificate details:
+fingerprint (SHA-1)             | 2571BE1CA737CA2368BFA49831F3E8D1D15E287F
+fingerprint (SHA-256)           | C0734BA2BF7875F7443552F0AD1B5E00DE985ABBC37A740D6BDEC049B5E93A3E
+issued by                       | CN=docker-light-baseimage,ST=New Mexico,L=Albuquerque,OU=Information Technology Dep.,O=A1A Car Wash,C=US
+public key algorithm            | EC/ECDSA
+public key size (bits)          | 384
+serial                          | 265BC03861BE776800EB202CFF6AA2AA6DD5812B
+signature algorithm             | ecdsa-with-SHA384
+subject                         | CN=ebc5cc83c2f7,OU=Information Technology Dep.,O=A1A Car Wash,L=Albuquerque,ST=New Mexico,C=US
+subject alternative names (SAN) | ebc5cc83c2f7
+valid from                      | 2026-01-25 21:18:00 UTC
+valid until                     | 2027-01-25 21:18:00 UTC
+",1.3.6.1.4.1.25623.1.0.103141,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,e5c51875-1b0e-4b60-b2cc-ed3c5e6301fb,"","","","","
+Details:
+SSL/TLS: Certificate - Subject Common Name Does Not Match Server FQDN
+(OID: 1.3.6.1.4.1.25623.1.0.103141)
+Version used: 2024-06-14T05:05:48Z
+","Product: cpe:/a:ietf:transport_layer_security
+Method: SSL/TLS: Collect and Report Certificate Details
+(OID: 1.3.6.1.4.1.25623.1.0.103692)
+","","",""
+172.30.29.1,openldap.trabalho_vulnnet,636,tcp,5.0,Medium,99,"Mitigation","SSL/TLS: Certificate In Chain Expired","The remote service is using a SSL/TLS certificate chain where
+  one or multiple CA certificates have expired.","The following certificates which are part of the certificate chain have expired:
+
+Subject:     CN=docker-light-baseimage,ST=New Mexico,L=Albuquerque,OU=Information Technology Dep.,O=A1A Car Wash,C=US
+Expired on:  2020-12-21 13:53:00
+
+
+",1.3.6.1.4.1.25623.1.0.106237,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,ed0d6957-b794-42ff-8922-7943d76060bf,"","Sign your server certificate with a valid CA certificate.","","Checks if the CA certificates in the SSL/TLS certificate chain
+  have expired.","Checks the expire date of the CA certificates.
+Details:
+SSL/TLS: Certificate In Chain Expired
+(OID: 1.3.6.1.4.1.25623.1.0.106237)
+Version used: 2021-09-24T07:45:50Z
+","","","",""
+172.30.29.1,openldap.trabalho_vulnnet,389,tcp,5.0,Medium,99,"Mitigation","SSL/TLS: Certificate In Chain Expired","The remote service is using a SSL/TLS certificate chain where
+  one or multiple CA certificates have expired.","The following certificates which are part of the certificate chain have expired:
+
+Subject:     CN=docker-light-baseimage,ST=New Mexico,L=Albuquerque,OU=Information Technology Dep.,O=A1A Car Wash,C=US
+Expired on:  2020-12-21 13:53:00
+
+
+",1.3.6.1.4.1.25623.1.0.106237,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,1f2ffa91-94d6-4ee1-bf23-6531feee91d0,"","Sign your server certificate with a valid CA certificate.","","Checks if the CA certificates in the SSL/TLS certificate chain
+  have expired.","Checks the expire date of the CA certificates.
+Details:
+SSL/TLS: Certificate In Chain Expired
+(OID: 1.3.6.1.4.1.25623.1.0.106237)
+Version used: 2021-09-24T07:45:50Z
+","","","",""
+172.30.29.1,openldap.trabalho_vulnnet,389,tcp,0.0,Log,80,"","SSL/TLS: Client Certificate Required","The remote SSL/TLS service requires an SSL/TLS client
+  certificate.","The remote SSL/TLS service requires a client certificate when accessing it via the following SSL/TLS protocol version(s):
+
+TLSv1.2
+",1.3.6.1.4.1.25623.1.0.117810,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,158f246e-15ca-4e76-a5fd-a0ff06240859,"","","","","Sends multiple connection requests to the remote SSL/TLS
+  service and attempts to determine if the service requires an SSL/TLS client certificate.
+Details:
+SSL/TLS: Client Certificate Required
+(OID: 1.3.6.1.4.1.25623.1.0.117810)
+Version used: 2024-09-27T05:05:23Z
+","","","",""
+172.30.29.1,openldap.trabalho_vulnnet,636,tcp,0.0,Log,80,"","SSL/TLS: Client Certificate Required","The remote SSL/TLS service requires an SSL/TLS client
+  certificate.","The remote SSL/TLS service requires a client certificate when accessing it via the following SSL/TLS protocol version(s):
+
+TLSv1.2
+",1.3.6.1.4.1.25623.1.0.117810,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,6983ba62-d93a-47dd-b23c-af8e843a1bc7,"","","","","Sends multiple connection requests to the remote SSL/TLS
+  service and attempts to determine if the service requires an SSL/TLS client certificate.
+Details:
+SSL/TLS: Client Certificate Required
+(OID: 1.3.6.1.4.1.25623.1.0.117810)
+Version used: 2024-09-27T05:05:23Z
+","","","",""
+172.30.29.1,openldap.trabalho_vulnnet,636,tcp,0.0,Log,80,"","SSL/TLS: Client Certificate Required","The remote SSL/TLS service requires an SSL/TLS client
+  certificate.","The remote SSL/TLS service requires a client certificate when accessing it via the following SSL/TLS protocol version(s):
+
+TLSv1.2
+",1.3.6.1.4.1.25623.1.0.117810,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,48e113ef-7754-4467-b483-88c306ec41fe,"","","","","Sends multiple connection requests to the remote SSL/TLS
+  service and attempts to determine if the service requires an SSL/TLS client certificate.
+Details:
+SSL/TLS: Client Certificate Required
+(OID: 1.3.6.1.4.1.25623.1.0.117810)
+Version used: 2024-09-27T05:05:23Z
+","","","",""
+172.30.29.1,openldap.trabalho_vulnnet,389,tcp,0.0,Log,80,"","SSL/TLS: Client Certificate Required","The remote SSL/TLS service requires an SSL/TLS client
+  certificate.","The remote SSL/TLS service requires a client certificate when accessing it via the following SSL/TLS protocol version(s):
+
+TLSv1.2
+",1.3.6.1.4.1.25623.1.0.117810,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,5dc5f60c-97b5-465a-b9fb-ba6c1855517b,"","","","","Sends multiple connection requests to the remote SSL/TLS
+  service and attempts to determine if the service requires an SSL/TLS client certificate.
+Details:
+SSL/TLS: Client Certificate Required
+(OID: 1.3.6.1.4.1.25623.1.0.117810)
+Version used: 2024-09-27T05:05:23Z
+","","","",""
+172.30.29.1,openldap.trabalho_vulnnet,636,tcp,0.0,Log,98,"","SSL/TLS: Collect and Report Certificate Details","This script collects and reports the details of all SSL/TLS
+  certificates.
+
+  This data will be used by other tests to verify server certificates.","The following certificate details of the remote service were collected.
+
+Certificate details:
+fingerprint (SHA-1)             | 2571BE1CA737CA2368BFA49831F3E8D1D15E287F
+fingerprint (SHA-256)           | C0734BA2BF7875F7443552F0AD1B5E00DE985ABBC37A740D6BDEC049B5E93A3E
+issued by                       | CN=docker-light-baseimage,ST=New Mexico,L=Albuquerque,OU=Information Technology Dep.,O=A1A Car Wash,C=US
+public key algorithm            | EC/ECDSA
+public key size (bits)          | 384
+serial                          | 265BC03861BE776800EB202CFF6AA2AA6DD5812B
+signature algorithm             | ecdsa-with-SHA384
+subject                         | CN=ebc5cc83c2f7,OU=Information Technology Dep.,O=A1A Car Wash,L=Albuquerque,ST=New Mexico,C=US
+subject alternative names (SAN) | ebc5cc83c2f7
+valid from                      | 2026-01-25 21:18:00 UTC
+valid until                     | 2027-01-25 21:18:00 UTC
+",1.3.6.1.4.1.25623.1.0.103692,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,63c7f227-56db-414a-8ef2-d443eed9cef7,"","","","","
+Details:
+SSL/TLS: Collect and Report Certificate Details
+(OID: 1.3.6.1.4.1.25623.1.0.103692)
+Version used: 2024-09-27T05:05:23Z
+","","","",""
+172.30.29.1,openldap.trabalho_vulnnet,389,tcp,0.0,Log,98,"","SSL/TLS: Collect and Report Certificate Details","This script collects and reports the details of all SSL/TLS
+  certificates.
+
+  This data will be used by other tests to verify server certificates.","The following certificate details of the remote service were collected.
+
+Certificate details:
+fingerprint (SHA-1)             | 2571BE1CA737CA2368BFA49831F3E8D1D15E287F
+fingerprint (SHA-256)           | C0734BA2BF7875F7443552F0AD1B5E00DE985ABBC37A740D6BDEC049B5E93A3E
+issued by                       | CN=docker-light-baseimage,ST=New Mexico,L=Albuquerque,OU=Information Technology Dep.,O=A1A Car Wash,C=US
+public key algorithm            | EC/ECDSA
+public key size (bits)          | 384
+serial                          | 265BC03861BE776800EB202CFF6AA2AA6DD5812B
+signature algorithm             | ecdsa-with-SHA384
+subject                         | CN=ebc5cc83c2f7,OU=Information Technology Dep.,O=A1A Car Wash,L=Albuquerque,ST=New Mexico,C=US
+subject alternative names (SAN) | ebc5cc83c2f7
+valid from                      | 2026-01-25 21:18:00 UTC
+valid until                     | 2027-01-25 21:18:00 UTC
+",1.3.6.1.4.1.25623.1.0.103692,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,455f6ee8-7eb4-4893-b285-4b82ecac9d4b,"","","","","
+Details:
+SSL/TLS: Collect and Report Certificate Details
+(OID: 1.3.6.1.4.1.25623.1.0.103692)
+Version used: 2024-09-27T05:05:23Z
+","","","",""
+172.30.29.1,openldap.trabalho_vulnnet,,,0.0,Log,98,"","SSL/TLS: Hostname discovery from server certificate","It was possible to discover an additional hostname
+  of this server from its certificate Common or Subject Alt Name.","The following additional and resolvable hostnames were detected:
+
+ebc5cc83c2f7
+
+
+",1.3.6.1.4.1.25623.1.0.111010,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,20111b39-fc4a-4645-afd5-8f9b0af63650,"","","","","
+Details:
+SSL/TLS: Hostname discovery from server certificate
+(OID: 1.3.6.1.4.1.25623.1.0.111010)
+Version used: 2021-11-22T15:32:39Z
+","","","",""
+172.30.29.1,openldap.trabalho_vulnnet,389,tcp,0.0,Log,80,"","SSL/TLS: LDAP Start TLS OID Detection","Checks if the remote LDAP server supports SSL/TLS with the 'Start TLS' OID.","The remote LDAP server supports SSL/TLS with the 'Start TLS' OID.
+",1.3.6.1.4.1.25623.1.0.105016,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,50b7c13a-3cb3-4d43-9ac1-0b4b4900e22d,"","","","","
+Details:
+SSL/TLS: LDAP 'Start TLS OID' Detection
+(OID: 1.3.6.1.4.1.25623.1.0.105016)
+Version used: 2023-07-25T05:05:58Z
+","","","",""
+172.30.29.1,openldap.trabalho_vulnnet,389,tcp,0.0,Log,98,"","SSL/TLS: Report Medium Cipher Suites","This routine reports all Medium SSL/TLS cipher suites accepted
+  by a service.","'Medium' cipher suites accepted by this service via the TLSv1.2 protocol:
+
+TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
+TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+TLS_ECDHE_ECDSA_WITH_AES_128_CCM
+TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+TLS_ECDHE_ECDSA_WITH_AES_256_CCM
+TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+TLS_ECDHE_ECDSA_WITH_CAMELLIA_128_GCM_SHA256
+TLS_ECDHE_ECDSA_WITH_CAMELLIA_256_GCM_SHA384
+
+
+",1.3.6.1.4.1.25623.1.0.902816,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,cc80afaf-68e4-4907-98a0-34adab8ee24e,"","","","Any cipher suite considered to be secure for only the next 10
+  years is considered as medium.","
+Details:
+SSL/TLS: Report Medium Cipher Suites
+(OID: 1.3.6.1.4.1.25623.1.0.902816)
+Version used: 2024-09-27T05:05:23Z
+","Product: cpe:/a:ietf:transport_layer_security
+Method: SSL/TLS: Report Supported Cipher Suites
+(OID: 1.3.6.1.4.1.25623.1.0.802067)
+","","",""
+172.30.29.1,openldap.trabalho_vulnnet,636,tcp,0.0,Log,98,"","SSL/TLS: Report Medium Cipher Suites","This routine reports all Medium SSL/TLS cipher suites accepted
+  by a service.","'Medium' cipher suites accepted by this service via the TLSv1.2 protocol:
+
+TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
+TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+TLS_ECDHE_ECDSA_WITH_AES_128_CCM
+TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+TLS_ECDHE_ECDSA_WITH_AES_256_CCM
+TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+TLS_ECDHE_ECDSA_WITH_CAMELLIA_128_GCM_SHA256
+TLS_ECDHE_ECDSA_WITH_CAMELLIA_256_GCM_SHA384
+
+
+",1.3.6.1.4.1.25623.1.0.902816,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,4fc9025e-705b-458c-b9c2-969bb608571d,"","","","Any cipher suite considered to be secure for only the next 10
+  years is considered as medium.","
+Details:
+SSL/TLS: Report Medium Cipher Suites
+(OID: 1.3.6.1.4.1.25623.1.0.902816)
+Version used: 2024-09-27T05:05:23Z
+","Product: cpe:/a:ietf:transport_layer_security
+Method: SSL/TLS: Report Supported Cipher Suites
+(OID: 1.3.6.1.4.1.25623.1.0.802067)
+","","",""
+172.30.29.1,openldap.trabalho_vulnnet,389,tcp,0.0,Log,98,"","SSL/TLS: Report Non Weak Cipher Suites","This routine reports all Non Weak SSL/TLS cipher suites
+  accepted by a service.","'Non Weak' cipher suites accepted by this service via the TLSv1.2 protocol:
+
+TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
+TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+TLS_ECDHE_ECDSA_WITH_AES_128_CCM
+TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+TLS_ECDHE_ECDSA_WITH_AES_256_CCM
+TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+TLS_ECDHE_ECDSA_WITH_CAMELLIA_128_GCM_SHA256
+TLS_ECDHE_ECDSA_WITH_CAMELLIA_256_GCM_SHA384
+TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+
+
+",1.3.6.1.4.1.25623.1.0.103441,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,8b13d932-e756-4308-a834-21970c5b9da1,"","","","","
+Details:
+SSL/TLS: Report Non Weak Cipher Suites
+(OID: 1.3.6.1.4.1.25623.1.0.103441)
+Version used: 2024-09-27T05:05:23Z
+","Product: cpe:/a:ietf:transport_layer_security
+Method: SSL/TLS: Report Supported Cipher Suites
+(OID: 1.3.6.1.4.1.25623.1.0.802067)
+","","",""
+172.30.29.1,openldap.trabalho_vulnnet,636,tcp,0.0,Log,98,"","SSL/TLS: Report Non Weak Cipher Suites","This routine reports all Non Weak SSL/TLS cipher suites
+  accepted by a service.","'Non Weak' cipher suites accepted by this service via the TLSv1.2 protocol:
+
+TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
+TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+TLS_ECDHE_ECDSA_WITH_AES_128_CCM
+TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+TLS_ECDHE_ECDSA_WITH_AES_256_CCM
+TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+TLS_ECDHE_ECDSA_WITH_CAMELLIA_128_GCM_SHA256
+TLS_ECDHE_ECDSA_WITH_CAMELLIA_256_GCM_SHA384
+TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+
+
+",1.3.6.1.4.1.25623.1.0.103441,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,d65d5067-a54e-4bab-87f2-0f212cb6f58c,"","","","","
+Details:
+SSL/TLS: Report Non Weak Cipher Suites
+(OID: 1.3.6.1.4.1.25623.1.0.103441)
+Version used: 2024-09-27T05:05:23Z
+","Product: cpe:/a:ietf:transport_layer_security
+Method: SSL/TLS: Report Supported Cipher Suites
+(OID: 1.3.6.1.4.1.25623.1.0.802067)
+","","",""
+172.30.29.1,openldap.trabalho_vulnnet,389,tcp,0.0,Log,98,"","SSL/TLS: Report Perfect Forward Secrecy (PFS) Cipher Suites","This routine reports all SSL/TLS cipher suites accepted by a
+  service which are supporting Perfect Forward Secrecy (PFS).","Cipher suites supporting Perfect Forward Secrecy (PFS) are accepted by this service via the TLSv1.2 protocol:
+
+TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
+TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+TLS_ECDHE_ECDSA_WITH_AES_128_CCM
+TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+TLS_ECDHE_ECDSA_WITH_AES_256_CCM
+TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+TLS_ECDHE_ECDSA_WITH_CAMELLIA_128_GCM_SHA256
+TLS_ECDHE_ECDSA_WITH_CAMELLIA_256_GCM_SHA384
+TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+
+
+",1.3.6.1.4.1.25623.1.0.105018,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,4e7098f8-ee0e-4fb9-99b6-1d62bda89481,"","","","","
+Details:
+SSL/TLS: Report Perfect Forward Secrecy (PFS) Cipher Suites
+(OID: 1.3.6.1.4.1.25623.1.0.105018)
+Version used: 2024-09-30T08:38:05Z
+","Product: cpe:/a:ietf:transport_layer_security
+Method: SSL/TLS: Report Supported Cipher Suites
+(OID: 1.3.6.1.4.1.25623.1.0.802067)
+","","",""
+172.30.29.1,openldap.trabalho_vulnnet,636,tcp,0.0,Log,98,"","SSL/TLS: Report Perfect Forward Secrecy (PFS) Cipher Suites","This routine reports all SSL/TLS cipher suites accepted by a
+  service which are supporting Perfect Forward Secrecy (PFS).","Cipher suites supporting Perfect Forward Secrecy (PFS) are accepted by this service via the TLSv1.2 protocol:
+
+TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
+TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+TLS_ECDHE_ECDSA_WITH_AES_128_CCM
+TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+TLS_ECDHE_ECDSA_WITH_AES_256_CCM
+TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+TLS_ECDHE_ECDSA_WITH_CAMELLIA_128_GCM_SHA256
+TLS_ECDHE_ECDSA_WITH_CAMELLIA_256_GCM_SHA384
+TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+
+
+",1.3.6.1.4.1.25623.1.0.105018,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,4fe4d831-ce91-4911-bce9-e37c75ae677a,"","","","","
+Details:
+SSL/TLS: Report Perfect Forward Secrecy (PFS) Cipher Suites
+(OID: 1.3.6.1.4.1.25623.1.0.105018)
+Version used: 2024-09-30T08:38:05Z
+","Product: cpe:/a:ietf:transport_layer_security
+Method: SSL/TLS: Report Supported Cipher Suites
+(OID: 1.3.6.1.4.1.25623.1.0.802067)
+","","",""
+172.30.29.1,openldap.trabalho_vulnnet,389,tcp,0.0,Log,98,"","SSL/TLS: Report Supported Cipher Suites","This routine reports all SSL/TLS cipher suites accepted by a
+  service.","'Strong' cipher suites accepted by this service via the TLSv1.2 protocol:
+
+TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+
+'Medium' cipher suites accepted by this service via the TLSv1.2 protocol:
+
+TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
+TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+TLS_ECDHE_ECDSA_WITH_AES_128_CCM
+TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+TLS_ECDHE_ECDSA_WITH_AES_256_CCM
+TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+TLS_ECDHE_ECDSA_WITH_CAMELLIA_128_GCM_SHA256
+TLS_ECDHE_ECDSA_WITH_CAMELLIA_256_GCM_SHA384
+
+No 'Weak' cipher suites accepted by this service via the TLSv1.2 protocol.
+
+No 'Null' cipher suites accepted by this service via the TLSv1.2 protocol.
+
+No 'Anonymous' cipher suites accepted by this service via the TLSv1.2 protocol.
+
+
+",1.3.6.1.4.1.25623.1.0.802067,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,feb8bf13-0034-468e-8c27-ee0f4345f4fc,"","","","Notes:
+
+  - As the VT 'SSL/TLS: Check Supported Cipher Suites' (OID: 1.3.6.1.4.1.25623.1.0.900234) might run
+  into a timeout the actual reporting of all accepted cipher suites takes place in this VT instead.
+
+  - SSLv2 ciphers are not getting reported as the protocol itself is deprecated, needs to be
+  considered as weak and is reported separately as deprecated.","
+Details:
+SSL/TLS: Report Supported Cipher Suites
+(OID: 1.3.6.1.4.1.25623.1.0.802067)
+Version used: 2024-09-27T05:05:23Z
+","","","",""
+172.30.29.1,openldap.trabalho_vulnnet,636,tcp,0.0,Log,98,"","SSL/TLS: Report Supported Cipher Suites","This routine reports all SSL/TLS cipher suites accepted by a
+  service.","'Strong' cipher suites accepted by this service via the TLSv1.2 protocol:
+
+TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+
+'Medium' cipher suites accepted by this service via the TLSv1.2 protocol:
+
+TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
+TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+TLS_ECDHE_ECDSA_WITH_AES_128_CCM
+TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+TLS_ECDHE_ECDSA_WITH_AES_256_CCM
+TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+TLS_ECDHE_ECDSA_WITH_CAMELLIA_128_GCM_SHA256
+TLS_ECDHE_ECDSA_WITH_CAMELLIA_256_GCM_SHA384
+
+No 'Weak' cipher suites accepted by this service via the TLSv1.2 protocol.
+
+No 'Null' cipher suites accepted by this service via the TLSv1.2 protocol.
+
+No 'Anonymous' cipher suites accepted by this service via the TLSv1.2 protocol.
+
+
+",1.3.6.1.4.1.25623.1.0.802067,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,a72739de-a979-4cb7-ae95-cd8607c7e1c0,"","","","Notes:
+
+  - As the VT 'SSL/TLS: Check Supported Cipher Suites' (OID: 1.3.6.1.4.1.25623.1.0.900234) might run
+  into a timeout the actual reporting of all accepted cipher suites takes place in this VT instead.
+
+  - SSLv2 ciphers are not getting reported as the protocol itself is deprecated, needs to be
+  considered as weak and is reported separately as deprecated.","
+Details:
+SSL/TLS: Report Supported Cipher Suites
+(OID: 1.3.6.1.4.1.25623.1.0.802067)
+Version used: 2024-09-27T05:05:23Z
+","","","",""
+172.30.29.1,openldap.trabalho_vulnnet,636,tcp,0.0,Log,98,"","SSL/TLS: Safe/Secure Renegotiation Support Status","Checks and reports if a remote SSL/TLS service supports
+  safe/secure renegotiation.","Protocol Version | Safe/Secure Renegotiation Support Status
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SSLv3            | Unknown, Reason: Scanner failed to negotiate an SSL/TLS connection (Either the scanner or the remote host is probably not supporting / accepting this SSL/TLS protocol version).
+TLSv1.0          | Unknown, Reason: Scanner failed to negotiate an SSL/TLS connection (Either the scanner or the remote host is probably not supporting / accepting this SSL/TLS protocol version).
+TLSv1.1          | Unknown, Reason: Scanner failed to negotiate an SSL/TLS connection (Either the scanner or the remote host is probably not supporting / accepting this SSL/TLS protocol version).
+TLSv1.2          | Unknown, Reason: Scanner failed to negotiate an SSL/TLS connection (Either the scanner or the remote host is probably not supporting / accepting this SSL/TLS protocol version).
+TLSv1.3          | Unknown, Reason: Scanner failed to negotiate an SSL/TLS connection (Either the scanner or the remote host is probably not supporting / accepting this SSL/TLS protocol version).
+",1.3.6.1.4.1.25623.1.0.117757,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,a76e41b9-8873-4260-9bde-ad1f8ad26e21,"","","","","
+Details:
+SSL/TLS: Safe/Secure Renegotiation Support Status
+(OID: 1.3.6.1.4.1.25623.1.0.117757)
+Version used: 2024-09-27T05:05:23Z
+","","","",""
+172.30.29.1,openldap.trabalho_vulnnet,636,tcp,0.0,Log,98,"","SSL/TLS: Safe/Secure Renegotiation Support Status","Checks and reports if a remote SSL/TLS service supports
+  safe/secure renegotiation.","Protocol Version | Safe/Secure Renegotiation Support Status
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SSLv3            | Unknown, Reason: Scanner failed to negotiate an SSL/TLS connection (Either the scanner or the remote host is probably not supporting / accepting this SSL/TLS protocol version).
+TLSv1.0          | Unknown, Reason: Scanner failed to negotiate an SSL/TLS connection (Either the scanner or the remote host is probably not supporting / accepting this SSL/TLS protocol version).
+TLSv1.1          | Unknown, Reason: Scanner failed to negotiate an SSL/TLS connection (Either the scanner or the remote host is probably not supporting / accepting this SSL/TLS protocol version).
+TLSv1.2          | Unknown, Reason: Scanner failed to negotiate an SSL/TLS connection (Either the scanner or the remote host is probably not supporting / accepting this SSL/TLS protocol version).
+TLSv1.3          | Unknown, Reason: Scanner failed to negotiate an SSL/TLS connection (Either the scanner or the remote host is probably not supporting / accepting this SSL/TLS protocol version).
+",1.3.6.1.4.1.25623.1.0.117757,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,46b6c53f-0a2f-4f9c-aca6-be1bb6492bb7,"","","","","
+Details:
+SSL/TLS: Safe/Secure Renegotiation Support Status
+(OID: 1.3.6.1.4.1.25623.1.0.117757)
+Version used: 2024-09-27T05:05:23Z
+","","","",""
+172.30.29.1,openldap.trabalho_vulnnet,389,tcp,0.0,Log,98,"","SSL/TLS: Safe/Secure Renegotiation Support Status","Checks and reports if a remote SSL/TLS service supports
+  safe/secure renegotiation.","Protocol Version | Safe/Secure Renegotiation Support Status
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SSLv3            | Unknown, Reason: Scanner failed to negotiate an SSL/TLS connection (Either the scanner or the remote host is probably not supporting / accepting this SSL/TLS protocol version).
+TLSv1.0          | Unknown, Reason: Scanner failed to negotiate an SSL/TLS connection (Either the scanner or the remote host is probably not supporting / accepting this SSL/TLS protocol version).
+TLSv1.1          | Unknown, Reason: Scanner failed to negotiate an SSL/TLS connection (Either the scanner or the remote host is probably not supporting / accepting this SSL/TLS protocol version).
+TLSv1.2          | Unknown, Reason: Scanner failed to negotiate an SSL/TLS connection (Either the scanner or the remote host is probably not supporting / accepting this SSL/TLS protocol version).
+TLSv1.3          | Unknown, Reason: Scanner failed to negotiate an SSL/TLS connection (Either the scanner or the remote host is probably not supporting / accepting this SSL/TLS protocol version).
+",1.3.6.1.4.1.25623.1.0.117757,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,80918bcb-fc3d-40a7-9253-e7ed9c98f30f,"","","","","
+Details:
+SSL/TLS: Safe/Secure Renegotiation Support Status
+(OID: 1.3.6.1.4.1.25623.1.0.117757)
+Version used: 2024-09-27T05:05:23Z
+","","","",""
+172.30.29.1,openldap.trabalho_vulnnet,389,tcp,0.0,Log,98,"","SSL/TLS: Safe/Secure Renegotiation Support Status","Checks and reports if a remote SSL/TLS service supports
+  safe/secure renegotiation.","Protocol Version | Safe/Secure Renegotiation Support Status
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SSLv3            | Unknown, Reason: Scanner failed to negotiate an SSL/TLS connection (Either the scanner or the remote host is probably not supporting / accepting this SSL/TLS protocol version).
+TLSv1.0          | Unknown, Reason: Scanner failed to negotiate an SSL/TLS connection (Either the scanner or the remote host is probably not supporting / accepting this SSL/TLS protocol version).
+TLSv1.1          | Unknown, Reason: Scanner failed to negotiate an SSL/TLS connection (Either the scanner or the remote host is probably not supporting / accepting this SSL/TLS protocol version).
+TLSv1.2          | Unknown, Reason: Scanner failed to negotiate an SSL/TLS connection (Either the scanner or the remote host is probably not supporting / accepting this SSL/TLS protocol version).
+TLSv1.3          | Unknown, Reason: Scanner failed to negotiate an SSL/TLS connection (Either the scanner or the remote host is probably not supporting / accepting this SSL/TLS protocol version).
+",1.3.6.1.4.1.25623.1.0.117757,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,bd7c473a-1046-4526-9738-5b184577a4b2,"","","","","
+Details:
+SSL/TLS: Safe/Secure Renegotiation Support Status
+(OID: 1.3.6.1.4.1.25623.1.0.117757)
+Version used: 2024-09-27T05:05:23Z
+","","","",""
+172.30.29.1,openldap.trabalho_vulnnet,389,tcp,0.0,Log,80,"","SSL/TLS: Version Detection","Enumeration and reporting of SSL/TLS protocol versions supported
+  by a remote service.","The remote SSL/TLS service supports the following SSL/TLS protocol version(s):
+
+TLSv1.2
+",1.3.6.1.4.1.25623.1.0.105782,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,cd694cae-80de-49fc-9489-971550d1ad54,"","","","","Sends multiple connection requests to the remote service and
+  attempts to determine the SSL/TLS protocol versions supported by the service from the replies.
+
+  Note: The supported SSL/TLS protocol versions included in the report of this VT are reported
+  independently from the allowed / supported SSL/TLS ciphers.
+Details:
+SSL/TLS: Version Detection
+(OID: 1.3.6.1.4.1.25623.1.0.105782)
+Version used: 2024-09-27T05:05:23Z
+","","","",""
+172.30.29.1,openldap.trabalho_vulnnet,636,tcp,0.0,Log,80,"","SSL/TLS: Version Detection","Enumeration and reporting of SSL/TLS protocol versions supported
+  by a remote service.","The remote SSL/TLS service supports the following SSL/TLS protocol version(s):
+
+TLSv1.2
+",1.3.6.1.4.1.25623.1.0.105782,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,25bca472-acc9-4eb9-917f-b2f7823ec28e,"","","","","Sends multiple connection requests to the remote service and
+  attempts to determine the SSL/TLS protocol versions supported by the service from the replies.
+
+  Note: The supported SSL/TLS protocol versions included in the report of this VT are reported
+  independently from the allowed / supported SSL/TLS ciphers.
+Details:
+SSL/TLS: Version Detection
+(OID: 1.3.6.1.4.1.25623.1.0.105782)
+Version used: 2024-09-27T05:05:23Z
+","","","",""
+172.30.29.1,openldap.trabalho_vulnnet,,,2.6,Low,80,"Mitigation","TCP Timestamps Information Disclosure","The remote host implements TCP timestamps and therefore allows
+  to compute the uptime.","It was detected that the host implements RFC1323/RFC7323.
+
+The following timestamps were retrieved with a delay of 1 seconds in-between:
+Packet 1: 2151183515
+Packet 2: 2151184631
+",1.3.6.1.4.1.25623.1.0.80091,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,6e669e8b-727f-4105-86af-28c0a79f8db2,"A side effect of this feature is that the uptime of the remote
+  host can sometimes be computed.","To disable TCP timestamps on linux add the line
+  'net.ipv4.tcp_timestamps = 0' to /etc/sysctl.conf. Execute 'sysctl -p' to apply the settings at
+  runtime.
+
+  To disable TCP timestamps on Windows execute 'netsh int tcp set global timestamps=disabled'
+
+  Starting with Windows Server 2008 and Vista, the timestamp can not be completely disabled.
+
+  The default behavior of the TCP/IP stack on this Systems is to not use the Timestamp options when
+  initiating TCP connections, but use them if the TCP peer that is initiating communication includes
+  them in their synchronize (SYN) segment.
+
+  See the references for more information.","TCP implementations that implement RFC1323/RFC7323.","The remote host implements TCP timestamps, as defined by
+  RFC1323/RFC7323.","Special IP packets are forged and sent with a little delay in
+  between to the target IP. The responses are searched for a timestamps. If found, the timestamps
+  are reported.
+Details:
+TCP Timestamps Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.80091)
+Version used: 2023-12-15T16:10:08Z
+","","","",""
+172.30.29.1,openldap.trabalho_vulnnet,,,0.0,Log,80,"","Traceroute","Collect information about the network route and
+  network distance between the scanner host and the target host.","Network route from scanner (172.30.0.2) to target (172.30.29.1):
+
+172.30.0.2
+172.30.29.1
+
+Network distance between scanner and target: 2
+",1.3.6.1.4.1.25623.1.0.51662,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,41fab376-55f8-4d57-ab06-bb373bbf0746,"","","","For internal networks, the distances are usually
+  small, often less than 4 hosts between scanner and target. For public targets the
+  distance is greater and might be 10 hosts or more.","A combination of the protocols ICMP and TCP is used
+  to determine the route. This method is applicable for IPv4 only and it is also known as
+  'traceroute'.
+Details:
+Traceroute
+(OID: 1.3.6.1.4.1.25623.1.0.51662)
+Version used: 2022-10-17T11:13:19Z
+","","","",""
+172.30.29.1,openldap.trabalho_vulnnet,636,tcp,0.0,Log,80,"","Unknown OS and Service Banner Reporting","This VT consolidates and reports the information collected by
+  the following VTs:
+
+  - Collect banner of unknown services (OID: 1.3.6.1.4.1.25623.1.0.11154)
+
+  - Service Detection (unknown) with nmap (OID: 1.3.6.1.4.1.25623.1.0.66286)
+
+  - Service Detection (wrapped) with nmap (OID: 1.3.6.1.4.1.25623.1.0.108525)
+
+  - OS Detection Consolidation and Reporting (OID: 1.3.6.1.4.1.25623.1.0.105937)
+
+  If you know any of the information reported here, please send the full output to
+  the referenced community forum.","Nmap service detection (unknown) result for this port: ldapssl
+
+This is a guess. A confident identification of the service was not possible.
+
+Hint: If you're running a recent nmap version try to run nmap with the following command: 'nmap -sV -Pn -p 636 172.30.29.1' and submit a possible collected fingerprint to the nmap database.
+",1.3.6.1.4.1.25623.1.0.108441,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:34:47Z,521ba343-205f-47ef-9cef-916c4f30a592,"","","","","
+Details:
+Unknown OS and Service Banner Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.108441)
+Version used: 2023-06-22T10:34:15Z
+","","","",""
