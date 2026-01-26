@@ -195,8 +195,8 @@ _run_cleanup() {
 # Usage: setup_traps (call at the beginning of the script)
 setup_traps() {
     trap '_run_cleanup' EXIT
-    trap 'log_warn "Interruption received (SIGINT)"; exit 130' INT
-    trap 'log_warn "Termination received (SIGTERM)"; exit 143' TERM
+    trap 'log_warn "Interruption received (SIGINT), allowing child processes to clean up..."' INT
+    trap 'log_warn "Termination received (SIGTERM), allowing child processes to clean up..."' TERM
 }
 
 # =============================================================================

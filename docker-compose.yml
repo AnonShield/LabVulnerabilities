@@ -185,14 +185,14 @@ services:
     ports:
       - 127.0.0.1:8015:80
 
-  gitlab-vuln:
-    image: gitlab/gitlab-ce:10.0.0-ce.0
-    container_name: gitlab-vuln
-    networks:
-      vulnnet:
-        ipv4_address: 172.30.12.2
-    ports:
-      - 127.0.0.1:8017:80
+  # gitlab-vuln:
+  #   image: gitlab/gitlab-ce:10.0.0-ce.0
+  #   container_name: gitlab-vuln
+  #   networks:
+  #     vulnnet:
+  #       ipv4_address: 172.30.12.2
+  #   ports:
+  #     - 127.0.0.1:8017:80
 
 
   mysql-old:

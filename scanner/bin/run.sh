@@ -33,22 +33,35 @@ show_help() {
     echo ""
     echo "Uso: $0 <comando> [opções]"
     echo ""
-    echo "Comandos:"
-    echo "  all         Escanear todos os containers do VulnLab"
-    echo "  webapps     Escanear apenas aplicações web vulneráveis"
-    echo "  databases   Escanear apenas bancos de dados"
-    echo "  cves        Escanear containers com CVEs específicas"
-    echo "  custom      Escanear IPs de targets.txt"
-    echo "  single IP   Escanear um único IP"
-    echo "  status      Mostrar status dos scans"
-    echo "  resume      Retomar scans pendentes"
-    echo "  reset       Limpar estado e começar do zero"
-    echo "  setup       Instalar dependências"
+    echo "Comandos Básicos:"
+    echo "  all           Escanear todos os containers do VulnLab (sequencial)"
+    echo "  webapps       Escanear apenas aplicações web vulneráveis"
+    echo "  databases     Escanear apenas bancos de dados"
+    echo "  cves          Escanear containers com CVEs específicas"
+    echo "  custom        Escanear IPs de targets.txt"
+    echo "  single IP     Escanear um único IP"
+    echo ""
+    echo "Comandos Paralelos:"
+    echo "  batch IP1 IP2 ...      Scan em batch (1 target com múltiplos hosts)"
+    echo "  parallel IP1 IP2 ...   Scan paralelo (múltiplas tasks simultâneas)"
+    echo ""
+    echo "Gerenciamento:"
+    echo "  status        Mostrar status dos scans"
+    echo "  resume        Retomar scans pendentes"
+    echo "  reset         Limpar estado e começar do zero"
+    echo "  setup         Instalar dependências"
+    echo ""
+    echo "Opções:"
+    echo "  --batch-size N       IPs por batch (modo batch, padrão: 10)"
+    echo "  --max-concurrent N   Tasks paralelas (modo parallel, padrão: 4)"
+    echo "  --force              Re-escaneia IPs já concluídos"
+    echo "  -v, --verbose        Modo detalhado"
     echo ""
     echo "Exemplos:"
-    echo "  $0 all              # Todos os containers"
-    echo "  $0 webapps          # DVWA, Juice Shop, WebGoat..."
-    echo "  $0 single 172.30.9.1"
+    echo "  $0 all                                    # Todos (sequencial)"
+    echo "  $0 single 172.30.9.1                      # Um IP"
+    echo "  $0 batch 172.30.9.1 172.30.7.1 172.30.8.1 # Batch de 3 IPs"
+    echo "  $0 parallel 172.30.9.1 172.30.7.1 --max-concurrent 2"
     echo "  $0 status"
     echo ""
 }
@@ -127,6 +140,84 @@ case "${1:-help}" in
         fi
         echo -e "${COLOR_BLUE}Escaneando $2...${COLOR_NC}"
         python3 openvas_scanner.py -i "$2" "${@:3}"
+        ;;
+
+    batch)
+        check_openvas
+        shift  # Remove 'batch'
+        # Coleta IPs e flags
+        ips=()
+        extra_args=()
+        while [[ $# -gt 0 ]]; do
+            case "$1" in
+                --batch-size|--max-concurrent|--config|-c)
+                    extra_args+=("$1" "$2")
+                    shift # past argument
+                    shift # past value
+                    ;;
+                -v|--verbose|--cleanup|--force)
+                    extra_args+=("$1")
+                    shift # past argument
+                    ;;
+                -*) # Outras flags desconhecidas
+                    extra_args+=("$1")
+                    shift # past argument
+                    ;;
+                *)
+                    # Assume que é um IP
+                    ips+=("$1")
+                    shift # past argument
+                    ;;
+            esac
+        done
+
+        if [ ${#ips[@]} -eq 0 ]; then
+            echo -e "${COLOR_RED}ERRO: Especifique pelo menos um IP${COLOR_NC}"
+            echo "Uso: $0 batch IP1 IP2 IP3 [--batch-size N] [--force]"
+            exit 1
+        fi
+
+        echo -e "${COLOR_BLUE}Modo BATCH: ${#ips[@]} IPs${COLOR_NC}"
+        python3 openvas_scanner.py -i "${ips[@]}" --mode batch "${extra_args[@]}"
+        ;;
+
+    parallel)
+        check_openvas
+        shift  # Remove 'parallel'
+        # Coleta IPs e flags
+        ips=()
+        extra_args=()
+        while [[ $# -gt 0 ]]; do
+            case "$1" in
+                --batch-size|--max-concurrent|--config|-c)
+                    extra_args+=("$1" "$2")
+                    shift # past argument
+                    shift # past value
+                    ;;
+                -v|--verbose|--cleanup|--force)
+                    extra_args+=("$1")
+                    shift # past argument
+                    ;;
+                -*) # Outras flags desconhecidas
+                    extra_args+=("$1")
+                    shift # past argument
+                    ;;
+                *)
+                    # Assume que é um IP
+                    ips+=("$1")
+                    shift # past argument
+                    ;;
+            esac
+        done
+
+        if [ ${#ips[@]} -eq 0 ]; then
+            echo -e "${COLOR_RED}ERRO: Especifique pelo menos um IP${COLOR_NC}"
+            echo "Uso: $0 parallel IP1 IP2 IP3 [--max-concurrent N] [--force]"
+            exit 1
+        fi
+
+        echo -e "${COLOR_BLUE}Modo PARALLEL: ${#ips[@]} IPs${COLOR_NC}"
+        python3 openvas_scanner.py -i "${ips[@]}" --mode parallel "${extra_args[@]}"
         ;;
 
     status)
