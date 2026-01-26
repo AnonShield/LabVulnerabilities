@@ -62,3 +62,25 @@ poll_interval: 30
 
 # Timeout de conexão (segundos)
 connection_timeout: 120
+
+# ============================================================================
+# Configuração de Paralelismo
+# ============================================================================
+
+# Modo de scan paralelo
+# Opções:
+#   - "sequential" (padrão): Um IP por vez, comportamento tradicional
+#   - "batch": Múltiplos IPs em um único target/task GVM (relatório consolidado)
+#   - "parallel": Múltiplas tasks GVM executadas simultaneamente (relatórios individuais)
+parallel:
+  # Habilita/define o modo de scan
+  # Pode ser sobrescrito via CLI: --mode batch/parallel
+  mode: "sequential"
+
+  # Máximo de scans paralelos (modo "parallel")
+  # Recomendado: 2-4 para não sobrecarregar o GVM
+  max_concurrent: 4
+
+  # IPs por batch (modo "batch")
+  # O GVM escaneia todos os hosts de um batch internamente em paralelo
+  batch_size: 10

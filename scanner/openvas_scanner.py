@@ -14,12 +14,15 @@ import re
 import signal
 import sys
 import time
+import threading
+from abc import ABC, abstractmethod
 from base64 import b64decode
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
 from pathlib import Path
-from typing import Optional, List, Dict, Any
+from typing import Optional, List, Dict, Any, Tuple
 from contextlib import contextmanager
 
 try:
@@ -54,7 +57,7 @@ class Config:
 
     # Scan
     scan_config_name: str = "Full and fast"
-    port_list_name: str = "All IANA assigned TCP and UDP" # Corrigido para o nome exato
+    port_list_name: str = "All IANA assigned TCP and UDP"
     scanner_name: str = "OpenVAS Default"
 
     # Relatórios
@@ -72,6 +75,11 @@ class Config:
     connection_timeout: int = 120
     service_name: Optional[str] = None
 
+    # Configurações de paralelismo
+    scan_mode: str = "sequential"  # sequential, batch, parallel
+    max_concurrent: int = 4        # Máximo de tasks paralelas (modo parallel)
+    batch_size: int = 10           # IPs por batch (modo batch)
+
     @classmethod
     def from_file(cls, path: str) -> "Config":
         """Carrega configuração de arquivo YAML."""
@@ -82,6 +90,13 @@ class Config:
             with open(path) as f:
                 data = yaml.safe_load(f)
             if data:
+                # Processa configuração de paralelismo aninhada
+                if "parallel" in data:
+                    parallel_config = data.pop("parallel")
+                    if isinstance(parallel_config, dict):
+                        data["scan_mode"] = parallel_config.get("mode", "sequential")
+                        data["max_concurrent"] = parallel_config.get("max_concurrent", 4)
+                        data["batch_size"] = parallel_config.get("batch_size", 10)
                 return cls(**{k: v for k, v in data.items() if hasattr(cls, k)})
             return cls()
         except FileNotFoundError:
@@ -323,16 +338,31 @@ class GVMClient:
             raise RuntimeError(f"Configurações não encontradas: {missing}")
 
     def create_target(self, name: str, host: str) -> str:
-        """Cria um target."""
+        """Cria um target com um único host."""
+        return self.create_target_multi(name, [host])
+
+    def create_target_multi(self, name: str, hosts: List[str]) -> str:
+        """Cria um target com múltiplos hosts.
+
+        O GVM suporta múltiplos hosts em um único target, permitindo
+        escanear vários IPs em uma única task.
+
+        Args:
+            name: Nome do target
+            hosts: Lista de IPs ou hostnames
+
+        Returns:
+            ID do target criado
+        """
         with self._get_gmp() as gmp:
             response = gmp.create_target(
                 name=name,
-                hosts=[host],
+                hosts=hosts,  # GVM aceita lista de hosts
                 port_list_id=self._cache["port_list_id"]
             )
             target_id = response.get("id")
             if not target_id:
-                raise RuntimeError(f"Falha ao criar target: {response.get('status_text')}")
+                raise RuntimeError(f"Falha ao criar target multi-host: {response.get('status_text')}")
             return target_id
 
     def create_task(self, name: str, target_id: str) -> str:
@@ -355,6 +385,12 @@ class GVMClient:
             response = gmp.start_task(task_id)
             report_id = response.find("report_id")
             return report_id.text if report_id is not None else None
+
+    def stop_task(self, task_id: str):
+        """Para uma task em andamento."""
+        self.logger.debug(f"Enviando solicitação para parar a task {task_id}")
+        with self._get_gmp() as gmp:
+            gmp.stop_task(task_id)
 
     def get_task_status(self, task_id: str) -> tuple:
         """Retorna status de uma task."""
@@ -383,21 +419,27 @@ class GVMClient:
 
             return status, progress, report_id
 
-    def wait_for_task(self, task_id: str, ip: str) -> tuple:
-        """Aguarda conclusão de uma task."""
+    def wait_for_task(self, task_id: str, ip: str, should_stop: callable = lambda: False) -> tuple:
+        """Aguarda conclusão de uma task, com suporte a interrupção."""
         self.logger.info(f"Aguardando conclusão do scan para {ip}...")
         start_time = time.time()
         last_progress = -1
 
         while True:
+            if should_stop():
+                self.logger.warning(f"\nShutdown solicitado para {ip}. Tentando parar a task no GVM...")
+                try:
+                    self.stop_task(task_id)
+                    self.logger.info(f"Task {task_id} para {ip} foi parada com sucesso no GVM.")
+                except Exception as e:
+                    self.logger.error(f"Falha ao tentar parar a task {task_id} no GVM: {e}")
+                return ScanStatus.STOPPED, None
+
             try:
                 status, progress, report_id = self.get_task_status(task_id)
 
                 if progress != last_progress:
-                    elapsed = int(time.time() - start_time)
-                    elapsed_str = f"{elapsed // 60:02d}:{elapsed % 60:02d}"
-                    bar = self._progress_bar(progress)
-                    print(f"\r  [{elapsed_str}] {bar} {progress:3d}% - {status.value}    ", end="", flush=True)
+                    # O progresso agora é tratado pelo laço de monitoramento central
                     last_progress = progress
 
                 if status in [ScanStatus.DONE, ScanStatus.FAILED, ScanStatus.STOPPED]:
@@ -457,10 +499,14 @@ class GVMClient:
         """Retorna resumo de vulnerabilidades."""
         try:
             with self._get_gmp() as gmp:
-                response = gmp.get_report(report_id=report_id)
+                # O filtro é CRÍTICO. Sem min_qod=0, o GVM pode retornar 0 resultados
+                # se a Qualidade de Detecção (QoD) for baixa.
+                filter_term = "apply_overrides=0 levels=chmlgf rows=-1 min_qod=0"
+                response = gmp.get_report(report_id=report_id, filter_string=filter_term)
                 report = response.find("report/report")
 
                 if report is None:
+                    self.logger.warning(f"Sumário do relatório {report_id} está vazio.")
                     return {}
 
                 results = report.findall(".//results/result")
@@ -505,6 +551,359 @@ class GVMClient:
 
 
 # ============================================================================
+# ESTRATÉGIAS DE SCAN (Strategy Pattern)
+# ============================================================================
+
+class ScanStrategy(ABC):
+    """Estratégia base para execução de scans.
+
+    Implementa o padrão Strategy para permitir diferentes modos de execução:
+    - Sequential: um IP por vez (comportamento original)
+    - Batch: múltiplos IPs em um único target/task GVM
+    - Parallel: múltiplas tasks GVM executadas concorrentemente
+    """
+
+    @abstractmethod
+    def scan(self, scanner: 'OpenVASScanner', ips: List[str]) -> Dict[str, 'ScanResult']:
+        """Executa scan para os IPs fornecidos.
+
+        Args:
+            scanner: Instância do OpenVASScanner
+            ips: Lista de IPs para escanear
+
+        Returns:
+            Dicionário de IP -> ScanResult
+        """
+        pass
+
+
+class SequentialStrategy(ScanStrategy):
+    """Estratégia sequencial: escaneia um IP por vez.
+
+    Comportamento original do scanner, mantido para compatibilidade.
+    """
+
+    def scan(self, scanner: 'OpenVASScanner', ips: List[str]) -> Dict[str, 'ScanResult']:
+        results = {}
+        total = len(ips)
+
+        for i, ip in enumerate(ips, 1):
+            if scanner._shutdown:
+                scanner.logger.warning("Shutdown solicitado. Parando após IP atual.")
+                break
+
+            scanner.logger.info(f"\n{'='*60}")
+            scanner.logger.info(f"[{i}/{total}] Escaneando: {ip}")
+            scanner.logger.info(f"{'='*60}")
+
+            results[ip] = scanner.scan_single(ip)
+
+            if i < total and not scanner._shutdown:
+                time.sleep(5)
+
+        return results
+
+
+class BatchStrategy(ScanStrategy):
+    """Estratégia batch: múltiplos IPs em um único target/task GVM.
+
+    Cria um único target contendo múltiplos hosts, permitindo que o GVM
+    escanei todos em paralelo internamente. Gera um relatório consolidado.
+
+    Vantagens:
+    - Menos overhead de criação de targets/tasks
+    - GVM otimiza o scan internamente
+    - Relatório único para o batch
+
+    Desvantagens:
+    - Não é possível acompanhar progresso individual por IP
+    - Se um IP falhar, pode afetar o batch
+    """
+
+    def __init__(self, batch_size: int = 10):
+        self.batch_size = batch_size
+
+    def scan(self, scanner: 'OpenVASScanner', ips: List[str]) -> Dict[str, 'ScanResult']:
+        results = {}
+
+        # Divide IPs em batches
+        batches = [ips[i:i+self.batch_size] for i in range(0, len(ips), self.batch_size)]
+        total_batches = len(batches)
+
+        scanner.logger.info(f"Modo BATCH: {len(ips)} IPs em {total_batches} batches de até {self.batch_size}")
+
+        for batch_num, batch_ips in enumerate(batches, 1):
+            if scanner._shutdown:
+                scanner.logger.warning("Shutdown solicitado. Parando.")
+                break
+
+            scanner.logger.info(f"\n{'='*60}")
+            scanner.logger.info(f"BATCH [{batch_num}/{total_batches}]: {len(batch_ips)} IPs")
+            scanner.logger.info(f"IPs: {', '.join(batch_ips)}")
+            scanner.logger.info(f"{'='*60}")
+
+            batch_results = self._scan_batch(scanner, batch_ips, batch_num)
+            results.update(batch_results)
+
+            if batch_num < total_batches and not scanner._shutdown:
+                time.sleep(10)  # Pausa maior entre batches
+
+        return results
+
+    def _scan_batch(self, scanner: 'OpenVASScanner', ips: List[str], batch_num: int) -> Dict[str, 'ScanResult']:
+        """Escaneia um batch de IPs com um único target/task."""
+        timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
+        target_name = f"VulnLab-Batch{batch_num}-{timestamp}"
+        task_name = f"Scan-Batch{batch_num}-{timestamp}"
+
+        # Inicializa resultados para todos os IPs do batch
+        results = {}
+        for ip in ips:
+            results[ip] = ScanResult(
+                ip=ip,
+                status="pending",
+                start_time=datetime.now().isoformat()
+            )
+
+        try:
+            # Cria target com múltiplos hosts
+            scanner.logger.info(f"Criando target com {len(ips)} hosts...")
+            target_id = scanner.client.create_target_multi(target_name, ips)
+            scanner.logger.info(f"Target criado: {target_id}")
+
+            for ip in ips:
+                results[ip].target_id = target_id
+
+            # Cria task
+            task_id = scanner.client.create_task(task_name, target_id)
+            scanner.logger.info(f"Task criada: {task_id}")
+
+            for ip in ips:
+                results[ip].task_id = task_id
+                results[ip].status = "running"
+
+            # Inicia scan
+            report_id = scanner.client.start_task(task_id)
+            scanner.logger.info(f"Scan iniciado para batch {batch_num}")
+
+            # Aguarda conclusão
+            status, final_report_id = scanner.client.wait_for_task(
+                task_id, f"batch-{batch_num}", should_stop=lambda: scanner._shutdown
+            )
+
+            if status == ScanStatus.DONE:
+                report_id = final_report_id or report_id
+
+                # Baixa relatórios para o batch
+                batch_name = f"batch{batch_num}_{'-'.join(ip.split('.')[-1] for ip in ips[:3])}"
+                downloaded = scanner._download_reports_batch(batch_name, report_id)
+
+                # Obtém resumo de vulnerabilidades
+                summary = scanner.client.get_report_summary(report_id)
+
+                # Atualiza resultados para todos os IPs
+                for ip in ips:
+                    results[ip].status = "done"
+                    results[ip].report_id = report_id
+                    results[ip].end_time = datetime.now().isoformat()
+                    results[ip].reports_downloaded = downloaded
+                    results[ip].vulnerabilities = summary  # Compartilhado entre IPs do batch
+
+                scanner.logger.info(
+                    f"Batch {batch_num} concluído - "
+                    f"Alto: {summary.get('high', 0)}, "
+                    f"Médio: {summary.get('medium', 0)}, "
+                    f"Baixo: {summary.get('low', 0)}, "
+                    f"Log/Info: {summary.get('log', 0)}"
+                )
+            else:
+                for ip in ips:
+                    results[ip].status = "failed"
+                    results[ip].error = f"Batch status: {status.value}"
+                    results[ip].end_time = datetime.now().isoformat()
+
+                scanner.logger.error(f"Batch {batch_num} falhou: {status.value}")
+
+            # Cleanup
+            if scanner.config.cleanup_after_scan:
+                scanner.client.delete_task(task_id)
+                scanner.client.delete_target(target_id)
+
+        except Exception as e:
+            scanner.logger.error(f"Erro no batch {batch_num}: {e}")
+            for ip in ips:
+                results[ip].status = "failed"
+                results[ip].error = str(e)
+                results[ip].end_time = datetime.now().isoformat()
+
+        # Salva estado para cada IP
+        for ip, result in results.items():
+            scanner.state.set_scan(result)
+
+        return results
+
+
+class ParallelTasksStrategy(ScanStrategy):
+    """Estratégia paralela: múltiplas tasks GVM executadas concorrentemente.
+
+    Cria e inicia tasks separadas para cada IP e depois monitora todas
+    em um laço centralizado, exibindo um painel de progresso consolidado.
+    """
+
+    def __init__(self, max_concurrent: int = 4):
+        self.max_concurrent = max_concurrent
+
+    def scan(self, scanner: 'OpenVASScanner', ips: List[str]) -> Dict[str, 'ScanResult']:
+        """
+        Inicia scans em paralelo e depois entra em um laço de monitoramento.
+        """
+        scanner.logger.info(f"Modo PARALLEL: {len(ips)} IPs com max {self.max_concurrent} concorrentes")
+
+        # --- FASE 1: Iniciar todos os scans em threads ---
+        with ThreadPoolExecutor(max_workers=self.max_concurrent, thread_name_prefix="GVM-Starter") as executor:
+            # { future: ip }
+            future_to_ip = {
+                executor.submit(self._start_scan_thread, scanner, ip): ip
+                for ip in ips
+            }
+
+            # Coleta os resultados da fase de inicialização
+            # running_tasks é { task_id: (ip, ScanResult) }
+            running_tasks = {}
+            for future in as_completed(future_to_ip):
+                ip = future_to_ip[future]
+                try:
+                    task_id, result = future.result()
+                    if task_id:
+                        running_tasks[task_id] = (ip, result)
+                    else:
+                        # Se a inicialização falhou, o 'result' já tem o erro
+                        scanner.logger.error(f"Falha ao iniciar scan para {ip}: {result.error}")
+                except Exception as e:
+                    scanner.logger.error(f"Exceção inesperada ao iniciar scan para {ip}: {e}")
+
+        if not running_tasks:
+            scanner.logger.error("Nenhuma task de scan pôde ser iniciada.")
+            return {}
+        
+        # --- FASE 2: Monitoramento centralizado ---
+        final_results = {}
+        try:
+            while running_tasks and not scanner._shutdown:
+                self._monitor_tasks(scanner, running_tasks, final_results)
+                time.sleep(scanner.config.poll_interval)
+        
+        except KeyboardInterrupt:
+            scanner.logger.warning("\nInterrupção de teclado no monitoramento. Solicitando parada...")
+            scanner._shutdown = True
+
+        # --- FASE 3: Cleanup ---
+        # Se houve interrupção, para as tasks restantes
+        if scanner._shutdown and running_tasks:
+            scanner.logger.info(f"Parando {len(running_tasks)} tasks restantes...")
+            for task_id, (ip, result) in running_tasks.items():
+                try:
+                    scanner.client.stop_task(task_id)
+                    result.status = "stopped"
+                    result.error = "Interrompido pelo usuário"
+                    result.end_time = datetime.now().isoformat()
+                    scanner.state.set_scan(result)
+                    final_results[ip] = result
+                except Exception as e:
+                    scanner.logger.error(f"Erro ao parar task {task_id} para {ip}: {e}")
+
+        # Garante que todos os resultados, mesmo os que falharam, estejam no dict final
+        for ip, result in final_results.items():
+            scanner.state.set_scan(result)
+            
+        return final_results
+
+    def _start_scan_thread(self, scanner: 'OpenVASScanner', ip: str) -> Tuple[Optional[str], ScanResult]:
+        """
+        Thread worker que apenas CRIA e INICIA a task, sem esperar.
+        Retorna o ID da task e o objeto de resultado inicial.
+        """
+        try:
+            result = scanner.scan_single(ip, wait=False)
+            return result.task_id, result
+        except Exception as e:
+            scanner.logger.error(f"[Thread Starter] Exceção para {ip}: {e}")
+            result = ScanResult(ip=ip, status="failed", error=str(e))
+            scanner.state.set_scan(result)
+            return None, result
+
+    def _monitor_tasks(self, scanner: 'OpenVASScanner', running_tasks: Dict, final_results: Dict):
+        """
+        Consulta o status de todas as tasks ativas e atualiza o progresso.
+        """
+        progress_summary = []
+        tasks_to_remove = []
+
+        # Usar list(running_tasks.items()) cria uma cópia, evitando erros de concorrência
+        for task_id, (ip, result) in list(running_tasks.items()):
+            try:
+                status, progress, report_id = scanner.client.get_task_status(task_id)
+                progress_summary.append(f"{ip}: {progress}%")
+                
+                if status in [ScanStatus.DONE, ScanStatus.FAILED, ScanStatus.STOPPED]:
+                    tasks_to_remove.append(task_id)
+                    if status == ScanStatus.DONE:
+                        scanner.logger.info(f"\nScan para {ip} concluído. Baixando relatórios...")
+                        result.report_id = report_id or result.report_id
+                        result.status = "done"
+                        result.reports_downloaded = scanner._download_reports(ip, result.report_id)
+                        result.vulnerabilities = scanner.client.get_report_summary(result.report_id)
+                        scanner.logger.info(f"Relatórios para {ip} salvos.")
+                    else:
+                        result.status = status.value
+                        result.error = f"Task GVM falhou ou foi parada ({status.value})"
+                        scanner.logger.error(f"\nTask para {ip} terminou com status: {status.value}")
+                    
+                    result.end_time = datetime.now().isoformat()
+                    final_results[ip] = result
+
+            except Exception as e:
+                scanner.logger.error(f"\nErro ao monitorar task {task_id} para {ip}: {e}")
+                result.status = "failed"
+                result.error = f"Erro de monitoramento: {e}"
+                final_results[ip] = result
+                tasks_to_remove.append(task_id)
+
+        # Remove tasks concluídas do dicionário de monitoramento
+        for task_id in tasks_to_remove:
+            if task_id in running_tasks:
+                del running_tasks[task_id]
+
+        # Exibe painel de progresso consolidado
+        total_scans = len(final_results) + len(running_tasks)
+        done_scans = len(final_results)
+        
+        # Limpa a linha e exibe o novo status
+        sys.stdout.write("\033[K") 
+        progress_line = f"Scans Ativos: {len(running_tasks)}/{total_scans} | "
+        progress_line += ", ".join(progress_summary)
+        print(f"\r{progress_line}", end="", flush=True)
+
+
+def get_scan_strategy(mode: str, config: 'Config') -> ScanStrategy:
+    """Factory para criar a estratégia de scan apropriada.
+
+    Args:
+        mode: "sequential", "batch" ou "parallel"
+        config: Configuração do scanner
+
+    Returns:
+        Instância da estratégia apropriada
+    """
+    if mode == "batch":
+        return BatchStrategy(batch_size=config.batch_size)
+    elif mode == "parallel":
+        return ParallelTasksStrategy(max_concurrent=config.max_concurrent)
+    else:
+        return SequentialStrategy()
+
+
+# ============================================================================
 # SCANNER PRINCIPAL
 # ============================================================================
 
@@ -519,15 +918,19 @@ class OpenVASScanner:
         self.output_dir = Path(config.output_dir)
         self.output_dir.mkdir(parents=True, exist_ok=True)
         self._shutdown = False
+        self._shutting_down = False
 
         signal.signal(signal.SIGINT, self._signal_handler)
         signal.signal(signal.SIGTERM, self._signal_handler)
 
     def _signal_handler(self, signum, frame):
+        if self._shutting_down:
+            return
+        self._shutting_down = True
         self.logger.warning("\nInterrupção recebida. Finalizando...")
         self._shutdown = True
 
-    def scan_single(self, ip: str) -> ScanResult:
+    def scan_single(self, ip: str, wait: bool = True) -> ScanResult:
         """Executa scan de um único IP."""
         result = ScanResult(
             ip=ip,
@@ -552,8 +955,12 @@ class OpenVASScanner:
             self.state.set_scan(result)
             self.logger.info(f"Scan iniciado para {ip}")
 
-            # Aguardar conclusão
-            status, report_id = self.client.wait_for_task(result.task_id, ip)
+            # Se wait=False, retorna agora para o monitoramento centralizado
+            if not wait:
+                return result
+
+            # Aguardar conclusão (comportamento padrão)
+            status, report_id = self.client.wait_for_task(result.task_id, ip, should_stop=lambda: self._shutdown)
 
             if status == ScanStatus.DONE:
                 result.report_id = report_id or result.report_id
@@ -569,12 +976,13 @@ class OpenVASScanner:
                     f"Scan concluído: {ip} - "
                     f"Alto: {result.vulnerabilities.get('high', 0)}, "
                     f"Médio: {result.vulnerabilities.get('medium', 0)}, "
-                    f"Baixo: {result.vulnerabilities.get('low', 0)}"
+                    f"Baixo: {result.vulnerabilities.get('low', 0)}, "
+                    f"Log/Info: {result.vulnerabilities.get('log', 0)}"
                 )
             else:
-                result.status = "failed"
-                result.error = f"Status: {status.value}"
-                self.logger.error(f"Scan falhou para {ip}: {result.error}")
+                result.status = status.value if status else "failed"
+                result.error = f"Status da task: {result.status}"
+                self.logger.error(f"Scan para {ip} terminou com status: {result.status}")
 
             # Cleanup
             if self.config.cleanup_after_scan:
@@ -627,41 +1035,88 @@ class OpenVASScanner:
 
         return downloaded
 
-    def scan_all(self, ips: list) -> dict:
-        """Executa scan de todos os IPs."""
+    def _download_reports_batch(self, batch_name: str, report_id: str) -> List[str]:
+        """Baixa relatórios para um batch de IPs."""
+        downloaded = []
+
+        base_name = f"batch_{batch_name}"
+        batch_dir = self.output_dir / "batches" / base_name
+
+        self.logger.info(f"Salvando relatórios do batch em: {batch_dir}")
+        batch_dir.mkdir(parents=True, exist_ok=True)
+
+        for format_name in self.config.report_formats:
+            self.logger.debug(f"Baixando {format_name}...")
+
+            content = self.client.get_report(report_id, format_name)
+            if content:
+                file_suffix = f"{datetime.now().strftime('%Y%m%d_%H%M%S')}.{format_name.lower()}"
+                filename = f"{base_name}_{file_suffix}"
+                filepath = batch_dir / filename
+
+                try:
+                    with open(filepath, "wb") as f:
+                        f.write(content)
+                    self.logger.info(f"  Salvo: {filepath.name}")
+                    downloaded.append(format_name)
+                except IOError as e:
+                    self.logger.error(f"Erro ao salvar arquivo {filepath}: {e}")
+            else:
+                self.logger.warning(f"Não foi possível baixar o relatório no formato {format_name}.")
+
+        return downloaded
+
+    def scan_all(self, ips: list, mode: str = None, force: bool = False) -> dict:
+        """Executa scan de todos os IPs usando a estratégia configurada.
+
+        Args:
+            ips: Lista de IPs para escanear
+            mode: Modo de scan ("sequential", "batch", "parallel"). Se None, usa config.
+            force: Se True, re-escaneia IPs já concluídos
+
+        Returns:
+            Dicionário com resumo dos scans
+        """
         self.state.start_session()
 
-        pending_ips = self.state.get_pending_ips(ips)
+        # Determina modo de scan
+        scan_mode = mode or self.config.scan_mode
 
-        if len(pending_ips) < len(ips):
-            completed = len(ips) - len(pending_ips)
-            self.logger.info(f"Retomando: {completed}/{len(ips)} já completados")
+        # Filtra IPs já escaneados (a menos que --force)
+        if force:
+            pending_ips = ips
+            self.logger.warning(f"FORCE MODE: Re-escaneando todos os {len(ips)} IPs")
+        else:
+            pending_ips = self.state.get_pending_ips(ips)
+
+            if len(pending_ips) < len(ips):
+                completed = len(ips) - len(pending_ips)
+                self.logger.info(f"Retomando: {completed}/{len(ips)} já completados")
 
         if not pending_ips:
             self.logger.info("Todos os IPs já foram escaneados!")
             return self.state.get_summary()
 
         self.logger.info(f"Iniciando scan de {len(pending_ips)} IPs...")
+        self.logger.info(f"Modo: {scan_mode}")
         self.logger.info(f"Relatórios em: {self.output_dir.absolute()}")
 
         # Aguardar GVM
         if not self.client.wait_for_gvm():
             return {"error": "GVM não disponível"}
 
+        # Obtém estratégia apropriada
+        strategy = get_scan_strategy(scan_mode, self.config)
+        self.logger.info(f"Usando estratégia: {strategy.__class__.__name__}")
+
         try:
-            for i, ip in enumerate(pending_ips, 1):
-                if self._shutdown:
-                    self.logger.warning("Shutdown. Parando após IP atual.")
-                    break
+            # Executa scan usando a estratégia selecionada
+            results = strategy.scan(self, pending_ips)
 
-                self.logger.info(f"\n{'='*60}")
-                self.logger.info(f"[{i}/{len(pending_ips)}] Escaneando: {ip}")
-                self.logger.info(f"{'='*60}")
-
-                self.scan_single(ip)
-
-                if i < len(pending_ips) and not self._shutdown:
-                    time.sleep(5)
+            # Log de resultados
+            success = sum(1 for r in results.values() if r.status == "done")
+            failed = sum(1 for r in results.values() if r.status == "failed")
+            self.logger.info(f"Resultados: {success} sucesso, {failed} falhas")
 
         except Exception as e:
             self.logger.error(f"Erro durante scan: {e}")
@@ -740,10 +1195,17 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Exemplos:
-  %(prog)s -i 172.30.9.1 172.30.7.1    # IPs específicos
+  %(prog)s -i 172.30.9.1 172.30.7.1    # IPs específicos (sequencial)
   %(prog)s -f targets.txt               # De arquivo
   %(prog)s --auto                       # Todos do VulnLab
   %(prog)s --auto -v                    # Verbose
+
+Modos de Scan:
+  %(prog)s -i IP1 IP2 --mode batch --batch-size 5
+      Escaneia IPs em batches (1 target com N hosts por batch)
+
+  %(prog)s -i IP1 IP2 IP3 IP4 --mode parallel --max-concurrent 2
+      Escaneia IPs em paralelo (N tasks simultâneas)
         """
     )
 
@@ -761,8 +1223,29 @@ Exemplos:
     parser.add_argument("-v", "--verbose", action="store_true", help="Verbose")
     parser.add_argument("--cleanup", action="store_true", help="Deletar após scan")
     parser.add_argument("--reset", action="store_true", help="Resetar estado")
+    parser.add_argument("--force", action="store_true", help="Re-escaneia IPs já concluídos")
     parser.add_argument("--dry-run", action="store_true", help="Apenas listar IPs")
     parser.add_argument('--service-name', help='Nome do serviço para usar nos relatórios')
+
+    # Novos argumentos para modos de scan
+    parser.add_argument(
+        "--mode",
+        choices=["sequential", "batch", "parallel"],
+        default="sequential",
+        help="Modo de scan: sequential (padrão), batch (N IPs por task), parallel (N tasks simultâneas)"
+    )
+    parser.add_argument(
+        "--max-concurrent",
+        type=int,
+        default=4,
+        help="Máximo de scans paralelos (modo parallel). Padrão: 4"
+    )
+    parser.add_argument(
+        "--batch-size",
+        type=int,
+        default=10,
+        help="IPs por batch (modo batch). Padrão: 10"
+    )
 
     args = parser.parse_args()
 
@@ -776,6 +1259,11 @@ Exemplos:
     config.output_dir = args.output
     config.cleanup_after_scan = args.cleanup
     config.service_name = args.service_name
+
+    # Aplica configurações de modo de scan
+    config.scan_mode = args.mode
+    config.max_concurrent = args.max_concurrent
+    config.batch_size = args.batch_size
 
     if args.file:
         ips = load_ips_from_file(args.file)
@@ -795,6 +1283,13 @@ Exemplos:
         logger.info("Modo dry-run - IPs que seriam escaneados:")
         for ip in ips:
             print(f"  - {ip}")
+        logger.info(f"Modo de scan: {args.mode}")
+        if args.mode == "batch":
+            logger.info(f"  Batch size: {args.batch_size}")
+        elif args.mode == "parallel":
+            logger.info(f"  Max concurrent: {args.max_concurrent}")
+        if args.force:
+            logger.warning("  --force: Re-escaneando mesmo os já concluídos")
         sys.exit(0)
 
     if args.reset:
@@ -804,8 +1299,13 @@ Exemplos:
             logger.info("Estado resetado")
 
     scanner = OpenVASScanner(config, logger)
-    summary = scanner.scan_all(ips)
+    summary = scanner.scan_all(ips, mode=args.mode, force=args.force)
     scanner.print_summary(summary)
+
+    if scanner._shutdown:
+        # Exit with a specific code to signal interruption to the shell script
+        logger.info("Processo interrompido pelo usuário. Saindo com código 130.")
+        sys.exit(130)
 
 
 if __name__ == "__main__":
