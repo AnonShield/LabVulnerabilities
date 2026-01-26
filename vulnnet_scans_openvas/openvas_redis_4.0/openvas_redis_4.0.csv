@@ -1,0 +1,430 @@
+IP,Hostname,Port,Port Protocol,CVSS,Severity,QoD,Solution Type,NVT Name,Summary,Specific Result,NVT OID,CVEs,Task ID,Task Name,Timestamp,Result ID,Impact,Solution,Affected Software/OS,Vulnerability Insight,Vulnerability Detection Method,Product Detection Result,BIDs,CERTs,Other References
+      172.30.14.4,redis-noauth.trabalho_vulnnet,,,0.0,Log,80,"","CPE Inventory","This routine uses information collected by other routines about
+  CPE identities of operating systems, services and applications detected during the scan.
+
+  Note: Some CPEs for specific products might show up twice or more in the output. Background:
+
+  After a product got renamed or a specific vendor was acquired by another one it might happen that
+  a product gets a new CPE within the NVD CPE Dictionary but older entries are kept with the older
+  CPE.","172.30.14.4|cpe:/a:redis:redis:4.0.14
+172.30.14.4|cpe:/o:linux:kernel
+
+",1.3.6.1.4.1.25623.1.0.810002,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,bf66b135-f041-4a38-b49a-d5600c805807,"","","","","
+Details:
+CPE Inventory
+(OID: 1.3.6.1.4.1.25623.1.0.810002)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.30.14.4,redis-noauth.trabalho_vulnnet,,,0.0,Log,80,"","Hostname Determination Reporting","The script reports information on how the hostname of the target
+  was determined.","Hostname determination for IP 172.30.14.4:
+
+Hostname|Source
+redis-noauth.trabalho_vulnnet|Reverse-DNS
+",1.3.6.1.4.1.25623.1.0.108449,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,9fe8e59c-2c78-44e3-abcd-962505938b3a,"","","","","
+Details:
+Hostname Determination Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.108449)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.30.14.4,redis-noauth.trabalho_vulnnet,,,2.1,Low,80,"Mitigation","ICMP Timestamp Reply Information Disclosure","The remote host responded to an ICMP timestamp request.","The following response / ICMP packet has been received:
+- ICMP Type: 14
+- ICMP Code: 0
+",1.3.6.1.4.1.25623.1.0.103190,"CVE-1999-0524",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,7da8797f-895d-4560-8d7b-01e428df4b6e,"This information could theoretically be used to exploit weak
+  time-based random number generators in other services.","Various mitigations are possible:
+
+  - Disable the support for ICMP timestamp on the remote host completely
+
+  - Protect the remote host by a firewall, and block ICMP packets passing through the firewall in
+  either direction (either completely or only for untrusted networks)","","The Timestamp Reply is an ICMP message which replies to a
+  Timestamp message. It consists of the originating timestamp sent by the sender of the Timestamp as
+  well as a receive timestamp and a transmit timestamp.","Sends an ICMP Timestamp (Type 13) request and checks if a
+  Timestamp Reply (Type 14) is received.
+Details:
+ICMP Timestamp Reply Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.103190)
+Version used: 2025-01-21T05:37:33Z
+","","","DFN-CERT-2014-0658,CB-K15/1514,CB-K14/0632",""
+172.30.14.4,redis-noauth.trabalho_vulnnet,,,0.0,Log,70,"","IP Forwarding Enabled - Active Check","Checks if the remote host has IP forwarding enabled.","It was possible to route a TCP packet through the target host and received an answer which means IP forwarding is enabled.
+",1.3.6.1.4.1.25623.1.0.147205,"CVE-1999-0511",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,913de16f-224a-465d-83e2-670805b4236b,"","","","","Sends a crafted Local Link Layer (LLL) frame and checks the
+  response.
+Details:
+IP Forwarding Enabled - Active Check
+(OID: 1.3.6.1.4.1.25623.1.0.147205)
+Version used: 2021-12-03T08:27:06Z
+","","","",""
+172.30.14.4,redis-noauth.trabalho_vulnnet,,,0.0,Log,80,"","OS Detection Consolidation and Reporting","This script consolidates the OS information detected by several
+  VTs and tries to find the best matching OS.
+
+  Furthermore it reports all previously collected information leading to this best matching OS. It
+  also reports possible additional information which might help to improve the OS detection.
+
+  If any of this information is wrong or could be improved please consider to report these to the
+  referenced community forum.","Best matching OS:
+
+OS:           Linux Kernel
+CPE:          cpe:/o:linux:kernel
+Found by VT:  1.3.6.1.4.1.25623.1.0.102002 (Operating System (OS) Detection (ICMP))
+Concluded from ICMP based OS fingerprint
+Setting key ""Host/runs_unixoide"" based on this information
+",1.3.6.1.4.1.25623.1.0.105937,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,3c608c22-8b19-4f4e-879a-738537860af9,"","","","","
+Details:
+OS Detection Consolidation and Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.105937)
+Version used: 2026-01-21T05:50:46Z
+","","","",""
+172.30.14.4,redis-noauth.trabalho_vulnnet,6379,tcp,6.5,Medium,30,"VendorFix","Redis 2.2.5 < 6.2.16, 7.0.0 < 7.2.6, 7.4.0 DoS vulnerability","Redis is prone to a denial of service (DoS) vulnerability.","Installed version: 4.0.14
+Fixed version:     6.2.16
+
+",1.3.6.1.4.1.25623.1.0.128057,"CVE-2024-31228",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,569b98f2-080d-46b6-a7b7-7053a53996d6,"","Update to version 6.2.16, 7.2.6, 7.4.1 or later.","Redis versions 2.2.5 through 6.2.15, 7.0.0 through 7.2.5 and
+  7.4.0.","Potential Denial-of-service due to unbounded pattern matching","Checks if a vulnerable version is present on the target host.
+Details:
+Redis 2.2.5 < 6.2.16, 7.0.0 < 7.2.6, 7.4.0 DoS vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.128057)
+Version used: 2025-10-10T05:39:02Z
+","","","DFN-CERT-2026-0158,DFN-CERT-2025-0588,DFN-CERT-2025-0224,DFN-CERT-2025-0187,DFN-CERT-2025-0071,DFN-CERT-2025-0044,DFN-CERT-2024-3232,DFN-CERT-2024-3167,DFN-CERT-2024-2622,WID-SEC-2024-3066",""
+172.30.14.4,redis-noauth.trabalho_vulnnet,6379,tcp,8.8,High,30,"VendorFix","Redis 2.6 < 6.2.16, 7.0.0. < 7.2.6, 7.4.0 RCE vulnerability","Redis is prone to a remote code execution (RCE) vulnerability.","Installed version: 4.0.14
+Fixed version:     6.2.16
+
+",1.3.6.1.4.1.25623.1.0.128055,"CVE-2024-31449",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,61ab8d5f-08b2-4d2d-8fd1-c0d1ea3f6a23,"","Update to version 6.2.16, 7.2.6, 7.4.1 or later.","Redis versions 2.6 through 6.2.15, 7.0.0 through 7.2.5 and
+  7.4.0.","Lua library commands may lead to stack overflow and potential
+  remote code execution vulnerability","Checks if a vulnerable version is present on the target host.
+Details:
+Redis 2.6 < 6.2.16, 7.0.0. < 7.2.6, 7.4.0 RCE vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.128055)
+Version used: 2025-10-10T05:39:02Z
+","","","DFN-CERT-2026-0158,DFN-CERT-2025-0224,DFN-CERT-2025-0187,DFN-CERT-2025-0071,DFN-CERT-2025-0044,DFN-CERT-2024-3232,DFN-CERT-2024-2622,WID-SEC-2024-3066",""
+172.30.14.4,redis-noauth.trabalho_vulnnet,6379,tcp,8.8,High,30,"VendorFix","Redis < 5.0.14, 6.0.x < 6.0.16, 6.1.x < 6.2.6 Multiple Vulnerabilities","Redis is prone to multiple vulnerabilities.","Installed version: 4.0.14
+Fixed version:     5.0.14
+
+",1.3.6.1.4.1.25623.1.0.146848,"CVE-2021-32628,CVE-2021-32675,CVE-2021-32687,CVE-2021-32762,CVE-2021-41099",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,5021d53c-d1d7-4503-a900-2ff0d20adfc2,"","Update to version 5.0.14, 6.0.16, 6.2.6 or later.","Redis prior to version 5.0.14, version 6.0.x through 6.0.15
+  and 6.1.x through 6.2.5.","The following vulnerabilities exist:
+
+  - CVE-2021-32628: Integer overflow in the ziplist data structure
+
+  - CVE-2021-32675: Denial of Service (DoS)
+
+  - CVE-2021-32687: Integer overflow in intsets
+
+  - CVE-2021-32762: Integer overflow in redis-cli and redis-sentinel
+
+  - CVE-2021-41099: Integer overflow in the underlying string library","
+Details:
+Redis < 5.0.14, 6.0.x < 6.0.16, 6.1.x < 6.2.6 Multiple Vulnerabilities
+(OID: 1.3.6.1.4.1.25623.1.0.146848)
+Version used: 2025-10-10T05:39:02Z
+","","","DFN-CERT-2021-2403,DFN-CERT-2021-2216,DFN-CERT-2021-2214,DFN-CERT-2021-2167,DFN-CERT-2021-2069,WID-SEC-2022-1579,WID-SEC-2022-1308,CB-K21/1268",""
+172.30.14.4,redis-noauth.trabalho_vulnnet,6379,tcp,5.5,Medium,30,"VendorFix","Redis < 6.0.17 DoS Vulnerability","Redis is prone to a denial of service (DoS) vulnerability.","Installed version: 4.0.14
+Fixed version:     6.0.17
+
+",1.3.6.1.4.1.25623.1.0.149157,"CVE-2022-35977",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,c46d42f1-930b-4835-ac2a-cbbafc31c558,"","Update to version 6.0.17 or later.","Redis versions prior to 6.0.17.","Integer overflow in the Redis SETRANGE and SORT/SORT_RO
+  commands can drive Redis to OOM panic.","Checks if a vulnerable version is present on the target host.
+Details:
+Redis < 6.0.17 DoS Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.149157)
+Version used: 2025-10-10T05:39:02Z
+","","","DFN-CERT-2025-0187,DFN-CERT-2024-3167,DFN-CERT-2023-3039,DFN-CERT-2023-0180,DFN-CERT-2023-0115,WID-SEC-2023-0102",""
+172.30.14.4,redis-noauth.trabalho_vulnnet,6379,tcp,6.5,Medium,30,"VendorFix","Redis < 6.0.18, 6.2.x < 6.2.11, 7.0.x < 7.0.9 Multiple Vulnerabilities","Redis is prone to multiple vulnerabilities.","Installed version: 4.0.14
+Fixed version:     6.0.18/6.2.11/7.0.9
+
+",1.3.6.1.4.1.25623.1.0.104647,"CVE-2022-36021,CVE-2023-25155",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,2e15a9a5-f4db-426e-86c3-b1ea386121ae,"","Update to version 6.0.18, 6.2.11, 7.0.9 or later.","Redis versions prior to 6.0.18, 6.2.x prior to 6.2.11 and 7.0.x
+  prior to 7.0.9.","The following flaws exist:
+
+  - CVE-2022-36021: String matching commands (like SCAN or KEYS) with a specially crafted pattern to
+  trigger a denial-of-service attack on Redis, causing it to hang and consume 100% CPU time.
+
+  - CVE-2023-25155: Specially crafted SRANDMEMBER, ZRANDMEMBER, and HRANDFIELD commands can trigger
+  an integer overflow, resulting in a runtime assertion and termination of the Redis server
+  process.","Checks if a vulnerable version is present on the target host.
+Details:
+Redis < 6.0.18, 6.2.x < 6.2.11, 7.0.x < 7.0.9 Multiple Vulnerabilities
+(OID: 1.3.6.1.4.1.25623.1.0.104647)
+Version used: 2025-10-10T05:39:02Z
+","","","DFN-CERT-2025-0187,DFN-CERT-2024-2358,DFN-CERT-2023-3039,DFN-CERT-2023-1677,DFN-CERT-2023-1036,DFN-CERT-2023-0556,DFN-CERT-2023-0479,WID-SEC-2023-0510",""
+172.30.14.4,redis-noauth.trabalho_vulnnet,6379,tcp,6.5,Medium,30,"VendorFix","Redis < 6.0.19, 6.2.x < 6.2.12, 7.0.x < 7.0.11 DoS Vulnerability","Redis is prone to a denial of service (DoS) vulnerability.","Installed version: 4.0.14
+Fixed version:     6.0.19
+
+",1.3.6.1.4.1.25623.1.0.127401,"CVE-2023-28856",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,5cb6093c-f364-44c9-92d1-16ef15bfd1a7,"","Update to version 6.0.19, 6.2.12, 7.0.11 or later.","Redis versions prior to 6.0.19, 6.2.x prior to 6.2.12 and
+  7.0.x prior to 7.0.11.","Authenticated users can use the HINCRBYFLOAT command to create
+  an invalid hash field that may later crash Redis on access.","Checks if a vulnerable version is present on the target host.
+Details:
+Redis < 6.0.19, 6.2.x < 6.2.12, 7.0.x < 7.0.11 DoS Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.127401)
+Version used: 2025-10-10T05:39:02Z
+","","","DFN-CERT-2025-0187,DFN-CERT-2024-2358,DFN-CERT-2023-3039,DFN-CERT-2023-1971,DFN-CERT-2023-1677,DFN-CERT-2023-1215,DFN-CERT-2023-1036,DFN-CERT-2023-0882,WID-SEC-2023-1812,WID-SEC-2023-0989",""
+172.30.14.4,redis-noauth.trabalho_vulnnet,6379,tcp,8.8,High,30,"VendorFix","Redis < 6.0.20, 6.2.x < 6.2.13, 7.x < 7.0.12 Heap Overflow Vulnerability","Redis is prone to a heap overflow vulnerability.","Installed version: 4.0.14
+Fixed version:     6.0.20
+
+",1.3.6.1.4.1.25623.1.0.149921,"CVE-2022-24834",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,2b1c639a-9614-447f-87c6-1b088db321e4,"","Update to version 6.0.20, 6.2.13, 7.0.12 or later.","Redis prior to version 6.0.20, version 6.2.x through 6.2.12
+  and 7.x through 7.0.11.","A specially crafted Lua script executing in Redis can trigger a
+  heap overflow in the cjson and cmsgpack libraries, and result in heap corruption and potentially
+  remote code execution.","Checks if a vulnerable version is present on the target host.
+Details:
+Redis < 6.0.20, 6.2.x < 6.2.13, 7.x < 7.0.12 Heap Overflow Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.149921)
+Version used: 2025-10-10T05:39:02Z
+","","","DFN-CERT-2026-0158,DFN-CERT-2025-0224,DFN-CERT-2025-0187,DFN-CERT-2024-2358,DFN-CERT-2024-0265,DFN-CERT-2023-3039,DFN-CERT-2023-1971,DFN-CERT-2023-1677,DFN-CERT-2023-1559,WID-SEC-2023-2679,WID-SEC-2023-1698",""
+172.30.14.4,redis-noauth.trabalho_vulnnet,6379,tcp,7.7,High,30,"VendorFix","Redis < 6.0.3 Integer Overflow Vulnerability","Redis is prone to an integer overflow vulnerability.","Installed version: 4.0.14
+Fixed version:     6.0.3
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.113812,"CVE-2020-14147",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,d3595773-1244-4a62-8128-5da5eee7aabf,"Successful exploitation would allow an attacker to
+  bypass sandbox restrictions or crash the application.","Update to version 6.0.3 or later.","Redis through version 6.0.2.","The vulnerability exists in the getnum function in lua_struct.c.","Checks if a vulnerable version is present on the target host.
+Details:
+Redis < 6.0.3 Integer Overflow Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.113812)
+Version used: 2025-10-10T05:39:02Z
+","","","DFN-CERT-2020-1568",""
+172.30.14.4,redis-noauth.trabalho_vulnnet,6379,tcp,7.8,High,30,"VendorFix","Redis < 6.2.7 Multiple Vulnerabilities","Redis is prone to multiple vulnerabilities.","Installed version: 4.0.14
+Fixed version:     6.2.7
+
+",1.3.6.1.4.1.25623.1.0.148021,"CVE-2022-24735,CVE-2022-24736",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,18e2f74a-c271-4c99-adab-31a0796db822,"","Update to version 6.2.7 or later.","Redis prior to version 6.2.7.","The following vulnerabilities exist:
+
+  - CVE-2022-24735: Lua scripts can be manipulated to overcome ACL rules
+
+  - CVE-2022-24736: A malformed Lua script can crash Redis","Checks if a vulnerable version is present on the target host.
+Details:
+Redis < 6.2.7 Multiple Vulnerabilities
+(OID: 1.3.6.1.4.1.25623.1.0.148021)
+Version used: 2025-10-10T05:39:02Z
+","","","DFN-CERT-2022-0950,WID-SEC-2022-0871,WID-SEC-2022-0767,WID-SEC-2022-0070",""
+172.30.14.4,redis-noauth.trabalho_vulnnet,6379,tcp,3.3,Low,30,"Mitigation","Redis <= 7.0.5 DoS Vulnerability","Redis is prone to a denial of service (DoS) vulnerability.","Installed version: 4.0.14
+Fixed version:     See references
+
+",1.3.6.1.4.1.25623.1.0.148871,"CVE-2022-3647",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,e48b807e-224f-4890-bc48-47adb7d6755b,"","Apply the referenced patch.","Redis version 7.0.5 and prior.","A vulnerability, which was classified as problematic, was
+  found in Redis. Affected is the function sigsegvHandler of the file debug.c of the component
+  Crash Report. The manipulation leads to denial of service.
+  The real existence of this vulnerability is still doubted at the moment. The name of the
+  patch is 0bf90d944313919eb8e63d3588bf63a367f020a3. It is recommended to apply a patch to fix
+  this issue. VDB-211962 is the identifier assigned to this vulnerability.
+
+  NOTE: The vendor claims that this is not a DoS because it applies to the crash logging
+  mechanism which is triggered after a crash has occurred.","Checks if a vulnerable version is present on the target host.
+Details:
+Redis <= 7.0.5 DoS Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.148871)
+Version used: 2025-10-10T05:39:02Z
+","","","DFN-CERT-2022-2663,WID-SEC-2022-1818",""
+172.30.14.4,redis-noauth.trabalho_vulnnet,6379,tcp,7.8,High,30,"VendorFix","Redis Buffer Overflow Vulnerability (GHSA-rp2m-q4j6-gr43)","Redis is prone to a buffer overflow vulnerability.","Installed version: 4.0.14
+Fixed version:     6.2.19
+
+",1.3.6.1.4.1.25623.1.0.127923,"CVE-2025-32023",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,5e8af364-5972-4e61-a905-8c2f54d7926f,"","Update to version 6.2.19, 7.2.10, 7.4.5, 8.0.3 or later.","Redis versions 2.8.x prior to 6.2.19, 7.2.x prior to 7.2.10,
+  7.4.x prior to 7.4.5 and 8.0.x prior to 8.0.3.","An authenticated user may use a specially crafted string to
+  trigger a stack/heap out of bounds write on hyperloglog operations, potentially leading to
+  remote code execution.","Checks if a vulnerable version is present on the target host.
+Details:
+Redis Buffer Overflow Vulnerability (GHSA-rp2m-q4j6-gr43)
+(OID: 1.3.6.1.4.1.25623.1.0.127923)
+Version used: 2025-10-10T05:39:02Z
+","","","DFN-CERT-2025-1922,DFN-CERT-2025-1864,WID-SEC-2025-1463",""
+172.30.14.4,redis-noauth.trabalho_vulnnet,6379,tcp,6.1,Medium,30,"NoneAvailable","Redis DoS Vulnerability (GHSA-2r7g-8hpc-rpq9)","Redis is prone to a denial of service (DoS) vulnerability.","Installed version: 4.0.14
+Fixed version:     None
+
+",1.3.6.1.4.1.25623.1.0.133015,"CVE-2025-46686",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,d181d98a-a3a3-4c24-96fc-934c3e261b8f,"","No known solution is available as of 25th July, 2025.
+  Information regarding this issue will be updated once solution details are available.","Redis versions through 8.0.3.","Allows memory consumption via a multi-bulk command composed
+  of many bulks, sent by an authenticated user. This occurs because the server allocates memory
+  for the command arguments of every bulk, even when the command is skipped because of
+  insufficient permissions.","Checks if a vulnerable version is present on the target host.
+Details:
+Redis DoS Vulnerability (GHSA-2r7g-8hpc-rpq9)
+(OID: 1.3.6.1.4.1.25623.1.0.133015)
+Version used: 2025-10-10T05:39:02Z
+","","","WID-SEC-2025-1641",""
+172.30.14.4,redis-noauth.trabalho_vulnnet,6379,tcp,7.8,High,30,"VendorFix","Redis DoS Vulnerability (GHSA-4q32-c38c-pwgq)","Redis is prone to a denial of service (DoS) vulnerability.","Installed version: 4.0.14
+Fixed version:     6.2.19
+
+",1.3.6.1.4.1.25623.1.0.127924,"CVE-2025-48367",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,46f0bba2-900e-43f0-ad72-b642b2f29c60,"","Update to version 6.2.19, 7.2.10, 7.4.5, 8.0.3 or later.","Redis versions prior to 6.2.19, 7.2.x prior to 7.2.10,
+  7.4.x prior to 7.4.5 and 8.0.x prior to 8.0.3.","An unauthenticated connection can cause repeated IP protocol
+  errors, leading to client starvation and, ultimately, a denial of service (DoS).","Checks if a vulnerable version is present on the target host.
+Details:
+Redis DoS Vulnerability (GHSA-4q32-c38c-pwgq)
+(OID: 1.3.6.1.4.1.25623.1.0.127924)
+Version used: 2025-10-10T05:39:02Z
+","","","DFN-CERT-2025-1922,DFN-CERT-2025-1864,WID-SEC-2025-1463",""
+172.30.14.4,redis-noauth.trabalho_vulnnet,6379,tcp,7.8,High,30,"VendorFix","Redis DoS Vulnerability (GHSA-r67f-p999-2gff)","Redis is prone to a denial of service (DoS) vulnerability.","Installed version: 4.0.14
+Fixed version:     6.2.18
+
+",1.3.6.1.4.1.25623.1.0.154369,"CVE-2025-21605",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,888e9b46-8115-4371-8cc7-9aa648553741,"","Update to version 6.2.18, 7.2.8, 7.4.3 or later.","Redis version 2.6 through 7.4.2.","An unauthenticated client can cause unlimited growth of output
+  buffers, until the server runs out of memory or is killed.","Checks if a vulnerable version is present on the target host.
+Details:
+Redis DoS Vulnerability (GHSA-r67f-p999-2gff)
+(OID: 1.3.6.1.4.1.25623.1.0.154369)
+Version used: 2025-10-10T05:39:02Z
+","","","DFN-CERT-2025-1576,DFN-CERT-2025-1055,WID-SEC-2025-0877",""
+172.30.14.4,redis-noauth.trabalho_vulnnet,6379,tcp,5.3,Medium,30,"VendorFix","Redis Heap Overflow Vulnerability (Oct 2020)","Redis is prone to a heap overflow vulnerability.","Installed version: 4.0.14
+Fixed version:     5.0.10
+
+",1.3.6.1.4.1.25623.1.0.145709,"CVE-2021-3470",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,1d4d81e4-55d1-4f16-b47b-b6075dd6bd59,"","Update to version 5.0.10, 6.0.9 or later.","Redis versions 5.0.9 and prior and 6.x prior to 6.0.9.","A heap overflow issue was found in Redis when using a heap allocator other
+  than jemalloc or glibc's malloc, leading to potential out of bound write or process crash. Effectively this
+  flaw does not affect the vast majority of users, who use jemalloc or glibc malloc.","
+Details:
+Redis Heap Overflow Vulnerability (Oct 2020)
+(OID: 1.3.6.1.4.1.25623.1.0.145709)
+Version used: 2025-10-10T05:39:02Z
+","","","",""
+172.30.14.4,redis-noauth.trabalho_vulnnet,6379,tcp,7.5,High,30,"VendorFix","Redis Integer Overflow Vulnerability (GHSA-8wxq-j7rp-g8wj)","Redis is prone to an integer overflow vulnerability.","Installed version: 4.0.14
+Fixed version:     5.0.13
+
+",1.3.6.1.4.1.25623.1.0.146369,"CVE-2021-32761",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,e3f46747-4865-4080-83ab-1fbb22701412,"","Update to version 5.0.13, 6.0.15, 6.2.5 or later.","Redis version 2.2 and later.
+
+  This problem only affects 32-bit versions of Redis.","On 32-bit versions, Redis BITFIELD command is vulnerable to
+  integer overflow that can potentially be exploited to corrupt the heap, leak arbitrary heap
+  contents or trigger remote code execution. The vulnerability involves constructing specially
+  crafted bit commands which overflow the bit offset.","
+Details:
+Redis Integer Overflow Vulnerability (GHSA-8wxq-j7rp-g8wj)
+(OID: 1.3.6.1.4.1.25623.1.0.146369)
+Version used: 2025-10-10T05:39:02Z
+","","","DFN-CERT-2021-2069,DFN-CERT-2021-1582,WID-SEC-2022-1578",""
+172.30.14.4,redis-noauth.trabalho_vulnnet,6379,tcp,8.8,High,30,"VendorFix","Redis Integer Overflow Vulnerability (GHSA-hgj8-vff2-7cjf)","Redis is prone to an integer overflow vulnerability.","Installed version: 4.0.14
+Fixed version:     5.0.11
+
+",1.3.6.1.4.1.25623.1.0.145471,"CVE-2021-21309",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,a5864502-7183-4335-984a-2bf4b7c02118,"","Update to version 5.0.11, 6.0.11, 6.2 or later.","Redis version 4.0 and later.","An integer overflow bug in 32-bit Redis could be exploited to corrupt the
+  heap and potentially result with remote code execution.
+
+  Redis 4.0 or newer uses a configurable limit for the maximum supported bulk input size. By default, it is
+  512MB which is a safe value for all platforms.
+
+  If the limit is significantly increased, receiving a large request from a client may trigger several integer
+  overflow scenarios, which would result with buffer overflow and heap corruption. This could in certain
+  conditions be exploited for remote code execution.
+
+  By default, authenticated Redis users have access to all configuration parameters and can therefore use the
+  'CONFIG SET proto-max-bulk-len' to change the safe default, making the system vulnerable.
+
+  This problem only affects 32-bit Redis (on a 32-bit system, or as a 32-bit executable running on a 64-bit
+  system).","
+Details:
+Redis Integer Overflow Vulnerability (GHSA-hgj8-vff2-7cjf)
+(OID: 1.3.6.1.4.1.25623.1.0.145471)
+Version used: 2025-10-10T05:39:02Z
+","","","DFN-CERT-2021-1670,DFN-CERT-2021-1315,DFN-CERT-2021-0985,DFN-CERT-2021-0434",""
+172.30.14.4,redis-noauth.trabalho_vulnnet,6379,tcp,4.3,Medium,30,"VendorFix","Redis Lua Debugger Vulnerability (GHSA-9mj9-xx53-qmxm)","Redis is prone to a vulnerability in the Lua Debugger.","Installed version: 4.0.14
+Fixed version:     5.0.14
+
+",1.3.6.1.4.1.25623.1.0.146846,"CVE-2021-32672",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,e903e412-5f4c-4e17-83de-df2692048ccb,"","Update to version 5.0.14, 6.0.16, 6.2.6 or later.","Redis version 3.2 and later.","When using the Redis Lua Debugger, users can send malformed
+  requests that cause the debugger's protocol parser to read data beyond the actual buffer.","
+Details:
+Redis Lua Debugger Vulnerability (GHSA-9mj9-xx53-qmxm)
+(OID: 1.3.6.1.4.1.25623.1.0.146846)
+Version used: 2025-10-10T05:39:02Z
+","","","DFN-CERT-2021-2403,DFN-CERT-2021-2216,DFN-CERT-2021-2214,DFN-CERT-2021-2167,DFN-CERT-2021-2069,WID-SEC-2022-1579",""
+172.30.14.4,redis-noauth.trabalho_vulnnet,6379,tcp,0.0,Log,80,"","Redis Server Detection (TCP)","TCP based detection of Redis server.","Detected Redis Server
+
+Version:       4.0.14
+Location:      /
+CPE:           cpe:/a:redis:redis:4.0.14
+
+Concluded from version/product identification result:
+redis_version:4.0.14
+
+Extra information:
+Redis Server is not protected with a password.
+",1.3.6.1.4.1.25623.1.0.103844,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,2a5bbd33-b839-4c0c-9b1f-b61226a789bb,"","","","","
+Details:
+Redis Server Detection (TCP)
+(OID: 1.3.6.1.4.1.25623.1.0.103844)
+Version used: 2025-10-10T05:39:02Z
+","","","",""
+172.30.14.4,redis-noauth.trabalho_vulnnet,6379,tcp,7.5,High,99,"Workaround","Redis Server No Password (TCP)","The remote Redis server is not protected with a password.","Redis Server is not protected with a password.
+",1.3.6.1.4.1.25623.1.0.105291,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,435663dd-cfc9-4541-a6e1-cebaa99b7a93,"This issue may be exploited by a remote attacker to gain
+  access to sensitive information or modify system configuration.","Set password.","","It was possible to login without a password.","Evaluates if the remote Redis server is protected by a
+  password.
+
+  Notes:
+
+  - No scan result is expected if localhost (127.0.0.1) was scanned (self scanning)
+
+  - If the scanned network is e.g. a private LAN / private WAN which contains systems not accessible
+  to the public (access restricted) and it is accepted that the service is accessible without
+  authentication please set the 'Network type' configuration of the following VT to e.g.
+  'Private LAN' or 'Private WAN':
+
+  Global variable settings (OID: 1.3.6.1.4.1.25623.1.0.12288)
+Details:
+Redis Server No Password (TCP)
+(OID: 1.3.6.1.4.1.25623.1.0.105291)
+Version used: 2025-11-25T05:40:35Z
+","","","",""
+172.30.14.4,redis-noauth.trabalho_vulnnet,6379,tcp,8.8,High,30,"VendorFix","Redis Stack Overflow Vulnerability (GHSA-p486-xggp-782c)","Redis is prone to a heap-based stack overflow vulnerability.","Installed version: 4.0.14
+Fixed version:     5.0.14
+
+",1.3.6.1.4.1.25623.1.0.146847,"CVE-2021-32626",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,203d6eb9-fc68-4b72-93ff-e73c486c45e7,"","Update to version 5.0.14, 6.0.16, 6.2.6 or later.","Redis version 2.6 and later.","Specially crafted Lua scripts executing in Redis can cause the
+  heap-based Lua stack to be overflowed, due to incomplete checks for this condition. This can
+  result with heap corruption and potentially remote code execution.","
+Details:
+Redis Stack Overflow Vulnerability (GHSA-p486-xggp-782c)
+(OID: 1.3.6.1.4.1.25623.1.0.146847)
+Version used: 2025-10-10T05:39:02Z
+","","","DFN-CERT-2021-2403,DFN-CERT-2021-2216,DFN-CERT-2021-2214,DFN-CERT-2021-2167,DFN-CERT-2021-2069,WID-SEC-2022-1908,WID-SEC-2022-1579,WID-SEC-2022-1308,CB-K21/1268",""
+172.30.14.4,redis-noauth.trabalho_vulnnet,6379,tcp,3.6,Low,30,"VendorFix","Redis Unix Socket Permission Access Bypass Vulnerability (GHSA-ghmp-889m-7cvx)","Redis is prone to a vulnerability that allows to bypass desired
+  Unix socket permissions on startup.","Installed version: 4.0.14
+Fixed version:     6.2.14
+
+",1.3.6.1.4.1.25623.1.0.104997,"CVE-2023-45145",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,31eb5001-22ef-45e7-a44f-e5ae01a85c33,"","Update to version 6.2.14, 7.0.14, 7.2.2 or later.
+
+  It is also possible to work around the problem by disabling Unix sockets, starting Redis with a
+  restrictive umask, or storing the Unix socket file in a protected directory.","Redis versions starting from 2.6.0-RC1 and prior to 6.2.14,
+  7.0.x prior to 7.0.14 and 7.2.x prior to 7.2.2.","On startup, Redis begins listening on a Unix socket before
+  adjusting its permissions to the user-provided configuration. If a permissive umask(2) is used,
+  this creates a race condition that enables, during a short period of time, another process to
+  establish an otherwise unauthorized connection.","Checks if a vulnerable version is present on the target host.
+Details:
+Redis Unix Socket Permission Access Bypass Vulnerability (GHSA-ghmp-889m-7cv...
+(OID: 1.3.6.1.4.1.25623.1.0.104997)
+Version used: 2025-10-10T05:39:02Z
+","","","DFN-CERT-2026-0158,DFN-CERT-2025-0224,DFN-CERT-2025-0187,DFN-CERT-2024-3232,DFN-CERT-2024-2358,DFN-CERT-2024-0265,DFN-CERT-2023-3039,DFN-CERT-2023-2569,WID-SEC-2024-0106,WID-SEC-2023-2698",""
+172.30.14.4,redis-noauth.trabalho_vulnnet,6379,tcp,0.0,Log,80,"","Service Detection with GET Request","This plugin performs service detection.","A Redis server seems to be running on this port.
+",1.3.6.1.4.1.25623.1.0.17975,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,a3cca717-a5cb-4cb2-b15f-b278ef28ed62,"","","","This plugin is a complement of the plugin 'Services' (OID:
+  1.3.6.1.4.1.25623.1.0.10330). It sends a HTTP 'GET' request to the remaining unknown services and
+  tries to identify them.","
+Details:
+Service Detection with 'GET' Request
+(OID: 1.3.6.1.4.1.25623.1.0.17975)
+Version used: 2025-09-12T15:39:53Z
+","","","",""
+172.30.14.4,redis-noauth.trabalho_vulnnet,,,2.6,Low,80,"Mitigation","TCP Timestamps Information Disclosure","The remote host implements TCP timestamps and therefore allows
+  to compute the uptime.","It was detected that the host implements RFC1323/RFC7323.
+
+The following timestamps were retrieved with a delay of 1 seconds in-between:
+Packet 1: 974921603
+Packet 2: 974922712
+",1.3.6.1.4.1.25623.1.0.80091,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,5d155e7d-e9f6-4480-893a-d41a826416f5,"A side effect of this feature is that the uptime of the remote
+  host can sometimes be computed.","To disable TCP timestamps on linux add the line
+  'net.ipv4.tcp_timestamps = 0' to /etc/sysctl.conf. Execute 'sysctl -p' to apply the settings at
+  runtime.
+
+  To disable TCP timestamps on Windows execute 'netsh int tcp set global timestamps=disabled'
+
+  Starting with Windows Server 2008 and Vista, the timestamp can not be completely disabled.
+
+  The default behavior of the TCP/IP stack on this Systems is to not use the Timestamp options when
+  initiating TCP connections, but use them if the TCP peer that is initiating communication includes
+  them in their synchronize (SYN) segment.
+
+  See the references for more information.","TCP implementations that implement RFC1323/RFC7323.","The remote host implements TCP timestamps, as defined by
+  RFC1323/RFC7323.","Special IP packets are forged and sent with a little delay in
+  between to the target IP. The responses are searched for a timestamps. If found, the timestamps
+  are reported.
+Details:
+TCP Timestamps Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.80091)
+Version used: 2023-12-15T16:10:08Z
+","","","",""
+172.30.14.4,redis-noauth.trabalho_vulnnet,,,0.0,Log,80,"","Traceroute","Collect information about the network route and
+  network distance between the scanner host and the target host.","Network route from scanner (172.30.0.2) to target (172.30.14.4):
+
+172.30.0.2
+172.30.14.4
+
+Network distance between scanner and target: 2
+",1.3.6.1.4.1.25623.1.0.51662,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,4033832d-cc91-4c3b-ac20-b5ac94502acb,"","","","For internal networks, the distances are usually
+  small, often less than 4 hosts between scanner and target. For public targets the
+  distance is greater and might be 10 hosts or more.","A combination of the protocols ICMP and TCP is used
+  to determine the route. This method is applicable for IPv4 only and it is also known as
+  'traceroute'.
+Details:
+Traceroute
+(OID: 1.3.6.1.4.1.25623.1.0.51662)
+Version used: 2022-10-17T11:13:19Z
+","","","",""

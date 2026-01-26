@@ -1,0 +1,693 @@
+IP,Hostname,Port,Port Protocol,CVSS,Severity,QoD,Solution Type,NVT Name,Summary,Specific Result,NVT OID,CVEs,Task ID,Task Name,Timestamp,Result ID,Impact,Solution,Affected Software/OS,Vulnerability Insight,Vulnerability Detection Method,Product Detection Result,BIDs,CERTs,Other References
+      172.30.19.2,grafana-old.trabalho_vulnnet,3000,tcp,0.0,Log,70,"","Allowed HTTP Methods Enumeration","Enumerates which HTTP methods are allowed.","The following list contains the URLs and corresponding supported HTTP methods.
+
+URL                                       | HTTP Methods
+--------------------------------------------------------
+http://grafana-old.trabalho_vulnnet:3000/ | GET,HEAD
+",1.3.6.1.4.1.25623.1.0.153974,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,9abeafd8-9653-4653-a940-700b7f3bf5e3,"","","","'- Basic HTTP methods: GET, HEAD, POST, PUT, DELETE, CONNECT,
+  OPTIONS, TRACE
+
+  - Extended HTTP methods: ACL, BASELINE-CONTROL, BIND, CHECKIN, CHECKOUT, COPY, LABEL, LINK, LOCK,
+  MERGE, MKACTIVITY, MKCALENDAR, MKCOL, MKREDIRECTREF, MKWORKSPACE, MOVE, ORDERPATCH, PATCH, PRI,
+  PROPFIND, PROPPATCH, REBIND, REPORT, SEARCH, UNBIND, UNCHECKOUT, UNLINK, UNLOCK, UPDATE,
+  UPDATEREDIRECTREF, VERSION-CONTROL","Sends multiple HTTP requests and checks the responses.
+
+  Disclaimer:
+
+  - This enumeration script is provided 'as is' (means no support is given) and only providing
+  rudimentary information about the possible enabled methods
+
+  - This script doesn't guarantee completeness or full reliability
+
+  For more reliable determination of the enabled HTTP methods please inspect the configuration of
+  the web server manually and directly on the target host.
+Details:
+Allowed HTTP Methods Enumeration
+(OID: 1.3.6.1.4.1.25623.1.0.153974)
+Version used: 2025-02-28T05:38:49Z
+","","","",""
+172.30.19.2,grafana-old.trabalho_vulnnet,,,0.0,Log,80,"","CPE Inventory","This routine uses information collected by other routines about
+  CPE identities of operating systems, services and applications detected during the scan.
+
+  Note: Some CPEs for specific products might show up twice or more in the output. Background:
+
+  After a product got renamed or a specific vendor was acquired by another one it might happen that
+  a product gets a new CPE within the NVD CPE Dictionary but older entries are kept with the older
+  CPE.","172.30.19.2|cpe:/a:grafana:grafana:5.1.0
+172.30.19.2|cpe:/o:linux:kernel
+
+",1.3.6.1.4.1.25623.1.0.810002,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,bc70bce9-050f-49e9-8766-e89ad4a821b9,"","","","","
+Details:
+CPE Inventory
+(OID: 1.3.6.1.4.1.25623.1.0.810002)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.30.19.2,grafana-old.trabalho_vulnnet,3000,tcp,7.5,High,80,"VendorFix","Grafana 2.0.0 < 5.4.5, 6.x < 6.3.4 DoS Vulnerability","Grafana is prone to a denial of service vulnerability.","Installed version: 5.1.0
+Fixed version:     5.4.5
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.142855,"CVE-2019-15043",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,dd8d7783-dc48-45d2-91e1-69e020428d4c,"","Update to version 5.4.5, 6.3.4 or later.","Grafana versions 2.0.0 to 6.3.3.","Parts of the HTTP API allow unauthenticated use. This makes it possible to run
+  a denial of service attack against a server running Grafana.","Checks if a vulnerable version is present on the target host.
+Details:
+Grafana 2.0.0 < 5.4.5, 6.x < 6.3.4 DoS Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.142855)
+Version used: 2021-08-30T14:01:20Z
+","","","DFN-CERT-2021-1282,DFN-CERT-2021-0786,DFN-CERT-2020-2502,DFN-CERT-2020-2246,DFN-CERT-2020-2203,DFN-CERT-2020-2171,DFN-CERT-2020-1587,DFN-CERT-2020-1532,DFN-CERT-2020-1371,DFN-CERT-2020-1033,DFN-CERT-2019-2321,DFN-CERT-2019-2274,DFN-CERT-2019-2166,DFN-CERT-2019-1811,CB-K20/0394",""
+172.30.19.2,grafana-old.trabalho_vulnnet,3000,tcp,7.3,High,80,"VendorFix","Grafana 2.0.1 < 7.5.11, 8.x < 8.1.6 Snapshot Authentication Bypass Vulnerability (GHSA-69j6-29vr-p3j9)","Grafana is prone to an authentication bypass vulnerability in
+  the snapshot functionality.","Installed version: 5.1.0
+Fixed version:     7.5.11
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.146863,"CVE-2021-39226",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,c63f1d1e-34b9-4caa-8a6d-8315bda1c065,"","Update to version 7.5.11, 8.1.6 or later.","Grafana version 2.0.1 through 7.5.10 and 8.x through 8.1.5.","Unauthenticated and authenticated users are able to view the
+  snapshot with the lowest database key by accessing the literal paths:
+
+    /dashboard/snapshot/:key, or
+
+    /api/snapshots/:key
+
+  If the snapshot 'public_mode' configuration setting is set to true (vs default of false),
+  unauthenticated users are able to delete the snapshot with the lowest database key by accessing
+  the literal path:
+
+    /api/snapshots-delete/:deleteKey
+
+  Regardless of the snapshot 'public_mode' setting, authenticated users are able to delete the
+  snapshot with the lowest database key by accessing the literal paths:
+
+    /api/snapshots/:key, or
+
+    /api/snapshots-delete/:deleteKey
+
+  The combination of deletion and viewing enables a complete walk through all snapshot data while
+  resulting in complete snapshot data loss.","Checks if a vulnerable version is present on the target host.
+Details:
+Grafana 2.0.1 < 7.5.11, 8.x < 8.1.6 Snapshot Authentication Bypass Vulnerabi...
+(OID: 1.3.6.1.4.1.25623.1.0.146863)
+Version used: 2022-09-14T10:57:19Z
+","","","DFN-CERT-2022-2121,DFN-CERT-2022-2048,DFN-CERT-2022-2003,DFN-CERT-2022-1386,DFN-CERT-2022-0922,DFN-CERT-2022-0569,DFN-CERT-2022-0152,DFN-CERT-2021-2110,WID-SEC-2022-0401,CB-K21/1040",""
+172.30.19.2,grafana-old.trabalho_vulnnet,3000,tcp,8.2,High,80,"VendorFix","Grafana 3.0.1 < 6.7.4, 7.0 < 7.0.2 SSRF Vulnerability","Grafana is prone to a server-side request forgery (SSRF)
+  vulnerability.","Installed version: 5.1.0
+Fixed version:     6.7.4
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.144077,"CVE-2020-13379",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,d61712e2-a1b4-4c7e-82a8-5eadb56875d1,"","Update to version 6.7.4, 7.0.2 or later.","Grafana versions 3.0.1 - 7.0.1.","The avatar feature in Grafana has an SSRF Incorrect Access Control issue.
+  This vulnerability allows any unauthenticated user/client to make Grafana send HTTP requests to any URL and
+  return its result to the user/client. This can be used to gain information about the network that Grafana is
+  running on.","Checks if a vulnerable version is present on the target host.
+Details:
+Grafana 3.0.1 < 6.7.4, 7.0 < 7.0.2 SSRF Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.144077)
+Version used: 2024-06-28T15:38:46Z
+","","","DFN-CERT-2021-1282,DFN-CERT-2021-0979,DFN-CERT-2021-0786,DFN-CERT-2021-0078,DFN-CERT-2020-2502,DFN-CERT-2020-2246,DFN-CERT-2020-2203,DFN-CERT-2020-2171,DFN-CERT-2020-1587,DFN-CERT-2020-1532,DFN-CERT-2020-1422,DFN-CERT-2020-1371,DFN-CERT-2020-1274,DFN-CERT-2020-1201,CB-K20/0533",""
+172.30.19.2,grafana-old.trabalho_vulnnet,3000,tcp,6.5,Medium,80,"VendorFix","Grafana 4.1.0 < 4.6.5, 5.0 < 5.3.3 Information Disclosure Vulnerability","Grafana is prone to an information disclosure vulnerability.","Installed version: 5.1.0
+Fixed version:     5.3.3
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.112497,"CVE-2018-19039",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,bed8bfaf-8968-4d5f-a1e1-2d37a2da2e15,"Successful exploitation of these vulnerabilities could lead to
+  disclosure of sensitive information or addition or modification of data.","Update to version 4.6.5 or 5.3.3 respectively.","Grafana 4.1.0 through 5.3.2.","The vulnerability allows any users with Editor or Admin
+  permissions in Grafana to read any file that the Grafana process can read from the filesystem.","Checks if a vulnerable version is present on the target host.
+Details:
+Grafana 4.1.0 < 4.6.5, 5.0 < 5.3.3 Information Disclosure Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.112497)
+Version used: 2022-07-20T10:33:02Z
+","","","DFN-CERT-2021-1282,DFN-CERT-2020-2171,DFN-CERT-2020-1033,DFN-CERT-2019-2274,DFN-CERT-2019-2166,DFN-CERT-2019-2031,DFN-CERT-2019-1589,DFN-CERT-2019-0752,CB-K19/0307",""
+172.30.19.2,grafana-old.trabalho_vulnnet,3000,tcp,4.3,Medium,80,"VendorFix","Grafana 5.0.0 - 8.3.1 Directory Traversal Vulnerability","Grafana is prone to a directory traversal vulnerability for
+  '.md' files.","Installed version: 5.1.0
+Fixed version:     7.5.12
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.147337,"CVE-2021-43813,CVE-2021-43815",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,dd837563-33db-43b1-b83a-7dd9bcbdb395,"","Update to version 7.5.12, 8.3.2 or later.","Grafana version 5.0.0 through 8.3.1.","Grafana contains a directory traversal vulnerability for fully
+  lowercase or fully uppercase .md files. The vulnerability is limited in scope, and only allows
+  access to files with the extension .md to authenticated users only.","Checks if a vulnerable version is present on the target host.
+Details:
+Grafana 5.0.0 - 8.3.1 Directory Traversal Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.147337)
+Version used: 2021-12-16T10:21:14Z
+","","","DFN-CERT-2024-0423,DFN-CERT-2022-2825,DFN-CERT-2022-2350,DFN-CERT-2022-1790,DFN-CERT-2022-1386,DFN-CERT-2022-1142,DFN-CERT-2022-1068,DFN-CERT-2022-0922,DFN-CERT-2022-0569,DFN-CERT-2022-0152,DFN-CERT-2022-0144,WID-SEC-2022-0405,CB-K21/1270",""
+172.30.19.2,grafana-old.trabalho_vulnnet,3000,tcp,5.4,Medium,80,"VendorFix","Grafana < 5.3.2 XSS Vulnerability","Grafana is prone to a stored cross-site scripting (XSS) vulnerability.","Installed version: 5.1.0
+Fixed version:     5.3.2
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.112513,"CVE-2018-1000816",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,caff779c-6a69-46f7-9128-5e333c2929ae,"Successful exploitation would result in arbitrary JavaScript code
+  being run in the victims browser.","Update to version 5.3.2 or later.","Grafana before version 5.3.2.","The vulnerability is triggered when clicking the field in the query
+  editor's 'FROM'-row in which the payload was previously inserted.","Checks if a vulnerable version is present on the target host.
+Details:
+Grafana < 5.3.2 XSS Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.112513)
+Version used: 2021-08-30T14:01:20Z
+","","","",""
+172.30.19.2,grafana-old.trabalho_vulnnet,3000,tcp,6.1,Medium,80,"VendorFix","Grafana < 6.0.0 XSS Vulnerability","Grafana is prone to a cross-site scripting (XSS)
+  vulnerability.","Installed version: 5.1.0
+Fixed version:     6.0.0
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.126642,"CVE-2018-18623",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,6a21c3f5-e0bb-400e-884b-5779a6660d0c,"","Update to version 6.0.0 or later.","Grafana prior to version 6.0.0.","Cross-site scripting via the 'Dashboard > Text Panel' screen.","Checks if a vulnerable version is present on the target host.
+Details:
+Grafana < 6.0.0 XSS Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.126642)
+Version used: 2024-01-12T05:05:56Z
+","","","DFN-CERT-2021-1282,DFN-CERT-2021-0786,DFN-CERT-2020-2502,DFN-CERT-2020-2246,DFN-CERT-2020-2203",""
+172.30.19.2,grafana-old.trabalho_vulnnet,3000,tcp,5.4,Medium,80,"VendorFix","Grafana < 6.2.5 HTML Injection Vulnerability","Grafana is prone to an HTML injection vulnerability.","Installed version: 5.1.0
+Fixed version:     6.2.5
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.112596,"CVE-2019-13068",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,ab8d6895-a570-4974-92b6-a7106f9601a6,"","Update to version 6.2.5 or later.","Grafana before version 6.2.5.","public/app/features/panel/panel_ctrl.ts allows HTML Injection
+  in panel drilldown links (via the Title or url field).","Checks if a vulnerable version is present on the target host.
+Details:
+Grafana < 6.2.5 HTML Injection Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.112596)
+Version used: 2021-08-30T14:01:20Z
+","","","DFN-CERT-2020-1033",""
+172.30.19.2,grafana-old.trabalho_vulnnet,3000,tcp,6.5,Medium,80,"VendorFix","Grafana < 6.4.4 Information Disclosure Vulnerability","Grafana is prone to an information disclosure vulnerability.","Installed version: 5.1.0
+Fixed version:     6.4.4
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.144507,"CVE-2019-19499",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,85013906-5122-4c36-8335-eb4554856179,"An authenticated attacker may read arbitrary files.","Update to version 6.4.4 or later.","Grafana through version 6.4.3.","Grafana has an arbitrary file read vulnerability, which could be exploited by
+  an authenticated attacker that has privileges to modify the data source configurations.","Checks if a vulnerable version is present on the target host.
+Details:
+Grafana < 6.4.4 Information Disclosure Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.144507)
+Version used: 2021-07-08T11:00:45Z
+","","","DFN-CERT-2021-0786,DFN-CERT-2020-2387",""
+172.30.19.2,grafana-old.trabalho_vulnnet,3000,tcp,5.4,Medium,80,"VendorFix","Grafana < 6.7.2 XSS Vulnerability","Grafana is prone to a cross-site scripting (XSS) vulnerability.","Installed version: 5.1.0
+Fixed version:     6.7.2
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.112787,"CVE-2020-11110",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,61ffb434-c4b2-4cbb-ace0-a3713560f119,"","Update to version 6.7.2 or later.","Grafana versions through 6.7.1.","","Checks if a vulnerable version is present on the target host.
+Details:
+Grafana < 6.7.2 XSS Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.112787)
+Version used: 2023-02-13T10:19:38Z
+","","","DFN-CERT-2021-1282,DFN-CERT-2020-2502,DFN-CERT-2020-2387,DFN-CERT-2020-2335,DFN-CERT-2020-2246,DFN-CERT-2020-2203,DFN-CERT-2020-2062,CB-K20/1049",""
+172.30.19.2,grafana-old.trabalho_vulnnet,3000,tcp,6.1,Medium,80,"VendorFix","Grafana < 6.7.3 Multiple Vulnerabilities","Grafana is prone to multiple cross-site scripting vulnerabilities.","Installed version: 5.1.0
+Fixed version:     6.7.3
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.143778,"CVE-2020-12052,CVE-2020-12245",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,5348cb64-0180-4ad8-b89d-816f70a3bc09,"","Update to version 6.7.3 or later.","Grafana versions prior to 6.7.3.","Grafana is prone to multiple cross-site scripting vulnerabilities:
+
+  - Annotation popup XSS vulnerability (CVE-2020-12052)
+
+  - Table-panel XSS via column.title or cellLinkTooltip (CVE-2020-12245)","Checks if a vulnerable version is present on the target host.
+Details:
+Grafana < 6.7.3 Multiple Vulnerabilities
+(OID: 1.3.6.1.4.1.25623.1.0.143778)
+Version used: 2021-07-08T11:00:45Z
+","","","DFN-CERT-2021-1282,DFN-CERT-2021-0786,DFN-CERT-2020-2502,DFN-CERT-2020-2387,DFN-CERT-2020-2335,DFN-CERT-2020-2246,DFN-CERT-2020-2203,DFN-CERT-2020-2171,DFN-CERT-2020-1587,DFN-CERT-2020-1532,DFN-CERT-2020-1422,DFN-CERT-2020-1371,CB-K20/1049,CB-K20/0654,CB-K20/0416",""
+172.30.19.2,grafana-old.trabalho_vulnnet,3000,tcp,6.1,Medium,80,"VendorFix","Grafana < 7.1.0-beta1 XSS Vulnerability","Grafana is vulnerable to a cross-site scripting (XSS) vulnerability.","Installed version: 5.1.0
+Fixed version:     7.1.0-beta1
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.113774,"CVE-2020-24303",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,79f3d927-8ff6-40fc-bd7a-16ae688ebe1f,"Successful exploitation would allow an attacker to
+  inject arbitrary HTML and JavaScript into the site.","Update to version 7.1.0-beta1 or later.","Grafana through version 7.0.6.","The vulnerability is exploitable via a query alias for the ElasticSearch datasource.","Checks if a vulnerable version is present on the target host.
+Details:
+Grafana < 7.1.0-beta1 XSS Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.113774)
+Version used: 2021-07-08T11:00:45Z
+","","","DFN-CERT-2021-1282,DFN-CERT-2021-1078,DFN-CERT-2021-0786,DFN-CERT-2020-2792,DFN-CERT-2020-2790,DFN-CERT-2020-2653,CB-K20/1053",""
+172.30.19.2,grafana-old.trabalho_vulnnet,3000,tcp,7.5,High,80,"VendorFix","Grafana < 7.4.2 DoS Vulnerability","Grafana is prone to a denial of service (DoS) vulnerability.","Installed version: 5.1.0
+Fixed version:     7.4.2
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.145598,"CVE-2021-27358",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,9b3332cb-d775-4597-94a0-8ece1639b326,"","Update to version 7.4.2 or later.","Grafana versions through 7.4.1.","The snapshot feature in Grafana can allow an unauthenticated remote
+  attacker to trigger a DoS via a remote API call if a commonly used configuration is set.","Checks if a vulnerable version is present on the target host.
+Details:
+Grafana < 7.4.2 DoS Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.145598)
+Version used: 2021-08-17T14:01:00Z
+","","","DFN-CERT-2021-2376,DFN-CERT-2021-1739,DFN-CERT-2021-1670,DFN-CERT-2021-1622,DFN-CERT-2021-1282,DFN-CERT-2021-1281,CB-K21/0294",""
+172.30.19.2,grafana-old.trabalho_vulnnet,3000,tcp,8.1,High,80,"VendorFix","Grafana < 8.5.15, 9 < 9.2.4 Multiple Vulnerabilities","Grafana is prone to multiple vulnerabilities.","Installed version: 5.1.0
+Fixed version:     8.5.15
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.126208,"CVE-2022-39306,CVE-2022-39307",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,ffb385e0-890a-495f-a638-8342da19ea02,"","Update to version 8.5.15, 9.2.4 or later.","Grafana prior to version 8.5.15 and version 9 prior to
+  9.2.4.","The following vulnerabilities exist:
+
+  - CVE-2022-39306: Vulnerability makes it possible to use the invitation link to sign up with an
+  arbitrary username/email with a malicious intent
+
+  - CVE-2022-39307: The impacted endpoint leaks information to unauthenticated users and introduces
+  a security risk.","Checks if a vulnerable version is present on the target host.
+Details:
+Grafana < 8.5.15, 9 < 9.2.4 Multiple Vulnerabilities
+(OID: 1.3.6.1.4.1.25623.1.0.126208)
+Version used: 2023-10-18T05:05:17Z
+","","","DFN-CERT-2023-2756,DFN-CERT-2023-1395,DFN-CERT-2023-0322,WID-SEC-2023-0334",""
+172.30.19.2,grafana-old.trabalho_vulnnet,3000,tcp,5.4,Medium,80,"VendorFix","Grafana < 8.5.21, 9.2.x < 9.2.13, 9.3.x < 9.3.8 Multiple Vulnerabilities","Grafana is prone to multiple vulnerabilities.","Installed version: 5.1.0
+Fixed version:     8.5.21
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.149399,"CVE-2023-0507,CVE-2023-0594",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,aaa65735-728a-49e4-a0f2-efc2be8c8ca0,"","Update to version 8.5.21, 9.2.13, 9.3.8 or later.","Grafana prior to version 8.5.21, version 9.2.0 through 9.2.12
+  and 9.3.0 through 9.3.7.","The following vulnerabilities exist:
+
+  - CVE-2023-0507: Stored XSS in geomap panel plugin via attribution
+
+  - CVE-2023-0594: Stored XSS in TraceView panel","Checks if a vulnerable version is present on the target host.
+Details:
+Grafana < 8.5.21, 9.2.x < 9.2.13, 9.3.x < 9.3.8 Multiple Vulnerabilities
+(OID: 1.3.6.1.4.1.25623.1.0.149399)
+Version used: 2023-10-13T05:06:10Z
+","","","DFN-CERT-2024-0349,DFN-CERT-2023-0901,WID-SEC-2023-0528",""
+172.30.19.2,grafana-old.trabalho_vulnnet,3000,tcp,4.8,Medium,80,"VendorFix","Grafana < 8.5.22, 9.2.x < 9.2.15, 9.3.x < 9.3.11, 9.4.x < 9.4.7 XSS Vulnerability (GHSA-qrrg-gw7w-vp76)","Grafana is prone to a cross-site scripting (XSS)
+  vulnerability.","Installed version: 5.1.0
+Fixed version:     8.5.22
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.127372,"CVE-2023-1410",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,3ab44a42-4bac-4f3e-baee-bf1f8210230a,"","Update to version 8.5.22, 9.2.15, 9.3.11, 9.4.7 or later.","Grafana prior to version 8.5.22, 9.2.x prior to 9.2.15,
+  9.3.x prior to 9.3.11 and 9.4.x prior to 9.4.7.","The stored cross-site scripting (XSS) is possible due to
+  improper sanitization of the Function Description value.","Checks if a vulnerable version is present on the target host.
+Details:
+Grafana < 8.5.22, 9.2.x < 9.2.15, 9.3.x < 9.3.11, 9.4.x < 9.4.7 XSS Vulnerab...
+(OID: 1.3.6.1.4.1.25623.1.0.127372)
+Version used: 2023-10-13T05:06:10Z
+","","","DFN-CERT-2023-3124,DFN-CERT-2023-1430,DFN-CERT-2023-0999,DFN-CERT-2023-0901,WID-SEC-2023-1130,WID-SEC-2023-0726",""
+172.30.19.2,grafana-old.trabalho_vulnnet,3000,tcp,6.4,Medium,80,"VendorFix","Grafana < 8.5.26, 9.x < 9.2.19, 9.3.x < 9.3.15, 9.4.x < 9.4.12, 9.5.0 < 9.5.3 Access Control Vulnerability","Grafana is prone to an access control vulnerability in the
+  alert manager.","Installed version: 5.1.0
+Fixed version:     8.5.26
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.149749,"CVE-2023-2183",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,bb6b0432-68b1-4808-abd0-4fe82a47651a,"","Update to version 8.5.26, 9.2.19, 9.3.15, 9.4.12, 9.5.3 or
+  later.","Grafana prior to version 8.5.26, version 9.x through 9.2.18,
+  9.3.x through 9.3.14, 9.4.x through 9.4.11 and version 9.5.x through 9.5.2.","The option to send a test alert is not available from the user
+  panel UI for users having the Viewer role. It is still possible for a user with the Viewer role
+  to send a test alert using the API as the API does not check access to this function. This might
+  enable malicious users to abuse the functionality by sending multiple alert messages to e-mail
+  and Slack, spamming users, prepare phishing attack or block SMTP server.","Checks if a vulnerable version is present on the target host.
+Details:
+Grafana < 8.5.26, 9.x < 9.2.19, 9.3.x < 9.3.15, 9.4.x < 9.4.12, 9.5.0 < 9.5....
+(OID: 1.3.6.1.4.1.25623.1.0.149749)
+Version used: 2023-10-13T05:06:10Z
+","","","DFN-CERT-2023-3124,DFN-CERT-2023-1676,WID-SEC-2023-1384",""
+172.30.19.2,grafana-old.trabalho_vulnnet,3000,tcp,5.3,Medium,80,"VendorFix","Grafana < 9.4.12, 9.5.0 < 9.5.3 DoS Vulnerability","Grafana is prone to a denial of service (DoS) vulnerability.","Installed version: 5.1.0
+Fixed version:     9.4.12
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.149748,"CVE-2023-2801",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,36f580f2-2271-440d-a638-5969127317b7,"","Update to version 9.4.12, 9.5.3 or later.","Grafana prior to version 9.4.12 and version 9.5.x through
+  9.5.2.","Using public dashboards users can query multiple distinct data
+  sources using mixed queries. However such query has a possibility of crashing a Grafana instance.
+  The only feature that uses mixed queries at the moment is public dashboards, but it's also
+  possible to cause this by calling the query API directly. This might enable malicious users to
+  crash Grafana instances through that endpoint.","Checks if a vulnerable version is present on the target host.
+Details:
+Grafana < 9.4.12, 9.5.0 < 9.5.3 DoS Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.149748)
+Version used: 2023-10-13T05:06:10Z
+","","","DFN-CERT-2023-3124,DFN-CERT-2023-1676,WID-SEC-2023-1384",""
+172.30.19.2,grafana-old.trabalho_vulnnet,3000,tcp,4.9,Medium,80,"WillNotFix","Grafana <= 5.4.0 Information Disclosure Vulnerability","Grafana is prone to an information disclosure vulnerability.","Installed version: 5.1.0
+Fixed version:     None
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.126288,"CVE-2019-15635",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,b5e9a558-33cd-4675-9a7f-caae05cd2b25,"","No known solution was made available for at least one year since
+  the disclosure of this vulnerability. Likely none will be provided anymore. General solution options
+  are to upgrade to a newer release, disable respective features, remove the product or replace the
+  product by another one.","Grafana version 5.4.0 and probably prior.","Grafana allows a local authenticated attacker to obtain
+  sensitive information, caused by wrong encryption of passwords for data sources that it uses.","Checks if a vulnerable version is present on the target host.
+Details:
+Grafana <= 5.4.0 Information Disclosure Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.126288)
+Version used: 2023-01-06T10:11:13Z
+","","","",""
+172.30.19.2,grafana-old.trabalho_vulnnet,3000,tcp,6.1,Medium,80,"WillNotFix","Grafana <= 6.0.0 Multiple XSS Vulnerabilities","Grafana is prone to multiple cross-site scripting (XSS)
+  vulnerabilities.","Installed version: 5.1.0
+Fixed version:     None
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.126280,"CVE-2018-18624,CVE-2018-18625",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,78d33e5e-b000-4c4c-bbaf-e75df5440a3d,"","No known solution was made available for at least one year
+  since the disclosure of this vulnerability. Likely none will be provided anymore. General
+  solution options are to upgrade to a newer release, disable respective features, remove the
+  product or replace the product by another one.","Grafana version 6.0.0 and prior.","The following vulnerabilities exist:
+
+  - CVE-2018-18624: XSS via a column style on the 'Dashboard > Table Panel' screen
+
+  - CVE-2018-18625: XSS via a link on the 'Dashboard > All Panels > General' screen","Checks if a vulnerable version is present on the target host.
+Details:
+Grafana <= 6.0.0 Multiple XSS Vulnerabilities
+(OID: 1.3.6.1.4.1.25623.1.0.126280)
+Version used: 2024-01-11T05:05:45Z
+","","","DFN-CERT-2021-1282,DFN-CERT-2020-2502,DFN-CERT-2020-2387,DFN-CERT-2020-2335,DFN-CERT-2020-2246,DFN-CERT-2020-2203,CB-K20/1049",""
+172.30.19.2,grafana-old.trabalho_vulnnet,3000,tcp,8.8,High,80,"VendorFix","Grafana CSRF Vulnerability (GHSA-cmf4-h3xc-jw8w)","Grafana is prone to a cross-site request forgery (CSRF)
+  vulnerability.","Installed version: 5.1.0
+Fixed version:     7.5.15
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.147617,"CVE-2022-21703",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,45ac6c48-51e7-45e5-b0e2-49974110b0fe,"","Update to version 7.5.15, 8.3.5 or later.","Grafana version 3.0-beta1 through 7.5.14 and 8.x through 8.3.4.","","An attacker can exploit this vulnerability for privilege
+  escalation by tricking an authenticated user into inviting the attacker as a new user with
+  high privileges.
+Details:
+Grafana CSRF Vulnerability (GHSA-cmf4-h3xc-jw8w)
+(OID: 1.3.6.1.4.1.25623.1.0.147617)
+Version used: 2022-05-02T03:04:50Z
+","","","DFN-CERT-2022-2496,DFN-CERT-2022-2397,DFN-CERT-2022-2350,DFN-CERT-2022-1386,DFN-CERT-2022-0922,DFN-CERT-2022-0794,WID-SEC-2022-0407,CB-K22/0159",""
+172.30.19.2,grafana-old.trabalho_vulnnet,3000,tcp,0.0,Log,80,"","Grafana Detection (HTTP)","HTTP based detection of Grafana.","Detected Grafana
+
+Version:       5.1.0
+Location:      /
+CPE:           cpe:/a:grafana:grafana:5.1.0
+
+Concluded from version/product identification result:
+Grafana v5.1.0 (
+
+Concluded from version/product identification location:
+http://grafana-old.trabalho_vulnnet:3000/login
+",1.3.6.1.4.1.25623.1.0.113259,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,e0dc8859-c376-4722-bc36-007b37afb450,"","","","","
+Details:
+Grafana Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.113259)
+Version used: 2025-11-18T05:39:54Z
+","","","",""
+172.30.19.2,grafana-old.trabalho_vulnnet,3000,tcp,4.3,Medium,80,"VendorFix","Grafana IDOR Vulnerability (GHSA-63g3-9jq3-mccv)","Grafana is prone to an insecure direct object reference (IDOR)
+  vulnerability on Grafana Teams APIs.","Installed version: 5.1.0
+Fixed version:     7.5.15
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.147616,"CVE-2022-21713",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,433e1c94-74af-4d23-9c7a-c740e0ff1d6f,"This vulnerability only impacts the following API endpoints:
+
+  - /teams/:teamId - an authenticated attacker can view unintended data by querying for the
+  specific team ID.
+
+  - /teams/:search - an authenticated attacker can search for teams and see the total number of
+  available teams, including for those teams that the user does not have access to.
+
+  - /teams/:teamId/members - when editors_can_admin flag is enabled, an authenticated attacker can
+  see unintended data by querying for the specific team ID.","Update to version 7.5.15, 8.3.5 or later.","Grafana version 5.0.0-beta1 through 7.5.14 and 8.x through
+  8.3.4.","","Checks if a vulnerable version is present on the target host.
+Details:
+Grafana IDOR Vulnerability (GHSA-63g3-9jq3-mccv)
+(OID: 1.3.6.1.4.1.25623.1.0.147616)
+Version used: 2022-02-16T03:03:58Z
+","","","DFN-CERT-2022-2496,DFN-CERT-2022-2397,DFN-CERT-2022-2350,DFN-CERT-2022-1386,DFN-CERT-2022-0922,DFN-CERT-2022-0794,WID-SEC-2022-0407,CB-K22/0159",""
+172.30.19.2,grafana-old.trabalho_vulnnet,3000,tcp,8.1,High,80,"VendorFix","Grafana Image Renderer Vulnerability (GHSA-2cfh-233g-m4c5)","Grafana is prone to a vulnerability in Grafana Image Renderer.","Installed version: 5.1.0
+Fixed version:     8.3.11
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.148673,"CVE-2022-31176",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,fecbc7f4-e14b-4ef8-b238-c5cf8892cfef,"","Update to version 8.3.11, 8.4.11, 8.5.11, 9.0.8, 9.1.2 or
+  later.","Grafana version 9.x and prior.","The Chromium browser embedded in the Grafana image renderer
+  allows for 'printing' of unauthorized files in a PNG file. This makes it possible for a malicious
+  user to retrieve unauthorized files under some network conditions or via a fake datasource (if
+  the user has admin permissions in Grafana). This vulnerability permits unauthorized file
+  disclosure and is a potential DoS vector through targeting of extremely large files.","Checks if a vulnerable version is present on the target host.
+Details:
+Grafana Image Renderer Vulnerability (GHSA-2cfh-233g-m4c5)
+(OID: 1.3.6.1.4.1.25623.1.0.148673)
+Version used: 2023-10-18T05:05:17Z
+","","","WID-SEC-2022-1221",""
+172.30.19.2,grafana-old.trabalho_vulnnet,3000,tcp,6.6,Medium,80,"VendorFix","Grafana Privilege Escalation Vulnerability (GHSA-ff5c-938w-8c9q)","Grafana is prone to a privilege escalation vulnerability.","Installed version: 5.1.0
+Fixed version:     8.5.13
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.148743,"CVE-2022-35957",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,f03cc50b-7c1a-47d0-8362-e044be4e3ede,"","Update to version 8.5.13, 9.0.9, 9.1.6 or later.","Grafana prior to version 8.5.13, version 9.0.x through 9.0.8
+  and 9.1.x through 9.1.5 if the Auth Proxy is used.","Grafana allows an escalation from Admin privileges to Server
+  Admin when Auth proxy authentication is used.
+
+  Auth proxy allows to authenticate a user by only providing the username (or email) in a
+  X-WEBAUTH-USER HTTP header: the trust assumption is that a front proxy will take care of
+  authentication and that Grafana server is publicly reachable only with this front proxy.
+
+  Datasource proxy breaks this assumption:
+
+  - it is possible to configure a fake datasource pointing to a localhost Grafana install with a
+  X-WEBAUTH-USER HTTP header containing admin username.
+
+  - This fake datasource can be called publicly via this proxying feature.","Checks if a vulnerable version is present on the target host.
+Details:
+Grafana Privilege Escalation Vulnerability (GHSA-ff5c-938w-8c9q)
+(OID: 1.3.6.1.4.1.25623.1.0.148743)
+Version used: 2023-10-18T05:05:17Z
+","","","DFN-CERT-2023-1430,DFN-CERT-2023-1395,DFN-CERT-2023-1045,DFN-CERT-2022-2825,DFN-CERT-2022-2350,WID-SEC-2022-1486",""
+172.30.19.2,grafana-old.trabalho_vulnnet,3000,tcp,7.5,High,80,"VendorFix","Grafana Privilege Escalation Vulnerability (GHSA-x744-mm8v-vpgr)","Grafana is prone to a privilege escalation vulnerability.","Installed version: 5.1.0
+Fixed version:     8.5.14
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.124198,"CVE-2022-39201",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,b82b2d08-970d-4e9b-827f-8fa6067379bb,"The destination plugin could receive a Grafana authentication
+  cookie of the user.","Update to version 8.5.14, 9.1.8 or later.","Grafana version 5.0.0-beta1 through 8.5.13, 9.x through 9.1.7.","","Checks if a vulnerable version is present on the target host.
+Details:
+Grafana Privilege Escalation Vulnerability (GHSA-x744-mm8v-vpgr)
+(OID: 1.3.6.1.4.1.25623.1.0.124198)
+Version used: 2023-10-18T05:05:17Z
+","","","DFN-CERT-2023-2756,DFN-CERT-2023-1395,DFN-CERT-2023-0322,WID-SEC-2022-1702",""
+172.30.19.2,grafana-old.trabalho_vulnnet,3000,tcp,5.4,Medium,80,"VendorFix","Grafana XSS Vulnerability (GHSA-xc3p-28hw-q24g)","Grafana is prone to a cross-site scripting (XSS) vulnerability.","Installed version: 5.1.0
+Fixed version:     7.5.15
+Installation
+path / port:       /
+
+",1.3.6.1.4.1.25623.1.0.147615,"CVE-2022-21702",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,971a9f80-050f-4cab-b830-76c670601ee4,"An attacker could serve HTML content through the Grafana
+  datasource or plugin proxy and trick a user to visit this HTML page using a specially crafted
+  link and execute an XSS attack. The attacker could either compromise an existing datasource for a
+  specific Grafana instance or either set up its own public service and instruct anyone to set it
+  up in their Grafana instance.","Update to version 7.5.15, 8.3.5 or later.","Grafana version 2.0.0-beta1 through 8.3.4.","","Checks if a vulnerable version is present on the target host.
+Details:
+Grafana XSS Vulnerability (GHSA-xc3p-28hw-q24g)
+(OID: 1.3.6.1.4.1.25623.1.0.147615)
+Version used: 2022-02-16T03:03:58Z
+","","","DFN-CERT-2022-2496,DFN-CERT-2022-2397,DFN-CERT-2022-2350,DFN-CERT-2022-1386,DFN-CERT-2022-0922,DFN-CERT-2022-0794,WID-SEC-2024-0794,WID-SEC-2022-0407,CB-K22/0159",""
+172.30.19.2,grafana-old.trabalho_vulnnet,,,0.0,Log,80,"","Hostname Determination Reporting","The script reports information on how the hostname of the target
+  was determined.","Hostname determination for IP 172.30.19.2:
+
+Hostname|Source
+grafana-old.trabalho_vulnnet|Reverse-DNS
+",1.3.6.1.4.1.25623.1.0.108449,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,e800325e-d628-4c10-9bd7-ccad8a77f68f,"","","","","
+Details:
+Hostname Determination Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.108449)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.30.19.2,grafana-old.trabalho_vulnnet,3000,tcp,0.0,Log,80,"","HTTP Security Headers Detection","All known security headers are being checked on the remote web
+  server.
+
+  On completion a report will hand back whether a specific security header has been implemented
+  (including its value and if it is deprecated) or is missing on the target.","Missing Headers                   | More Information
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Content-Security-Policy           | https://owasp.org/www-project-secure-headers/#content-security-policy
+Cross-Origin-Embedder-Policy      | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Cross-Origin-Opener-Policy        | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Cross-Origin-Resource-Policy      | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Document-Policy                   | https://w3c.github.io/webappsec-feature-policy/document-policy#document-policy-http-header
+Feature-Policy                    | https://owasp.org/www-project-secure-headers/#feature-policy, Note: The Feature Policy header has been renamed to Permissions Policy
+Permissions-Policy                | https://w3c.github.io/webappsec-feature-policy/#permissions-policy-http-header-field
+Referrer-Policy                   | https://owasp.org/www-project-secure-headers/#referrer-policy
+Sec-Fetch-Dest                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-Mode                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-Site                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-User                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+X-Content-Type-Options            | https://owasp.org/www-project-secure-headers/#x-content-type-options
+X-Frame-Options                   | https://owasp.org/www-project-secure-headers/#x-frame-options
+X-Permitted-Cross-Domain-Policies | https://owasp.org/www-project-secure-headers/#x-permitted-cross-domain-policies
+X-XSS-Protection                  | https://owasp.org/www-project-secure-headers/#x-xss-protection, Note: Most major browsers have dropped / deprecated support for this header in 2020.
+",1.3.6.1.4.1.25623.1.0.112081,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,cefdd7c0-edea-4653-8da9-c8ad97fac37d,"","","","","
+Details:
+HTTP Security Headers Detection
+(OID: 1.3.6.1.4.1.25623.1.0.112081)
+Version used: 2025-03-21T15:40:43Z
+","","","",""
+172.30.19.2,grafana-old.trabalho_vulnnet,,,2.1,Low,80,"Mitigation","ICMP Timestamp Reply Information Disclosure","The remote host responded to an ICMP timestamp request.","The following response / ICMP packet has been received:
+- ICMP Type: 14
+- ICMP Code: 0
+",1.3.6.1.4.1.25623.1.0.103190,"CVE-1999-0524",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,de2a91cd-eab3-46a4-8857-5ea7145bd942,"This information could theoretically be used to exploit weak
+  time-based random number generators in other services.","Various mitigations are possible:
+
+  - Disable the support for ICMP timestamp on the remote host completely
+
+  - Protect the remote host by a firewall, and block ICMP packets passing through the firewall in
+  either direction (either completely or only for untrusted networks)","","The Timestamp Reply is an ICMP message which replies to a
+  Timestamp message. It consists of the originating timestamp sent by the sender of the Timestamp as
+  well as a receive timestamp and a transmit timestamp.","Sends an ICMP Timestamp (Type 13) request and checks if a
+  Timestamp Reply (Type 14) is received.
+Details:
+ICMP Timestamp Reply Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.103190)
+Version used: 2025-01-21T05:37:33Z
+","","","DFN-CERT-2014-0658,CB-K15/1514,CB-K14/0632",""
+172.30.19.2,grafana-old.trabalho_vulnnet,,,0.0,Log,70,"","IP Forwarding Enabled - Active Check","Checks if the remote host has IP forwarding enabled.","It was possible to route a TCP packet through the target host and received an answer which means IP forwarding is enabled.
+",1.3.6.1.4.1.25623.1.0.147205,"CVE-1999-0511",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,75c7e6fb-aab9-45e1-881b-7ab77543d1f5,"","","","","Sends a crafted Local Link Layer (LLL) frame and checks the
+  response.
+Details:
+IP Forwarding Enabled - Active Check
+(OID: 1.3.6.1.4.1.25623.1.0.147205)
+Version used: 2021-12-03T08:27:06Z
+","","","",""
+172.30.19.2,grafana-old.trabalho_vulnnet,,,0.0,Log,80,"","OS Detection Consolidation and Reporting","This script consolidates the OS information detected by several
+  VTs and tries to find the best matching OS.
+
+  Furthermore it reports all previously collected information leading to this best matching OS. It
+  also reports possible additional information which might help to improve the OS detection.
+
+  If any of this information is wrong or could be improved please consider to report these to the
+  referenced community forum.","Best matching OS:
+
+OS:           Linux Kernel
+CPE:          cpe:/o:linux:kernel
+Found by VT:  1.3.6.1.4.1.25623.1.0.102002 (Operating System (OS) Detection (ICMP))
+Concluded from ICMP based OS fingerprint
+Setting key ""Host/runs_unixoide"" based on this information
+",1.3.6.1.4.1.25623.1.0.105937,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,bbc689d4-5c56-4b9b-86b5-79559785fca6,"","","","","
+Details:
+OS Detection Consolidation and Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.105937)
+Version used: 2026-01-21T05:50:46Z
+","","","",""
+172.30.19.2,grafana-old.trabalho_vulnnet,3000,tcp,0.0,Log,80,"Mitigation","robot.txt / robots.txt exists on the Web Server (HTTP)","Web Servers can use a file called /robot(s).txt to ask search engines
+  to ignore certain files and directories. By nature this file can not be used to protect private files
+  from public read access.","The file 'http://grafana-old.trabalho_vulnnet:3000/robots.txt' contains the following:
+
+User-agent: *
+Disallow: /
+",1.3.6.1.4.1.25623.1.0.10302,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,b0e266d5-e250-405e-81f1-4dd6fb207cc1,"","Review the content of the /robot(s).txt file and consider removing the
+  files from the server or protect them in other ways in case you actually intended non-public availability.","","Any serious web search engine will honor the /robot(s).txt file
+  and not scan the files and directories listed there.
+
+  Any entries listed in this file are not even hidden anymore.","
+Details:
+robot.txt / robots.txt exists on the Web Server (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.10302)
+Version used: 2024-02-26T14:36:40Z
+","","","",""
+172.30.19.2,grafana-old.trabalho_vulnnet,3000,tcp,0.0,Log,80,"","Services","This plugin performs service detection.","A web server is running on this port
+",1.3.6.1.4.1.25623.1.0.10330,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,3b8007ea-c627-4005-aa19-573839e7dc67,"","","","This plugin attempts to guess which service is running on the
+  remote port(s). For instance, it searches for a web server which could listen on another port than
+  80 or 443 and makes this information available for other check routines.","
+Details:
+Services
+(OID: 1.3.6.1.4.1.25623.1.0.10330)
+Version used: 2025-03-05T05:38:53Z
+","","","",""
+172.30.19.2,grafana-old.trabalho_vulnnet,,,2.6,Low,80,"Mitigation","TCP Timestamps Information Disclosure","The remote host implements TCP timestamps and therefore allows
+  to compute the uptime.","It was detected that the host implements RFC1323/RFC7323.
+
+The following timestamps were retrieved with a delay of 1 seconds in-between:
+Packet 1: 392323150
+Packet 2: 392324258
+",1.3.6.1.4.1.25623.1.0.80091,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,db25f53e-9481-4b5c-8a7b-57053b6984f9,"A side effect of this feature is that the uptime of the remote
+  host can sometimes be computed.","To disable TCP timestamps on linux add the line
+  'net.ipv4.tcp_timestamps = 0' to /etc/sysctl.conf. Execute 'sysctl -p' to apply the settings at
+  runtime.
+
+  To disable TCP timestamps on Windows execute 'netsh int tcp set global timestamps=disabled'
+
+  Starting with Windows Server 2008 and Vista, the timestamp can not be completely disabled.
+
+  The default behavior of the TCP/IP stack on this Systems is to not use the Timestamp options when
+  initiating TCP connections, but use them if the TCP peer that is initiating communication includes
+  them in their synchronize (SYN) segment.
+
+  See the references for more information.","TCP implementations that implement RFC1323/RFC7323.","The remote host implements TCP timestamps, as defined by
+  RFC1323/RFC7323.","Special IP packets are forged and sent with a little delay in
+  between to the target IP. The responses are searched for a timestamps. If found, the timestamps
+  are reported.
+Details:
+TCP Timestamps Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.80091)
+Version used: 2023-12-15T16:10:08Z
+","","","",""
+172.30.19.2,grafana-old.trabalho_vulnnet,,,0.0,Log,80,"","Traceroute","Collect information about the network route and
+  network distance between the scanner host and the target host.","Network route from scanner (172.30.0.2) to target (172.30.19.2):
+
+172.30.0.2
+172.30.19.2
+
+Network distance between scanner and target: 2
+",1.3.6.1.4.1.25623.1.0.51662,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,b4dfa3d2-f0b7-4b54-b75d-176fca6db5c3,"","","","For internal networks, the distances are usually
+  small, often less than 4 hosts between scanner and target. For public targets the
+  distance is greater and might be 10 hosts or more.","A combination of the protocols ICMP and TCP is used
+  to determine the route. This method is applicable for IPv4 only and it is also known as
+  'traceroute'.
+Details:
+Traceroute
+(OID: 1.3.6.1.4.1.25623.1.0.51662)
+Version used: 2022-10-17T11:13:19Z
+","","","",""
+172.30.19.2,grafana-old.trabalho_vulnnet,3000,tcp,0.0,Log,80,"","Web Application Scanning Consolidation / Info Reporting","The script consolidates and reports various information for web
+  application (formerly called 'CGI') scanning.
+
+  This information is based on the following scripts / settings:
+
+  - HTTP-Version Detection (OID: 1.3.6.1.4.1.25623.1.0.100034)
+
+  - No 404 check (OID: 1.3.6.1.4.1.25623.1.0.10386)
+
+  - Web mirroring / webmirror.nasl (OID: 1.3.6.1.4.1.25623.1.0.10662)
+
+  - Directory Scanner / DDI_Directory_Scanner.nasl (OID: 1.3.6.1.4.1.25623.1.0.11032)
+
+  - The configured 'cgi_path' within the 'Scanner Preferences' of the scan config in use
+
+  - The configured 'Enable CGI scanning', 'Enable generic web application scanning' and
+  'Add historic /scripts and /cgi-bin to directories for CGI scanning' within the
+  'Global variable settings' of the scan config in use
+
+  If you think any of this information is wrong please report it to the referenced community
+  forum.","The Hostname/IP ""grafana-old.trabalho_vulnnet"" was used to access the remote host.
+
+Generic web application scanning is disabled for this host via the ""Enable generic web application scanning"" option within the ""Global variable settings"" of the scan config in use.
+
+Requests to this service are done via HTTP/1.1.
+
+This service seems to be able to host PHP scripts.
+
+This service seems to be able to host ASP scripts.
+
+The User-Agent ""Mozilla/5.0 [en] (X11, U; OpenVAS-VT <version replaced>)"" was used to access the remote host.
+
+Historic /scripts and /cgi-bin are not added to the directories used for web application scanning. You can enable this again with the ""Add historic /scripts and /cgi-bin to directories for CGI scanning"" option within the ""Global variable settings"" of the scan config in use.
+
+A possible recursion was detected during web application scanning:
+
+The service is using a relative URL in one or more HTML references where e.g. /file1.html contains <a href=""subdir/file2.html""> and a subsequent request for subdir/file2.html is linking to subdir/file2.html. This would resolves to subdir/subdir/file2.html causing a recursion. To work around this counter-measures have been enabled but the service should be fixed as well to not use such problematic links. Below an excerpt of URLs is shown to help identify those issues.
+
+Syntax : URL (HTML link)
+
+http://grafana-old.trabalho_vulnnet:3000/public/build/ (public/img/fav32.png)
+http://grafana-old.trabalho_vulnnet:3000/public/build/public/build (public/build/app.3095c117813e1134f897.js)
+http://grafana-old.trabalho_vulnnet:3000/public/build/public/build (public/build/grafana.dark.css?v5.1.0)
+http://grafana-old.trabalho_vulnnet:3000/public/build/public/build (public/build/manifest.b79f256681fa503ac2ed.js)
+http://grafana-old.trabalho_vulnnet:3000/public/build/public/build (public/build/vendor.0cea50118711e7e6c839.js)
+
+The following directories were used for web application scanning:
+
+http://grafana-old.trabalho_vulnnet:3000/
+http://grafana-old.trabalho_vulnnet:3000/login
+http://grafana-old.trabalho_vulnnet:3000/public/build
+http://grafana-old.trabalho_vulnnet:3000/public/build/public/build
+
+While this is not, in and of itself, a bug, you should manually inspect these directories to ensure that they are in compliance with company security standards
+
+The following directories were excluded from web application scanning because the ""Regex pattern to exclude directories from CGI scanning"" setting of the VT ""Global variable settings"" (OID: 1.3.6.1.4.1.25623.1.0.12288) for this scan was: ""/(index\.php|image|img|css|js$|js/|javascript|style|theme|icon|jquery|graphic|grafik|picture|bilder|thumbnail|media/|skins?/)""
+
+http://grafana-old.trabalho_vulnnet:3000/public/build/public/img
+http://grafana-old.trabalho_vulnnet:3000/public/img
+
+The following cgi scripts were excluded from web application scanning because of the ""Regex pattern to exclude cgi scripts"" setting of the VT ""Web mirroring"" (OID: 1.3.6.1.4.1.25623.1.0.10662) for this scan was: ""\.(js|css)$""
+
+Syntax : cginame (arguments [default value])
+
+http://grafana-old.trabalho_vulnnet:3000/public/build/grafana.dark.css (v5.1.0 [] )
+http://grafana-old.trabalho_vulnnet:3000/public/build/public/build/grafana.dark.css (v5.1.0 [] )
+",1.3.6.1.4.1.25623.1.0.111038,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T07:12:33Z,0f72888d-7cb9-4185-b913-6b617c1382a3,"","","","","
+Details:
+Web Application Scanning Consolidation / Info Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.111038)
+Version used: 2026-01-13T05:47:36Z
+","","","",""

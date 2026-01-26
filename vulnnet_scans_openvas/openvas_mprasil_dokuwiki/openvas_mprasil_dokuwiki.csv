@@ -1,0 +1,305 @@
+IP,Hostname,Port,Port Protocol,CVSS,Severity,QoD,Solution Type,NVT Name,Summary,Specific Result,NVT OID,CVEs,Task ID,Task Name,Timestamp,Result ID,Impact,Solution,Affected Software/OS,Vulnerability Insight,Vulnerability Detection Method,Product Detection Result,BIDs,CERTs,Other References
+      172.30.32.2,dokuwiki.trabalho_vulnnet,,,0.0,Log,80,"","CPE Inventory","This routine uses information collected by other routines about
+  CPE identities of operating systems, services and applications detected during the scan.
+
+  Note: Some CPEs for specific products might show up twice or more in the output. Background:
+
+  After a product got renamed or a specific vendor was acquired by another one it might happen that
+  a product gets a new CPE within the NVD CPE Dictionary but older entries are kept with the older
+  CPE.","172.30.32.2|cpe:/a:lighttpd:lighttpd:1.4.63
+172.30.32.2|cpe:/o:linux:kernel
+
+",1.3.6.1.4.1.25623.1.0.810002,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:16:06Z,2a0f3e20-017e-48b3-b7ab-108497809f97,"","","","","
+Details:
+CPE Inventory
+(OID: 1.3.6.1.4.1.25623.1.0.810002)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.30.32.2,dokuwiki.trabalho_vulnnet,,,0.0,Log,80,"","Hostname Determination Reporting","The script reports information on how the hostname of the target
+  was determined.","Hostname determination for IP 172.30.32.2:
+
+Hostname|Source
+dokuwiki.trabalho_vulnnet|Reverse-DNS
+",1.3.6.1.4.1.25623.1.0.108449,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:16:06Z,45cfc650-bdc5-4743-a9f6-d68e1711c538,"","","","","
+Details:
+Hostname Determination Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.108449)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.30.32.2,dokuwiki.trabalho_vulnnet,80,tcp,0.0,Log,80,"","HTTP Security Headers Detection","All known security headers are being checked on the remote web
+  server.
+
+  On completion a report will hand back whether a specific security header has been implemented
+  (including its value and if it is deprecated) or is missing on the target.","Missing Headers                   | More Information
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Content-Security-Policy           | https://owasp.org/www-project-secure-headers/#content-security-policy
+Cross-Origin-Embedder-Policy      | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Cross-Origin-Opener-Policy        | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Cross-Origin-Resource-Policy      | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Document-Policy                   | https://w3c.github.io/webappsec-feature-policy/document-policy#document-policy-http-header
+Feature-Policy                    | https://owasp.org/www-project-secure-headers/#feature-policy, Note: The Feature Policy header has been renamed to Permissions Policy
+Permissions-Policy                | https://w3c.github.io/webappsec-feature-policy/#permissions-policy-http-header-field
+Referrer-Policy                   | https://owasp.org/www-project-secure-headers/#referrer-policy
+Sec-Fetch-Dest                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-Mode                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-Site                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-User                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+X-Content-Type-Options            | https://owasp.org/www-project-secure-headers/#x-content-type-options
+X-Frame-Options                   | https://owasp.org/www-project-secure-headers/#x-frame-options
+X-Permitted-Cross-Domain-Policies | https://owasp.org/www-project-secure-headers/#x-permitted-cross-domain-policies
+X-XSS-Protection                  | https://owasp.org/www-project-secure-headers/#x-xss-protection, Note: Most major browsers have dropped / deprecated support for this header in 2020.
+",1.3.6.1.4.1.25623.1.0.112081,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:16:06Z,ff4caffa-d7ba-47d6-b0de-6bca2f54bdb5,"","","","","
+Details:
+HTTP Security Headers Detection
+(OID: 1.3.6.1.4.1.25623.1.0.112081)
+Version used: 2025-03-21T15:40:43Z
+","","","",""
+172.30.32.2,dokuwiki.trabalho_vulnnet,80,tcp,0.0,Log,80,"","HTTP Server Banner Enumeration","This script tries to detect / enumerate different HTTP server
+  banner (e.g. from a frontend, backend or proxy server) by sending various different HTTP requests
+  (valid and invalid ones).","It was possible to enumerate the following HTTP server banner(s):
+
+Server banner           | Enumeration technique
+------------------------------------------------------------------------------------------
+Server: lighttpd/1.4.63 | Invalid HTTP 00.5 GET request (non-existent HTTP version) to '/'
+",1.3.6.1.4.1.25623.1.0.108708,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:16:06Z,d7440201-895a-495e-a40c-9070adcd8b02,"","","","","
+Details:
+HTTP Server Banner Enumeration
+(OID: 1.3.6.1.4.1.25623.1.0.108708)
+Version used: 2025-01-31T15:39:24Z
+","","","",""
+172.30.32.2,dokuwiki.trabalho_vulnnet,80,tcp,0.0,Log,80,"","HTTP Server type and version","This script detects and reports the HTTP Server's banner
+  which might provide the type and version of it.","The remote HTTP Server banner is:
+
+Server: lighttpd/1.4.63
+",1.3.6.1.4.1.25623.1.0.10107,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:16:06Z,67ba89c4-7624-4465-8e8e-e9faa3146c83,"","","","","
+Details:
+HTTP Server type and version
+(OID: 1.3.6.1.4.1.25623.1.0.10107)
+Version used: 2023-08-01T13:29:10Z
+","","","",""
+172.30.32.2,dokuwiki.trabalho_vulnnet,,,2.1,Low,80,"Mitigation","ICMP Timestamp Reply Information Disclosure","The remote host responded to an ICMP timestamp request.","The following response / ICMP packet has been received:
+- ICMP Type: 14
+- ICMP Code: 0
+",1.3.6.1.4.1.25623.1.0.103190,"CVE-1999-0524",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:16:06Z,a89cb2d5-a6a3-428d-a96c-682da877906d,"This information could theoretically be used to exploit weak
+  time-based random number generators in other services.","Various mitigations are possible:
+
+  - Disable the support for ICMP timestamp on the remote host completely
+
+  - Protect the remote host by a firewall, and block ICMP packets passing through the firewall in
+  either direction (either completely or only for untrusted networks)","","The Timestamp Reply is an ICMP message which replies to a
+  Timestamp message. It consists of the originating timestamp sent by the sender of the Timestamp as
+  well as a receive timestamp and a transmit timestamp.","Sends an ICMP Timestamp (Type 13) request and checks if a
+  Timestamp Reply (Type 14) is received.
+Details:
+ICMP Timestamp Reply Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.103190)
+Version used: 2025-01-21T05:37:33Z
+","","","DFN-CERT-2014-0658,CB-K15/1514,CB-K14/0632",""
+172.30.32.2,dokuwiki.trabalho_vulnnet,,,0.0,Log,70,"","IP Forwarding Enabled - Active Check","Checks if the remote host has IP forwarding enabled.","It was possible to route a TCP packet through the target host and received an answer which means IP forwarding is enabled.
+",1.3.6.1.4.1.25623.1.0.147205,"CVE-1999-0511",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:16:06Z,7845d926-1d93-415a-b92f-7e346e26959b,"","","","","Sends a crafted Local Link Layer (LLL) frame and checks the
+  response.
+Details:
+IP Forwarding Enabled - Active Check
+(OID: 1.3.6.1.4.1.25623.1.0.147205)
+Version used: 2021-12-03T08:27:06Z
+","","","",""
+172.30.32.2,dokuwiki.trabalho_vulnnet,80,tcp,5.9,Medium,30,"VendorFix","Lighttpd 1.4.46 - 1.4.63 DoS Vulnerability","Lighttpd is prone to a denial of service (DoS) vulnerability.","Installed version: 1.4.63
+Fixed version:     1.4.64
+
+",1.3.6.1.4.1.25623.1.0.147394,"CVE-2022-22707",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:16:06Z,f9541634-ed13-4912-9d4c-5f808fcd981c,"","Update to version 1.4.64 or later.","Lighttpd version 1.4.46 through 1.4.63.","The mod_extforward_Forwarded function of the mod_extforward
+  plugin has a stack-based buffer overflow (4 bytes representing -1), as demonstrated by remote
+  denial of service (daemon crash) in a non-default configuration. The non-default configuration
+  requires handling of the Forwarded header in a somewhat unusual manner. Also, a 32-bit system is
+  much more likely to be affected than a 64-bit system.","Checks if a vulnerable version is present on the target host.
+Details:
+Lighttpd 1.4.46 - 1.4.63 DoS Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.147394)
+Version used: 2023-02-01T10:08:40Z
+","Product: cpe:/a:lighttpd:lighttpd:1.4.63
+Method: Lighttpd Server Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.111079)
+","","DFN-CERT-2022-0068,DFN-CERT-2022-0063,WID-SEC-2023-0506",""
+172.30.32.2,dokuwiki.trabalho_vulnnet,80,tcp,7.5,High,30,"VendorFix","Lighttpd < 1.4.66 DoS Vulnerability","Lighttpd is prone to a denial of service (DoS) vulnerability.","Installed version: 1.4.63
+Fixed version:     1.4.66
+
+",1.3.6.1.4.1.25623.1.0.124151,"CVE-2022-37797",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:16:06Z,57032674-c4b8-4797-b864-da59b09af37d,"In lighttpd, mod_wstunnel does not initialize a handler function
+  pointer if an invalid HTTP request (websocket handshake) is received. It leads to null pointer
+  dereference which crashes the server. It could be used by an external attacker to cause denial
+  of service condition.","Update to version 1.4.66 or later.","Lighttpd version 1.4.65 and prior.","","Checks if a vulnerable version is present on the target host.
+Details:
+Lighttpd < 1.4.66 DoS Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.124151)
+Version used: 2023-10-18T05:05:17Z
+","Product: cpe:/a:lighttpd:lighttpd:1.4.63
+Method: Lighttpd Server Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.111079)
+","","DFN-CERT-2023-0120,DFN-CERT-2022-2153,WID-SEC-2023-0561,WID-SEC-2022-1395",""
+172.30.32.2,dokuwiki.trabalho_vulnnet,80,tcp,7.5,High,30,"VendorFix","Lighttpd < 1.4.67 DoS Vulnerability","Lighttpd is prone to a denial of service (DoS) vulnerability.","Installed version: 1.4.63
+Fixed version:     1.4.67
+
+",1.3.6.1.4.1.25623.1.0.104330,"CVE-2022-41556",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:16:06Z,0aac4d19-c7a2-4475-b4c8-707b2b75158d,"A resource leak in mod_fastcgi and mod_scgi could lead to a DoS
+  after a large number of bad HTTP requests.","Update to version 1.4.67 or later.","Lighttpd version 1.4.66 and prior.","","Checks if a vulnerable version is present on the target host.
+Details:
+Lighttpd < 1.4.67 DoS Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.104330)
+Version used: 2023-10-18T05:05:17Z
+","Product: cpe:/a:lighttpd:lighttpd:1.4.63
+Method: Lighttpd Server Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.111079)
+","","DFN-CERT-2022-2153,WID-SEC-2023-0561,WID-SEC-2022-1585",""
+172.30.32.2,dokuwiki.trabalho_vulnnet,80,tcp,7.8,High,30,"VendorFix","Lighttpd < 1.4.80 DoS Vulnerability (MadeYouReset)","Lighttpd is prone to a denial of service (DoS) vulnerability in
+  the HTTP/2 protocol dubbed 'MadeYouReset'.","Installed version: 1.4.63
+Fixed version:     1.4.80
+
+",1.3.6.1.4.1.25623.1.0.155259,"CVE-2025-8671",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:16:06Z,42c585d3-52b1-44c5-b56d-7489a3a9e6d0,"","Update to version 1.4.80 or later.","Lighttpd version 1.4.79 and prior.","A mismatch caused by client-triggered server-sent stream resets
+  between HTTP/2 specifications and the internal architectures of some HTTP/2 implementations may
+  result in excessive server resource consumption leading to denial-of-service (DoS). By opening
+  streams and then rapidly triggering the server to reset them, using malformed frames or flow
+  control errors, an attacker can exploit incorrect stream accounting. Streams reset by the server
+  are considered closed at the protocol level, even though backend processing continues. This
+  allows a client to cause the server to handle an unbounded number of concurrent streams on a
+  single connection.","Checks if a vulnerable version is present on the target host.
+Details:
+Lighttpd < 1.4.80 DoS Vulnerability (MadeYouReset)
+(OID: 1.3.6.1.4.1.25623.1.0.155259)
+Version used: 2025-09-02T09:15:41Z
+","Product: cpe:/a:lighttpd:lighttpd:1.4.63
+Method: Lighttpd Server Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.111079)
+","","WID-SEC-2025-1830",""
+172.30.32.2,dokuwiki.trabalho_vulnnet,80,tcp,0.0,Log,80,"","Lighttpd Server Detection (HTTP)","HTTP based detection of the Lighttpd HTTP server.","Detected Lighttpd
+
+Version:       1.4.63
+Location:      80/tcp
+CPE:           cpe:/a:lighttpd:lighttpd:1.4.63
+
+Concluded from version/product identification result:
+  Server: lighttpd/1.4.63
+
+Concluded from version/product identification location:
+http://dokuwiki.trabalho_vulnnet/
+",1.3.6.1.4.1.25623.1.0.111079,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:16:06Z,6073be78-1d9d-4c52-a768-c259e52bbb07,"","","","","
+Details:
+Lighttpd Server Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.111079)
+Version used: 2024-06-11T05:05:40Z
+","","","",""
+172.30.32.2,dokuwiki.trabalho_vulnnet,,,0.0,Log,80,"","OS Detection Consolidation and Reporting","This script consolidates the OS information detected by several
+  VTs and tries to find the best matching OS.
+
+  Furthermore it reports all previously collected information leading to this best matching OS. It
+  also reports possible additional information which might help to improve the OS detection.
+
+  If any of this information is wrong or could be improved please consider to report these to the
+  referenced community forum.","Best matching OS:
+
+OS:           Linux Kernel
+CPE:          cpe:/o:linux:kernel
+Found by VT:  1.3.6.1.4.1.25623.1.0.102002 (Operating System (OS) Detection (ICMP))
+Concluded from ICMP based OS fingerprint
+Setting key ""Host/runs_unixoide"" based on this information
+",1.3.6.1.4.1.25623.1.0.105937,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:16:06Z,0d82eb3d-6560-4c8e-9d7d-daeafcc5f103,"","","","","
+Details:
+OS Detection Consolidation and Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.105937)
+Version used: 2026-01-21T05:50:46Z
+","","","",""
+172.30.32.2,dokuwiki.trabalho_vulnnet,80,tcp,0.0,Log,80,"","Services","This plugin performs service detection.","A web server is running on this port
+",1.3.6.1.4.1.25623.1.0.10330,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:16:06Z,a1d1cddb-805f-47ac-a25d-5038df3bd3f9,"","","","This plugin attempts to guess which service is running on the
+  remote port(s). For instance, it searches for a web server which could listen on another port than
+  80 or 443 and makes this information available for other check routines.","
+Details:
+Services
+(OID: 1.3.6.1.4.1.25623.1.0.10330)
+Version used: 2025-03-05T05:38:53Z
+","","","",""
+172.30.32.2,dokuwiki.trabalho_vulnnet,,,2.6,Low,80,"Mitigation","TCP Timestamps Information Disclosure","The remote host implements TCP timestamps and therefore allows
+  to compute the uptime.","It was detected that the host implements RFC1323/RFC7323.
+
+The following timestamps were retrieved with a delay of 1 seconds in-between:
+Packet 1: 1926821905
+Packet 2: 1926823013
+",1.3.6.1.4.1.25623.1.0.80091,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:16:06Z,32cbf32e-ae41-4c56-9487-0b1e3f1ec0ba,"A side effect of this feature is that the uptime of the remote
+  host can sometimes be computed.","To disable TCP timestamps on linux add the line
+  'net.ipv4.tcp_timestamps = 0' to /etc/sysctl.conf. Execute 'sysctl -p' to apply the settings at
+  runtime.
+
+  To disable TCP timestamps on Windows execute 'netsh int tcp set global timestamps=disabled'
+
+  Starting with Windows Server 2008 and Vista, the timestamp can not be completely disabled.
+
+  The default behavior of the TCP/IP stack on this Systems is to not use the Timestamp options when
+  initiating TCP connections, but use them if the TCP peer that is initiating communication includes
+  them in their synchronize (SYN) segment.
+
+  See the references for more information.","TCP implementations that implement RFC1323/RFC7323.","The remote host implements TCP timestamps, as defined by
+  RFC1323/RFC7323.","Special IP packets are forged and sent with a little delay in
+  between to the target IP. The responses are searched for a timestamps. If found, the timestamps
+  are reported.
+Details:
+TCP Timestamps Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.80091)
+Version used: 2023-12-15T16:10:08Z
+","","","",""
+172.30.32.2,dokuwiki.trabalho_vulnnet,,,0.0,Log,80,"","Traceroute","Collect information about the network route and
+  network distance between the scanner host and the target host.","Network route from scanner (172.30.0.2) to target (172.30.32.2):
+
+172.30.0.2
+172.30.32.2
+
+Network distance between scanner and target: 2
+",1.3.6.1.4.1.25623.1.0.51662,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:16:06Z,7c494942-4827-4b0c-8188-1e7b591d2d75,"","","","For internal networks, the distances are usually
+  small, often less than 4 hosts between scanner and target. For public targets the
+  distance is greater and might be 10 hosts or more.","A combination of the protocols ICMP and TCP is used
+  to determine the route. This method is applicable for IPv4 only and it is also known as
+  'traceroute'.
+Details:
+Traceroute
+(OID: 1.3.6.1.4.1.25623.1.0.51662)
+Version used: 2022-10-17T11:13:19Z
+","","","",""
+172.30.32.2,dokuwiki.trabalho_vulnnet,80,tcp,0.0,Log,80,"","Web Application Scanning Consolidation / Info Reporting","The script consolidates and reports various information for web
+  application (formerly called 'CGI') scanning.
+
+  This information is based on the following scripts / settings:
+
+  - HTTP-Version Detection (OID: 1.3.6.1.4.1.25623.1.0.100034)
+
+  - No 404 check (OID: 1.3.6.1.4.1.25623.1.0.10386)
+
+  - Web mirroring / webmirror.nasl (OID: 1.3.6.1.4.1.25623.1.0.10662)
+
+  - Directory Scanner / DDI_Directory_Scanner.nasl (OID: 1.3.6.1.4.1.25623.1.0.11032)
+
+  - The configured 'cgi_path' within the 'Scanner Preferences' of the scan config in use
+
+  - The configured 'Enable CGI scanning', 'Enable generic web application scanning' and
+  'Add historic /scripts and /cgi-bin to directories for CGI scanning' within the
+  'Global variable settings' of the scan config in use
+
+  If you think any of this information is wrong please report it to the referenced community
+  forum.","The Hostname/IP ""dokuwiki.trabalho_vulnnet"" was used to access the remote host.
+
+Generic web application scanning is disabled for this host via the ""Enable generic web application scanning"" option within the ""Global variable settings"" of the scan config in use.
+
+Requests to this service are done via HTTP/1.1.
+
+This service seems to be able to host PHP scripts.
+
+This service seems to be able to host ASP scripts.
+
+The User-Agent ""Mozilla/5.0 [en] (X11, U; OpenVAS-VT <version replaced>)"" was used to access the remote host.
+
+Historic /scripts and /cgi-bin are not added to the directories used for web application scanning. You can enable this again with the ""Add historic /scripts and /cgi-bin to directories for CGI scanning"" option within the ""Global variable settings"" of the scan config in use.
+
+The following directories were used for web application scanning:
+
+http://dokuwiki.trabalho_vulnnet/
+
+While this is not, in and of itself, a bug, you should manually inspect these directories to ensure that they are in compliance with company security standards
+",1.3.6.1.4.1.25623.1.0.111038,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T05:16:06Z,2e20b1cf-5326-45b1-9a75-6b3bccb59080,"","","","","
+Details:
+Web Application Scanning Consolidation / Info Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.111038)
+Version used: 2026-01-13T05:47:36Z
+","","","",""

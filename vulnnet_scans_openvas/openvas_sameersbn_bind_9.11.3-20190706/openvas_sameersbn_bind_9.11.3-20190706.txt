@@ -1,0 +1,5629 @@
+I Summary
+=========
+
+This document reports on the results of an automatic security scan.
+The report first summarises the results found.
+Then, for each host, the report describes every issue found.
+Please consider the advice given in each description, in order to rectify
+the issue.
+
+All dates are displayed using the timezone "Coordinated Universal Time",
+which is abbreviated "UTC".
+
+Vendor security updates are not trusted.
+
+Overrides are off.  Even when a result has an override, this report uses
+the actual threat of the result.
+
+Notes are included in the report.Information on overrides is included in the report.
+
+This report might not show details of all issues that were found.
+Issues with the threat level "Critical" are not shown.
+Issues with the threat level "Debug" are not shown.
+
+This report contains all 94 results selected by the
+filtering described above.  Before filtering there were 5586 results.
+
+Scan started: Mon Jan 26 01:47:47 2026 UTC
+Scan ended:   Mon Jan 26 14:04:13 2026 UTC
+Task:          hgdfdghgdgd
+
+Host Summary
+************
+
+Host            Critical  High  Medium  Low  Log  False Positive
+172.31.1.101           0    45      22    2   25               0    bind.trabalho_vulnnet
+Total: 1               0    45      22    2   25               0
+
+
+II Results per Host
+===================
+
+Host 172.31.1.101
+*****************
+
+Scanning of this host started at: Mon Jan 26 03:30:46 2026 UTC
+Number of results: 94
+
+Port Summary for Host 172.31.1.101
+----------------------------------
+
+Service (Port)          Threat Level
+10000/tcp               High (CVSS: 8.8)
+53/tcp                  High (CVSS: 8.6)
+53/udp                  High (CVSS: 8.6)
+general/tcp             Low (CVSS: 2.6)
+general/icmp            Low (CVSS: 2.1)
+general/CPE-T           Log (CVSS: 0.0)
+
+Security Issues for Host 172.31.1.101
+-------------------------------------
+
+Issue
+-----
+NVT:    CPE Inventory
+OID:    1.3.6.1.4.1.25623.1.0.810002
+Threat: Log (CVSS: 0.0)
+Port:   general/CPE-T
+
+Summary:
+This routine uses information collected by other routines about
+  CPE identities of operating systems, services and applications detected during!
+ the scan.
+  Note: Some CPEs for specific products might show up twice or more in the outpu!
+t. Background:
+  After a product got renamed or a specific vendor was acquired by another one i!
+t might happen that
+  a product gets a new CPE within the NVD CPE Dictionary but older entries are k!
+ept with the older
+  CPE.
+
+Vulnerability Detection Result:
+172.31.1.101|cpe:/a:ietf:transport_layer_security:1.2
+172.31.1.101|cpe:/a:ietf:transport_layer_security:1.3
+172.31.1.101|cpe:/a:isc:bind:9.11.3
+172.31.1.101|cpe:/a:webmin:webmin:1.920
+172.31.1.101|cpe:/o:canonical:ubuntu_linux
+
+Solution:
+
+Log Method:
+Details:
+CPE Inventory
+(OID: 1.3.6.1.4.1.25623.1.0.810002)
+Version used: 2022-07-27T10:11:28Z
+
+References:
+ url: https://nvd.nist.gov/products/cpe
+
+
+Issue
+-----
+NVT:    DNS Cache Snooping Vulnerability (UDP) - Active Check
+OID:    1.3.6.1.4.1.25623.1.0.146591
+Threat: Medium (CVSS: 5.0)
+Port:   53/udp
+
+Summary:
+The DNS server is prone to a cache snooping vulnerability.
+
+Vulnerability Detection Result:
+Received (an) answer(s) for a non-recursive query for "example.com".
+Result:
+104.18.27.120
+
+Impact:
+Attackers might gain information about cached DNS records
+  which might lead to further attacks.
+  Note: This finding might be an acceptable risk if you:
+  - trust all clients which can reach the server
+  - do not allow recursive queries from outside your trusted client network.
+
+Solution:
+Solution type: Mitigation
+There are multiple possible mitigation steps depending on
+  location and functionality needed by the DNS server:
+  - Disable recursion
+  - Don't allow public access to DNS Servers doing recursion
+  - Leave recursion enabled if the DNS Server stays on a corporate network that !
+cannot be reached
+  by untrusted clients
+  - If the risk is accepted either create an override for this result or configu!
+re the 'Private LAN'
+  setting mentioned earlier
+
+Vulnerability Insight:
+DNS cache snooping is when someone queries a DNS server in
+  order to find out (snoop) if the DNS server has a specific DNS record cached, !
+and thereby
+  deduce if the DNS server's owner (or its users) have recently visited a specif!
+ic site.
+  This may reveal information about the DNS server's owner, such as what vendor,!
+ bank, service
+  provider, etc. they use. Especially if this is confirmed (snooped) multiple ti!
+mes over a period.
+  This method could even be used to gather statistical information - for example!
+ at what time does
+  the DNS server's owner typically access his net bank etc. The cached DNS recor!
+d's remaining TTL
+  value can provide very accurate data for this.
+  DNS cache snooping is possible even if the DNS server is not configured to res!
+olve recursively
+  for 3rd parties, as long as it provides records from the cache also to 3rd par!
+ties (a.k.a.
+  'lame requests').
+
+Vulnerability Detection Method:
+Sends a crafted DNS query and checks the response.
+  Notes:
+  - No scan result is expected if localhost (127.0.0.1) was scanned (self scanni!
+ng)
+  - If the scanned network is e.g. a private LAN / private WAN which contains sy!
+stems not accessible
+  to the public (access restricted) and it is accepted that the service is discl!
+osing information to
+  this network please set the 'Network type' configuration of the following VT t!
+o e.g.
+  'Private LAN' or 'Private WAN':
+  Global variable settings (OID: 1.3.6.1.4.1.25623.1.0.12288)
+Details:
+DNS Cache Snooping Vulnerability (UDP) - Active Check
+(OID: 1.3.6.1.4.1.25623.1.0.146591)
+Version used: 2025-11-25T05:40:35Z
+
+References:
+ url: https://www.cs.unc.edu/~fabian/course_papers/cache_snooping.pdf
+ url: https://docs.microsoft.com/en-us/troubleshoot/windows-server/networking/dns-server-cache-snooping-attacks
+ url: https://kb.isc.org/docs/aa-00509
+ url: https://kb.isc.org/docs/aa-00482
+
+
+Issue
+-----
+NVT:    DNS Recursion Enabled (UDP) - Active Check
+OID:    1.3.6.1.4.1.25623.1.0.147232
+Threat: Log (CVSS: 0.0)
+Port:   53/udp
+
+Summary:
+The DNS server has recursion enabled.
+
+Vulnerability Detection Result:
+The DNS server replied to a DNS query to 'example.com' with the recursion flag s!
+et in the response.
+
+Solution:
+
+Vulnerability Insight:
+Recursion refers to the process of having the DNS server itself
+  to make queries to other DNS servers on behalf of the client who made the orig!
+inal request.
+
+Log Method:
+Sends a crafted DNS query via UDP and checks the response.
+Details:
+DNS Recursion Enabled (UDP) - Active Check
+(OID: 1.3.6.1.4.1.25623.1.0.147232)
+Version used: 2022-07-18T10:11:09Z
+
+References:
+ url: https://en.wikipedia.org/wiki/Domain_Name_System#Recursive_and_caching_name_server
+
+
+Issue
+-----
+NVT:    DNS Server Detection (TCP)
+OID:    1.3.6.1.4.1.25623.1.0.108018
+Threat: Log (CVSS: 0.0)
+Port:   53/tcp
+
+Summary:
+TCP based detection of a DNS server.
+
+Vulnerability Detection Result:
+The remote DNS server banner is:
+9.11.3-1ubuntu1.8-Ubuntu
+
+Solution:
+
+Log Method:
+Details:
+DNS Server Detection (TCP)
+(OID: 1.3.6.1.4.1.25623.1.0.108018)
+Version used: 2025-12-12T15:41:28Z
+
+
+Issue
+-----
+NVT:    DNS Server Detection (UDP)
+OID:    1.3.6.1.4.1.25623.1.0.100069
+Threat: Log (CVSS: 0.0)
+Port:   53/udp
+
+Summary:
+UDP based detection of a DNS server.
+
+Vulnerability Detection Result:
+The remote DNS server banner is:
+9.11.3-1ubuntu1.8-Ubuntu
+
+Solution:
+
+Log Method:
+Details:
+DNS Server Detection (UDP)
+(OID: 1.3.6.1.4.1.25623.1.0.100069)
+Version used: 2025-11-26T05:40:08Z
+
+
+Issue
+-----
+NVT:    Hostname Determination Reporting
+OID:    1.3.6.1.4.1.25623.1.0.108449
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+The script reports information on how the hostname of the target
+  was determined.
+
+Vulnerability Detection Result:
+Hostname determination for IP 172.31.1.101:
+Hostname|Source
+bind.trabalho_vulnnet|Reverse-DNS
+
+Solution:
+
+Log Method:
+Details:
+Hostname Determination Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.108449)
+Version used: 2022-07-27T10:11:28Z
+
+
+Issue
+-----
+NVT:    ICMP Timestamp Reply Information Disclosure
+OID:    1.3.6.1.4.1.25623.1.0.103190
+Threat: Low (CVSS: 2.1)
+Port:   general/icmp
+
+Summary:
+The remote host responded to an ICMP timestamp request.
+
+Vulnerability Detection Result:
+The following response / ICMP packet has been received:
+- ICMP Type: 14
+- ICMP Code: 0
+
+Impact:
+This information could theoretically be used to exploit weak
+  time-based random number generators in other services.
+
+Solution:
+Solution type: Mitigation
+Various mitigations are possible:
+  - Disable the support for ICMP timestamp on the remote host completely
+  - Protect the remote host by a firewall, and block ICMP packets passing throug!
+h the firewall in
+  either direction (either completely or only for untrusted networks)
+
+Vulnerability Insight:
+The Timestamp Reply is an ICMP message which replies to a
+  Timestamp message. It consists of the originating timestamp sent by the sender!
+ of the Timestamp as
+  well as a receive timestamp and a transmit timestamp.
+
+Vulnerability Detection Method:
+Sends an ICMP Timestamp (Type 13) request and checks if a
+  Timestamp Reply (Type 14) is received.
+Details:
+ICMP Timestamp Reply Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.103190)
+Version used: 2025-01-21T05:37:33Z
+
+References:
+ cve: CVE-1999-0524
+ url: https://datatracker.ietf.org/doc/html/rfc792
+ url: https://datatracker.ietf.org/doc/html/rfc2780
+ cert-bund: CB-K15/1514
+ cert-bund: CB-K14/0632
+ dfn-cert: DFN-CERT-2014-0658
+
+
+Issue
+-----
+NVT:    IP Forwarding Enabled - Active Check
+OID:    1.3.6.1.4.1.25623.1.0.147205
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+Checks if the remote host has IP forwarding enabled.
+
+Vulnerability Detection Result:
+It was possible to route a TCP packet through the target host and received an an!
+swer which means IP forwarding is enabled.
+
+Solution:
+
+Log Method:
+Sends a crafted Local Link Layer (LLL) frame and checks the
+  response.
+Details:
+IP Forwarding Enabled - Active Check
+(OID: 1.3.6.1.4.1.25623.1.0.147205)
+Version used: 2021-12-03T08:27:06Z
+
+References:
+ cve: CVE-1999-0511
+
+
+Issue
+-----
+NVT:    ISC BIND 'deny-answer-aliases' Denial of Service Vulnerability
+OID:    1.3.6.1.4.1.25623.1.0.813750
+Threat: High (CVSS: 7.5)
+Port:   53/tcp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a denial of service vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.11.4-P1
+Installation
+path / port:       53/tcp
+
+Impact:
+Successful exploitation will allow remote
+  attackers to cause a denial of service (assertion failure).
+
+Solution:
+Solution type: VendorFix
+Update to ISC BIND version 9.9.13-P1 or
+  9.10.8-P1 or 9.11.4-P1 or 9.12.2-P1 or 9.11.3-S3 or later. Please see the refe!
+rences for more information.
+
+Affected Software/OS:
+ISC BIND versions 9.7.0 through 9.8.8,
+  9.9.0 through 9.9.13, 9.10.0 through 9.10.8, 9.11.0 through 9.11.4,
+  9.12.0 through 9.12.2 and 9.13.0 through 9.13.2.
+
+Vulnerability Insight:
+The flaw exists due to a defect in the
+  feature 'deny-answer-aliases' which leads to assertion failure in 'name.c'.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND 'deny-answer-aliases' Denial of Service Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.813750)
+Version used: 2023-07-20T05:05:17Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2018-5740
+ url: https://kb.isc.org/docs/aa-01639
+ cert-bund: WID-SEC-2025-1193
+ cert-bund: CB-K18/0842
+ dfn-cert: DFN-CERT-2021-2273
+ dfn-cert: DFN-CERT-2019-2042
+ dfn-cert: DFN-CERT-2019-1594
+ dfn-cert: DFN-CERT-2019-1119
+ dfn-cert: DFN-CERT-2019-0436
+ dfn-cert: DFN-CERT-2019-0069
+ dfn-cert: DFN-CERT-2018-2435
+ dfn-cert: DFN-CERT-2018-1562
+
+
+Issue
+-----
+NVT:    ISC BIND 'deny-answer-aliases' Denial of Service Vulnerability
+OID:    1.3.6.1.4.1.25623.1.0.813750
+Threat: High (CVSS: 7.5)
+Port:   53/udp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a denial of service vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.11.4-P1
+Installation
+path / port:       53/udp
+
+Impact:
+Successful exploitation will allow remote
+  attackers to cause a denial of service (assertion failure).
+
+Solution:
+Solution type: VendorFix
+Update to ISC BIND version 9.9.13-P1 or
+  9.10.8-P1 or 9.11.4-P1 or 9.12.2-P1 or 9.11.3-S3 or later. Please see the refe!
+rences for more information.
+
+Affected Software/OS:
+ISC BIND versions 9.7.0 through 9.8.8,
+  9.9.0 through 9.9.13, 9.10.0 through 9.10.8, 9.11.0 through 9.11.4,
+  9.12.0 through 9.12.2 and 9.13.0 through 9.13.2.
+
+Vulnerability Insight:
+The flaw exists due to a defect in the
+  feature 'deny-answer-aliases' which leads to assertion failure in 'name.c'.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND 'deny-answer-aliases' Denial of Service Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.813750)
+Version used: 2023-07-20T05:05:17Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2018-5740
+ url: https://kb.isc.org/docs/aa-01639
+ cert-bund: WID-SEC-2025-1193
+ cert-bund: CB-K18/0842
+ dfn-cert: DFN-CERT-2021-2273
+ dfn-cert: DFN-CERT-2019-2042
+ dfn-cert: DFN-CERT-2019-1594
+ dfn-cert: DFN-CERT-2019-1119
+ dfn-cert: DFN-CERT-2019-0436
+ dfn-cert: DFN-CERT-2019-0069
+ dfn-cert: DFN-CERT-2018-2435
+ dfn-cert: DFN-CERT-2018-1562
+
+
+Issue
+-----
+NVT:    ISC BIND Access Control Vulnerability (Jun 2018) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.141179
+Threat: High (CVSS: 7.5)
+Port:   53/udp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+Some versions of BIND can improperly permit recursive query service to
+  unauthorized clients.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     Workaround
+Installation
+path / port:       53/udp
+
+Solution:
+Solution type: Workaround
+See the vendor advisory for workarounds.
+
+Affected Software/OS:
+ISC BIND 9.9.12, 9.10.7, 9.11.3, 9.12.0->9.12.1-P2, 9.13.0, 9.9.12-S1,
+  9.10.7-S1, 9.11.3-S1, and 9.11.3-S2.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND Access Control Vulnerability (Jun 2018) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.141179)
+Version used: 2023-07-20T05:05:17Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2018-5738
+ url: https://kb.isc.org/docs/aa-01616
+ cert-bund: CB-K18/0723
+ dfn-cert: DFN-CERT-2019-0436
+ dfn-cert: DFN-CERT-2018-1134
+
+
+Issue
+-----
+NVT:    ISC BIND Access Control Vulnerability (Jun 2018) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.141179
+Threat: High (CVSS: 7.5)
+Port:   53/tcp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+Some versions of BIND can improperly permit recursive query service to
+  unauthorized clients.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     Workaround
+Installation
+path / port:       53/tcp
+
+Solution:
+Solution type: Workaround
+See the vendor advisory for workarounds.
+
+Affected Software/OS:
+ISC BIND 9.9.12, 9.10.7, 9.11.3, 9.12.0->9.12.1-P2, 9.13.0, 9.9.12-S1,
+  9.10.7-S1, 9.11.3-S1, and 9.11.3-S2.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND Access Control Vulnerability (Jun 2018) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.141179)
+Version used: 2023-07-20T05:05:17Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2018-5738
+ url: https://kb.isc.org/docs/aa-01616
+ cert-bund: CB-K18/0723
+ dfn-cert: DFN-CERT-2019-0436
+ dfn-cert: DFN-CERT-2018-1134
+
+
+Issue
+-----
+NVT:    ISC BIND Buffer Overflow Vulnerability (CVE-2020-8625) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.145412
+Threat: High (CVSS: 8.1)
+Port:   53/tcp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a buffer overflow vulnerability in the GSSAPI security
+  policy negotiation.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.11.28
+Installation
+path / port:       53/tcp
+
+Impact:
+The most likely outcome of a successful exploitation of the vulnerability
+  is a crash of the named process. However, remote code execution, while unprove!
+n, is theoretically possible.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.11.28, 9.16.12, 9.11.28-S1, 9.16.12-S1 or later.
+
+Affected Software/OS:
+BIND 9.5.0 - 9.11.27, 9.12.0 - 9.16.11, 9.11.3-S1 - 9.11.27-S1 and
+  9.16.8-S1 - 9.16.11-S1.
+
+Vulnerability Insight:
+GSS-TSIG is an extension to the TSIG protocol which is intended to support
+  the secure exchange of keys for use in verifying the authenticity of communica!
+tions between parties on a
+  network.
+  SPNEGO is a negotiation mechanism used by GSSAPI, the application protocol int!
+erface for GSS-TSIG.
+  The SPNEGO implementation used by BIND has been found to be vulnerable to a bu!
+ffer overflow attack.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND Buffer Overflow Vulnerability (CVE-2020-8625) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.145412)
+Version used: 2021-08-17T14:01:00Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2020-8625
+ url: https://kb.isc.org/docs/cve-2020-8625
+ cert-bund: WID-SEC-2023-0063
+ cert-bund: CB-K21/0190
+ dfn-cert: DFN-CERT-2022-0074
+ dfn-cert: DFN-CERT-2021-0955
+ dfn-cert: DFN-CERT-2021-0556
+ dfn-cert: DFN-CERT-2021-0375
+
+
+Issue
+-----
+NVT:    ISC BIND Buffer Overflow Vulnerability (CVE-2020-8625) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.145412
+Threat: High (CVSS: 8.1)
+Port:   53/udp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a buffer overflow vulnerability in the GSSAPI security
+  policy negotiation.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.11.28
+Installation
+path / port:       53/udp
+
+Impact:
+The most likely outcome of a successful exploitation of the vulnerability
+  is a crash of the named process. However, remote code execution, while unprove!
+n, is theoretically possible.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.11.28, 9.16.12, 9.11.28-S1, 9.16.12-S1 or later.
+
+Affected Software/OS:
+BIND 9.5.0 - 9.11.27, 9.12.0 - 9.16.11, 9.11.3-S1 - 9.11.27-S1 and
+  9.16.8-S1 - 9.16.11-S1.
+
+Vulnerability Insight:
+GSS-TSIG is an extension to the TSIG protocol which is intended to support
+  the secure exchange of keys for use in verifying the authenticity of communica!
+tions between parties on a
+  network.
+  SPNEGO is a negotiation mechanism used by GSSAPI, the application protocol int!
+erface for GSS-TSIG.
+  The SPNEGO implementation used by BIND has been found to be vulnerable to a bu!
+ffer overflow attack.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND Buffer Overflow Vulnerability (CVE-2020-8625) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.145412)
+Version used: 2021-08-17T14:01:00Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2020-8625
+ url: https://kb.isc.org/docs/cve-2020-8625
+ cert-bund: WID-SEC-2023-0063
+ cert-bund: CB-K21/0190
+ dfn-cert: DFN-CERT-2022-0074
+ dfn-cert: DFN-CERT-2021-0955
+ dfn-cert: DFN-CERT-2021-0556
+ dfn-cert: DFN-CERT-2021-0375
+
+
+Issue
+-----
+NVT:    ISC BIND Cache Poisoning Vulnerability (CVE-2021-25220) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.113846
+Threat: Medium (CVSS: 6.8)
+Port:   53/tcp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a cache poisoning vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.11.37
+Installation
+path / port:       53/tcp
+
+Impact:
+The cache could become poisoned with incorrect records leading to
+  queries being made to the wrong servers, which might also result in false info!
+rmation being
+  returned to clients.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.11.37, 9.16.27, 9.18.1, 9.11.37-S1,
+  9.16.27-S1 or later.
+
+Affected Software/OS:
+ISC BIND versions 9.1.0 through 9.11.36, 9.12.0 through
+  9.16.26, 9.11.4-S1 through 9.11.36-S1, 9.16.8-S1 through 9.16.26-S1 and 9.17.0!
+ through 9.18.0.
+  Versions of BIND 9 back to 9.1.0, including Supported Preview Editions - are b!
+elieved to be
+  affected but have not been tested by the vendor as they are EOL.
+
+Vulnerability Insight:
+When using forwarders, bogus NS records supplied by, or via,
+  those forwarders may be cached and used by named if it needs to recurse for an!
+y reason, causing it
+  to obtain and pass on potentially incorrect answers.
+  Some examples of configurations that will be vulnerable are:
+  - Resolvers using per zone or global forwarding with forward first (forward fi!
+rst is the default).
+  - Resolvers not using global forwarding, but with per-zone forwarding with eit!
+her forward first
+  (the default) or forward only.
+  - Resolvers configured with global forwarding along with zone statements that !
+disable forwarding
+  for part of the DNS namespace.
+  Authoritative-only BIND 9 servers are not vulnerable to this flaw.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND Cache Poisoning Vulnerability (CVE-2021-25220) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.113846)
+Version used: 2022-11-30T10:12:07Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2021-25220
+ url: https://kb.isc.org/docs/cve-2021-25220
+ cert-bund: WID-SEC-2024-1307
+ cert-bund: WID-SEC-2024-1226
+ cert-bund: WID-SEC-2024-0064
+ cert-bund: WID-SEC-2023-1812
+ cert-bund: WID-SEC-2023-1737
+ cert-bund: WID-SEC-2023-0809
+ cert-bund: WID-SEC-2022-1710
+ cert-bund: WID-SEC-2022-1335
+ cert-bund: WID-SEC-2022-1228
+ cert-bund: WID-SEC-2022-0969
+ cert-bund: WID-SEC-2022-0857
+ cert-bund: CB-K22/0324
+ dfn-cert: DFN-CERT-2025-3256
+ dfn-cert: DFN-CERT-2025-3234
+ dfn-cert: DFN-CERT-2024-1223
+ dfn-cert: DFN-CERT-2023-1592
+ dfn-cert: DFN-CERT-2023-0179
+ dfn-cert: DFN-CERT-2022-2266
+ dfn-cert: DFN-CERT-2022-1764
+ dfn-cert: DFN-CERT-2022-1143
+ dfn-cert: DFN-CERT-2022-0639
+ dfn-cert: DFN-CERT-2022-0630
+ dfn-cert: DFN-CERT-2022-0614
+
+
+Issue
+-----
+NVT:    ISC BIND Cache Poisoning Vulnerability (CVE-2021-25220) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.113846
+Threat: Medium (CVSS: 6.8)
+Port:   53/udp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a cache poisoning vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.11.37
+Installation
+path / port:       53/udp
+
+Impact:
+The cache could become poisoned with incorrect records leading to
+  queries being made to the wrong servers, which might also result in false info!
+rmation being
+  returned to clients.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.11.37, 9.16.27, 9.18.1, 9.11.37-S1,
+  9.16.27-S1 or later.
+
+Affected Software/OS:
+ISC BIND versions 9.1.0 through 9.11.36, 9.12.0 through
+  9.16.26, 9.11.4-S1 through 9.11.36-S1, 9.16.8-S1 through 9.16.26-S1 and 9.17.0!
+ through 9.18.0.
+  Versions of BIND 9 back to 9.1.0, including Supported Preview Editions - are b!
+elieved to be
+  affected but have not been tested by the vendor as they are EOL.
+
+Vulnerability Insight:
+When using forwarders, bogus NS records supplied by, or via,
+  those forwarders may be cached and used by named if it needs to recurse for an!
+y reason, causing it
+  to obtain and pass on potentially incorrect answers.
+  Some examples of configurations that will be vulnerable are:
+  - Resolvers using per zone or global forwarding with forward first (forward fi!
+rst is the default).
+  - Resolvers not using global forwarding, but with per-zone forwarding with eit!
+her forward first
+  (the default) or forward only.
+  - Resolvers configured with global forwarding along with zone statements that !
+disable forwarding
+  for part of the DNS namespace.
+  Authoritative-only BIND 9 servers are not vulnerable to this flaw.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND Cache Poisoning Vulnerability (CVE-2021-25220) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.113846)
+Version used: 2022-11-30T10:12:07Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2021-25220
+ url: https://kb.isc.org/docs/cve-2021-25220
+ cert-bund: WID-SEC-2024-1307
+ cert-bund: WID-SEC-2024-1226
+ cert-bund: WID-SEC-2024-0064
+ cert-bund: WID-SEC-2023-1812
+ cert-bund: WID-SEC-2023-1737
+ cert-bund: WID-SEC-2023-0809
+ cert-bund: WID-SEC-2022-1710
+ cert-bund: WID-SEC-2022-1335
+ cert-bund: WID-SEC-2022-1228
+ cert-bund: WID-SEC-2022-0969
+ cert-bund: WID-SEC-2022-0857
+ cert-bund: CB-K22/0324
+ dfn-cert: DFN-CERT-2025-3256
+ dfn-cert: DFN-CERT-2025-3234
+ dfn-cert: DFN-CERT-2024-1223
+ dfn-cert: DFN-CERT-2023-1592
+ dfn-cert: DFN-CERT-2023-0179
+ dfn-cert: DFN-CERT-2022-2266
+ dfn-cert: DFN-CERT-2022-1764
+ dfn-cert: DFN-CERT-2022-1143
+ dfn-cert: DFN-CERT-2022-0639
+ dfn-cert: DFN-CERT-2022-0630
+ dfn-cert: DFN-CERT-2022-0614
+
+
+Issue
+-----
+NVT:    ISC BIND Cache Poisoning Vulnerability (CVE-2025-40778) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.119202
+Threat: High (CVSS: 8.6)
+Port:   53/udp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to cache poisoning attacks with unsolicited
+  RRs.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.18.41
+Installation
+path / port:       53/udp
+
+Impact:
+Forged records can be injected into cache during a query, which
+  can potentially affect resolution of future queries.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.18.41, 9.18.41-S1, 9.20.15, 9.20.15-S1,
+  9.21.14 or later.
+
+Affected Software/OS:
+ISC BIND versions 9.11.0 through 9.16.50, 9.18.0 through
+  9.18.39, 9.20.0 through 9.20.13, 9.21.0 through 9.21.12, 9.11.3-S1 through 9.1!
+6.50-S1, 9.18.11-S1
+  through 9.18.39-S1 and 9.20.9-S1 through 9.20.13-S1.
+  Vendor notes:
+  - Authoritative services are believed to be unaffected by this vulnerability b!
+ut it is important
+  to read: [link moved to references]
+  - Resolvers are affected by this vulnerability.
+
+Vulnerability Insight:
+Under certain circumstances, BIND is too lenient when accepting
+  records from answers, allowing an attacker to inject forged data into the cach!
+e.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND Cache Poisoning Vulnerability (CVE-2025-40778) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.119202)
+Version used: 2025-10-24T05:39:31Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2025-40778
+ url: https://kb.isc.org/docs/cve-2025-40778
+ url: https://kb.isc.org/docs/why-does-my-authoritative-server-make-recursive-queries
+ cert-bund: WID-SEC-2025-2392
+ dfn-cert: DFN-CERT-2026-0243
+ dfn-cert: DFN-CERT-2026-0149
+ dfn-cert: DFN-CERT-2026-0148
+ dfn-cert: DFN-CERT-2026-0130
+ dfn-cert: DFN-CERT-2025-3313
+ dfn-cert: DFN-CERT-2025-3256
+ dfn-cert: DFN-CERT-2025-3234
+ dfn-cert: DFN-CERT-2025-3106
+ dfn-cert: DFN-CERT-2025-3088
+ dfn-cert: DFN-CERT-2025-2964
+
+
+Issue
+-----
+NVT:    ISC BIND Cache Poisoning Vulnerability (CVE-2025-40778) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.119202
+Threat: High (CVSS: 8.6)
+Port:   53/tcp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to cache poisoning attacks with unsolicited
+  RRs.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.18.41
+Installation
+path / port:       53/tcp
+
+Impact:
+Forged records can be injected into cache during a query, which
+  can potentially affect resolution of future queries.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.18.41, 9.18.41-S1, 9.20.15, 9.20.15-S1,
+  9.21.14 or later.
+
+Affected Software/OS:
+ISC BIND versions 9.11.0 through 9.16.50, 9.18.0 through
+  9.18.39, 9.20.0 through 9.20.13, 9.21.0 through 9.21.12, 9.11.3-S1 through 9.1!
+6.50-S1, 9.18.11-S1
+  through 9.18.39-S1 and 9.20.9-S1 through 9.20.13-S1.
+  Vendor notes:
+  - Authoritative services are believed to be unaffected by this vulnerability b!
+ut it is important
+  to read: [link moved to references]
+  - Resolvers are affected by this vulnerability.
+
+Vulnerability Insight:
+Under certain circumstances, BIND is too lenient when accepting
+  records from answers, allowing an attacker to inject forged data into the cach!
+e.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND Cache Poisoning Vulnerability (CVE-2025-40778) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.119202)
+Version used: 2025-10-24T05:39:31Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2025-40778
+ url: https://kb.isc.org/docs/cve-2025-40778
+ url: https://kb.isc.org/docs/why-does-my-authoritative-server-make-recursive-queries
+ cert-bund: WID-SEC-2025-2392
+ dfn-cert: DFN-CERT-2026-0243
+ dfn-cert: DFN-CERT-2026-0149
+ dfn-cert: DFN-CERT-2026-0148
+ dfn-cert: DFN-CERT-2026-0130
+ dfn-cert: DFN-CERT-2025-3313
+ dfn-cert: DFN-CERT-2025-3256
+ dfn-cert: DFN-CERT-2025-3234
+ dfn-cert: DFN-CERT-2025-3106
+ dfn-cert: DFN-CERT-2025-3088
+ dfn-cert: DFN-CERT-2025-2964
+
+
+Issue
+-----
+NVT:    ISC BIND Cache-Poisoning Vulnerability (CVE-2025-40776, Birthday Attack) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.154963
+Threat: High (CVSS: 8.6)
+Port:   53/udp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a cache-poisoning vulnerability (Birthday
+  Attack against Resolvers supporting ECS).
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.20.11
+Installation
+path / port:       53/udp
+
+Impact:
+A resolver configured to send ECS options to authoritative
+  servers can be compelled to make queries that slightly increase the odds of gu!
+essing the source
+  port and other details necessary to bypass the original birthday cache poisoni!
+ng attack
+  mitigations. As a result of this weakness, a resolver with ECS enabled is more!
+ vulnerable to
+  successful cache poisoning via spoofed query responses than one that does not !
+implement this
+  feature.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.20.11, 9.18.38-S1, 9.20.11-S1 or later.
+
+Affected Software/OS:
+ISC BIND version 9.0.0 through 9.20.10, 9.11.3-S1 through
+  9.16.50-S1, 9.18.11-S1 through 9.18.37-S1 and 9.20.9-S1 through 9.20.10-S1.
+
+Vulnerability Insight:
+A named caching resolver that is configured to send ECS (EDNS
+  Client Subnet) options may be vulnerable to a cache-poisoning attack.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND Cache-Poisoning Vulnerability (CVE-2025-40776, Birthday Attack) - L...
+(OID: 1.3.6.1.4.1.25623.1.0.154963)
+Version used: 2025-07-18T05:44:10Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2025-40776
+ url: https://kb.isc.org/docs/cve-2025-40776
+ cert-bund: WID-SEC-2025-1585
+
+
+Issue
+-----
+NVT:    ISC BIND Cache-Poisoning Vulnerability (CVE-2025-40776, Birthday Attack) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.154963
+Threat: High (CVSS: 8.6)
+Port:   53/tcp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a cache-poisoning vulnerability (Birthday
+  Attack against Resolvers supporting ECS).
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.20.11
+Installation
+path / port:       53/tcp
+
+Impact:
+A resolver configured to send ECS options to authoritative
+  servers can be compelled to make queries that slightly increase the odds of gu!
+essing the source
+  port and other details necessary to bypass the original birthday cache poisoni!
+ng attack
+  mitigations. As a result of this weakness, a resolver with ECS enabled is more!
+ vulnerable to
+  successful cache poisoning via spoofed query responses than one that does not !
+implement this
+  feature.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.20.11, 9.18.38-S1, 9.20.11-S1 or later.
+
+Affected Software/OS:
+ISC BIND version 9.0.0 through 9.20.10, 9.11.3-S1 through
+  9.16.50-S1, 9.18.11-S1 through 9.18.37-S1 and 9.20.9-S1 through 9.20.10-S1.
+
+Vulnerability Insight:
+A named caching resolver that is configured to send ECS (EDNS
+  Client Subnet) options may be vulnerable to a cache-poisoning attack.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND Cache-Poisoning Vulnerability (CVE-2025-40776, Birthday Attack) - L...
+(OID: 1.3.6.1.4.1.25623.1.0.154963)
+Version used: 2025-07-18T05:44:10Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2025-40776
+ url: https://kb.isc.org/docs/cve-2025-40776
+ cert-bund: WID-SEC-2025-1585
+
+
+Issue
+-----
+NVT:    ISC BIND Detection Consolidation
+OID:    1.3.6.1.4.1.25623.1.0.145294
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+Consolidation of ISC BIND detections.
+
+Vulnerability Detection Result:
+Detected ISC BIND
+Version:       9.11.3
+Location:      53/tcp
+CPE:           cpe:/a:isc:bind:9.11.3
+Concluded from version/product identification result:
+9.11.3-1ubuntu1.8-Ubuntu
+Detected ISC BIND
+Version:       9.11.3
+Location:      53/udp
+CPE:           cpe:/a:isc:bind:9.11.3
+Concluded from version/product identification result:
+9.11.3-1ubuntu1.8-Ubuntu
+
+Solution:
+
+Log Method:
+Details:
+ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+Version used: 2025-10-31T05:40:56Z
+
+References:
+ url: https://www.isc.org/bind/
+
+
+Issue
+-----
+NVT:    ISC BIND DoS Vulnerability (Aug 2021) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.117683
+Threat: Medium (CVSS: 5.0)
+Port:   53/tcp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a denial of service (DoS) vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.11.35
+Installation
+path / port:       53/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 9.11.35, 9.16.20, 9.17.17 or later.
+
+Affected Software/OS:
+BIND version prior to 9.11.35, 9.16.x prior 9.16.20 and 9.17.x
+  prior to 9.17.17.
+
+Vulnerability Insight:
+named failed to check the opcode of responses when performing
+  zone refreshes, stub zone updates, and UPDATE forwarding. This could lead to a!
+n assertion failure
+  under certain conditions and has been addressed by rejecting responses whose o!
+pcode does not match
+  the expected value.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND DoS Vulnerability (Aug 2021) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.117683)
+Version used: 2021-09-17T10:40:50Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ url: https://downloads.isc.org/isc/bind9/9.17.17/doc/arm/html/notes.html#notes-for-bind-9-17-17
+ url: https://downloads.isc.org/isc/bind9/9.16.20/doc/arm/html/notes.html#notes-for-bind-9-16-20
+ url: https://downloads.isc.org/isc/bind9/9.11.35/doc/arm/notes.html#relnotes-9.11.35
+
+
+Issue
+-----
+NVT:    ISC BIND DoS Vulnerability (Aug 2021) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.117683
+Threat: Medium (CVSS: 5.0)
+Port:   53/udp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a denial of service (DoS) vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.11.35
+Installation
+path / port:       53/udp
+
+Solution:
+Solution type: VendorFix
+Update to version 9.11.35, 9.16.20, 9.17.17 or later.
+
+Affected Software/OS:
+BIND version prior to 9.11.35, 9.16.x prior 9.16.20 and 9.17.x
+  prior to 9.17.17.
+
+Vulnerability Insight:
+named failed to check the opcode of responses when performing
+  zone refreshes, stub zone updates, and UPDATE forwarding. This could lead to a!
+n assertion failure
+  under certain conditions and has been addressed by rejecting responses whose o!
+pcode does not match
+  the expected value.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND DoS Vulnerability (Aug 2021) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.117683)
+Version used: 2021-09-17T10:40:50Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ url: https://downloads.isc.org/isc/bind9/9.17.17/doc/arm/html/notes.html#notes-for-bind-9-17-17
+ url: https://downloads.isc.org/isc/bind9/9.16.20/doc/arm/html/notes.html#notes-for-bind-9-16-20
+ url: https://downloads.isc.org/isc/bind9/9.11.35/doc/arm/notes.html#relnotes-9.11.35
+
+
+Issue
+-----
+NVT:    ISC BIND DoS Vulnerability (CVE-2018-5743) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.142320
+Threat: High (CVSS: 7.5)
+Port:   53/udp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a denial of service vulnerability due to ineffective
+  simultaneous TCP client limiting.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.11.6-P1
+Installation
+path / port:       53/udp
+
+Impact:
+By exploiting the failure to limit simultaneous TCP connections, an attacker
+  can deliberately exhaust the pool of file descriptors available to named, pote!
+ntially affecting network
+  connections and the management of files such as log files or zone journal file!
+s.
+  In cases where the named process is not limited by OS-enforced per-process lim!
+its, this could additionally
+  potentially lead to exhaustion of all available free file descriptors on that !
+system.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.11.6-P1, 9.12.4-P1, 9.14.1, 9.11.5-S6, 9.11.6-S1 or later.
+
+Affected Software/OS:
+BIND 9.9.0 to 9.10.8-P1, 9.11.0 to 9.11.6, 9.12.0 to 9.12.4, 9.14.0. BIND 9
+  Supported Preview Edition versions 9.9.3-S1 to 9.11.5-S3, and 9.11.5-S5. Versi!
+ons 9.13.0 to 9.13.7 of the 9.13
+  development branch.
+
+Vulnerability Insight:
+By design, BIND is intended to limit the number of TCP clients that can be
+  connected at any given time. The number of allowed connections is a tunable pa!
+rameter which, if unset, defaults
+  to a conservative value for most servers. Unfortunately, the code which was in!
+tended to limit the number of
+  simultaneous connections contains an error which can be exploited to grow the !
+number of simultaneous connections
+  beyond this limit.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND DoS Vulnerability (CVE-2018-5743) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.142320)
+Version used: 2021-08-30T11:01:18Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2018-5743
+ url: https://kb.isc.org/docs/cve-2018-5743
+ cert-bund: WID-SEC-2025-1196
+ cert-bund: WID-SEC-2025-1195
+ cert-bund: CB-K19/0423
+ cert-bund: CB-K19/0349
+ dfn-cert: DFN-CERT-2020-0048
+ dfn-cert: DFN-CERT-2019-2042
+ dfn-cert: DFN-CERT-2019-1594
+ dfn-cert: DFN-CERT-2019-1119
+ dfn-cert: DFN-CERT-2019-0935
+ dfn-cert: DFN-CERT-2019-0896
+ dfn-cert: DFN-CERT-2019-0833
+
+
+Issue
+-----
+NVT:    ISC BIND DoS Vulnerability (CVE-2018-5743) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.142320
+Threat: High (CVSS: 7.5)
+Port:   53/tcp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a denial of service vulnerability due to ineffective
+  simultaneous TCP client limiting.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.11.6-P1
+Installation
+path / port:       53/tcp
+
+Impact:
+By exploiting the failure to limit simultaneous TCP connections, an attacker
+  can deliberately exhaust the pool of file descriptors available to named, pote!
+ntially affecting network
+  connections and the management of files such as log files or zone journal file!
+s.
+  In cases where the named process is not limited by OS-enforced per-process lim!
+its, this could additionally
+  potentially lead to exhaustion of all available free file descriptors on that !
+system.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.11.6-P1, 9.12.4-P1, 9.14.1, 9.11.5-S6, 9.11.6-S1 or later.
+
+Affected Software/OS:
+BIND 9.9.0 to 9.10.8-P1, 9.11.0 to 9.11.6, 9.12.0 to 9.12.4, 9.14.0. BIND 9
+  Supported Preview Edition versions 9.9.3-S1 to 9.11.5-S3, and 9.11.5-S5. Versi!
+ons 9.13.0 to 9.13.7 of the 9.13
+  development branch.
+
+Vulnerability Insight:
+By design, BIND is intended to limit the number of TCP clients that can be
+  connected at any given time. The number of allowed connections is a tunable pa!
+rameter which, if unset, defaults
+  to a conservative value for most servers. Unfortunately, the code which was in!
+tended to limit the number of
+  simultaneous connections contains an error which can be exploited to grow the !
+number of simultaneous connections
+  beyond this limit.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND DoS Vulnerability (CVE-2018-5743) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.142320)
+Version used: 2021-08-30T11:01:18Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2018-5743
+ url: https://kb.isc.org/docs/cve-2018-5743
+ cert-bund: WID-SEC-2025-1196
+ cert-bund: WID-SEC-2025-1195
+ cert-bund: CB-K19/0423
+ cert-bund: CB-K19/0349
+ dfn-cert: DFN-CERT-2020-0048
+ dfn-cert: DFN-CERT-2019-2042
+ dfn-cert: DFN-CERT-2019-1594
+ dfn-cert: DFN-CERT-2019-1119
+ dfn-cert: DFN-CERT-2019-0935
+ dfn-cert: DFN-CERT-2019-0896
+ dfn-cert: DFN-CERT-2019-0833
+
+
+Issue
+-----
+NVT:    ISC BIND DoS Vulnerability (CVE-2019-6471) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.140837
+Threat: Medium (CVSS: 5.9)
+Port:   53/udp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a denial of service vulnerability when discarding
+  malformed packets.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.11.8
+Installation
+path / port:       53/udp
+
+Impact:
+An attacker who can cause a resolver to perform queries which will be answered
+  by a server which responds with deliberately malformed answers can cause named!
+ to exit, denying service to clients.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.11.8, 9.12.4-P2, 9.14.3, 9.15.1, 9.11.8-S1 or later.
+
+Affected Software/OS:
+ISC BIND versions 9.11.0 to 9.11.7, 9.12.0 to 9.12.4-P1, 9.14.0 to 9.14.2, all
+  releases of the BIND 9.13 development branch, 9.15.0 and BIND Supported Previe!
+w Edition versions 9.11.3-S1 to 9.11.7-S1.
+
+Vulnerability Insight:
+A race condition which may occur when discarding malformed packets can result
+  in BIND exiting due to a REQUIRE assertion failure in dispatch.c.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND DoS Vulnerability (CVE-2019-6471) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.140837)
+Version used: 2021-08-30T11:01:18Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2019-6471
+ url: https://kb.isc.org/docs/cve-2019-6471
+ cert-bund: WID-SEC-2025-1197
+ cert-bund: CB-K19/0525
+ dfn-cert: DFN-CERT-2021-0955
+ dfn-cert: DFN-CERT-2019-2042
+ dfn-cert: DFN-CERT-2019-1755
+ dfn-cert: DFN-CERT-2019-1242
+
+
+Issue
+-----
+NVT:    ISC BIND DoS Vulnerability (CVE-2019-6471) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.140837
+Threat: Medium (CVSS: 5.9)
+Port:   53/tcp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a denial of service vulnerability when discarding
+  malformed packets.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.11.8
+Installation
+path / port:       53/tcp
+
+Impact:
+An attacker who can cause a resolver to perform queries which will be answered
+  by a server which responds with deliberately malformed answers can cause named!
+ to exit, denying service to clients.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.11.8, 9.12.4-P2, 9.14.3, 9.15.1, 9.11.8-S1 or later.
+
+Affected Software/OS:
+ISC BIND versions 9.11.0 to 9.11.7, 9.12.0 to 9.12.4-P1, 9.14.0 to 9.14.2, all
+  releases of the BIND 9.13 development branch, 9.15.0 and BIND Supported Previe!
+w Edition versions 9.11.3-S1 to 9.11.7-S1.
+
+Vulnerability Insight:
+A race condition which may occur when discarding malformed packets can result
+  in BIND exiting due to a REQUIRE assertion failure in dispatch.c.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND DoS Vulnerability (CVE-2019-6471) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.140837)
+Version used: 2021-08-30T11:01:18Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2019-6471
+ url: https://kb.isc.org/docs/cve-2019-6471
+ cert-bund: WID-SEC-2025-1197
+ cert-bund: CB-K19/0525
+ dfn-cert: DFN-CERT-2021-0955
+ dfn-cert: DFN-CERT-2019-2042
+ dfn-cert: DFN-CERT-2019-1755
+ dfn-cert: DFN-CERT-2019-1242
+
+
+Issue
+-----
+NVT:    ISC BIND DoS Vulnerability (CVE-2021-25214) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.145863
+Threat: Medium (CVSS: 6.5)
+Port:   53/tcp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a denial of service (DoS) vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.11.31
+Installation
+path / port:       53/tcp
+
+Impact:
+When a vulnerable version of named receives a malformed IXFR
+  triggering the flaw described above, the named process will terminate due to a!
+ failed assertion
+  the next time the transferred secondary zone is refreshed.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.11.31, 9.16.15, 9.17.12, 9.11.31-S1,
+  9.16.15-S1 or later.
+
+Affected Software/OS:
+BIND 9.8.5 through 9.8.8, 9.9.3 through 9.11.29, 9.12.0 through
+  9.16.13, 9.9.3-S1 through 9.11.29-S1, 9.16.8-S1 through 9.16.13-S1 and 9.17.0 !
+through 9.17.11.
+
+Vulnerability Insight:
+Incremental zone transfers (IXFR) provide a way of transferring
+  changed portion(s) of a zone between servers. An IXFR stream containing SOA re!
+cords with an owner
+  name other than the transferred zone's apex may cause the receiving named serv!
+er to inadvertently
+  remove the SOA record for the zone in question from the zone database. This le!
+ads to an assertion
+  failure when the next SOA refresh query for that zone is made.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND DoS Vulnerability (CVE-2021-25214) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.145863)
+Version used: 2021-08-17T14:01:00Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2021-25214
+ url: https://kb.isc.org/docs/cve-2021-25214
+ cert-bund: WID-SEC-2025-2027
+ cert-bund: WID-SEC-2023-0063
+ cert-bund: CB-K21/0452
+ dfn-cert: DFN-CERT-2022-0566
+ dfn-cert: DFN-CERT-2022-0074
+ dfn-cert: DFN-CERT-2021-2388
+ dfn-cert: DFN-CERT-2021-0915
+ dfn-cert: DFN-CERT-2021-0898
+
+
+Issue
+-----
+NVT:    ISC BIND DoS Vulnerability (CVE-2021-25214) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.145863
+Threat: Medium (CVSS: 6.5)
+Port:   53/udp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a denial of service (DoS) vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.11.31
+Installation
+path / port:       53/udp
+
+Impact:
+When a vulnerable version of named receives a malformed IXFR
+  triggering the flaw described above, the named process will terminate due to a!
+ failed assertion
+  the next time the transferred secondary zone is refreshed.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.11.31, 9.16.15, 9.17.12, 9.11.31-S1,
+  9.16.15-S1 or later.
+
+Affected Software/OS:
+BIND 9.8.5 through 9.8.8, 9.9.3 through 9.11.29, 9.12.0 through
+  9.16.13, 9.9.3-S1 through 9.11.29-S1, 9.16.8-S1 through 9.16.13-S1 and 9.17.0 !
+through 9.17.11.
+
+Vulnerability Insight:
+Incremental zone transfers (IXFR) provide a way of transferring
+  changed portion(s) of a zone between servers. An IXFR stream containing SOA re!
+cords with an owner
+  name other than the transferred zone's apex may cause the receiving named serv!
+er to inadvertently
+  remove the SOA record for the zone in question from the zone database. This le!
+ads to an assertion
+  failure when the next SOA refresh query for that zone is made.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND DoS Vulnerability (CVE-2021-25214) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.145863)
+Version used: 2021-08-17T14:01:00Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2021-25214
+ url: https://kb.isc.org/docs/cve-2021-25214
+ cert-bund: WID-SEC-2025-2027
+ cert-bund: WID-SEC-2023-0063
+ cert-bund: CB-K21/0452
+ dfn-cert: DFN-CERT-2022-0566
+ dfn-cert: DFN-CERT-2022-0074
+ dfn-cert: DFN-CERT-2021-2388
+ dfn-cert: DFN-CERT-2021-0915
+ dfn-cert: DFN-CERT-2021-0898
+
+
+Issue
+-----
+NVT:    ISC BIND DoS Vulnerability (CVE-2021-25215) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.145865
+Threat: High (CVSS: 7.5)
+Port:   53/udp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a denial of service (DoS) vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.11.31
+Installation
+path / port:       53/udp
+
+Impact:
+When a vulnerable version of named receives a query for a record
+  triggering the flaw described above, the named process will terminate due to a!
+ failed assertion check.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.11.31, 9.16.15, 9.17.12, 9.11.31-S1,
+  9.16.15-S1 or later.
+
+Affected Software/OS:
+BIND 9.0.0 through 9.11.29, 9.12.0 through 9.16.13, 9.9.3-S1 through
+  9.11.29-S1, 9.16.8-S1 through 9.16.13-S1 and 9.17.0 through 9.17.11.
+
+Vulnerability Insight:
+DNAME records, described in RFC 6672, provide a way to redirect
+  a subtree of the domain name tree in the DNS. A flaw in the way named processe!
+s these records may
+  trigger an attempt to add the same RRset to the ANSWER section more than once.!
+ This causes an
+  assertion check in BIND to fail.
+  DNAME records are processed by both authoritative and recursive servers. For a!
+uthoritative servers,
+  the DNAME record triggering the flaw can be retrieved from a zone database. Fo!
+r servers performing
+  recursion, such a record is processed in the course of a query sent to an auth!
+oritative server.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND DoS Vulnerability (CVE-2021-25215) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.145865)
+Version used: 2021-08-17T14:01:00Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2021-25215
+ url: https://kb.isc.org/docs/cve-2021-25215
+ cert-bund: WID-SEC-2025-2027
+ cert-bund: WID-SEC-2022-0623
+ cert-bund: CB-K22/0012
+ cert-bund: CB-K21/0452
+ dfn-cert: DFN-CERT-2022-0566
+ dfn-cert: DFN-CERT-2021-1504
+ dfn-cert: DFN-CERT-2021-0915
+ dfn-cert: DFN-CERT-2021-0909
+ dfn-cert: DFN-CERT-2021-0898
+
+
+Issue
+-----
+NVT:    ISC BIND DoS Vulnerability (CVE-2021-25215) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.145865
+Threat: High (CVSS: 7.5)
+Port:   53/tcp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a denial of service (DoS) vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.11.31
+Installation
+path / port:       53/tcp
+
+Impact:
+When a vulnerable version of named receives a query for a record
+  triggering the flaw described above, the named process will terminate due to a!
+ failed assertion check.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.11.31, 9.16.15, 9.17.12, 9.11.31-S1,
+  9.16.15-S1 or later.
+
+Affected Software/OS:
+BIND 9.0.0 through 9.11.29, 9.12.0 through 9.16.13, 9.9.3-S1 through
+  9.11.29-S1, 9.16.8-S1 through 9.16.13-S1 and 9.17.0 through 9.17.11.
+
+Vulnerability Insight:
+DNAME records, described in RFC 6672, provide a way to redirect
+  a subtree of the domain name tree in the DNS. A flaw in the way named processe!
+s these records may
+  trigger an attempt to add the same RRset to the ANSWER section more than once.!
+ This causes an
+  assertion check in BIND to fail.
+  DNAME records are processed by both authoritative and recursive servers. For a!
+uthoritative servers,
+  the DNAME record triggering the flaw can be retrieved from a zone database. Fo!
+r servers performing
+  recursion, such a record is processed in the course of a query sent to an auth!
+oritative server.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND DoS Vulnerability (CVE-2021-25215) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.145865)
+Version used: 2021-08-17T14:01:00Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2021-25215
+ url: https://kb.isc.org/docs/cve-2021-25215
+ cert-bund: WID-SEC-2025-2027
+ cert-bund: WID-SEC-2022-0623
+ cert-bund: CB-K22/0012
+ cert-bund: CB-K21/0452
+ dfn-cert: DFN-CERT-2022-0566
+ dfn-cert: DFN-CERT-2021-1504
+ dfn-cert: DFN-CERT-2021-0915
+ dfn-cert: DFN-CERT-2021-0909
+ dfn-cert: DFN-CERT-2021-0898
+
+
+Issue
+-----
+NVT:    ISC BIND DoS Vulnerability (CVE-2021-25219)
+OID:    1.3.6.1.4.1.25623.1.0.117759
+Threat: Medium (CVSS: 5.3)
+Port:   53/udp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a denial of service (DoS) vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.11.36
+Installation
+path / port:       53/udp
+
+Impact:
+A successful attack exploiting this flaw causes a named resolver
+  to spend most of its CPU time on managing and checking the lame cache. This re!
+sults in client
+  queries being responded to with large delays, and increased likelihood of DNS !
+timeouts on client
+  hosts.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.11.36, 9.16.22, 9.17.19, 9.11.36-S1,
+  9.16.22-S1 or later.
+
+Affected Software/OS:
+BIND 9.3.0 through 9.11.35, 9.12.0 through 9.16.21, 9.9.3-S1
+  through 9.11.35-S1, 9.16.8-S1 through 9.16.21-S1 and 9.17.0 through 9.17.18.
+  Authoritative-only BIND 9 servers are not vulnerable to this flaw.
+
+Vulnerability Insight:
+Exploitation of broken authoritative servers using a flaw in
+  response processing can cause degradation in BIND resolver performance. The wa!
+y the lame cache is
+  currently designed makes it possible for its internal data structures to grow !
+almost infinitely,
+  which may cause significant delays in client query processing.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND DoS Vulnerability (CVE-2021-25219)
+(OID: 1.3.6.1.4.1.25623.1.0.117759)
+Version used: 2021-11-05T03:03:34Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2021-25219
+ url: https://kb.isc.org/docs/cve-2021-25219
+ cert-bund: WID-SEC-2022-0030
+ cert-bund: CB-K22/0249
+ cert-bund: CB-K21/1127
+ dfn-cert: DFN-CERT-2022-1764
+ dfn-cert: DFN-CERT-2022-0566
+ dfn-cert: DFN-CERT-2021-2586
+ dfn-cert: DFN-CERT-2021-2273
+ dfn-cert: DFN-CERT-2021-2255
+
+
+Issue
+-----
+NVT:    ISC BIND DoS Vulnerability (CVE-2021-25219)
+OID:    1.3.6.1.4.1.25623.1.0.117759
+Threat: Medium (CVSS: 5.3)
+Port:   53/tcp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a denial of service (DoS) vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.11.36
+Installation
+path / port:       53/tcp
+
+Impact:
+A successful attack exploiting this flaw causes a named resolver
+  to spend most of its CPU time on managing and checking the lame cache. This re!
+sults in client
+  queries being responded to with large delays, and increased likelihood of DNS !
+timeouts on client
+  hosts.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.11.36, 9.16.22, 9.17.19, 9.11.36-S1,
+  9.16.22-S1 or later.
+
+Affected Software/OS:
+BIND 9.3.0 through 9.11.35, 9.12.0 through 9.16.21, 9.9.3-S1
+  through 9.11.35-S1, 9.16.8-S1 through 9.16.21-S1 and 9.17.0 through 9.17.18.
+  Authoritative-only BIND 9 servers are not vulnerable to this flaw.
+
+Vulnerability Insight:
+Exploitation of broken authoritative servers using a flaw in
+  response processing can cause degradation in BIND resolver performance. The wa!
+y the lame cache is
+  currently designed makes it possible for its internal data structures to grow !
+almost infinitely,
+  which may cause significant delays in client query processing.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND DoS Vulnerability (CVE-2021-25219)
+(OID: 1.3.6.1.4.1.25623.1.0.117759)
+Version used: 2021-11-05T03:03:34Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2021-25219
+ url: https://kb.isc.org/docs/cve-2021-25219
+ cert-bund: WID-SEC-2022-0030
+ cert-bund: CB-K22/0249
+ cert-bund: CB-K21/1127
+ dfn-cert: DFN-CERT-2022-1764
+ dfn-cert: DFN-CERT-2022-0566
+ dfn-cert: DFN-CERT-2021-2586
+ dfn-cert: DFN-CERT-2021-2273
+ dfn-cert: DFN-CERT-2021-2255
+
+
+Issue
+-----
+NVT:    ISC BIND DoS Vulnerability (CVE-2022-2795) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.124164
+Threat: Medium (CVSS: 5.3)
+Port:   53/tcp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a denial of service (DoS) vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.16.33
+Installation
+path / port:       53/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 9.16.33, 9.18.7, 9.19.5, 9.16.33-S1 or
+  later.
+
+Affected Software/OS:
+ISC BIND version 9.0.0 through 9.16.32, 9.9.3-S1 through
+  9.11.37-S1, 9.16.8-S1 through 9.16.32-S1, 9.18.0 through 9.18.6 and 9.19.0 thr!
+ough 9.19.4.
+
+Vulnerability Insight:
+A flaw in resolver code can cause named to spend excessive
+  amounts of time on processing large delegations
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND DoS Vulnerability (CVE-2022-2795) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.124164)
+Version used: 2023-10-18T05:05:17Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2022-2795
+ url: https://kb.isc.org/docs/cve-2022-2795
+ cert-bund: WID-SEC-2024-1307
+ cert-bund: WID-SEC-2024-1226
+ cert-bund: WID-SEC-2024-0794
+ cert-bund: WID-SEC-2024-0064
+ cert-bund: WID-SEC-2023-1737
+ cert-bund: WID-SEC-2023-1542
+ cert-bund: WID-SEC-2023-0809
+ cert-bund: WID-SEC-2022-1492
+ dfn-cert: DFN-CERT-2024-1223
+ dfn-cert: DFN-CERT-2024-0963
+ dfn-cert: DFN-CERT-2023-1592
+ dfn-cert: DFN-CERT-2023-1285
+ dfn-cert: DFN-CERT-2023-1123
+ dfn-cert: DFN-CERT-2023-1057
+ dfn-cert: DFN-CERT-2023-0179
+ dfn-cert: DFN-CERT-2022-2354
+ dfn-cert: DFN-CERT-2022-2191
+ dfn-cert: DFN-CERT-2022-2099
+
+
+Issue
+-----
+NVT:    ISC BIND DoS Vulnerability (CVE-2022-2795) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.124164
+Threat: Medium (CVSS: 5.3)
+Port:   53/udp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a denial of service (DoS) vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.16.33
+Installation
+path / port:       53/udp
+
+Solution:
+Solution type: VendorFix
+Update to version 9.16.33, 9.18.7, 9.19.5, 9.16.33-S1 or
+  later.
+
+Affected Software/OS:
+ISC BIND version 9.0.0 through 9.16.32, 9.9.3-S1 through
+  9.11.37-S1, 9.16.8-S1 through 9.16.32-S1, 9.18.0 through 9.18.6 and 9.19.0 thr!
+ough 9.19.4.
+
+Vulnerability Insight:
+A flaw in resolver code can cause named to spend excessive
+  amounts of time on processing large delegations
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND DoS Vulnerability (CVE-2022-2795) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.124164)
+Version used: 2023-10-18T05:05:17Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2022-2795
+ url: https://kb.isc.org/docs/cve-2022-2795
+ cert-bund: WID-SEC-2024-1307
+ cert-bund: WID-SEC-2024-1226
+ cert-bund: WID-SEC-2024-0794
+ cert-bund: WID-SEC-2024-0064
+ cert-bund: WID-SEC-2023-1737
+ cert-bund: WID-SEC-2023-1542
+ cert-bund: WID-SEC-2023-0809
+ cert-bund: WID-SEC-2022-1492
+ dfn-cert: DFN-CERT-2024-1223
+ dfn-cert: DFN-CERT-2024-0963
+ dfn-cert: DFN-CERT-2023-1592
+ dfn-cert: DFN-CERT-2023-1285
+ dfn-cert: DFN-CERT-2023-1123
+ dfn-cert: DFN-CERT-2023-1057
+ dfn-cert: DFN-CERT-2023-0179
+ dfn-cert: DFN-CERT-2022-2354
+ dfn-cert: DFN-CERT-2022-2191
+ dfn-cert: DFN-CERT-2022-2099
+
+
+Issue
+-----
+NVT:    ISC BIND DoS Vulnerability (CVE-2022-38177) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.124172
+Threat: High (CVSS: 7.5)
+Port:   53/tcp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a denial of service (DoS) vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.16.33
+Installation
+path / port:       53/tcp
+
+Impact:
+By spoofing the target resolver with responses that have a
+  malformed ECDSA signature, an attacker can trigger a small memory leak. It is !
+possible to
+  gradually erode available memory to the point where named crashes for lack of !
+resources.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.16.33, 9.16.33-S1 or later.
+
+Affected Software/OS:
+ISC BIND versions 9.8.4 through 9.16.32, 9.9.4-S1 through
+  9.11.37-S1 and 9.16.8-S1 through 9.16.32-S1.
+
+Vulnerability Insight:
+The DNSSEC verification code for the ECDSA algorithm leaks
+  memory when there is a signature length mismatch.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND DoS Vulnerability (CVE-2022-38177) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.124172)
+Version used: 2023-10-18T05:05:17Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2022-38177
+ url: https://kb.isc.org/docs/cve-2022-38177
+ cert-bund: WID-SEC-2024-0794
+ cert-bund: WID-SEC-2022-1492
+ dfn-cert: DFN-CERT-2023-1162
+ dfn-cert: DFN-CERT-2022-2664
+ dfn-cert: DFN-CERT-2022-2354
+ dfn-cert: DFN-CERT-2022-2191
+ dfn-cert: DFN-CERT-2022-2099
+
+
+Issue
+-----
+NVT:    ISC BIND DoS Vulnerability (CVE-2022-38177) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.124172
+Threat: High (CVSS: 7.5)
+Port:   53/udp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a denial of service (DoS) vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.16.33
+Installation
+path / port:       53/udp
+
+Impact:
+By spoofing the target resolver with responses that have a
+  malformed ECDSA signature, an attacker can trigger a small memory leak. It is !
+possible to
+  gradually erode available memory to the point where named crashes for lack of !
+resources.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.16.33, 9.16.33-S1 or later.
+
+Affected Software/OS:
+ISC BIND versions 9.8.4 through 9.16.32, 9.9.4-S1 through
+  9.11.37-S1 and 9.16.8-S1 through 9.16.32-S1.
+
+Vulnerability Insight:
+The DNSSEC verification code for the ECDSA algorithm leaks
+  memory when there is a signature length mismatch.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND DoS Vulnerability (CVE-2022-38177) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.124172)
+Version used: 2023-10-18T05:05:17Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2022-38177
+ url: https://kb.isc.org/docs/cve-2022-38177
+ cert-bund: WID-SEC-2024-0794
+ cert-bund: WID-SEC-2022-1492
+ dfn-cert: DFN-CERT-2023-1162
+ dfn-cert: DFN-CERT-2022-2664
+ dfn-cert: DFN-CERT-2022-2354
+ dfn-cert: DFN-CERT-2022-2191
+ dfn-cert: DFN-CERT-2022-2099
+
+
+Issue
+-----
+NVT:    ISC BIND DoS Vulnerability (CVE-2022-38178) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.124174
+Threat: High (CVSS: 7.5)
+Port:   53/tcp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a denial of service (DoS) vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.16.33
+Installation
+path / port:       53/tcp
+
+Impact:
+By spoofing the target resolver with responses that have a
+  malformed EdDSA signature, an attacker can trigger a small memory leak. It is !
+possible to
+  gradually erode available memory to the point where named crashes for lack of !
+resources.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.16.33, 9.18.7, 9.19.5, 9.16.33-S1 or later.
+
+Affected Software/OS:
+ISC BIND versions 9.9.12 through 9.9.13, 9.10.7 through 9.10.8,
+  9.11.4-S1 through 9.11.37-S1, 9.16.8-S1 through 9.16.32-S1, 9.18.0 through 9.1!
+8.6 and 9.19.0
+  through 9.19.4.
+
+Vulnerability Insight:
+The DNSSEC verification code for the EdDSA algorithm leaks
+  memory when there is a signature length mismatch.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND DoS Vulnerability (CVE-2022-38178) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.124174)
+Version used: 2023-10-18T05:05:17Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2022-38178
+ url: https://kb.isc.org/docs/cve-2022-38178
+ cert-bund: WID-SEC-2024-0794
+ cert-bund: WID-SEC-2022-1492
+ dfn-cert: DFN-CERT-2023-1162
+ dfn-cert: DFN-CERT-2022-2664
+ dfn-cert: DFN-CERT-2022-2354
+ dfn-cert: DFN-CERT-2022-2099
+
+
+Issue
+-----
+NVT:    ISC BIND DoS Vulnerability (CVE-2022-38178) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.124174
+Threat: High (CVSS: 7.5)
+Port:   53/udp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a denial of service (DoS) vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.16.33
+Installation
+path / port:       53/udp
+
+Impact:
+By spoofing the target resolver with responses that have a
+  malformed EdDSA signature, an attacker can trigger a small memory leak. It is !
+possible to
+  gradually erode available memory to the point where named crashes for lack of !
+resources.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.16.33, 9.18.7, 9.19.5, 9.16.33-S1 or later.
+
+Affected Software/OS:
+ISC BIND versions 9.9.12 through 9.9.13, 9.10.7 through 9.10.8,
+  9.11.4-S1 through 9.11.37-S1, 9.16.8-S1 through 9.16.32-S1, 9.18.0 through 9.1!
+8.6 and 9.19.0
+  through 9.19.4.
+
+Vulnerability Insight:
+The DNSSEC verification code for the EdDSA algorithm leaks
+  memory when there is a signature length mismatch.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND DoS Vulnerability (CVE-2022-38178) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.124174)
+Version used: 2023-10-18T05:05:17Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2022-38178
+ url: https://kb.isc.org/docs/cve-2022-38178
+ cert-bund: WID-SEC-2024-0794
+ cert-bund: WID-SEC-2022-1492
+ dfn-cert: DFN-CERT-2023-1162
+ dfn-cert: DFN-CERT-2022-2664
+ dfn-cert: DFN-CERT-2022-2354
+ dfn-cert: DFN-CERT-2022-2099
+
+
+Issue
+-----
+NVT:    ISC BIND DoS Vulnerability (CVE-2023-2828) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.149838
+Threat: High (CVSS: 7.5)
+Port:   53/udp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a denial of service (DoS) vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.16.42
+Installation
+path / port:       53/udp
+
+Impact:
+By exploiting this flaw, an attacker can cause the amount of
+  memory used by a named resolver to go well beyond the configured max-cache-siz!
+e limit. The
+  effectiveness of the attack depends on a number of factors (e.g. query load, q!
+uery patterns), but
+  since the default value of the max-cache-size statement is 90%, in the worst c!
+ase the attacker
+  can exhaust all available memory on the host running named, leading to a denia!
+l-of-service
+  condition.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.16.42, 9.18.16, 9.19.14, 9.16.42-S1,
+  9.18.16-S1 or later.
+
+Affected Software/OS:
+ISC BIND versions 9.11.0 through 9.16.41, 9.18.0 through
+  9.18.15, 9.19.0 through 9.19.13, 9.11.3-S1 through 9.16.41-S1 and 9.18.11-S1 t!
+hrough
+  9.18.15-S1.
+
+Vulnerability Insight:
+Every named instance configured to run as a recursive resolver
+  maintains a cache database holding the responses to the queries it has recentl!
+y sent to
+  authoritative servers. The size limit for that cache database can be configure!
+d using the
+  max-cache-size statement in the configuration file, it defaults to 90% of the !
+total amount of
+  memory available on the host. When the size of the cache reaches 7/8 of the co!
+nfigured limit, a
+  cache-cleaning algorithm starts to remove expired and/or least-recently used R!
+Rsets from the
+  cache, to keep memory use below the configured limit.
+  It has been discovered that the effectiveness of the cache-cleaning algorithm !
+used in named can
+  be severely diminished by querying the resolver for specific RRsets in a certa!
+in order,
+  effectively allowing the configured max-cache-size limit to be significantly e!
+xceeded.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND DoS Vulnerability (CVE-2023-2828) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.149838)
+Version used: 2023-10-13T05:06:10Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2023-2828
+ url: https://kb.isc.org/docs/cve-2023-2828
+ cert-bund: WID-SEC-2024-1591
+ cert-bund: WID-SEC-2024-0794
+ cert-bund: WID-SEC-2024-0064
+ cert-bund: WID-SEC-2023-2917
+ cert-bund: WID-SEC-2023-2625
+ cert-bund: WID-SEC-2023-1533
+ dfn-cert: DFN-CERT-2023-1551
+ dfn-cert: DFN-CERT-2023-1444
+ dfn-cert: DFN-CERT-2023-1434
+
+
+Issue
+-----
+NVT:    ISC BIND DoS Vulnerability (CVE-2023-2828) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.149838
+Threat: High (CVSS: 7.5)
+Port:   53/tcp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a denial of service (DoS) vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.16.42
+Installation
+path / port:       53/tcp
+
+Impact:
+By exploiting this flaw, an attacker can cause the amount of
+  memory used by a named resolver to go well beyond the configured max-cache-siz!
+e limit. The
+  effectiveness of the attack depends on a number of factors (e.g. query load, q!
+uery patterns), but
+  since the default value of the max-cache-size statement is 90%, in the worst c!
+ase the attacker
+  can exhaust all available memory on the host running named, leading to a denia!
+l-of-service
+  condition.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.16.42, 9.18.16, 9.19.14, 9.16.42-S1,
+  9.18.16-S1 or later.
+
+Affected Software/OS:
+ISC BIND versions 9.11.0 through 9.16.41, 9.18.0 through
+  9.18.15, 9.19.0 through 9.19.13, 9.11.3-S1 through 9.16.41-S1 and 9.18.11-S1 t!
+hrough
+  9.18.15-S1.
+
+Vulnerability Insight:
+Every named instance configured to run as a recursive resolver
+  maintains a cache database holding the responses to the queries it has recentl!
+y sent to
+  authoritative servers. The size limit for that cache database can be configure!
+d using the
+  max-cache-size statement in the configuration file, it defaults to 90% of the !
+total amount of
+  memory available on the host. When the size of the cache reaches 7/8 of the co!
+nfigured limit, a
+  cache-cleaning algorithm starts to remove expired and/or least-recently used R!
+Rsets from the
+  cache, to keep memory use below the configured limit.
+  It has been discovered that the effectiveness of the cache-cleaning algorithm !
+used in named can
+  be severely diminished by querying the resolver for specific RRsets in a certa!
+in order,
+  effectively allowing the configured max-cache-size limit to be significantly e!
+xceeded.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND DoS Vulnerability (CVE-2023-2828) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.149838)
+Version used: 2023-10-13T05:06:10Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2023-2828
+ url: https://kb.isc.org/docs/cve-2023-2828
+ cert-bund: WID-SEC-2024-1591
+ cert-bund: WID-SEC-2024-0794
+ cert-bund: WID-SEC-2024-0064
+ cert-bund: WID-SEC-2023-2917
+ cert-bund: WID-SEC-2023-2625
+ cert-bund: WID-SEC-2023-1533
+ dfn-cert: DFN-CERT-2023-1551
+ dfn-cert: DFN-CERT-2023-1444
+ dfn-cert: DFN-CERT-2023-1434
+
+
+Issue
+-----
+NVT:    ISC BIND DoS Vulnerability (CVE-2023-3341) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.104923
+Threat: High (CVSS: 7.5)
+Port:   53/udp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a denial of service (DoS) vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.16.44
+Installation
+path / port:       53/udp
+
+Impact:
+By sending a specially crafted message over the control channel,
+  an attacker can cause the packet-parsing code to run out of available stack me!
+mory, causing named
+  to terminate unexpectedly. However, the attack only works in environments wher!
+e the stack size
+  available to each process/thread is small enough. The exact threshold depends !
+on multiple factors
+  and is therefore impossible to specify universally.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.16.44, 9.18.19, 9.19.17, 9.16.44-S1,
+  9.18.19-S1 or later.
+
+Affected Software/OS:
+ISC BIND versions 9.2.0 through 9.16.43, 9.18.0 through
+  9.18.18, 9.19.0 through 9.19.16, 9.9.3-S1 through 9.16.43-S1 and 9.18.0-S1 thr!
+ough 9.18.18-S1.
+
+Vulnerability Insight:
+The code that processes control channel messages sent to named
+  calls certain functions recursively during packet parsing. Recursion depth is !
+only limited by the
+  maximum accepted packet size. Depending on the environment, this may cause the!
+ packet-parsing code
+  to run out of available stack memory, causing named to terminate unexpectedly.!
+ Since each incoming
+  control channel message is fully parsed before its contents are authenticated,!
+ exploiting this
+  flaw does not require the attacker to hold a valid RNDC key. Only network acce!
+ss to the control
+  channel's configured TCP port is necessary.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND DoS Vulnerability (CVE-2023-3341) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104923)
+Version used: 2023-10-13T05:06:10Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2023-3341
+ url: https://kb.isc.org/docs/cve-2023-3341
+ cert-bund: WID-SEC-2024-1591
+ cert-bund: WID-SEC-2024-0064
+ cert-bund: WID-SEC-2023-2412
+ dfn-cert: DFN-CERT-2025-0010
+ dfn-cert: DFN-CERT-2023-3177
+ dfn-cert: DFN-CERT-2023-2941
+ dfn-cert: DFN-CERT-2023-2223
+
+
+Issue
+-----
+NVT:    ISC BIND DoS Vulnerability (CVE-2023-3341) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.104923
+Threat: High (CVSS: 7.5)
+Port:   53/tcp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a denial of service (DoS) vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.16.44
+Installation
+path / port:       53/tcp
+
+Impact:
+By sending a specially crafted message over the control channel,
+  an attacker can cause the packet-parsing code to run out of available stack me!
+mory, causing named
+  to terminate unexpectedly. However, the attack only works in environments wher!
+e the stack size
+  available to each process/thread is small enough. The exact threshold depends !
+on multiple factors
+  and is therefore impossible to specify universally.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.16.44, 9.18.19, 9.19.17, 9.16.44-S1,
+  9.18.19-S1 or later.
+
+Affected Software/OS:
+ISC BIND versions 9.2.0 through 9.16.43, 9.18.0 through
+  9.18.18, 9.19.0 through 9.19.16, 9.9.3-S1 through 9.16.43-S1 and 9.18.0-S1 thr!
+ough 9.18.18-S1.
+
+Vulnerability Insight:
+The code that processes control channel messages sent to named
+  calls certain functions recursively during packet parsing. Recursion depth is !
+only limited by the
+  maximum accepted packet size. Depending on the environment, this may cause the!
+ packet-parsing code
+  to run out of available stack memory, causing named to terminate unexpectedly.!
+ Since each incoming
+  control channel message is fully parsed before its contents are authenticated,!
+ exploiting this
+  flaw does not require the attacker to hold a valid RNDC key. Only network acce!
+ss to the control
+  channel's configured TCP port is necessary.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND DoS Vulnerability (CVE-2023-3341) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104923)
+Version used: 2023-10-13T05:06:10Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2023-3341
+ url: https://kb.isc.org/docs/cve-2023-3341
+ cert-bund: WID-SEC-2024-1591
+ cert-bund: WID-SEC-2024-0064
+ cert-bund: WID-SEC-2023-2412
+ dfn-cert: DFN-CERT-2025-0010
+ dfn-cert: DFN-CERT-2023-3177
+ dfn-cert: DFN-CERT-2023-2941
+ dfn-cert: DFN-CERT-2023-2223
+
+
+Issue
+-----
+NVT:    ISC BIND DoS Vulnerability (CVE-2023-4408) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.151725
+Threat: High (CVSS: 7.5)
+Port:   53/udp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a denial of service (DoS) vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.16.48
+Installation
+path / port:       53/udp
+
+Impact:
+By flooding the target server with queries exploiting this flaw
+  an attacker can significantly impair the server's performance, effectively den!
+ying legitimate
+  clients access to the DNS resolution service.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.16.48, 9.18.24, 9.19.21, 9.16.48-S1,
+  9.18.24-S1 or later.
+
+Affected Software/OS:
+ISC BIND version 9.0.0 through 9.16.45, 9.18.0 through
+  9.18.21, 9.19.0 through 9.19.19, 9.9.3-S1 through 9.11.37-S1, 9.16.8-S1 throug!
+h 9.16.45-S1 and
+  9.18.11-S1 through 9.18.21-S1.
+
+Vulnerability Insight:
+The DNS message parsing code in named includes a section whose
+  computational complexity is overly high. It does not cause problems for typica!
+l DNS traffic, but
+  crafted queries and responses may cause excessive CPU load on the affected nam!
+ed instance by
+  exploiting this flaw. This issue affects both authoritative servers and recurs!
+ive resolvers.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND DoS Vulnerability (CVE-2023-4408) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.151725)
+Version used: 2024-02-15T14:37:33Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2023-4408
+ url: https://kb.isc.org/docs/cve-2023-4408
+ cert-bund: WID-SEC-2024-1313
+ cert-bund: WID-SEC-2024-1307
+ cert-bund: WID-SEC-2024-1248
+ cert-bund: WID-SEC-2024-1226
+ cert-bund: WID-SEC-2024-0386
+ dfn-cert: DFN-CERT-2025-0041
+ dfn-cert: DFN-CERT-2025-0010
+ dfn-cert: DFN-CERT-2024-1516
+ dfn-cert: DFN-CERT-2024-1223
+ dfn-cert: DFN-CERT-2024-0977
+ dfn-cert: DFN-CERT-2024-0375
+
+
+Issue
+-----
+NVT:    ISC BIND DoS Vulnerability (CVE-2023-4408) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.151725
+Threat: High (CVSS: 7.5)
+Port:   53/tcp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a denial of service (DoS) vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.16.48
+Installation
+path / port:       53/tcp
+
+Impact:
+By flooding the target server with queries exploiting this flaw
+  an attacker can significantly impair the server's performance, effectively den!
+ying legitimate
+  clients access to the DNS resolution service.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.16.48, 9.18.24, 9.19.21, 9.16.48-S1,
+  9.18.24-S1 or later.
+
+Affected Software/OS:
+ISC BIND version 9.0.0 through 9.16.45, 9.18.0 through
+  9.18.21, 9.19.0 through 9.19.19, 9.9.3-S1 through 9.11.37-S1, 9.16.8-S1 throug!
+h 9.16.45-S1 and
+  9.18.11-S1 through 9.18.21-S1.
+
+Vulnerability Insight:
+The DNS message parsing code in named includes a section whose
+  computational complexity is overly high. It does not cause problems for typica!
+l DNS traffic, but
+  crafted queries and responses may cause excessive CPU load on the affected nam!
+ed instance by
+  exploiting this flaw. This issue affects both authoritative servers and recurs!
+ive resolvers.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND DoS Vulnerability (CVE-2023-4408) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.151725)
+Version used: 2024-02-15T14:37:33Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2023-4408
+ url: https://kb.isc.org/docs/cve-2023-4408
+ cert-bund: WID-SEC-2024-1313
+ cert-bund: WID-SEC-2024-1307
+ cert-bund: WID-SEC-2024-1248
+ cert-bund: WID-SEC-2024-1226
+ cert-bund: WID-SEC-2024-0386
+ dfn-cert: DFN-CERT-2025-0041
+ dfn-cert: DFN-CERT-2025-0010
+ dfn-cert: DFN-CERT-2024-1516
+ dfn-cert: DFN-CERT-2024-1223
+ dfn-cert: DFN-CERT-2024-0977
+ dfn-cert: DFN-CERT-2024-0375
+
+
+Issue
+-----
+NVT:    ISC BIND DoS Vulnerability (CVE-2024-11187) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.153891
+Threat: High (CVSS: 7.5)
+Port:   53/udp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a denial of service (DoS)
+  vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.18.33
+Installation
+path / port:       53/udp
+
+Impact:
+A named instance vulnerable to this issue can be compelled to
+  consume excessive CPU resources up to the point where exhaustion of resources !
+effectively
+  prevents the server from responding to other client queries. This issue is mos!
+t likely to affect
+  resolvers but could also degrade authoritative server performance.
+  - Authoritative servers are affected by this vulnerability.
+  - Resolvers are affected by this vulnerability.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.18.33, 9.20.5, 9.21.4, 9.18.33-S1 or
+  later.
+
+Affected Software/OS:
+ISC BIND version 9.11.37 and prior, 9.16.0 through 9.16.50,
+  9.18.0 through 9.18.32, 9.20.0 through 9.20.4, 9.21.0 through 9.21.3, 9.11.3-S!
+1 through
+  9.11.37-S1, 9.16.8-S1 through 9.16.50-S1 and 9.18.11-S1 through 9.18.32-S1.
+
+Vulnerability Insight:
+It is possible to construct a zone such that some queries to it
+  will generate responses containing numerous records in the Additional section.!
+ An attacker
+  sending many such queries can cause either the authoritative server itself or !
+an independent
+  resolver to use disproportionate resources processing the queries. Zones will !
+usually need to
+  have been deliberately crafted to attack this exposure.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND DoS Vulnerability (CVE-2024-11187) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.153891)
+Version used: 2025-01-31T05:37:27Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2024-11187
+ url: https://kb.isc.org/docs/cve-2024-11187
+ cert-bund: WID-SEC-2025-0217
+ dfn-cert: DFN-CERT-2025-1410
+ dfn-cert: DFN-CERT-2025-0994
+ dfn-cert: DFN-CERT-2025-0993
+ dfn-cert: DFN-CERT-2025-0720
+ dfn-cert: DFN-CERT-2025-0664
+ dfn-cert: DFN-CERT-2025-0662
+ dfn-cert: DFN-CERT-2025-0575
+ dfn-cert: DFN-CERT-2025-0574
+ dfn-cert: DFN-CERT-2025-0300
+ dfn-cert: DFN-CERT-2025-0269
+
+
+Issue
+-----
+NVT:    ISC BIND DoS Vulnerability (CVE-2024-11187) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.153891
+Threat: High (CVSS: 7.5)
+Port:   53/tcp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a denial of service (DoS)
+  vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.18.33
+Installation
+path / port:       53/tcp
+
+Impact:
+A named instance vulnerable to this issue can be compelled to
+  consume excessive CPU resources up to the point where exhaustion of resources !
+effectively
+  prevents the server from responding to other client queries. This issue is mos!
+t likely to affect
+  resolvers but could also degrade authoritative server performance.
+  - Authoritative servers are affected by this vulnerability.
+  - Resolvers are affected by this vulnerability.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.18.33, 9.20.5, 9.21.4, 9.18.33-S1 or
+  later.
+
+Affected Software/OS:
+ISC BIND version 9.11.37 and prior, 9.16.0 through 9.16.50,
+  9.18.0 through 9.18.32, 9.20.0 through 9.20.4, 9.21.0 through 9.21.3, 9.11.3-S!
+1 through
+  9.11.37-S1, 9.16.8-S1 through 9.16.50-S1 and 9.18.11-S1 through 9.18.32-S1.
+
+Vulnerability Insight:
+It is possible to construct a zone such that some queries to it
+  will generate responses containing numerous records in the Additional section.!
+ An attacker
+  sending many such queries can cause either the authoritative server itself or !
+an independent
+  resolver to use disproportionate resources processing the queries. Zones will !
+usually need to
+  have been deliberately crafted to attack this exposure.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND DoS Vulnerability (CVE-2024-11187) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.153891)
+Version used: 2025-01-31T05:37:27Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2024-11187
+ url: https://kb.isc.org/docs/cve-2024-11187
+ cert-bund: WID-SEC-2025-0217
+ dfn-cert: DFN-CERT-2025-1410
+ dfn-cert: DFN-CERT-2025-0994
+ dfn-cert: DFN-CERT-2025-0993
+ dfn-cert: DFN-CERT-2025-0720
+ dfn-cert: DFN-CERT-2025-0664
+ dfn-cert: DFN-CERT-2025-0662
+ dfn-cert: DFN-CERT-2025-0575
+ dfn-cert: DFN-CERT-2025-0574
+ dfn-cert: DFN-CERT-2025-0300
+ dfn-cert: DFN-CERT-2025-0269
+
+
+Issue
+-----
+NVT:    ISC BIND DoS Vulnerability (CVE-2024-1737) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.152740
+Threat: High (CVSS: 7.5)
+Port:   53/tcp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a denial of service (DoS)
+  vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.18.28
+Installation
+path / port:       53/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 9.18.28, 9.20.0, 9.18.28-S1 or later.
+
+Affected Software/OS:
+ISC BIND version 9.11.0 through 9.11.37, 9.16.0 through
+  9.16.50, 9.18.0 through 9.18.27, 9.19.0 through 9.19.24, 9.11.4-S1 through 9.1!
+1.37-S1, 9.16.8-S1
+  through 9.16.50-S1 and 9.18.11-S1 through 9.18.27-S1.
+
+Vulnerability Insight:
+Resolver caches and authoritative zone databases that hold
+  significant numbers of RRs for the same hostname (of any RTYPE) can suffer fro!
+m degraded
+  performance as content is being added or updated, and also when handling clien!
+t queries for this
+  name.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND DoS Vulnerability (CVE-2024-1737) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.152740)
+Version used: 2024-07-26T05:05:35Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2024-1737
+ url: https://kb.isc.org/docs/cve-2024-1737
+ url: https://www.cisa.gov/news-events/alerts/2024/07/24/isc-releases-security-advisories-bind-9
+ cert-bund: WID-SEC-2025-0794
+ cert-bund: WID-SEC-2025-0225
+ cert-bund: WID-SEC-2024-1700
+ dfn-cert: DFN-CERT-2025-2802
+ dfn-cert: DFN-CERT-2025-0933
+ dfn-cert: DFN-CERT-2024-2455
+ dfn-cert: DFN-CERT-2024-2392
+ dfn-cert: DFN-CERT-2024-2326
+ dfn-cert: DFN-CERT-2024-2298
+ dfn-cert: DFN-CERT-2024-2295
+ dfn-cert: DFN-CERT-2024-2071
+ dfn-cert: DFN-CERT-2024-2040
+ dfn-cert: DFN-CERT-2024-1912
+
+
+Issue
+-----
+NVT:    ISC BIND DoS Vulnerability (CVE-2024-1737) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.152740
+Threat: High (CVSS: 7.5)
+Port:   53/udp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a denial of service (DoS)
+  vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.18.28
+Installation
+path / port:       53/udp
+
+Solution:
+Solution type: VendorFix
+Update to version 9.18.28, 9.20.0, 9.18.28-S1 or later.
+
+Affected Software/OS:
+ISC BIND version 9.11.0 through 9.11.37, 9.16.0 through
+  9.16.50, 9.18.0 through 9.18.27, 9.19.0 through 9.19.24, 9.11.4-S1 through 9.1!
+1.37-S1, 9.16.8-S1
+  through 9.16.50-S1 and 9.18.11-S1 through 9.18.27-S1.
+
+Vulnerability Insight:
+Resolver caches and authoritative zone databases that hold
+  significant numbers of RRs for the same hostname (of any RTYPE) can suffer fro!
+m degraded
+  performance as content is being added or updated, and also when handling clien!
+t queries for this
+  name.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND DoS Vulnerability (CVE-2024-1737) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.152740)
+Version used: 2024-07-26T05:05:35Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2024-1737
+ url: https://kb.isc.org/docs/cve-2024-1737
+ url: https://www.cisa.gov/news-events/alerts/2024/07/24/isc-releases-security-advisories-bind-9
+ cert-bund: WID-SEC-2025-0794
+ cert-bund: WID-SEC-2025-0225
+ cert-bund: WID-SEC-2024-1700
+ dfn-cert: DFN-CERT-2025-2802
+ dfn-cert: DFN-CERT-2025-0933
+ dfn-cert: DFN-CERT-2024-2455
+ dfn-cert: DFN-CERT-2024-2392
+ dfn-cert: DFN-CERT-2024-2326
+ dfn-cert: DFN-CERT-2024-2298
+ dfn-cert: DFN-CERT-2024-2295
+ dfn-cert: DFN-CERT-2024-2071
+ dfn-cert: DFN-CERT-2024-2040
+ dfn-cert: DFN-CERT-2024-1912
+
+
+Issue
+-----
+NVT:    ISC BIND DoS Vulnerability (CVE-2024-1975) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.152742
+Threat: High (CVSS: 7.5)
+Port:   53/tcp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a denial of service (DoS)
+  vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.18.28
+Installation
+path / port:       53/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 9.18.28, 9.20.0, 9.18.28-S1 or later.
+
+Affected Software/OS:
+ISC BIND version 9.0.0 through 9.11.37, 9.16.0 through
+  9.16.50, 9.18.0 through 9.18.27, 9.19.0 through 9.19.24, 9.9.3-S1 through 9.11!
+.37-S1, 9.16.8-S1
+  through 9.16.49-S1 and 9.18.11-S1 through 9.18.27-S1.
+
+Vulnerability Insight:
+If a server hosts a zone containing a 'KEY' Resource Record, or
+  a resolver DNSSEC-validates a 'KEY' Resource Record from a DNSSEC-signed domai!
+n in cache, a
+  client can exhaust resolver CPU resources by sending a stream of SIG(0) signed!
+ requests.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND DoS Vulnerability (CVE-2024-1975) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.152742)
+Version used: 2024-07-26T05:05:35Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2024-1975
+ url: https://kb.isc.org/docs/cve-2024-1975
+ url: https://www.cisa.gov/news-events/alerts/2024/07/24/isc-releases-security-advisories-bind-9
+ cert-bund: WID-SEC-2025-0794
+ cert-bund: WID-SEC-2025-0225
+ cert-bund: WID-SEC-2024-1700
+ dfn-cert: DFN-CERT-2025-2802
+ dfn-cert: DFN-CERT-2025-0933
+ dfn-cert: DFN-CERT-2024-2455
+ dfn-cert: DFN-CERT-2024-2392
+ dfn-cert: DFN-CERT-2024-2326
+ dfn-cert: DFN-CERT-2024-2298
+ dfn-cert: DFN-CERT-2024-2295
+ dfn-cert: DFN-CERT-2024-2071
+ dfn-cert: DFN-CERT-2024-2040
+ dfn-cert: DFN-CERT-2024-1912
+
+
+Issue
+-----
+NVT:    ISC BIND DoS Vulnerability (CVE-2024-1975) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.152742
+Threat: High (CVSS: 7.5)
+Port:   53/udp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a denial of service (DoS)
+  vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.18.28
+Installation
+path / port:       53/udp
+
+Solution:
+Solution type: VendorFix
+Update to version 9.18.28, 9.20.0, 9.18.28-S1 or later.
+
+Affected Software/OS:
+ISC BIND version 9.0.0 through 9.11.37, 9.16.0 through
+  9.16.50, 9.18.0 through 9.18.27, 9.19.0 through 9.19.24, 9.9.3-S1 through 9.11!
+.37-S1, 9.16.8-S1
+  through 9.16.49-S1 and 9.18.11-S1 through 9.18.27-S1.
+
+Vulnerability Insight:
+If a server hosts a zone containing a 'KEY' Resource Record, or
+  a resolver DNSSEC-validates a 'KEY' Resource Record from a DNSSEC-signed domai!
+n in cache, a
+  client can exhaust resolver CPU resources by sending a stream of SIG(0) signed!
+ requests.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND DoS Vulnerability (CVE-2024-1975) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.152742)
+Version used: 2024-07-26T05:05:35Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2024-1975
+ url: https://kb.isc.org/docs/cve-2024-1975
+ url: https://www.cisa.gov/news-events/alerts/2024/07/24/isc-releases-security-advisories-bind-9
+ cert-bund: WID-SEC-2025-0794
+ cert-bund: WID-SEC-2025-0225
+ cert-bund: WID-SEC-2024-1700
+ dfn-cert: DFN-CERT-2025-2802
+ dfn-cert: DFN-CERT-2025-0933
+ dfn-cert: DFN-CERT-2024-2455
+ dfn-cert: DFN-CERT-2024-2392
+ dfn-cert: DFN-CERT-2024-2326
+ dfn-cert: DFN-CERT-2024-2298
+ dfn-cert: DFN-CERT-2024-2295
+ dfn-cert: DFN-CERT-2024-2071
+ dfn-cert: DFN-CERT-2024-2040
+ dfn-cert: DFN-CERT-2024-1912
+
+
+Issue
+-----
+NVT:    ISC BIND Multiple DoS Vulnerabilities (CVE-2020-8616, CVE-2020-8617) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.143937
+Threat: High (CVSS: 8.6)
+Port:   53/udp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to multiple denial of service vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.11.19
+Installation
+path / port:       53/udp
+
+Solution:
+Solution type: VendorFix
+Update to version 9.11.19, 9.14.12, 9.16.3, 9.11.19-S1 or later.
+
+Affected Software/OS:
+BIND 9.0.0 - 9.11.18, 9.12.0 - 9.12.4-P2, 9.14.0 - 9.14.11,
+  9.16.0 - 9.16.2, 9.17.0 -> 9.17.1 and 9.9.3-S1 - 9.11.18-S1. Also affects all !
+releases in the obsolete
+  9.13 and 9.15 development branches.
+
+Vulnerability Insight:
+ISC BIND is prone to multiple denial of service vulnerabilities:
+  - BIND does not sufficiently limit the number of fetches performed when proces!
+sing referrals (CVE-2020-8616)
+  - A logic error in code which checks TSIG validity can be used to trigger an a!
+ssertion failure in tsig.c
+    (CVE-2020-8617)
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND Multiple DoS Vulnerabilities (CVE-2020-8616, CVE-2020-8617) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.143937)
+Version used: 2021-07-07T11:00:41Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2020-8616
+ cve: CVE-2020-8617
+ url: https://kb.isc.org/docs/cve-2020-8616
+ url: https://kb.isc.org/docs/cve-2020-8617
+ cert-bund: WID-SEC-2025-1198
+ cert-bund: WID-SEC-2024-0978
+ cert-bund: CB-K20/0484
+ cert-bund: CB-K20/0474
+ dfn-cert: DFN-CERT-2021-0955
+ dfn-cert: DFN-CERT-2021-0097
+ dfn-cert: DFN-CERT-2021-0095
+ dfn-cert: DFN-CERT-2020-1729
+ dfn-cert: DFN-CERT-2020-1698
+ dfn-cert: DFN-CERT-2020-1328
+ dfn-cert: DFN-CERT-2020-1297
+ dfn-cert: DFN-CERT-2020-1289
+ dfn-cert: DFN-CERT-2020-1166
+ dfn-cert: DFN-CERT-2020-1079
+ dfn-cert: DFN-CERT-2020-1066
+
+
+Issue
+-----
+NVT:    ISC BIND Multiple DoS Vulnerabilities (CVE-2020-8616, CVE-2020-8617) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.143937
+Threat: High (CVSS: 8.6)
+Port:   53/tcp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to multiple denial of service vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.11.19
+Installation
+path / port:       53/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 9.11.19, 9.14.12, 9.16.3, 9.11.19-S1 or later.
+
+Affected Software/OS:
+BIND 9.0.0 - 9.11.18, 9.12.0 - 9.12.4-P2, 9.14.0 - 9.14.11,
+  9.16.0 - 9.16.2, 9.17.0 -> 9.17.1 and 9.9.3-S1 - 9.11.18-S1. Also affects all !
+releases in the obsolete
+  9.13 and 9.15 development branches.
+
+Vulnerability Insight:
+ISC BIND is prone to multiple denial of service vulnerabilities:
+  - BIND does not sufficiently limit the number of fetches performed when proces!
+sing referrals (CVE-2020-8616)
+  - A logic error in code which checks TSIG validity can be used to trigger an a!
+ssertion failure in tsig.c
+    (CVE-2020-8617)
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND Multiple DoS Vulnerabilities (CVE-2020-8616, CVE-2020-8617) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.143937)
+Version used: 2021-07-07T11:00:41Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2020-8616
+ cve: CVE-2020-8617
+ url: https://kb.isc.org/docs/cve-2020-8616
+ url: https://kb.isc.org/docs/cve-2020-8617
+ cert-bund: WID-SEC-2025-1198
+ cert-bund: WID-SEC-2024-0978
+ cert-bund: CB-K20/0484
+ cert-bund: CB-K20/0474
+ dfn-cert: DFN-CERT-2021-0955
+ dfn-cert: DFN-CERT-2021-0097
+ dfn-cert: DFN-CERT-2021-0095
+ dfn-cert: DFN-CERT-2020-1729
+ dfn-cert: DFN-CERT-2020-1698
+ dfn-cert: DFN-CERT-2020-1328
+ dfn-cert: DFN-CERT-2020-1297
+ dfn-cert: DFN-CERT-2020-1289
+ dfn-cert: DFN-CERT-2020-1166
+ dfn-cert: DFN-CERT-2020-1079
+ dfn-cert: DFN-CERT-2020-1066
+
+
+Issue
+-----
+NVT:    ISC BIND Multiple DoS Vulnerabilities (CVE-2020-8622, CVE-2020-8623) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.144441
+Threat: High (CVSS: 7.5)
+Port:   53/udp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to multiple denial of service vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.11.22
+Installation
+path / port:       53/udp
+
+Solution:
+Solution type: VendorFix
+Update to version 9.11.22, 9.16.6, 9.17.4, 9.11.22-S1 or later.
+
+Affected Software/OS:
+BIND 9.10.0 - 9.11.21, 9.12.0 - 9.16.5, 9.17.0 - 9.17.3 and 9.10.5-S1 - 9.11.21-!
+S1.
+
+Vulnerability Insight:
+The following vulnerabilities exist:
+  - A truncated TSIG response can lead to an assertion failure (CVE-2020-8622)
+  - A flaw in native PKCS#11 code can lead to a remotely triggerable assertion f!
+ailure in pk11.c (CVE-2020-8623)
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND Multiple DoS Vulnerabilities (CVE-2020-8622, CVE-2020-8623) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.144441)
+Version used: 2021-07-07T11:00:41Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2020-8622
+ cve: CVE-2020-8623
+ url: https://kb.isc.org/docs/cve-2020-8622
+ url: https://kb.isc.org/docs/cve-2020-8623
+ cert-bund: WID-SEC-2022-0623
+ cert-bund: CB-K21/0337
+ cert-bund: CB-K20/1253
+ cert-bund: CB-K20/1030
+ cert-bund: CB-K20/0837
+ dfn-cert: DFN-CERT-2021-0955
+ dfn-cert: DFN-CERT-2021-0924
+ dfn-cert: DFN-CERT-2021-0776
+ dfn-cert: DFN-CERT-2020-2588
+ dfn-cert: DFN-CERT-2020-2205
+ dfn-cert: DFN-CERT-2020-2064
+ dfn-cert: DFN-CERT-2020-1886
+ dfn-cert: DFN-CERT-2020-1875
+ dfn-cert: DFN-CERT-2020-1835
+
+
+Issue
+-----
+NVT:    ISC BIND Multiple DoS Vulnerabilities (CVE-2020-8622, CVE-2020-8623) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.144441
+Threat: High (CVSS: 7.5)
+Port:   53/tcp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to multiple denial of service vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.11.22
+Installation
+path / port:       53/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 9.11.22, 9.16.6, 9.17.4, 9.11.22-S1 or later.
+
+Affected Software/OS:
+BIND 9.10.0 - 9.11.21, 9.12.0 - 9.16.5, 9.17.0 - 9.17.3 and 9.10.5-S1 - 9.11.21-!
+S1.
+
+Vulnerability Insight:
+The following vulnerabilities exist:
+  - A truncated TSIG response can lead to an assertion failure (CVE-2020-8622)
+  - A flaw in native PKCS#11 code can lead to a remotely triggerable assertion f!
+ailure in pk11.c (CVE-2020-8623)
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND Multiple DoS Vulnerabilities (CVE-2020-8622, CVE-2020-8623) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.144441)
+Version used: 2021-07-07T11:00:41Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2020-8622
+ cve: CVE-2020-8623
+ url: https://kb.isc.org/docs/cve-2020-8622
+ url: https://kb.isc.org/docs/cve-2020-8623
+ cert-bund: WID-SEC-2022-0623
+ cert-bund: CB-K21/0337
+ cert-bund: CB-K20/1253
+ cert-bund: CB-K20/1030
+ cert-bund: CB-K20/0837
+ dfn-cert: DFN-CERT-2021-0955
+ dfn-cert: DFN-CERT-2021-0924
+ dfn-cert: DFN-CERT-2021-0776
+ dfn-cert: DFN-CERT-2020-2588
+ dfn-cert: DFN-CERT-2020-2205
+ dfn-cert: DFN-CERT-2020-2064
+ dfn-cert: DFN-CERT-2020-1886
+ dfn-cert: DFN-CERT-2020-1875
+ dfn-cert: DFN-CERT-2020-1835
+
+
+Issue
+-----
+NVT:    ISC BIND Multiple DoS Vulnerabilities (CVE-2023-50387, CVE-2023-50868, KeyTrap) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.151715
+Threat: High (CVSS: 7.5)
+Port:   53/tcp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to multiple denial of service (DoS)
+  vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.16.48
+Installation
+path / port:       53/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 9.16.48, 9.18.24, 9.19.21, 9.16.48-S1,
+  9.18.24-S1 or later.
+
+Affected Software/OS:
+ISC BIND version 9.0.0 through 9.16.46, 9.18.0 through
+  9.18.22, 9.19.0 through 9.19.20, 9.9.3-S1 through 9.16.46-S1 and 9.18.11-S1 th!
+rough 9.18.22-S1.
+
+Vulnerability Insight:
+The following vulnerabilities exist:
+  - CVE-2023-50387: KeyTrap - Extreme CPU consumption in DNSSEC validator
+  - CVE-2023-50868: Preparing an NSEC3 closest encloser proof can exhaust CPU re!
+sources
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND Multiple DoS Vulnerabilities (CVE-2023-50387, CVE-2023-50868, KeyTr...
+(OID: 1.3.6.1.4.1.25623.1.0.151715)
+Version used: 2024-02-21T05:06:27Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2023-50387
+ cve: CVE-2023-50868
+ url: https://kb.isc.org/docs/cve-2023-50387
+ url: https://kb.isc.org/docs/cve-2023-50868
+ url: https://www.athene-center.de/en/keytrap
+ cert-bund: WID-SEC-2025-0148
+ cert-bund: WID-SEC-2024-1347
+ cert-bund: WID-SEC-2024-1313
+ cert-bund: WID-SEC-2024-1307
+ cert-bund: WID-SEC-2024-1248
+ cert-bund: WID-SEC-2024-1226
+ cert-bund: WID-SEC-2024-1086
+ cert-bund: WID-SEC-2024-0387
+ cert-bund: WID-SEC-2024-0386
+ dfn-cert: DFN-CERT-2025-1459
+ dfn-cert: DFN-CERT-2025-0041
+ dfn-cert: DFN-CERT-2025-0010
+ dfn-cert: DFN-CERT-2024-2264
+ dfn-cert: DFN-CERT-2024-1904
+ dfn-cert: DFN-CERT-2024-1523
+ dfn-cert: DFN-CERT-2024-1516
+ dfn-cert: DFN-CERT-2024-1474
+ dfn-cert: DFN-CERT-2024-1413
+ dfn-cert: DFN-CERT-2024-1223
+ dfn-cert: DFN-CERT-2024-1011
+ dfn-cert: DFN-CERT-2024-0984
+ dfn-cert: DFN-CERT-2024-0977
+ dfn-cert: DFN-CERT-2024-0921
+ dfn-cert: DFN-CERT-2024-0829
+ dfn-cert: DFN-CERT-2024-0529
+ dfn-cert: DFN-CERT-2024-0498
+ dfn-cert: DFN-CERT-2024-0404
+ dfn-cert: DFN-CERT-2024-0399
+ dfn-cert: DFN-CERT-2024-0387
+ dfn-cert: DFN-CERT-2024-0379
+ dfn-cert: DFN-CERT-2024-0375
+
+
+Issue
+-----
+NVT:    ISC BIND Multiple DoS Vulnerabilities (CVE-2023-50387, CVE-2023-50868, KeyTrap) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.151715
+Threat: High (CVSS: 7.5)
+Port:   53/udp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to multiple denial of service (DoS)
+  vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.16.48
+Installation
+path / port:       53/udp
+
+Solution:
+Solution type: VendorFix
+Update to version 9.16.48, 9.18.24, 9.19.21, 9.16.48-S1,
+  9.18.24-S1 or later.
+
+Affected Software/OS:
+ISC BIND version 9.0.0 through 9.16.46, 9.18.0 through
+  9.18.22, 9.19.0 through 9.19.20, 9.9.3-S1 through 9.16.46-S1 and 9.18.11-S1 th!
+rough 9.18.22-S1.
+
+Vulnerability Insight:
+The following vulnerabilities exist:
+  - CVE-2023-50387: KeyTrap - Extreme CPU consumption in DNSSEC validator
+  - CVE-2023-50868: Preparing an NSEC3 closest encloser proof can exhaust CPU re!
+sources
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND Multiple DoS Vulnerabilities (CVE-2023-50387, CVE-2023-50868, KeyTr...
+(OID: 1.3.6.1.4.1.25623.1.0.151715)
+Version used: 2024-02-21T05:06:27Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2023-50387
+ cve: CVE-2023-50868
+ url: https://kb.isc.org/docs/cve-2023-50387
+ url: https://kb.isc.org/docs/cve-2023-50868
+ url: https://www.athene-center.de/en/keytrap
+ cert-bund: WID-SEC-2025-0148
+ cert-bund: WID-SEC-2024-1347
+ cert-bund: WID-SEC-2024-1313
+ cert-bund: WID-SEC-2024-1307
+ cert-bund: WID-SEC-2024-1248
+ cert-bund: WID-SEC-2024-1226
+ cert-bund: WID-SEC-2024-1086
+ cert-bund: WID-SEC-2024-0387
+ cert-bund: WID-SEC-2024-0386
+ dfn-cert: DFN-CERT-2025-1459
+ dfn-cert: DFN-CERT-2025-0041
+ dfn-cert: DFN-CERT-2025-0010
+ dfn-cert: DFN-CERT-2024-2264
+ dfn-cert: DFN-CERT-2024-1904
+ dfn-cert: DFN-CERT-2024-1523
+ dfn-cert: DFN-CERT-2024-1516
+ dfn-cert: DFN-CERT-2024-1474
+ dfn-cert: DFN-CERT-2024-1413
+ dfn-cert: DFN-CERT-2024-1223
+ dfn-cert: DFN-CERT-2024-1011
+ dfn-cert: DFN-CERT-2024-0984
+ dfn-cert: DFN-CERT-2024-0977
+ dfn-cert: DFN-CERT-2024-0921
+ dfn-cert: DFN-CERT-2024-0829
+ dfn-cert: DFN-CERT-2024-0529
+ dfn-cert: DFN-CERT-2024-0498
+ dfn-cert: DFN-CERT-2024-0404
+ dfn-cert: DFN-CERT-2024-0399
+ dfn-cert: DFN-CERT-2024-0387
+ dfn-cert: DFN-CERT-2024-0379
+ dfn-cert: DFN-CERT-2024-0375
+
+
+Issue
+-----
+NVT:    ISC BIND Multiple Vulnerabilities (Feb 2019) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.142033
+Threat: High (CVSS: 7.5)
+Port:   53/tcp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to multiple vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.11.5-P4
+Installation
+path / port:       53/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 9.11.5-S5, 9.11.5-P4, 9.12.3-P4 or later.
+
+Affected Software/OS:
+ISC BIND versions 9.9.0-9.10.8-P1, 9.11.0-9.11.5-P2, 9.12.0-9.12.3-P2 and
+  9.9.3-S1-9.11.5-S3.
+
+Vulnerability Insight:
+ISC BIND is prone to multiple vulnerabilities:
+  - A specially crafted packet can cause named to leak memory (CVE-2018-5744)
+  - An assertion failure can occur if a trust anchor rolls over to an unsupporte!
+d key algorithm when using
+    managed-keys (CVE-2018-5745)
+  - Zone transfer controls for writable DLZ zones were not effective (CVE-2019-6!
+465)
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND Multiple Vulnerabilities (Feb 2019) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.142033)
+Version used: 2021-08-30T11:01:18Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2018-5744
+ cve: CVE-2018-5745
+ cve: CVE-2019-6465
+ url: https://kb.isc.org/docs/cve-2018-5744
+ url: https://kb.isc.org/docs/cve-2018-5745
+ url: https://kb.isc.org/docs/cve-2019-6465
+ cert-bund: WID-SEC-2025-1194
+ cert-bund: CB-K19/0161
+ dfn-cert: DFN-CERT-2020-0672
+ dfn-cert: DFN-CERT-2019-2042
+ dfn-cert: DFN-CERT-2019-1119
+ dfn-cert: DFN-CERT-2019-0935
+ dfn-cert: DFN-CERT-2019-0781
+ dfn-cert: DFN-CERT-2019-0436
+ dfn-cert: DFN-CERT-2019-0435
+ dfn-cert: DFN-CERT-2019-0382
+
+
+Issue
+-----
+NVT:    ISC BIND Multiple Vulnerabilities (Feb 2019) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.142033
+Threat: High (CVSS: 7.5)
+Port:   53/udp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to multiple vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.11.5-P4
+Installation
+path / port:       53/udp
+
+Solution:
+Solution type: VendorFix
+Update to version 9.11.5-S5, 9.11.5-P4, 9.12.3-P4 or later.
+
+Affected Software/OS:
+ISC BIND versions 9.9.0-9.10.8-P1, 9.11.0-9.11.5-P2, 9.12.0-9.12.3-P2 and
+  9.9.3-S1-9.11.5-S3.
+
+Vulnerability Insight:
+ISC BIND is prone to multiple vulnerabilities:
+  - A specially crafted packet can cause named to leak memory (CVE-2018-5744)
+  - An assertion failure can occur if a trust anchor rolls over to an unsupporte!
+d key algorithm when using
+    managed-keys (CVE-2018-5745)
+  - Zone transfer controls for writable DLZ zones were not effective (CVE-2019-6!
+465)
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND Multiple Vulnerabilities (Feb 2019) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.142033)
+Version used: 2021-08-30T11:01:18Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2018-5744
+ cve: CVE-2018-5745
+ cve: CVE-2019-6465
+ url: https://kb.isc.org/docs/cve-2018-5744
+ url: https://kb.isc.org/docs/cve-2018-5745
+ url: https://kb.isc.org/docs/cve-2019-6465
+ cert-bund: WID-SEC-2025-1194
+ cert-bund: CB-K19/0161
+ dfn-cert: DFN-CERT-2020-0672
+ dfn-cert: DFN-CERT-2019-2042
+ dfn-cert: DFN-CERT-2019-1119
+ dfn-cert: DFN-CERT-2019-0935
+ dfn-cert: DFN-CERT-2019-0781
+ dfn-cert: DFN-CERT-2019-0436
+ dfn-cert: DFN-CERT-2019-0435
+ dfn-cert: DFN-CERT-2019-0382
+
+
+Issue
+-----
+NVT:    ISC BIND Policies Vulnerability (CVE-2018-5741) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.146636
+Threat: Medium (CVSS: 6.5)
+Port:   53/udp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to an information disclosure vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.11.5
+Installation
+path / port:       53/udp
+
+Impact:
+The krb5-subdomain and ms-subdomain update policy rule types
+  permit updates from any client authenticated with a valid Kerberos or Windows !
+machine principal
+  from the REALM specified in the identity field, to modify records in the zone !
+at or below the
+  name specified in the name field. The incorrect documentation, however, indica!
+ted that the policy
+  would be restricted to names at or below the machine's name as encoded in the !
+Windows or Kerberos
+  principal.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.11.5, 9.12.3 or later.
+
+Affected Software/OS:
+BIND version 9.x.
+
+Vulnerability Insight:
+To provide fine-grained controls over the ability to use
+  Dynamic DNS (DDNS) to update records in a zone, BIND 9 provides a feature call!
+ed update-policy.
+  Various rules can be configured to limit the types of updates that can be perf!
+ormed by a client,
+  depending on the key used when sending the update request. Unfortunately, some!
+ rule types were
+  not initially documented, and when documentation for them was added to the Adm!
+inistrator
+  Reference Manual (ARM), the language that was added to the ARM at that time in!
+correctly described
+  the behavior of two rule types, krb5-subdomain and ms-subdomain. This incorrec!
+t documentation
+  could mislead operators into believing that policies they had configured were !
+more restrictive
+  than they actually were.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND Policies Vulnerability (CVE-2018-5741) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.146636)
+Version used: 2021-09-06T14:01:33Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2018-5741
+ url: https://kb.isc.org/docs/cve-2018-5741
+ cert-bund: CB-K18/0932
+ dfn-cert: DFN-CERT-2020-1328
+ dfn-cert: DFN-CERT-2019-1594
+ dfn-cert: DFN-CERT-2019-0781
+ dfn-cert: DFN-CERT-2018-1934
+
+
+Issue
+-----
+NVT:    ISC BIND Policies Vulnerability (CVE-2018-5741) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.146636
+Threat: Medium (CVSS: 6.5)
+Port:   53/tcp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to an information disclosure vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.11.5
+Installation
+path / port:       53/tcp
+
+Impact:
+The krb5-subdomain and ms-subdomain update policy rule types
+  permit updates from any client authenticated with a valid Kerberos or Windows !
+machine principal
+  from the REALM specified in the identity field, to modify records in the zone !
+at or below the
+  name specified in the name field. The incorrect documentation, however, indica!
+ted that the policy
+  would be restricted to names at or below the machine's name as encoded in the !
+Windows or Kerberos
+  principal.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.11.5, 9.12.3 or later.
+
+Affected Software/OS:
+BIND version 9.x.
+
+Vulnerability Insight:
+To provide fine-grained controls over the ability to use
+  Dynamic DNS (DDNS) to update records in a zone, BIND 9 provides a feature call!
+ed update-policy.
+  Various rules can be configured to limit the types of updates that can be perf!
+ormed by a client,
+  depending on the key used when sending the update request. Unfortunately, some!
+ rule types were
+  not initially documented, and when documentation for them was added to the Adm!
+inistrator
+  Reference Manual (ARM), the language that was added to the ARM at that time in!
+correctly described
+  the behavior of two rule types, krb5-subdomain and ms-subdomain. This incorrec!
+t documentation
+  could mislead operators into believing that policies they had configured were !
+more restrictive
+  than they actually were.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND Policies Vulnerability (CVE-2018-5741) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.146636)
+Version used: 2021-09-06T14:01:33Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2018-5741
+ url: https://kb.isc.org/docs/cve-2018-5741
+ cert-bund: CB-K18/0932
+ dfn-cert: DFN-CERT-2020-1328
+ dfn-cert: DFN-CERT-2019-1594
+ dfn-cert: DFN-CERT-2019-0781
+ dfn-cert: DFN-CERT-2018-1934
+
+
+Issue
+-----
+NVT:    ISC BIND update-policy Enforcement Vulnerability (CVE-2020-8624) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.144439
+Threat: Medium (CVSS: 4.3)
+Port:   53/tcp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a vulnerability where update-policy rules of type
+  'subdomain' are enforced incorrectly.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.11.22
+Installation
+path / port:       53/tcp
+
+Impact:
+An attacker who has been granted privileges to change a specific subset of the
+  zone's content could abuse these unintended additional privileges to update ot!
+her contents of the zone.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.11.22, 9.16.6, 9.17.4, 9.11.22-S1 or later.
+
+Affected Software/OS:
+BIND 9.9.12 - 9.9.13, 9.10.7 - 9.10.8, 9.11.3 - 9.11.21, 9.12.1 - 9.16.5,
+  9.17.0 - 9.17.3, also affects 9.9.12-S1 - 9.9.13-S1 and 9.11.3-S1 - 9.11.21-S1!
+.
+
+Vulnerability Insight:
+Change 4885 inadvertently caused 'update-policy' rules of type 'subdomain' to
+  be treated as if they were of type 'zonesub', allowing updates to all parts of!
+ the zone along with the intended
+  subdomain.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND update-policy Enforcement Vulnerability (CVE-2020-8624) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.144439)
+Version used: 2021-07-07T11:00:41Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2020-8624
+ url: https://kb.isc.org/docs/cve-2020-8624
+ cert-bund: CB-K20/0837
+ dfn-cert: DFN-CERT-2021-0924
+ dfn-cert: DFN-CERT-2020-2588
+ dfn-cert: DFN-CERT-2020-2064
+ dfn-cert: DFN-CERT-2020-1875
+ dfn-cert: DFN-CERT-2020-1835
+
+
+Issue
+-----
+NVT:    ISC BIND update-policy Enforcement Vulnerability (CVE-2020-8624) - Linux
+OID:    1.3.6.1.4.1.25623.1.0.144439
+Threat: Medium (CVSS: 4.3)
+Port:   53/udp
+
+Product detection result: cpe:/a:isc:bind:9.11.3
+Detected by: ISC BIND Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+Summary:
+ISC BIND is prone to a vulnerability where update-policy rules of type
+  'subdomain' are enforced incorrectly.
+
+Vulnerability Detection Result:
+Installed version: 9.11.3
+Fixed version:     9.11.22
+Installation
+path / port:       53/udp
+
+Impact:
+An attacker who has been granted privileges to change a specific subset of the
+  zone's content could abuse these unintended additional privileges to update ot!
+her contents of the zone.
+
+Solution:
+Solution type: VendorFix
+Update to version 9.11.22, 9.16.6, 9.17.4, 9.11.22-S1 or later.
+
+Affected Software/OS:
+BIND 9.9.12 - 9.9.13, 9.10.7 - 9.10.8, 9.11.3 - 9.11.21, 9.12.1 - 9.16.5,
+  9.17.0 - 9.17.3, also affects 9.9.12-S1 - 9.9.13-S1 and 9.11.3-S1 - 9.11.21-S1!
+.
+
+Vulnerability Insight:
+Change 4885 inadvertently caused 'update-policy' rules of type 'subdomain' to
+  be treated as if they were of type 'zonesub', allowing updates to all parts of!
+ the zone along with the intended
+  subdomain.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+ISC BIND update-policy Enforcement Vulnerability (CVE-2020-8624) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.144439)
+Version used: 2021-07-07T11:00:41Z
+
+Product Detection Result:
+Product:cpe:/a:isc:bind:9.11.3
+
+Method:ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+
+References:
+ cve: CVE-2020-8624
+ url: https://kb.isc.org/docs/cve-2020-8624
+ cert-bund: CB-K20/0837
+ dfn-cert: DFN-CERT-2021-0924
+ dfn-cert: DFN-CERT-2020-2588
+ dfn-cert: DFN-CERT-2020-2064
+ dfn-cert: DFN-CERT-2020-1875
+ dfn-cert: DFN-CERT-2020-1835
+
+
+Issue
+-----
+NVT:    OS Detection Consolidation and Reporting
+OID:    1.3.6.1.4.1.25623.1.0.105937
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+This script consolidates the OS information detected by several
+  VTs and tries to find the best matching OS.
+  Furthermore it reports all previously collected information leading to this be!
+st matching OS. It
+  also reports possible additional information which might help to improve the O!
+S detection.
+  If any of this information is wrong or could be improved please consider to re!
+port these to the
+  referenced community forum.
+
+Vulnerability Detection Result:
+Best matching OS:
+OS:           Ubuntu
+CPE:          cpe:/o:canonical:ubuntu_linux
+Found by VT:  1.3.6.1.4.1.25623.1.0.108014 (Operating System (OS) Detection (DNS!
+))
+Concluded from DNS server banner on port 53/tcp: 9.11.3-1ubuntu1.8-Ubuntu
+Setting key "Host/runs_unixoide" based on this information
+Other OS detections (in order of reliability):
+OS:           Ubuntu
+CPE:          cpe:/o:canonical:ubuntu_linux
+Found by VT:  1.3.6.1.4.1.25623.1.0.108014 (Operating System (OS) Detection (DNS!
+))
+Concluded from DNS server banner on port 53/udp: 9.11.3-1ubuntu1.8-Ubuntu
+
+Solution:
+
+Log Method:
+Details:
+OS Detection Consolidation and Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.105937)
+Version used: 2026-01-21T05:50:46Z
+
+References:
+ url: https://forum.greenbone.net/c/vulnerability-tests/7
+
+
+Issue
+-----
+NVT:    Response Time / No 404 Error Code Check
+OID:    1.3.6.1.4.1.25623.1.0.10386
+Threat: Log (CVSS: 0.0)
+Port:   10000/tcp
+
+Summary:
+This VT tests if the remote web server does not reply with a 404
+  error code and checks if it is replying to the scanners requests in a reasonab!
+le amount of time.
+
+Vulnerability Detection Result:
+The 'MiniServ' embedded server was found which is fragile when getting scanned. !
+HTTP scanning will be disabled for this host.
+
+Solution:
+
+Vulnerability Insight:
+This web server might show the following issues:
+  - it is [mis]configured in that it does not return '404 Not Found' error codes!
+ when a non-existent
+  file is requested, perhaps returning a site map, search page, authentication p!
+age or redirect instead.
+  The Scanner might enabled some counter measures for that, however they might b!
+e insufficient. If a
+  great number of security issues are reported for this port, they might not all!
+ be accurate.
+  - it doesn't response in a reasonable amount of time to various HTTP requests !
+sent by this VT.
+  In order to keep the scan total time to a reasonable amount, the remote web se!
+rver might not be
+  tested. If the remote server should be tested it has to be fixed to have it re!
+ply to the scanners
+  requests in a reasonable amount of time.
+  Alternatively the 'Maximum response time (in seconds)' preference could be rai!
+sed to a higher
+  value if longer scan times are accepted.
+
+Log Method:
+Details:
+Response Time / No 404 Error Code Check
+(OID: 1.3.6.1.4.1.25623.1.0.10386)
+Version used: 2025-04-11T15:45:04Z
+
+
+Issue
+-----
+NVT:    Services
+OID:    1.3.6.1.4.1.25623.1.0.10330
+Threat: Log (CVSS: 0.0)
+Port:   10000/tcp
+
+Summary:
+This plugin performs service detection.
+
+Vulnerability Detection Result:
+A web server is running on this port through SSL
+
+Solution:
+
+Vulnerability Insight:
+This plugin attempts to guess which service is running on the
+  remote port(s). For instance, it searches for a web server which could listen !
+on another port than
+  80 or 443 and makes this information available for other check routines.
+
+Log Method:
+Details:
+Services
+(OID: 1.3.6.1.4.1.25623.1.0.10330)
+Version used: 2025-03-05T05:38:53Z
+
+
+Issue
+-----
+NVT:    Services
+OID:    1.3.6.1.4.1.25623.1.0.10330
+Threat: Log (CVSS: 0.0)
+Port:   10000/tcp
+
+Summary:
+This plugin performs service detection.
+
+Vulnerability Detection Result:
+A TLScustom server answered on this port
+
+Solution:
+
+Vulnerability Insight:
+This plugin attempts to guess which service is running on the
+  remote port(s). For instance, it searches for a web server which could listen !
+on another port than
+  80 or 443 and makes this information available for other check routines.
+
+Log Method:
+Details:
+Services
+(OID: 1.3.6.1.4.1.25623.1.0.10330)
+Version used: 2025-03-05T05:38:53Z
+
+
+Issue
+-----
+NVT:    SSL/TLS: Certificate - Self-Signed Certificate Detection
+OID:    1.3.6.1.4.1.25623.1.0.103140
+Threat: Log (CVSS: 0.0)
+Port:   10000/tcp
+
+Product detection result: cpe:/a:ietf:transport_layer_security
+Detected by: SSL/TLS: Collect and Report Certificate Details (OID: 1.3.6.1.4.1.25623.1.0.103692)
+
+Summary:
+The SSL/TLS certificate on this port is self-signed.
+
+Vulnerability Detection Result:
+The certificate of the remote service is self signed.
+Certificate details:
+fingerprint (SHA-1)             | ACFF91A8C84FA54410311C1D828AD20C55F9B78F
+fingerprint (SHA-256)           | 2D929DF102BC72C79E8288256E22E8B87B6D99B2E29316!
+865894A163AFB6DFF1
+issued by                       | 1.2.840.113549.1.9.1=#726F6F744033626130613666!
+6265613865,CN=*,O=Webmin Webserver on 3ba0a6fbea8e
+public key algorithm            | RSA
+public key size (bits)          | 2048
+serial                          | 67263F8B6EAA1EA9C13899C0F90A8015A7C2C7C0
+signature algorithm             | sha256WithRSAEncryption
+subject                         | 1.2.840.113549.1.9.1=#726F6F744033626130613666!
+6265613865,CN=*,O=Webmin Webserver on 3ba0a6fbea8e
+subject alternative names (SAN) | None
+valid from                      | 2019-07-06 04:22:57 UTC
+valid until                     | 2024-07-04 04:22:57 UTC
+
+Solution:
+
+Log Method:
+Detects and reports if the issuer's distinguished name of the
+  certificate is exactly the same as the subject's distinguished name.
+Details:
+SSL/TLS: Certificate - Self-Signed Certificate Detection
+(OID: 1.3.6.1.4.1.25623.1.0.103140)
+Version used: 2025-07-15T05:43:27Z
+
+Product Detection Result:
+Product:cpe:/a:ietf:transport_layer_security
+
+Method:SSL/TLS: Collect and Report Certificate Details
+(OID: 1.3.6.1.4.1.25623.1.0.103692)
+
+References:
+ url: http://en.wikipedia.org/wiki/Self-signed_certificate
+ url: https://datatracker.ietf.org/doc/html/rfc5280#appendix-C.1
+
+
+Issue
+-----
+NVT:    SSL/TLS: Certificate - Subject Common Name Does Not Match Server FQDN
+OID:    1.3.6.1.4.1.25623.1.0.103141
+Threat: Log (CVSS: 0.0)
+Port:   10000/tcp
+
+Product detection result: cpe:/a:ietf:transport_layer_security
+Detected by: SSL/TLS: Collect and Report Certificate Details (OID: 1.3.6.1.4.1.25623.1.0.103692)
+
+Summary:
+The SSL/TLS certificate contains a common name (CN) that does not match the host!
+name.
+
+Vulnerability Detection Result:
+The certificate of the remote service contains a common name (CN) that does not !
+match the hostname "bind.trabalho_vulnnet".
+Certificate details:
+fingerprint (SHA-1)             | ACFF91A8C84FA54410311C1D828AD20C55F9B78F
+fingerprint (SHA-256)           | 2D929DF102BC72C79E8288256E22E8B87B6D99B2E29316!
+865894A163AFB6DFF1
+issued by                       | 1.2.840.113549.1.9.1=#726F6F744033626130613666!
+6265613865,CN=*,O=Webmin Webserver on 3ba0a6fbea8e
+public key algorithm            | RSA
+public key size (bits)          | 2048
+serial                          | 67263F8B6EAA1EA9C13899C0F90A8015A7C2C7C0
+signature algorithm             | sha256WithRSAEncryption
+subject                         | 1.2.840.113549.1.9.1=#726F6F744033626130613666!
+6265613865,CN=*,O=Webmin Webserver on 3ba0a6fbea8e
+subject alternative names (SAN) | None
+valid from                      | 2019-07-06 04:22:57 UTC
+valid until                     | 2024-07-04 04:22:57 UTC
+
+Solution:
+
+Log Method:
+Details:
+SSL/TLS: Certificate - Subject Common Name Does Not Match Server FQDN
+(OID: 1.3.6.1.4.1.25623.1.0.103141)
+Version used: 2024-06-14T05:05:48Z
+
+Product Detection Result:
+Product:cpe:/a:ietf:transport_layer_security
+
+Method:SSL/TLS: Collect and Report Certificate Details
+(OID: 1.3.6.1.4.1.25623.1.0.103692)
+
+
+Issue
+-----
+NVT:    SSL/TLS: Certificate Expired
+OID:    1.3.6.1.4.1.25623.1.0.103955
+Threat: Medium (CVSS: 5.0)
+Port:   10000/tcp
+
+Product detection result: cpe:/a:ietf:transport_layer_security
+Detected by: SSL/TLS: Collect and Report Certificate Details (OID: 1.3.6.1.4.1.25623.1.0.103692)
+
+Summary:
+The remote server's SSL/TLS certificate has already expired.
+
+Vulnerability Detection Result:
+The certificate of the remote service expired on 2024-07-04 04:22:57.
+Certificate details:
+fingerprint (SHA-1)             | ACFF91A8C84FA54410311C1D828AD20C55F9B78F
+fingerprint (SHA-256)           | 2D929DF102BC72C79E8288256E22E8B87B6D99B2E29316!
+865894A163AFB6DFF1
+issued by                       | 1.2.840.113549.1.9.1=#726F6F744033626130613666!
+6265613865,CN=*,O=Webmin Webserver on 3ba0a6fbea8e
+public key algorithm            | RSA
+public key size (bits)          | 2048
+serial                          | 67263F8B6EAA1EA9C13899C0F90A8015A7C2C7C0
+signature algorithm             | sha256WithRSAEncryption
+subject                         | 1.2.840.113549.1.9.1=#726F6F744033626130613666!
+6265613865,CN=*,O=Webmin Webserver on 3ba0a6fbea8e
+subject alternative names (SAN) | None
+valid from                      | 2019-07-06 04:22:57 UTC
+valid until                     | 2024-07-04 04:22:57 UTC
+
+Solution:
+Solution type: Mitigation
+Replace the SSL/TLS certificate by a new one.
+
+Vulnerability Insight:
+This script checks expiry dates of certificates associated with
+  SSL/TLS-enabled services on the target and reports whether any have already ex!
+pired.
+
+Vulnerability Detection Method:
+Details:
+SSL/TLS: Certificate Expired
+(OID: 1.3.6.1.4.1.25623.1.0.103955)
+Version used: 2024-06-14T05:05:48Z
+
+Product Detection Result:
+Product:cpe:/a:ietf:transport_layer_security
+
+Method:SSL/TLS: Collect and Report Certificate Details
+(OID: 1.3.6.1.4.1.25623.1.0.103692)
+
+
+Issue
+-----
+NVT:    SSL/TLS: Collect and Report Certificate Details
+OID:    1.3.6.1.4.1.25623.1.0.103692
+Threat: Log (CVSS: 0.0)
+Port:   10000/tcp
+
+Summary:
+This script collects and reports the details of all SSL/TLS
+  certificates.
+  This data will be used by other tests to verify server certificates.
+
+Vulnerability Detection Result:
+The following certificate details of the remote service were collected.
+Certificate details:
+fingerprint (SHA-1)             | ACFF91A8C84FA54410311C1D828AD20C55F9B78F
+fingerprint (SHA-256)           | 2D929DF102BC72C79E8288256E22E8B87B6D99B2E29316!
+865894A163AFB6DFF1
+issued by                       | 1.2.840.113549.1.9.1=#726F6F744033626130613666!
+6265613865,CN=*,O=Webmin Webserver on 3ba0a6fbea8e
+public key algorithm            | RSA
+public key size (bits)          | 2048
+serial                          | 67263F8B6EAA1EA9C13899C0F90A8015A7C2C7C0
+signature algorithm             | sha256WithRSAEncryption
+subject                         | 1.2.840.113549.1.9.1=#726F6F744033626130613666!
+6265613865,CN=*,O=Webmin Webserver on 3ba0a6fbea8e
+subject alternative names (SAN) | None
+valid from                      | 2019-07-06 04:22:57 UTC
+valid until                     | 2024-07-04 04:22:57 UTC
+
+Solution:
+
+Log Method:
+Details:
+SSL/TLS: Collect and Report Certificate Details
+(OID: 1.3.6.1.4.1.25623.1.0.103692)
+Version used: 2024-09-27T05:05:23Z
+
+
+Issue
+-----
+NVT:    SSL/TLS: Hostname discovery from server certificate
+OID:    1.3.6.1.4.1.25623.1.0.111010
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+It was possible to discover an additional hostname
+  of this server from its certificate Common or Subject Alt Name.
+
+Vulnerability Detection Result:
+The following additional but not resolvable hostnames were detected:
+*
+
+Solution:
+
+Log Method:
+Details:
+SSL/TLS: Hostname discovery from server certificate
+(OID: 1.3.6.1.4.1.25623.1.0.111010)
+Version used: 2021-11-22T15:32:39Z
+
+
+Issue
+-----
+NVT:    SSL/TLS: Renegotiation DoS Vulnerability (CVE-2011-1473, CVE-2011-5094)
+OID:    1.3.6.1.4.1.25623.1.0.117761
+Threat: Medium (CVSS: 5.0)
+Port:   10000/tcp
+
+Summary:
+The remote SSL/TLS service is prone to a denial of service (DoS)
+  vulnerability.
+
+Vulnerability Detection Result:
+The following indicates that the remote SSL/TLS service is affected:
+Protocol Version | Successful re-done SSL/TLS handshakes (Renegotiation) over an!
+ existing / already established SSL/TLS connection
+--------------------------------------------------------------------------------!
+--------------------------------------------------
+TLSv1.2          | 10
+
+Impact:
+The flaw might make it easier for remote attackers to cause a
+  DoS (CPU consumption) by performing many renegotiations within a single connec!
+tion.
+
+Solution:
+Solution type: VendorFix
+Users should contact their vendors for specific patch information.
+  A general solution is to remove/disable renegotiation capabilities altogether !
+from/in the affected
+  SSL/TLS service.
+
+Affected Software/OS:
+Every SSL/TLS service which does not properly restrict
+  client-initiated renegotiation.
+
+Vulnerability Insight:
+The flaw exists because the remote SSL/TLS service does not
+  properly restrict client-initiated renegotiation within the SSL and TLS protoc!
+ols.
+  Note: The referenced CVEs are affecting OpenSSL and Mozilla Network Security S!
+ervices (NSS) but
+  both are in a DISPUTED state with the following rationale:
+  > It can also be argued that it is the responsibility of server deployments, n!
+ot a security
+  library, to prevent or limit renegotiation when it is inappropriate within a s!
+pecific environment.
+  Both CVEs are still kept in this VT as a reference to the origin of this flaw.
+
+Vulnerability Detection Method:
+Checks if the remote service allows to re-do the same SSL/TLS
+  handshake (Renegotiation) over an existing / already established SSL/TLS conne!
+ction.
+Details:
+SSL/TLS: Renegotiation DoS Vulnerability (CVE-2011-1473, CVE-2011-5094)
+(OID: 1.3.6.1.4.1.25623.1.0.117761)
+Version used: 2024-09-27T05:05:23Z
+
+References:
+ cve: CVE-2011-1473
+ cve: CVE-2011-5094
+ url: https://web.archive.org/web/20211201133213/https://orchilles.com/ssl-renegotiation-dos/
+ url: https://mailarchive.ietf.org/arch/msg/tls/wdg46VE_jkYBbgJ5yE4P9nQ-8IU/
+ url: https://vincent.bernat.ch/en/blog/2011-ssl-dos-mitigation
+ url: https://www.openwall.com/lists/oss-security/2011/07/08/2
+ cert-bund: WID-SEC-2026-0180
+ cert-bund: WID-SEC-2024-1591
+ cert-bund: WID-SEC-2024-0796
+ cert-bund: WID-SEC-2023-1435
+ cert-bund: CB-K17/0980
+ cert-bund: CB-K17/0979
+ cert-bund: CB-K14/0772
+ cert-bund: CB-K13/0915
+ cert-bund: CB-K13/0462
+ dfn-cert: DFN-CERT-2025-0933
+ dfn-cert: DFN-CERT-2017-1013
+ dfn-cert: DFN-CERT-2017-1012
+ dfn-cert: DFN-CERT-2014-0809
+ dfn-cert: DFN-CERT-2013-1928
+ dfn-cert: DFN-CERT-2012-1112
+
+
+Issue
+-----
+NVT:    SSL/TLS: Report Medium Cipher Suites
+OID:    1.3.6.1.4.1.25623.1.0.902816
+Threat: Log (CVSS: 0.0)
+Port:   10000/tcp
+
+Product detection result: cpe:/a:ietf:transport_layer_security
+Detected by: SSL/TLS: Report Supported Cipher Suites (OID: 1.3.6.1.4.1.25623.1.0.802067)
+
+Summary:
+This routine reports all Medium SSL/TLS cipher suites accepted
+  by a service.
+
+Vulnerability Detection Result:
+'Medium' cipher suites accepted by this service via the TLSv1.2 protocol:
+TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+TLS_RSA_WITH_AES_128_CBC_SHA
+TLS_RSA_WITH_AES_128_CBC_SHA256
+TLS_RSA_WITH_AES_128_GCM_SHA256
+TLS_RSA_WITH_AES_256_CBC_SHA
+TLS_RSA_WITH_AES_256_CBC_SHA256
+TLS_RSA_WITH_AES_256_GCM_SHA384
+'Medium' cipher suites accepted by this service via the TLSv1.3 protocol:
+TLS_AES_128_GCM_SHA256
+
+Solution:
+
+Vulnerability Insight:
+Any cipher suite considered to be secure for only the next 10
+  years is considered as medium.
+
+Log Method:
+Details:
+SSL/TLS: Report Medium Cipher Suites
+(OID: 1.3.6.1.4.1.25623.1.0.902816)
+Version used: 2024-09-27T05:05:23Z
+
+Product Detection Result:
+Product:cpe:/a:ietf:transport_layer_security
+
+Method:SSL/TLS: Report Supported Cipher Suites
+(OID: 1.3.6.1.4.1.25623.1.0.802067)
+
+
+Issue
+-----
+NVT:    SSL/TLS: Report Non Weak Cipher Suites
+OID:    1.3.6.1.4.1.25623.1.0.103441
+Threat: Log (CVSS: 0.0)
+Port:   10000/tcp
+
+Product detection result: cpe:/a:ietf:transport_layer_security
+Detected by: SSL/TLS: Report Supported Cipher Suites (OID: 1.3.6.1.4.1.25623.1.0.802067)
+
+Summary:
+This routine reports all Non Weak SSL/TLS cipher suites
+  accepted by a service.
+
+Vulnerability Detection Result:
+'Non Weak' cipher suites accepted by this service via the TLSv1.2 protocol:
+TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+TLS_RSA_WITH_AES_128_CBC_SHA
+TLS_RSA_WITH_AES_128_CBC_SHA256
+TLS_RSA_WITH_AES_128_GCM_SHA256
+TLS_RSA_WITH_AES_256_CBC_SHA
+TLS_RSA_WITH_AES_256_CBC_SHA256
+TLS_RSA_WITH_AES_256_GCM_SHA384
+'Non Weak' cipher suites accepted by this service via the TLSv1.3 protocol:
+TLS_AES_128_GCM_SHA256
+TLS_AES_256_GCM_SHA384
+TLS_CHACHA20_POLY1305_SHA256
+
+Solution:
+
+Log Method:
+Details:
+SSL/TLS: Report Non Weak Cipher Suites
+(OID: 1.3.6.1.4.1.25623.1.0.103441)
+Version used: 2024-09-27T05:05:23Z
+
+Product Detection Result:
+Product:cpe:/a:ietf:transport_layer_security
+
+Method:SSL/TLS: Report Supported Cipher Suites
+(OID: 1.3.6.1.4.1.25623.1.0.802067)
+
+
+Issue
+-----
+NVT:    SSL/TLS: Report Perfect Forward Secrecy (PFS) Cipher Suites
+OID:    1.3.6.1.4.1.25623.1.0.105018
+Threat: Log (CVSS: 0.0)
+Port:   10000/tcp
+
+Product detection result: cpe:/a:ietf:transport_layer_security
+Detected by: SSL/TLS: Report Supported Cipher Suites (OID: 1.3.6.1.4.1.25623.1.0.802067)
+
+Summary:
+This routine reports all SSL/TLS cipher suites accepted by a
+  service which are supporting Perfect Forward Secrecy (PFS).
+
+Vulnerability Detection Result:
+Cipher suites supporting Perfect Forward Secrecy (PFS) are accepted by this serv!
+ice via the TLSv1.2 protocol:
+TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+Cipher suites supporting Perfect Forward Secrecy (PFS) are accepted by this serv!
+ice via the TLSv1.3 protocol:
+TLS_AES_128_GCM_SHA256
+TLS_AES_256_GCM_SHA384
+TLS_CHACHA20_POLY1305_SHA256
+
+Solution:
+
+Log Method:
+Details:
+SSL/TLS: Report Perfect Forward Secrecy (PFS) Cipher Suites
+(OID: 1.3.6.1.4.1.25623.1.0.105018)
+Version used: 2024-09-30T08:38:05Z
+
+Product Detection Result:
+Product:cpe:/a:ietf:transport_layer_security
+
+Method:SSL/TLS: Report Supported Cipher Suites
+(OID: 1.3.6.1.4.1.25623.1.0.802067)
+
+
+Issue
+-----
+NVT:    SSL/TLS: Report Supported Cipher Suites
+OID:    1.3.6.1.4.1.25623.1.0.802067
+Threat: Log (CVSS: 0.0)
+Port:   10000/tcp
+
+Summary:
+This routine reports all SSL/TLS cipher suites accepted by a
+  service.
+
+Vulnerability Detection Result:
+'Strong' cipher suites accepted by this service via the TLSv1.2 protocol:
+TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+'Medium' cipher suites accepted by this service via the TLSv1.2 protocol:
+TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+TLS_RSA_WITH_AES_128_CBC_SHA
+TLS_RSA_WITH_AES_128_CBC_SHA256
+TLS_RSA_WITH_AES_128_GCM_SHA256
+TLS_RSA_WITH_AES_256_CBC_SHA
+TLS_RSA_WITH_AES_256_CBC_SHA256
+TLS_RSA_WITH_AES_256_GCM_SHA384
+No 'Weak' cipher suites accepted by this service via the TLSv1.2 protocol.
+No 'Null' cipher suites accepted by this service via the TLSv1.2 protocol.
+No 'Anonymous' cipher suites accepted by this service via the TLSv1.2 protocol.
+'Strong' cipher suites accepted by this service via the TLSv1.3 protocol:
+TLS_AES_256_GCM_SHA384
+TLS_CHACHA20_POLY1305_SHA256
+'Medium' cipher suites accepted by this service via the TLSv1.3 protocol:
+TLS_AES_128_GCM_SHA256
+No 'Weak' cipher suites accepted by this service via the TLSv1.3 protocol.
+No 'Null' cipher suites accepted by this service via the TLSv1.3 protocol.
+No 'Anonymous' cipher suites accepted by this service via the TLSv1.3 protocol.
+
+Solution:
+
+Vulnerability Insight:
+Notes:
+  - As the VT 'SSL/TLS: Check Supported Cipher Suites' (OID: 1.3.6.1.4.1.25623.1!
+.0.900234) might run
+  into a timeout the actual reporting of all accepted cipher suites takes place !
+in this VT instead.
+  - SSLv2 ciphers are not getting reported as the protocol itself is deprecated,!
+ needs to be
+  considered as weak and is reported separately as deprecated.
+
+Log Method:
+Details:
+SSL/TLS: Report Supported Cipher Suites
+(OID: 1.3.6.1.4.1.25623.1.0.802067)
+Version used: 2024-09-27T05:05:23Z
+
+
+Issue
+-----
+NVT:    SSL/TLS: Safe/Secure Renegotiation Support Status
+OID:    1.3.6.1.4.1.25623.1.0.117757
+Threat: Log (CVSS: 0.0)
+Port:   10000/tcp
+
+Summary:
+Checks and reports if a remote SSL/TLS service supports
+  safe/secure renegotiation.
+
+Vulnerability Detection Result:
+Protocol Version | Safe/Secure Renegotiation Support Status
+--------------------------------------------------------------------------------!
+--------------------------------------------------------------------------------!
+-----------------------------------
+SSLv3            | Unknown, Reason: Scanner failed to negotiate an SSL/TLS conne!
+ction (Either the scanner or the remote host is probably not supporting / accept!
+ing this SSL/TLS protocol version).
+TLSv1.0          | Unknown, Reason: Scanner failed to negotiate an SSL/TLS conne!
+ction (Either the scanner or the remote host is probably not supporting / accept!
+ing this SSL/TLS protocol version).
+TLSv1.1          | Unknown, Reason: Scanner failed to negotiate an SSL/TLS conne!
+ction (Either the scanner or the remote host is probably not supporting / accept!
+ing this SSL/TLS protocol version).
+TLSv1.2          | Enabled, Note: While the remote service announces the support!
+ of safe/secure renegotiation it still might not support / accept renegotiation !
+at all.
+TLSv1.3          | Disabled (The TLSv1.3 protocol generally doesn't support rene!
+gotiation so this is always reported as 'Disabled')
+
+Solution:
+
+Log Method:
+Details:
+SSL/TLS: Safe/Secure Renegotiation Support Status
+(OID: 1.3.6.1.4.1.25623.1.0.117757)
+Version used: 2024-09-27T05:05:23Z
+
+References:
+ url: https://www.gnutls.org/manual/html_node/Safe-renegotiation.html
+ url: https://wiki.openssl.org/index.php/TLS1.3#Renegotiation
+ url: https://datatracker.ietf.org/doc/html/rfc5746
+
+
+Issue
+-----
+NVT:    SSL/TLS: Untrusted Certificate Detection
+OID:    1.3.6.1.4.1.25623.1.0.117764
+Threat: Log (CVSS: 0.0)
+Port:   10000/tcp
+
+Summary:
+Checks and reports if a remote SSL/TLS service is using a
+  certificate which is untrusted / the verification against the system wide trus!
+t store has failed.
+
+Vulnerability Detection Result:
+The remote SSL/TLS server is using the following certificate(s) which failed the!
+ verification against the system wide trust store (serial:issuer):
+67263F8B6EAA1EA9C13899C0F90A8015A7C2C7C0:1.2.840.113549.1.9.1=#726F6F74403362613!
+06136666265613865,CN=*,O=Webmin Webserver on 3ba0a6fbea8e (Server certificate)
+
+Solution:
+
+Log Method:
+Details:
+SSL/TLS: Untrusted Certificate Detection
+(OID: 1.3.6.1.4.1.25623.1.0.117764)
+Version used: 2024-09-27T05:05:23Z
+
+
+Issue
+-----
+NVT:    SSL/TLS: Version Detection
+OID:    1.3.6.1.4.1.25623.1.0.105782
+Threat: Log (CVSS: 0.0)
+Port:   10000/tcp
+
+Summary:
+Enumeration and reporting of SSL/TLS protocol versions supported
+  by a remote service.
+
+Vulnerability Detection Result:
+The remote SSL/TLS service supports the following SSL/TLS protocol version(s):
+TLSv1.2
+TLSv1.3
+
+Solution:
+
+Log Method:
+Sends multiple connection requests to the remote service and
+  attempts to determine the SSL/TLS protocol versions supported by the service f!
+rom the replies.
+  Note: The supported SSL/TLS protocol versions included in the report of this V!
+T are reported
+  independently from the allowed / supported SSL/TLS ciphers.
+Details:
+SSL/TLS: Version Detection
+(OID: 1.3.6.1.4.1.25623.1.0.105782)
+Version used: 2024-09-27T05:05:23Z
+
+
+Issue
+-----
+NVT:    TCP Timestamps Information Disclosure
+OID:    1.3.6.1.4.1.25623.1.0.80091
+Threat: Low (CVSS: 2.6)
+Port:   general/tcp
+
+Summary:
+The remote host implements TCP timestamps and therefore allows
+  to compute the uptime.
+
+Vulnerability Detection Result:
+It was detected that the host implements RFC1323/RFC7323.
+The following timestamps were retrieved with a delay of 1 seconds in-between:
+Packet 1: 2646325110
+Packet 2: 2646326222
+
+Impact:
+A side effect of this feature is that the uptime of the remote
+  host can sometimes be computed.
+
+Solution:
+Solution type: Mitigation
+To disable TCP timestamps on linux add the line
+  'net.ipv4.tcp_timestamps = 0' to /etc/sysctl.conf. Execute 'sysctl -p' to appl!
+y the settings at
+  runtime.
+  To disable TCP timestamps on Windows execute 'netsh int tcp set global timesta!
+mps=disabled'
+  Starting with Windows Server 2008 and Vista, the timestamp can not be complete!
+ly disabled.
+  The default behavior of the TCP/IP stack on this Systems is to not use the Tim!
+estamp options when
+  initiating TCP connections, but use them if the TCP peer that is initiating co!
+mmunication includes
+  them in their synchronize (SYN) segment.
+  See the references for more information.
+
+Affected Software/OS:
+TCP implementations that implement RFC1323/RFC7323.
+
+Vulnerability Insight:
+The remote host implements TCP timestamps, as defined by
+  RFC1323/RFC7323.
+
+Vulnerability Detection Method:
+Special IP packets are forged and sent with a little delay in
+  between to the target IP. The responses are searched for a timestamps. If foun!
+d, the timestamps
+  are reported.
+Details:
+TCP Timestamps Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.80091)
+Version used: 2023-12-15T16:10:08Z
+
+References:
+ url: https://datatracker.ietf.org/doc/html/rfc1323
+ url: https://datatracker.ietf.org/doc/html/rfc7323
+ url: https://web.archive.org/web/20151213072445/http://www.microsoft.com/en-us/download/details.aspx?id=9152
+ url: https://www.fortiguard.com/psirt/FG-IR-16-090
+
+
+Issue
+-----
+NVT:    Traceroute
+OID:    1.3.6.1.4.1.25623.1.0.51662
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+Collect information about the network route and
+  network distance between the scanner host and the target host.
+
+Vulnerability Detection Result:
+Network route from scanner (172.30.0.2) to target (172.31.1.101):
+172.30.0.2
+172.31.1.101
+Network distance between scanner and target: 2
+
+Solution:
+
+Vulnerability Insight:
+For internal networks, the distances are usually
+  small, often less than 4 hosts between scanner and target. For public targets !
+the
+  distance is greater and might be 10 hosts or more.
+
+Log Method:
+A combination of the protocols ICMP and TCP is used
+  to determine the route. This method is applicable for IPv4 only and it is also!
+ known as
+  'traceroute'.
+Details:
+Traceroute
+(OID: 1.3.6.1.4.1.25623.1.0.51662)
+Version used: 2022-10-17T11:13:19Z
+
+
+Issue
+-----
+NVT:    Web Application Scanning Consolidation / Info Reporting
+OID:    1.3.6.1.4.1.25623.1.0.111038
+Threat: Log (CVSS: 0.0)
+Port:   10000/tcp
+
+Summary:
+The script consolidates and reports various information for web
+  application (formerly called 'CGI') scanning.
+  This information is based on the following scripts / settings:
+  - HTTP-Version Detection (OID: 1.3.6.1.4.1.25623.1.0.100034)
+  - No 404 check (OID: 1.3.6.1.4.1.25623.1.0.10386)
+  - Web mirroring / webmirror.nasl (OID: 1.3.6.1.4.1.25623.1.0.10662)
+  - Directory Scanner / DDI_Directory_Scanner.nasl (OID: 1.3.6.1.4.1.25623.1.0.1!
+1032)
+  - The configured 'cgi_path' within the 'Scanner Preferences' of the scan confi!
+g in use
+  - The configured 'Enable CGI scanning', 'Enable generic web application scanni!
+ng' and
+  'Add historic /scripts and /cgi-bin to directories for CGI scanning' within th!
+e
+  'Global variable settings' of the scan config in use
+  If you think any of this information is wrong please report it to the referenc!
+ed community
+  forum.
+
+Vulnerability Detection Result:
+The Hostname/IP "bind.trabalho_vulnnet" was used to access the remote host.
+Generic web application scanning is disabled for this host via the "Enable gener!
+ic web application scanning" option within the "Global variable settings" of the!
+ scan config in use.
+This service is marked as broken and no web application scanning is launched aga!
+inst it. Reason(s):
+-----
+ - The 'MiniServ' embedded server was found which is fragile when getting scanne!
+d. HTTP scanning will be disabled for this host.
+-----
+Requests to this service are done via HTTP/1.0.
+This service seems to be NOT able to host PHP scripts.
+This service seems to be NOT able to host ASP scripts.
+The User-Agent "Mozilla/5.0 [en] (X11, U; OpenVAS-VT <version replaced>)" was us!
+ed to access the remote host.
+Historic /scripts and /cgi-bin are not added to the directories used for web app!
+lication scanning. You can enable this again with the "Add historic /scripts and!
+ /cgi-bin to directories for CGI scanning" option within the "Global variable se!
+ttings" of the scan config in use.
+The following directories were used for web application scanning:
+https://bind.trabalho_vulnnet:10000/
+While this is not, in and of itself, a bug, you should manually inspect these di!
+rectories to ensure that they are in compliance with company security standards
+
+Solution:
+
+Log Method:
+Details:
+Web Application Scanning Consolidation / Info Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.111038)
+Version used: 2026-01-13T05:47:36Z
+
+References:
+ url: https://forum.greenbone.net/c/vulnerability-tests/7
+
+
+Issue
+-----
+NVT:    Webmin / Usermin Detection (HTTP)
+OID:    1.3.6.1.4.1.25623.1.0.10757
+Threat: Log (CVSS: 0.0)
+Port:   10000/tcp
+
+Summary:
+HTTP based detection of Webmin / Usermin.
+
+Vulnerability Detection Result:
+Detected Webmin
+Version:       1.920
+Location:      /
+CPE:           cpe:/a:webmin:webmin:1.920
+Concluded from version/product identification result:
+Server: MiniServ/1.920
+<title>Login to Webmin</title>
+
+Solution:
+
+Log Method:
+Details:
+Webmin / Usermin Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.10757)
+Version used: 2023-08-01T13:29:10Z
+
+
+Issue
+-----
+NVT:    Webmin < 1.930 RCE Vulnerability
+OID:    1.3.6.1.4.1.25623.1.0.142804
+Threat: High (CVSS: 8.8)
+Port:   10000/tcp
+
+Summary:
+Webmin is prone to an authenticated remote code execution (RCE) vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 1.920
+Fixed version:     1.930
+Installation
+path / port:       /
+
+Impact:
+Successful exploitation would allow an authenticated attacker to gain
+  control over the target system.
+
+Solution:
+Solution type: VendorFix
+Update to version 1.930 or later.
+
+Affected Software/OS:
+Webmin version 1.920 and prior.
+
+Vulnerability Insight:
+rpc.cgi in Webmin through 1.920 allows authenticated Remote Code Execution via
+  a crafted object name because unserialise_variable makes an eval call.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Webmin < 1.930 RCE Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.142804)
+Version used: 2024-06-28T05:05:33Z
+
+References:
+ cve: CVE-2019-15642
+ url: https://www.calypt.com/blog/index.php/authenticated-rce-on-webmin/
+ url: https://github.com/webmin/webmin/commit/df8a43fb4bdc9c858874f72773bcba597ae9432c
+ cert-bund: CB-K19/0786
+
+
+Issue
+-----
+NVT:    Webmin < 2.003 XSS Vulnerability
+OID:    1.3.6.1.4.1.25623.1.0.126206
+Threat: Medium (CVSS: 6.1)
+Port:   10000/tcp
+
+Summary:
+Webmin is prone to a cross-site scripting (XSS)
+  vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 1.920
+Fixed version:     2.003
+Installation
+path / port:       /
+
+Solution:
+Solution type: VendorFix
+Update to version 2.003 or later.
+  Note: While there is no dedicated mention of the fix in any changelog the rele!
+vant code fix/commit
+  as been included in the GitHub tag '2.003'.
+
+Affected Software/OS:
+Webmin prior to version 2.003.
+
+Vulnerability Insight:
+An XSS vulnerability exists in an unknown function of the file
+  xterm/index.cgi.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Webmin < 2.003 XSS Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.126206)
+Version used: 2023-11-10T16:09:31Z
+
+References:
+ cve: CVE-2022-3844
+ url: https://github.com/webmin/webmin/compare/2.001...2.003
+ url: https://github.com/webmin/webmin/commit/d3d33af3c0c3fd3a889c84e287a038b7a457d811
+ cert-bund: WID-SEC-2022-1957
+
+
+Issue
+-----
+NVT:    Webmin <= 1.930 XXE Vulnerability
+OID:    1.3.6.1.4.1.25623.1.0.142805
+Threat: High (CVSS: 8.8)
+Port:   10000/tcp
+
+Summary:
+Webmin is prone to an authenticated XXE vulnerability in xmlrpc.cgi.
+
+Vulnerability Detection Result:
+Installed version: 1.920
+Fixed version:     None
+Installation
+path / port:       /
+
+Impact:
+Successful exploitation would allow an authenticated attacker to gain
+  control over the target system.
+
+Solution:
+Solution type: WillNotFix
+No known solution was made available for at least one year since the disclosure
+  of this vulnerability. Likely none will be provided anymore. General solution !
+options are to upgrade to a newer
+  release, disable respective features, remove the product or replace the produc!
+t by another one.
+
+Affected Software/OS:
+Webmin version 1.930 and prior.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Webmin <= 1.930 XXE Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.142805)
+Version used: 2021-09-08T08:01:40Z
+
+References:
+ cve: CVE-2019-15642
+ url: https://www.calypt.com/blog/index.php/authenticated-xxe-on-webmin/
+ cert-bund: CB-K19/0786
+
+
+Issue
+-----
+NVT:    Webmin <= 1.941 Multiple XSS Vulnerabilities
+OID:    1.3.6.1.4.1.25623.1.0.144734
+Threat: Medium (CVSS: 6.1)
+Port:   10000/tcp
+
+Summary:
+Webmin is prone to multiple cross-site scripting vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 1.920
+Fixed version:     1.953
+Installation
+path / port:       /
+
+Solution:
+Solution type: VendorFix
+Update to version 1.953 or later.
+
+Affected Software/OS:
+Webmin version 1.941 and prior.
+
+Vulnerability Insight:
+The following vulnerabilities exist:
+  - XSS in the Command Shell module (CVE-2020-8820 and CVE-2020-8821)
+  - XSS in the Read Mail module (CVE-2020-12670)
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Webmin <= 1.941 Multiple XSS Vulnerabilities
+(OID: 1.3.6.1.4.1.25623.1.0.144734)
+Version used: 2021-08-16T12:00:57Z
+
+References:
+ cve: CVE-2020-8820
+ cve: CVE-2020-8821
+ cve: CVE-2020-12670
+ url: https://www.webmin.com/security.html
+ cert-bund: CB-K20/0973
+
+
+Issue
+-----
+NVT:    Webmin <= 1.941 RCE Vulnerability
+OID:    1.3.6.1.4.1.25623.1.0.141897
+Threat: High (CVSS: 7.8)
+Port:   10000/tcp
+
+Summary:
+Webmin is prone to an authenticated remote code execution (RCE)
+  vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 1.920
+Fixed version:     None
+
+Solution:
+Solution type: WillNotFix
+No known solution was made available for at least one year since the disclosure
+  of this vulnerability. Likely none will be provided anymore. General solution !
+options are to upgrade to a newer
+  release, disable respective features, remove the product or replace the produc!
+t by another one.
+
+Affected Software/OS:
+Webmin through version 1.941. The vendor does not classify this vulnerability
+  as workable exploit, as it requires that the attacker already knows the root p!
+assword. Hence there is no fix for
+  it in Webmin.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Webmin <= 1.941 RCE Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.141897)
+Version used: 2024-06-28T15:38:46Z
+
+References:
+ cve: CVE-2019-9624
+ url: https://www.exploit-db.com/exploits/46201
+ url: http://www.webmin.com/security.html
+
+
+Issue
+-----
+NVT:    Webmin <= 1.941 RCE Vulnerability
+OID:    1.3.6.1.4.1.25623.1.0.113409
+Threat: High (CVSS: 8.8)
+Port:   10000/tcp
+
+Summary:
+Webmin is prone to a remote code execution (RCE) vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 1.920
+Fixed version:     None
+Installation
+path / port:       /
+
+Impact:
+Successful exploitation would allow an authorized attacker to gain
+  control over the target system.
+
+Solution:
+Solution type: WillNotFix
+No known solution was made available for at least one year since the disclosure
+  of this vulnerability. Likely none will be provided anymore. General solution !
+options are to upgrade to a newer
+  release, disable respective features, remove the product or replace the produc!
+t by another one.
+
+Affected Software/OS:
+Webmin through version 1.941.
+
+Vulnerability Insight:
+Any user authorized to the 'Package Updates' module can execute arbitrary
+  commands with root privileges via the data parameter to update.cgi.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Webmin <= 1.941 RCE Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.113409)
+Version used: 2024-06-28T05:05:33Z
+
+References:
+ cve: CVE-2019-12840
+ url: https://pentest.com.tr/exploits/Webmin-1910-Package-Updates-Remote-Command-Execution.html
+ url: https://www.exploit-db.com/exploits/46984
+
+
+Issue
+-----
+NVT:    Webmin <= 1.983 RCE Vulnerability
+OID:    1.3.6.1.4.1.25623.1.0.145090
+Threat: High (CVSS: 8.8)
+Port:   10000/tcp
+
+Summary:
+Webmin is prone to a remote code execution (RCE) vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 1.920
+Fixed version:     None
+Installation
+path / port:       /
+
+Solution:
+Solution type: WillNotFix
+No known solution was made available for at least one year
+  since the disclosure of this vulnerability. Likely none will be provided anymo!
+re. General solution
+  options are to upgrade to a newer release, disable respective features, remove!
+ the product or
+  replace the product by another one.
+
+Affected Software/OS:
+Webmin version 1.983 and prior.
+
+Vulnerability Insight:
+Arbitrary command execution can occur in Webmin. Any user
+  authorized for the Package Updates module can execute arbitrary commands with !
+root privileges via
+  vectors involving %0A and %0C.
+  NOTE: this issue exists because of an incomplete fix for CVE-2019-12840.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Webmin <= 1.983 RCE Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.145090)
+Version used: 2021-12-23T08:45:36Z
+
+References:
+ cve: CVE-2020-35606
+ url: https://www.pentest.com.tr/exploits/Webmin-1962-PU-Escape-Bypass-Remote-Command-Execution.html
+
+
+Issue
+-----
+NVT:    Webmin <= 1.984 Multiple Vulnerabilities
+OID:    1.3.6.1.4.1.25623.1.0.147747
+Threat: High (CVSS: 8.8)
+Port:   10000/tcp
+
+Summary:
+Webmin is prone to multiple vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 1.920
+Fixed version:     1.990
+Installation
+path / port:       /
+
+Solution:
+Solution type: VendorFix
+Update to version 1.990 or later.
+
+Affected Software/OS:
+Webmin version 1.984 and prior.
+
+Vulnerability Insight:
+The following vulnerabilities exist:
+  - CVE-2022-0824: Improper access control leads to remote code execution (RCE)
+  - CVE-2022-0829: Improper authorization
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Webmin <= 1.984 Multiple Vulnerabilities
+(OID: 1.3.6.1.4.1.25623.1.0.147747)
+Version used: 2022-04-27T08:53:35Z
+
+References:
+ cve: CVE-2022-0824
+ cve: CVE-2022-0829
+ url: https://www.webmin.com/security.html
+ url: https://huntr.dev/bounties/d0049a96-de90-4b1a-9111-94de1044f295/
+ url: https://huntr.dev/bounties/f2d0389f-d7d1-4f34-9f9d-268b0a0da05e/
+ url: https://github.com/webmin/webmin/commit/eeeea3c097f5cc473770119f7ac61f1dcfa671b9
+ url: https://github.com/webmin/webmin/commit/39ea464f0c40b325decd6a5bfb7833fa4a142e38
+ cert-bund: CB-K22/0267
+
+
+Issue
+-----
+NVT:    Webmin <= 1.991 Privilege Escalation Vulnerability
+OID:    1.3.6.1.4.1.25623.1.0.127014
+Threat: High (CVSS: 8.8)
+Port:   10000/tcp
+
+Summary:
+Webmin is prone to a privilege escalation vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 1.920
+Fixed version:     1.994
+Installation
+path / port:       /
+
+Solution:
+Solution type: VendorFix
+Update to version 1.994 or later.
+
+Affected Software/OS:
+Webmin version 1.991 and prior.
+
+Vulnerability Insight:
+Webmin, when the Authentic theme is used, allows remote code
+  execution when a user has been manually created (i.e., not created in Virtualm!
+in or Cloudmin).
+  This occurs because settings-editor_write.cgi does not properly restrict the f!
+ile parameter.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Webmin <= 1.991 Privilege Escalation Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.127014)
+Version used: 2022-05-26T03:04:21Z
+
+References:
+ cve: CVE-2022-30708
+ url: https://github.com/esp0xdeadbeef/rce_webmin
+ url: https://github.com/webmin/webmin/issues/1635
+ url: https://www.webmin.com/security.html
+ cert-bund: CB-K22/0609
+
+
+Issue
+-----
+NVT:    Webmin <= 1.995 XSS Vulnerability
+OID:    1.3.6.1.4.1.25623.1.0.126099
+Threat: Medium (CVSS: 6.1)
+Port:   10000/tcp
+
+Summary:
+Webmin is prone to a cross-site scripting (XSS)
+  vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 1.920
+Fixed version:     None
+Installation
+path / port:       /
+
+Impact:
+An HTML email crafted by an attacker could capture browser
+  cookies when opened.
+
+Solution:
+Solution type: WillNotFix
+No known solution was made available for at least one year since
+  the disclosure of this vulnerability. Likely none will be provided anymore. Ge!
+neral solution options
+  are to upgrade to a newer release, disable respective features, remove the pro!
+duct or replace the
+  product by another one.
+
+Affected Software/OS:
+Webmin version 1.995 and prior.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Webmin <= 1.995 XSS Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.126099)
+Version used: 2023-08-03T05:05:16Z
+
+References:
+ cve: CVE-2022-36880
+ url: https://www.webmin.com/security.html
+ cert-bund: WID-SEC-2022-0838
+
+

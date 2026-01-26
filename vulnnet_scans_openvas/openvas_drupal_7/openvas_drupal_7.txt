@@ -1,0 +1,1430 @@
+I Summary
+=========
+
+This document reports on the results of an automatic security scan.
+The report first summarises the results found.
+Then, for each host, the report describes every issue found.
+Please consider the advice given in each description, in order to rectify
+the issue.
+
+All dates are displayed using the timezone "Coordinated Universal Time",
+which is abbreviated "UTC".
+
+Vendor security updates are not trusted.
+
+Overrides are off.  Even when a result has an override, this report uses
+the actual threat of the result.
+
+Notes are included in the report.Information on overrides is included in the report.
+
+This report might not show details of all issues that were found.
+Issues with the threat level "Critical" are not shown.
+Issues with the threat level "Debug" are not shown.
+
+This report contains all 26 results selected by the
+filtering described above.  Before filtering there were 5586 results.
+
+Scan started: Mon Jan 26 01:47:47 2026 UTC
+Scan ended:   Mon Jan 26 14:04:13 2026 UTC
+Task:          hgdfdghgdgd
+
+Host Summary
+************
+
+Host            Critical  High  Medium  Low  Log  False Positive
+172.31.1.84            0     2       7    3   14               0    drupal7.trabalho_vulnnet
+Total: 1               0     2       7    3   14               0
+
+
+II Results per Host
+===================
+
+Host 172.31.1.84
+****************
+
+Scanning of this host started at: Mon Jan 26 01:48:40 2026 UTC
+Number of results: 26
+
+Port Summary for Host 172.31.1.84
+---------------------------------
+
+Service (Port)          Threat Level
+80/tcp                  High (CVSS: 8.2)
+general/tcp             Low (CVSS: 2.6)
+general/icmp            Low (CVSS: 2.1)
+general/CPE-T           Log (CVSS: 0.0)
+
+Security Issues for Host 172.31.1.84
+------------------------------------
+
+Issue
+-----
+NVT:    Apache HTTP Server 2.4.17 < 2.4.64 DoS Vulnerability - Linux
+OID:    1.3.6.1.4.1.25623.1.0.154915
+Threat: Medium (CVSS: 5.0)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.62
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+Apache HTTP Server is prone to a denial of service (DoS)
+  vulnerability via HTTP/2.
+
+Vulnerability Detection Result:
+Installed version: 2.4.62
+Fixed version:     2.4.64
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 2.4.64 or later.
+
+Affected Software/OS:
+Apache HTTP Server version 2.4.17 through 2.4.63.
+
+Vulnerability Insight:
+Late release of memory after effective lifetime vulnerability
+  in Apache HTTP Server.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server 2.4.17 < 2.4.64 DoS Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.154915)
+Version used: 2025-07-11T15:43:14Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.62
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2025-53020
+ url: https://httpd.apache.org/security/vulnerabilities_24.html#2.4.64
+ cert-bund: WID-SEC-2025-1850
+ cert-bund: WID-SEC-2025-1529
+ dfn-cert: DFN-CERT-2025-2182
+ dfn-cert: DFN-CERT-2025-1860
+
+
+Issue
+-----
+NVT:    Apache HTTP Server 2.4.26 < 2.4.64 DoS Vulnerability - Linux
+OID:    1.3.6.1.4.1.25623.1.0.154913
+Threat: Medium (CVSS: 5.0)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.62
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+Apache HTTP Server is prone to a denial of service (DoS)
+  vulnerability in mod_proxy_http2.
+
+Vulnerability Detection Result:
+Installed version: 2.4.62
+Fixed version:     2.4.64
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 2.4.64 or later.
+
+Affected Software/OS:
+Apache HTTP Server version 2.4.26 through 2.4.63.
+
+Vulnerability Insight:
+In certain proxy configurations, a denial of service attack
+  against Apache HTTP Server can be triggered by untrusted clients causing an as!
+sertion in
+  mod_proxy_http2.
+  Configurations affected are a reverse proxy is configured for an HTTP/2 backen!
+d, with
+  ProxyPreserveHost set to 'on'.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server 2.4.26 < 2.4.64 DoS Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.154913)
+Version used: 2025-07-11T15:43:14Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.62
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2025-49630
+ url: https://httpd.apache.org/security/vulnerabilities_24.html#2.4.64
+ cert-bund: WID-SEC-2025-1850
+ cert-bund: WID-SEC-2025-1529
+ dfn-cert: DFN-CERT-2025-2421
+ dfn-cert: DFN-CERT-2025-2345
+ dfn-cert: DFN-CERT-2025-2231
+ dfn-cert: DFN-CERT-2025-2182
+ dfn-cert: DFN-CERT-2025-1860
+
+
+Issue
+-----
+NVT:    Apache HTTP Server 2.4.30 - 2.4.65 Integer Overflow Vulnerability - Linux
+OID:    1.3.6.1.4.1.25623.1.0.125565
+Threat: Low (CVSS: 2.6)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.62
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+Apache HTTP Server is prone to an integer overflow
+  vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 2.4.62
+Fixed version:     2.4.66
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 2.4.66 or later.
+
+Affected Software/OS:
+Apache HTTP Server version 2.4.30 through 2.4.65.
+
+Vulnerability Insight:
+An integer overflow in the case of failed ACME certificate
+  renewal leads, after a number of failures (~30 days in default configurations)!
+, to the
+  backoff timer becoming 0. Attempts to renew the certificate then are repeated !
+without
+  delays until it succeeds.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server 2.4.30 - 2.4.65 Integer Overflow Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.125565)
+Version used: 2025-12-05T05:44:55Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.62
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2025-55753
+ url: https://httpd.apache.org/security/vulnerabilities_24.html#2.4.66
+ url: https://www.openwall.com/lists/oss-security/2025/12/04/4
+ cert-bund: WID-SEC-2025-2750
+ dfn-cert: DFN-CERT-2026-0218
+ dfn-cert: DFN-CERT-2026-0012
+ dfn-cert: DFN-CERT-2025-3581
+ dfn-cert: DFN-CERT-2025-3415
+ dfn-cert: DFN-CERT-2025-3405
+
+
+Issue
+-----
+NVT:    Apache HTTP Server 2.4.35 < 2.4.64 Access Control Bypass Vulnerability - Linux
+OID:    1.3.6.1.4.1.25623.1.0.154911
+Threat: Medium (CVSS: 5.0)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.62
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+Apache HTTP Server is prone to an access control bypass
+  vulnerability in mod_ssl.
+
+Vulnerability Detection Result:
+Installed version: 2.4.62
+Fixed version:     2.4.64
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 2.4.64 or later.
+
+Affected Software/OS:
+Apache HTTP Server version 2.4.35 through 2.4.63.
+
+Vulnerability Insight:
+In some mod_ssl configurations an access control bypass by
+  trusted clients is possible using TLS 1.3 session resumption.
+  Configurations are affected when mod_ssl is configured for multiple virtual ho!
+sts, with each
+  restricted to a different set of trusted client certificates (for example with!
+ a different
+  SSLCACertificateFile/Path setting). In such a case, a client trusted to access!
+ one virtual host
+  may be able to access another virtual host, if SSLStrictSNIVHostCheck is not e!
+nabled in either
+  virtual host.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server 2.4.35 < 2.4.64 Access Control Bypass Vulnerability - Lin...
+(OID: 1.3.6.1.4.1.25623.1.0.154911)
+Version used: 2025-07-11T15:43:14Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.62
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2025-23048
+ url: https://httpd.apache.org/security/vulnerabilities_24.html#2.4.64
+ cert-bund: WID-SEC-2026-0162
+ cert-bund: WID-SEC-2025-1850
+ cert-bund: WID-SEC-2025-1529
+ dfn-cert: DFN-CERT-2026-0205
+ dfn-cert: DFN-CERT-2025-2421
+ dfn-cert: DFN-CERT-2025-2373
+ dfn-cert: DFN-CERT-2025-2231
+ dfn-cert: DFN-CERT-2025-2182
+ dfn-cert: DFN-CERT-2025-1860
+
+
+Issue
+-----
+NVT:    Apache HTTP Server 2.4.7 - 2.4.65 Authentication Bypass Vulnerability - Linux
+OID:    1.3.6.1.4.1.25623.1.0.125567
+Threat: Medium (CVSS: 5.8)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.62
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+Apache HTTP Server is prone to an authentication bypass
+  vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 2.4.62
+Fixed version:     2.4.66
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 2.4.66 or later.
+
+Affected Software/OS:
+Apache HTTP Server version 2.4.7 through 2.4.65.
+
+Vulnerability Insight:
+mod_userdir+suexec bypass via AllowOverride FileInfo
+  vulnerability in Apache HTTP Server. Users with access to use the RequestHeade!
+r directive in
+  htaccess can cause some CGI scripts to run under an unexpected userid.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server 2.4.7 - 2.4.65 Authentication Bypass Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.125567)
+Version used: 2025-12-05T05:44:55Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.62
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2025-66200
+ url: https://httpd.apache.org/security/vulnerabilities_24.html#2.4.66
+ url: https://www.openwall.com/lists/oss-security/2025/12/04/8
+ cert-bund: WID-SEC-2025-2750
+ dfn-cert: DFN-CERT-2025-3602
+ dfn-cert: DFN-CERT-2025-3581
+ dfn-cert: DFN-CERT-2025-3512
+ dfn-cert: DFN-CERT-2025-3405
+
+
+Issue
+-----
+NVT:    Apache HTTP Server 2.4.x < 2.4.66 Improper Neutralization Vulnerability - Linux
+OID:    1.3.6.1.4.1.25623.1.0.125566
+Threat: Medium (CVSS: 4.3)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.62
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+Apache HTTP Server is prone to an improper neutralization
+  vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 2.4.62
+Fixed version:     2.4.66
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 2.4.66 or later.
+
+Affected Software/OS:
+Apache HTTP Server version 2.4.x prior to 2.4.66.
+
+Vulnerability Insight:
+Improper neutralization of escape, meta, or control sequences
+  vulnerability in Apache HTTP Server through environment variables set via the !
+Apache
+  configuration unexpectedly superseding variables calculated by the server for !
+CGI programs.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server 2.4.x < 2.4.66 Improper Neutralization Vulnerability - Li...
+(OID: 1.3.6.1.4.1.25623.1.0.125566)
+Version used: 2025-12-05T05:44:55Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.62
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2025-65082
+ url: https://httpd.apache.org/security/vulnerabilities_24.html#2.4.66
+ url: https://www.openwall.com/lists/oss-security/2025/12/04/7
+ cert-bund: WID-SEC-2026-0155
+ cert-bund: WID-SEC-2025-2750
+ dfn-cert: DFN-CERT-2026-0214
+ dfn-cert: DFN-CERT-2025-3602
+ dfn-cert: DFN-CERT-2025-3581
+ dfn-cert: DFN-CERT-2025-3512
+ dfn-cert: DFN-CERT-2025-3405
+
+
+Issue
+-----
+NVT:    Apache HTTP Server < 2.4.64 Multiple Vulnerabilities - Linux
+OID:    1.3.6.1.4.1.25623.1.0.154909
+Threat: Medium (CVSS: 5.0)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.62
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+Apache HTTP Server is prone to multiple vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 2.4.62
+Fixed version:     2.4.64
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 2.4.64 or later.
+
+Affected Software/OS:
+Apache HTTP Server version 2.4.63 and prior.
+
+Vulnerability Insight:
+The following flaws exist:
+  - CVE-2024-42516: HTTP response splitting
+  - CVE-2024-43204: SSRF with mod_headers setting Content-Type header
+  - CVE-2024-47252: mod_ssl error log variable escaping
+  - CVE-2025-49812: mod_ssl TLS upgrade attack
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server < 2.4.64 Multiple Vulnerabilities - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.154909)
+Version used: 2025-07-11T15:43:14Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.62
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2024-42516
+ cve: CVE-2024-43204
+ cve: CVE-2024-47252
+ cve: CVE-2025-49812
+ url: https://httpd.apache.org/security/vulnerabilities_24.html#2.4.64
+ cert-bund: WID-SEC-2026-0162
+ cert-bund: WID-SEC-2025-1850
+ cert-bund: WID-SEC-2025-1529
+ dfn-cert: DFN-CERT-2026-0205
+ dfn-cert: DFN-CERT-2025-2421
+ dfn-cert: DFN-CERT-2025-2403
+ dfn-cert: DFN-CERT-2025-2402
+ dfn-cert: DFN-CERT-2025-2373
+ dfn-cert: DFN-CERT-2025-2231
+ dfn-cert: DFN-CERT-2025-2182
+ dfn-cert: DFN-CERT-2025-1917
+ dfn-cert: DFN-CERT-2025-1860
+
+
+Issue
+-----
+NVT:    Apache HTTP Server < 2.4.66 SSI Vulnerability - Linux
+OID:    1.3.6.1.4.1.25623.1.0.125564
+Threat: Medium (CVSS: 4.3)
+Port:   80/tcp
+
+Product detection result: cpe:/a:apache:http_server:2.4.62
+Detected by: Apache HTTP Server Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+Summary:
+Apache HTTP Server is prone to a Server Side Includes (SSI)
+  vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 2.4.62
+Fixed version:     2.4.66
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 2.4.66 or later.
+
+Affected Software/OS:
+Apache HTTP Server prior to version 2.4.66.
+
+Vulnerability Insight:
+Apache HTTP Server with SSI enabled and mod_cgid (but not
+  mod_cgi) passes the shell-escaped query string to #exec cmd='...' directives.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server < 2.4.66 SSI Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.125564)
+Version used: 2025-12-05T05:44:55Z
+
+Product Detection Result:
+Product:cpe:/a:apache:http_server:2.4.62
+
+Method:Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+
+References:
+ cve: CVE-2025-58098
+ url: https://httpd.apache.org/security/vulnerabilities_24.html#2.4.66
+ url: https://www.openwall.com/lists/oss-security/2025/12/04/5
+ cert-bund: WID-SEC-2026-0153
+ cert-bund: WID-SEC-2025-2750
+ dfn-cert: DFN-CERT-2026-0027
+ dfn-cert: DFN-CERT-2026-0012
+ dfn-cert: DFN-CERT-2025-3602
+ dfn-cert: DFN-CERT-2025-3581
+ dfn-cert: DFN-CERT-2025-3512
+ dfn-cert: DFN-CERT-2025-3405
+
+
+Issue
+-----
+NVT:    Apache HTTP Server Detection Consolidation
+OID:    1.3.6.1.4.1.25623.1.0.117232
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+Consolidation of Apache HTTP Server detections.
+
+Vulnerability Detection Result:
+Detected Apache HTTP Server
+Version:       2.4.62
+Location:      80/tcp
+CPE:           cpe:/a:apache:http_server:2.4.62
+Concluded from version/product identification result:
+Server: Apache/2.4.62 (Debian)
+
+Solution:
+
+Log Method:
+Details:
+Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+Version used: 2024-03-08T15:37:10Z
+
+References:
+ url: https://httpd.apache.org
+
+
+Issue
+-----
+NVT:    CPE Inventory
+OID:    1.3.6.1.4.1.25623.1.0.810002
+Threat: Log (CVSS: 0.0)
+Port:   general/CPE-T
+
+Summary:
+This routine uses information collected by other routines about
+  CPE identities of operating systems, services and applications detected during!
+ the scan.
+  Note: Some CPEs for specific products might show up twice or more in the outpu!
+t. Background:
+  After a product got renamed or a specific vendor was acquired by another one i!
+t might happen that
+  a product gets a new CPE within the NVD CPE Dictionary but older entries are k!
+ept with the older
+  CPE.
+
+Vulnerability Detection Result:
+172.31.1.84|cpe:/a:apache:http_server:2.4.62
+172.31.1.84|cpe:/a:php:php:8.1.31
+172.31.1.84|cpe:/o:debian:debian_linux:12
+
+Solution:
+
+Log Method:
+Details:
+CPE Inventory
+(OID: 1.3.6.1.4.1.25623.1.0.810002)
+Version used: 2022-07-27T10:11:28Z
+
+References:
+ url: https://nvd.nist.gov/products/cpe
+
+
+Issue
+-----
+NVT:    Hostname Determination Reporting
+OID:    1.3.6.1.4.1.25623.1.0.108449
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+The script reports information on how the hostname of the target
+  was determined.
+
+Vulnerability Detection Result:
+Hostname determination for IP 172.31.1.84:
+Hostname|Source
+drupal7.trabalho_vulnnet|Reverse-DNS
+
+Solution:
+
+Log Method:
+Details:
+Hostname Determination Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.108449)
+Version used: 2022-07-27T10:11:28Z
+
+
+Issue
+-----
+NVT:    HTTP Security Headers Detection
+OID:    1.3.6.1.4.1.25623.1.0.112081
+Threat: Log (CVSS: 0.0)
+Port:   80/tcp
+
+Summary:
+All known security headers are being checked on the remote web
+  server.
+  On completion a report will hand back whether a specific security header has b!
+een implemented
+  (including its value and if it is deprecated) or is missing on the target.
+
+Vulnerability Detection Result:
+Missing Headers                   | More Information
+--------------------------------------------------------------------------------!
+--------------------------------------------------------------------------------!
+----------------------------------------------
+Content-Security-Policy           | https://owasp.org/www-project-secure-headers!
+/#content-security-policy
+Cross-Origin-Embedder-Policy      | https://scotthelme.co.uk/coop-and-coep/, Not!
+e: This is an upcoming header
+Cross-Origin-Opener-Policy        | https://scotthelme.co.uk/coop-and-coep/, Not!
+e: This is an upcoming header
+Cross-Origin-Resource-Policy      | https://scotthelme.co.uk/coop-and-coep/, Not!
+e: This is an upcoming header
+Document-Policy                   | https://w3c.github.io/webappsec-feature-poli!
+cy/document-policy#document-policy-http-header
+Feature-Policy                    | https://owasp.org/www-project-secure-headers!
+/#feature-policy, Note: The Feature Policy header has been renamed to Permission!
+s Policy
+Permissions-Policy                | https://w3c.github.io/webappsec-feature-poli!
+cy/#permissions-policy-http-header-field
+Referrer-Policy                   | https://owasp.org/www-project-secure-headers!
+/#referrer-policy
+Sec-Fetch-Dest                    | https://developer.mozilla.org/en-US/docs/Web!
+/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header support!
+ed only in newer browsers like e.g. Firefox 90
+Sec-Fetch-Mode                    | https://developer.mozilla.org/en-US/docs/Web!
+/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header support!
+ed only in newer browsers like e.g. Firefox 90
+Sec-Fetch-Site                    | https://developer.mozilla.org/en-US/docs/Web!
+/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header support!
+ed only in newer browsers like e.g. Firefox 90
+Sec-Fetch-User                    | https://developer.mozilla.org/en-US/docs/Web!
+/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header support!
+ed only in newer browsers like e.g. Firefox 90
+X-Content-Type-Options            | https://owasp.org/www-project-secure-headers!
+/#x-content-type-options
+X-Frame-Options                   | https://owasp.org/www-project-secure-headers!
+/#x-frame-options
+X-Permitted-Cross-Domain-Policies | https://owasp.org/www-project-secure-headers!
+/#x-permitted-cross-domain-policies
+X-XSS-Protection                  | https://owasp.org/www-project-secure-headers!
+/#x-xss-protection, Note: Most major browsers have dropped / deprecated support !
+for this header in 2020.
+
+Solution:
+
+Log Method:
+Details:
+HTTP Security Headers Detection
+(OID: 1.3.6.1.4.1.25623.1.0.112081)
+Version used: 2025-03-21T15:40:43Z
+
+References:
+ url: https://owasp.org/www-project-secure-headers/
+ url: https://owasp.org/www-project-secure-headers/#div-headers
+ url: https://securityheaders.com/
+
+
+Issue
+-----
+NVT:    HTTP Server Banner Enumeration
+OID:    1.3.6.1.4.1.25623.1.0.108708
+Threat: Log (CVSS: 0.0)
+Port:   80/tcp
+
+Summary:
+This script tries to detect / enumerate different HTTP server
+  banner (e.g. from a frontend, backend or proxy server) by sending various diff!
+erent HTTP requests
+  (valid and invalid ones).
+
+Vulnerability Detection Result:
+It was possible to enumerate the following HTTP server banner(s):
+Server banner                  | Enumeration technique
+--------------------------------------------------------------------------------!
+-----------------
+Server: Apache/2.4.62 (Debian) | Invalid HTTP 00.5 GET request (non-existent HTT!
+P version) to '/'
+X-Powered-By: PHP/8.1.31       | Valid HTTP 1.0 GET request to '/index.htm'
+
+Solution:
+
+Log Method:
+Details:
+HTTP Server Banner Enumeration
+(OID: 1.3.6.1.4.1.25623.1.0.108708)
+Version used: 2025-01-31T15:39:24Z
+
+
+Issue
+-----
+NVT:    HTTP Server type and version
+OID:    1.3.6.1.4.1.25623.1.0.10107
+Threat: Log (CVSS: 0.0)
+Port:   80/tcp
+
+Summary:
+This script detects and reports the HTTP Server's banner
+  which might provide the type and version of it.
+
+Vulnerability Detection Result:
+The remote HTTP Server banner is:
+Server: Apache/2.4.62 (Debian)
+
+Solution:
+
+Log Method:
+Details:
+HTTP Server type and version
+(OID: 1.3.6.1.4.1.25623.1.0.10107)
+Version used: 2023-08-01T13:29:10Z
+
+
+Issue
+-----
+NVT:    ICMP Timestamp Reply Information Disclosure
+OID:    1.3.6.1.4.1.25623.1.0.103190
+Threat: Low (CVSS: 2.1)
+Port:   general/icmp
+
+Summary:
+The remote host responded to an ICMP timestamp request.
+
+Vulnerability Detection Result:
+The following response / ICMP packet has been received:
+- ICMP Type: 14
+- ICMP Code: 0
+
+Impact:
+This information could theoretically be used to exploit weak
+  time-based random number generators in other services.
+
+Solution:
+Solution type: Mitigation
+Various mitigations are possible:
+  - Disable the support for ICMP timestamp on the remote host completely
+  - Protect the remote host by a firewall, and block ICMP packets passing throug!
+h the firewall in
+  either direction (either completely or only for untrusted networks)
+
+Vulnerability Insight:
+The Timestamp Reply is an ICMP message which replies to a
+  Timestamp message. It consists of the originating timestamp sent by the sender!
+ of the Timestamp as
+  well as a receive timestamp and a transmit timestamp.
+
+Vulnerability Detection Method:
+Sends an ICMP Timestamp (Type 13) request and checks if a
+  Timestamp Reply (Type 14) is received.
+Details:
+ICMP Timestamp Reply Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.103190)
+Version used: 2025-01-21T05:37:33Z
+
+References:
+ cve: CVE-1999-0524
+ url: https://datatracker.ietf.org/doc/html/rfc792
+ url: https://datatracker.ietf.org/doc/html/rfc2780
+ cert-bund: CB-K15/1514
+ cert-bund: CB-K14/0632
+ dfn-cert: DFN-CERT-2014-0658
+
+
+Issue
+-----
+NVT:    IP Forwarding Enabled - Active Check
+OID:    1.3.6.1.4.1.25623.1.0.147205
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+Checks if the remote host has IP forwarding enabled.
+
+Vulnerability Detection Result:
+It was possible to route a TCP packet through the target host and received an an!
+swer which means IP forwarding is enabled.
+
+Solution:
+
+Log Method:
+Sends a crafted Local Link Layer (LLL) frame and checks the
+  response.
+Details:
+IP Forwarding Enabled - Active Check
+(OID: 1.3.6.1.4.1.25623.1.0.147205)
+Version used: 2021-12-03T08:27:06Z
+
+References:
+ cve: CVE-1999-0511
+
+
+Issue
+-----
+NVT:    OS Detection Consolidation and Reporting
+OID:    1.3.6.1.4.1.25623.1.0.105937
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+This script consolidates the OS information detected by several
+  VTs and tries to find the best matching OS.
+  Furthermore it reports all previously collected information leading to this be!
+st matching OS. It
+  also reports possible additional information which might help to improve the O!
+S detection.
+  If any of this information is wrong or could be improved please consider to re!
+port these to the
+  referenced community forum.
+
+Vulnerability Detection Result:
+Best matching OS:
+OS:           Debian GNU/Linux 12
+Version:      12
+CPE:          cpe:/o:debian:debian_linux:12
+Found by VT:  1.3.6.1.4.1.25623.1.0.111067 (Operating System (OS) Detection (HTT!
+P))
+Concluded from HTTP Server banner on port 80/tcp: Server: Apache/2.4.62 (Debian)
+Setting key "Host/runs_unixoide" based on this information
+Other OS detections (in order of reliability):
+OS:           Debian GNU/Linux 11
+Version:      11
+CPE:          cpe:/o:debian:debian_linux:11
+Found by VT:  1.3.6.1.4.1.25623.1.0.111067 (Operating System (OS) Detection (HTT!
+P))
+Concluded from HTTP Server banner on port 80/tcp: Server: Apache/2.4.62 (Debian)
+
+Solution:
+
+Log Method:
+Details:
+OS Detection Consolidation and Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.105937)
+Version used: 2026-01-21T05:50:46Z
+
+References:
+ url: https://forum.greenbone.net/c/vulnerability-tests/7
+
+
+Issue
+-----
+NVT:    PHP < 8.1.33, 8.2.x < 8.2.29, 8.3.x < 8.3.23, 8.4.x < 8.4.10 Multiple Vulnerabilities - Linux
+OID:    1.3.6.1.4.1.25623.1.0.154869
+Threat: High (CVSS: 7.5)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:8.1.31
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to multiple vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 8.1.31
+Fixed version:     8.1.33
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 8.1.33, 8.2.29, 8.3.23, 8.4.10 or later.
+
+Affected Software/OS:
+PHP versions prior to 8.1.33, 8.2.x prior to 8.2.29, 8.3.x
+  prior to 8.3.23 and 8.4.x prior to 8.4.10.
+
+Vulnerability Insight:
+The following vulnerabilities exist:
+  - CVE-2025-1220: Null byte termination in hostnames
+  - CVE-2025-1735: pgsql extension does not check for errors during escaping
+  - CVE-2025-6491: NULL pointer dereference in PHP SOAP extension via large XML !
+namespace prefix
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 8.1.33, 8.2.x < 8.2.29, 8.3.x < 8.3.23, 8.4.x < 8.4.10 Multiple Vulner...
+(OID: 1.3.6.1.4.1.25623.1.0.154869)
+Version used: 2025-09-24T05:39:03Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:8.1.31
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2025-1220
+ cve: CVE-2025-1735
+ cve: CVE-2025-6491
+ url: https://www.php.net/ChangeLog-8.php#8.1.33
+ url: https://www.php.net/ChangeLog-8.php#8.2.29
+ url: https://www.php.net/ChangeLog-8.php#8.3.23
+ url: https://www.php.net/ChangeLog-8.php#8.4.10
+ url: https://github.com/php/php-src/security/advisories/GHSA-3cr5-j632-f35r
+ url: https://github.com/php/php-src/security/advisories/GHSA-hrwm-9436-5mv3
+ url: https://github.com/php/php-src/security/advisories/GHSA-453j-q27h-5p8x
+ cert-bund: WID-SEC-2025-1460
+ dfn-cert: DFN-CERT-2025-1785
+
+
+Issue
+-----
+NVT:    PHP < 8.2.30, 8.3.x < 8.3.29, 8.4.x < 8.4.16 Multiple Vulnerabilities - Linux
+OID:    1.3.6.1.4.1.25623.1.0.156071
+Threat: High (CVSS: 8.2)
+Port:   80/tcp
+
+Product detection result: cpe:/a:php:php:8.1.31
+Detected by: PHP Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+Summary:
+PHP is prone to multiple vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 8.1.31
+Fixed version:     8.2.30
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 8.2.30, 8.3.29, 8.4.16 or later.
+
+Affected Software/OS:
+PHP versions prior to 8.2.30, 8.3.x prior to 8.3.29 and 8.4.x
+  prior to 8.4.16.
+
+Vulnerability Insight:
+The following flaws exist:
+  - CVE-2025-14177: Information leak of memory in getimagesize
+  - CVE-2025-14178: Heap buffer overflow in array_merge()
+  - CVE-2025-14180: PDO quoting result null deref
+  - No CVE: Null byte termination in dns_get_record()
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+PHP < 8.2.30, 8.3.x < 8.3.29, 8.4.x < 8.4.16 Multiple Vulnerabilities - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.156071)
+Version used: 2026-01-12T05:50:06Z
+
+Product Detection Result:
+Product:cpe:/a:php:php:8.1.31
+
+Method:PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+
+References:
+ cve: CVE-2025-14177
+ cve: CVE-2025-14178
+ cve: CVE-2025-14180
+ url: https://www.php.net/ChangeLog-8.php#8.2.30
+ url: https://www.php.net/ChangeLog-8.php#8.3.29
+ url: https://www.php.net/ChangeLog-8.php#8.4.16
+ url: https://github.com/php/php-src/security/advisories/GHSA-3237-qqm7-mfv7
+ url: https://github.com/php/php-src/security/advisories/GHSA-h96m-rvf9-jgm2
+ url: https://github.com/php/php-src/security/advisories/GHSA-8xr5-qppj-gvwj
+ url: https://github.com/php/php-src/security/advisories/GHSA-www2-q4fc-65wf
+ dfn-cert: DFN-CERT-2025-3544
+
+
+Issue
+-----
+NVT:    PHP Detection Consolidation
+OID:    1.3.6.1.4.1.25623.1.0.171722
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+Consolidation of PHP detections.
+
+Vulnerability Detection Result:
+Detected PHP
+Version:       8.1.31
+Location:      80/tcp
+CPE:           cpe:/a:php:php:8.1.31
+Concluded from version/product identification result:
+X-Powered-By: PHP/8.1.31
+Concluded from version/product identification location:
+http://drupal7.trabalho_vulnnet/
+
+Solution:
+
+Log Method:
+Details:
+PHP Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.171722)
+Version used: 2025-09-24T05:39:03Z
+
+References:
+ url: https://www.php.net/
+
+
+Issue
+-----
+NVT:    Response Time / No 404 Error Code Check
+OID:    1.3.6.1.4.1.25623.1.0.10386
+Threat: Log (CVSS: 0.0)
+Port:   80/tcp
+
+Summary:
+This VT tests if the remote web server does not reply with a 404
+  error code and checks if it is replying to the scanners requests in a reasonab!
+le amount of time.
+
+Vulnerability Detection Result:
+The host returns a 30x (e.g. 301) error code when a non-existent file is request!
+ed. Some HTTP-related checks have been disabled.
+
+Solution:
+
+Vulnerability Insight:
+This web server might show the following issues:
+  - it is [mis]configured in that it does not return '404 Not Found' error codes!
+ when a non-existent
+  file is requested, perhaps returning a site map, search page, authentication p!
+age or redirect instead.
+  The Scanner might enabled some counter measures for that, however they might b!
+e insufficient. If a
+  great number of security issues are reported for this port, they might not all!
+ be accurate.
+  - it doesn't response in a reasonable amount of time to various HTTP requests !
+sent by this VT.
+  In order to keep the scan total time to a reasonable amount, the remote web se!
+rver might not be
+  tested. If the remote server should be tested it has to be fixed to have it re!
+ply to the scanners
+  requests in a reasonable amount of time.
+  Alternatively the 'Maximum response time (in seconds)' preference could be rai!
+sed to a higher
+  value if longer scan times are accepted.
+
+Log Method:
+Details:
+Response Time / No 404 Error Code Check
+(OID: 1.3.6.1.4.1.25623.1.0.10386)
+Version used: 2025-04-11T15:45:04Z
+
+
+Issue
+-----
+NVT:    robot.txt / robots.txt exists on the Web Server (HTTP)
+OID:    1.3.6.1.4.1.25623.1.0.10302
+Threat: Log (CVSS: 0.0)
+Port:   80/tcp
+
+Summary:
+Web Servers can use a file called /robot(s).txt to ask search engines
+  to ignore certain files and directories. By nature this file can not be used t!
+o protect private files
+  from public read access.
+
+Vulnerability Detection Result:
+The file 'http://drupal7.trabalho_vulnnet/robots.txt' contains the following:
+#
+# robots.txt
+#
+# This file is to prevent the crawling and indexing of certain parts
+# of your site by web crawlers and spiders run by sites like Yahoo!
+# and Google. By telling these "robots" where not to go on your site,
+# you save bandwidth and server resources.
+#
+# This file will be ignored unless it is at the root of your host:
+# Used:    http://example.com/robots.txt
+# Ignored: http://example.com/site/robots.txt
+#
+# For more information about the robots.txt standard, see:
+# http://www.robotstxt.org/robotstxt.html
+User-agent: *
+Crawl-delay: 10
+# CSS, JS, Images
+Allow: /misc/*.css$
+Allow: /misc/*.css?
+Allow: /misc/*.js$
+Allow: /misc/*.js?
+Allow: /misc/*.gif
+Allow: /misc/*.jpg
+Allow: /misc/*.jpeg
+Allow: /misc/*.png
+Allow: /modules/*.css$
+Allow: /modules/*.css?
+Allow: /modules/*.js$
+Allow: /modules/*.js?
+Allow: /modules/*.gif
+Allow: /modules/*.jpg
+Allow: /modules/*.jpeg
+Allow: /modules/*.png
+Allow: /profiles/*.css$
+Allow: /profiles/*.css?
+Allow: /profiles/*.js$
+Allow: /profiles/*.js?
+Allow: /profiles/*.gif
+Allow: /profiles/*.jpg
+Allow: /profiles/*.jpeg
+Allow: /profiles/*.png
+Allow: /themes/*.css$
+Allow: /themes/*.css?
+Allow: /themes/*.js$
+Allow: /themes/*.js?
+Allow: /themes/*.gif
+Allow: /themes/*.jpg
+Allow: /themes/*.jpeg
+Allow: /themes/*.png
+# Directories
+Disallow: /includes/
+Disallow: /misc/
+Disallow: /modules/
+Disallow: /profiles/
+Disallow: /scripts/
+Disallow: /themes/
+# Files
+Disallow: /CHANGELOG.txt
+Disallow: /cron.php
+Disallow: /INSTALL.mysql.txt
+Disallow: /INSTALL.pgsql.txt
+Disallow: /INSTALL.sqlite.txt
+Disallow: /install.php
+Disallow: /INSTALL.txt
+Disallow: /LICENSE.txt
+Disallow: /MAINTAINERS.txt
+Disallow: /update.php
+Disallow: /UPGRADE.txt
+Disallow: /xmlrpc.php
+# Paths (clean URLs)
+Disallow: /admin/
+Disallow: /comment/reply/
+Disallow: /filter/tips/
+Disallow: /node/add/
+Disallow: /search/
+Disallow: /user/register/
+Disallow: /user/password/
+Disallow: /user/login/
+Disallow: /user/logout/
+# Paths (no clean URLs)
+Disallow: /?q=admin/
+Disallow: /?q=comment/reply/
+Disallow: /?q=filter/tips/
+Disallow: /?q=node/add/
+Disallow: /?q=search/
+Disallow: /?q=user/password/
+Disallow: /?q=user/register/
+Disallow: /?q=user/login/
+Disallow: /?q=user/logout/
+
+Solution:
+Solution type: Mitigation
+Review the content of the /robot(s).txt file and consider removing the
+  files from the server or protect them in other ways in case you actually inten!
+ded non-public availability.
+
+Vulnerability Insight:
+Any serious web search engine will honor the /robot(s).txt file
+  and not scan the files and directories listed there.
+  Any entries listed in this file are not even hidden anymore.
+
+Log Method:
+Details:
+robot.txt / robots.txt exists on the Web Server (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.10302)
+Version used: 2024-02-26T14:36:40Z
+
+References:
+ url: https://www.robotstxt.org/
+ url: https://www.robotstxt.org/norobots-rfc.txt
+
+
+Issue
+-----
+NVT:    Services
+OID:    1.3.6.1.4.1.25623.1.0.10330
+Threat: Log (CVSS: 0.0)
+Port:   80/tcp
+
+Summary:
+This plugin performs service detection.
+
+Vulnerability Detection Result:
+A web server is running on this port
+
+Solution:
+
+Vulnerability Insight:
+This plugin attempts to guess which service is running on the
+  remote port(s). For instance, it searches for a web server which could listen !
+on another port than
+  80 or 443 and makes this information available for other check routines.
+
+Log Method:
+Details:
+Services
+(OID: 1.3.6.1.4.1.25623.1.0.10330)
+Version used: 2025-03-05T05:38:53Z
+
+
+Issue
+-----
+NVT:    TCP Timestamps Information Disclosure
+OID:    1.3.6.1.4.1.25623.1.0.80091
+Threat: Low (CVSS: 2.6)
+Port:   general/tcp
+
+Summary:
+The remote host implements TCP timestamps and therefore allows
+  to compute the uptime.
+
+Vulnerability Detection Result:
+It was detected that the host implements RFC1323/RFC7323.
+The following timestamps were retrieved with a delay of 1 seconds in-between:
+Packet 1: 732123003
+Packet 2: 732124137
+
+Impact:
+A side effect of this feature is that the uptime of the remote
+  host can sometimes be computed.
+
+Solution:
+Solution type: Mitigation
+To disable TCP timestamps on linux add the line
+  'net.ipv4.tcp_timestamps = 0' to /etc/sysctl.conf. Execute 'sysctl -p' to appl!
+y the settings at
+  runtime.
+  To disable TCP timestamps on Windows execute 'netsh int tcp set global timesta!
+mps=disabled'
+  Starting with Windows Server 2008 and Vista, the timestamp can not be complete!
+ly disabled.
+  The default behavior of the TCP/IP stack on this Systems is to not use the Tim!
+estamp options when
+  initiating TCP connections, but use them if the TCP peer that is initiating co!
+mmunication includes
+  them in their synchronize (SYN) segment.
+  See the references for more information.
+
+Affected Software/OS:
+TCP implementations that implement RFC1323/RFC7323.
+
+Vulnerability Insight:
+The remote host implements TCP timestamps, as defined by
+  RFC1323/RFC7323.
+
+Vulnerability Detection Method:
+Special IP packets are forged and sent with a little delay in
+  between to the target IP. The responses are searched for a timestamps. If foun!
+d, the timestamps
+  are reported.
+Details:
+TCP Timestamps Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.80091)
+Version used: 2023-12-15T16:10:08Z
+
+References:
+ url: https://datatracker.ietf.org/doc/html/rfc1323
+ url: https://datatracker.ietf.org/doc/html/rfc7323
+ url: https://web.archive.org/web/20151213072445/http://www.microsoft.com/en-us/download/details.aspx?id=9152
+ url: https://www.fortiguard.com/psirt/FG-IR-16-090
+
+
+Issue
+-----
+NVT:    Traceroute
+OID:    1.3.6.1.4.1.25623.1.0.51662
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+Collect information about the network route and
+  network distance between the scanner host and the target host.
+
+Vulnerability Detection Result:
+Network route from scanner (172.30.0.2) to target (172.31.1.84):
+172.30.0.2
+172.31.1.84
+Network distance between scanner and target: 2
+
+Solution:
+
+Vulnerability Insight:
+For internal networks, the distances are usually
+  small, often less than 4 hosts between scanner and target. For public targets !
+the
+  distance is greater and might be 10 hosts or more.
+
+Log Method:
+A combination of the protocols ICMP and TCP is used
+  to determine the route. This method is applicable for IPv4 only and it is also!
+ known as
+  'traceroute'.
+Details:
+Traceroute
+(OID: 1.3.6.1.4.1.25623.1.0.51662)
+Version used: 2022-10-17T11:13:19Z
+
+
+Issue
+-----
+NVT:    Web Application Scanning Consolidation / Info Reporting
+OID:    1.3.6.1.4.1.25623.1.0.111038
+Threat: Log (CVSS: 0.0)
+Port:   80/tcp
+
+Summary:
+The script consolidates and reports various information for web
+  application (formerly called 'CGI') scanning.
+  This information is based on the following scripts / settings:
+  - HTTP-Version Detection (OID: 1.3.6.1.4.1.25623.1.0.100034)
+  - No 404 check (OID: 1.3.6.1.4.1.25623.1.0.10386)
+  - Web mirroring / webmirror.nasl (OID: 1.3.6.1.4.1.25623.1.0.10662)
+  - Directory Scanner / DDI_Directory_Scanner.nasl (OID: 1.3.6.1.4.1.25623.1.0.1!
+1032)
+  - The configured 'cgi_path' within the 'Scanner Preferences' of the scan confi!
+g in use
+  - The configured 'Enable CGI scanning', 'Enable generic web application scanni!
+ng' and
+  'Add historic /scripts and /cgi-bin to directories for CGI scanning' within th!
+e
+  'Global variable settings' of the scan config in use
+  If you think any of this information is wrong please report it to the referenc!
+ed community
+  forum.
+
+Vulnerability Detection Result:
+The Hostname/IP "drupal7.trabalho_vulnnet" was used to access the remote host.
+Generic web application scanning is disabled for this host via the "Enable gener!
+ic web application scanning" option within the "Global variable settings" of the!
+ scan config in use.
+Requests to this service are done via HTTP/1.1.
+This service seems to be able to host PHP scripts.
+This service seems to be able to host ASP scripts.
+The User-Agent "Mozilla/5.0 [en] (X11, U; OpenVAS-VT <version replaced>)" was us!
+ed to access the remote host.
+Historic /scripts and /cgi-bin are not added to the directories used for web app!
+lication scanning. You can enable this again with the "Add historic /scripts and!
+ /cgi-bin to directories for CGI scanning" option within the "Global variable se!
+ttings" of the scan config in use.
+The following directories were used for web application scanning:
+http://drupal7.trabalho_vulnnet/
+http://drupal7.trabalho_vulnnet/includes
+http://drupal7.trabalho_vulnnet/misc
+http://drupal7.trabalho_vulnnet/modules
+http://drupal7.trabalho_vulnnet/modules/profile
+http://drupal7.trabalho_vulnnet/profiles
+http://drupal7.trabalho_vulnnet/scripts
+http://drupal7.trabalho_vulnnet/sites
+http://drupal7.trabalho_vulnnet/sites/all
+http://drupal7.trabalho_vulnnet/sites/all/libraries
+http://drupal7.trabalho_vulnnet/sites/default
+While this is not, in and of itself, a bug, you should manually inspect these di!
+rectories to ensure that they are in compliance with company security standards
+The following directories were excluded from web application scanning because th!
+e "Regex pattern to exclude directories from CGI scanning" setting of the VT "Gl!
+obal variable settings" (OID: 1.3.6.1.4.1.25623.1.0.12288) for this scan was: "/!
+(index\.php|image|img|css|js$|js/|javascript|style|theme|icon|jquery|graphic|gra!
+fik|picture|bilder|thumbnail|media/|skins?/)"
+http://drupal7.trabalho_vulnnet/icons
+http://drupal7.trabalho_vulnnet/themes
+http://drupal7.trabalho_vulnnet/themes/seven
+The following CGIs were discovered:
+Syntax : cginame (arguments [default value])
+http://drupal7.trabalho_vulnnet/install.php (profile [standard] profile [minimal!
+] form_build_id [form-TmcK8oPpuLGqm-6l_41exwC_70w71s50W8_zkvkUN0o] form_id [inst!
+all_select_profile_form] op [Save and continue] )
+The following cgi scripts were excluded from web application scanning because of!
+ the "Regex pattern to exclude cgi scripts" setting of the VT "Web mirroring" (O!
+ID: 1.3.6.1.4.1.25623.1.0.10662) for this scan was: "\.(js|css)$"
+Syntax : cginame (arguments [default value])
+http://drupal7.trabalho_vulnnet/misc/drupal.js (0 [] )
+http://drupal7.trabalho_vulnnet/misc/form-single-submit.js (v [7.103] )
+http://drupal7.trabalho_vulnnet/misc/jquery-extend-3.4.0.js (v [1.4.4] )
+http://drupal7.trabalho_vulnnet/misc/jquery-html-prefilter-3.5.0-backport.js (v !
+[1.4.4] )
+http://drupal7.trabalho_vulnnet/misc/jquery.js (v [1.4.4] )
+http://drupal7.trabalho_vulnnet/misc/jquery.once.js (v [1.2] )
+
+Solution:
+
+Log Method:
+Details:
+Web Application Scanning Consolidation / Info Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.111038)
+Version used: 2026-01-13T05:47:36Z
+
+References:
+ url: https://forum.greenbone.net/c/vulnerability-tests/7
+
+

@@ -1,0 +1,1214 @@
+I Summary
+=========
+
+This document reports on the results of an automatic security scan.
+The report first summarises the results found.
+Then, for each host, the report describes every issue found.
+Please consider the advice given in each description, in order to rectify
+the issue.
+
+All dates are displayed using the timezone "Coordinated Universal Time",
+which is abbreviated "UTC".
+
+Vendor security updates are not trusted.
+
+Overrides are off.  Even when a result has an override, this report uses
+the actual threat of the result.
+
+Notes are included in the report.Information on overrides is included in the report.
+
+This report might not show details of all issues that were found.
+Issues with the threat level "Critical" are not shown.
+Issues with the threat level "Debug" are not shown.
+
+This report contains all 23 results selected by the
+filtering described above.  Before filtering there were 5586 results.
+
+Scan started: Mon Jan 26 01:47:47 2026 UTC
+Scan ended:   Mon Jan 26 14:04:13 2026 UTC
+Task:          hgdfdghgdgd
+
+Host Summary
+************
+
+Host            Critical  High  Medium  Low  Log  False Positive
+172.31.1.13            0     4       4    3   12               0    nginx114.trabalho_vulnnet
+Total: 1               0     4       4    3   12               0
+
+
+II Results per Host
+===================
+
+Host 172.31.1.13
+****************
+
+Scanning of this host started at: Mon Jan 26 10:55:28 2026 UTC
+Number of results: 23
+
+Port Summary for Host 172.31.1.13
+---------------------------------
+
+Service (Port)          Threat Level
+80/tcp                  High (CVSS: 7.8)
+general/tcp             Low (CVSS: 2.6)
+general/icmp            Low (CVSS: 2.1)
+general/CPE-T           Log (CVSS: 0.0)
+
+Security Issues for Host 172.31.1.13
+------------------------------------
+
+Issue
+-----
+NVT:    Allowed HTTP Methods Enumeration
+OID:    1.3.6.1.4.1.25623.1.0.153974
+Threat: Log (CVSS: 0.0)
+Port:   80/tcp
+
+Summary:
+Enumerates which HTTP methods are allowed.
+
+Vulnerability Detection Result:
+The following list contains the URLs and corresponding supported HTTP methods.
+URL                               | HTTP Methods
+------------------------------------------------
+http://nginx114.trabalho_vulnnet/ | GET,HEAD
+
+Solution:
+
+Vulnerability Insight:
+- Basic HTTP methods: GET, HEAD, POST, PUT, DELETE, CONNECT,
+  OPTIONS, TRACE
+  - Extended HTTP methods: ACL, BASELINE-CONTROL, BIND, CHECKIN, CHECKOUT, COPY,!
+ LABEL, LINK, LOCK,
+  MERGE, MKACTIVITY, MKCALENDAR, MKCOL, MKREDIRECTREF, MKWORKSPACE, MOVE, ORDERP!
+ATCH, PATCH, PRI,
+  PROPFIND, PROPPATCH, REBIND, REPORT, SEARCH, UNBIND, UNCHECKOUT, UNLINK, UNLOC!
+K, UPDATE,
+  UPDATEREDIRECTREF, VERSION-CONTROL
+
+Log Method:
+Sends multiple HTTP requests and checks the responses.
+  Disclaimer:
+  - This enumeration script is provided 'as is' (means no support is given) and !
+only providing
+  rudimentary information about the possible enabled methods
+  - This script doesn't guarantee completeness or full reliability
+  For more reliable determination of the enabled HTTP methods please inspect the!
+ configuration of
+  the web server manually and directly on the target host.
+Details:
+Allowed HTTP Methods Enumeration
+(OID: 1.3.6.1.4.1.25623.1.0.153974)
+Version used: 2025-02-28T05:38:49Z
+
+
+Issue
+-----
+NVT:    CPE Inventory
+OID:    1.3.6.1.4.1.25623.1.0.810002
+Threat: Log (CVSS: 0.0)
+Port:   general/CPE-T
+
+Summary:
+This routine uses information collected by other routines about
+  CPE identities of operating systems, services and applications detected during!
+ the scan.
+  Note: Some CPEs for specific products might show up twice or more in the outpu!
+t. Background:
+  After a product got renamed or a specific vendor was acquired by another one i!
+t might happen that
+  a product gets a new CPE within the NVD CPE Dictionary but older entries are k!
+ept with the older
+  CPE.
+
+Vulnerability Detection Result:
+172.31.1.13|cpe:/a:f5:nginx:1.14.2
+172.31.1.13|cpe:/a:nginx:nginx:1.14.2
+172.31.1.13|cpe:/o:linux:kernel
+
+Solution:
+
+Log Method:
+Details:
+CPE Inventory
+(OID: 1.3.6.1.4.1.25623.1.0.810002)
+Version used: 2022-07-27T10:11:28Z
+
+References:
+ url: https://nvd.nist.gov/products/cpe
+
+
+Issue
+-----
+NVT:    Hostname Determination Reporting
+OID:    1.3.6.1.4.1.25623.1.0.108449
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+The script reports information on how the hostname of the target
+  was determined.
+
+Vulnerability Detection Result:
+Hostname determination for IP 172.31.1.13:
+Hostname|Source
+nginx114.trabalho_vulnnet|Reverse-DNS
+
+Solution:
+
+Log Method:
+Details:
+Hostname Determination Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.108449)
+Version used: 2022-07-27T10:11:28Z
+
+
+Issue
+-----
+NVT:    HTTP Security Headers Detection
+OID:    1.3.6.1.4.1.25623.1.0.112081
+Threat: Log (CVSS: 0.0)
+Port:   80/tcp
+
+Summary:
+All known security headers are being checked on the remote web
+  server.
+  On completion a report will hand back whether a specific security header has b!
+een implemented
+  (including its value and if it is deprecated) or is missing on the target.
+
+Vulnerability Detection Result:
+Missing Headers                   | More Information
+--------------------------------------------------------------------------------!
+--------------------------------------------------------------------------------!
+----------------------------------------------
+Content-Security-Policy           | https://owasp.org/www-project-secure-headers!
+/#content-security-policy
+Cross-Origin-Embedder-Policy      | https://scotthelme.co.uk/coop-and-coep/, Not!
+e: This is an upcoming header
+Cross-Origin-Opener-Policy        | https://scotthelme.co.uk/coop-and-coep/, Not!
+e: This is an upcoming header
+Cross-Origin-Resource-Policy      | https://scotthelme.co.uk/coop-and-coep/, Not!
+e: This is an upcoming header
+Document-Policy                   | https://w3c.github.io/webappsec-feature-poli!
+cy/document-policy#document-policy-http-header
+Feature-Policy                    | https://owasp.org/www-project-secure-headers!
+/#feature-policy, Note: The Feature Policy header has been renamed to Permission!
+s Policy
+Permissions-Policy                | https://w3c.github.io/webappsec-feature-poli!
+cy/#permissions-policy-http-header-field
+Referrer-Policy                   | https://owasp.org/www-project-secure-headers!
+/#referrer-policy
+Sec-Fetch-Dest                    | https://developer.mozilla.org/en-US/docs/Web!
+/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header support!
+ed only in newer browsers like e.g. Firefox 90
+Sec-Fetch-Mode                    | https://developer.mozilla.org/en-US/docs/Web!
+/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header support!
+ed only in newer browsers like e.g. Firefox 90
+Sec-Fetch-Site                    | https://developer.mozilla.org/en-US/docs/Web!
+/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header support!
+ed only in newer browsers like e.g. Firefox 90
+Sec-Fetch-User                    | https://developer.mozilla.org/en-US/docs/Web!
+/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header support!
+ed only in newer browsers like e.g. Firefox 90
+X-Content-Type-Options            | https://owasp.org/www-project-secure-headers!
+/#x-content-type-options
+X-Frame-Options                   | https://owasp.org/www-project-secure-headers!
+/#x-frame-options
+X-Permitted-Cross-Domain-Policies | https://owasp.org/www-project-secure-headers!
+/#x-permitted-cross-domain-policies
+X-XSS-Protection                  | https://owasp.org/www-project-secure-headers!
+/#x-xss-protection, Note: Most major browsers have dropped / deprecated support !
+for this header in 2020.
+
+Solution:
+
+Log Method:
+Details:
+HTTP Security Headers Detection
+(OID: 1.3.6.1.4.1.25623.1.0.112081)
+Version used: 2025-03-21T15:40:43Z
+
+References:
+ url: https://owasp.org/www-project-secure-headers/
+ url: https://owasp.org/www-project-secure-headers/#div-headers
+ url: https://securityheaders.com/
+
+
+Issue
+-----
+NVT:    HTTP Server Banner Enumeration
+OID:    1.3.6.1.4.1.25623.1.0.108708
+Threat: Log (CVSS: 0.0)
+Port:   80/tcp
+
+Summary:
+This script tries to detect / enumerate different HTTP server
+  banner (e.g. from a frontend, backend or proxy server) by sending various diff!
+erent HTTP requests
+  (valid and invalid ones).
+
+Vulnerability Detection Result:
+It was possible to enumerate the following HTTP server banner(s):
+Server banner        | Enumeration technique
+--------------------------------------------------------------------------------!
+-------
+Server: nginx/1.14.2 | Invalid HTTP 00.5 GET request (non-existent HTTP version)!
+ to '/'
+
+Solution:
+
+Log Method:
+Details:
+HTTP Server Banner Enumeration
+(OID: 1.3.6.1.4.1.25623.1.0.108708)
+Version used: 2025-01-31T15:39:24Z
+
+
+Issue
+-----
+NVT:    HTTP Server type and version
+OID:    1.3.6.1.4.1.25623.1.0.10107
+Threat: Log (CVSS: 0.0)
+Port:   80/tcp
+
+Summary:
+This script detects and reports the HTTP Server's banner
+  which might provide the type and version of it.
+
+Vulnerability Detection Result:
+The remote HTTP Server banner is:
+Server: nginx/1.14.2
+
+Solution:
+
+Log Method:
+Details:
+HTTP Server type and version
+(OID: 1.3.6.1.4.1.25623.1.0.10107)
+Version used: 2023-08-01T13:29:10Z
+
+
+Issue
+-----
+NVT:    ICMP Timestamp Reply Information Disclosure
+OID:    1.3.6.1.4.1.25623.1.0.103190
+Threat: Low (CVSS: 2.1)
+Port:   general/icmp
+
+Summary:
+The remote host responded to an ICMP timestamp request.
+
+Vulnerability Detection Result:
+The following response / ICMP packet has been received:
+- ICMP Type: 14
+- ICMP Code: 0
+
+Impact:
+This information could theoretically be used to exploit weak
+  time-based random number generators in other services.
+
+Solution:
+Solution type: Mitigation
+Various mitigations are possible:
+  - Disable the support for ICMP timestamp on the remote host completely
+  - Protect the remote host by a firewall, and block ICMP packets passing throug!
+h the firewall in
+  either direction (either completely or only for untrusted networks)
+
+Vulnerability Insight:
+The Timestamp Reply is an ICMP message which replies to a
+  Timestamp message. It consists of the originating timestamp sent by the sender!
+ of the Timestamp as
+  well as a receive timestamp and a transmit timestamp.
+
+Vulnerability Detection Method:
+Sends an ICMP Timestamp (Type 13) request and checks if a
+  Timestamp Reply (Type 14) is received.
+Details:
+ICMP Timestamp Reply Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.103190)
+Version used: 2025-01-21T05:37:33Z
+
+References:
+ cve: CVE-1999-0524
+ url: https://datatracker.ietf.org/doc/html/rfc792
+ url: https://datatracker.ietf.org/doc/html/rfc2780
+ cert-bund: CB-K15/1514
+ cert-bund: CB-K14/0632
+ dfn-cert: DFN-CERT-2014-0658
+
+
+Issue
+-----
+NVT:    IP Forwarding Enabled - Active Check
+OID:    1.3.6.1.4.1.25623.1.0.147205
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+Checks if the remote host has IP forwarding enabled.
+
+Vulnerability Detection Result:
+It was possible to route a TCP packet through the target host and received an an!
+swer which means IP forwarding is enabled.
+
+Solution:
+
+Log Method:
+Sends a crafted Local Link Layer (LLL) frame and checks the
+  response.
+Details:
+IP Forwarding Enabled - Active Check
+(OID: 1.3.6.1.4.1.25623.1.0.147205)
+Version used: 2021-12-03T08:27:06Z
+
+References:
+ cve: CVE-1999-0511
+
+
+Issue
+-----
+NVT:    nginx 0.6.18 - 1.20.0 1-byte Memory Overwrite Vulnerability
+OID:    1.3.6.1.4.1.25623.1.0.117455
+Threat: High (CVSS: 7.7)
+Port:   80/tcp
+
+Product detection result: cpe:/a:f5:nginx:1.14.2
+Detected by: nginx Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.113787)
+
+Summary:
+nginx is prone to a 1-byte memory overwrite vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 1.14.2
+Fixed version:     1.20.1/1.21.0
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 1.20.1, 1.21.0 or later.
+
+Affected Software/OS:
+nginx version 0.6.18 through 1.20.0.
+  Note: The issue only affects nginx if the 'resolver' directive is used in the !
+configuration file.
+  Further, the attack is only possible if an attacker is able to forge UDP packe!
+ts from the DNS
+  server.
+
+Vulnerability Insight:
+A security issue in nginx resolver was identified, which might
+  allow an attacker to cause 1-byte memory overwrite by using a specially crafte!
+d DNS response,
+  resulting in worker process crash or, potentially, in arbitrary code execution!
+.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+nginx 0.6.18 - 1.20.0 1-byte Memory Overwrite Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.117455)
+Version used: 2022-09-15T10:11:07Z
+
+Product Detection Result:
+Product:cpe:/a:f5:nginx:1.14.2
+
+Method:nginx Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.113787)
+
+References:
+ cve: CVE-2021-23017
+ url: http://mailman.nginx.org/pipermail/nginx-announce/2021/000300.html
+ cert-bund: WID-SEC-2022-1308
+ cert-bund: WID-SEC-2022-0676
+ cert-bund: WID-SEC-2022-0624
+ cert-bund: WID-SEC-2022-0623
+ cert-bund: WID-SEC-2022-0463
+ cert-bund: CB-K21/1268
+ cert-bund: CB-K21/0925
+ dfn-cert: DFN-CERT-2024-2681
+ dfn-cert: DFN-CERT-2022-1571
+ dfn-cert: DFN-CERT-2021-2403
+ dfn-cert: DFN-CERT-2021-2216
+ dfn-cert: DFN-CERT-2021-2167
+ dfn-cert: DFN-CERT-2021-1164
+ dfn-cert: DFN-CERT-2021-1146
+
+
+Issue
+-----
+NVT:    nginx 0.7.12 < 1.17.7 HTTP Request Smuggling Vulnerability
+OID:    1.3.6.1.4.1.25623.1.0.143351
+Threat: Medium (CVSS: 5.3)
+Port:   80/tcp
+
+Product detection result: cpe:/a:f5:nginx:1.14.2
+Detected by: nginx Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.113787)
+
+Summary:
+nginx, with certain error_page configurations, allows HTTP request smuggling,
+  as demonstrated by the ability of an attacker to read unauthorized web pages i!
+n environments where nginx is
+  being fronted by a load balancer.
+
+Vulnerability Detection Result:
+Installed version: 1.14.2
+Fixed version:     1.17.7
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 1.17.7 or later.
+
+Affected Software/OS:
+nginx versions 0.7.12 - 1.17.6.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+nginx 0.7.12 < 1.17.7 HTTP Request Smuggling Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.143351)
+Version used: 2021-07-08T02:00:55Z
+
+Product Detection Result:
+Product:cpe:/a:f5:nginx:1.14.2
+
+Method:nginx Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.113787)
+
+References:
+ cve: CVE-2019-20372
+ url: https://nginx.org/en/CHANGES
+ url: https://bertjwregeer.keybase.pub/2019-12-10%20-%20error_page%20request%20smuggling.pdf
+ cert-bund: WID-SEC-2024-3320
+ cert-bund: WID-SEC-2023-2481
+ dfn-cert: DFN-CERT-2024-2681
+ dfn-cert: DFN-CERT-2022-0084
+ dfn-cert: DFN-CERT-2021-1966
+ dfn-cert: DFN-CERT-2020-0067
+
+
+Issue
+-----
+NVT:    Nginx 0.7.22 - 1.29.0 Information Disclosure Vulnerability
+OID:    1.3.6.1.4.1.25623.1.0.124888
+Threat: Low (CVSS: 3.7)
+Port:   80/tcp
+
+Product detection result: cpe:/a:f5:nginx:1.14.2
+Detected by: nginx Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.113787)
+
+Summary:
+Nginx is prone to an information disclosure vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 1.14.2
+Fixed version:     1.29.1
+Installation
+path / port:       80/tcp
+
+Impact:
+This vulnerability may allow a remote, unauthenticated attacker
+  to cause a leak of arbitrary bytes during the NGINX SMTP authentication proces!
+s. There is no
+  control plane exposure this is a data plane issue only.
+
+Solution:
+Solution type: VendorFix
+Update to version 1.29.1 or later.
+
+Affected Software/OS:
+Nginx versions 0.7.22 through 1.29.0.
+
+Vulnerability Insight:
+In the ngx_mail_smtp_module that might allow an unauthenticated
+  attacker to over-read NGINX SMTP authentication process memory as a result, th!
+e server side may
+  leak arbitrary bytes sent in a request to the authentication server. This issu!
+e happens during
+  the NGINX SMTP authentication process and requires the attacker to make prepar!
+ations against the
+  target system to extract the leaked data.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Nginx 0.7.22 - 1.29.0 Information Disclosure Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.124888)
+Version used: 2025-10-22T05:39:59Z
+
+Product Detection Result:
+Product:cpe:/a:f5:nginx:1.14.2
+
+Method:nginx Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.113787)
+
+References:
+ cve: CVE-2025-53859
+ url: http://nginx.org/en/security_advisories.html
+ url: https://my.f5.com/manage/s/article/K000152786
+ cert-bund: WID-SEC-2025-1817
+ dfn-cert: DFN-CERT-2025-2449
+ dfn-cert: DFN-CERT-2025-2213
+
+
+Issue
+-----
+NVT:    nginx 1.1.3 - 1.15.5 Denial of Service and Memory Disclosure via mp4 module
+OID:    1.3.6.1.4.1.25623.1.0.112420
+Threat: Medium (CVSS: 6.1)
+Port:   80/tcp
+
+Product detection result: cpe:/a:f5:nginx:1.14.2
+Detected by: nginx Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.113787)
+
+Summary:
+A security issue was identified in the ngx_http_mp4_module, which might
+  allow an attacker to cause infinite loop in a worker process, cause a worker p!
+rocess crash, or might result
+  in worker process memory disclosure by using a specially crafted mp4 file.
+
+Vulnerability Detection Result:
+Installed version: 1.14.2
+Fixed version:     1.15.6
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update nginx to version 1.15.6 or later.
+
+Affected Software/OS:
+nginx versions 1.1.3 through 1.15.5.
+
+Vulnerability Insight:
+The issue only affects nginx if it is built with the ngx_http_mp4_module
+  (the module is not built by default) and the 'mp4' directive is used in the co!
+nfiguration file. Further,
+  the attack is only possible if an attacker is able to trigger processing of a !
+specially crafted mp4 file
+  with the ngx_http_mp4_module.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+nginx 1.1.3 - 1.15.5 Denial of Service and Memory Disclosure via mp4 module
+(OID: 1.3.6.1.4.1.25623.1.0.112420)
+Version used: 2023-07-20T05:05:18Z
+
+Product Detection Result:
+Product:cpe:/a:f5:nginx:1.14.2
+
+Method:nginx Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.113787)
+
+References:
+ cve: CVE-2018-16845
+ url: http://mailman.nginx.org/pipermail/nginx-announce/2018/000221.html
+ url: http://www.securityfocus.com/bid/105868
+ dfn-cert: DFN-CERT-2024-2681
+ dfn-cert: DFN-CERT-2021-1966
+ dfn-cert: DFN-CERT-2020-2090
+ dfn-cert: DFN-CERT-2019-1860
+ dfn-cert: DFN-CERT-2018-2417
+ dfn-cert: DFN-CERT-2018-2266
+
+
+Issue
+-----
+NVT:    Nginx 1.11.4 - 1.27.3 TLS Session Resumption Vulnerability
+OID:    1.3.6.1.4.1.25623.1.0.153971
+Threat: Medium (CVSS: 4.3)
+Port:   80/tcp
+
+Product detection result: cpe:/a:f5:nginx:1.14.2
+Detected by: nginx Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.113787)
+
+Summary:
+Nginx is prone to a TLS session resumption vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 1.14.2
+Fixed version:     1.26.3
+Installation
+path / port:       80/tcp
+
+Impact:
+This vulnerability can lead to the exposure of resources or
+  functionality to unintended actors, possibly providing attackers with limited !
+access to sensitive
+  information.
+
+Solution:
+Solution type: VendorFix
+Update to version 1.26.3, 1.27.4 or later.
+
+Affected Software/OS:
+Nginx versions 1.11.4 through 1.27.3.
+
+Vulnerability Insight:
+When name-based virtual hosts are configured to share the same
+  IP address and port combination, with TLS 1.3 and OpenSSL, a previously authen!
+ticated attacker
+  can use session resumption to bypass client certificate authentication require!
+ments on these
+  servers. This vulnerability arises when TLS session tickets are used and/or th!
+e SSL session cache
+  is used in the default virtual server and the default virtual server is perfor!
+ming client
+  certificate authentication. This issue affects both the NGINX http and NGINX s!
+tream modules.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Nginx 1.11.4 - 1.27.3 TLS Session Resumption Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.153971)
+Version used: 2025-11-04T05:40:22Z
+
+Product Detection Result:
+Product:cpe:/a:f5:nginx:1.14.2
+
+Method:nginx Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.113787)
+
+References:
+ cve: CVE-2025-23419
+ url: https://nginx.org/en/security_advisories.html
+ url: https://mailman.nginx.org/pipermail/nginx-announce/2025/NYEUJX7NCBCGJGXDFVXNMAAMJDFSE45G.html
+ url: https://my.f5.com/manage/s/article/K000149173
+ cert-bund: WID-SEC-2025-0287
+ cert-bund: WID-SEC-2025-0274
+ dfn-cert: DFN-CERT-2025-2449
+ dfn-cert: DFN-CERT-2025-0748
+ dfn-cert: DFN-CERT-2025-0313
+
+
+Issue
+-----
+NVT:    Nginx 1.5.13 - 1.27.0 Buffer Overread Vulnerability
+OID:    1.3.6.1.4.1.25623.1.0.114764
+Threat: Medium (CVSS: 4.7)
+Port:   80/tcp
+
+Product detection result: cpe:/a:f5:nginx:1.14.2
+Detected by: nginx Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.113787)
+
+Summary:
+Nginx is prone to a buffer overread in the
+  ngx_http_mp4_module.
+
+Vulnerability Detection Result:
+Installed version: 1.14.2
+Fixed version:     1.26.2
+Installation
+path / port:       80/tcp
+
+Impact:
+Traffic is disrupted while the worker process restarts. This
+  vulnerability allows a local, authenticated attacker to cause a denial-of-serv!
+ice (DoS).
+
+Solution:
+Solution type: VendorFix
+Update to version 1.26.2, 1.27.1 or later.
+
+Affected Software/OS:
+Nginx versions 1.5.13 through 1.27.0.
+
+Vulnerability Insight:
+The product has a vulnerability in the ngx_http_mp4_module,
+  which might allow an attacker to over-read worker memory resulting in its term!
+ination, using a
+  specially crafted mp4 file. The issue only affects the product if it is built !
+with the
+  ngx_http_mp4_module and the mp4 directive is used in the configuration file. A!
+dditionally, the
+  attack is possible only if an attacker can trigger the processing of a special!
+ly crafted mp4 file
+  with the ngx_http_mp4_module.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Nginx 1.5.13 - 1.27.0 Buffer Overread Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.114764)
+Version used: 2025-09-08T05:38:50Z
+
+Product Detection Result:
+Product:cpe:/a:f5:nginx:1.14.2
+
+Method:nginx Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.113787)
+
+References:
+ cve: CVE-2024-7347
+ url: https://mailman.nginx.org/pipermail/nginx-announce/2024/UUOCLLONPR6244YQYU65PO5LB7JDYCWM.html
+ url: https://nginx.org/en/security_advisories.html
+ url: https://my.f5.com/manage/s/article/K000140529
+ cert-bund: WID-SEC-2024-1863
+ dfn-cert: DFN-CERT-2025-1244
+ dfn-cert: DFN-CERT-2025-0748
+ dfn-cert: DFN-CERT-2025-0267
+ dfn-cert: DFN-CERT-2024-2149
+
+
+Issue
+-----
+NVT:    nginx 1.9.5 - 1.17.2 HTTP/2 Multiple DoS Vulnerabilities
+OID:    1.3.6.1.4.1.25623.1.0.142802
+Threat: High (CVSS: 7.5)
+Port:   80/tcp
+
+Product detection result: cpe:/a:f5:nginx:1.14.2
+Detected by: nginx Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.113787)
+
+Summary:
+nginx is prone to multiple denial of service (DoS)
+  vulnerabilities in the HTTP/2 implementation.
+
+Vulnerability Detection Result:
+Installed version: 1.14.2
+Fixed version:     1.16.1
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 1.16.1, 1.17.3 or later.
+
+Affected Software/OS:
+nginx versions 1.9.5 through 1.17.2.
+
+Vulnerability Insight:
+Several security issues were identified in nginx HTTP/2
+  implementation, which might cause excessive memory consumption and CPU usage (!
+CVE-2019-9511,
+  CVE-2019-9513, CVE-2019-9516).
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+nginx 1.9.5 - 1.17.2 HTTP/2 Multiple DoS Vulnerabilities
+(OID: 1.3.6.1.4.1.25623.1.0.142802)
+Version used: 2023-10-06T16:09:51Z
+
+Product Detection Result:
+Product:cpe:/a:f5:nginx:1.14.2
+
+Method:nginx Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.113787)
+
+References:
+ cve: CVE-2019-9511
+ cve: CVE-2019-9513
+ cve: CVE-2019-9516
+ url: https://mailman.nginx.org/pipermail/nginx-announce/2019/000249.html
+ cert-bund: WID-SEC-2024-1926
+ cert-bund: WID-SEC-2024-1050
+ cert-bund: CB-K19/0733
+ dfn-cert: DFN-CERT-2024-2222
+ dfn-cert: DFN-CERT-2024-1105
+ dfn-cert: DFN-CERT-2021-0776
+ dfn-cert: DFN-CERT-2021-0620
+ dfn-cert: DFN-CERT-2020-2090
+ dfn-cert: DFN-CERT-2020-1653
+ dfn-cert: DFN-CERT-2020-1060
+ dfn-cert: DFN-CERT-2020-0956
+ dfn-cert: DFN-CERT-2020-0920
+ dfn-cert: DFN-CERT-2020-0779
+ dfn-cert: DFN-CERT-2020-0640
+ dfn-cert: DFN-CERT-2020-0630
+ dfn-cert: DFN-CERT-2020-0595
+ dfn-cert: DFN-CERT-2020-0054
+ dfn-cert: DFN-CERT-2019-2508
+ dfn-cert: DFN-CERT-2019-2456
+ dfn-cert: DFN-CERT-2019-2169
+ dfn-cert: DFN-CERT-2019-2155
+ dfn-cert: DFN-CERT-2019-2138
+ dfn-cert: DFN-CERT-2019-2072
+ dfn-cert: DFN-CERT-2019-1930
+ dfn-cert: DFN-CERT-2019-1888
+ dfn-cert: DFN-CERT-2019-1860
+ dfn-cert: DFN-CERT-2019-1727
+ dfn-cert: DFN-CERT-2019-1703
+ dfn-cert: DFN-CERT-2019-1690
+ dfn-cert: DFN-CERT-2019-1689
+
+
+Issue
+-----
+NVT:    nginx <= 1.21.1 Information Disclosure Vulnerability
+OID:    1.3.6.1.4.1.25623.1.0.117523
+Threat: High (CVSS: 7.5)
+Port:   80/tcp
+
+Product detection result: cpe:/a:f5:nginx:1.14.2
+Detected by: nginx Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.113787)
+
+Summary:
+nginx is prone to an information disclosure vulnerability.
+
+Vulnerability Detection Result:
+Installed version: 1.14.2
+Fixed version:     None
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: WillNotFix
+No known solution was made available for at least one year since
+  the disclosure of this vulnerability. Likely none will be provided anymore. Ge!
+neral solution options
+  are to upgrade to a newer release, disable respective features, remove the pro!
+duct or replace the
+  product by another one.
+
+Affected Software/OS:
+nginx up to the most recent version 1.21.1.
+
+Vulnerability Insight:
+The default configuration of nginx uses world-readable
+  permissions for the access.log and error.log files, which allows local users t!
+o obtain sensitive
+  information by reading the files.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+nginx <= 1.21.1 Information Disclosure Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.117523)
+Version used: 2022-08-08T10:24:51Z
+
+Product Detection Result:
+Product:cpe:/a:f5:nginx:1.14.2
+
+Method:nginx Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.113787)
+
+References:
+ cve: CVE-2013-0337
+ url: https://trac.nginx.org/nginx/ticket/376
+ dfn-cert: DFN-CERT-2013-0474
+
+
+Issue
+-----
+NVT:    nginx Detection Consolidation
+OID:    1.3.6.1.4.1.25623.1.0.113787
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+Consolidation of nginx detections.
+
+Vulnerability Detection Result:
+Detected nginx
+Version:       1.14.2
+Location:      80/tcp
+CPE:           cpe:/a:nginx:nginx:1.14.2
+Concluded from version/product identification result:
+Server: nginx/1.14.2
+
+Solution:
+
+Log Method:
+Details:
+nginx Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.113787)
+Version used: 2022-02-03T09:26:44Z
+
+References:
+ url: https://www.nginx.com/
+
+
+Issue
+-----
+NVT:    Nginx Multiple Vulnerabilities (Oct 2022)
+OID:    1.3.6.1.4.1.25623.1.0.126185
+Threat: High (CVSS: 7.8)
+Port:   80/tcp
+
+Product detection result: cpe:/a:f5:nginx:1.14.2
+Detected by: nginx Detection Consolidation (OID: 1.3.6.1.4.1.25623.1.0.113787)
+
+Summary:
+Nginx is prone to multiple vulnerabilities.
+
+Vulnerability Detection Result:
+Installed version: 1.14.2
+Fixed version:     1.22.1/1.23.2
+Installation
+path / port:       80/tcp
+
+Solution:
+Solution type: VendorFix
+Update to version 1.22.1, 1.23.2 or later.
+
+Affected Software/OS:
+Nginx versions 1.0.7 and later, 1.1.3 and later.
+  Note: The issues only affect nginx if it is built with the ngx_http_mp4_module!
+ which is not built
+  by default, and the mp4 directive is used in the configuration file.
+
+Vulnerability Insight:
+The following vulnerabilities exist:
+  - CVE-2022-41741: Attacker can cause a worker process crash or worker process !
+memory corruption by
+  using a specially crafted mp4 file.
+  - CVE-2022-41742: Attacker can cause a worker process crash or worker process !
+memory disclosure by
+  using a specially crafted mp4 file.
+
+Vulnerability Detection Method:
+Checks if a vulnerable version is present on the target host.
+Details:
+Nginx Multiple Vulnerabilities (Oct 2022)
+(OID: 1.3.6.1.4.1.25623.1.0.126185)
+Version used: 2023-10-19T05:05:21Z
+
+Product Detection Result:
+Product:cpe:/a:f5:nginx:1.14.2
+
+Method:nginx Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.113787)
+
+References:
+ cve: CVE-2022-41741
+ cve: CVE-2022-41742
+ url: https://mailman.nginx.org/archives/list/nginx-announce@nginx.org/message/RBRRON6PYBJJM2XIAPQBFBVLR4Q6IHRA/
+ url: https://nginx.org/en/security_advisories.html
+ cert-bund: WID-SEC-2024-1591
+ cert-bund: WID-SEC-2022-1803
+ dfn-cert: DFN-CERT-2025-1244
+ dfn-cert: DFN-CERT-2024-2681
+ dfn-cert: DFN-CERT-2022-2662
+ dfn-cert: DFN-CERT-2022-2328
+
+
+Issue
+-----
+NVT:    OS Detection Consolidation and Reporting
+OID:    1.3.6.1.4.1.25623.1.0.105937
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+This script consolidates the OS information detected by several
+  VTs and tries to find the best matching OS.
+  Furthermore it reports all previously collected information leading to this be!
+st matching OS. It
+  also reports possible additional information which might help to improve the O!
+S detection.
+  If any of this information is wrong or could be improved please consider to re!
+port these to the
+  referenced community forum.
+
+Vulnerability Detection Result:
+Best matching OS:
+OS:           Linux Kernel
+CPE:          cpe:/o:linux:kernel
+Found by VT:  1.3.6.1.4.1.25623.1.0.102002 (Operating System (OS) Detection (ICM!
+P))
+Concluded from ICMP based OS fingerprint
+Setting key "Host/runs_unixoide" based on this information
+
+Solution:
+
+Log Method:
+Details:
+OS Detection Consolidation and Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.105937)
+Version used: 2026-01-21T05:50:46Z
+
+References:
+ url: https://forum.greenbone.net/c/vulnerability-tests/7
+
+
+Issue
+-----
+NVT:    Services
+OID:    1.3.6.1.4.1.25623.1.0.10330
+Threat: Log (CVSS: 0.0)
+Port:   80/tcp
+
+Summary:
+This plugin performs service detection.
+
+Vulnerability Detection Result:
+A web server is running on this port
+
+Solution:
+
+Vulnerability Insight:
+This plugin attempts to guess which service is running on the
+  remote port(s). For instance, it searches for a web server which could listen !
+on another port than
+  80 or 443 and makes this information available for other check routines.
+
+Log Method:
+Details:
+Services
+(OID: 1.3.6.1.4.1.25623.1.0.10330)
+Version used: 2025-03-05T05:38:53Z
+
+
+Issue
+-----
+NVT:    TCP Timestamps Information Disclosure
+OID:    1.3.6.1.4.1.25623.1.0.80091
+Threat: Low (CVSS: 2.6)
+Port:   general/tcp
+
+Summary:
+The remote host implements TCP timestamps and therefore allows
+  to compute the uptime.
+
+Vulnerability Detection Result:
+It was detected that the host implements RFC1323/RFC7323.
+The following timestamps were retrieved with a delay of 1 seconds in-between:
+Packet 1: 3165168565
+Packet 2: 3165169677
+
+Impact:
+A side effect of this feature is that the uptime of the remote
+  host can sometimes be computed.
+
+Solution:
+Solution type: Mitigation
+To disable TCP timestamps on linux add the line
+  'net.ipv4.tcp_timestamps = 0' to /etc/sysctl.conf. Execute 'sysctl -p' to appl!
+y the settings at
+  runtime.
+  To disable TCP timestamps on Windows execute 'netsh int tcp set global timesta!
+mps=disabled'
+  Starting with Windows Server 2008 and Vista, the timestamp can not be complete!
+ly disabled.
+  The default behavior of the TCP/IP stack on this Systems is to not use the Tim!
+estamp options when
+  initiating TCP connections, but use them if the TCP peer that is initiating co!
+mmunication includes
+  them in their synchronize (SYN) segment.
+  See the references for more information.
+
+Affected Software/OS:
+TCP implementations that implement RFC1323/RFC7323.
+
+Vulnerability Insight:
+The remote host implements TCP timestamps, as defined by
+  RFC1323/RFC7323.
+
+Vulnerability Detection Method:
+Special IP packets are forged and sent with a little delay in
+  between to the target IP. The responses are searched for a timestamps. If foun!
+d, the timestamps
+  are reported.
+Details:
+TCP Timestamps Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.80091)
+Version used: 2023-12-15T16:10:08Z
+
+References:
+ url: https://datatracker.ietf.org/doc/html/rfc1323
+ url: https://datatracker.ietf.org/doc/html/rfc7323
+ url: https://web.archive.org/web/20151213072445/http://www.microsoft.com/en-us/download/details.aspx?id=9152
+ url: https://www.fortiguard.com/psirt/FG-IR-16-090
+
+
+Issue
+-----
+NVT:    Traceroute
+OID:    1.3.6.1.4.1.25623.1.0.51662
+Threat: Log (CVSS: 0.0)
+Port:   general/tcp
+
+Summary:
+Collect information about the network route and
+  network distance between the scanner host and the target host.
+
+Vulnerability Detection Result:
+Network route from scanner (172.30.0.2) to target (172.31.1.13):
+172.30.0.2
+172.31.1.13
+Network distance between scanner and target: 2
+
+Solution:
+
+Vulnerability Insight:
+For internal networks, the distances are usually
+  small, often less than 4 hosts between scanner and target. For public targets !
+the
+  distance is greater and might be 10 hosts or more.
+
+Log Method:
+A combination of the protocols ICMP and TCP is used
+  to determine the route. This method is applicable for IPv4 only and it is also!
+ known as
+  'traceroute'.
+Details:
+Traceroute
+(OID: 1.3.6.1.4.1.25623.1.0.51662)
+Version used: 2022-10-17T11:13:19Z
+
+
+Issue
+-----
+NVT:    Web Application Scanning Consolidation / Info Reporting
+OID:    1.3.6.1.4.1.25623.1.0.111038
+Threat: Log (CVSS: 0.0)
+Port:   80/tcp
+
+Summary:
+The script consolidates and reports various information for web
+  application (formerly called 'CGI') scanning.
+  This information is based on the following scripts / settings:
+  - HTTP-Version Detection (OID: 1.3.6.1.4.1.25623.1.0.100034)
+  - No 404 check (OID: 1.3.6.1.4.1.25623.1.0.10386)
+  - Web mirroring / webmirror.nasl (OID: 1.3.6.1.4.1.25623.1.0.10662)
+  - Directory Scanner / DDI_Directory_Scanner.nasl (OID: 1.3.6.1.4.1.25623.1.0.1!
+1032)
+  - The configured 'cgi_path' within the 'Scanner Preferences' of the scan confi!
+g in use
+  - The configured 'Enable CGI scanning', 'Enable generic web application scanni!
+ng' and
+  'Add historic /scripts and /cgi-bin to directories for CGI scanning' within th!
+e
+  'Global variable settings' of the scan config in use
+  If you think any of this information is wrong please report it to the referenc!
+ed community
+  forum.
+
+Vulnerability Detection Result:
+The Hostname/IP "nginx114.trabalho_vulnnet" was used to access the remote host.
+Generic web application scanning is disabled for this host via the "Enable gener!
+ic web application scanning" option within the "Global variable settings" of the!
+ scan config in use.
+Requests to this service are done via HTTP/1.1.
+This service seems to be able to host PHP scripts.
+This service seems to be able to host ASP scripts.
+The User-Agent "Mozilla/5.0 [en] (X11, U; OpenVAS-VT <version replaced>)" was us!
+ed to access the remote host.
+Historic /scripts and /cgi-bin are not added to the directories used for web app!
+lication scanning. You can enable this again with the "Add historic /scripts and!
+ /cgi-bin to directories for CGI scanning" option within the "Global variable se!
+ttings" of the scan config in use.
+The following directories were used for web application scanning:
+http://nginx114.trabalho_vulnnet/
+While this is not, in and of itself, a bug, you should manually inspect these di!
+rectories to ensure that they are in compliance with company security standards
+
+Solution:
+
+Log Method:
+Details:
+Web Application Scanning Consolidation / Info Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.111038)
+Version used: 2026-01-13T05:47:36Z
+
+References:
+ url: https://forum.greenbone.net/c/vulnerability-tests/7
+
+

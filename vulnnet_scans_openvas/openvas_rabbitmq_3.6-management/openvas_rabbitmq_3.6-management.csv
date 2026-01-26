@@ -1,0 +1,158 @@
+IP,Hostname,Port,Port Protocol,CVSS,Severity,QoD,Solution Type,NVT Name,Summary,Specific Result,NVT OID,CVEs,Task ID,Task Name,Timestamp,Result ID,Impact,Solution,Affected Software/OS,Vulnerability Insight,Vulnerability Detection Method,Product Detection Result,BIDs,CERTs,Other References
+      172.31.1.58,rabbit36.trabalho_vulnnet,5672,tcp,0.0,Log,80,"","Advanced Message Queuing Protocol (AMQP) Detection (TCP)","TCP based detection of services supporting the Advanced Message
+  Queuing Protocol (AMQP).","A service supporting the AMQP protocol is running on this host.
+
+Version:  0.9.1
+Protocol: Basic
+",1.3.6.1.4.1.25623.1.0.105030,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:59:23Z,3a469d5b-f9d2-48f2-9b2a-3c6bec1fb5b6,"","","","","
+Details:
+Advanced Message Queuing Protocol (AMQP) Detection (TCP)
+(OID: 1.3.6.1.4.1.25623.1.0.105030)
+Version used: 2025-03-27T05:38:50Z
+","","","",""
+172.31.1.58,rabbit36.trabalho_vulnnet,,,0.0,Log,80,"","CPE Inventory","This routine uses information collected by other routines about
+  CPE identities of operating systems, services and applications detected during the scan.
+
+  Note: Some CPEs for specific products might show up twice or more in the output. Background:
+
+  After a product got renamed or a specific vendor was acquired by another one it might happen that
+  a product gets a new CPE within the NVD CPE Dictionary but older entries are kept with the older
+  CPE.","172.31.1.58|cpe:/a:vmware:rabbitmq:3.6.16
+172.31.1.58|cpe:/o:linux:kernel
+
+",1.3.6.1.4.1.25623.1.0.810002,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:59:23Z,b643f9ae-b825-4da4-b804-20cc29187b2b,"","","","","
+Details:
+CPE Inventory
+(OID: 1.3.6.1.4.1.25623.1.0.810002)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.31.1.58,rabbit36.trabalho_vulnnet,4369,tcp,0.0,Log,80,"","Erlang Port Mapper Daemon (epmd) Detection","Detection of Erlang Port Mapper Daemon (epmd).","An Erlang Port Mapper Daemon (epmd) is running at this port.
+
+The following port mapping was received:
+
+name rabbit at port 25672
+",1.3.6.1.4.1.25623.1.0.148849,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:59:23Z,1bd7cdbd-ad45-49be-813e-b62e5a40a5c4,"","","","","
+Details:
+Erlang Port Mapper Daemon (epmd) Detection
+(OID: 1.3.6.1.4.1.25623.1.0.148849)
+Version used: 2022-11-03T10:20:15Z
+","","","",""
+172.31.1.58,rabbit36.trabalho_vulnnet,,,0.0,Log,80,"","Hostname Determination Reporting","The script reports information on how the hostname of the target
+  was determined.","Hostname determination for IP 172.31.1.58:
+
+Hostname|Source
+rabbit36.trabalho_vulnnet|Reverse-DNS
+",1.3.6.1.4.1.25623.1.0.108449,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:59:23Z,7dc83c23-0c1b-43e1-9478-20c4bfe7636a,"","","","","
+Details:
+Hostname Determination Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.108449)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.31.1.58,rabbit36.trabalho_vulnnet,,,2.1,Low,80,"Mitigation","ICMP Timestamp Reply Information Disclosure","The remote host responded to an ICMP timestamp request.","The following response / ICMP packet has been received:
+- ICMP Type: 14
+- ICMP Code: 0
+",1.3.6.1.4.1.25623.1.0.103190,"CVE-1999-0524",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:59:23Z,30dd6bbb-b968-4d1a-81e4-88a3f0307c75,"This information could theoretically be used to exploit weak
+  time-based random number generators in other services.","Various mitigations are possible:
+
+  - Disable the support for ICMP timestamp on the remote host completely
+
+  - Protect the remote host by a firewall, and block ICMP packets passing through the firewall in
+  either direction (either completely or only for untrusted networks)","","The Timestamp Reply is an ICMP message which replies to a
+  Timestamp message. It consists of the originating timestamp sent by the sender of the Timestamp as
+  well as a receive timestamp and a transmit timestamp.","Sends an ICMP Timestamp (Type 13) request and checks if a
+  Timestamp Reply (Type 14) is received.
+Details:
+ICMP Timestamp Reply Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.103190)
+Version used: 2025-01-21T05:37:33Z
+","","","DFN-CERT-2014-0658,CB-K15/1514,CB-K14/0632",""
+172.31.1.58,rabbit36.trabalho_vulnnet,,,0.0,Log,70,"","IP Forwarding Enabled - Active Check","Checks if the remote host has IP forwarding enabled.","It was possible to route a TCP packet through the target host and received an answer which means IP forwarding is enabled.
+",1.3.6.1.4.1.25623.1.0.147205,"CVE-1999-0511",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:59:23Z,dfb3d085-1fd5-4be1-9f53-a3c181d71d74,"","","","","Sends a crafted Local Link Layer (LLL) frame and checks the
+  response.
+Details:
+IP Forwarding Enabled - Active Check
+(OID: 1.3.6.1.4.1.25623.1.0.147205)
+Version used: 2021-12-03T08:27:06Z
+","","","",""
+172.31.1.58,rabbit36.trabalho_vulnnet,,,0.0,Log,80,"","OS Detection Consolidation and Reporting","This script consolidates the OS information detected by several
+  VTs and tries to find the best matching OS.
+
+  Furthermore it reports all previously collected information leading to this best matching OS. It
+  also reports possible additional information which might help to improve the OS detection.
+
+  If any of this information is wrong or could be improved please consider to report these to the
+  referenced community forum.","Best matching OS:
+
+OS:           Linux Kernel
+CPE:          cpe:/o:linux:kernel
+Found by VT:  1.3.6.1.4.1.25623.1.0.102002 (Operating System (OS) Detection (ICMP))
+Concluded from ICMP based OS fingerprint
+Setting key ""Host/runs_unixoide"" based on this information
+",1.3.6.1.4.1.25623.1.0.105937,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:59:23Z,ca2d1839-7d5b-4ea6-93b1-f0b96d402a24,"","","","","
+Details:
+OS Detection Consolidation and Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.105937)
+Version used: 2026-01-21T05:50:46Z
+","","","",""
+172.31.1.58,rabbit36.trabalho_vulnnet,,,0.0,Log,80,"","RabbitMQ Server Detection Consolidation","Consolidation of RabbitMQ Server detections.","Detected RabbitMQ Server
+
+Version:       3.6.16
+Location:      /
+CPE:           cpe:/a:vmware:rabbitmq:3.6.16
+
+Detection methods:
+
+AMQP on port 5672/tcp
+  Concluded from version/product identification result:
+                  capabilitiesF     publisher_confirmst  exchange_exchange_bindingst  basic.nackt  consumer_cancel_notifyt  connection.blockedt  consumer_prioritiest  authentication_failure_closet  per_consumer_qost  direct_reply_tot  cluster_nameS    rabbit@fc72734c9544 copyrightS   .Copyright (C) 2007-2018 Pivotal Software, Inc. informationS   5Licensed under the MPL.  See http://www.rabbitmq.com/ platformS    Erlang/OTP 19.2.1 productS    RabbitMQ versionS    3.6.16    AMQPLAIN PLAIN    en_US
+",1.3.6.1.4.1.25623.1.0.153539,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:59:23Z,f4ab1545-f5ed-4f30-afc6-ab144cd9f431,"","","","","
+Details:
+RabbitMQ Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.153539)
+Version used: 2025-03-27T05:38:50Z
+","","","",""
+172.31.1.58,rabbit36.trabalho_vulnnet,,,2.6,Low,80,"Mitigation","TCP Timestamps Information Disclosure","The remote host implements TCP timestamps and therefore allows
+  to compute the uptime.","It was detected that the host implements RFC1323/RFC7323.
+
+The following timestamps were retrieved with a delay of 1 seconds in-between:
+Packet 1: 3024311618
+Packet 2: 3024312714
+",1.3.6.1.4.1.25623.1.0.80091,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:59:23Z,f5ed359c-5755-44b8-9bfa-3158a8a1447d,"A side effect of this feature is that the uptime of the remote
+  host can sometimes be computed.","To disable TCP timestamps on linux add the line
+  'net.ipv4.tcp_timestamps = 0' to /etc/sysctl.conf. Execute 'sysctl -p' to apply the settings at
+  runtime.
+
+  To disable TCP timestamps on Windows execute 'netsh int tcp set global timestamps=disabled'
+
+  Starting with Windows Server 2008 and Vista, the timestamp can not be completely disabled.
+
+  The default behavior of the TCP/IP stack on this Systems is to not use the Timestamp options when
+  initiating TCP connections, but use them if the TCP peer that is initiating communication includes
+  them in their synchronize (SYN) segment.
+
+  See the references for more information.","TCP implementations that implement RFC1323/RFC7323.","The remote host implements TCP timestamps, as defined by
+  RFC1323/RFC7323.","Special IP packets are forged and sent with a little delay in
+  between to the target IP. The responses are searched for a timestamps. If found, the timestamps
+  are reported.
+Details:
+TCP Timestamps Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.80091)
+Version used: 2023-12-15T16:10:08Z
+","","","",""
+172.31.1.58,rabbit36.trabalho_vulnnet,,,0.0,Log,80,"","Traceroute","Collect information about the network route and
+  network distance between the scanner host and the target host.","Network route from scanner (172.30.0.2) to target (172.31.1.58):
+
+172.30.0.2
+172.31.1.58
+
+Network distance between scanner and target: 2
+",1.3.6.1.4.1.25623.1.0.51662,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:59:23Z,0cf44cb1-3e9b-4286-b76e-acdb23985c67,"","","","For internal networks, the distances are usually
+  small, often less than 4 hosts between scanner and target. For public targets the
+  distance is greater and might be 10 hosts or more.","A combination of the protocols ICMP and TCP is used
+  to determine the route. This method is applicable for IPv4 only and it is also known as
+  'traceroute'.
+Details:
+Traceroute
+(OID: 1.3.6.1.4.1.25623.1.0.51662)
+Version used: 2022-10-17T11:13:19Z
+","","","",""

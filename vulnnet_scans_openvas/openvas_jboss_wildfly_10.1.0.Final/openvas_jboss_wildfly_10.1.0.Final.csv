@@ -1,0 +1,1076 @@
+IP,Hostname,Port,Port Protocol,CVSS,Severity,QoD,Solution Type,NVT Name,Summary,Specific Result,NVT OID,CVEs,Task ID,Task Name,Timestamp,Result ID,Impact,Solution,Affected Software/OS,Vulnerability Insight,Vulnerability Detection Method,Product Detection Result,BIDs,CERTs,Other References
+      172.31.1.22,wildfly10.trabalho_vulnnet,8080,tcp,0.0,Log,70,"","Allowed HTTP Methods Enumeration","Enumerates which HTTP methods are allowed.","The following list contains the URLs and corresponding supported HTTP methods.
+
+URL                                     | HTTP Methods
+-------------------------------------------------------
+http://wildfly10.trabalho_vulnnet:8080/ | GET,HEAD,POST
+",1.3.6.1.4.1.25623.1.0.153974,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,7e41cd30-16d8-40f7-8896-871aa0f5c575,"","","","'- Basic HTTP methods: GET, HEAD, POST, PUT, DELETE, CONNECT,
+  OPTIONS, TRACE
+
+  - Extended HTTP methods: ACL, BASELINE-CONTROL, BIND, CHECKIN, CHECKOUT, COPY, LABEL, LINK, LOCK,
+  MERGE, MKACTIVITY, MKCALENDAR, MKCOL, MKREDIRECTREF, MKWORKSPACE, MOVE, ORDERPATCH, PATCH, PRI,
+  PROPFIND, PROPPATCH, REBIND, REPORT, SEARCH, UNBIND, UNCHECKOUT, UNLINK, UNLOCK, UPDATE,
+  UPDATEREDIRECTREF, VERSION-CONTROL","Sends multiple HTTP requests and checks the responses.
+
+  Disclaimer:
+
+  - This enumeration script is provided 'as is' (means no support is given) and only providing
+  rudimentary information about the possible enabled methods
+
+  - This script doesn't guarantee completeness or full reliability
+
+  For more reliable determination of the enabled HTTP methods please inspect the configuration of
+  the web server manually and directly on the target host.
+Details:
+Allowed HTTP Methods Enumeration
+(OID: 1.3.6.1.4.1.25623.1.0.153974)
+Version used: 2025-02-28T05:38:49Z
+","","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8443,tcp,0.0,Log,70,"","Allowed HTTP Methods Enumeration","Enumerates which HTTP methods are allowed.","The following list contains the URLs and corresponding supported HTTP methods.
+
+URL                                      | HTTP Methods
+--------------------------------------------------------
+https://wildfly10.trabalho_vulnnet:8443/ | GET,HEAD,POST
+",1.3.6.1.4.1.25623.1.0.153974,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,18527074-a67f-4d59-b6de-fd8859036c9a,"","","","'- Basic HTTP methods: GET, HEAD, POST, PUT, DELETE, CONNECT,
+  OPTIONS, TRACE
+
+  - Extended HTTP methods: ACL, BASELINE-CONTROL, BIND, CHECKIN, CHECKOUT, COPY, LABEL, LINK, LOCK,
+  MERGE, MKACTIVITY, MKCALENDAR, MKCOL, MKREDIRECTREF, MKWORKSPACE, MOVE, ORDERPATCH, PATCH, PRI,
+  PROPFIND, PROPPATCH, REBIND, REPORT, SEARCH, UNBIND, UNCHECKOUT, UNLINK, UNLOCK, UPDATE,
+  UPDATEREDIRECTREF, VERSION-CONTROL","Sends multiple HTTP requests and checks the responses.
+
+  Disclaimer:
+
+  - This enumeration script is provided 'as is' (means no support is given) and only providing
+  rudimentary information about the possible enabled methods
+
+  - This script doesn't guarantee completeness or full reliability
+
+  For more reliable determination of the enabled HTTP methods please inspect the configuration of
+  the web server manually and directly on the target host.
+Details:
+Allowed HTTP Methods Enumeration
+(OID: 1.3.6.1.4.1.25623.1.0.153974)
+Version used: 2025-02-28T05:38:49Z
+","","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,,,0.0,Log,80,"","CPE Inventory","This routine uses information collected by other routines about
+  CPE identities of operating systems, services and applications detected during the scan.
+
+  Note: Some CPEs for specific products might show up twice or more in the output. Background:
+
+  After a product got renamed or a specific vendor was acquired by another one it might happen that
+  a product gets a new CPE within the NVD CPE Dictionary but older entries are kept with the older
+  CPE.","172.31.1.22|cpe:/a:ietf:transport_layer_security:1.0
+172.31.1.22|cpe:/a:ietf:transport_layer_security:1.1
+172.31.1.22|cpe:/a:ietf:transport_layer_security:1.2
+172.31.1.22|cpe:/a:redhat:jboss_wildfly_application_server:10
+172.31.1.22|cpe:/a:redhat:wildfly:10
+172.31.1.22|cpe:/o:linux:kernel
+
+",1.3.6.1.4.1.25623.1.0.810002,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,875948ad-a361-45ca-823f-cc2007a655d0,"","","","","
+Details:
+CPE Inventory
+(OID: 1.3.6.1.4.1.25623.1.0.810002)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8443,tcp,7.5,High,30,"Mitigation","Diffie-Hellman Ephemeral Key Exchange DoS Vulnerability (SSL/TLS, D(HE)ater)","The remote SSL/TLS server is supporting Diffie-Hellman ephemeral
+  (DHE) Key Exchange algorithms and thus could be prone to a denial of service (DoS)
+  vulnerability.","'DHE' cipher suites accepted by this service via the TLSv1.0 protocol:
+
+TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+
+'DHE' cipher suites accepted by this service via the TLSv1.1 protocol:
+
+TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+
+'DHE' cipher suites accepted by this service via the TLSv1.2 protocol:
+
+TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+TLS_DHE_RSA_WITH_AES_128_CBC_SHA256
+TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+TLS_DHE_RSA_WITH_AES_256_CBC_SHA256
+TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+
+
+",1.3.6.1.4.1.25623.1.0.117840,"CVE-2002-20001,CVE-2022-40735,CVE-2024-41996",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,cfcbd934-c141-4a9d-8d4f-d2ff76fb6522,"This vulnerability allows remote attackers (from the client side)
+  to send arbitrary numbers that are actually not public keys, and trigger expensive server-side DHE
+  modular-exponentiation calculations, also known as a D(HE)ater attack.
+
+  There could be an increase in CPU usage in the affected component. For OpenSSH, users may observe
+  issues such as a slowdown in SSH connections.","'- DHE key exchange should be disabled if no other mitigation
+  mechanism can be used and either elliptic-curve variant of Diffie-Hellman (ECDHE) or RSA key
+  exchange is supported by the clients. The fact that RSA key exchange is not forward secret should
+  be considered.
+
+  - Limit the maximum number of concurrent connections in e.g. the configuration of the remote
+  server. For Postfix this limit can be configured via 'smtpd_client_new_tls_session_rate_limit'
+  option, for other products please refer to the manual of the product in question on configuration
+  possibilities.","","'- CVE-2002-20001: The Diffie-Hellman Key Agreement Protocol
+  allows remote attackers (from the client side) to send arbitrary numbers that are actually not
+  public keys, and trigger expensive server-side DHE modular-exponentiation calculations, aka a
+  D(HE)ater attack. The client needs very little CPU resources and network bandwidth. The attack may
+  be more disruptive in cases where a client can require a server to select its largest supported
+  key size. The basic attack scenario is that the client must claim that it can only communicate
+  with DHE, and the server must be configured to allow DHE.
+
+  - CVE-2022-40735: The Diffie-Hellman Key Agreement Protocol allows use of long exponents that
+  arguably make certain calculations unnecessarily expensive, because the 1996 van Oorschot and
+  Wiener paper found that '(appropriately) short exponents' can be used when there are adequate
+  subgroup constraints, and these short exponents can lead to less expensive calculations than for
+  long exponents. This issue is different from CVE-2002-20001 because it is based on an observation
+  about exponent size, rather than an observation about numbers that are not public keys. The
+  specific situations in which calculation expense would constitute a server-side vulnerability
+  depend on the protocol (e.g., TLS, SSH, or IKE) and the DHE implementation details. In general,
+  there might be an availability concern because of server-side resource consumption from DHE
+  modular-exponentiation calculations. Finally, it is possible for an attacker to exploit this
+  vulnerability and CVE-2002-20001 together.
+
+  - CVE-2024-41996: Validating the order of the public keys in the Diffie-Hellman Key Agreement
+  Protocol, when an approved safe prime is used, allows remote attackers (from the client side) to
+  trigger unnecessarily expensive server-side DHE modular-exponentiation calculations. The client
+  may cause asymmetric resource consumption. The basic attack scenario is that the client must claim
+  that it can only communicate with DHE, and the server must be configured to allow DHE and validate
+  the order of the public key.","Checks the supported cipher suites of the remote SSL/TLS
+  server.
+Details:
+Diffie-Hellman Ephemeral Key Exchange DoS Vulnerability (SSL/TLS, D(HE)ater)
+(OID: 1.3.6.1.4.1.25623.1.0.117840)
+Version used: 2024-10-03T05:05:33Z
+","Product: cpe:/a:ietf:transport_layer_security
+Method: SSL/TLS: Report Supported Cipher Suites
+(OID: 1.3.6.1.4.1.25623.1.0.802067)
+","","DFN-CERT-2025-3324,DFN-CERT-2024-2847,DFN-CERT-2024-2578,DFN-CERT-2024-1671,DFN-CERT-2023-1697,DFN-CERT-2023-1332,DFN-CERT-2022-2147,DFN-CERT-2022-0437,DFN-CERT-2021-2622,WID-SEC-2024-3056,WID-SEC-2023-1886,WID-SEC-2023-1352,WID-SEC-2022-2251,WID-SEC-2022-2000,CB-K22/0224,CB-K21/1276",""
+172.31.1.22,wildfly10.trabalho_vulnnet,,,0.0,Log,80,"","Hostname Determination Reporting","The script reports information on how the hostname of the target
+  was determined.","Hostname determination for IP 172.31.1.22:
+
+Hostname|Source
+wildfly10.trabalho_vulnnet|Reverse-DNS
+",1.3.6.1.4.1.25623.1.0.108449,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,77aa3c7a-43a6-4ad1-b14a-bec51b36bc25,"","","","","
+Details:
+Hostname Determination Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.108449)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8080,tcp,0.0,Log,80,"","HTTP Security Headers Detection","All known security headers are being checked on the remote web
+  server.
+
+  On completion a report will hand back whether a specific security header has been implemented
+  (including its value and if it is deprecated) or is missing on the target.","Missing Headers                   | More Information
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Content-Security-Policy           | https://owasp.org/www-project-secure-headers/#content-security-policy
+Cross-Origin-Embedder-Policy      | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Cross-Origin-Opener-Policy        | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Cross-Origin-Resource-Policy      | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Document-Policy                   | https://w3c.github.io/webappsec-feature-policy/document-policy#document-policy-http-header
+Feature-Policy                    | https://owasp.org/www-project-secure-headers/#feature-policy, Note: The Feature Policy header has been renamed to Permissions Policy
+Permissions-Policy                | https://w3c.github.io/webappsec-feature-policy/#permissions-policy-http-header-field
+Referrer-Policy                   | https://owasp.org/www-project-secure-headers/#referrer-policy
+Sec-Fetch-Dest                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-Mode                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-Site                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-User                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+X-Content-Type-Options            | https://owasp.org/www-project-secure-headers/#x-content-type-options
+X-Frame-Options                   | https://owasp.org/www-project-secure-headers/#x-frame-options
+X-Permitted-Cross-Domain-Policies | https://owasp.org/www-project-secure-headers/#x-permitted-cross-domain-policies
+X-XSS-Protection                  | https://owasp.org/www-project-secure-headers/#x-xss-protection, Note: Most major browsers have dropped / deprecated support for this header in 2020.
+",1.3.6.1.4.1.25623.1.0.112081,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,0a9da4af-df5d-44c3-8f75-5d580fdf5d1d,"","","","","
+Details:
+HTTP Security Headers Detection
+(OID: 1.3.6.1.4.1.25623.1.0.112081)
+Version used: 2025-03-21T15:40:43Z
+","","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8443,tcp,0.0,Log,80,"","HTTP Security Headers Detection","All known security headers are being checked on the remote web
+  server.
+
+  On completion a report will hand back whether a specific security header has been implemented
+  (including its value and if it is deprecated) or is missing on the target.","Missing Headers                   | More Information
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Content-Security-Policy           | https://owasp.org/www-project-secure-headers/#content-security-policy
+Cross-Origin-Embedder-Policy      | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Cross-Origin-Opener-Policy        | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Cross-Origin-Resource-Policy      | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Document-Policy                   | https://w3c.github.io/webappsec-feature-policy/document-policy#document-policy-http-header
+Expect-CT                         | https://owasp.org/www-project-secure-headers/#expect-ct, Note: This is an upcoming header
+Feature-Policy                    | https://owasp.org/www-project-secure-headers/#feature-policy, Note: The Feature Policy header has been renamed to Permissions Policy
+Permissions-Policy                | https://w3c.github.io/webappsec-feature-policy/#permissions-policy-http-header-field
+Public-Key-Pins                   | Please check the output of the VTs including 'SSL/TLS:' and 'HPKP' in their name for more information and configuration help. Note: Most major browsers have dropped / deprecated support for this header in 2020.
+Referrer-Policy                   | https://owasp.org/www-project-secure-headers/#referrer-policy
+Sec-Fetch-Dest                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-Mode                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-Site                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-User                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Strict-Transport-Security         | Please check the output of the VTs including 'SSL/TLS:' and 'HSTS' in their name for more information and configuration help.
+X-Content-Type-Options            | https://owasp.org/www-project-secure-headers/#x-content-type-options
+X-Frame-Options                   | https://owasp.org/www-project-secure-headers/#x-frame-options
+X-Permitted-Cross-Domain-Policies | https://owasp.org/www-project-secure-headers/#x-permitted-cross-domain-policies
+X-XSS-Protection                  | https://owasp.org/www-project-secure-headers/#x-xss-protection, Note: Most major browsers have dropped / deprecated support for this header in 2020.
+",1.3.6.1.4.1.25623.1.0.112081,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,3efb83f4-14f2-483a-8cf4-62d62ba4c232,"","","","","
+Details:
+HTTP Security Headers Detection
+(OID: 1.3.6.1.4.1.25623.1.0.112081)
+Version used: 2025-03-21T15:40:43Z
+","","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8443,tcp,0.0,Log,80,"","HTTP Server Banner Enumeration","This script tries to detect / enumerate different HTTP server
+  banner (e.g. from a frontend, backend or proxy server) by sending various different HTTP requests
+  (valid and invalid ones).","It was possible to enumerate the following HTTP server banner(s):
+
+Server banner            | Enumeration technique
+----------------------------------------------------------------------
+Server: WildFly/10       | Valid HTTP 0.9 GET request to '/index.html'
+X-Powered-By: Undertow/1 | Valid HTTP 0.9 GET request to '/index.html'
+",1.3.6.1.4.1.25623.1.0.108708,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,357881dd-7301-41c9-aef7-326a3c9c6486,"","","","","
+Details:
+HTTP Server Banner Enumeration
+(OID: 1.3.6.1.4.1.25623.1.0.108708)
+Version used: 2025-01-31T15:39:24Z
+","","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8080,tcp,0.0,Log,80,"","HTTP Server Banner Enumeration","This script tries to detect / enumerate different HTTP server
+  banner (e.g. from a frontend, backend or proxy server) by sending various different HTTP requests
+  (valid and invalid ones).","It was possible to enumerate the following HTTP server banner(s):
+
+Server banner            | Enumeration technique
+----------------------------------------------------------------------
+Server: WildFly/10       | Valid HTTP 0.9 GET request to '/index.html'
+X-Powered-By: Undertow/1 | Valid HTTP 0.9 GET request to '/index.html'
+",1.3.6.1.4.1.25623.1.0.108708,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,58c43387-355d-4884-ad85-6d1a17448449,"","","","","
+Details:
+HTTP Server Banner Enumeration
+(OID: 1.3.6.1.4.1.25623.1.0.108708)
+Version used: 2025-01-31T15:39:24Z
+","","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8080,tcp,0.0,Log,80,"","HTTP Server type and version","This script detects and reports the HTTP Server's banner
+  which might provide the type and version of it.","The remote HTTP Server banner is:
+
+Server: WildFly/10
+",1.3.6.1.4.1.25623.1.0.10107,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,31fc7804-1473-40cb-93ee-3cdb129407d5,"","","","","
+Details:
+HTTP Server type and version
+(OID: 1.3.6.1.4.1.25623.1.0.10107)
+Version used: 2023-08-01T13:29:10Z
+","","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8443,tcp,0.0,Log,80,"","HTTP Server type and version","This script detects and reports the HTTP Server's banner
+  which might provide the type and version of it.","The remote HTTP Server banner is:
+
+Server: WildFly/10
+",1.3.6.1.4.1.25623.1.0.10107,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,ed8e888a-0ebc-4a0b-b937-4c56568d9f9c,"","","","","
+Details:
+HTTP Server type and version
+(OID: 1.3.6.1.4.1.25623.1.0.10107)
+Version used: 2023-08-01T13:29:10Z
+","","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,,,2.1,Low,80,"Mitigation","ICMP Timestamp Reply Information Disclosure","The remote host responded to an ICMP timestamp request.","The following response / ICMP packet has been received:
+- ICMP Type: 14
+- ICMP Code: 0
+",1.3.6.1.4.1.25623.1.0.103190,"CVE-1999-0524",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,85118f22-ee60-4cde-9199-ab31b69afbfe,"This information could theoretically be used to exploit weak
+  time-based random number generators in other services.","Various mitigations are possible:
+
+  - Disable the support for ICMP timestamp on the remote host completely
+
+  - Protect the remote host by a firewall, and block ICMP packets passing through the firewall in
+  either direction (either completely or only for untrusted networks)","","The Timestamp Reply is an ICMP message which replies to a
+  Timestamp message. It consists of the originating timestamp sent by the sender of the Timestamp as
+  well as a receive timestamp and a transmit timestamp.","Sends an ICMP Timestamp (Type 13) request and checks if a
+  Timestamp Reply (Type 14) is received.
+Details:
+ICMP Timestamp Reply Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.103190)
+Version used: 2025-01-21T05:37:33Z
+","","","DFN-CERT-2014-0658,CB-K15/1514,CB-K14/0632",""
+172.31.1.22,wildfly10.trabalho_vulnnet,,,0.0,Log,70,"","IP Forwarding Enabled - Active Check","Checks if the remote host has IP forwarding enabled.","It was possible to route a TCP packet through the target host and received an answer which means IP forwarding is enabled.
+",1.3.6.1.4.1.25623.1.0.147205,"CVE-1999-0511",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,3d1d47a1-79b2-4018-9552-27e55b874fa7,"","","","","Sends a crafted Local Link Layer (LLL) frame and checks the
+  response.
+Details:
+IP Forwarding Enabled - Active Check
+(OID: 1.3.6.1.4.1.25623.1.0.147205)
+Version used: 2021-12-03T08:27:06Z
+","","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,,,0.0,Log,80,"","OS Detection Consolidation and Reporting","This script consolidates the OS information detected by several
+  VTs and tries to find the best matching OS.
+
+  Furthermore it reports all previously collected information leading to this best matching OS. It
+  also reports possible additional information which might help to improve the OS detection.
+
+  If any of this information is wrong or could be improved please consider to report these to the
+  referenced community forum.","Best matching OS:
+
+OS:           Linux Kernel
+CPE:          cpe:/o:linux:kernel
+Found by VT:  1.3.6.1.4.1.25623.1.0.102002 (Operating System (OS) Detection (ICMP))
+Concluded from ICMP based OS fingerprint
+Setting key ""Host/runs_unixoide"" based on this information
+",1.3.6.1.4.1.25623.1.0.105937,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,b5b595fe-8901-4332-b511-9b1d7b5b46f6,"","","","","
+Details:
+OS Detection Consolidation and Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.105937)
+Version used: 2026-01-21T05:50:46Z
+","","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8080,tcp,7.5,High,80,"VendorFix","Red Hat WildFly < 20.0.0 Multiple Vulnerabilities","Red Hat WildFly is prone to multiple vulnerabilities.","Installed version: 10
+Fixed version:     20.0.0
+Installation
+path / port:       8080/tcp
+
+",1.3.6.1.4.1.25623.1.0.126501,"CVE-2020-10740,CVE-2020-1719",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,16844641-9cac-4885-b645-8b71bd0abc0e,"","Update to version 20.0.0 or later.","Red Hat WildFly prior to version 20.0.0.","The following flaws exist:
+
+  - CVE-2020-10740: A remote deserialization attack is possible in the Enterprise Application Beans
+  (EJB) due to lack of validation/filtering capabilities in wildfly.orf.
+
+  - CVE-2020-1719: The EJBContext principle is not popped back after invoking another EJB using a
+  different Security Domain. The highest threat from this vulnerability is to data confidentiality
+  and integrity.","Checks if a vulnerable version is present on the target host.
+Details:
+Red Hat WildFly < 20.0.0 Multiple Vulnerabilities
+(OID: 1.3.6.1.4.1.25623.1.0.126501)
+Version used: 2023-10-06T16:09:51Z
+","Product: cpe:/a:redhat:jboss_wildfly_application_server:10
+Method: Red Hat/JBoss WildFly Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.111036)
+","","DFN-CERT-2025-1696,DFN-CERT-2020-2762,DFN-CERT-2020-1943,DFN-CERT-2020-1909,DFN-CERT-2020-1817,DFN-CERT-2020-1816,DFN-CERT-2020-1624,DFN-CERT-2020-1616,DFN-CERT-2020-1023,DFN-CERT-2020-0992,WID-SEC-2025-2123,WID-SEC-2022-1912,CB-K20/0828,CB-K20/0756,CB-K20/0449",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8443,tcp,7.5,High,80,"VendorFix","Red Hat WildFly < 20.0.0 Multiple Vulnerabilities","Red Hat WildFly is prone to multiple vulnerabilities.","Installed version: 10
+Fixed version:     20.0.0
+Installation
+path / port:       8443/tcp
+
+",1.3.6.1.4.1.25623.1.0.126501,"CVE-2020-10740,CVE-2020-1719",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,7bac7534-a57c-4144-80fa-d17b74b6b947,"","Update to version 20.0.0 or later.","Red Hat WildFly prior to version 20.0.0.","The following flaws exist:
+
+  - CVE-2020-10740: A remote deserialization attack is possible in the Enterprise Application Beans
+  (EJB) due to lack of validation/filtering capabilities in wildfly.orf.
+
+  - CVE-2020-1719: The EJBContext principle is not popped back after invoking another EJB using a
+  different Security Domain. The highest threat from this vulnerability is to data confidentiality
+  and integrity.","Checks if a vulnerable version is present on the target host.
+Details:
+Red Hat WildFly < 20.0.0 Multiple Vulnerabilities
+(OID: 1.3.6.1.4.1.25623.1.0.126501)
+Version used: 2023-10-06T16:09:51Z
+","Product: cpe:/a:redhat:jboss_wildfly_application_server:10
+Method: Red Hat/JBoss WildFly Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.111036)
+","","DFN-CERT-2025-1696,DFN-CERT-2020-2762,DFN-CERT-2020-1943,DFN-CERT-2020-1909,DFN-CERT-2020-1817,DFN-CERT-2020-1816,DFN-CERT-2020-1624,DFN-CERT-2020-1616,DFN-CERT-2020-1023,DFN-CERT-2020-0992,WID-SEC-2025-2123,WID-SEC-2022-1912,CB-K20/0828,CB-K20/0756,CB-K20/0449",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8080,tcp,0.0,Log,80,"","Red Hat/JBoss WildFly Detection (HTTP)","HTTP based detection of Red Hat/JBoss WildFly.","Detected Red Hat/JBoss WildFly
+
+Version:       10
+Location:      8080/tcp
+CPE:           cpe:/a:redhat:wildfly:10
+
+Concluded from version/product identification result:
+  Server: WildFly/10
+  <title>Welcome to WildFly 10
+  >WildFly 10 Documentation
+
+Concluded from version/product identification location:
+  http://wildfly10.trabalho_vulnnet:8080/
+  http://wildfly10.trabalho_vulnnet:8080/documentation.html
+",1.3.6.1.4.1.25623.1.0.111036,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,9c589dd6-ee4b-4e45-b40c-9a3165f038b8,"","","","","
+Details:
+Red Hat/JBoss WildFly Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.111036)
+Version used: 2023-09-06T05:05:19Z
+","","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8443,tcp,0.0,Log,80,"","Red Hat/JBoss WildFly Detection (HTTP)","HTTP based detection of Red Hat/JBoss WildFly.","Detected Red Hat/JBoss WildFly
+
+Version:       10
+Location:      8443/tcp
+CPE:           cpe:/a:redhat:wildfly:10
+
+Concluded from version/product identification result:
+  Server: WildFly/10
+  <title>Welcome to WildFly 10
+  >WildFly 10 Documentation
+
+Concluded from version/product identification location:
+  https://wildfly10.trabalho_vulnnet:8443/
+  https://wildfly10.trabalho_vulnnet:8443/documentation.html
+",1.3.6.1.4.1.25623.1.0.111036,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,373ffb87-4c71-4f47-bbcc-b8fe24e5d6a5,"","","","","
+Details:
+Red Hat/JBoss WildFly Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.111036)
+Version used: 2023-09-06T05:05:19Z
+","","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8080,tcp,0.0,Log,80,"","Services","This plugin performs service detection.","A web server is running on this port
+",1.3.6.1.4.1.25623.1.0.10330,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,c554d0e8-98a0-4ceb-ad43-5ae8b7bd319e,"","","","This plugin attempts to guess which service is running on the
+  remote port(s). For instance, it searches for a web server which could listen on another port than
+  80 or 443 and makes this information available for other check routines.","
+Details:
+Services
+(OID: 1.3.6.1.4.1.25623.1.0.10330)
+Version used: 2025-03-05T05:38:53Z
+","","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8443,tcp,0.0,Log,80,"","Services","This plugin performs service detection.","A TLScustom server answered on this port
+
+",1.3.6.1.4.1.25623.1.0.10330,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,8b25b576-fe93-4d0e-b968-7e48e67f308d,"","","","This plugin attempts to guess which service is running on the
+  remote port(s). For instance, it searches for a web server which could listen on another port than
+  80 or 443 and makes this information available for other check routines.","
+Details:
+Services
+(OID: 1.3.6.1.4.1.25623.1.0.10330)
+Version used: 2025-03-05T05:38:53Z
+","","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8443,tcp,0.0,Log,80,"","Services","This plugin performs service detection.","A web server is running on this port through SSL
+",1.3.6.1.4.1.25623.1.0.10330,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,331a1632-c69c-4370-813d-10e3709065d8,"","","","This plugin attempts to guess which service is running on the
+  remote port(s). For instance, it searches for a web server which could listen on another port than
+  80 or 443 and makes this information available for other check routines.","
+Details:
+Services
+(OID: 1.3.6.1.4.1.25623.1.0.10330)
+Version used: 2025-03-05T05:38:53Z
+","","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8443,tcp,0.0,Log,98,"","SSL/TLS: Certificate - Self-Signed Certificate Detection","The SSL/TLS certificate on this port is self-signed.","The certificate of the remote service is self signed.
+
+Certificate details:
+fingerprint (SHA-1)             | B86603383742F8C047D0DE78B92641E73F255793
+fingerprint (SHA-256)           | 95609D4E85E9DADED3377123E391CC9C01DB9D5B41727BF7074ABC637369D062
+issued by                       | CN=localhost
+public key algorithm            | RSA
+public key size (bits)          | 2048
+serial                          | 00C8CF9803AE7868CD
+signature algorithm             | sha256WithRSAEncryption
+subject                         | CN=localhost
+subject alternative names (SAN) | None
+valid from                      | 2026-01-26 01:10:40 UTC
+valid until                     | 2036-01-24 01:10:40 UTC
+",1.3.6.1.4.1.25623.1.0.103140,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,da428bed-06a3-4b10-98cf-75d779c260d2,"","","","","Detects and reports if the issuer's distinguished name of the
+  certificate is exactly the same as the subject's distinguished name.
+Details:
+SSL/TLS: Certificate - Self-Signed Certificate Detection
+(OID: 1.3.6.1.4.1.25623.1.0.103140)
+Version used: 2025-07-15T05:43:27Z
+","Product: cpe:/a:ietf:transport_layer_security
+Method: SSL/TLS: Collect and Report Certificate Details
+(OID: 1.3.6.1.4.1.25623.1.0.103692)
+","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8443,tcp,0.0,Log,98,"","SSL/TLS: Certificate - Subject Common Name Does Not Match Server FQDN","The SSL/TLS certificate contains a common name (CN) that does not match the hostname.","The certificate of the remote service contains a common name (CN) that does not match the hostname ""wildfly10.trabalho_vulnnet"".
+
+Certificate details:
+fingerprint (SHA-1)             | B86603383742F8C047D0DE78B92641E73F255793
+fingerprint (SHA-256)           | 95609D4E85E9DADED3377123E391CC9C01DB9D5B41727BF7074ABC637369D062
+issued by                       | CN=localhost
+public key algorithm            | RSA
+public key size (bits)          | 2048
+serial                          | 00C8CF9803AE7868CD
+signature algorithm             | sha256WithRSAEncryption
+subject                         | CN=localhost
+subject alternative names (SAN) | None
+valid from                      | 2026-01-26 01:10:40 UTC
+valid until                     | 2036-01-24 01:10:40 UTC
+",1.3.6.1.4.1.25623.1.0.103141,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,0ba7fc03-7cce-4570-b4fc-c906e1bb78cf,"","","","","
+Details:
+SSL/TLS: Certificate - Subject Common Name Does Not Match Server FQDN
+(OID: 1.3.6.1.4.1.25623.1.0.103141)
+Version used: 2024-06-14T05:05:48Z
+","Product: cpe:/a:ietf:transport_layer_security
+Method: SSL/TLS: Collect and Report Certificate Details
+(OID: 1.3.6.1.4.1.25623.1.0.103692)
+","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8443,tcp,0.0,Log,98,"","SSL/TLS: Collect and Report Certificate Details","This script collects and reports the details of all SSL/TLS
+  certificates.
+
+  This data will be used by other tests to verify server certificates.","The following certificate details of the remote service were collected.
+
+Certificate details:
+fingerprint (SHA-1)             | B86603383742F8C047D0DE78B92641E73F255793
+fingerprint (SHA-256)           | 95609D4E85E9DADED3377123E391CC9C01DB9D5B41727BF7074ABC637369D062
+issued by                       | CN=localhost
+public key algorithm            | RSA
+public key size (bits)          | 2048
+serial                          | 00C8CF9803AE7868CD
+signature algorithm             | sha256WithRSAEncryption
+subject                         | CN=localhost
+subject alternative names (SAN) | None
+valid from                      | 2026-01-26 01:10:40 UTC
+valid until                     | 2036-01-24 01:10:40 UTC
+",1.3.6.1.4.1.25623.1.0.103692,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,513770cd-9d72-4085-9060-3723b79ef441,"","","","","
+Details:
+SSL/TLS: Collect and Report Certificate Details
+(OID: 1.3.6.1.4.1.25623.1.0.103692)
+Version used: 2024-09-27T05:05:23Z
+","","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8443,tcp,4.3,Medium,98,"Mitigation","SSL/TLS: Deprecated TLSv1.0 and TLSv1.1 Protocol Detection","It was possible to detect the usage of the deprecated TLSv1.0
+  and/or TLSv1.1 protocol on this system.","In addition to TLSv1.2+ the service is also providing the deprecated TLSv1.0 and TLSv1.1 protocols and supports one or more ciphers. Those supported ciphers can be found in the 'SSL/TLS: Report Supported Cipher Suites' (OID: 1.3.6.1.4.1.25623.1.0.802067) VT.
+",1.3.6.1.4.1.25623.1.0.117274,"CVE-2011-3389,CVE-2015-0204,CVE-2023-41928,CVE-2024-41270,CVE-2025-3200",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,1448df67-d0e1-45ab-9429-d345b7ffad26,"An attacker might be able to use the known cryptographic flaws to
+  eavesdrop the connection between clients and the service to get access to sensitive data
+  transferred within the secured connection.
+
+  Furthermore newly uncovered vulnerabilities in this protocols won't receive security updates
+  anymore.","It is recommended to disable the deprecated TLSv1.0 and/or
+  TLSv1.1 protocols in favor of the TLSv1.2+ protocols.
+
+  Please see the references for more resources supporting you with this task.","'- All services providing an encrypted communication using the
+  TLSv1.0 and/or TLSv1.1 protocols
+
+  - CVE-2023-41928: Kiloview P1 4G and P2 4G Video Encoder
+
+  - CVE-2024-41270: Gorush v1.18.4
+
+  - CVE-2025-3200: Multiple products from Wiesemann & Theis","The TLSv1.0 and TLSv1.1 protocols contain known cryptographic
+  flaws like:
+
+  - CVE-2011-3389: Browser Exploit Against SSL/TLS (BEAST)
+
+  - CVE-2015-0204: Factoring Attack on RSA-EXPORT Keys Padding Oracle On Downgraded Legacy
+  Encryption (FREAK)","Checks the used TLS protocols of the services provided by this
+  system.
+Details:
+SSL/TLS: Deprecated TLSv1.0 and TLSv1.1 Protocol Detection
+(OID: 1.3.6.1.4.1.25623.1.0.117274)
+Version used: 2025-04-30T05:39:51Z
+","Product: cpe:/a:ietf:transport_layer_security:1.0
+Method: SSL/TLS: Version Detection
+(OID: 1.3.6.1.4.1.25623.1.0.105782)
+","","DFN-CERT-2020-0177,DFN-CERT-2020-0111,DFN-CERT-2019-0068,DFN-CERT-2018-1441,DFN-CERT-2018-1408,DFN-CERT-2016-1372,DFN-CERT-2016-1164,DFN-CERT-2016-0388,DFN-CERT-2015-1853,DFN-CERT-2015-1332,DFN-CERT-2015-0884,DFN-CERT-2015-0800,DFN-CERT-2015-0758,DFN-CERT-2015-0567,DFN-CERT-2015-0544,DFN-CERT-2015-0530,DFN-CERT-2015-0396,DFN-CERT-2015-0375,DFN-CERT-2015-0374,DFN-CERT-2015-0305,DFN-CERT-2015-0199,DFN-CERT-2015-0079,DFN-CERT-2015-0021,DFN-CERT-2014-1414,DFN-CERT-2013-1847,DFN-CERT-2013-1792,DFN-CERT-2012-1979,DFN-CERT-2012-1829,DFN-CERT-2012-1530,DFN-CERT-2012-1380,DFN-CERT-2012-1377,DFN-CERT-2012-1292,DFN-CERT-2012-1214,DFN-CERT-2012-1213,DFN-CERT-2012-1180,DFN-CERT-2012-1156,DFN-CERT-2012-1155,DFN-CERT-2012-1039,DFN-CERT-2012-0956,DFN-CERT-2012-0908,DFN-CERT-2012-0868,DFN-CERT-2012-0867,DFN-CERT-2012-0848,DFN-CERT-2012-0838,DFN-CERT-2012-0776,DFN-CERT-2012-0722,DFN-CERT-2012-0638,DFN-CERT-2012-0627,DFN-CERT-2012-0451,DFN-CERT-2012-0418,DFN-CERT-2012-0354,DFN-CERT-2012-0234,DFN-CERT-2012-0221,DFN-CERT-2012-0177,DFN-CERT-2012-0170,DFN-CERT-2012-0146,DFN-CERT-2012-0142,DFN-CERT-2012-0126,DFN-CERT-2012-0123,DFN-CERT-2012-0095,DFN-CERT-2012-0051,DFN-CERT-2012-0047,DFN-CERT-2012-0021,DFN-CERT-2011-1953,DFN-CERT-2011-1946,DFN-CERT-2011-1844,DFN-CERT-2011-1826,DFN-CERT-2011-1774,DFN-CERT-2011-1743,DFN-CERT-2011-1738,DFN-CERT-2011-1706,DFN-CERT-2011-1628,DFN-CERT-2011-1627,DFN-CERT-2011-1619,DFN-CERT-2011-1482,WID-SEC-2026-0180,WID-SEC-2023-1435,CB-K18/0799,CB-K16/1289,CB-K16/1096,CB-K15/1751,CB-K15/1266,CB-K15/0850,CB-K15/0764,CB-K15/0720,CB-K15/0548,CB-K15/0526,CB-K15/0509,CB-K15/0493,CB-K15/0384,CB-K15/0365,CB-K15/0364,CB-K15/0302,CB-K15/0192,CB-K15/0079,CB-K15/0016,CB-K14/1342,CB-K14/0231,CB-K13/0845,CB-K13/0796,CB-K13/0790",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8443,tcp,4.0,Medium,80,"Workaround","SSL/TLS: Diffie-Hellman Key Exchange Insufficient DH Group Strength Vulnerability","The SSL/TLS service uses Diffie-Hellman groups with insufficient
+  strength (key size < 2048).","Server Temporary Key Size: 1024 bits
+
+",1.3.6.1.4.1.25623.1.0.106223,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,644db221-f2ef-4472-a56e-62411cc47ccf,"An attacker might be able to decrypt the SSL/TLS communication
+  offline.","'- Deploy (Ephemeral) Elliptic-Curve Diffie-Hellman (ECDHE) or use
+  a 2048-bit or stronger Diffie-Hellman group. Please see the references for more resources
+  supporting you with this task.
+
+  - For Apache Web Servers: Beginning with version 2.4.7, mod_ssl will use DH parameters which
+  include primes with lengths of more than 1024 bits.","All services providing an encrypted communication using
+  Diffie-Hellman groups with insufficient strength.","The Diffie-Hellman group are some big numbers that are used as
+  base for the DH computations. They can be, and often are, fixed. The security of the final secret
+  depends on the size of these parameters. It was found that 512 and 768 bits to be weak, 1024 bits
+  to be breakable by really powerful attackers like governments.","Checks the DHE temporary public key size.
+Details:
+SSL/TLS: Diffie-Hellman Key Exchange Insufficient DH Group Strength Vulnerab...
+(OID: 1.3.6.1.4.1.25623.1.0.106223)
+Version used: 2025-03-27T05:38:50Z
+","","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8443,tcp,0.0,Log,80,"Workaround","SSL/TLS: HTTP Public Key Pinning (HPKP) Missing","The remote web server is not enforcing HTTP Public Key Pinning
+  (HPKP).
+
+  Note: Most major browsers have dropped / deprecated support for this header in 2020.","The remote web server is not enforcing HPKP.
+
+HTTP-Banner:
+
+HTTP/1.1 200 OK
+Connection: close
+Last-Modified: ***replaced***
+X-Powered-By: Undertow/1
+Server: WildFly/10
+Content-Length: ***replaced***
+Content-Type: text/html
+Accept-Ranges: bytes
+Date: ***replaced***
+",1.3.6.1.4.1.25623.1.0.108247,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,fcdc7e9b-de8b-4a71-afb0-2df2a515bde3,"","Enable HPKP or add / configure the required directives
+  correctly following the guides linked in the references.
+
+  Note: Some web servers are not sending headers on specific status codes by default. Please review
+  your web server or application configuration to always send these headers on every response
+  independently from the status code.
+
+  - Apache: Use 'Header always set' instead of 'Header set'.
+
+  - nginx: Append the 'always' keyword to each 'add_header' directive.
+
+  For different applications or web severs please refer to the related documentation for a similar
+  configuration possibility.","","","
+Details:
+SSL/TLS: HTTP Public Key Pinning (HPKP) Missing
+(OID: 1.3.6.1.4.1.25623.1.0.108247)
+Version used: 2025-03-21T15:40:43Z
+","","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8443,tcp,0.0,Log,80,"Workaround","SSL/TLS: HTTP Strict Transport Security (HSTS) Missing","The remote web server is not enforcing HTTP Strict Transport
+  Security (HSTS).","The remote web server is not enforcing HSTS.
+
+HTTP-Banner:
+
+HTTP/1.1 200 OK
+Connection: close
+Last-Modified: ***replaced***
+X-Powered-By: Undertow/1
+Server: WildFly/10
+Content-Length: ***replaced***
+Content-Type: text/html
+Accept-Ranges: bytes
+Date: ***replaced***
+",1.3.6.1.4.1.25623.1.0.105879,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,19e631c0-6652-425b-9e0b-97d123b39a7e,"","Enable HSTS or add / configure the required directives
+  correctly following the guides linked in the references.
+
+  Note: Some web servers are not sending headers on specific status codes by default. Please review
+  your web server or application configuration to always send these headers on every response
+  independently from the status code.
+
+  - Apache: Use 'Header always set' instead of 'Header set'.
+
+  - nginx: Append the 'always' keyword to each 'add_header' directive.
+
+  For different applications or web severs please refer to the related documentation for a similar
+  configuration possibility.","","","
+Details:
+SSL/TLS: HTTP Strict Transport Security (HSTS) Missing
+(OID: 1.3.6.1.4.1.25623.1.0.105879)
+Version used: 2025-03-21T15:40:43Z
+","","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8443,tcp,5.0,Medium,99,"Mitigation","SSL/TLS: Known Untrusted / Dangerous Certificate Authority (CA) Detection","The service is using an SSL/TLS certificate from a known
+  untrusted and/or dangerous certificate authority (CA).","The certificate of the remote service is signed by the following untrusted and/or dangerous CA:
+
+Issuer: CN=localhost
+
+Certificate details:
+fingerprint (SHA-1)             | B86603383742F8C047D0DE78B92641E73F255793
+fingerprint (SHA-256)           | 95609D4E85E9DADED3377123E391CC9C01DB9D5B41727BF7074ABC637369D062
+issued by                       | CN=localhost
+public key algorithm            | RSA
+public key size (bits)          | 2048
+serial                          | 00C8CF9803AE7868CD
+signature algorithm             | sha256WithRSAEncryption
+subject                         | CN=localhost
+subject alternative names (SAN) | None
+valid from                      | 2026-01-26 01:10:40 UTC
+valid until                     | 2036-01-24 01:10:40 UTC
+",1.3.6.1.4.1.25623.1.0.113054,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,f9914c5d-5941-426b-a9d6-344accded997,"An attacker could use this for man-in-the-middle (MITM) attacks,
+  accessing sensible data and other attacks.","Replace the SSL/TLS certificate with one signed by a trusted
+  CA.","","","The script reads the certificate used by the target host and
+  checks if it was signed by a known untrusted and/or dangerous CA.
+Details:
+SSL/TLS: Known Untrusted / Dangerous Certificate Authority (CA) Detection
+(OID: 1.3.6.1.4.1.25623.1.0.113054)
+Version used: 2024-06-14T05:05:48Z
+","Product: cpe:/a:ietf:transport_layer_security
+Method: SSL/TLS: Collect and Report Certificate Details
+(OID: 1.3.6.1.4.1.25623.1.0.103692)
+","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8443,tcp,0.0,Log,80,"","SSL/TLS: NPN / ALPN Extension and Protocol Support Detection","This routine identifies services supporting the following extensions to TLS:
+
+  - Application-Layer Protocol Negotiation (ALPN)
+
+  - Next Protocol Negotiation (NPN).
+
+  Based on the availability of this extensions the supported Network Protocols by this service are gathered and reported.","The remote service advertises support for the following Network Protocol(s) via the ALPN extension:
+
+SSL/TLS Protocol:Network Protocol
+TLSv1.2:HTTP/1.1
+TLSv1.2:HTTP/2
+
+",1.3.6.1.4.1.25623.1.0.108099,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,d266ca33-0dfd-4b92-aec6-30de50786fae,"","","","","
+Details:
+SSL/TLS: NPN / ALPN Extension and Protocol Support Detection
+(OID: 1.3.6.1.4.1.25623.1.0.108099)
+Version used: 2024-09-27T05:05:23Z
+","","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8443,tcp,5.0,Medium,70,"VendorFix","SSL/TLS: Renegotiation DoS Vulnerability (CVE-2011-1473, CVE-2011-5094)","The remote SSL/TLS service is prone to a denial of service (DoS)
+  vulnerability.","The following indicates that the remote SSL/TLS service is affected:
+
+Protocol Version | Successful re-done SSL/TLS handshakes (Renegotiation) over an existing / already established SSL/TLS connection
+----------------------------------------------------------------------------------------------------------------------------------
+TLSv1.0          | 10
+TLSv1.1          | 10
+TLSv1.2          | 10
+",1.3.6.1.4.1.25623.1.0.117761,"CVE-2011-1473,CVE-2011-5094",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,6b8ede98-bb82-444a-8023-8291b1b892a7,"The flaw might make it easier for remote attackers to cause a
+  DoS (CPU consumption) by performing many renegotiations within a single connection.","Users should contact their vendors for specific patch information.
+
+  A general solution is to remove/disable renegotiation capabilities altogether from/in the affected
+  SSL/TLS service.","Every SSL/TLS service which does not properly restrict
+  client-initiated renegotiation.","The flaw exists because the remote SSL/TLS service does not
+  properly restrict client-initiated renegotiation within the SSL and TLS protocols.
+
+  Note: The referenced CVEs are affecting OpenSSL and Mozilla Network Security Services (NSS) but
+  both are in a DISPUTED state with the following rationale:
+
+  > It can also be argued that it is the responsibility of server deployments, not a security
+  library, to prevent or limit renegotiation when it is inappropriate within a specific environment.
+
+  Both CVEs are still kept in this VT as a reference to the origin of this flaw.","Checks if the remote service allows to re-do the same SSL/TLS
+  handshake (Renegotiation) over an existing / already established SSL/TLS connection.
+Details:
+SSL/TLS: Renegotiation DoS Vulnerability (CVE-2011-1473, CVE-2011-5094)
+(OID: 1.3.6.1.4.1.25623.1.0.117761)
+Version used: 2024-09-27T05:05:23Z
+","","","DFN-CERT-2025-0933,DFN-CERT-2017-1013,DFN-CERT-2017-1012,DFN-CERT-2014-0809,DFN-CERT-2013-1928,DFN-CERT-2012-1112,WID-SEC-2026-0180,WID-SEC-2024-1591,WID-SEC-2024-0796,WID-SEC-2023-1435,CB-K17/0980,CB-K17/0979,CB-K14/0772,CB-K13/0915,CB-K13/0462",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8443,tcp,0.0,Log,98,"","SSL/TLS: Report Medium Cipher Suites","This routine reports all Medium SSL/TLS cipher suites accepted
+  by a service.","'Medium' cipher suites accepted by this service via the TLSv1.0 protocol:
+
+TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+TLS_RSA_WITH_AES_128_CBC_SHA
+TLS_RSA_WITH_AES_256_CBC_SHA
+
+'Medium' cipher suites accepted by this service via the TLSv1.1 protocol:
+
+TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+TLS_RSA_WITH_AES_128_CBC_SHA
+TLS_RSA_WITH_AES_256_CBC_SHA
+
+'Medium' cipher suites accepted by this service via the TLSv1.2 protocol:
+
+TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+TLS_DHE_RSA_WITH_AES_128_CBC_SHA256
+TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+TLS_DHE_RSA_WITH_AES_256_CBC_SHA256
+TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+TLS_RSA_WITH_AES_128_CBC_SHA
+TLS_RSA_WITH_AES_128_CBC_SHA256
+TLS_RSA_WITH_AES_128_GCM_SHA256
+TLS_RSA_WITH_AES_256_CBC_SHA
+TLS_RSA_WITH_AES_256_CBC_SHA256
+TLS_RSA_WITH_AES_256_GCM_SHA384
+
+
+",1.3.6.1.4.1.25623.1.0.902816,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,238d190e-e740-41ea-a649-e6f0ece1eaeb,"","","","Any cipher suite considered to be secure for only the next 10
+  years is considered as medium.","
+Details:
+SSL/TLS: Report Medium Cipher Suites
+(OID: 1.3.6.1.4.1.25623.1.0.902816)
+Version used: 2024-09-27T05:05:23Z
+","Product: cpe:/a:ietf:transport_layer_security
+Method: SSL/TLS: Report Supported Cipher Suites
+(OID: 1.3.6.1.4.1.25623.1.0.802067)
+","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8443,tcp,0.0,Log,98,"","SSL/TLS: Report Non Weak Cipher Suites","This routine reports all Non Weak SSL/TLS cipher suites
+  accepted by a service.","'Non Weak' cipher suites accepted by this service via the TLSv1.0 protocol:
+
+TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+TLS_RSA_WITH_AES_128_CBC_SHA
+TLS_RSA_WITH_AES_256_CBC_SHA
+
+'Non Weak' cipher suites accepted by this service via the TLSv1.1 protocol:
+
+TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+TLS_RSA_WITH_AES_128_CBC_SHA
+TLS_RSA_WITH_AES_256_CBC_SHA
+
+'Non Weak' cipher suites accepted by this service via the TLSv1.2 protocol:
+
+TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+TLS_DHE_RSA_WITH_AES_128_CBC_SHA256
+TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+TLS_DHE_RSA_WITH_AES_256_CBC_SHA256
+TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+TLS_RSA_WITH_AES_128_CBC_SHA
+TLS_RSA_WITH_AES_128_CBC_SHA256
+TLS_RSA_WITH_AES_128_GCM_SHA256
+TLS_RSA_WITH_AES_256_CBC_SHA
+TLS_RSA_WITH_AES_256_CBC_SHA256
+TLS_RSA_WITH_AES_256_GCM_SHA384
+
+
+",1.3.6.1.4.1.25623.1.0.103441,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,43b95e7a-1a8d-4f3e-affe-dd351889e59e,"","","","","
+Details:
+SSL/TLS: Report Non Weak Cipher Suites
+(OID: 1.3.6.1.4.1.25623.1.0.103441)
+Version used: 2024-09-27T05:05:23Z
+","Product: cpe:/a:ietf:transport_layer_security
+Method: SSL/TLS: Report Supported Cipher Suites
+(OID: 1.3.6.1.4.1.25623.1.0.802067)
+","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8443,tcp,0.0,Log,98,"","SSL/TLS: Report Perfect Forward Secrecy (PFS) Cipher Suites","This routine reports all SSL/TLS cipher suites accepted by a
+  service which are supporting Perfect Forward Secrecy (PFS).","Cipher suites supporting Perfect Forward Secrecy (PFS) are accepted by this service via the TLSv1.0 protocol:
+
+TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+
+Cipher suites supporting Perfect Forward Secrecy (PFS) are accepted by this service via the TLSv1.1 protocol:
+
+TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+
+Cipher suites supporting Perfect Forward Secrecy (PFS) are accepted by this service via the TLSv1.2 protocol:
+
+TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+TLS_DHE_RSA_WITH_AES_128_CBC_SHA256
+TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+TLS_DHE_RSA_WITH_AES_256_CBC_SHA256
+TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+
+
+",1.3.6.1.4.1.25623.1.0.105018,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,98c772d0-9162-41bc-9d6a-802b0f216188,"","","","","
+Details:
+SSL/TLS: Report Perfect Forward Secrecy (PFS) Cipher Suites
+(OID: 1.3.6.1.4.1.25623.1.0.105018)
+Version used: 2024-09-30T08:38:05Z
+","Product: cpe:/a:ietf:transport_layer_security
+Method: SSL/TLS: Report Supported Cipher Suites
+(OID: 1.3.6.1.4.1.25623.1.0.802067)
+","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8443,tcp,0.0,Log,98,"","SSL/TLS: Report Supported Cipher Suites","This routine reports all SSL/TLS cipher suites accepted by a
+  service.","'Strong' cipher suites accepted by this service via the TLSv1.0 protocol:
+
+TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+
+'Medium' cipher suites accepted by this service via the TLSv1.0 protocol:
+
+TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+TLS_RSA_WITH_AES_128_CBC_SHA
+TLS_RSA_WITH_AES_256_CBC_SHA
+
+No 'Weak' cipher suites accepted by this service via the TLSv1.0 protocol.
+
+No 'Null' cipher suites accepted by this service via the TLSv1.0 protocol.
+
+No 'Anonymous' cipher suites accepted by this service via the TLSv1.0 protocol.
+
+'Strong' cipher suites accepted by this service via the TLSv1.1 protocol:
+
+TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+
+'Medium' cipher suites accepted by this service via the TLSv1.1 protocol:
+
+TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+TLS_RSA_WITH_AES_128_CBC_SHA
+TLS_RSA_WITH_AES_256_CBC_SHA
+
+No 'Weak' cipher suites accepted by this service via the TLSv1.1 protocol.
+
+No 'Null' cipher suites accepted by this service via the TLSv1.1 protocol.
+
+No 'Anonymous' cipher suites accepted by this service via the TLSv1.1 protocol.
+
+'Strong' cipher suites accepted by this service via the TLSv1.2 protocol:
+
+TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+
+'Medium' cipher suites accepted by this service via the TLSv1.2 protocol:
+
+TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+TLS_DHE_RSA_WITH_AES_128_CBC_SHA256
+TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+TLS_DHE_RSA_WITH_AES_256_CBC_SHA256
+TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+TLS_RSA_WITH_AES_128_CBC_SHA
+TLS_RSA_WITH_AES_128_CBC_SHA256
+TLS_RSA_WITH_AES_128_GCM_SHA256
+TLS_RSA_WITH_AES_256_CBC_SHA
+TLS_RSA_WITH_AES_256_CBC_SHA256
+TLS_RSA_WITH_AES_256_GCM_SHA384
+
+No 'Weak' cipher suites accepted by this service via the TLSv1.2 protocol.
+
+No 'Null' cipher suites accepted by this service via the TLSv1.2 protocol.
+
+No 'Anonymous' cipher suites accepted by this service via the TLSv1.2 protocol.
+
+
+",1.3.6.1.4.1.25623.1.0.802067,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,035f0a29-21f0-400a-8452-375c61afa8e0,"","","","Notes:
+
+  - As the VT 'SSL/TLS: Check Supported Cipher Suites' (OID: 1.3.6.1.4.1.25623.1.0.900234) might run
+  into a timeout the actual reporting of all accepted cipher suites takes place in this VT instead.
+
+  - SSLv2 ciphers are not getting reported as the protocol itself is deprecated, needs to be
+  considered as weak and is reported separately as deprecated.","
+Details:
+SSL/TLS: Report Supported Cipher Suites
+(OID: 1.3.6.1.4.1.25623.1.0.802067)
+Version used: 2024-09-27T05:05:23Z
+","","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8443,tcp,0.0,Log,98,"","SSL/TLS: Safe/Secure Renegotiation Support Status","Checks and reports if a remote SSL/TLS service supports
+  safe/secure renegotiation.","Protocol Version | Safe/Secure Renegotiation Support Status
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SSLv3            | Unknown, Reason: Scanner failed to negotiate an SSL/TLS connection (Either the scanner or the remote host is probably not supporting / accepting this SSL/TLS protocol version).
+TLSv1.0          | Enabled, Note: While the remote service announces the support of safe/secure renegotiation it still might not support / accept renegotiation at all.
+TLSv1.1          | Enabled, Note: While the remote service announces the support of safe/secure renegotiation it still might not support / accept renegotiation at all.
+TLSv1.2          | Enabled, Note: While the remote service announces the support of safe/secure renegotiation it still might not support / accept renegotiation at all.
+TLSv1.3          | Unknown, Reason: Scanner failed to negotiate an SSL/TLS connection (Either the scanner or the remote host is probably not supporting / accepting this SSL/TLS protocol version).
+",1.3.6.1.4.1.25623.1.0.117757,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,eab18a9d-81a0-45a2-9dbe-eb778d387a9f,"","","","","
+Details:
+SSL/TLS: Safe/Secure Renegotiation Support Status
+(OID: 1.3.6.1.4.1.25623.1.0.117757)
+Version used: 2024-09-27T05:05:23Z
+","","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8443,tcp,0.0,Log,98,"","SSL/TLS: Untrusted Certificate Detection","Checks and reports if a remote SSL/TLS service is using a
+  certificate which is untrusted / the verification against the system wide trust store has failed.","The remote SSL/TLS server is using the following certificate(s) which failed the verification against the system wide trust store (serial:issuer):
+
+00C8CF9803AE7868CD:CN=localhost (Server certificate)
+",1.3.6.1.4.1.25623.1.0.117764,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,bb66c374-313b-4a83-9e16-c74fdbd31712,"","","","","
+Details:
+SSL/TLS: Untrusted Certificate Detection
+(OID: 1.3.6.1.4.1.25623.1.0.117764)
+Version used: 2024-09-27T05:05:23Z
+","","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8443,tcp,0.0,Log,80,"","SSL/TLS: Version Detection","Enumeration and reporting of SSL/TLS protocol versions supported
+  by a remote service.","The remote SSL/TLS service supports the following SSL/TLS protocol version(s):
+
+TLSv1.0
+TLSv1.1
+TLSv1.2
+",1.3.6.1.4.1.25623.1.0.105782,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,bac1b91d-e894-47c0-a0f8-74c7e7afb1f6,"","","","","Sends multiple connection requests to the remote service and
+  attempts to determine the SSL/TLS protocol versions supported by the service from the replies.
+
+  Note: The supported SSL/TLS protocol versions included in the report of this VT are reported
+  independently from the allowed / supported SSL/TLS ciphers.
+Details:
+SSL/TLS: Version Detection
+(OID: 1.3.6.1.4.1.25623.1.0.105782)
+Version used: 2024-09-27T05:05:23Z
+","","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,,,2.6,Low,80,"Mitigation","TCP Timestamps Information Disclosure","The remote host implements TCP timestamps and therefore allows
+  to compute the uptime.","It was detected that the host implements RFC1323/RFC7323.
+
+The following timestamps were retrieved with a delay of 1 seconds in-between:
+Packet 1: 1995612021
+Packet 2: 1995613146
+",1.3.6.1.4.1.25623.1.0.80091,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,0bb538ce-9eed-409e-be5e-2ab44d58f464,"A side effect of this feature is that the uptime of the remote
+  host can sometimes be computed.","To disable TCP timestamps on linux add the line
+  'net.ipv4.tcp_timestamps = 0' to /etc/sysctl.conf. Execute 'sysctl -p' to apply the settings at
+  runtime.
+
+  To disable TCP timestamps on Windows execute 'netsh int tcp set global timestamps=disabled'
+
+  Starting with Windows Server 2008 and Vista, the timestamp can not be completely disabled.
+
+  The default behavior of the TCP/IP stack on this Systems is to not use the Timestamp options when
+  initiating TCP connections, but use them if the TCP peer that is initiating communication includes
+  them in their synchronize (SYN) segment.
+
+  See the references for more information.","TCP implementations that implement RFC1323/RFC7323.","The remote host implements TCP timestamps, as defined by
+  RFC1323/RFC7323.","Special IP packets are forged and sent with a little delay in
+  between to the target IP. The responses are searched for a timestamps. If found, the timestamps
+  are reported.
+Details:
+TCP Timestamps Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.80091)
+Version used: 2023-12-15T16:10:08Z
+","","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,,,0.0,Log,80,"","Traceroute","Collect information about the network route and
+  network distance between the scanner host and the target host.","Network route from scanner (172.30.0.2) to target (172.31.1.22):
+
+172.30.0.2
+172.31.1.22
+
+Network distance between scanner and target: 2
+",1.3.6.1.4.1.25623.1.0.51662,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,20057686-05f0-4d39-935d-7152b7eb09a5,"","","","For internal networks, the distances are usually
+  small, often less than 4 hosts between scanner and target. For public targets the
+  distance is greater and might be 10 hosts or more.","A combination of the protocols ICMP and TCP is used
+  to determine the route. This method is applicable for IPv4 only and it is also known as
+  'traceroute'.
+Details:
+Traceroute
+(OID: 1.3.6.1.4.1.25623.1.0.51662)
+Version used: 2022-10-17T11:13:19Z
+","","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8080,tcp,0.0,Log,80,"","Web Application Scanning Consolidation / Info Reporting","The script consolidates and reports various information for web
+  application (formerly called 'CGI') scanning.
+
+  This information is based on the following scripts / settings:
+
+  - HTTP-Version Detection (OID: 1.3.6.1.4.1.25623.1.0.100034)
+
+  - No 404 check (OID: 1.3.6.1.4.1.25623.1.0.10386)
+
+  - Web mirroring / webmirror.nasl (OID: 1.3.6.1.4.1.25623.1.0.10662)
+
+  - Directory Scanner / DDI_Directory_Scanner.nasl (OID: 1.3.6.1.4.1.25623.1.0.11032)
+
+  - The configured 'cgi_path' within the 'Scanner Preferences' of the scan config in use
+
+  - The configured 'Enable CGI scanning', 'Enable generic web application scanning' and
+  'Add historic /scripts and /cgi-bin to directories for CGI scanning' within the
+  'Global variable settings' of the scan config in use
+
+  If you think any of this information is wrong please report it to the referenced community
+  forum.","The Hostname/IP ""wildfly10.trabalho_vulnnet"" was used to access the remote host.
+
+Generic web application scanning is disabled for this host via the ""Enable generic web application scanning"" option within the ""Global variable settings"" of the scan config in use.
+
+Requests to this service are done via HTTP/1.1.
+
+This service seems to be able to host PHP scripts.
+
+This service seems to be able to host ASP scripts.
+
+The User-Agent ""Mozilla/5.0 [en] (X11, U; OpenVAS-VT <version replaced>)"" was used to access the remote host.
+
+Historic /scripts and /cgi-bin are not added to the directories used for web application scanning. You can enable this again with the ""Add historic /scripts and /cgi-bin to directories for CGI scanning"" option within the ""Global variable settings"" of the scan config in use.
+
+The following directories were used for web application scanning:
+
+http://wildfly10.trabalho_vulnnet:8080/
+
+While this is not, in and of itself, a bug, you should manually inspect these directories to ensure that they are in compliance with company security standards
+",1.3.6.1.4.1.25623.1.0.111038,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,7f338097-3dbe-403d-9f0e-4cfc950f1b44,"","","","","
+Details:
+Web Application Scanning Consolidation / Info Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.111038)
+Version used: 2026-01-13T05:47:36Z
+","","","",""
+172.31.1.22,wildfly10.trabalho_vulnnet,8443,tcp,0.0,Log,80,"","Web Application Scanning Consolidation / Info Reporting","The script consolidates and reports various information for web
+  application (formerly called 'CGI') scanning.
+
+  This information is based on the following scripts / settings:
+
+  - HTTP-Version Detection (OID: 1.3.6.1.4.1.25623.1.0.100034)
+
+  - No 404 check (OID: 1.3.6.1.4.1.25623.1.0.10386)
+
+  - Web mirroring / webmirror.nasl (OID: 1.3.6.1.4.1.25623.1.0.10662)
+
+  - Directory Scanner / DDI_Directory_Scanner.nasl (OID: 1.3.6.1.4.1.25623.1.0.11032)
+
+  - The configured 'cgi_path' within the 'Scanner Preferences' of the scan config in use
+
+  - The configured 'Enable CGI scanning', 'Enable generic web application scanning' and
+  'Add historic /scripts and /cgi-bin to directories for CGI scanning' within the
+  'Global variable settings' of the scan config in use
+
+  If you think any of this information is wrong please report it to the referenced community
+  forum.","The Hostname/IP ""wildfly10.trabalho_vulnnet"" was used to access the remote host.
+
+Generic web application scanning is disabled for this host via the ""Enable generic web application scanning"" option within the ""Global variable settings"" of the scan config in use.
+
+Requests to this service are done via HTTP/1.1.
+
+This service seems to be able to host PHP scripts.
+
+This service seems to be able to host ASP scripts.
+
+The User-Agent ""Mozilla/5.0 [en] (X11, U; OpenVAS-VT <version replaced>)"" was used to access the remote host.
+
+Historic /scripts and /cgi-bin are not added to the directories used for web application scanning. You can enable this again with the ""Add historic /scripts and /cgi-bin to directories for CGI scanning"" option within the ""Global variable settings"" of the scan config in use.
+
+The following directories were used for web application scanning:
+
+https://wildfly10.trabalho_vulnnet:8443/
+
+While this is not, in and of itself, a bug, you should manually inspect these directories to ensure that they are in compliance with company security standards
+",1.3.6.1.4.1.25623.1.0.111038,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T03:39:17Z,7614b0d3-3d01-497c-8058-9c02db6f2455,"","","","","
+Details:
+Web Application Scanning Consolidation / Info Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.111038)
+Version used: 2026-01-13T05:47:36Z
+","","","",""

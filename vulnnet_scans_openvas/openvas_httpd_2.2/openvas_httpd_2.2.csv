@@ -1,0 +1,564 @@
+IP,Hostname,Port,Port Protocol,CVSS,Severity,QoD,Solution Type,NVT Name,Summary,Specific Result,NVT OID,CVEs,Task ID,Task Name,Timestamp,Result ID,Impact,Solution,Affected Software/OS,Vulnerability Insight,Vulnerability Detection Method,Product Detection Result,BIDs,CERTs,Other References
+      172.31.1.9,apache22.trabalho_vulnnet,80,tcp,5.0,Medium,30,"VendorFix","Apache HTTP Server mod_lua Denial of Service Vulnerability -01 (May 2015)","Apache HTTP Server is prone to a denial of service vulnerability.","Installed version: 2.2.34
+Fixed version:     2.4.13
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.805616,"CVE-2015-0228",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:33:09Z,6180b65e-5452-44da-8705-448380b2a587,"Successful exploitation will allow a remote
+  attacker to cause a denial of service via some crafted dimension.","Update to version 2.4.13 or later.","Apache HTTP Server versions through
+  2.4.12.","Flaw is due to vulnerability in
+  lua_websocket_read function in lua_request.c in the mod_lua module.","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server 'mod_lua' Denial of Service Vulnerability -01 (May 2015)
+(OID: 1.3.6.1.4.1.25623.1.0.805616)
+Version used: 2024-02-20T05:05:48Z
+","Product: cpe:/a:apache:http_server:2.2.34
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2015-1435,DFN-CERT-2015-1252,DFN-CERT-2015-1087,DFN-CERT-2015-0285,DFN-CERT-2014-1691,CB-K15/1360,CB-K15/1188,CB-K15/1051,CB-K15/0273,CB-K14/1592",""
+172.31.1.9,apache22.trabalho_vulnnet,80,tcp,7.1,High,30,"VendorFix","Apache HTTP Server mod_proxy_http.c Denial Of Service Vulnerability","Apache HTTP Server is prone to a Denial of Service vulnerability.","Installed version: 2.2.34
+Fixed version:     2.3.3
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.800827,"CVE-2009-1890",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:33:09Z,79bce59f-01a6-4594-986d-4d994051dbcf,"Successful exploitation will allow remote attackers to cause Denial of Service
+  to the legitimate user by CPU consumption.","Update to version 2.3.3 or later.","Apache HTTP Server version prior to 2.3.3.","The flaw is due to error in 'stream_reqbody_cl' function in 'mod_proxy_http.c'
+  in the mod_proxy module. When a reverse proxy is configured, it does not properly
+  handle an amount of streamed data that exceeds the Content-Length value via crafted requests.","
+Details:
+Apache HTTP Server 'mod_proxy_http.c' Denial Of Service Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.800827)
+Version used: 2022-05-09T13:48:18Z
+","Product: cpe:/a:apache:http_server:2.2.34
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2010-1665,DFN-CERT-2010-1647,DFN-CERT-2009-1725,DFN-CERT-2009-1507,DFN-CERT-2009-1225",""
+172.31.1.9,apache22.trabalho_vulnnet,80,tcp,7.5,High,30,"VendorFix","Apache HTTP Server < 2.4.58 mod_macro Out-of-bounds Read Vulnerability - Linux","Apache HTTP Server is prone to an out-of-bounds read
+  vulnerability in mod_macro.","Installed version: 2.2.34
+Fixed version:     2.4.58
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.100272,"CVE-2023-31122",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:33:09Z,c7a96989-91c6-4da8-9370-f1be010b2c9f,"","Update to version 2.4.58 or later.","Apache HTTP Server version 2.4.57 and prior.","","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server < 2.4.58 'mod_macro' Out-of-bounds Read Vulnerability - L...
+(OID: 1.3.6.1.4.1.25623.1.0.100272)
+Version used: 2024-02-15T05:05:40Z
+","Product: cpe:/a:apache:http_server:2.2.34
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2024-1411,DFN-CERT-2024-1010,DFN-CERT-2024-1000,DFN-CERT-2024-0732,DFN-CERT-2023-2640,DFN-CERT-2023-2583,WID-SEC-2024-1226,WID-SEC-2024-0899,WID-SEC-2024-0869,WID-SEC-2024-0769,WID-SEC-2024-0107,WID-SEC-2023-2917,WID-SEC-2023-2712",""
+172.31.1.9,apache22.trabalho_vulnnet,80,tcp,7.5,High,30,"VendorFix","Apache HTTP Server < 2.4.59 Multiple Vulnerabilities - Linux","Apache HTTP Server is prone to multiple vulnerabilities.","Installed version: 2.2.34
+Fixed version:     2.4.59
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.152039,"CVE-2023-38709,CVE-2024-24795,CVE-2024-27316",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:33:09Z,c2b947aa-1f50-442c-a374-79f927376ed0,"","Update to version 2.4.59 or later.","Apache HTTP Server version 2.4.58 and prior.","The following vulnerabilities exist:
+
+  - CVE-2023-38709: HTTP response splitting
+
+  - CVE-2024-24795: HTTP response splitting in multiple modules
+
+  - CVE-2024-27316: HTTP/2 DoS by memory exhaustion on endless continuation frames","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server < 2.4.59 Multiple Vulnerabilities - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.152039)
+Version used: 2024-06-07T05:05:42Z
+","Product: cpe:/a:apache:http_server:2.2.34
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2025-2802,DFN-CERT-2025-2658,DFN-CERT-2025-2657,DFN-CERT-2024-2900,DFN-CERT-2024-2534,DFN-CERT-2024-2076,DFN-CERT-2024-1958,DFN-CERT-2024-1853,DFN-CERT-2024-1749,DFN-CERT-2024-1697,DFN-CERT-2024-1411,DFN-CERT-2024-1335,DFN-CERT-2024-1238,DFN-CERT-2024-1031,DFN-CERT-2024-1010,DFN-CERT-2024-0964,DFN-CERT-2024-0901,DFN-CERT-2024-0890,WID-SEC-2025-1529,WID-SEC-2024-1725,WID-SEC-2024-1643,WID-SEC-2024-1642,WID-SEC-2024-1504,WID-SEC-2024-1248,WID-SEC-2024-1226,WID-SEC-2024-0801,WID-SEC-2024-0789",""
+172.31.1.9,apache22.trabalho_vulnnet,80,tcp,5.0,Medium,30,"VendorFix","Apache HTTP Server < 2.4.64 Multiple Vulnerabilities - Linux","Apache HTTP Server is prone to multiple vulnerabilities.","Installed version: 2.2.34
+Fixed version:     2.4.64
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.154909,"CVE-2024-42516,CVE-2024-43204,CVE-2024-47252,CVE-2025-49812",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:33:09Z,aa13b646-56f0-451c-bd29-ac82cc1fc8fe,"","Update to version 2.4.64 or later.","Apache HTTP Server version 2.4.63 and prior.","The following flaws exist:
+
+  - CVE-2024-42516: HTTP response splitting
+
+  - CVE-2024-43204: SSRF with mod_headers setting Content-Type header
+
+  - CVE-2024-47252: mod_ssl error log variable escaping
+
+  - CVE-2025-49812: mod_ssl TLS upgrade attack","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server < 2.4.64 Multiple Vulnerabilities - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.154909)
+Version used: 2025-07-11T15:43:14Z
+","Product: cpe:/a:apache:http_server:2.2.34
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2026-0205,DFN-CERT-2025-2421,DFN-CERT-2025-2403,DFN-CERT-2025-2402,DFN-CERT-2025-2373,DFN-CERT-2025-2231,DFN-CERT-2025-2182,DFN-CERT-2025-1917,DFN-CERT-2025-1860,WID-SEC-2026-0162,WID-SEC-2025-1850,WID-SEC-2025-1529",""
+172.31.1.9,apache22.trabalho_vulnnet,80,tcp,4.3,Medium,30,"VendorFix","Apache HTTP Server < 2.4.66 SSI Vulnerability - Linux","Apache HTTP Server is prone to a Server Side Includes (SSI)
+  vulnerability.","Installed version: 2.2.34
+Fixed version:     2.4.66
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.125564,"CVE-2025-58098",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:33:09Z,3704e240-b732-45fe-83e2-1dae0190a4db,"","Update to version 2.4.66 or later.","Apache HTTP Server prior to version 2.4.66.","Apache HTTP Server with SSI enabled and mod_cgid (but not
+  mod_cgi) passes the shell-escaped query string to #exec cmd='...' directives.","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server < 2.4.66 SSI Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.125564)
+Version used: 2025-12-05T05:44:55Z
+","Product: cpe:/a:apache:http_server:2.2.34
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2026-0027,DFN-CERT-2026-0012,DFN-CERT-2025-3602,DFN-CERT-2025-3581,DFN-CERT-2025-3512,DFN-CERT-2025-3405,WID-SEC-2026-0153,WID-SEC-2025-2750",""
+172.31.1.9,apache22.trabalho_vulnnet,,,0.0,Log,80,"","Apache HTTP Server Detection Consolidation","Consolidation of Apache HTTP Server detections.","Detected Apache HTTP Server
+
+Version:       2.2.34
+Location:      80/tcp
+CPE:           cpe:/a:apache:http_server:2.2.34
+
+Concluded from version/product identification result:
+Server: Apache/2.2.34 (Unix) mod_ssl/2.2.34 OpenSSL/1.0.1t DAV/2
+",1.3.6.1.4.1.25623.1.0.117232,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:33:09Z,6cc01f32-5262-4abf-9c83-9fc7d2f5fe3e,"","","","","
+Details:
+Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+Version used: 2024-03-08T15:37:10Z
+","","","",""
+172.31.1.9,apache22.trabalho_vulnnet,80,tcp,8.1,High,30,"VendorFix","Apache HTTP Server Man-in-the-Middle Attack Vulnerability (Jul 2016) - Linux","Apache HTTP Server is prone to a man-in-the-middle attack vulnerability.","Installed version: 2.2.34
+Fixed version:     2.4.24
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.808632,"CVE-2016-5387",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:33:09Z,57c2bdd6-3d0c-4fa9-b278-0572809b6b95,"Successful exploitation will allow remote
+  attackers to redirect an application's outbound HTTP traffic to an arbitrary
+  proxy server via a crafted proxy header in an HTTP request.","Update to version 2.4.24, or 2.2.32, or later.","Apache HTTP Server through 2.4.23.
+
+  NOTE: Apache HTTP Server 2.2.32 is not vulnerable.","The flaw is due to 'CGI Servlet' does not
+  protect applications from the presence of untrusted client data in the
+  'HTTP_PROXY' environment variable.","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server Man-in-the-Middle Attack Vulnerability (Jul 2016) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.808632)
+Version used: 2024-02-08T14:36:53Z
+","Product: cpe:/a:apache:http_server:2.2.34
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2017-2104,DFN-CERT-2017-1926,DFN-CERT-2017-1925,DFN-CERT-2017-1692,DFN-CERT-2017-0532,DFN-CERT-2017-0060,DFN-CERT-2016-2108,DFN-CERT-2016-1717,DFN-CERT-2016-1372,DFN-CERT-2016-1175,DFN-CERT-2016-1162,DFN-CERT-2016-1153,WID-SEC-2025-2522,WID-SEC-2025-0370,CB-K17/2013,CB-K17/1854,CB-K17/1842,CB-K17/1622,CB-K17/0527,CB-K17/0055,CB-K16/1995,CB-K16/1620,CB-K16/1289,CB-K16/1103,CB-K16/1088,CB-K16/1087",""
+172.31.1.9,apache22.trabalho_vulnnet,80,tcp,7.5,High,30,"VendorFix","Apache HTTP Server OPTIONS Memory Leak Vulnerability (Optionsbleed) - Version Check","Apache HTTP Server allows remote attackers to read
+  secret data from process memory if the Limit directive can be set in a user's .htaccess
+  file, or if httpd.conf has certain misconfigurations, aka Optionsbleed.","Installed version: 2.2.34
+Fixed version:     Apply the referenced patch or upgrade to 2.4.28
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.108252,"CVE-2017-9798",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:33:09Z,51ee074e-6f94-4cdc-b820-4eb726067160,"The successful exploitation allows the attacker to read
+  chunks of the host's memory.","Update to Apache HTTP Server 2.4.28. For Apache HTTP
+  Server running version 2.2.34 apply the patch linked in the references.
+
+  As a workaround the usage of .htaccess should be disabled completely via the
+  'AllowOverride None' directive within the webservers configuration. Furthermore all
+  <Limit> statements within the webserver configuration needs to be verified for
+  invalid HTTP methods.","Apache HTTP Server 2.2.x versions up to 2.2.34 and
+  2.4.x below 2.4.28.","Optionsbleed is a use after free error in the Apache
+  HTTP Server that causes a corrupted Allow header to be constructed in response to HTTP
+  OPTIONS requests. This can leak pieces of arbitrary memory from the server process that
+  may contain secrets. The memory pieces change after multiple requests, so for a vulnerable
+  host an arbitrary number of memory chunks can be leaked.
+
+  The bug appears if a webmaster tries to use the 'Limit' directive with an invalid HTTP
+  method.
+
+  Example .htaccess:
+
+  <Limit abcxyz>
+  </Limit>","Checks if a vulnerable version is present on the target host.
+Details:
+Apache HTTP Server OPTIONS Memory Leak Vulnerability (Optionsbleed) - Versio...
+(OID: 1.3.6.1.4.1.25623.1.0.108252)
+Version used: 2025-01-21T05:37:33Z
+","Product: cpe:/a:apache:http_server:2.2.34
+Method: Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+","","DFN-CERT-2019-0359,DFN-CERT-2018-2113,DFN-CERT-2018-1070,DFN-CERT-2018-0725,DFN-CERT-2018-0100,DFN-CERT-2018-0077,DFN-CERT-2017-2290,DFN-CERT-2017-2211,DFN-CERT-2017-2108,DFN-CERT-2017-2070,DFN-CERT-2017-2021,DFN-CERT-2017-1954,DFN-CERT-2017-1854,DFN-CERT-2017-1843,DFN-CERT-2017-1659,WID-SEC-2023-1594,CB-K18/1012,CB-K18/0800,CB-K18/0606,CB-K18/0098,CB-K18/0066,CB-K17/2188,CB-K17/2117,CB-K17/2021,CB-K17/1980,CB-K17/1936,CB-K17/1871,CB-K17/1773,CB-K17/1768,CB-K17/1587",""
+172.31.1.9,apache22.trabalho_vulnnet,80,tcp,0.0,Log,80,"","Apache mod_ssl Detection (HTTP)","HTTP based detection of Apache mod_ssl.","Detected Apache mod_ssl
+
+Version:       2.2.34
+Location:      80/tcp
+CPE:           cpe:/a:apache:mod_ssl:2.2.34
+
+Concluded from version/product identification result:
+Server: Apache/2.2.34 (Unix) mod_ssl/2.2.34 OpenSSL/1.0.1t DAV/2
+",1.3.6.1.4.1.25623.1.0.117570,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:33:09Z,4fcb00f8-b332-4f6d-89fd-27cb28474773,"","","","","
+Details:
+Apache mod_ssl Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.117570)
+Version used: 2021-07-19T10:09:41Z
+","","","",""
+172.31.1.9,apache22.trabalho_vulnnet,,,0.0,Log,80,"","CPE Inventory","This routine uses information collected by other routines about
+  CPE identities of operating systems, services and applications detected during the scan.
+
+  Note: Some CPEs for specific products might show up twice or more in the output. Background:
+
+  After a product got renamed or a specific vendor was acquired by another one it might happen that
+  a product gets a new CPE within the NVD CPE Dictionary but older entries are kept with the older
+  CPE.","172.31.1.9|cpe:/a:apache:http_server:2.2.34
+172.31.1.9|cpe:/a:apache:mod_ssl:2.2.34
+172.31.1.9|cpe:/a:openssl:openssl:1.0.1t
+172.31.1.9|cpe:/o:linux:kernel
+
+",1.3.6.1.4.1.25623.1.0.810002,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:33:09Z,ff24620b-accb-4139-a7a7-487b3fdd6a13,"","","","","
+Details:
+CPE Inventory
+(OID: 1.3.6.1.4.1.25623.1.0.810002)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.31.1.9,apache22.trabalho_vulnnet,,,0.0,Log,80,"","Hostname Determination Reporting","The script reports information on how the hostname of the target
+  was determined.","Hostname determination for IP 172.31.1.9:
+
+Hostname|Source
+apache22.trabalho_vulnnet|Reverse-DNS
+",1.3.6.1.4.1.25623.1.0.108449,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:33:09Z,a99b7d69-7f42-4a7d-b95f-1a2fbed8a5a0,"","","","","
+Details:
+Hostname Determination Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.108449)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.31.1.9,apache22.trabalho_vulnnet,80,tcp,0.0,Log,80,"","HTTP Security Headers Detection","All known security headers are being checked on the remote web
+  server.
+
+  On completion a report will hand back whether a specific security header has been implemented
+  (including its value and if it is deprecated) or is missing on the target.","Missing Headers                   | More Information
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Content-Security-Policy           | https://owasp.org/www-project-secure-headers/#content-security-policy
+Cross-Origin-Embedder-Policy      | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Cross-Origin-Opener-Policy        | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Cross-Origin-Resource-Policy      | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Document-Policy                   | https://w3c.github.io/webappsec-feature-policy/document-policy#document-policy-http-header
+Feature-Policy                    | https://owasp.org/www-project-secure-headers/#feature-policy, Note: The Feature Policy header has been renamed to Permissions Policy
+Permissions-Policy                | https://w3c.github.io/webappsec-feature-policy/#permissions-policy-http-header-field
+Referrer-Policy                   | https://owasp.org/www-project-secure-headers/#referrer-policy
+Sec-Fetch-Dest                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-Mode                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-Site                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-User                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+X-Content-Type-Options            | https://owasp.org/www-project-secure-headers/#x-content-type-options
+X-Frame-Options                   | https://owasp.org/www-project-secure-headers/#x-frame-options
+X-Permitted-Cross-Domain-Policies | https://owasp.org/www-project-secure-headers/#x-permitted-cross-domain-policies
+X-XSS-Protection                  | https://owasp.org/www-project-secure-headers/#x-xss-protection, Note: Most major browsers have dropped / deprecated support for this header in 2020.
+",1.3.6.1.4.1.25623.1.0.112081,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:33:09Z,fafaf56f-f503-441e-ae4c-7c57edf71d30,"","","","","
+Details:
+HTTP Security Headers Detection
+(OID: 1.3.6.1.4.1.25623.1.0.112081)
+Version used: 2025-03-21T15:40:43Z
+","","","",""
+172.31.1.9,apache22.trabalho_vulnnet,80,tcp,0.0,Log,80,"","HTTP Server Banner Enumeration","This script tries to detect / enumerate different HTTP server
+  banner (e.g. from a frontend, backend or proxy server) by sending various different HTTP requests
+  (valid and invalid ones).","It was possible to enumerate the following HTTP server banner(s):
+
+Server banner                                                    | Enumeration technique
+-----------------------------------------------------------------------------------------------------------------------------------
+Server: Apache/2.2.34 (Unix) mod_ssl/2.2.34 OpenSSL/1.0.1t DAV/2 | Invalid HTTP 00.5 GET request (non-existent HTTP version) to '/'
+",1.3.6.1.4.1.25623.1.0.108708,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:33:09Z,9572834c-881e-4c97-9275-a52d0eaf568d,"","","","","
+Details:
+HTTP Server Banner Enumeration
+(OID: 1.3.6.1.4.1.25623.1.0.108708)
+Version used: 2025-01-31T15:39:24Z
+","","","",""
+172.31.1.9,apache22.trabalho_vulnnet,80,tcp,0.0,Log,80,"","HTTP Server type and version","This script detects and reports the HTTP Server's banner
+  which might provide the type and version of it.","The remote HTTP Server banner is:
+
+Server: Apache/2.2.34 (Unix) mod_ssl/2.2.34 OpenSSL/1.0.1t DAV/2
+",1.3.6.1.4.1.25623.1.0.10107,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:33:09Z,2185a386-9158-4a2e-80b0-9069a133fa3f,"","","","","
+Details:
+HTTP Server type and version
+(OID: 1.3.6.1.4.1.25623.1.0.10107)
+Version used: 2023-08-01T13:29:10Z
+","","","",""
+172.31.1.9,apache22.trabalho_vulnnet,,,2.1,Low,80,"Mitigation","ICMP Timestamp Reply Information Disclosure","The remote host responded to an ICMP timestamp request.","The following response / ICMP packet has been received:
+- ICMP Type: 14
+- ICMP Code: 0
+",1.3.6.1.4.1.25623.1.0.103190,"CVE-1999-0524",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:33:09Z,72c415a5-8302-4ffb-aad1-1ad80368040a,"This information could theoretically be used to exploit weak
+  time-based random number generators in other services.","Various mitigations are possible:
+
+  - Disable the support for ICMP timestamp on the remote host completely
+
+  - Protect the remote host by a firewall, and block ICMP packets passing through the firewall in
+  either direction (either completely or only for untrusted networks)","","The Timestamp Reply is an ICMP message which replies to a
+  Timestamp message. It consists of the originating timestamp sent by the sender of the Timestamp as
+  well as a receive timestamp and a transmit timestamp.","Sends an ICMP Timestamp (Type 13) request and checks if a
+  Timestamp Reply (Type 14) is received.
+Details:
+ICMP Timestamp Reply Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.103190)
+Version used: 2025-01-21T05:37:33Z
+","","","DFN-CERT-2014-0658,CB-K15/1514,CB-K14/0632",""
+172.31.1.9,apache22.trabalho_vulnnet,,,0.0,Log,70,"","IP Forwarding Enabled - Active Check","Checks if the remote host has IP forwarding enabled.","It was possible to route a TCP packet through the target host and received an answer which means IP forwarding is enabled.
+",1.3.6.1.4.1.25623.1.0.147205,"CVE-1999-0511",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:33:09Z,3a636935-665e-4aee-96bb-941bbe750536,"","","","","Sends a crafted Local Link Layer (LLL) frame and checks the
+  response.
+Details:
+IP Forwarding Enabled - Active Check
+(OID: 1.3.6.1.4.1.25623.1.0.147205)
+Version used: 2021-12-03T08:27:06Z
+","","","",""
+172.31.1.9,apache22.trabalho_vulnnet,80,tcp,5.3,Medium,30,"VendorFix","OpenSSL OOB read Security Bypass Vulnerability - Linux","OpenSSL is prone to an 'OOB read' security bypass vulnerability.","Installed version: 1.0.1t
+Fixed version:     1.1.0g-dev or 1.0.2m-dev
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.811720,"CVE-2017-3735",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:33:09Z,f345a443-b60f-4e87-bbef-921f4a120515,"Successfully exploiting this issue will allow
+  attackers to bypass security restrictions and perform unauthorized actions,
+  this may aid in launching further attacks.","Upgrade to OpenSSL version 1.1.0g-dev or
+  1.0.2m-dev or later.","OpenSSL 1.1.0x prior to 1.1.0g-dev, 1.0.2x
+  prior to 1.0.2m-dev, all 1.0.1x, all 0.9.8x and all 1.0.0x versions.","The flaw exists as OpenSSL could do a
+  one-byte buffer overread if an X.509 certificate has a malformed
+  IPAddressFamily extension.","Checks if a vulnerable version is present on the target host.
+Details:
+OpenSSL 'OOB read' Security Bypass Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.811720)
+Version used: 2024-02-15T05:05:40Z
+","Product: cpe:/a:openssl:openssl:1.0.1t
+Method: OpenSSL Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145462)
+","","DFN-CERT-2019-1722,DFN-CERT-2019-1285,DFN-CERT-2019-1108,DFN-CERT-2018-2210,DFN-CERT-2018-1410,DFN-CERT-2018-1408,DFN-CERT-2018-0736,DFN-CERT-2018-0729,DFN-CERT-2018-0696,DFN-CERT-2018-0223,DFN-CERT-2018-0106,DFN-CERT-2018-0104,DFN-CERT-2018-0101,DFN-CERT-2018-0064,DFN-CERT-2017-2211,DFN-CERT-2017-1512,DFN-CERT-2017-0272,WID-SEC-2026-0180,WID-SEC-2025-1212,WID-SEC-2024-2008,WID-SEC-2024-0207,WID-SEC-2023-1594,WID-SEC-2022-0673,CB-K22/0045,CB-K18/1075,CB-K18/0808,CB-K18/0607,CB-K18/0605,CB-K18/0602,CB-K18/0205,CB-K18/0099,CB-K18/0097,CB-K18/0096,CB-K18/0057,CB-K17/2117,CB-K17/1446,CB-K17/0267",""
+172.31.1.9,apache22.trabalho_vulnnet,80,tcp,7.5,High,30,"VendorFix","OpenSSL Death Alert Denial of Service Vulnerability - Linux","OpenSSL is prone to a Denial of Service (DoS) vulnerability.","Installed version: 1.0.1t
+Fixed version:     1.1.0b or 1.0.2j
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.809778,"CVE-2016-8610",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:33:09Z,006390be-34b8-4b3d-9167-f5fbe80610a4,"Successful exploitation will allow a remote
+  attacker to conduct a denial of service condition.","Upgrade to OpenSSL version 1.0.2j or 1.1.0b
+  or later.","OpenSSL versions 1.1.0, 1.0.2 through 1.0.2h,
+  all 1.0.1 and all 0.9.8.","The flaw is due to an error in function
+  'ssl3_read_bytes' in ssl/s3_pkt.c script which might lead to higher CPU usage
+  due to improper handling of warning packets.","Checks if a vulnerable version is present on the target host.
+Details:
+OpenSSL Death Alert Denial of Service Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.809778)
+Version used: 2024-02-15T05:05:40Z
+","Product: cpe:/a:openssl:openssl:1.0.1t
+Method: OpenSSL Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145462)
+","","DFN-CERT-2019-2157,DFN-CERT-2019-1455,DFN-CERT-2019-1240,DFN-CERT-2018-2513,DFN-CERT-2018-2491,DFN-CERT-2018-2396,DFN-CERT-2017-1807,DFN-CERT-2017-1799,DFN-CERT-2017-1785,DFN-CERT-2017-1485,DFN-CERT-2017-1447,DFN-CERT-2017-1124,DFN-CERT-2017-0988,DFN-CERT-2017-0947,DFN-CERT-2017-0746,DFN-CERT-2017-0385,DFN-CERT-2017-0307,DFN-CERT-2017-0272,DFN-CERT-2017-0219,DFN-CERT-2017-0205,DFN-CERT-2017-0196,DFN-CERT-2017-0185,DFN-CERT-2017-0178,DFN-CERT-2017-0162,DFN-CERT-2016-1797,WID-SEC-2026-0180,CB-K20/1023,CB-K20/0321,CB-K20/0314,CB-K19/0618,CB-K19/0615,CB-K17/1725,CB-K17/1716,CB-K17/1709,CB-K17/1423,CB-K17/1385,CB-K17/1092,CB-K17/0955,CB-K17/0917,CB-K17/0724,CB-K17/0380,CB-K17/0302,CB-K17/0267,CB-K17/0214,CB-K17/0203,CB-K17/0190,CB-K17/0181,CB-K17/0175,CB-K17/0158,CB-K16/1694",""
+172.31.1.9,apache22.trabalho_vulnnet,,,0.0,Log,80,"","OpenSSL Detection Consolidation","Consolidation of OpenSSL detections.","Detected OpenSSL
+
+Version:       1.0.1t
+Location:      80/tcp
+CPE:           cpe:/a:openssl:openssl:1.0.1t
+
+Concluded from version/product identification result:
+Server: Apache/2.2.34 (Unix) mod_ssl/2.2.34 OpenSSL/1.0.1t DAV/2
+",1.3.6.1.4.1.25623.1.0.145462,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:33:09Z,10c4be26-0f04-495b-b638-e688ffd17db1,"","","","","Note: Depending on the install method of OpenSSL on the target
+  host multiple detection and vulnerability results for the same version / installation needs to be
+  expected.
+Details:
+OpenSSL Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145462)
+Version used: 2025-07-09T05:43:50Z
+","","","",""
+172.31.1.9,apache22.trabalho_vulnnet,80,tcp,7.5,High,30,"VendorFix","OpenSSL Multiple Vulnerabilities (Feb 2017)","OpenSSL is prone to multiple vulnerabilities.","Installed version: 1.0.1t
+Fixed version:     1.0.2k
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.810542,"CVE-2017-3731,CVE-2017-3732",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:33:09Z,e5c579f1-e485-4ac4-93ec-891a70ce17ee,"Successful exploitation will allow a remote
+  attacker to conduct a denial of service attack and produce incorrect results.","Upgrade to OpenSSL version 1.1.0d or
+  1.0.2k or later.","OpenSSL 1.1.0 before 1.1.0d and
+  1.0.2 before 1.0.2k","Multiple flaws exist due to:
+
+  - An out-of-bounds read error while using a specific cipher.
+
+  - A carry propagating bug in the x86_64 Montgomery squaring procedure.","Checks if a vulnerable version is present on the target host.
+Details:
+OpenSSL Multiple Vulnerabilities (Feb 2017)
+(OID: 1.3.6.1.4.1.25623.1.0.810542)
+Version used: 2024-02-20T05:05:48Z
+","Product: cpe:/a:openssl:openssl:1.0.1t
+Method: OpenSSL Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145462)
+","","DFN-CERT-2019-0228,DFN-CERT-2018-1907,DFN-CERT-2018-1675,DFN-CERT-2018-1377,DFN-CERT-2018-1048,DFN-CERT-2018-1036,DFN-CERT-2018-0952,DFN-CERT-2018-0620,DFN-CERT-2018-0512,DFN-CERT-2018-0323,DFN-CERT-2018-0100,DFN-CERT-2018-0011,DFN-CERT-2017-1972,DFN-CERT-2017-1831,DFN-CERT-2017-1830,DFN-CERT-2017-1828,DFN-CERT-2017-1827,DFN-CERT-2017-1807,DFN-CERT-2017-1785,DFN-CERT-2017-1244,DFN-CERT-2017-1243,DFN-CERT-2017-1236,DFN-CERT-2017-0925,DFN-CERT-2017-0746,DFN-CERT-2017-0675,DFN-CERT-2017-0673,DFN-CERT-2017-0608,DFN-CERT-2017-0314,DFN-CERT-2017-0313,DFN-CERT-2017-0307,DFN-CERT-2017-0301,DFN-CERT-2017-0272,DFN-CERT-2017-0219,DFN-CERT-2017-0178,DFN-CERT-2017-0162,DFN-CERT-2017-0156,WID-SEC-2025-1459,WID-SEC-2025-1212,WID-SEC-2023-1594,WID-SEC-2022-1914,WID-SEC-2022-0673,CB-K22/0045,CB-K19/0354,CB-K18/0482,CB-K18/0296,CB-K18/0098,CB-K18/0006,CB-K17/1892,CB-K17/1753,CB-K17/1749,CB-K17/1748,CB-K17/1747,CB-K17/1725,CB-K17/1709,CB-K17/1205,CB-K17/1204,CB-K17/1198,CB-K17/0896,CB-K17/0724,CB-K17/0659,CB-K17/0657,CB-K17/0583,CB-K17/0308,CB-K17/0307,CB-K17/0302,CB-K17/0289,CB-K17/0267,CB-K17/0214,CB-K17/0175,CB-K17/0158,CB-K17/0153",""
+172.31.1.9,apache22.trabalho_vulnnet,80,tcp,7.5,High,30,"VendorFix","OpenSSL OCSP Status Request extension unbounded memory growth Vulnerability - Linux","OpenSSL is prone to a Denial of Service (DoS) vulnerability.","Installed version: 1.0.1t
+Fixed version:     1.0.1u
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.107050,"CVE-2016-6304",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:33:09Z,055f98c7-1416-4ff2-9fed-cf9f555878ff,"Successful exploitation could result in service crash.","OpenSSL 1.1.0 users should upgrade to 1.1.0a. OpenSSL 1.0.2 users should upgrade to 1.0.2i. OpenSSL 1.0.1 users should upgrade to 1.0.1u.","OpenSSL 1.1.0 and previous versions.","OpenSSL suffers from the possibility of DoS attack through sending a large OCSP Status
+  Request extensions which lead to unbounded memory growth on the server which in turn lead to denial of service.","Checks if a vulnerable version is present on the target host.
+Details:
+OpenSSL OCSP Status Request extension unbounded memory growth Vulnerability ...
+(OID: 1.3.6.1.4.1.25623.1.0.107050)
+Version used: 2024-02-15T05:05:40Z
+","Product: cpe:/a:openssl:openssl:1.0.1t
+Method: OpenSSL Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145462)
+","","DFN-CERT-2018-0323,DFN-CERT-2017-1831,DFN-CERT-2017-1785,DFN-CERT-2017-1485,DFN-CERT-2017-1239,DFN-CERT-2017-1124,DFN-CERT-2017-0988,DFN-CERT-2017-0947,DFN-CERT-2017-0677,DFN-CERT-2017-0675,DFN-CERT-2017-0090,DFN-CERT-2017-0089,DFN-CERT-2017-0086,DFN-CERT-2016-2063,DFN-CERT-2016-1943,DFN-CERT-2016-1937,DFN-CERT-2016-1898,DFN-CERT-2016-1859,DFN-CERT-2016-1734,DFN-CERT-2016-1732,DFN-CERT-2016-1726,DFN-CERT-2016-1715,DFN-CERT-2016-1714,DFN-CERT-2016-1588,DFN-CERT-2016-1555,WID-SEC-2026-0180,WID-SEC-2024-1277,WID-SEC-2024-0209,CB-K18/0296,CB-K17/1753,CB-K17/1709,CB-K17/1423,CB-K17/1202,CB-K17/1092,CB-K17/0955,CB-K17/0917,CB-K17/0661,CB-K17/0657,CB-K17/0098,CB-K17/0086,CB-K17/0082,CB-K16/1958,CB-K16/1837,CB-K16/1830,CB-K16/1784,CB-K16/1755,CB-K16/1638,CB-K16/1635,CB-K16/1630,CB-K16/1624,CB-K16/1622,CB-K16/1500,CB-K16/1465",""
+172.31.1.9,apache22.trabalho_vulnnet,80,tcp,5.5,Medium,30,"VendorFix","OpenSSL: Information Disclosure Vulnerability (CVE-2016-7056) - Linux","OpenSSL is prone to an information disclosure vulnerability.","Installed version: 1.0.1t
+Fixed version:     1.1.0 or 1.0.2
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.813794,"CVE-2016-7056",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:33:09Z,aef8e0ad-529b-4cf1-bcca-e610e4235a16,"Successful exploitation will allow a malicious
+  user with local access to recover ECDSA P-256 private keys.","Upgrade to OpenSSL version 1.1.0 or 1.0.2
+  or later. See the references for more details.","OpenSSL versions 1.0.1u and prior.","The flaw exists due to an insufficient setting
+  in the 'BN_FLG_CONSTTIME' flag for nonces, which could trigger a failure to take
+  a secure code path in the BN_mod_inverse method that results in a cache-timing
+  condition.","Checks if a vulnerable version is present on the target host.
+Details:
+OpenSSL: Information Disclosure Vulnerability (CVE-2016-7056) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.813794)
+Version used: 2024-02-19T05:05:57Z
+","Product: cpe:/a:openssl:openssl:1.0.1t
+Method: OpenSSL Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145462)
+","","DFN-CERT-2018-0323,DFN-CERT-2017-1785,DFN-CERT-2017-0988,DFN-CERT-2017-0820,DFN-CERT-2017-0797,DFN-CERT-2017-0742,DFN-CERT-2017-0532,DFN-CERT-2017-0385,DFN-CERT-2017-0272,DFN-CERT-2017-0178,DFN-CERT-2017-0162,DFN-CERT-2017-0027,WID-SEC-2026-0180,CB-K18/0296,CB-K17/1709,CB-K17/0955,CB-K17/0792,CB-K17/0772,CB-K17/0727,CB-K17/0527,CB-K17/0380,CB-K17/0267,CB-K17/0175,CB-K17/0158,CB-K17/0026",""
+172.31.1.9,apache22.trabalho_vulnnet,80,tcp,7.5,High,30,"VendorFix","OpenSSL: Integer overflow in CipherUpdate (CVE-2021-23840) - Linux","OpenSSL is prone to an integer overflow vulnerability.","Installed version: 1.0.1t
+Fixed version:     1.0.2y / 1.1.1j
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.145407,"CVE-2021-23840",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:33:09Z,f59cf296-9846-4add-b63a-545743c499da,"This vulnerability could cause applications to behave incorrectly or crash.","Update to version 1.0.2y, 1.1.1j or later. See the references for
+  more details.","OpenSSL versions 1.0.2x and prior and 1.1.1i and prior.","Calls to EVP_CipherUpdate, EVP_EncryptUpdate and EVP_DecryptUpdate may
+  overflow the output length argument in some cases where the input length is close to the maximum permissible
+  length for an integer on the platform. In such cases the return value from the function call will be 1
+  (indicating success), but the output length value will be negative.","Checks if a vulnerable version is present on the target host.
+Details:
+OpenSSL: Integer overflow in CipherUpdate (CVE-2021-23840) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.145407)
+Version used: 2021-08-30T10:29:27Z
+","Product: cpe:/a:openssl:openssl:1.0.1t
+Method: OpenSSL Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145462)
+","","DFN-CERT-2024-2451,DFN-CERT-2022-1582,DFN-CERT-2022-1571,DFN-CERT-2022-1215,DFN-CERT-2022-0121,DFN-CERT-2022-0076,DFN-CERT-2021-2527,DFN-CERT-2021-2394,DFN-CERT-2021-2223,DFN-CERT-2021-2216,DFN-CERT-2021-2214,DFN-CERT-2021-1996,DFN-CERT-2021-1803,DFN-CERT-2021-1670,DFN-CERT-2021-1547,DFN-CERT-2021-1418,DFN-CERT-2021-1061,DFN-CERT-2021-0862,DFN-CERT-2021-0829,DFN-CERT-2021-0818,DFN-CERT-2021-0806,DFN-CERT-2021-0740,DFN-CERT-2021-0409,DFN-CERT-2021-0379,DFN-CERT-2021-0363,WID-SEC-2026-0180,WID-SEC-2024-0794,WID-SEC-2022-1894,WID-SEC-2022-1320,WID-SEC-2022-0676,WID-SEC-2022-0669,WID-SEC-2022-0602,CB-K22/0061,CB-K21/0389,CB-K21/0185",""
+172.31.1.9,apache22.trabalho_vulnnet,80,tcp,5.9,Medium,30,"VendorFix","OpenSSL: Null pointer deref in X509_issuer_and_serial_hash() (CVE-2021-23841) - Linux","OpenSSL is prone to a denial of service (DoS) vulnerability.","Installed version: 1.0.1t
+Fixed version:     1.0.2y / 1.1.1j
+Installation
+path / port:       80/tcp
+
+",1.3.6.1.4.1.25623.1.0.145403,"CVE-2021-23841",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:33:09Z,fd34145e-cbc1-4fbc-bad8-74b05c0a7108,"This vulnerability may subsequently result in a NULL pointer deref and a
+  crash leading to a potential denial of service attack.","Update to version 1.0.2y, 1.1.1j or later. See the references for
+  more details.","OpenSSL version 1.0.2x and prior and 1.1.1i and prior.","The OpenSSL public API function X509_issuer_and_serial_hash() attempts to
+  create a unique hash value based on the issuer and serial number data contained within an X509 certificate.
+  However it fails to correctly handle any errors that may occur while parsing the issuer field (which might
+  occur if the issuer field is maliciously constructed).","Checks if a vulnerable version is present on the target host.
+Details:
+OpenSSL: Null pointer deref in X509_issuer_and_serial_hash() (CVE-2021-23841...
+(OID: 1.3.6.1.4.1.25623.1.0.145403)
+Version used: 2021-08-30T10:29:27Z
+","Product: cpe:/a:openssl:openssl:1.0.1t
+Method: OpenSSL Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145462)
+","","DFN-CERT-2022-1582,DFN-CERT-2022-1571,DFN-CERT-2022-1215,DFN-CERT-2022-0076,DFN-CERT-2021-2527,DFN-CERT-2021-2394,DFN-CERT-2021-2216,DFN-CERT-2021-2214,DFN-CERT-2021-2190,DFN-CERT-2021-1803,DFN-CERT-2021-1670,DFN-CERT-2021-1547,DFN-CERT-2021-1418,DFN-CERT-2021-1132,DFN-CERT-2021-1129,DFN-CERT-2021-1128,DFN-CERT-2021-0862,DFN-CERT-2021-0821,DFN-CERT-2021-0818,DFN-CERT-2021-0806,DFN-CERT-2021-0740,DFN-CERT-2021-0408,DFN-CERT-2021-0379,DFN-CERT-2021-0363,WID-SEC-2026-0180,WID-SEC-2024-0794,WID-SEC-2023-0065,WID-SEC-2022-1303,WID-SEC-2022-0676,WID-SEC-2022-0669,WID-SEC-2022-0602,CB-K21/0573,CB-K21/0572,CB-K21/0565,CB-K21/0421,CB-K21/0412,CB-K21/0389,CB-K21/0185",""
+172.31.1.9,apache22.trabalho_vulnnet,,,0.0,Log,80,"","OS Detection Consolidation and Reporting","This script consolidates the OS information detected by several
+  VTs and tries to find the best matching OS.
+
+  Furthermore it reports all previously collected information leading to this best matching OS. It
+  also reports possible additional information which might help to improve the OS detection.
+
+  If any of this information is wrong or could be improved please consider to report these to the
+  referenced community forum.","Best matching OS:
+
+OS:           Linux/Unix
+CPE:          cpe:/o:linux:kernel
+Found by VT:  1.3.6.1.4.1.25623.1.0.111067 (Operating System (OS) Detection (HTTP))
+Concluded from HTTP Server banner on port 80/tcp: Server: Apache/2.2.34 (Unix) mod_ssl/2.2.34 OpenSSL/1.0.1t DAV/2
+Setting key ""Host/runs_unixoide"" based on this information
+",1.3.6.1.4.1.25623.1.0.105937,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:33:09Z,a547bfee-af74-45ad-9345-85763a7e851b,"","","","","
+Details:
+OS Detection Consolidation and Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.105937)
+Version used: 2026-01-21T05:50:46Z
+","","","",""
+172.31.1.9,apache22.trabalho_vulnnet,80,tcp,0.0,Log,80,"","Services","This plugin performs service detection.","A web server is running on this port
+",1.3.6.1.4.1.25623.1.0.10330,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:33:09Z,51962ac1-aafa-48bf-b612-abed0bdc4adc,"","","","This plugin attempts to guess which service is running on the
+  remote port(s). For instance, it searches for a web server which could listen on another port than
+  80 or 443 and makes this information available for other check routines.","
+Details:
+Services
+(OID: 1.3.6.1.4.1.25623.1.0.10330)
+Version used: 2025-03-05T05:38:53Z
+","","","",""
+172.31.1.9,apache22.trabalho_vulnnet,,,2.6,Low,80,"Mitigation","TCP Timestamps Information Disclosure","The remote host implements TCP timestamps and therefore allows
+  to compute the uptime.","It was detected that the host implements RFC1323/RFC7323.
+
+The following timestamps were retrieved with a delay of 1 seconds in-between:
+Packet 1: 3280428127
+Packet 2: 3280429207
+",1.3.6.1.4.1.25623.1.0.80091,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:33:09Z,4cb779f3-61b4-4019-9c2b-67ec30ff479c,"A side effect of this feature is that the uptime of the remote
+  host can sometimes be computed.","To disable TCP timestamps on linux add the line
+  'net.ipv4.tcp_timestamps = 0' to /etc/sysctl.conf. Execute 'sysctl -p' to apply the settings at
+  runtime.
+
+  To disable TCP timestamps on Windows execute 'netsh int tcp set global timestamps=disabled'
+
+  Starting with Windows Server 2008 and Vista, the timestamp can not be completely disabled.
+
+  The default behavior of the TCP/IP stack on this Systems is to not use the Timestamp options when
+  initiating TCP connections, but use them if the TCP peer that is initiating communication includes
+  them in their synchronize (SYN) segment.
+
+  See the references for more information.","TCP implementations that implement RFC1323/RFC7323.","The remote host implements TCP timestamps, as defined by
+  RFC1323/RFC7323.","Special IP packets are forged and sent with a little delay in
+  between to the target IP. The responses are searched for a timestamps. If found, the timestamps
+  are reported.
+Details:
+TCP Timestamps Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.80091)
+Version used: 2023-12-15T16:10:08Z
+","","","",""
+172.31.1.9,apache22.trabalho_vulnnet,,,0.0,Log,80,"","Traceroute","Collect information about the network route and
+  network distance between the scanner host and the target host.","Network route from scanner (172.30.0.2) to target (172.31.1.9):
+
+172.30.0.2
+172.31.1.9
+
+Network distance between scanner and target: 2
+",1.3.6.1.4.1.25623.1.0.51662,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:33:09Z,5e753d83-ed9e-461c-8e50-f9ca3eb36729,"","","","For internal networks, the distances are usually
+  small, often less than 4 hosts between scanner and target. For public targets the
+  distance is greater and might be 10 hosts or more.","A combination of the protocols ICMP and TCP is used
+  to determine the route. This method is applicable for IPv4 only and it is also known as
+  'traceroute'.
+Details:
+Traceroute
+(OID: 1.3.6.1.4.1.25623.1.0.51662)
+Version used: 2022-10-17T11:13:19Z
+","","","",""
+172.31.1.9,apache22.trabalho_vulnnet,80,tcp,0.0,Log,80,"","Web Application Scanning Consolidation / Info Reporting","The script consolidates and reports various information for web
+  application (formerly called 'CGI') scanning.
+
+  This information is based on the following scripts / settings:
+
+  - HTTP-Version Detection (OID: 1.3.6.1.4.1.25623.1.0.100034)
+
+  - No 404 check (OID: 1.3.6.1.4.1.25623.1.0.10386)
+
+  - Web mirroring / webmirror.nasl (OID: 1.3.6.1.4.1.25623.1.0.10662)
+
+  - Directory Scanner / DDI_Directory_Scanner.nasl (OID: 1.3.6.1.4.1.25623.1.0.11032)
+
+  - The configured 'cgi_path' within the 'Scanner Preferences' of the scan config in use
+
+  - The configured 'Enable CGI scanning', 'Enable generic web application scanning' and
+  'Add historic /scripts and /cgi-bin to directories for CGI scanning' within the
+  'Global variable settings' of the scan config in use
+
+  If you think any of this information is wrong please report it to the referenced community
+  forum.","The Hostname/IP ""apache22.trabalho_vulnnet"" was used to access the remote host.
+
+Generic web application scanning is disabled for this host via the ""Enable generic web application scanning"" option within the ""Global variable settings"" of the scan config in use.
+
+Requests to this service are done via HTTP/1.1.
+
+This service seems to be able to host PHP scripts.
+
+This service seems to be able to host ASP scripts.
+
+The User-Agent ""Mozilla/5.0 [en] (X11, U; OpenVAS-VT <version replaced>)"" was used to access the remote host.
+
+Historic /scripts and /cgi-bin are not added to the directories used for web application scanning. You can enable this again with the ""Add historic /scripts and /cgi-bin to directories for CGI scanning"" option within the ""Global variable settings"" of the scan config in use.
+
+The following directories were used for web application scanning:
+
+http://apache22.trabalho_vulnnet/
+
+While this is not, in and of itself, a bug, you should manually inspect these directories to ensure that they are in compliance with company security standards
+",1.3.6.1.4.1.25623.1.0.111038,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T10:33:09Z,c49a3efc-e4ce-4dd2-ad24-676a177731ae,"","","","","
+Details:
+Web Application Scanning Consolidation / Info Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.111038)
+Version used: 2026-01-13T05:47:36Z
+","","","",""

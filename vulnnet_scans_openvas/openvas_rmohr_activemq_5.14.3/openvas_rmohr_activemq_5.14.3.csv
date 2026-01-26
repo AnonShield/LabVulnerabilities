@@ -1,0 +1,868 @@
+IP,Hostname,Port,Port Protocol,CVSS,Severity,QoD,Solution Type,NVT Name,Summary,Specific Result,NVT OID,CVEs,Task ID,Task Name,Timestamp,Result ID,Impact,Solution,Affected Software/OS,Vulnerability Insight,Vulnerability Detection Method,Product Detection Result,BIDs,CERTs,Other References
+      172.31.1.61,activemq514.trabalho_vulnnet,8161,tcp,0.0,Log,70,"","Allowed HTTP Methods Enumeration","Enumerates which HTTP methods are allowed.","The following list contains the URLs and corresponding supported HTTP methods.
+
+URL                                       | HTTP Methods
+--------------------------------------------------------
+http://activemq514.trabalho_vulnnet:8161/ | GET,HEAD
+",1.3.6.1.4.1.25623.1.0.153974,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,34f53aeb-620a-41ec-b8b7-26c7916e1c8e,"","","","'- Basic HTTP methods: GET, HEAD, POST, PUT, DELETE, CONNECT,
+  OPTIONS, TRACE
+
+  - Extended HTTP methods: ACL, BASELINE-CONTROL, BIND, CHECKIN, CHECKOUT, COPY, LABEL, LINK, LOCK,
+  MERGE, MKACTIVITY, MKCALENDAR, MKCOL, MKREDIRECTREF, MKWORKSPACE, MOVE, ORDERPATCH, PATCH, PRI,
+  PROPFIND, PROPPATCH, REBIND, REPORT, SEARCH, UNBIND, UNCHECKOUT, UNLINK, UNLOCK, UPDATE,
+  UPDATEREDIRECTREF, VERSION-CONTROL","Sends multiple HTTP requests and checks the responses.
+
+  Disclaimer:
+
+  - This enumeration script is provided 'as is' (means no support is given) and only providing
+  rudimentary information about the possible enabled methods
+
+  - This script doesn't guarantee completeness or full reliability
+
+  For more reliable determination of the enabled HTTP methods please inspect the configuration of
+  the web server manually and directly on the target host.
+Details:
+Allowed HTTP Methods Enumeration
+(OID: 1.3.6.1.4.1.25623.1.0.153974)
+Version used: 2025-02-28T05:38:49Z
+","","","",""
+172.31.1.61,activemq514.trabalho_vulnnet,,,0.0,Log,80,"","Apache ActiveMQ Detection Consolidation","Consolidation of Apache ActiveMQ detections.","Detected Apache ActiveMQ
+
+Version:       unknown
+Location:      /
+CPE:           cpe:/a:apache:activemq
+
+Detection methods:
+
+HTTP(s) on port 8161/tcp
+  Concluded from version/product identification location: http://activemq514.trabalho_vulnnet:8161/admin/index.jsp
+
+",1.3.6.1.4.1.25623.1.0.143776,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,e31ec0a0-5e38-4e92-95a0-03be64dd036a,"","","","","
+Details:
+Apache ActiveMQ Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.143776)
+Version used: 2024-07-03T06:48:05Z
+","","","",""
+172.31.1.61,activemq514.trabalho_vulnnet,8161,tcp,4.8,Medium,80,"Workaround","Cleartext Transmission of Sensitive Information via HTTP","The host / application transmits sensitive information (username, passwords) in
+  cleartext via HTTP.","The following URLs requires Basic Authentication (URL:realm name):
+
+http://activemq514.trabalho_vulnnet:8161/admin/:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/SecureDocumentLibrary/DocumentLibraryManager:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/SecureDocumentLibrary:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/airflow/login:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/airflow:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/ckeditor/plugins/ajaxplorer/phpunit/src/Util/PHP:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/ckeditor/plugins/ajaxplorer/phpunit/src/Util:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/ckeditor/plugins/ajaxplorer/phpunit/src:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/ckeditor/plugins/ajaxplorer/phpunit:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/ckeditor/plugins/ajaxplorer:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/ckeditor/plugins:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/ckeditor:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/configurationview:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/fckeditor:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/help:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/helpfiles:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/htmleditor:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/lib/cisco:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/lib/cpm:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/lib/dijit:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/lib/dojo:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/lib/dojox:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/lib/gradient:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/lib/wap:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/lib/xwt:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/lib:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/login:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/ng/nls:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/ng/v3:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/ng:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/pages/modules:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/pages/utils:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/pages:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/prelogin:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/public:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/rs/uiapi:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/rs/wap:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/rs:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/scripts:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/vendor/adminLTE:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/vendor/bootstrap:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/vendor/fonts:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/vendor/nprogress:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/vendor/phpunit/phpunit/src/Util/PHP:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/vendor/phpunit/phpunit/src/Util:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/vendor/phpunit/phpunit/src:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/vendor/phpunit/phpunit:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/vendor/phpunit:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin/vendor:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/admin:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/1:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/2.0/services/usermgmt/password:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/2.0/services/usermgmt:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/2.0/services:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/2.0:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/2.1/rest:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/2.1:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/2:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/ApplicationService:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/Image/withpath:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/Image:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/agent/tabs:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/agent:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/atlas/admin:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/atlas:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/config/class:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/config:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/core:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/error:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/explorer:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/hassio/app:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/hassio:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/hassio_ingress:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/history:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/json/nfausers:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/json:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/jsonws:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/ldap/config/ldapTreeNodeChildren:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/ldap/config:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/ldap:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/logbook:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/onboarding:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/platform:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/repos/dashboards:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/repos:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/sonicos:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/swaggerui/static:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/swaggerui:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/system/v1:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/system:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/user:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/userrolelist:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/v1.0:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/v1/authentication/connection-token:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/v1/authentication:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/v1/files:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/v1/folders:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/v1/node:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/v1/reverse-proxy:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/v1/status:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/v1/terminal/sessions:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/v1/terminal:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/v1/users/connection-token:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/v1/users:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/v1:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/v2.0:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/v2:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/v3.0:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/v3:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/v4.0:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/v4/teams:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/v4/users/me/teams:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/v4/users/me:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/v4/users:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/v4:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/v5.0:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/v5:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/vendor/phpunit/phpunit/src/Util/PHP:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/vendor/phpunit/phpunit/src/Util:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/vendor/phpunit/phpunit/src:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/vendor/phpunit/phpunit:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/vendor/phpunit:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/vendor:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/vppv2:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api/workflows:""ActiveMQRealm""
+http://activemq514.trabalho_vulnnet:8161/api:""ActiveMQRealm""
+",1.3.6.1.4.1.25623.1.0.108440,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,8a6a4bbf-57b6-43ba-8231-a30211c3e0c9,"An attacker could use this situation to compromise or eavesdrop on the
+  HTTP communication between the client and the server using a man-in-the-middle attack to get access to
+  sensitive data like usernames or passwords.","Enforce the transmission of sensitive data via an encrypted SSL/TLS connection.
+  Additionally make sure the host / application is redirecting all users to the secured SSL/TLS connection before
+  allowing to input sensitive data into the mentioned functions.","Hosts / applications which doesn't enforce the transmission of sensitive data via an
+  encrypted SSL/TLS connection.","","Evaluate previous collected information and check if the host / application is not
+  enforcing the transmission of sensitive data via an encrypted SSL/TLS connection.
+
+  The script is currently checking the following:
+
+  - HTTP Basic Authentication (Basic Auth)
+
+  - HTTP Forms (e.g. Login) with input field of type 'password'
+Details:
+Cleartext Transmission of Sensitive Information via HTTP
+(OID: 1.3.6.1.4.1.25623.1.0.108440)
+Version used: 2023-09-07T05:05:21Z
+","","","",""
+172.31.1.61,activemq514.trabalho_vulnnet,,,0.0,Log,80,"","CPE Inventory","This routine uses information collected by other routines about
+  CPE identities of operating systems, services and applications detected during the scan.
+
+  Note: Some CPEs for specific products might show up twice or more in the output. Background:
+
+  After a product got renamed or a specific vendor was acquired by another one it might happen that
+  a product gets a new CPE within the NVD CPE Dictionary but older entries are kept with the older
+  CPE.","172.31.1.61|cpe:/a:apache:activemq
+172.31.1.61|cpe:/a:eclipse:jetty:9.2.13.20150730
+172.31.1.61|cpe:/o:linux:kernel
+
+",1.3.6.1.4.1.25623.1.0.810002,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,a69793b9-fb2c-441d-a459-bf3e126d7f12,"","","","","
+Details:
+CPE Inventory
+(OID: 1.3.6.1.4.1.25623.1.0.810002)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.31.1.61,activemq514.trabalho_vulnnet,8161,tcp,3.1,Low,30,"VendorFix","Eclipse Jetty CgiServlet Vulnerability (GHSA-3gh6-v5v9-6v9j) - Linux","Eclipse Jetty is prone to a vulnerability in the CgiServlet.","Installed version: 9.2.13.20150730
+Fixed version:     9.4.52
+Installation
+path / port:       8161/tcp
+
+",1.3.6.1.4.1.25623.1.0.151003,"CVE-2023-36479",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,bc34008b-87ae-4e21-9922-27987e1d861d,"","Update to version 9.4.52, 10.0.16, 11.0.16 or later.","Eclipse Jetty version 9.0.0 through 9.4.51, 10.0.0 through
+  10.0.15 and 11.0.0 through 11.0.15.","Users of the CgiServlet with a very specific command structure
+  may have the wrong command executed. If a user sends a request to a
+  org.eclipse.jetty.servlets.CGI Servlet for a binary with a space in its name, the servlet will
+  escape the command by wrapping it in quotation marks. This wrapped command, plus an optional
+  command prefix, will then be executed through a call to Runtime.exec. If the original binary name
+  provided by the user contains a quotation mark followed by a space, the resulting command line
+  will contain multiple tokens instead of one.","Checks if a vulnerable version is present on the target host.
+Details:
+Eclipse Jetty CgiServlet Vulnerability (GHSA-3gh6-v5v9-6v9j) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.151003)
+Version used: 2025-05-28T05:40:15Z
+","Product: cpe:/a:eclipse:jetty:9.2.13.20150730
+Method: Mort Bay / Eclipse Jetty Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.800953)
+","","DFN-CERT-2024-1568,DFN-CERT-2024-1404,DFN-CERT-2024-1089,DFN-CERT-2024-0376,DFN-CERT-2023-3167,DFN-CERT-2023-2892,DFN-CERT-2023-2646,DFN-CERT-2023-2346,DFN-CERT-2023-2341,WID-SEC-2024-0949,WID-SEC-2024-0794,WID-SEC-2023-2359",""
+172.31.1.61,activemq514.trabalho_vulnnet,8161,tcp,7.5,High,30,"VendorFix","Eclipse Jetty DoS Vulnerability (GHSA-26vr-8j45-3r4w) - Linux","Eclipse Jetty is prone to a denial of service (DoS)
+  vulnerability.","Installed version: 9.2.13.20150730
+Fixed version:     9.4.39
+Installation
+path / port:       8161/tcp
+
+",1.3.6.1.4.1.25623.1.0.117487,"CVE-2021-28165",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,2cc0fe2d-298b-4e1a-8540-8e3ea2766ce9,"When using SSL/TLS with Jetty, either with HTTP/1.1, HTTP/2, or
+  WebSocket, the server may receive an invalid large (greater than 17408) TLS frame that is
+  incorrectly handled, causing CPU resources to eventually reach 100% usage.","Update to version 9.4.39, 10.0.2, 11.0.2 or later. See the
+  referenced vendor advisory for a possible mitigation.","Eclipse Jetty version 7.2.2 through 9.4.38, 10.0.0.alpha0
+  through 10.0.1 and 11.0.0.alpha0 through 11.0.1.","","Checks if a vulnerable version is present on the target host.
+Details:
+Eclipse Jetty DoS Vulnerability (GHSA-26vr-8j45-3r4w) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.117487)
+Version used: 2024-06-11T05:05:40Z
+","Product: cpe:/a:eclipse:jetty:9.2.13.20150730
+Method: Mort Bay / Eclipse Jetty Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.800953)
+","","DFN-CERT-2024-3084,DFN-CERT-2023-2545,DFN-CERT-2021-2152,DFN-CERT-2021-2045,DFN-CERT-2021-1780,DFN-CERT-2021-1736,DFN-CERT-2021-1728,DFN-CERT-2021-1665,DFN-CERT-2021-1475,DFN-CERT-2021-1332,DFN-CERT-2021-1103,DFN-CERT-2021-0840,DFN-CERT-2021-0832,WID-SEC-2025-2372,WID-SEC-2025-0227,WID-SEC-2024-0794,WID-SEC-2023-2993,WID-SEC-2023-2674,WID-SEC-2023-1821,WID-SEC-2022-1767,WID-SEC-2022-1365,WID-SEC-2022-1161,WID-SEC-2022-0624,WID-SEC-2022-0623,CB-K22/0071,CB-K21/1094,CB-K21/1093",""
+172.31.1.61,activemq514.trabalho_vulnnet,8161,tcp,7.5,High,30,"VendorFix","Eclipse Jetty DoS Vulnerability (GHSA-7hcf-ppf8-5w5h) - Linux","Eclipse Jetty is prone to a denial of service (DoS)
+  vulnerability.","Installed version: 9.2.13.20150730
+Fixed version:     9.4.54
+Installation
+path / port:       8161/tcp
+
+",1.3.6.1.4.1.25623.1.0.153230,"CVE-2024-9823",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,7af0f5b1-011d-4ae5-bfd8-deb8016310d0,"","Update to version 9.4.54, 10.0.18, 11.0.18, 12.0.3 or later.","Eclipse Jetty version 9.0.0 through 9.4.53, 10.0.0 through
+  10.0.17, 11.0.0 through 11.0.17 and 12.0.0 through 12.0.2.","There exists a security vulnerability in Jetty's DosFilter
+  which can be exploited by unauthorized users to cause remote denial of service (DoS) attack on
+  the server using DosFilter. By repeatedly sending crafted requests, attackers can trigger
+  OutofMemory errors and exhaust the server's memory finally.","Checks if a vulnerable version is present on the target host.
+Details:
+Eclipse Jetty DoS Vulnerability (GHSA-7hcf-ppf8-5w5h) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.153230)
+Version used: 2025-07-31T05:44:45Z
+","Product: cpe:/a:eclipse:jetty:9.2.13.20150730
+Method: Mort Bay / Eclipse Jetty Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.800953)
+","","DFN-CERT-2025-0835,DFN-CERT-2025-0825,DFN-CERT-2024-3046,WID-SEC-2024-3176",""
+172.31.1.61,activemq514.trabalho_vulnnet,8161,tcp,5.3,Medium,30,"VendorFix","Eclipse Jetty HTTP Header Vulnerability (GHSA-hmr7-m48g-48f6) - Linux","Eclipse Jetty is prone to an HTTP header vulnerability.","Installed version: 9.2.13.20150730
+Fixed version:     9.4.52
+Installation
+path / port:       8161/tcp
+
+",1.3.6.1.4.1.25623.1.0.151001,"CVE-2023-40167",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,6f9fa2cb-34ec-423a-8d32-3e187b72423c,"","Update to version 9.4.52, 10.0.16, 11.0.16, 12.0.1 or later.","Eclipse Jetty version 9.0.0 through 9.4.51, 10.0.0 through
+  10.0.15, 11.0.0 through 11.0.15 and version 12.0.0.","Jetty accepts the '+' character proceeding the content-length
+  value in a HTTP/1 header field. This is more permissive than allowed by the RFC and other servers
+  routinely reject such requests with 400 responses. There is no known exploit scenario, but it is
+  conceivable that request smuggling could result if jetty is used in combination with a server
+  that does not close the connection after sending such a 400 response.","Checks if a vulnerable version is present on the target host.
+Details:
+Eclipse Jetty HTTP Header Vulnerability (GHSA-hmr7-m48g-48f6) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.151001)
+Version used: 2024-06-11T05:05:40Z
+","Product: cpe:/a:eclipse:jetty:9.2.13.20150730
+Method: Mort Bay / Eclipse Jetty Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.800953)
+","","DFN-CERT-2024-1404,DFN-CERT-2024-1089,DFN-CERT-2024-0376,DFN-CERT-2024-0368,DFN-CERT-2023-3167,DFN-CERT-2023-3072,DFN-CERT-2023-3061,DFN-CERT-2023-2892,DFN-CERT-2023-2646,DFN-CERT-2023-2586,DFN-CERT-2023-2346,DFN-CERT-2023-2341,DFN-CERT-2023-2184,WID-SEC-2025-0810,WID-SEC-2024-1639,WID-SEC-2024-0949,WID-SEC-2024-0794,WID-SEC-2024-0106,WID-SEC-2023-3070,WID-SEC-2023-2679,WID-SEC-2023-2359",""
+172.31.1.61,activemq514.trabalho_vulnnet,8161,tcp,5.3,Medium,30,"VendorFix","Eclipse Jetty Information Disclosure Vulnerability (CVE-2019-10247) - Linux","Eclypse Jetty is prone to an information disclosure vulnerability.","Installed version: 9.2.13.20150730
+Fixed version:     9.2.28.20190418
+Installation
+path / port:       8161/tcp
+
+",1.3.6.1.4.1.25623.1.0.142309,"CVE-2019-10247",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,9f9719c6-fd19-407c-a2b9-998791ab7194,"","Update to version 9.2.28.v20190418, 9.3.27.v20190418, 9.4.17.v20190418 or
+  later.","Eclipse Jetty version 7.x and prior, 8.x, 9.2.27.v20190403 and prior,
+  9.3.26.v20190403 and prior and 9.4.16.v20190411 and prior.","The DefaultHandler will present the full path to the Resource Base directory,
+  if the server is configured with only non-root contexts.","Checks if a vulnerable version is present on the target host.
+Details:
+Eclipse Jetty Information Disclosure Vulnerability (CVE-2019-10247) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.142309)
+Version used: 2024-06-11T05:05:40Z
+","Product: cpe:/a:eclipse:jetty:9.2.13.20150730
+Method: Mort Bay / Eclipse Jetty Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.800953)
+","","DFN-CERT-2021-1728,DFN-CERT-2021-1665,DFN-CERT-2021-1043,DFN-CERT-2021-0132,DFN-CERT-2020-0779,DFN-CERT-2020-0772,DFN-CERT-2020-0595,DFN-CERT-2020-0092,WID-SEC-2023-2946,CB-K19/0909",""
+172.31.1.61,activemq514.trabalho_vulnnet,8161,tcp,5.3,Medium,30,"VendorFix","Eclipse Jetty Information Disclosure Vulnerability (GHSA-gwcr-j4wh-j3cq)","Eclipse Jetty is prone to an information disclosure vulnerability
+  in the ConcatServlet and WelcomeFilter servlet.","Installed version: 9.2.13.20150730
+Fixed version:     9.4.41
+Installation
+path / port:       8161/tcp
+
+",1.3.6.1.4.1.25623.1.0.146099,"CVE-2021-28169",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,1289a841-20b6-445c-800c-e2c03fe121d7,"","Update to version 9.4.41, 10.0.3, 11.0.3 or later.","Eclipse Jetty prior to version 9.4.41, 10.x through 10.0.2 and
+  11.x through 11.0.2.","Requests to the ConcatServlet and WelcomeFilter are able to
+  access protected resources within the WEB-INF directory. For example a request to the
+  ConcatServlet with a URI of /concat?/%2557EB-INF/web.xml can retrieve the web.xml file. This can
+  reveal sensitive information regarding the implementation of a web application.
+
+  This occurs because both ConcatServlet and WelcomeFilter decode the supplied path to verify it is
+  not within the WEB-INF or META-INF directories. It then uses this decoded path to call
+  RequestDispatcher which will also do decoding of the path. This double decoding allows paths with
+  a doubly encoded WEB-INF to bypass this security check.","Checks if a vulnerable version is present on the target host.
+Details:
+Eclipse Jetty Information Disclosure Vulnerability (GHSA-gwcr-j4wh-j3cq)
+(OID: 1.3.6.1.4.1.25623.1.0.146099)
+Version used: 2024-06-11T05:05:40Z
+","Product: cpe:/a:eclipse:jetty:9.2.13.20150730
+Method: Mort Bay / Eclipse Jetty Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.800953)
+","","DFN-CERT-2024-3084,DFN-CERT-2021-2620,DFN-CERT-2021-2186,DFN-CERT-2021-2045,DFN-CERT-2021-1780,DFN-CERT-2021-1728,DFN-CERT-2021-1665,DFN-CERT-2021-1337,DFN-CERT-2021-1332,WID-SEC-2025-0227,WID-SEC-2024-0794,WID-SEC-2022-1908,WID-SEC-2022-1595,WID-SEC-2022-1161,WID-SEC-2022-0616",""
+172.31.1.61,activemq514.trabalho_vulnnet,8161,tcp,5.3,Medium,30,"VendorFix","Eclipse Jetty Multiple Vulnerabilities (GHSA-qw69-rqj8-6qw8, GHSA-p26g-97m4-6q7c) - Linux","Eclipse Jetty is prone to multiple vulnerabilities.","Installed version: 9.2.13.20150730
+Fixed version:     9.4.51
+Installation
+path / port:       8161/tcp
+
+",1.3.6.1.4.1.25623.1.0.149569,"CVE-2023-26048,CVE-2023-26049",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,e19dbcf6-5900-4e85-9253-13c2619d61fd,"","Update to version 9.4.51, 10.0.14, 11.0.14 or later.","Eclipse Jetty version 9.4.50 and prior, version 10.0.x through
+  10.0.13 and 11.0.x through 11.0.13.","The following vulnerabilities exist:
+
+  - CVE-2023-26048: OutOfMemoryError for large multipart without filename read via
+  request.getParameter()
+
+  - CVE-2023-26049: Cookie parsing of quoted values can exfiltrate values from other cookies","Checks if a vulnerable version is present on the target host.
+Details:
+Eclipse Jetty Multiple Vulnerabilities (GHSA-qw69-rqj8-6qw8, GHSA-p26g-97m4-...
+(OID: 1.3.6.1.4.1.25623.1.0.149569)
+Version used: 2024-06-11T05:05:40Z
+","Product: cpe:/a:eclipse:jetty:9.2.13.20150730
+Method: Mort Bay / Eclipse Jetty Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.800953)
+","","DFN-CERT-2024-0391,DFN-CERT-2024-0376,DFN-CERT-2024-0368,DFN-CERT-2023-3035,DFN-CERT-2023-2537,DFN-CERT-2023-2346,DFN-CERT-2023-2341,DFN-CERT-2023-2167,DFN-CERT-2023-1648,DFN-CERT-2023-1410,WID-SEC-2024-0794,WID-SEC-2023-2688,WID-SEC-2023-2679,WID-SEC-2023-2675,WID-SEC-2023-2672,WID-SEC-2023-2625,WID-SEC-2023-1812,WID-SEC-2023-1807,WID-SEC-2023-1009",""
+172.31.1.61,activemq514.trabalho_vulnnet,8161,tcp,7.5,High,30,"VendorFix","Eclipse Jetty Multiple Vulnerabilities (Jul 2022) - Linux","Eclipse Jetty is prone to multiple vulnerabilities.","Installed version: 9.2.13.20150730
+Fixed version:     9.4.47
+Installation
+path / port:       8161/tcp
+
+",1.3.6.1.4.1.25623.1.0.148412,"CVE-2022-2047,CVE-2022-2048",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,68e26647-152c-4178-ae51-6e40a68900a1,"","Update to version 9.4.47, 10.0.10, 11.0.10 or later.","Eclipse Jetty version 9.4.46 and prior, version 10.0.x through
+  10.0.9 and 11.0.x through 11.0.9.","The following vulnerabilities exist:
+
+  - CVE-2022-2047: Invalid URI parsing may produce invalid HttpURI.authority
+
+  - CVE-2022-2048: Invalid HTTP/2 requests can lead to denial of service","Checks if a vulnerable version is present on the target host.
+Details:
+Eclipse Jetty Multiple Vulnerabilities (Jul 2022) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.148412)
+Version used: 2024-06-11T05:05:40Z
+","Product: cpe:/a:eclipse:jetty:9.2.13.20150730
+Method: Mort Bay / Eclipse Jetty Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.800953)
+","","DFN-CERT-2023-0776,DFN-CERT-2023-0661,DFN-CERT-2023-0445,DFN-CERT-2023-0112,DFN-CERT-2023-0091,DFN-CERT-2022-2708,DFN-CERT-2022-1994,DFN-CERT-2022-1706,WID-SEC-2024-0794,WID-SEC-2023-2368,WID-SEC-2023-1808,WID-SEC-2023-1017,WID-SEC-2023-0864,WID-SEC-2023-0137,WID-SEC-2023-0133,WID-SEC-2023-0027,WID-SEC-2022-1780,WID-SEC-2022-1778,WID-SEC-2022-1767,WID-SEC-2022-1766,WID-SEC-2022-1373,WID-SEC-2022-0614",""
+172.31.1.61,activemq514.trabalho_vulnnet,8161,tcp,7.0,High,30,"VendorFix","Eclipse Jetty Privilege Escalation Vulnerability - Linux","Eclipse Jetty is prone to a privilege escalation vulnerability through a
+  local temp directory.","Installed version: 9.2.13.20150730
+Fixed version:     9.4.33.20201020
+Installation
+path / port:       8161/tcp
+
+",1.3.6.1.4.1.25623.1.0.144836,"CVE-2020-27216",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,c288199a-107b-49c9-bb5f-e23839dfd9da,"","Update to version 9.4.33.v20201020, 10.0.0.beta3, 11.0.0.beta3 or later.","Eclipse Jetty version 9.4.32.v20200930 and prior, 10.0.0.beta2 and prior and
+  11.0.0.beta2 and prior.","On Unix like systems, the system's temporary directory is shared between all
+  users on that system. A collocated user can observe the process of creating a temporary sub directory in the
+  shared temporary directory and race to complete the creation of the temporary subdirectory. If the attacker wins
+  the race then they will have read and write permission to the subdirectory used to unpack web applications,
+  including their WEB-INF/lib jar files and JSP files. If any code is ever executed out of this temporary
+  directory, this can lead to a local privilege escalation vulnerability.","Checks if a vulnerable version is present on the target host.
+Details:
+Eclipse Jetty Privilege Escalation Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.144836)
+Version used: 2024-06-11T05:05:40Z
+","Product: cpe:/a:eclipse:jetty:9.2.13.20150730
+Method: Mort Bay / Eclipse Jetty Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.800953)
+","","DFN-CERT-2024-3084,DFN-CERT-2021-2196,DFN-CERT-2021-1736,DFN-CERT-2021-1728,DFN-CERT-2021-1665,DFN-CERT-2021-1429,DFN-CERT-2021-1404,DFN-CERT-2021-1043,DFN-CERT-2021-0223,DFN-CERT-2020-2681,DFN-CERT-2020-2578,WID-SEC-2024-0794,WID-SEC-2023-1547,WID-SEC-2022-1910,CB-K21/1095,CB-K21/0784",""
+172.31.1.61,activemq514.trabalho_vulnnet,8161,tcp,5.3,Medium,30,"VendorFix","Eclipse Jetty Server InvalidPathException Information Disclosure Vulnerability - Linux","Eclipse Jetty Server is prone to an information disclosure vulnerability.","Installed version: 9.2.13.20150730
+Fixed version:     9.3.24.v20180605
+Installation
+path / port:       8161/tcp
+
+",1.3.6.1.4.1.25623.1.0.813552,"CVE-2018-12536",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,953fa9ba-4eeb-4d26-8a09-91630447ef60,"Successful exploitation will allow an attacker
+  to disclose sensitive information.","Upgrade to Eclipse Jetty Server version
+  9.3.24.v20180605 or 9.4.11.v20180605 or later as per the series. Please see the references for more information.","Eclipse Jetty Server versions 9.2.x, 9.3.x
+  before 9.3.24.v20180605 and 9.4.x before 9.4.11.v20180605.","The flaw exists due to an improper handling
+  of bad queries.","Checks if a vulnerable version is present on the target host.
+Details:
+Eclipse Jetty Server InvalidPathException Information Disclosure Vulnerabili...
+(OID: 1.3.6.1.4.1.25623.1.0.813552)
+Version used: 2024-06-11T05:05:40Z
+","Product: cpe:/a:eclipse:jetty:9.2.13.20150730
+Method: Mort Bay / Eclipse Jetty Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.800953)
+","","DFN-CERT-2021-1043,DFN-CERT-2018-1285,WID-SEC-2022-0620",""
+172.31.1.61,activemq514.trabalho_vulnnet,8161,tcp,3.5,Low,30,"VendorFix","Eclipse Jetty Session Vulnerability (GHSA-m6cp-vxjx-65j6) - Linux","Eclipse Jetty is prone to a vulnerability in the session
+  management.","Installed version: 9.2.13.20150730
+Fixed version:     9.4.41.20210516
+Installation
+path / port:       8161/tcp
+
+",1.3.6.1.4.1.25623.1.0.146164,"CVE-2021-34428",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,5702ae5d-b963-40d4-9402-8f506bc79ed4,"","Update to version 9.4.41.v20210516, 10.0.3, 11.0.3 or later.","Eclipse Jetty version 9.4.40.v20210413 and prior, 10.x through
+  10.0.2 and 11.x through 11.0.2.","If an exception is thrown from the SessionListener#sessionDestroyed()
+  method, then the session ID is not invalidated in the session ID manager. On deployments with
+  clustered sessions and multiple contexts this can result in a session not being invalidated. This
+  can result in an application used on a shared computer being left logged in.","Checks if a vulnerable version is present on the target host.
+Details:
+Eclipse Jetty Session Vulnerability (GHSA-m6cp-vxjx-65j6) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.146164)
+Version used: 2024-06-11T05:05:40Z
+","Product: cpe:/a:eclipse:jetty:9.2.13.20150730
+Method: Mort Bay / Eclipse Jetty Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.800953)
+","","DFN-CERT-2024-3084,DFN-CERT-2021-2620,DFN-CERT-2021-2186,DFN-CERT-2021-2045,DFN-CERT-2021-1780,DFN-CERT-2021-1728,DFN-CERT-2021-1665,WID-SEC-2024-0794,WID-SEC-2022-1596,WID-SEC-2022-1161",""
+172.31.1.61,activemq514.trabalho_vulnnet,8161,tcp,5.3,Medium,30,"VendorFix","Eclipse Jetty URI Parsing Vulnerability (GHSA-qh8g-58pp-2wxh) - Linux","Eclipse Jetty is prone to an URI parsing vulnerability.","Installed version: 9.2.13.20150730
+Fixed version:     12.0.12
+Installation
+path / port:       8161/tcp
+
+",1.3.6.1.4.1.25623.1.0.153234,"CVE-2024-6763",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,049dbc4a-0dc3-4d58-b18a-0457bb7863eb,"","Update to version 12.0.12 or later.","Eclipse Jetty version 7.0.0 through 12.0.11.","Eclipse Jetty includes a utility class, HttpURI, for URI/URL
+  parsing.
+
+  The HttpURI class does insufficient validation on the authority segment of a URI. However the
+  behaviour of HttpURI differs from the common browsers in how it handles a URI that would be
+  considered invalid if fully validated against the RRC. Specifically HttpURI and the browser may
+  differ on the value of the host extracted from an invalid URI and thus a combination of Jetty and
+  a vulnerable browser may be vulnerable to a open redirect attack or to a SSRF attack if the URI
+  is used after passing validation checks.","Checks if a vulnerable version is present on the target host.
+Details:
+Eclipse Jetty URI Parsing Vulnerability (GHSA-qh8g-58pp-2wxh) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.153234)
+Version used: 2024-11-12T05:05:34Z
+","Product: cpe:/a:eclipse:jetty:9.2.13.20150730
+Method: Mort Bay / Eclipse Jetty Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.800953)
+","","DFN-CERT-2025-2102,DFN-CERT-2025-1898,DFN-CERT-2025-1748,DFN-CERT-2025-1395,DFN-CERT-2025-0835,DFN-CERT-2025-0167,WID-SEC-2025-1572,WID-SEC-2025-1565,WID-SEC-2025-0823,WID-SEC-2025-0138,WID-SEC-2024-3176",""
+172.31.1.61,activemq514.trabalho_vulnnet,8161,tcp,6.1,Medium,30,"VendorFix","Eclipse Jetty XSS Vulnerability (CVE-2019-10241) - Linux","Eclipse Jetty is prone to a cross-site scripting (XSS)
+  vulnerability.","Installed version: 9.2.13.20150730
+Fixed version:     9.2.27.20190403
+Installation
+path / port:       8161/tcp
+
+",1.3.6.1.4.1.25623.1.0.142312,"CVE-2019-10241",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,ba22034b-77dc-4329-bdeb-47f171ae61ce,"","Update to version 9.2.27.v20190403, 9.3.26.v20190403,
+  9.4.16.v20190411 or later.","Eclipse Jetty version 9.2.26 and prior, 9.3.25 and
+  prior and 9.4.15 and prior.","Eclipse Jetty is vulnerable to XSS conditions if a
+  remote client USES a specially formatted URL against the DefaultServlet or
+  ResourceHandler that is configured for showing a Listing of directory contents.","Checks if a vulnerable version is present on the
+  target host.
+Details:
+Eclipse Jetty XSS Vulnerability (CVE-2019-10241) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.142312)
+Version used: 2024-06-11T05:05:40Z
+","Product: cpe:/a:eclipse:jetty:9.2.13.20150730
+Method: Mort Bay / Eclipse Jetty Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.800953)
+","","DFN-CERT-2021-1728,DFN-CERT-2021-1665,DFN-CERT-2021-1043,DFN-CERT-2020-0779,DFN-CERT-2020-0595",""
+172.31.1.61,activemq514.trabalho_vulnnet,8161,tcp,3.4,Low,30,"VendorFix","Eclipse Jetty XXE Vulnerability (GHSA-58qw-p7qm-5rvh) - Linux","Eclipse Jetty is prone to a XML external entity (XXE)
+  vulnerability in the XMLParser.","Installed version: 9.2.13.20150730
+Fixed version:     9.4.52
+Installation
+path / port:       8161/tcp
+
+",1.3.6.1.4.1.25623.1.0.151573,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,ae226120-81b6-4af7-85d0-fa7209f81470,"","Update to version 9.4.52, 10.0.16, 11.0.16 or later.","Eclipse Jetty version 9.4.51 and prior, 10.0.0 through
+  10.0.15 and 11.0.0 through 11.0.15.","XmlParser is being used when parsing Jetty's xml configuration
+  files. An attacker might exploit this vulnerability in order to achieve SSRF or cause a denial of
+  service.
+
+  One possible scenario is importing a (remote) malicious WAR into a Jetty's server, while the WAR
+  includes a malicious web.xml.","Checks if a vulnerable version is present on the target host.
+Details:
+Eclipse Jetty XXE Vulnerability (GHSA-58qw-p7qm-5rvh) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.151573)
+Version used: 2024-06-11T05:05:40Z
+","Product: cpe:/a:eclipse:jetty:9.2.13.20150730
+Method: Mort Bay / Eclipse Jetty Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.800953)
+","","",""
+172.31.1.61,activemq514.trabalho_vulnnet,,,0.0,Log,80,"","Hostname Determination Reporting","The script reports information on how the hostname of the target
+  was determined.","Hostname determination for IP 172.31.1.61:
+
+Hostname|Source
+activemq514.trabalho_vulnnet|Reverse-DNS
+",1.3.6.1.4.1.25623.1.0.108449,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,c4959bba-160a-4e5e-a4d7-7b11c675edb2,"","","","","
+Details:
+Hostname Determination Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.108449)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.31.1.61,activemq514.trabalho_vulnnet,8161,tcp,0.0,Log,80,"","HTTP Security Headers Detection","All known security headers are being checked on the remote web
+  server.
+
+  On completion a report will hand back whether a specific security header has been implemented
+  (including its value and if it is deprecated) or is missing on the target.","Header Name     | Header Value
+------------------------------
+X-FRAME-OPTIONS | SAMEORIGIN
+
+Missing Headers                   | More Information
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Content-Security-Policy           | https://owasp.org/www-project-secure-headers/#content-security-policy
+Cross-Origin-Embedder-Policy      | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Cross-Origin-Opener-Policy        | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Cross-Origin-Resource-Policy      | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Document-Policy                   | https://w3c.github.io/webappsec-feature-policy/document-policy#document-policy-http-header
+Feature-Policy                    | https://owasp.org/www-project-secure-headers/#feature-policy, Note: The Feature Policy header has been renamed to Permissions Policy
+Permissions-Policy                | https://w3c.github.io/webappsec-feature-policy/#permissions-policy-http-header-field
+Referrer-Policy                   | https://owasp.org/www-project-secure-headers/#referrer-policy
+Sec-Fetch-Dest                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-Mode                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-Site                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-User                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+X-Content-Type-Options            | https://owasp.org/www-project-secure-headers/#x-content-type-options
+X-Permitted-Cross-Domain-Policies | https://owasp.org/www-project-secure-headers/#x-permitted-cross-domain-policies
+X-XSS-Protection                  | https://owasp.org/www-project-secure-headers/#x-xss-protection, Note: Most major browsers have dropped / deprecated support for this header in 2020.
+",1.3.6.1.4.1.25623.1.0.112081,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,48036912-0367-41bf-aab9-15ed6403c047,"","","","","
+Details:
+HTTP Security Headers Detection
+(OID: 1.3.6.1.4.1.25623.1.0.112081)
+Version used: 2025-03-21T15:40:43Z
+","","","",""
+172.31.1.61,activemq514.trabalho_vulnnet,8161,tcp,0.0,Log,80,"","HTTP Server Banner Enumeration","This script tries to detect / enumerate different HTTP server
+  banner (e.g. from a frontend, backend or proxy server) by sending various different HTTP requests
+  (valid and invalid ones).","It was possible to enumerate the following HTTP server banner(s):
+
+Server banner                   | Enumeration technique
+--------------------------------------------------------------------------------------------------
+Server: Jetty(9.2.13.v20150730) | Invalid HTTP 00.5 GET request (non-existent HTTP version) to '/'
+",1.3.6.1.4.1.25623.1.0.108708,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,0f69ddca-e240-47b4-a434-a3b6b40f887c,"","","","","
+Details:
+HTTP Server Banner Enumeration
+(OID: 1.3.6.1.4.1.25623.1.0.108708)
+Version used: 2025-01-31T15:39:24Z
+","","","",""
+172.31.1.61,activemq514.trabalho_vulnnet,8161,tcp,0.0,Log,80,"","HTTP Server type and version","This script detects and reports the HTTP Server's banner
+  which might provide the type and version of it.","The remote HTTP Server banner is:
+
+Server: Jetty(9.2.13.v20150730)
+",1.3.6.1.4.1.25623.1.0.10107,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,09309e0c-9996-4046-bbd2-3c20fd0ef95d,"","","","","
+Details:
+HTTP Server type and version
+(OID: 1.3.6.1.4.1.25623.1.0.10107)
+Version used: 2023-08-01T13:29:10Z
+","","","",""
+172.31.1.61,activemq514.trabalho_vulnnet,,,2.1,Low,80,"Mitigation","ICMP Timestamp Reply Information Disclosure","The remote host responded to an ICMP timestamp request.","The following response / ICMP packet has been received:
+- ICMP Type: 14
+- ICMP Code: 0
+",1.3.6.1.4.1.25623.1.0.103190,"CVE-1999-0524",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,464dc279-ae15-46f8-ac9c-736933d4b0ab,"This information could theoretically be used to exploit weak
+  time-based random number generators in other services.","Various mitigations are possible:
+
+  - Disable the support for ICMP timestamp on the remote host completely
+
+  - Protect the remote host by a firewall, and block ICMP packets passing through the firewall in
+  either direction (either completely or only for untrusted networks)","","The Timestamp Reply is an ICMP message which replies to a
+  Timestamp message. It consists of the originating timestamp sent by the sender of the Timestamp as
+  well as a receive timestamp and a transmit timestamp.","Sends an ICMP Timestamp (Type 13) request and checks if a
+  Timestamp Reply (Type 14) is received.
+Details:
+ICMP Timestamp Reply Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.103190)
+Version used: 2025-01-21T05:37:33Z
+","","","DFN-CERT-2014-0658,CB-K15/1514,CB-K14/0632",""
+172.31.1.61,activemq514.trabalho_vulnnet,,,0.0,Log,70,"","IP Forwarding Enabled - Active Check","Checks if the remote host has IP forwarding enabled.","It was possible to route a TCP packet through the target host and received an answer which means IP forwarding is enabled.
+",1.3.6.1.4.1.25623.1.0.147205,"CVE-1999-0511",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,c7d88917-5a14-4f71-8bda-33d3602cdf98,"","","","","Sends a crafted Local Link Layer (LLL) frame and checks the
+  response.
+Details:
+IP Forwarding Enabled - Active Check
+(OID: 1.3.6.1.4.1.25623.1.0.147205)
+Version used: 2021-12-03T08:27:06Z
+","","","",""
+172.31.1.61,activemq514.trabalho_vulnnet,8161,tcp,0.0,Log,80,"","Mort Bay / Eclipse Jetty Detection (HTTP)","HTTP based detection of Mort Bay / Eclipse Jetty.","Detected Mort Bay / Eclipse Jetty
+
+Version:       9.2.13.20150730
+Location:      8161/tcp
+CPE:           cpe:/a:eclipse:jetty:9.2.13.20150730
+
+Concluded from version/product identification result:
+Server: Jetty(9.2.13.v20150730)
+
+",1.3.6.1.4.1.25623.1.0.800953,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,5ba6c914-cc11-4b4d-a6c8-64d837f667d5,"","","","","
+Details:
+Mort Bay / Eclipse Jetty Detection (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.800953)
+Version used: 2024-06-12T05:05:44Z
+","","","",""
+172.31.1.61,activemq514.trabalho_vulnnet,1883,tcp,0.0,Log,80,"","MQTT Broker Detection (TCP)","TCP based detection of a MQTT Broker.","A MQTT Broker is running at this port.
+",1.3.6.1.4.1.25623.1.0.140166,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,bba0cd5d-2c7b-4067-ac48-cb8cd7ba0a8c,"","","","","
+Details:
+MQTT Broker Detection (TCP)
+(OID: 1.3.6.1.4.1.25623.1.0.140166)
+Version used: 2025-04-29T05:39:55Z
+","","","",""
+172.31.1.61,activemq514.trabalho_vulnnet,1883,tcp,6.4,Medium,99,"Mitigation","MQTT Broker Does Not Require Authentication (TCP)","The remote MQTT broker does not require authentication.","Vulnerability was detected according to the Vulnerability Detection Method.",1.3.6.1.4.1.25623.1.0.140167,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,44b315aa-6d3a-4291-9486-f5729480296c,"This issue may be exploited by a remote attacker to gain access
+  to sensitive information.","Enable authentication.","","","Checks if authentication is required for the remote MQTT
+  broker.
+
+  Notes:
+
+  - No scan result is expected if localhost (127.0.0.1) was scanned (self scanning)
+
+  - If the scanned network is e.g. a private LAN / private WAN which contains systems not accessible
+  to the public (access restricted) and it is accepted that the service is accessible without
+  authentication please set the 'Network type' configuration of the following VT to e.g.
+  'Private LAN' or 'Private WAN':
+
+  Global variable settings (OID: 1.3.6.1.4.1.25623.1.0.12288)
+Details:
+MQTT Broker Does Not Require Authentication (TCP)
+(OID: 1.3.6.1.4.1.25623.1.0.140167)
+Version used: 2025-11-25T05:40:35Z
+","Product: cpe:/a:mqtt:mqtt
+Method: MQTT Broker Detection (TCP)
+(OID: 1.3.6.1.4.1.25623.1.0.140166)
+","","",""
+172.31.1.61,activemq514.trabalho_vulnnet,,,0.0,Log,80,"","OS Detection Consolidation and Reporting","This script consolidates the OS information detected by several
+  VTs and tries to find the best matching OS.
+
+  Furthermore it reports all previously collected information leading to this best matching OS. It
+  also reports possible additional information which might help to improve the OS detection.
+
+  If any of this information is wrong or could be improved please consider to report these to the
+  referenced community forum.","Best matching OS:
+
+OS:           Linux Kernel
+CPE:          cpe:/o:linux:kernel
+Found by VT:  1.3.6.1.4.1.25623.1.0.102002 (Operating System (OS) Detection (ICMP))
+Concluded from ICMP based OS fingerprint
+Setting key ""Host/runs_unixoide"" based on this information
+",1.3.6.1.4.1.25623.1.0.105937,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,27566874-ad42-4c17-ad08-75da1d5fdc20,"","","","","
+Details:
+OS Detection Consolidation and Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.105937)
+Version used: 2026-01-21T05:50:46Z
+","","","",""
+172.31.1.61,activemq514.trabalho_vulnnet,5672,tcp,0.0,Log,80,"","Service Detection with GET Request","This plugin performs service detection.","An AMQP service seems to be running on this port.
+",1.3.6.1.4.1.25623.1.0.17975,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,f2fed9bc-43a4-460f-922b-8c3c02773cc7,"","","","This plugin is a complement of the plugin 'Services' (OID:
+  1.3.6.1.4.1.25623.1.0.10330). It sends a HTTP 'GET' request to the remaining unknown services and
+  tries to identify them.","
+Details:
+Service Detection with 'GET' Request
+(OID: 1.3.6.1.4.1.25623.1.0.17975)
+Version used: 2025-09-12T15:39:53Z
+","","","",""
+172.31.1.61,activemq514.trabalho_vulnnet,8161,tcp,0.0,Log,80,"","Services","This plugin performs service detection.","A web server is running on this port
+",1.3.6.1.4.1.25623.1.0.10330,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,bcdd9219-1dcc-4193-89e8-28e5f20b5edc,"","","","This plugin attempts to guess which service is running on the
+  remote port(s). For instance, it searches for a web server which could listen on another port than
+  80 or 443 and makes this information available for other check routines.","
+Details:
+Services
+(OID: 1.3.6.1.4.1.25623.1.0.10330)
+Version used: 2025-03-05T05:38:53Z
+","","","",""
+172.31.1.61,activemq514.trabalho_vulnnet,,,2.6,Low,80,"Mitigation","TCP Timestamps Information Disclosure","The remote host implements TCP timestamps and therefore allows
+  to compute the uptime.","It was detected that the host implements RFC1323/RFC7323.
+
+The following timestamps were retrieved with a delay of 1 seconds in-between:
+Packet 1: 1892358772
+Packet 2: 1892359859
+",1.3.6.1.4.1.25623.1.0.80091,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,d7fe411f-1ff5-4d52-b6f6-0323c603ccf6,"A side effect of this feature is that the uptime of the remote
+  host can sometimes be computed.","To disable TCP timestamps on linux add the line
+  'net.ipv4.tcp_timestamps = 0' to /etc/sysctl.conf. Execute 'sysctl -p' to apply the settings at
+  runtime.
+
+  To disable TCP timestamps on Windows execute 'netsh int tcp set global timestamps=disabled'
+
+  Starting with Windows Server 2008 and Vista, the timestamp can not be completely disabled.
+
+  The default behavior of the TCP/IP stack on this Systems is to not use the Timestamp options when
+  initiating TCP connections, but use them if the TCP peer that is initiating communication includes
+  them in their synchronize (SYN) segment.
+
+  See the references for more information.","TCP implementations that implement RFC1323/RFC7323.","The remote host implements TCP timestamps, as defined by
+  RFC1323/RFC7323.","Special IP packets are forged and sent with a little delay in
+  between to the target IP. The responses are searched for a timestamps. If found, the timestamps
+  are reported.
+Details:
+TCP Timestamps Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.80091)
+Version used: 2023-12-15T16:10:08Z
+","","","",""
+172.31.1.61,activemq514.trabalho_vulnnet,,,0.0,Log,80,"","Traceroute","Collect information about the network route and
+  network distance between the scanner host and the target host.","Network route from scanner (172.30.0.2) to target (172.31.1.61):
+
+172.30.0.2
+172.31.1.61
+
+Network distance between scanner and target: 2
+",1.3.6.1.4.1.25623.1.0.51662,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,4d513068-1e74-45a6-9991-2db749e2e0e4,"","","","For internal networks, the distances are usually
+  small, often less than 4 hosts between scanner and target. For public targets the
+  distance is greater and might be 10 hosts or more.","A combination of the protocols ICMP and TCP is used
+  to determine the route. This method is applicable for IPv4 only and it is also known as
+  'traceroute'.
+Details:
+Traceroute
+(OID: 1.3.6.1.4.1.25623.1.0.51662)
+Version used: 2022-10-17T11:13:19Z
+","","","",""
+172.31.1.61,activemq514.trabalho_vulnnet,8161,tcp,0.0,Log,80,"","Web Application Scanning Consolidation / Info Reporting","The script consolidates and reports various information for web
+  application (formerly called 'CGI') scanning.
+
+  This information is based on the following scripts / settings:
+
+  - HTTP-Version Detection (OID: 1.3.6.1.4.1.25623.1.0.100034)
+
+  - No 404 check (OID: 1.3.6.1.4.1.25623.1.0.10386)
+
+  - Web mirroring / webmirror.nasl (OID: 1.3.6.1.4.1.25623.1.0.10662)
+
+  - Directory Scanner / DDI_Directory_Scanner.nasl (OID: 1.3.6.1.4.1.25623.1.0.11032)
+
+  - The configured 'cgi_path' within the 'Scanner Preferences' of the scan config in use
+
+  - The configured 'Enable CGI scanning', 'Enable generic web application scanning' and
+  'Add historic /scripts and /cgi-bin to directories for CGI scanning' within the
+  'Global variable settings' of the scan config in use
+
+  If you think any of this information is wrong please report it to the referenced community
+  forum.","The Hostname/IP ""activemq514.trabalho_vulnnet"" was used to access the remote host.
+
+Generic web application scanning is disabled for this host via the ""Enable generic web application scanning"" option within the ""Global variable settings"" of the scan config in use.
+
+Requests to this service are done via HTTP/1.1.
+
+This service seems to be able to host PHP scripts.
+
+This service seems to be able to host ASP scripts.
+
+The User-Agent ""Mozilla/5.0 [en] (X11, U; OpenVAS-VT <version replaced>)"" was used to access the remote host.
+
+Historic /scripts and /cgi-bin are not added to the directories used for web application scanning. You can enable this again with the ""Add historic /scripts and /cgi-bin to directories for CGI scanning"" option within the ""Global variable settings"" of the scan config in use.
+
+NOTE: The 'Maximum number of items shown for each list' setting has been reached. There are 27 additional entries available for the following truncated list.
+
+The following files/directories require authentication and are tested (if enabled) by the script ""HTTP Brute Force Logins With Default Credentials (OID: 1.3.6.1.4.1.25623.1.0.108041)"":
+
+http://activemq514.trabalho_vulnnet:8161/admin
+http://activemq514.trabalho_vulnnet:8161/admin/
+http://activemq514.trabalho_vulnnet:8161/admin/SecureDocumentLibrary
+http://activemq514.trabalho_vulnnet:8161/admin/SecureDocumentLibrary/DocumentLibraryManager
+http://activemq514.trabalho_vulnnet:8161/admin/airflow
+http://activemq514.trabalho_vulnnet:8161/admin/airflow/login
+http://activemq514.trabalho_vulnnet:8161/admin/ckeditor
+http://activemq514.trabalho_vulnnet:8161/admin/ckeditor/plugins
+http://activemq514.trabalho_vulnnet:8161/admin/ckeditor/plugins/ajaxplorer
+http://activemq514.trabalho_vulnnet:8161/admin/ckeditor/plugins/ajaxplorer/phpunit
+http://activemq514.trabalho_vulnnet:8161/admin/ckeditor/plugins/ajaxplorer/phpunit/src
+http://activemq514.trabalho_vulnnet:8161/admin/ckeditor/plugins/ajaxplorer/phpunit/src/Util
+http://activemq514.trabalho_vulnnet:8161/admin/ckeditor/plugins/ajaxplorer/phpunit/src/Util/PHP
+http://activemq514.trabalho_vulnnet:8161/admin/configurationview
+http://activemq514.trabalho_vulnnet:8161/admin/fckeditor
+http://activemq514.trabalho_vulnnet:8161/admin/help
+http://activemq514.trabalho_vulnnet:8161/admin/helpfiles
+http://activemq514.trabalho_vulnnet:8161/admin/htmleditor
+http://activemq514.trabalho_vulnnet:8161/admin/index.jsp
+http://activemq514.trabalho_vulnnet:8161/admin/lib
+http://activemq514.trabalho_vulnnet:8161/admin/lib/cisco
+http://activemq514.trabalho_vulnnet:8161/admin/lib/cpm
+http://activemq514.trabalho_vulnnet:8161/admin/lib/dijit
+http://activemq514.trabalho_vulnnet:8161/admin/lib/dojo
+http://activemq514.trabalho_vulnnet:8161/admin/lib/dojox
+http://activemq514.trabalho_vulnnet:8161/admin/lib/gradient
+http://activemq514.trabalho_vulnnet:8161/admin/lib/wap
+http://activemq514.trabalho_vulnnet:8161/admin/lib/xwt
+http://activemq514.trabalho_vulnnet:8161/admin/login
+http://activemq514.trabalho_vulnnet:8161/admin/ng
+http://activemq514.trabalho_vulnnet:8161/admin/ng/nls
+http://activemq514.trabalho_vulnnet:8161/admin/ng/v3
+http://activemq514.trabalho_vulnnet:8161/admin/pages
+http://activemq514.trabalho_vulnnet:8161/admin/pages/modules
+http://activemq514.trabalho_vulnnet:8161/admin/pages/utils
+http://activemq514.trabalho_vulnnet:8161/admin/prelogin
+http://activemq514.trabalho_vulnnet:8161/admin/public
+http://activemq514.trabalho_vulnnet:8161/admin/rs
+http://activemq514.trabalho_vulnnet:8161/admin/rs/uiapi
+http://activemq514.trabalho_vulnnet:8161/admin/rs/wap
+http://activemq514.trabalho_vulnnet:8161/admin/scripts
+http://activemq514.trabalho_vulnnet:8161/admin/vendor
+http://activemq514.trabalho_vulnnet:8161/admin/vendor/adminLTE
+http://activemq514.trabalho_vulnnet:8161/admin/vendor/bootstrap
+http://activemq514.trabalho_vulnnet:8161/admin/vendor/fonts
+http://activemq514.trabalho_vulnnet:8161/admin/vendor/nprogress
+http://activemq514.trabalho_vulnnet:8161/admin/vendor/phpunit
+http://activemq514.trabalho_vulnnet:8161/admin/vendor/phpunit/phpunit
+http://activemq514.trabalho_vulnnet:8161/admin/vendor/phpunit/phpunit/src
+http://activemq514.trabalho_vulnnet:8161/admin/vendor/phpunit/phpunit/src/Util
+http://activemq514.trabalho_vulnnet:8161/admin/vendor/phpunit/phpunit/src/Util/PHP
+http://activemq514.trabalho_vulnnet:8161/api
+http://activemq514.trabalho_vulnnet:8161/api/1
+http://activemq514.trabalho_vulnnet:8161/api/2
+http://activemq514.trabalho_vulnnet:8161/api/2.0
+http://activemq514.trabalho_vulnnet:8161/api/2.0/services
+http://activemq514.trabalho_vulnnet:8161/api/2.0/services/usermgmt
+http://activemq514.trabalho_vulnnet:8161/api/2.0/services/usermgmt/password
+http://activemq514.trabalho_vulnnet:8161/api/2.1
+http://activemq514.trabalho_vulnnet:8161/api/2.1/rest
+http://activemq514.trabalho_vulnnet:8161/api/ApplicationService
+http://activemq514.trabalho_vulnnet:8161/api/Image
+http://activemq514.trabalho_vulnnet:8161/api/Image/withpath
+http://activemq514.trabalho_vulnnet:8161/api/agent
+http://activemq514.trabalho_vulnnet:8161/api/agent/tabs
+http://activemq514.trabalho_vulnnet:8161/api/atlas
+http://activemq514.trabalho_vulnnet:8161/api/atlas/admin
+http://activemq514.trabalho_vulnnet:8161/api/config
+http://activemq514.trabalho_vulnnet:8161/api/config/class
+http://activemq514.trabalho_vulnnet:8161/api/core
+http://activemq514.trabalho_vulnnet:8161/api/error
+http://activemq514.trabalho_vulnnet:8161/api/explorer
+http://activemq514.trabalho_vulnnet:8161/api/hassio
+http://activemq514.trabalho_vulnnet:8161/api/hassio/app
+http://activemq514.trabalho_vulnnet:8161/api/hassio_ingress
+http://activemq514.trabalho_vulnnet:8161/api/history
+http://activemq514.trabalho_vulnnet:8161/api/json
+http://activemq514.trabalho_vulnnet:8161/api/json/nfausers
+http://activemq514.trabalho_vulnnet:8161/api/jsonws
+http://activemq514.trabalho_vulnnet:8161/api/ldap
+http://activemq514.trabalho_vulnnet:8161/api/ldap/config
+http://activemq514.trabalho_vulnnet:8161/api/ldap/config/ldapTreeNodeChildren
+http://activemq514.trabalho_vulnnet:8161/api/logbook
+http://activemq514.trabalho_vulnnet:8161/api/onboarding
+http://activemq514.trabalho_vulnnet:8161/api/platform
+http://activemq514.trabalho_vulnnet:8161/api/repos
+http://activemq514.trabalho_vulnnet:8161/api/repos/dashboards
+http://activemq514.trabalho_vulnnet:8161/api/sonicos
+http://activemq514.trabalho_vulnnet:8161/api/swaggerui
+http://activemq514.trabalho_vulnnet:8161/api/swaggerui/static
+http://activemq514.trabalho_vulnnet:8161/api/system
+http://activemq514.trabalho_vulnnet:8161/api/system/v1
+http://activemq514.trabalho_vulnnet:8161/api/user
+http://activemq514.trabalho_vulnnet:8161/api/userrolelist
+http://activemq514.trabalho_vulnnet:8161/api/v1
+http://activemq514.trabalho_vulnnet:8161/api/v1.0
+http://activemq514.trabalho_vulnnet:8161/api/v1/authentication
+http://activemq514.trabalho_vulnnet:8161/api/v1/authentication/connection-token
+http://activemq514.trabalho_vulnnet:8161/api/v1/files
+
+The following directories were used for web application scanning:
+
+http://activemq514.trabalho_vulnnet:8161/
+http://activemq514.trabalho_vulnnet:8161/demo
+
+While this is not, in and of itself, a bug, you should manually inspect these directories to ensure that they are in compliance with company security standards
+
+The following directories were excluded from web application scanning because the ""Regex pattern to exclude directories from CGI scanning"" setting of the VT ""Global variable settings"" (OID: 1.3.6.1.4.1.25623.1.0.12288) for this scan was: ""/(index\.php|image|img|css|js$|js/|javascript|style|theme|icon|jquery|graphic|grafik|picture|bilder|thumbnail|media/|skins?/)""
+
+http://activemq514.trabalho_vulnnet:8161/admin/js
+http://activemq514.trabalho_vulnnet:8161/admin/js/config
+http://activemq514.trabalho_vulnnet:8161/admin/ng/js
+http://activemq514.trabalho_vulnnet:8161/admin/scripts/js
+http://activemq514.trabalho_vulnnet:8161/admin/style
+http://activemq514.trabalho_vulnnet:8161/admin/style/themes
+http://activemq514.trabalho_vulnnet:8161/admin/vendor/jquery
+http://activemq514.trabalho_vulnnet:8161/images
+http://activemq514.trabalho_vulnnet:8161/styles
+",1.3.6.1.4.1.25623.1.0.111038,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T01:48:40Z,ead777b7-be77-4c06-afd2-88e5dcadfcc4,"","","","","
+Details:
+Web Application Scanning Consolidation / Info Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.111038)
+Version used: 2026-01-13T05:47:36Z
+","","","",""

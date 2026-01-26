@@ -1,0 +1,1186 @@
+IP,Hostname,Port,Port Protocol,CVSS,Severity,QoD,Solution Type,NVT Name,Summary,Specific Result,NVT OID,CVEs,Task ID,Task Name,Timestamp,Result ID,Impact,Solution,Affected Software/OS,Vulnerability Insight,Vulnerability Detection Method,Product Detection Result,BIDs,CERTs,Other References
+      172.31.1.27,mariadb10.trabalho_vulnnet,,,0.0,Log,80,"","CPE Inventory","This routine uses information collected by other routines about
+  CPE identities of operating systems, services and applications detected during the scan.
+
+  Note: Some CPEs for specific products might show up twice or more in the output. Background:
+
+  After a product got renamed or a specific vendor was acquired by another one it might happen that
+  a product gets a new CPE within the NVD CPE Dictionary but older entries are kept with the older
+  CPE.","172.31.1.27|cpe:/a:mariadb:mariadb:10.0.38
+172.31.1.27|cpe:/o:canonical:ubuntu_linux:16.04
+
+",1.3.6.1.4.1.25623.1.0.810002,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,8d467c7e-9584-492c-b47a-22e3bee26440,"","","","","
+Details:
+CPE Inventory
+(OID: 1.3.6.1.4.1.25623.1.0.810002)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,0.0,Log,80,"Workaround","Database Open Access Information Disclosure Vulnerability","Various Database server might be prone to an information
+  disclosure vulnerability if accessible to remote systems.","MariaDB can be accessed by remote attackers
+",1.3.6.1.4.1.25623.1.0.902799,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,bc46c196-b8e3-44dc-8929-18294ca861ad,"Successful exploitation could allow an attacker to obtain
+  sensitive information from the database.","Restrict database access to remote systems. Please see the
+  manual of the affected database server for more information.","'- Oracle MySQL
+
+  - MariaDB
+
+  - IBM DB2
+
+  - PostgreSQL
+
+  - IBM solidDB
+
+  - Oracle Database
+
+  - Microsoft SQL Server","The remote database server is not restricting direct access from
+  remote systems.","Checks the result of various database server detections and
+  evaluates their results.
+Details:
+Database Open Access Information Disclosure Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.902799)
+Version used: 2025-09-09T05:38:49Z
+","","","",""
+172.31.1.27,mariadb10.trabalho_vulnnet,,,0.0,Log,80,"","Hostname Determination Reporting","The script reports information on how the hostname of the target
+  was determined.","Hostname determination for IP 172.31.1.27:
+
+Hostname|Source
+mariadb10.trabalho_vulnnet|Reverse-DNS
+",1.3.6.1.4.1.25623.1.0.108449,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,30093a41-aa31-47fa-8297-a2733cd7e6fd,"","","","","
+Details:
+Hostname Determination Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.108449)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+172.31.1.27,mariadb10.trabalho_vulnnet,,,2.1,Low,80,"Mitigation","ICMP Timestamp Reply Information Disclosure","The remote host responded to an ICMP timestamp request.","The following response / ICMP packet has been received:
+- ICMP Type: 14
+- ICMP Code: 0
+",1.3.6.1.4.1.25623.1.0.103190,"CVE-1999-0524",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,0ecd89cc-aef2-4074-a843-b96ef87f1b95,"This information could theoretically be used to exploit weak
+  time-based random number generators in other services.","Various mitigations are possible:
+
+  - Disable the support for ICMP timestamp on the remote host completely
+
+  - Protect the remote host by a firewall, and block ICMP packets passing through the firewall in
+  either direction (either completely or only for untrusted networks)","","The Timestamp Reply is an ICMP message which replies to a
+  Timestamp message. It consists of the originating timestamp sent by the sender of the Timestamp as
+  well as a receive timestamp and a transmit timestamp.","Sends an ICMP Timestamp (Type 13) request and checks if a
+  Timestamp Reply (Type 14) is received.
+Details:
+ICMP Timestamp Reply Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.103190)
+Version used: 2025-01-21T05:37:33Z
+","","","DFN-CERT-2014-0658,CB-K15/1514,CB-K14/0632",""
+172.31.1.27,mariadb10.trabalho_vulnnet,,,0.0,Log,70,"","IP Forwarding Enabled - Active Check","Checks if the remote host has IP forwarding enabled.","It was possible to route a TCP packet through the target host and received an answer which means IP forwarding is enabled.
+",1.3.6.1.4.1.25623.1.0.147205,"CVE-1999-0511",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,7024c754-9bff-4aca-88b2-fb35e03bc6d1,"","","","","Sends a crafted Local Link Layer (LLL) frame and checks the
+  response.
+Details:
+IP Forwarding Enabled - Active Check
+(OID: 1.3.6.1.4.1.25623.1.0.147205)
+Version used: 2021-12-03T08:27:06Z
+","","","",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,0.0,Log,80,"","MariaDB / Oracle MySQL Detection (MySQL Protocol)","MySQL protocol-based detection of MariaDB / Oracle MySQL.","Detected MariaDB
+
+Version:       10.0.38
+Location:      3306/tcp
+CPE:           cpe:/a:mariadb:mariadb:10.0.38
+
+Concluded from version/product identification result:
+5.5.5-10.0.38-MariaDB-1~xenial
+",1.3.6.1.4.1.25623.1.0.100152,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,e412c46b-46da-4c97-bae5-e79f9162d0e9,"","","","","
+Details:
+MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+Version used: 2025-09-09T05:38:49Z
+","","","",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,4.9,Medium,30,"VendorFix","MariaDB < 10.2.38 Multiple Vulnerabilities - Linux","MariaDB is prone to multiple vulnerabilities.","Installed version: 10.0.38
+Fixed version:     10.2.38
+
+",1.3.6.1.4.1.25623.1.0.149349,"CVE-2021-2166,CVE-2021-2154,CVE-2021-2180,CVE-2022-21451",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,2e3bd95d-7891-4b5c-82ae-c1d4960a3a95,"","Update to version 10.2.38 or later.","MariaDB prior to version 10.2.38.","The following vulnerabilities exist:
+
+  - CVE-2021-2166: Denial of service (DoS) in MySQL
+
+  - CVE-2021-2154: Denial of service (DoS) in MySQL
+
+  - CVE-2021-2180: Denial of service (DoS) in MySQL
+
+  - CVE-2022-21451: Denial of service (DoS) in MySQL","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB < 10.2.38 Multiple Vulnerabilities - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.149349)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-2376,DFN-CERT-2022-2094,DFN-CERT-2022-2047,DFN-CERT-2022-1597,DFN-CERT-2022-1241,DFN-CERT-2022-0933,DFN-CERT-2022-0866,DFN-CERT-2022-0666,DFN-CERT-2021-2155,DFN-CERT-2021-1660,DFN-CERT-2021-0984,DFN-CERT-2021-0821,WID-SEC-2024-1591,WID-SEC-2023-0065,WID-SEC-2022-1081,WID-SEC-2022-0169,CB-K22/0468,CB-K21/0421",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,4.9,Medium,30,"VendorFix","MariaDB < 10.2.44, 10.3.x < 10.3.35, 10.4.x < 10.4.25, 10.5.x < 10.5.7 DoS Vulnerability - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.2.44
+
+",1.3.6.1.4.1.25623.1.0.104583,"CVE-2022-21427",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,0e3969ba-5f64-4ec2-a440-4b5364a38130,"","Update to version 10.2.44, 10.3.35, 10.4.25, 10.5.7 or later.","MariaDB versions prior to 10.2.44, 10.3.x prior to 10.3.35,
+  10.4.x prior to 10.4.25 and 10.5.x prior to 10.5.7.","","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB < 10.2.44, 10.3.x < 10.3.35, 10.4.x < 10.4.25, 10.5.x < 10.5.7 DoS V...
+(OID: 1.3.6.1.4.1.25623.1.0.104583)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-2668,DFN-CERT-2022-2376,DFN-CERT-2022-2094,DFN-CERT-2022-2059,DFN-CERT-2022-2047,DFN-CERT-2022-1928,DFN-CERT-2022-1667,DFN-CERT-2022-1597,DFN-CERT-2022-1370,DFN-CERT-2022-1205,DFN-CERT-2022-0866,WID-SEC-2024-1591,WID-SEC-2022-1081,WID-SEC-2022-0169,CB-K22/0468",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,8.8,High,30,"VendorFix","MariaDB Access Bypass Vulnerability - Linux","MariaDB is prone to an access bypass vulnerability.","Installed version: 10.0.38
+Fixed version:     10.1.30
+
+",1.3.6.1.4.1.25623.1.0.112198,"CVE-2017-15365",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,304c20ef-ec6e-4ac2-93b0-38ef102ec758,"A user with an SQL access to the server could possibly use this flaw
+to perform database modification on certain cluster nodes without having privileges to perform such changes.","Update to MariaDB 10.1.30, 10.2.10 or later.","MariaDB before 10.1.30 and 10.2.x before 10.2.10.","sql/event_data_objects.cc in MariaDB allows remote authenticated users with SQL access
+to bypass intended access restrictions and replicate data definition language (DDL) statements to cluster nodes by leveraging incorrect ordering of DDL replication and ACL checking.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB Access Bypass Vulnerability - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.112198)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2019-1152,DFN-CERT-2019-1047,DFN-CERT-2018-1276,DFN-CERT-2018-0067,CB-K18/0061",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB Buffer Overflow Vulnerability (MDEV-26422) - Linux","MariaDB is prone to a buffer overflow vulnerability.","Installed version: 10.0.38
+Fixed version:     10.2.44
+
+",1.3.6.1.4.1.25623.1.0.104579,"CVE-2022-27387",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,aa1a2c7d-5432-4382-8a30-41b174aab84b,"","Update to version 10.2.44, 10.3.35, 10.4.25, 10.5.16, 10.6.8,
+  10.7.4 or later.","MariaDB versions prior to 10.2.44, 10.3.x prior to 10.3.35,
+  10.4.x prior to 10.4.25, 10.5.x prior to 10.5.16, 10.6.x prior to 10.6.8 and 10.7.x prior to
+  10.7.4.","","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB Buffer Overflow Vulnerability (MDEV-26422) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104579)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-2668,DFN-CERT-2022-2059,DFN-CERT-2022-1928,DFN-CERT-2022-1777,DFN-CERT-2022-1717,DFN-CERT-2022-1688,DFN-CERT-2022-1667,DFN-CERT-2022-1597,DFN-CERT-2022-1370,DFN-CERT-2022-1205,WID-SEC-2022-0166,CB-K22/0418",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,6.2,Medium,30,"VendorFix","MariaDB Directory Traversal RCE Vulnerability (Nov 2025)","MariaDB is prone to a directory traversal remote code execution
+  (RCE) vulnerability in the mariadb-dump Utility.","Installed version: 10.0.38
+Fixed version:     10.6.24
+Installation
+path / port:       3306/tcp
+
+",1.3.6.1.4.1.25623.1.0.119238,"CVE-2025-13699",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,d2f3ba9e-9f11-4bb7-8d16-f87278962c33,"This vulnerability allows remote attackers to execute arbitrary
+  code on affected installations of MariaDB. Interaction with the mariadb-dump utility is required
+  to exploit this vulnerability but attack vectors may vary depending on the implementation.","Update to version 10.6.24, 10.11.15, 11.4.9, 11.8.4 or
+  later.","MariaDB versions prior to 10.6.24, 10.7.x prior to 10.11.15,
+  11.x prior to 11.4.9 and 11.5.x prior to 11.8.4.","The specific flaw exists within the handling of view names. The
+  issue results from the lack of proper validation of a user-supplied path prior to using it in file
+  operations. An attacker can leverage this vulnerability to execute code in the context of the
+  current user.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB Directory Traversal RCE Vulnerability (Nov 2025)
+(OID: 1.3.6.1.4.1.25623.1.0.119238)
+Version used: 2025-11-28T15:41:52Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2026-0037,DFN-CERT-2025-3583,DFN-CERT-2025-3573,WID-SEC-2025-2694",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,4.9,Medium,30,"VendorFix","MariaDB DoS Vulnerability (CVE-2023-22084) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.4.32
+
+",1.3.6.1.4.1.25623.1.0.114198,"CVE-2023-22084",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,4f6daa79-30a7-41c1-ad90-527c828e1df3,"Successful attacks of this vulnerability can result in
+  unauthorized ability to cause a hang or frequently repeatable crash (complete DoS).","Update to version 10.4.32, 10.5.23, 10.6.16, 10.10.7, 10.11.6,
+  11.0.4, 11.1.3, 11.2.2 or later.","MariaDB versions prior to 10.4.32, 10.5.x prior to 10.5.23,
+  10.6.x prior to 10.6.16, starting from 10.7.0 and prior to 10.10.7, 10.11.x prior to 10.11.6,
+  11.0.x prior to 11.0.4, 11.1.x prior to 11.1.3 amd 11.2.x prior to 11.2.2.","Easily exploitable vulnerability allows high privileged attacker
+  with network access via multiple protocols to compromise the MariaDB Server.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (CVE-2023-22084) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.114198)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2024-1517,DFN-CERT-2024-1188,DFN-CERT-2024-0593,DFN-CERT-2024-0454,DFN-CERT-2024-0220,DFN-CERT-2024-0108,DFN-CERT-2023-2819,DFN-CERT-2023-2681,DFN-CERT-2023-2536,WID-SEC-2023-2690",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB DoS Vulnerability (CVE-2023-5157) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.4.26
+
+",1.3.6.1.4.1.25623.1.0.114196,"CVE-2023-5157",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,b6d6eaa5-348a-4a32-b9e5-672b2f0be045,"","Update to version 10.4.26, 10.5.17, 10.6.9, 10.7.5, 10.8.4 or later.","MariaDB versions prior to 10.4.26, 10.5.x prior to 10.5.17,
+  10.6.x prior to 10.6.9, 10.7.x prior to 10.7.5 and 10.8.x prior to 10.8.4.","An OpenVAS port scan on ports 3306 and 4567 allows a malicious
+  remote client to cause a denial of service.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (CVE-2023-5157) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.114196)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2023-2850,DFN-CERT-2023-2503,WID-SEC-2023-2444",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,5.5,Medium,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-25629) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.2.39
+
+",1.3.6.1.4.1.25623.1.0.147539,"CVE-2021-46657",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,be11b915-a02a-4e2d-bc28-d7e1d4d5275a,"","Update to version 10.2.39, 10.3.30, 10.4.20, 10.5.11 or later.","MariaDB versions prior to 10.2.39, 10.3.x prior to 10.3.30,
+  10.4.x prior to 10.4.20 and 10.5.x prior to 10.5.11.","get_sort_by_table in MariaDB allows an application crash via
+  certain subquery uses of ORDER BY.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-25629) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.147539)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-1667,DFN-CERT-2022-1597,DFN-CERT-2022-1241,DFN-CERT-2022-0933,DFN-CERT-2022-0666,DFN-CERT-2022-0500,WID-SEC-2022-0843,CB-K22/0121",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,5.5,Medium,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-25630) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.2.40
+
+",1.3.6.1.4.1.25623.1.0.147543,"CVE-2021-46658",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,cef86010-bca7-4b5a-be3a-4cf5b950e516,"","Update to version 10.2.40, 10.3.31, 10.4.21, 10.5.12, 10.6.3
+  or later.","MariaDB versions prior to 10.2.40, 10.3.x prior to 10.3.31,
+  10.4.x prior to 10.4.21, 10.5.x prior to 10.5.12 and 10.6.x prior to 10.6.3.","save_window_function_values in MariaDB allows an application
+  crash because of incorrect handling of with_window_func=true for a subquery.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-25630) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.147543)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-1667,DFN-CERT-2022-1597,DFN-CERT-2022-1241,DFN-CERT-2022-0933,DFN-CERT-2022-0500,WID-SEC-2022-0843,CB-K22/0121",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,5.5,Medium,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-25631) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.2.42
+
+",1.3.6.1.4.1.25623.1.0.147541,"CVE-2021-46659",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,24dc969b-4446-4fbd-9c66-255e348e044a,"","Update to version 10.2.42, 10.3.33, 10.4.23, 10.5.14, 10.6.6,
+  10.7.2, 10.8.1 or later.","MariaDB versions prior to 10.2.42, 10.3.x prior to 10.3.33,
+  10.4.x prior to 10.4.23, 10.5.x prior to 10.5.14, 10.6.x prior to 10.6.6, 10.7.x prior to 10.7.2
+  and 10.8.0.","MariaDB allows an application crash because it does not
+  recognize that SELECT_LEX::nest_level is local to each VIEW.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-25631) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.147541)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-1928,DFN-CERT-2022-1777,DFN-CERT-2022-1717,DFN-CERT-2022-1688,DFN-CERT-2022-1667,DFN-CERT-2022-1597,DFN-CERT-2022-0500,DFN-CERT-2022-0460,DFN-CERT-2022-0327,WID-SEC-2022-0843,CB-K22/0121",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,5.5,Medium,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-25635) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.2.39
+
+",1.3.6.1.4.1.25623.1.0.147575,"CVE-2021-46666",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,3311695c-1ad0-4b88-a3eb-5d578163724e,"","Update to version 10.2.39, 10.3.30, 10.4.20, 10.5.11 or later.","MariaDB versions prior to 10.2.39, 10.3.x prior to 10.3.30,
+  10.4.x prior to 10.4.20 and 10.5.x prior to 10.5.11.","MariaDB allows an application crash because of mishandling of a
+  pushdown from a HAVING clause to a WHERE clause.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-25635) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.147575)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-1597,DFN-CERT-2022-1241,DFN-CERT-2022-0933,DFN-CERT-2022-0666,WID-SEC-2022-0147,CB-K22/0126",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,5.5,Medium,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-25636) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.2.43
+
+",1.3.6.1.4.1.25623.1.0.147573,"CVE-2021-46665",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,7346bb56-1cbb-491b-ab29-db7022db4b39,"","Update to version 10.2.43, 10.3.34, 10.4.24, 10.5.15, 10.6.7,
+  10.7.3 or later.","MariaDB versions prior to 10.2.43, 10.3.x prior to 10.3.34,
+  10.4.x prior to 10.4.24, 10.5.x prior to 10.5.15, 10.6.x prior to 10.6.7 and 10.7.x prior to
+  10.7.3.","MariaDB allows a sql_parse.cc application crash because of
+  incorrect used_tables expectations.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-25636) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.147573)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-1928,DFN-CERT-2022-1777,DFN-CERT-2022-1717,DFN-CERT-2022-1688,DFN-CERT-2022-1667,DFN-CERT-2022-1597,DFN-CERT-2022-0500,DFN-CERT-2022-0460,WID-SEC-2022-0147,CB-K22/0126",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,5.5,Medium,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-25637, MDEV-22464) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.3.32
+
+",1.3.6.1.4.1.25623.1.0.147567,"CVE-2021-46662",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,19aad08c-1a65-4220-a5be-46969ff94c05,"","Update to version 10.3.32, 10.4.22, 10.5.13, 10.6.5 or later.","MariaDB versions prior 10.3.32, 10.4.x prior to 10.4.22, 10.5.x
+  prior to 10.5.13 and 10.6.x prior to 10.6.5.","MariaDB allows a set_var.cc application crash via certain uses
+  of an UPDATE statement in conjunction with a nested subquery.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-25637, MDEV-22464) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.147567)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-1597,DFN-CERT-2022-1241,DFN-CERT-2022-0933,DFN-CERT-2022-0666,WID-SEC-2022-0147,CB-K22/0126",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-25638) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.2.44
+
+",1.3.6.1.4.1.25623.1.0.147581,"CVE-2021-46669",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,f6f119a0-ef23-450e-bd61-bbfc3926c536,"","Update to version 10.2.44, 10.3.35, 10.4.25, 10.5.16, 10.6.8,
+  10.7.4 or later.","MariaDB versions prior to 10.2.44, 10.3.x prior to 10.3.35,
+  10.4.x prior to 10.4.25, 10.5.x prior to 10.5.16, 10.6.x prior to 10.6.8 and 10.7.x prior to
+  10.7.4.","MariaDB allows attackers to trigger a convert_const_to_int
+  use-after-free when the BIGINT data type is used.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-25638) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.147581)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-2668,DFN-CERT-2022-2059,DFN-CERT-2022-1928,DFN-CERT-2022-1777,DFN-CERT-2022-1717,DFN-CERT-2022-1688,DFN-CERT-2022-1667,DFN-CERT-2022-1597,DFN-CERT-2022-1370,DFN-CERT-2022-1205,WID-SEC-2022-0147,CB-K22/0126",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,5.5,Medium,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-25761) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.2.43
+
+",1.3.6.1.4.1.25623.1.0.147571,"CVE-2021-46664",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,80a28580-8883-4094-a46f-8604ece2a9ac,"","Update to version 10.2.43, 10.3.34, 10.4.24, 10.5.15, 10.6.7,
+  10.7.3 or later.","MariaDB versions prior to 10.2.43, 10.3.x prior to 10.3.34,
+  10.4.x prior to 10.4.24, 10.5.x prior to 10.5.15, 10.6.x prior to 10.6.7 and 10.7.x prior to
+  10.7.3.","MariaDB allows an application crash in sub_select_postjoin_aggr
+  for a NULL value of aggr.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-25761) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.147571)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-1928,DFN-CERT-2022-1777,DFN-CERT-2022-1717,DFN-CERT-2022-1688,DFN-CERT-2022-1667,DFN-CERT-2022-1597,DFN-CERT-2022-0500,DFN-CERT-2022-0460,WID-SEC-2022-0147,CB-K22/0126",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,5.5,Medium,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-25766) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.2.43
+
+",1.3.6.1.4.1.25623.1.0.147565,"CVE-2021-46661",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,ee0cf6c6-4270-47f5-add3-640e318fc5dd,"","Update to version 10.2.43, 10.3.34, 10.4.24, 10.5.15, 10.6.7,
+  10.7.3 or later.","MariaDB versions prior to 10.2.43, 10.3.x prior to 10.3.34,
+  10.4.x prior to 10.4.24, 10.5.x prior to 10.5.15, 10.6.x prior to 10.6.7 and 10.7.x prior to
+  10.7.3.","Unused CTE leads to a crash in find_field_in_tables/find_order_in_list.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-25766) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.147565)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-1928,DFN-CERT-2022-1777,DFN-CERT-2022-1717,DFN-CERT-2022-1688,DFN-CERT-2022-1667,DFN-CERT-2022-1597,DFN-CERT-2022-0500,DFN-CERT-2022-0460,WID-SEC-2022-0147,CB-K22/0126",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,5.5,Medium,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-25787) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.2.43
+
+",1.3.6.1.4.1.25623.1.0.147579,"CVE-2021-46668",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,35891ce1-e581-47f4-b07a-cc6745616084,"","Update to version 10.2.43, 10.3.34, 10.4.24, 10.5.15, 10.6.7,
+  10.7.3 or later.","MariaDB versions prior to 10.2.43, 10.3.x prior to 10.3.34,
+  10.4.x prior to 10.4.24, 10.5.x prior to 10.5.15, 10.6.x prior to 10.6.7 and 10.7.x prior to
+  10.7.3.","MariaDB allows an application crash via certain long SELECT
+  DISTINCT statements that improperly interact with storage-engine resource limitations for
+  temporary data structures.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-25787) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.147579)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-1928,DFN-CERT-2022-1777,DFN-CERT-2022-1717,DFN-CERT-2022-1688,DFN-CERT-2022-1667,DFN-CERT-2022-1597,DFN-CERT-2022-0500,DFN-CERT-2022-0460,WID-SEC-2022-0147,CB-K22/0126",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-26047 - 2) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.2.44
+
+",1.3.6.1.4.1.25623.1.0.104561,"CVE-2022-32083",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,00197a5c-b602-49ba-857b-a9f1b68339a8,"","Update to version 10.2.44, 10.3.35, 10.4.25, 10.5.16, 10.6.8,
+  10.7.4 or later.","MariaDB versions prior to 10.2.44, 10.3.x prior to 10.3.35,
+  10.4.x prior to 10.4.25, 10.5.x prior to 10.5.16, 10.6.x prior to 10.6.8 and 10.7.x prior to
+  10.7.4.","MariaDB contains a segmentation fault via the component
+  Item_subselect::init_expr_cache_tracker.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-26047 - 2) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104561)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-2668,DFN-CERT-2022-2132,DFN-CERT-2022-2059,DFN-CERT-2022-1992,DFN-CERT-2022-1980,DFN-CERT-2022-1928,DFN-CERT-2022-1688,WID-SEC-2022-0584",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-26047) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.2.44
+
+",1.3.6.1.4.1.25623.1.0.148355,"CVE-2022-27384",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,3e08fcb9-2248-4f81-b146-de05d76728fc,"","Update to version 10.2.44, 10.3.35, 10.4.25, 10.5.16, 10.6.8,
+  10.7.4 or later.","MariaDB versions prior to 10.2.44, 10.3.x prior to 10.3.35,
+  10.4.x prior to 10.4.25, 10.5.x prior to 10.5.16, 10.6.x prior to 10.6.8 and 10.7.x prior to
+  10.7.4.","","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-26047) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.148355)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-2668,DFN-CERT-2022-2059,DFN-CERT-2022-1928,DFN-CERT-2022-1777,DFN-CERT-2022-1717,DFN-CERT-2022-1688,DFN-CERT-2022-1667,DFN-CERT-2022-1597,DFN-CERT-2022-1370,DFN-CERT-2022-1205,WID-SEC-2022-0170,CB-K22/0484",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-26061) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.2.44
+
+",1.3.6.1.4.1.25623.1.0.147987,"CVE-2022-27381",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,a09b25e1-a3aa-42a1-bbe0-bc6456dfd52f,"","Update to version 10.2.44, 10.3.35, 10.4.25, 10.5.16, 10.6.8,
+  10.7.4 or later.","MariaDB versions prior to 10.2.44, 10.3.x prior to 10.3.35,
+  10.4.x prior to 10.4.25, 10.5.x prior to 10.5.16, 10.6.x prior to 10.6.8 and 10.7.x prior to
+  10.7.4.","","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-26061) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.147987)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-2668,DFN-CERT-2022-2059,DFN-CERT-2022-1928,DFN-CERT-2022-1777,DFN-CERT-2022-1717,DFN-CERT-2022-1688,DFN-CERT-2022-1667,DFN-CERT-2022-1597,DFN-CERT-2022-1370,DFN-CERT-2022-1205,WID-SEC-2022-0359,CB-K22/0440",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-26280) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.2.44
+
+",1.3.6.1.4.1.25623.1.0.104563,"CVE-2022-27380",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,9ac9747c-db8c-4c99-bf14-dad5f8df8e17,"","Update to version 10.2.44, 10.3.35, 10.4.25, 10.5.16, 10.6.8,
+  10.7.4 or later.","MariaDB versions prior to 10.2.44, 10.3.x prior to 10.3.35,
+  10.4.x prior to 10.4.25, 10.5.x prior to 10.5.16, 10.6.x prior to 10.6.8 and 10.7.x prior to
+  10.7.4.","","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-26280) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104563)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-2668,DFN-CERT-2022-2059,DFN-CERT-2022-1928,DFN-CERT-2022-1777,DFN-CERT-2022-1717,DFN-CERT-2022-1688,DFN-CERT-2022-1667,DFN-CERT-2022-1597,DFN-CERT-2022-1370,DFN-CERT-2022-1205,WID-SEC-2022-0166,CB-K22/0418",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,5.5,Medium,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-26350) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.2.41
+
+",1.3.6.1.4.1.25623.1.0.147577,"CVE-2021-46667",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,60daa402-97a8-40b7-9b1a-23b3f352f487,"","Update to version 10.2.41, 10.3.32, 10.4.22, 10.5.13, 10.6.5
+  or later.","MariaDB versions prior to 10.2.41, 10.3.x prior to 10.3.32,
+  10.4.x prior to 10.4.22, 10.5.x prior to 10.5.13 and 10.6.x prior to 10.6.5.","MariaDB has a sql_lex.cc integer overflow, leading to an
+  application crash.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-26350) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.147577)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-1597,DFN-CERT-2022-1241,DFN-CERT-2022-0933,DFN-CERT-2022-0666,WID-SEC-2022-0147,CB-K22/0126",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,5.5,Medium,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-26351) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.2.43
+
+",1.3.6.1.4.1.25623.1.0.147569,"CVE-2021-46663",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,4025ac5f-c4c9-4950-b60d-94fa930d79b6,"","Update to version 10.2.43, 10.3.34, 10.4.24, 10.5.15, 10.6.7,
+  10.7.3 or later.","MariaDB versions prior to 10.2.43, 10.3.x prior to 10.3.34,
+  10.4.x prior to 10.4.24, 10.5.x prior to 10.5.15, 10.6.x prior to 10.6.7 and 10.7.x prior to
+  10.7.3.","MariaDB allows a ha_maria::extra application crash via certain
+  SELECT statements.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-26351) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.147569)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-1928,DFN-CERT-2022-1777,DFN-CERT-2022-1717,DFN-CERT-2022-1688,DFN-CERT-2022-1667,DFN-CERT-2022-1597,DFN-CERT-2022-0500,DFN-CERT-2022-0460,WID-SEC-2022-0147,CB-K22/0126",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-26353) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.3.35
+
+",1.3.6.1.4.1.25623.1.0.104569,"CVE-2022-27379",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,6c5c79d6-644e-4100-a937-6b6882dc7f25,"","Update to version 10.3.35, 10.4.25, 10.5.16, 10.6.8, 10.7.4 or
+  later.","MariaDB versions prior to 10.3.35, 10.4.x prior to 10.4.25,
+  10.5.x prior to 10.5.16, 10.6.x prior to 10.6.8 and 10.7.x prior to 10.7.4.","","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-26353) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104569)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-2668,DFN-CERT-2022-2059,DFN-CERT-2022-1928,DFN-CERT-2022-1777,DFN-CERT-2022-1717,DFN-CERT-2022-1688,DFN-CERT-2022-1667,DFN-CERT-2022-1597,DFN-CERT-2022-1205,WID-SEC-2022-0359,CB-K22/0440",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-26402) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.4.25
+
+",1.3.6.1.4.1.25623.1.0.104573,"CVE-2022-27382",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,0fef7079-a69d-4818-ae6b-df1c2c79d1e2,"","Update to version 10.4.25, 10.5.16, 10.6.8, 10.7.4 or later.","MariaDB versions prior to 10.4.25, 10.5.x prior to 10.5.16,
+  10.6.x prior to 10.6.8 and 10.7.x prior to 10.7.4.","","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-26402) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104573)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-2668,DFN-CERT-2022-1777,DFN-CERT-2022-1717,DFN-CERT-2022-1688,DFN-CERT-2022-1667,DFN-CERT-2022-1597,DFN-CERT-2022-1205,WID-SEC-2022-0359,CB-K22/0440",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-26406) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.2.44
+
+",1.3.6.1.4.1.25623.1.0.104575,"CVE-2022-27386",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,4cd9733e-e374-478a-91bc-e6d525699606,"","Update to version 10.2.44, 10.3.35, 10.4.25, 10.5.16, 10.6.8,
+  10.7.4 or later.","MariaDB versions prior to 10.2.44, 10.3.x prior to 10.3.35,
+  10.4.x prior to 10.4.25, 10.5.x prior to 10.5.16, 10.6.x prior to 10.6.8 and 10.7.x prior to
+  10.7.4.","","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-26406) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104575)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-2668,DFN-CERT-2022-2059,DFN-CERT-2022-1928,DFN-CERT-2022-1777,DFN-CERT-2022-1717,DFN-CERT-2022-1688,DFN-CERT-2022-1667,DFN-CERT-2022-1597,DFN-CERT-2022-1370,DFN-CERT-2022-1205,WID-SEC-2022-0170,CB-K22/0484",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-26410, MDEV-22001) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.4.26
+
+",1.3.6.1.4.1.25623.1.0.148365,"CVE-2022-32089",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,85bc12ba-9c33-43d2-bcc3-8215e97513ce,"","Update to version 10.4.26, 10.5.17, 10.6.9, 10.7.5, 10.8.4,
+  10.9.2 or later.","MariaDB versions prior to 10.4.26, 10.5.x prior to 10.5.17,
+  10.6.x prior to 10.6.9, 10.7.x prior to 10.7.5, 10.8.x prior to 10.8.4 and 10.9.x prior to
+  10.9.2.","MariaDB contains a segmentation fault via the component
+  st_select_lex_unit::exclude_level.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-26410, MDEV-22001) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.148365)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2023-2503,DFN-CERT-2022-2668,DFN-CERT-2022-2132,DFN-CERT-2022-1992,DFN-CERT-2022-1980,WID-SEC-2022-0641",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-26412) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.4.25
+
+",1.3.6.1.4.1.25623.1.0.148371,"CVE-2022-32086",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,3b142930-8ecf-46f2-88d4-eab9ee5accf2,"","Update to version 10.4.25, 10.5.16, 10.6.8, 10.7.4 or later.","MariaDB versions prior to 10.4.25, 10.5.x prior to 10.5.16,
+  10.6.x prior to 10.6.8 and 10.7.x prior to 10.7.4.","MariaDB contains a segmentation fault via the component
+  Item_field::fix_outer_field.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-26412) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.148371)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-2668,DFN-CERT-2022-2132,DFN-CERT-2022-1992,DFN-CERT-2022-1980,DFN-CERT-2022-1688,WID-SEC-2022-0584",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-26415) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.3.32
+
+",1.3.6.1.4.1.25623.1.0.104577,"CVE-2022-27385",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,b03f975c-2ddc-49e6-8583-0efaa12b9f09,"","Update to version 10.3.32, 10.4.22, 10.5.13, 10.6.5 or
+  later.","MariaDB versions prior to 10.3.32, 10.4.x prior to 10.4.22,
+  10.5.x prior to 10.5.13 and 10.6.x prior to 10.6.5.","","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-26415) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104577)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-1597,DFN-CERT-2022-1241,WID-SEC-2022-0170,CB-K22/0484",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-26419) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.2.44
+
+",1.3.6.1.4.1.25623.1.0.148363,"CVE-2022-32088",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,f85cc94a-ca8d-4654-9ef1-be221fbb91fe,"","Update to version 10.2.44, 10.3.35, 10.4.25, 10.5.16, 10.6.8,
+  10.7.4 or later.","MariaDB versions prior to 10.2.44, 10.3.x prior to 10.3.35,
+  10.4.x prior to 10.4.25, 10.5.x prior to 10.5.16, 10.6.x prior to 10.6.8 and 10.7.x prior to
+  10.7.4.","MariaDB contains a segmentation fault via the component
+  Exec_time_tracker::get_loops/Filesort_tracker::report_use/filesort.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-26419) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.148363)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-2668,DFN-CERT-2022-2132,DFN-CERT-2022-2059,DFN-CERT-2022-1992,DFN-CERT-2022-1980,DFN-CERT-2022-1928,DFN-CERT-2022-1688,WID-SEC-2022-0641",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-26420) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.4.26
+
+",1.3.6.1.4.1.25623.1.0.148369,"CVE-2022-32081",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,bc9f3ec2-1bd0-4030-bcc9-63fa90bcaec1,"","Update to version 10.4.26, 10.5.17, 10.6.9, 10.7.5, 10.8.4,
+  10.9.2 or later.","MariaDB versions prior to 10.4.26, 10.5.x prior to 10.5.17,
+  10.6.x prior to 10.6.9, 10.7.x prior to 10.7.5, 10.8.x prior to 10.8.4 and 10.9.x prior to
+  10.9.2.","MariaDB contains a use-after-poison in
+  prepare_inplace_add_virtual at /storage/innobase/handler/handler0alter.cc.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-26420) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.148369)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2023-2503,DFN-CERT-2022-2668,DFN-CERT-2022-2132,DFN-CERT-2022-1992,DFN-CERT-2022-1980,WID-SEC-2022-0641",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-26423) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.2.44
+
+",1.3.6.1.4.1.25623.1.0.104581,"CVE-2022-27378",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,d86a0415-f81e-472f-9d82-e5800cdaa09c,"","Update to version 10.2.44, 10.3.35, 10.4.25, 10.5.16, 10.6.8,
+  10.7.4 or later.","MariaDB versions prior to 10.2.44, 10.3.x prior to 10.3.35,
+  10.4.x prior to 10.4.25, 10.5.x prior to 10.5.16, 10.6.x prior to 10.6.8 and 10.7.x prior to
+  10.7.4.","","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-26423) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104581)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-2668,DFN-CERT-2022-2059,DFN-CERT-2022-1928,DFN-CERT-2022-1777,DFN-CERT-2022-1717,DFN-CERT-2022-1688,DFN-CERT-2022-1667,DFN-CERT-2022-1597,DFN-CERT-2022-1370,DFN-CERT-2022-1205,WID-SEC-2022-0359,CB-K22/0440",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-26427) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.3.36
+
+",1.3.6.1.4.1.25623.1.0.148361,"CVE-2022-32084",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,51f4b2ef-edfc-4921-9dd5-07940157a247,"","Update to version 10.3.36, 10.4.26, 10.5.17, 10.6.9, 10.7.5,
+  10.8.4, 10.9.2 or later.","MariaDB versions prior to 10.3.36, 10.4.x prior to 10.4.26,
+  10.5.x prior to 10.5.17, 10.6.x prior to 10.6.9, 10.7.x prior to 10.7.5, 10.8.x prior to 10.8.4
+  and 10.9.x prior to 10.9.2.","MariaDB contains a segmentation fault via the component
+  sub_select.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-26427) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.148361)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2023-2503,DFN-CERT-2023-2216,DFN-CERT-2023-1625,DFN-CERT-2022-2668,DFN-CERT-2022-2132,DFN-CERT-2022-2059,DFN-CERT-2022-1992,DFN-CERT-2022-1980,WID-SEC-2022-0641",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-26431, MDEV-23809) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.3.36
+
+",1.3.6.1.4.1.25623.1.0.148367,"CVE-2022-32091",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,fcf3fc8f-0479-4df5-95e0-d7015a80c2a6,"","Update to version 10.3.36, 10.4.26, 10.5.17, 10.6.9, 10.7.5,
+  10.8.4, 10.9.2 or later.","MariaDB versions prior to 10.3.36, 10.4.x prior to 10.4.26,
+  10.5.x prior to 10.5.17, 10.6.x prior to 10.6.9, 10.7.x prior to 10.7.5, 10.8.x prior to 10.8.4
+  and 10.9.x prior to 10.9.2.","MariaDB contains a use-after-poison in __interceptor_memset at
+  /libsanitizer/sanitizer_common/sanitizer_common_interceptors.inc.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-26431, MDEV-23809) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.148367)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2023-2503,DFN-CERT-2023-2216,DFN-CERT-2022-2668,DFN-CERT-2022-2132,DFN-CERT-2022-2059,DFN-CERT-2022-1992,DFN-CERT-2022-1980,WID-SEC-2022-0641",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-26433) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.5.17
+
+",1.3.6.1.4.1.25623.1.0.148359,"CVE-2022-32082",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,cb1c8894-c08e-4922-a51d-5078607771d1,"","Update to version 10.5.17, 10.6.9, 10.7.5, 10.8.4, 10.9.2 or
+  later.","MariaDB versions prior to 10.5.17, 10.6.x prior to 10.6.9,
+  10.7.x prior to 10.7.5, 10.8.x prior to 10.8.4 and 10.9.x prior to 10.9.2.","MariaDB contains an assertion failure at
+  table->get_ref_count() == 0 in dict0dict.cc.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-26433) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.148359)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2023-2503,DFN-CERT-2022-2668,DFN-CERT-2022-2132,DFN-CERT-2022-1980,WID-SEC-2022-0641",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,5.5,Medium,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-26556) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.2.41
+
+",1.3.6.1.4.1.25623.1.0.104552,"CVE-2022-31624",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,c81928dc-ecc6-4b9f-9315-85e9ee135828,"","Update to version 10.2.41, 10.3.32, 10.4.22, 10.5.13, 10.6.5 or
+  later.","MariaDB versions prior to 10.2.41, 10.3.x prior to 10.3.32,
+  10.4.x prior to 10.4.22, 10.5.x prior to 10.5.13 and 10.6.x prior to 10.6.5.","While executing the plugin/server_audit/server_audit.c method
+  log_statement_ex, the held lock lock_bigbuffer is not released correctly, which allows local users
+  to trigger a denial of service due to the deadlock.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-26556) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104552)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-1597,WID-SEC-2022-0017,CB-K22/0665",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,5.5,Medium,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-26574) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.2.41
+
+",1.3.6.1.4.1.25623.1.0.104554,"CVE-2022-31621",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,a7a645a3-8e62-461a-a340-82b4d94aa041,"","Update to version 10.2.41, 10.3.32, 10.4.22, 10.5.13, 10.6.5 or
+  later.","MariaDB versions prior to 10.2.41, 10.3.x prior to 10.3.32,
+  10.4.x prior to 10.4.22, 10.5.x prior to 10.5.13 and 10.6.x prior to 10.6.5.","In extra/mariabackup/ds_xbstream.cc, while executing the method
+  xbstream_open, the held lock is not released correctly, which allows local users to trigger a
+  denial of service due to the deadlock.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-26574) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104554)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-1597,WID-SEC-2022-0017,CB-K22/0665",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-28080) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.4.25
+
+",1.3.6.1.4.1.25623.1.0.104610,"CVE-2022-27444",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,07f0c885-538a-4d6e-a3e9-fb2d3dce1cce,"","Update to version 10.4.25, 10.5.16, 10.6.8, 10.7.4 or later.","MariaDB versions prior 10.4.25, 10.5.x prior to 10.5.16, 10.6.x
+  prior to 10.6.8 and 10.7.x prior to 10.7.4.","Segmentation fault via the component sql/item_subselect.cc.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-28080) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104610)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-2668,DFN-CERT-2022-1777,DFN-CERT-2022-1717,DFN-CERT-2022-1688,DFN-CERT-2022-1667,DFN-CERT-2022-1597,DFN-CERT-2022-1205,WID-SEC-2022-0168,CB-K22/0461",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-28081) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.2.44
+
+",1.3.6.1.4.1.25623.1.0.104612,"CVE-2022-27445",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,3fca887f-efb1-4790-ab04-95edf9a5e625,"","Update to version 10.2.44, 10.3.35, 10.4.25, 10.5.16, 10.6.8,
+  10.7.4 or later.","MariaDB versions prior to 10.2.44, 10.3.x prior to 10.3.35,
+  10.4.x prior to 10.4.25, 10.5.x prior to 10.5.16, 10.6.x prior to 10.6.8 and 10.7.x prior to
+  10.7.4.","DoS due segmentation fault via component sql/sql_window.cc.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-28081) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104612)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-2668,DFN-CERT-2022-2059,DFN-CERT-2022-1928,DFN-CERT-2022-1777,DFN-CERT-2022-1717,DFN-CERT-2022-1688,DFN-CERT-2022-1667,DFN-CERT-2022-1597,DFN-CERT-2022-1370,DFN-CERT-2022-1205,WID-SEC-2022-0168,CB-K22/0461",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-28082) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.4.25
+
+",1.3.6.1.4.1.25623.1.0.104614,"CVE-2022-27446",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,1555ab21-3583-40f2-ad90-190fc2df676e,"","Update to version 10.4.25, 10.5.16, 10.6.8, 10.7.4 or later.","MariaDB versions prior 10.4.25, 10.5.x prior to 10.5.16, 10.6.x
+  prior to 10.6.8 and 10.7.x prior to 10.7.4.","Segmentation fault via the component sql/item_cmpfunc.h.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-28082) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104614)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-2668,DFN-CERT-2022-1777,DFN-CERT-2022-1717,DFN-CERT-2022-1688,DFN-CERT-2022-1667,DFN-CERT-2022-1205,WID-SEC-2022-0168,CB-K22/0461",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-28089) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.3.35
+
+",1.3.6.1.4.1.25623.1.0.104616,"CVE-2022-27449",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,0be7679c-c405-4b72-8487-24fd8ade93c0,"","Update to version 10.3.35, 10.4.25, 10.5.16, 10.6.8, 10.7.4 or
+  later.","MariaDB versions prior to 10.3.35, 10.4.x prior to 10.4.25,
+  10.5.x prior to 10.5.16, 10.6.x prior to 10.6.8 and 10.7.x prior to 10.7.4.","DoS due segmentation fault via component sql/item_func.cc:148.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-28089) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104616)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-2668,DFN-CERT-2022-2059,DFN-CERT-2022-1928,DFN-CERT-2022-1777,DFN-CERT-2022-1717,DFN-CERT-2022-1688,DFN-CERT-2022-1667,DFN-CERT-2022-1205,WID-SEC-2022-0168,CB-K22/0461",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-28090) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.3.35
+
+",1.3.6.1.4.1.25623.1.0.104618,"CVE-2022-27452",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,8f928ce3-0b12-4762-b807-0b79bc05a1c3,"","Update to version 10.3.35, 10.4.25, 10.5.16, 10.6.8, 10.7.4 or
+  later.","MariaDB versions prior to 10.3.35, 10.4.x prior to 10.4.25,
+  10.5.x prior to 10.5.16, 10.6.x prior to 10.6.8 and 10.7.x prior to 10.7.4.","DoS due segmentation fault via component sql/item_cmpfunc.cc.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-28090) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104618)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-2668,DFN-CERT-2022-2059,DFN-CERT-2022-1928,DFN-CERT-2022-1777,DFN-CERT-2022-1717,DFN-CERT-2022-1688,DFN-CERT-2022-1667,DFN-CERT-2022-1205,WID-SEC-2022-0168,CB-K22/0461",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-28094) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.4.25
+
+",1.3.6.1.4.1.25623.1.0.104622,"CVE-2022-27451",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,24ef2d39-5452-4da4-8e87-140dd5460330,"","Update to version 10.4.25, 10.5.16, 10.6.8, 10.7.4 or later.","MariaDB versions prior 10.4.25, 10.5.x prior to 10.5.16, 10.6.x
+  prior to 10.6.8 and 10.7.x prior to 10.7.4.","Segmentation fault via the component sql/field_conv.cc.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-28094) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104622)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-2668,DFN-CERT-2022-1777,DFN-CERT-2022-1717,DFN-CERT-2022-1688,DFN-CERT-2022-1667,DFN-CERT-2022-1205,WID-SEC-2022-0168,CB-K22/0461",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-28095) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.3.35
+
+",1.3.6.1.4.1.25623.1.0.126003,"CVE-2022-27448",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,c7d01916-fac2-46f4-996e-b4de2e0dbb72,"","Update to version 10.3.35, 10.4.25, 10.5.16, 10.6.8, 10.7.4
+  or later.","MariaDB versions prior to 10.3.35, 10.4.x prior to 10.4.25,
+  10.5.x prior to 10.5.16, 10.6.x prior to 10.6.8 and 10.7.x prior to 10.7.4.","There is an assertion failure in MariaDB Server via
+  'node->pcur->rel_pos == BTR_PCUR_ON' at /row/row0mysql.cc.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-28095) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.126003)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-2668,DFN-CERT-2022-2059,DFN-CERT-2022-1928,DFN-CERT-2022-1777,DFN-CERT-2022-1717,DFN-CERT-2022-1688,DFN-CERT-2022-1667,DFN-CERT-2022-1205,WID-SEC-2022-0168,CB-K22/0461",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,5.5,Medium,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-28719) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.3.36
+
+",1.3.6.1.4.1.25623.1.0.148641,"CVE-2022-38791",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,616b47e9-6fb4-49dd-ad7d-17b40b93e92e,"","Update to version 10.3.36, 10.4.26, 10.5.17, 10.6.9, 10.7.5,
+  10.8.4, 10.9.2 or later.","MariaDB versions prior to 10.3.36, 10.4.x prior to 10.4.26,
+  10.5.x prior to 10.5.17, 10.6.x prior to 10.6.9, 10.7.x prior to 10.7.5, 10.8.x prior to 10.8.4
+  and 10.9.x prior to 10.9.2.","compress_write in extra/mariabackup/ds_compress.cc does not
+  release data_mutex upon a stream write failure, which allows local users to trigger a deadlock.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-28719) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.148641)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2023-2503,DFN-CERT-2023-2216,DFN-CERT-2023-0504,DFN-CERT-2022-2132,WID-SEC-2022-1258",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,4.9,Medium,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-29182)","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.5.28
+Installation
+path / port:       3306/tcp
+
+",1.3.6.1.4.1.25623.1.0.125392,"CVE-2025-21490",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,1a57095b-8d8e-4f42-abb1-39d4f2ffee5a,"","Update to version 10.5.28, 10.6.21, 10.11.11, 11.4.5, 11.7.2
+  or later.","MariaDB versions prior to 10.5.28, 10.6.x prior to 10.6.21,
+  10.7.x prior to 10.11.11, 11.0.x prior to 11.4.5 and 11.5.x prior to 11.7.2.","Easily exploitable vulnerability allows high privileged attacker
+  with network access via multiple protocols to compromise MySQL Server. Successful attacks of this
+  vulnerability can result in unauthorized ability to cause a hang or frequently repeatable
+  crash (DoS).","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-29182)
+(OID: 1.3.6.1.4.1.25623.1.0.125392)
+Version used: 2025-11-28T15:41:52Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2026-0037,DFN-CERT-2025-3583,DFN-CERT-2025-2602,DFN-CERT-2025-0544,DFN-CERT-2025-0446,DFN-CERT-2025-0174,WID-SEC-2025-0167",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,6.5,Medium,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-29644) - Linux","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.3.39
+
+",1.3.6.1.4.1.25623.1.0.149185,"CVE-2022-47015",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,6bf30d32-4cb7-430b-a3ab-c0bfedcf073f,"","Update to version 10.3.39, 10.4.29, 10.5.20, 10.6.13, 10.8.8,
+  10.9.6, 10.10.4, 10.11.3 or later.","MariaDB versions prior to 10.3.39, 10.4.x prior to 10.4.29,
+  10.5.x prior to 10.5.20, 10.6.x prior to 10.6.13, starting from 10.7.0 and prior to 10.8.8,
+  10.9.x prior to 10.9.6, 10.10.x prior to 10.10.4 and 10.11.x prior to 10.11.3.","It is possible for function spider_db_mbase::print_warnings to
+  dereference a null pointer.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-29644) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.149185)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2024-0220,DFN-CERT-2023-2503,DFN-CERT-2023-2216,DFN-CERT-2023-1276,WID-SEC-2023-0167",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,6.1,Medium,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-32082)","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.4.33
+Installation
+path / port:       3306/tcp
+
+",1.3.6.1.4.1.25623.1.0.125170,"CVE-2023-52968",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,710455d8-d245-44e3-9de0-20415b52f126,"","Update to version 10.4.33, 10.5.24, 10.6.17, 10.11.7, 11.0.5,
+  11.1.4, 11.2.3, 11.3.2, 11.4.1 or later.","MariaDB versions prior to 10.4.33, 10.5.x prior to 10.5.24,
+  10.6.x prior to 10.6.17, 10.7.x prior to 10.11.7, 11.0.x prior to 11.0.5, 11.1.x prior to 11.1.4,
+  11.2.x prior to 11.2.3, 11.3.x  prior to 11.3.2 and 11.4.x prior to 11.4.1.","MariaDB Server calls fix_fields_if_needed under
+  mysql_derived_prepare when derived is not yet prepared, leading to a find_field_in_table crash.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-32082)
+(OID: 1.3.6.1.4.1.25623.1.0.125170)
+Version used: 2025-11-28T15:41:52Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","WID-SEC-2025-0507",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,6.1,Medium,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-32083)","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.5.29
+Installation
+path / port:       3306/tcp
+
+",1.3.6.1.4.1.25623.1.0.125171,"CVE-2023-52969",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,3db94018-b770-4bcc-adc0-e94dc36416c7,"","Update to version 10.5.29, 10.6.22, 10.11.12, 11.4.6 or
+  later.","MariaDB versions prior to 10.5.29, 10.6.x prior to 10.6.22,
+  10.7.x prior to 10.11.12 and 11.x prior to 11.4.6.","MariaDB Server can sometimes crash with an empty backtrace log.
+  This may be related to make_aggr_tables_info and optimize_stage2.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-32083)
+(OID: 1.3.6.1.4.1.25623.1.0.125171)
+Version used: 2025-11-28T15:41:52Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2026-0037,DFN-CERT-2025-3583,DFN-CERT-2025-2602,DFN-CERT-2025-1424,DFN-CERT-2025-1304,DFN-CERT-2025-1166,DFN-CERT-2025-0876,WID-SEC-2025-0507",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,6.1,Medium,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-32086)","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.5.29
+Installation
+path / port:       3306/tcp
+
+",1.3.6.1.4.1.25623.1.0.125172,"CVE-2023-52970",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,3c418977-fd77-42f8-aa68-c446671bf50c,"","Update to version 10.5.29, 10.6.22, 10.11.12, 11.4.6 or
+  later.","MariaDB versions prior to 10.5.29, 10.6.x prior to 10.6.22,
+  10.7.x prior to 10.11.12 and 11.x prior to 11.4.6.","MariaDB Server crashes in
+  Item_direct_view_ref::derived_field_transformer_for_where.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-32086)
+(OID: 1.3.6.1.4.1.25623.1.0.125172)
+Version used: 2025-11-28T15:41:52Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2026-0037,DFN-CERT-2025-3583,DFN-CERT-2025-2602,DFN-CERT-2025-1424,DFN-CERT-2025-1304,DFN-CERT-2025-1166,DFN-CERT-2025-0876,WID-SEC-2025-0507",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,4.9,Medium,30,"VendorFix","MariaDB DoS Vulnerability (MDEV-33727)","MariaDB is prone to a denial of service (DoS) vulnerability.","Installed version: 10.0.38
+Fixed version:     10.5.25
+Installation
+path / port:       3306/tcp
+
+",1.3.6.1.4.1.25623.1.0.125391,"CVE-2024-21096",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,6dae64f5-e2e4-452c-b0bc-22c5ce51a310,"Successful exploitation of this vulnerability can allow
+  unauthorized users to update, insert, or delete certain data accessible by MySQL Server, gain
+  unauthorized read access to a subset of data, and potentially cause a partial DoS.","Update to version 10.5.25, 10.6.18, 10.11.8, 11.0.6, 11.1.5,
+  11.2.4, 11.4.2 or later.","MariaDB versions prior to 10.5.25, 10.6.x prior to 10.6.18,
+  10.7.x prior to 10.11.8, 11.0.x prior to 11.0.6, 11.1.x prior to 11.1.5, 11.2.x prior to 11.2.4
+  and 11.3.x prior to 11.4.2.","A difficult-to-exploit vulnerability allows an unauthenticated
+  attacker who has logon access to the host running MySQL Server to compromise the MySQL Server.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB DoS Vulnerability (MDEV-33727)
+(OID: 1.3.6.1.4.1.25623.1.0.125391)
+Version used: 2025-11-28T15:41:52Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2024-1517,DFN-CERT-2024-1341,DFN-CERT-2024-1002,WID-SEC-2024-0894",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB Multiple DoS Vulnerabilities (MDEV-24176, MDEV-26407, MDEV-26437) - Linux","MariaDB is prone to multiple denial of service (DoS)
+  vulnerabilities.","Installed version: 10.0.38
+Fixed version:     10.3.35
+
+",1.3.6.1.4.1.25623.1.0.148357,"CVE-2022-32085,CVE-2022-32087",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,9b1c25df-3c32-4a86-887c-653f0a48eec3,"","Update to version 10.3.35, 10.4.25, 10.5.16, 10.6.8, 10.7.4 or
+  later.","MariaDB versions prior to 10.3.35, 10.4.x prior to 10.4.25,
+  10.5.x prior to 10.5.16, 10.6.x prior to 10.6.8 and 10.7.x prior to 10.7.4.","The following vulnerabilities exist:
+
+  - CVE-2022-32085: Server crashes in Item_func_in::cleanup/Item::cleanup_processor (MDEV-26407,
+  MDEV-24176)
+
+  - CVE-2022-32087: Server crashes in Item_args::walk_args (MDEV-26437, MDEV-24176)","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB Multiple DoS Vulnerabilities (MDEV-24176, MDEV-26407, MDEV-26437) - ...
+(OID: 1.3.6.1.4.1.25623.1.0.148357)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-2668,DFN-CERT-2022-2132,DFN-CERT-2022-2059,DFN-CERT-2022-1992,DFN-CERT-2022-1980,DFN-CERT-2022-1928,DFN-CERT-2022-1688,WID-SEC-2022-0584",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,5.5,Medium,30,"VendorFix","MariaDB Multiple DoS Vulnerabilities (MDEV-26561) - Linux","MariaDB is prone to multiple denial of service (DoS)
+  vulnerabilities.","Installed version: 10.0.38
+Fixed version:     10.2.42
+
+",1.3.6.1.4.1.25623.1.0.127028,"CVE-2022-31622,CVE-2022-31623",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,19803f3f-dae1-41cb-9f79-815f32120bec,"","Update to version 10.2.42, 10.3.33, 10.4.23, 10.5.14, 10.6.6,
+  10.7.2 or later.","MariaDB versions prior to 10.2.42, 10.3.x prior to 10.3.33,
+  10.4.x prior to 10.4.23, 10.5.x prior to 10.5.14, 10.6.x prior to 10.6.6 and 10.7.x prior to
+  10.7.2.","The following vulnerabilities exist:
+
+  - CVE-2022-31622: in extra/mariabackup/ds_compress.cc, while executing the method
+  create_worker_threads, the held lock is not released correctly, which allows local users
+  to trigger a denial of service due to the deadlock,
+
+  - CVE-2022-31623: In extra/mariabackup/ds_compress.cc, while executing the method
+  create_worker_threads, the held lock thd->ctrl_mutex is not released correctly, which allows
+  local users to trigger a denial of service due to the deadlock.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB Multiple DoS Vulnerabilities (MDEV-26561) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.127028)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-1928,DFN-CERT-2022-1777,DFN-CERT-2022-1717,DFN-CERT-2022-1688,DFN-CERT-2022-1597,WID-SEC-2022-0017,CB-K22/0665",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB Multiple Use-After-Free Vulnerabilities (MDEV-28099) - Linux","MariaDB is prone to multiple use-after-free vulnerabilities.","Installed version: 10.0.38
+Fixed version:     10.3.35
+
+",1.3.6.1.4.1.25623.1.0.126001,"CVE-2022-27447,CVE-2022-27458",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,e2f72294-e268-47a3-b783-fae0bfd82f2c,"","Update to version 10.3.35, 10.4.25, 10.5.16, 10.6.8, 10.7.4 or
+  later.","MariaDB versions prior to 10.3.35, 10.4.x prior to 10.4.25,
+  10.5.x prior to 10.5.16, 10.6.x prior to 10.6.8 and 10.7.x prior to 10.7.4.","The following vulnerabilities exist:
+
+  - CVE-2022-27447: Use-after-free in the component Binary_string::free_buffer() at
+  /sql/sql_string.h
+
+  - CVE-2022-27458: Use-after-free in the component Binary_string::free_buffer() at
+  /sql/sql_string.h","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB Multiple Use-After-Free Vulnerabilities (MDEV-28099) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.126001)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-2668,DFN-CERT-2022-2059,DFN-CERT-2022-1928,DFN-CERT-2022-1777,DFN-CERT-2022-1717,DFN-CERT-2022-1688,DFN-CERT-2022-1667,DFN-CERT-2022-1205,WID-SEC-2022-0168,CB-K22/0461",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB Multiple Vulnerabilities (Feb 2022) - Linux","MariaDB is prone to multiple vulnerabilities.","Installed version: 10.0.38
+Fixed version:     10.2.42
+
+",1.3.6.1.4.1.25623.1.0.149345,"CVE-2022-0778,CVE-2022-21595",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,a72ae7d3-4f6c-4540-aad5-672a2956023c,"","Update to version 10.2.42, 10.3.33, 10.4.23, 10.5.14, 10.6.6,
+  10.7.2 or later.","MariaDB versions prior to 10.2.42, 10.3.x prior to 10.3.33,
+  10.4.x prior to 10.4.23, 10.5.x prior to 10.5.14, 10.6.x prior to 10.6.6 and 10.7.x prior to
+  10.7.2.","The following vulnerabilities exist:
+
+  - CVE-2022-0778: Denial of service (DoS) in OpenSSL
+
+  - CVE-2022-21595: Denial of service (DoS) in MySQL","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB Multiple Vulnerabilities (Feb 2022) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.149345)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2025-3324,DFN-CERT-2024-0147,DFN-CERT-2023-2667,DFN-CERT-2023-0504,DFN-CERT-2023-0081,DFN-CERT-2022-2306,DFN-CERT-2022-2268,DFN-CERT-2022-2111,DFN-CERT-2022-1837,DFN-CERT-2022-1469,DFN-CERT-2022-1294,DFN-CERT-2022-1264,DFN-CERT-2022-1116,DFN-CERT-2022-1115,DFN-CERT-2022-1114,DFN-CERT-2022-1081,DFN-CERT-2022-0955,DFN-CERT-2022-0902,DFN-CERT-2022-0899,DFN-CERT-2022-0898,DFN-CERT-2022-0873,DFN-CERT-2022-0866,DFN-CERT-2022-0865,DFN-CERT-2022-0779,DFN-CERT-2022-0759,DFN-CERT-2022-0627,DFN-CERT-2022-0625,DFN-CERT-2022-0610,DFN-CERT-2022-0603,WID-SEC-2026-0180,WID-SEC-2024-2086,WID-SEC-2024-1591,WID-SEC-2024-1186,WID-SEC-2024-0794,WID-SEC-2023-1969,WID-SEC-2022-1776,WID-SEC-2022-1335,WID-SEC-2022-1228,WID-SEC-2022-1081,WID-SEC-2022-1057,WID-SEC-2022-0836,WID-SEC-2022-0833,WID-SEC-2022-0826,WID-SEC-2022-0767,WID-SEC-2022-0677,WID-SEC-2022-0551,WID-SEC-2022-0530,WID-SEC-2022-0515,WID-SEC-2022-0432,WID-SEC-2022-0393,WID-SEC-2022-0302,WID-SEC-2022-0270,WID-SEC-2022-0261,WID-SEC-2022-0200,WID-SEC-2022-0190,WID-SEC-2022-0169,WID-SEC-2022-0065,CB-K22/0619,CB-K22/0470,CB-K22/0468,CB-K22/0321",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.8,High,30,"VendorFix","MariaDB Multiple Vulnerabilities (Feb 2022) - Linux","MariaDB is prone to multiple vulnerabilities.","Installed version: 10.0.38
+Fixed version:     10.2.42
+
+",1.3.6.1.4.1.25623.1.0.147624,"CVE-2022-24048,CVE-2022-24050,CVE-2022-24051,CVE-2022-24052",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,7f01e18e-77aa-471b-8941-3e92f29152b8,"","Update to version 10.2.42, 10.3.33, 10.4.23, 10.5.14, 10.6.6,
+  10.7.2, 10.8.1 or later.","MariaDB versions prior to 10.2.42, 10.3.x prior to 10.3.33,
+  10.4.x prior to 10.4.23, 10.5.x prior to 10.5.14, 10.6.x prior to 10.6.6, 10.7.x prior to 10.7.2
+  and 10.8.0.","","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB Multiple Vulnerabilities (Feb 2022) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.147624)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-1928,DFN-CERT-2022-1777,DFN-CERT-2022-1717,DFN-CERT-2022-1688,DFN-CERT-2022-1667,DFN-CERT-2022-1597,DFN-CERT-2022-0500,DFN-CERT-2022-0460,DFN-CERT-2022-0327,WID-SEC-2022-0844,CB-K22/0171",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,5.5,Medium,30,"VendorFix","MariaDB Multiple Vulnerabilities (Jul/Nov 2021) - Linux","MariaDB is prone to multiple vulnerabilities.","Installed version: 10.0.38
+Fixed version:     10.2.41
+
+",1.3.6.1.4.1.25623.1.0.117813,"CVE-2021-35604",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,34f452ed-85ce-4869-b81c-435942322f91,"Successful attacks of this vulnerability can result in
+  unauthorized ability to cause a hang or frequently repeatable crash (complete DOS) of MariaDB
+  Server as well as unauthorized update, insert or delete access to some of MariaDB Server
+  accessible data.","Update to version 10.2.41, 10.3.32, 10.4.22, 10.5.13, 10.6.3 or
+  later.","MariaDB versions 10.2.x and prior, 10.3.x, 10.4.x, 10.5.x and
+  10.6.x.","Easily exploitable vulnerability allows high privileged attacker
+  with network access via multiple protocols to compromise MariaDB Server.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB Multiple Vulnerabilities (Jul/Nov 2021) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.117813)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-2376,DFN-CERT-2022-2047,DFN-CERT-2022-1597,DFN-CERT-2022-1241,DFN-CERT-2022-0933,DFN-CERT-2022-0666,DFN-CERT-2021-2502,DFN-CERT-2021-2188,WID-SEC-2024-1591,WID-SEC-2022-0432,WID-SEC-2022-0302,WID-SEC-2022-0094,CB-K21/1161,CB-K21/1087",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,6.8,Medium,30,"VendorFix","MariaDB Multiple Vulnerabilities (MDEV-36268, MDEV-36613)","MariaDB is prone to multiple vulnerabilities.","Installed version: 10.0.38
+Fixed version:     10.5.29
+Installation
+path / port:       3306/tcp
+
+",1.3.6.1.4.1.25623.1.0.125393,"CVE-2025-30693,CVE-2025-30722",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,00cd3565-53e2-43d0-b577-126a893d47ec,"","Update to version 10.5.29, 10.6.22, 10.11.12, 11.4.6 or
+  later.","MariaDB versions prior to 10.5.29, 10.6.x prior to 10.6.22,
+  10.7.x prior to 10.11.12 and 11.0.x prior to 11.4.6.","The following flaws exist:
+
+  - CVE-2025-30693: This vulnerability allows high privileged attacker with network access via
+  multiple protocols to compromise MySQL Server. Successful attacks of this vulnerability can result
+  in unauthorized ability to cause a hang or frequently repeatable crash (complete DOS) of MySQL
+  Server as well as unauthorized update, insert or delete access to some of MySQL Server accessible
+  data.
+
+  - CVE-2025-30722: This vulnerability allows low privileged attacker with network access via
+  multiple protocols to compromise MySQL Client. Successful attacks of this vulnerability can result
+  in unauthorized access to critical data or complete access to all MySQL Client accessible data as
+  well as unauthorized update, insert or delete access to some of MySQL Client accessible data.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB Multiple Vulnerabilities (MDEV-36268, MDEV-36613)
+(OID: 1.3.6.1.4.1.25623.1.0.125393)
+Version used: 2025-11-28T15:41:52Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2026-0037,DFN-CERT-2025-3583,DFN-CERT-2025-2602,DFN-CERT-2025-2523,DFN-CERT-2025-1470,DFN-CERT-2025-1424,DFN-CERT-2025-1304,DFN-CERT-2025-0973,WID-SEC-2025-1850,WID-SEC-2025-0813",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB Use-After-Free Vulnerability (MDEV-26281) - Linux","MariaDB is prone to a use-after-free vulnerability.","Installed version: 10.0.38
+Fixed version:     10.2.44
+
+",1.3.6.1.4.1.25623.1.0.104565,"CVE-2022-27377",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,54a650ac-b851-4a24-ab6f-65cf3be9c199,"","Update to version 10.2.44, 10.3.35, 10.4.25, 10.5.16, 10.6.8,
+  10.7.4 or later.","MariaDB versions prior to 10.2.44, 10.3.x prior to 10.3.35,
+  10.4.x prior to 10.4.25, 10.5.x prior to 10.5.16, 10.6.x prior to 10.6.8 and 10.7.x prior to
+  10.7.4.","","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB Use-After-Free Vulnerability (MDEV-26281) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104565)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-2668,DFN-CERT-2022-2059,DFN-CERT-2022-1928,DFN-CERT-2022-1777,DFN-CERT-2022-1717,DFN-CERT-2022-1688,DFN-CERT-2022-1667,DFN-CERT-2022-1597,DFN-CERT-2022-1370,DFN-CERT-2022-1205,WID-SEC-2022-0166,CB-K22/0418",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB Use-After-Free Vulnerability (MDEV-26323) - Linux","MariaDB is prone to a use-after-free vulnerability.","Installed version: 10.0.38
+Fixed version:     10.2.44
+
+",1.3.6.1.4.1.25623.1.0.104567,"CVE-2022-27383",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,61e27a38-480c-4a2a-86bf-0b5720cc4319,"","Update to version 10.2.44, 10.3.35, 10.4.25, 10.5.16, 10.6.8,
+  10.7.4 or later.","MariaDB versions prior to 10.2.44, 10.3.x prior to 10.3.35,
+  10.4.x prior to 10.4.25, 10.5.x prior to 10.5.16, 10.6.x prior to 10.6.8 and 10.7.x prior to
+  10.7.4.","","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB Use-After-Free Vulnerability (MDEV-26323) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104567)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-2668,DFN-CERT-2022-2059,DFN-CERT-2022-1928,DFN-CERT-2022-1777,DFN-CERT-2022-1717,DFN-CERT-2022-1688,DFN-CERT-2022-1667,DFN-CERT-2022-1597,DFN-CERT-2022-1370,DFN-CERT-2022-1205,WID-SEC-2022-0166,CB-K22/0418",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB Use-After-Free Vulnerability (MDEV-26354) - Linux","MariaDB is prone to a use-after-free vulnerability.","Installed version: 10.0.38
+Fixed version:     10.3.35
+
+",1.3.6.1.4.1.25623.1.0.104571,"CVE-2022-27376",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,34d7d58b-4a10-45fc-b7df-78390d8cb947,"","Update to version 10.3.35, 10.4.25, 10.5.16, 10.6.8, 10.7.4 or
+  later.","MariaDB versions prior to 10.3.35, 10.4.x prior to 10.4.25,
+  10.5.x prior to 10.5.16, 10.6.x prior to 10.6.8 and 10.7.x prior to 10.7.4.","","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB Use-After-Free Vulnerability (MDEV-26354) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104571)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-2668,DFN-CERT-2022-2059,DFN-CERT-2022-1928,DFN-CERT-2022-1777,DFN-CERT-2022-1717,DFN-CERT-2022-1688,DFN-CERT-2022-1667,DFN-CERT-2022-1597,DFN-CERT-2022-1205,WID-SEC-2022-0166,CB-K22/0418",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB Use-After-Free Vulnerability (MDEV-28093) - Linux","MariaDB is prone to a use-after-free vulnerability.","Installed version: 10.0.38
+Fixed version:     10.3.35
+
+",1.3.6.1.4.1.25623.1.0.104620,"CVE-2022-27456",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,9bd49ef2-f216-4618-a07e-8c7c51b81514,"","Update to version 10.3.35, 10.4.25, 10.5.16, 10.6.8, 10.7.4 or
+  later.","MariaDB versions prior to 10.3.35, 10.4.x prior to 10.4.25,
+  10.5.x prior to 10.5.16, 10.6.x prior to 10.6.8 and 10.7.x prior to 10.7.4.","Use-after-free in the component VDec::VDec at /sql/sql_type.cc.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB Use-After-Free Vulnerability (MDEV-28093) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104620)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-2668,DFN-CERT-2022-2059,DFN-CERT-2022-1928,DFN-CERT-2022-1777,DFN-CERT-2022-1717,DFN-CERT-2022-1688,DFN-CERT-2022-1667,DFN-CERT-2022-1205,WID-SEC-2022-0168,CB-K22/0461",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB Use-After-Free Vulnerability (MDEV-28097) - Linux","MariaDB is prone to a use-after-free vulnerability.","Installed version: 10.0.38
+Fixed version:     10.4.25
+
+",1.3.6.1.4.1.25623.1.0.104624,"CVE-2022-27455",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,4817075f-662d-488b-af62-856b54649ad1,"","Update to version 10.4.25, 10.5.16, 10.6.8, 10.7.4 or later.","MariaDB versions prior 10.4.25, 10.5.x prior to 10.5.16, 10.6.x
+  prior to 10.6.8 and 10.7.x prior to 10.7.4.","Use-after-free in the component my_wildcmp_8bit_impl at /strings/ctype-simple.c.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB Use-After-Free Vulnerability (MDEV-28097) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104624)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-2668,DFN-CERT-2022-1777,DFN-CERT-2022-1717,DFN-CERT-2022-1688,DFN-CERT-2022-1667,DFN-CERT-2022-1205,WID-SEC-2022-0168,CB-K22/0461",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,7.5,High,30,"VendorFix","MariaDB Use-After-Free Vulnerability (MDEV-28098) - Linux","MariaDB is prone to a use-after-free vulnerability.","Installed version: 10.0.38
+Fixed version:     10.4.25
+
+",1.3.6.1.4.1.25623.1.0.104626,"CVE-2022-27457",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,efbeff7a-f20e-497a-b46a-1e372e61b23b,"","Update to version 10.4.25, 10.5.16, 10.6.8, 10.7.4 or later.","MariaDB versions prior 10.4.25, 10.5.x prior to 10.5.16, 10.6.x
+  prior to 10.6.8 and 10.7.x prior to 10.7.4.","Use-after-free in the component my_mb_wc_latin1 at /strings/ctype-latin1.c.","Checks if a vulnerable version is present on the target host.
+Details:
+MariaDB Use-After-Free Vulnerability (MDEV-28098) - Linux
+(OID: 1.3.6.1.4.1.25623.1.0.104626)
+Version used: 2025-09-09T05:38:49Z
+","Product: cpe:/a:mariadb:mariadb:10.0.38
+Method: MariaDB / Oracle MySQL Detection (MySQL Protocol)
+(OID: 1.3.6.1.4.1.25623.1.0.100152)
+","","DFN-CERT-2022-2668,DFN-CERT-2022-1777,DFN-CERT-2022-1717,DFN-CERT-2022-1688,DFN-CERT-2022-1667,DFN-CERT-2022-1205,WID-SEC-2022-0168,CB-K22/0461",""
+172.31.1.27,mariadb10.trabalho_vulnnet,,,0.0,Log,80,"","OS Detection Consolidation and Reporting","This script consolidates the OS information detected by several
+  VTs and tries to find the best matching OS.
+
+  Furthermore it reports all previously collected information leading to this best matching OS. It
+  also reports possible additional information which might help to improve the OS detection.
+
+  If any of this information is wrong or could be improved please consider to report these to the
+  referenced community forum.","Best matching OS:
+
+OS:           Ubuntu 16.04
+Version:      16.04
+CPE:          cpe:/o:canonical:ubuntu_linux:16.04
+Found by VT:  1.3.6.1.4.1.25623.1.0.108192 (Operating System (OS) Detection (MySQL/MariaDB))
+Concluded from MySQL/MariaDB server banner on port 3306/tcp: 5.5.5-10.0.38-MariaDB-1~xenial
+Setting key ""Host/runs_unixoide"" based on this information
+",1.3.6.1.4.1.25623.1.0.105937,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,cbd1303b-b606-4156-aaae-cd7b7f16798d,"","","","","
+Details:
+OS Detection Consolidation and Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.105937)
+Version used: 2026-01-21T05:50:46Z
+","","","",""
+172.31.1.27,mariadb10.trabalho_vulnnet,3306,tcp,0.0,Log,80,"","Services","This plugin performs service detection.","A MySQL server is running on this port
+",1.3.6.1.4.1.25623.1.0.10330,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,5ba10cd8-b9ec-43db-be24-36aa1338a097,"","","","This plugin attempts to guess which service is running on the
+  remote port(s). For instance, it searches for a web server which could listen on another port than
+  80 or 443 and makes this information available for other check routines.","
+Details:
+Services
+(OID: 1.3.6.1.4.1.25623.1.0.10330)
+Version used: 2025-03-05T05:38:53Z
+","","","",""
+172.31.1.27,mariadb10.trabalho_vulnnet,,,2.6,Low,80,"Mitigation","TCP Timestamps Information Disclosure","The remote host implements TCP timestamps and therefore allows
+  to compute the uptime.","It was detected that the host implements RFC1323/RFC7323.
+
+The following timestamps were retrieved with a delay of 1 seconds in-between:
+Packet 1: 3844684019
+Packet 2: 3844685127
+",1.3.6.1.4.1.25623.1.0.80091,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,f5f466b0-eb7e-4d81-803b-00111de49fa0,"A side effect of this feature is that the uptime of the remote
+  host can sometimes be computed.","To disable TCP timestamps on linux add the line
+  'net.ipv4.tcp_timestamps = 0' to /etc/sysctl.conf. Execute 'sysctl -p' to apply the settings at
+  runtime.
+
+  To disable TCP timestamps on Windows execute 'netsh int tcp set global timestamps=disabled'
+
+  Starting with Windows Server 2008 and Vista, the timestamp can not be completely disabled.
+
+  The default behavior of the TCP/IP stack on this Systems is to not use the Timestamp options when
+  initiating TCP connections, but use them if the TCP peer that is initiating communication includes
+  them in their synchronize (SYN) segment.
+
+  See the references for more information.","TCP implementations that implement RFC1323/RFC7323.","The remote host implements TCP timestamps, as defined by
+  RFC1323/RFC7323.","Special IP packets are forged and sent with a little delay in
+  between to the target IP. The responses are searched for a timestamps. If found, the timestamps
+  are reported.
+Details:
+TCP Timestamps Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.80091)
+Version used: 2023-12-15T16:10:08Z
+","","","",""
+172.31.1.27,mariadb10.trabalho_vulnnet,,,0.0,Log,80,"","Traceroute","Collect information about the network route and
+  network distance between the scanner host and the target host.","Network route from scanner (172.30.0.2) to target (172.31.1.27):
+
+172.30.0.2
+172.31.1.27
+
+Network distance between scanner and target: 2
+",1.3.6.1.4.1.25623.1.0.51662,"",df0632e3-a4eb-4954-8781-6af14a1a4240," hgdfdghgdgd",2026-01-26T06:59:26Z,47ecd7b7-c30d-472d-986a-4af06003c6de,"","","","For internal networks, the distances are usually
+  small, often less than 4 hosts between scanner and target. For public targets the
+  distance is greater and might be 10 hosts or more.","A combination of the protocols ICMP and TCP is used
+  to determine the route. This method is applicable for IPv4 only and it is also known as
+  'traceroute'.
+Details:
+Traceroute
+(OID: 1.3.6.1.4.1.25623.1.0.51662)
+Version used: 2022-10-17T11:13:19Z
+","","","",""
