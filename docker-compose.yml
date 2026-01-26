@@ -1295,3 +1295,113 @@ services:
     networks:
       vulnnet:
         ipv4_address: 172.31.1.72
+
+  metasploitable3:
+    image: kirscht/metasploitable3-ub1404
+    container_name: metasploitable3
+    # This image uses an entrypoint script to start services.
+    # Enable services by setting environment variables to "yes".
+    # See https://hub.docker.com/r/kirscht/metasploitable3-ub1404
+    # Starting a minimal set of services.
+    environment:
+      PASS: msfadmin
+      SSH: "yes"
+      FTP: "yes"
+      SMB: "yes"
+      HTTP: "yes"
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.1.3
+    # The entrypoint seems to be part of the image, but it's not starting without it.
+    # Based on the user-provided info, this is needed.
+    entrypoint: /entrypoint.sh
+    tty: true
+    stdin_open: true
+
+  dsvw:
+    image: appsecco/dsvw
+    container_name: dsvw
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.40.1
+    ports:
+      - "127.0.0.1:8008:8000"
+
+  phpldapadmin-remote-dump:
+    image: vulnerables/phpldapadmin-remote-dump
+    container_name: phpldapadmin-remote-dump
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.40.5
+    ports:
+      - "127.0.0.1:8094:80"
+
+  metasploit-emulator:
+    image: vulnerables/metasploit-vulnerability-emulator
+    container_name: metasploit-emulator
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.40.6
+    ports:
+      - "127.0.0.1:8100:80"
+
+  shellshock-lab:
+    image: vulnerables/cve-2014-6271
+    container_name: shellshock-lab
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.40.7
+    ports:
+      - "127.0.0.1:8104:80"
+
+  heartbleed-lab:
+    image: vulnerables/cve-2014-0160
+    container_name: heartbleed-lab
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.40.8
+    ports:
+      - "127.0.0.1:8105:443"
+
+  xvwa:
+    image: marcositu/xvwa2020
+    container_name: xvwa
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.40.9
+    ports:
+      - "127.0.0.1:8108:80"
+
+  railsgoat-alt:
+    image: vulnerables/web-owasp-railsgoat
+    container_name: railsgoat-alt
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.8.5
+    ports:
+      - "127.0.0.1:3007:80"
+
+  bwapp-alt:
+    image: hackersploit/bwapp-docker
+    container_name: bwapp-alt
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.9.4
+    ports:
+      - "127.0.0.1:8111:80"
+
+  metasploitable3-alt:
+    image: heywoodlh/vulnerable
+    container_name: metasploitable3-alt
+    networks:
+      vulnnet:
+        ipv4_address: 172.30.1.4
+    ports:
+      - "127.0.0.1:2124:21"
+      - "127.0.0.1:2225:22"
+      - "127.0.0.1:8112:80"
+      - "127.0.0.1:1392:139"
+      - "127.0.0.1:4452:445"
+      - "127.0.0.1:3307:3306"
+    tty: true
+    stdin_open: true
