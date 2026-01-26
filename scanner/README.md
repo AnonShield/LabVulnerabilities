@@ -786,7 +786,8 @@ This project is part of the VulnLab environment for educational and authorized s
 
 ---
 
-## Authors
+## Author
 
-- VulnLab Project Team
-- Version: 2.0.0
+**Maintained by:** [Cristhian Kapelinski](https://github.com/CristhianKapelinski)
+
+Version: 2.0.0
