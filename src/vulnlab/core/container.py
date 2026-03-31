@@ -491,8 +491,10 @@ class ContainerManager:
                 with _DOCKER_API_SEMAPHORE:
                     if not self.pull(image):
                         self.logger.warning(f"[SKIP] {image}: pull failed / not found")
+                        skip_reason = "pull_failed"
                     else:
-                        container_id = self.run(image, safe_name)
+                        _cleanup_id = self.run(image, safe_name)
+                        container_id = _cleanup_id
 
                 if container_id:
                     time.sleep(min(self.cfg.startup_wait, 5))
@@ -505,6 +507,8 @@ class ContainerManager:
                             self.logger.debug(
                                 f"[RUN] {image}: exited {code} — retrying without read-only FS…"
                             )
+                            # _cleanup_id still points to the first container, stop_remove will
+                            # clean it up in finally. Create a new one for the retry.
                             self.stop_remove(container_id)
                             container_id = None
                             rw_name = _safe_container_name(image)
@@ -528,6 +532,7 @@ class ContainerManager:
                                         stdin_open=False, tty=False,
                                         environment={"VULNLAB_AUDIT": "true"},
                                     )
+                                _cleanup_id = c.id
                                 container_id = c.id
                             except Exception as e:
                                 self.logger.debug(f"[RUN] read-write retry failed for {image}: {e}")
@@ -538,7 +543,9 @@ class ContainerManager:
                                 f"[SKIP] {image}: Container exited immediately "
                                 f"(code={code2}) — not a service image"
                             )
+                            # _cleanup_id still set — container will be removed in finally.
                             container_id = None
+                            skip_reason = f"exited_immediately:code={code2}"
 
                     if container_id:
                         remaining = max(0, self.cfg.startup_wait - 5)
@@ -551,11 +558,13 @@ class ContainerManager:
                                 f"[SKIP] {image}: Container exited during startup (code={code})"
                             )
                             container_id = None
+                            skip_reason = f"exited_during_startup:code={code}"
                         else:
                             ip = self.get_ip(container_id)
                             if not ip:
                                 self.logger.warning(f"[SKIP] {image}: Container has no IP")
                                 container_id = None
+                                skip_reason = "no_ip"
                             else:
                                 has_port = self.probe_reachable(ip, self.cfg.health_timeout)
                                 if not has_port:
@@ -568,18 +577,22 @@ class ContainerManager:
 
             except (ImageTooLargeError, PullError) as e:
                 self.logger.warning(f"[SKIP] {image}: {e}")
+                skip_reason = f"pull_error:{type(e).__name__}"
             except docker.errors.APIError as e:
                 self.logger.error(f"[DOCKER] {image}: {e}")
             except Exception as e:
                 self.logger.error(f"[CONTAINER] Unexpected error for {image}: {e}")
 
             # Single yield — container cleanup always runs in finally below.
-            yield result_ip, container_id
+            yield result_ip, container_id, skip_reason
 
         finally:
             watchdog_stop.set()
-            if container_id:
-                self.stop_remove(container_id)
+            # Always remove the container if one was ever created, even if it exited
+            # immediately and container_id was set to None. This is the key fix for
+            # stopped containers accumulating on disk.
+            if _cleanup_id:
+                self.stop_remove(_cleanup_id)
             self._post_scan_cleanup(image)
 
 

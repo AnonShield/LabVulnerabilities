@@ -46,12 +46,15 @@ class ScanWorker:
         threading.Thread(target=self._heartbeat_loop, args=(image, stop_hb), daemon=True).start()
 
         try:
-            with self.cm.lifecycle(image) as (container_ip, container_id):
+            with self.cm.lifecycle(image) as (container_ip, container_id, skip_reason):
                 if not container_ip:
-                    # Permanent failure: image not a service, not found, or exited immediately.
-                    # Mark as skipped so it is never retried (unlike 'failed' which retries 3x).
-                    result["status"] = "skipped"
-                    result["error"]  = "not a service image (exited, not found, or no IP)"
+                    if skip_reason:
+                        # Permanent failure: image not a service, not found, or exited immediately.
+                        # Mark as skipped so it is never retried (unlike 'failed' which retries 3x).
+                        result["status"] = "skipped"
+                        result["error"]  = skip_reason
+                    else:
+                        result["error"] = "container lifecycle failed (no IP)"
                     return result
 
                 result["container_ip"] = container_ip
