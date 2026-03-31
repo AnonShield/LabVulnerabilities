@@ -156,6 +156,19 @@ class EnvironmentSetup:
 
         self._connect_to_scan_network(container)
         self._wait_for_gvm()
+        self._run_sync(container)
+
+    def _run_sync(self, container):
+        """Run /scripts/sync.sh inside the OpenVAS container to update NVT feeds."""
+        try:
+            self.logger.info("Running NVT sync inside OpenVAS container (/scripts/sync.sh)…")
+            exit_code, output = container.exec_run("/scripts/sync.sh", stream=False)
+            if exit_code == 0:
+                self.logger.info("NVT sync completed successfully.")
+            else:
+                self.logger.warning(f"NVT sync exited with code {exit_code}: {output.decode(errors='replace')[:500]}")
+        except Exception as e:
+            self.logger.warning(f"NVT sync failed (non-fatal): {e}")
 
     def _get_container(self):
         try:
