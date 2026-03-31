@@ -459,21 +459,29 @@ class ContainerManager:
     # ------------------------------------------------------------------
 
     @contextmanager
-    def lifecycle(self, image: str) -> Iterator[Tuple[Optional[str], Optional[str]]]:
+    def lifecycle(self, image: str) -> Iterator[Tuple[Optional[str], Optional[str], Optional[str]]]:
         """
         Full secure lifecycle:
-          size-check → pull → run (hardened) → wait → IP → probe → yield (ip, container_id)
+          size-check → pull → run (hardened) → wait → IP → probe
+          → yield (ip, container_id, skip_reason)
           → stop → remove → cleanup
 
-        Yields (ip, container_id) or (None, None) on any failure.
+        Yields (ip, container_id, skip_reason).
+          - ip and container_id are set only when the scan should proceed.
+          - skip_reason is a non-None string for permanent failures (pull not found,
+            container exits immediately, etc.) — these should not be retried.
         Container is ALWAYS removed in finally — no leaks.
 
         IMPORTANT: single yield point — avoids 'generator didn't stop after throw()'
         which would defer container cleanup to GC instead of running it immediately.
         """
         safe_name = _safe_container_name(image)
+        # _cleanup_id always tracks the real Docker container for removal,
+        # even after container_id is set to None (e.g. exited immediately).
+        _cleanup_id: Optional[str] = None
         container_id: Optional[str] = None
         result_ip: Optional[str] = None
+        skip_reason: Optional[str] = None
         watchdog_stop = threading.Event()
 
         try:
@@ -490,12 +498,49 @@ class ContainerManager:
                     time.sleep(min(self.cfg.startup_wait, 5))
                     if not self.is_running(container_id):
                         code = self.get_exit_code(container_id)
-                        self.logger.warning(
-                            f"[SKIP] {image}: Container exited immediately "
-                            f"(code={code}) — not a service image"
-                        )
-                        container_id = None
-                    else:
+                        # Retry without read-only FS: some legitimate services (databases,
+                        # JVMs, etc.) write outside /tmp and /run at startup.
+                        # All other security measures remain (cap_drop, pids_limit, network).
+                        if code and code != 0 and self.cfg.read_only_rootfs:
+                            self.logger.debug(
+                                f"[RUN] {image}: exited {code} — retrying without read-only FS…"
+                            )
+                            self.stop_remove(container_id)
+                            container_id = None
+                            rw_name = _safe_container_name(image)
+                            try:
+                                with _DOCKER_API_SEMAPHORE:
+                                    c = self.client.containers.run(
+                                        image, name=rw_name, detach=True,
+                                        network=self.cfg.network,
+                                        privileged=False,
+                                        cap_drop=["ALL"] if self.cfg.drop_all_caps else [],
+                                        security_opt=(["no-new-privileges:true"]
+                                                      if self.cfg.no_new_privileges else []),
+                                        mem_limit=self.cfg.mem_limit,
+                                        cpu_quota=self.cfg.cpu_quota, cpu_period=100000,
+                                        pids_limit=self.cfg.pids_limit,
+                                        ulimits=[docker.types.Ulimit(
+                                            name="nofile",
+                                            soft=self.cfg.ulimit_nofile,
+                                            hard=self.cfg.ulimit_nofile)],
+                                        read_only=False, tmpfs={},
+                                        stdin_open=False, tty=False,
+                                        environment={"VULNLAB_AUDIT": "true"},
+                                    )
+                                container_id = c.id
+                            except Exception as e:
+                                self.logger.debug(f"[RUN] read-write retry failed for {image}: {e}")
+
+                        if container_id is None or (container_id and not self.is_running(container_id)):
+                            code2 = self.get_exit_code(container_id) if container_id else code
+                            self.logger.warning(
+                                f"[SKIP] {image}: Container exited immediately "
+                                f"(code={code2}) — not a service image"
+                            )
+                            container_id = None
+
+                    if container_id:
                         remaining = max(0, self.cfg.startup_wait - 5)
                         if remaining:
                             time.sleep(remaining)
@@ -505,10 +550,12 @@ class ContainerManager:
                             self.logger.warning(
                                 f"[SKIP] {image}: Container exited during startup (code={code})"
                             )
+                            container_id = None
                         else:
                             ip = self.get_ip(container_id)
                             if not ip:
                                 self.logger.warning(f"[SKIP] {image}: Container has no IP")
+                                container_id = None
                             else:
                                 has_port = self.probe_reachable(ip, self.cfg.health_timeout)
                                 if not has_port:

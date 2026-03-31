@@ -190,6 +190,14 @@ class ScanDB:
                 ),
             )
 
+    def skip(self, image: str, reason: str):
+        """Permanently skip image — not a scannable service. Never retried."""
+        with self._conn() as c:
+            c.execute(
+                "UPDATE jobs SET status='skipped', finished_at=?, error=? WHERE image=?",
+                (_now(), (reason or "")[:2000], image),
+            )
+
     def fail(self, image: str, error: str):
         with self._conn() as c:
             c.execute(
@@ -229,6 +237,7 @@ class ScanDB:
             "running": counts.get("running", 0),
             "done":    counts.get("done",    0),
             "failed":  counts.get("failed",  0),
+            "skipped": counts.get("skipped", 0),
             "total":   sum(counts.values()),
         }
 

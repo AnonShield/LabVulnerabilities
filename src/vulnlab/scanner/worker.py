@@ -48,7 +48,10 @@ class ScanWorker:
         try:
             with self.cm.lifecycle(image) as (container_ip, container_id):
                 if not container_ip:
-                    result["error"] = "container lifecycle failed (no IP)"
+                    # Permanent failure: image not a service, not found, or exited immediately.
+                    # Mark as skipped so it is never retried (unlike 'failed' which retries 3x).
+                    result["status"] = "skipped"
+                    result["error"]  = "not a service image (exited, not found, or no IP)"
                     return result
 
                 result["container_ip"] = container_ip

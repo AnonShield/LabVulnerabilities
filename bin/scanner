@@ -77,9 +77,13 @@ class MassScanner:
     def _on_done(self, future: Future, image: str):
         try:
             result = future.result()
-            if result.get("status") == "done":
+            status = result.get("status")
+            if status == "done":
                 self._db.complete(image, result)
                 self._logger.info(f"[DONE] {image} | ip={result.get('container_ip','?')} | High:{result.get('vuln_high',0)} Med:{result.get('vuln_medium',0)} Low:{result.get('vuln_low',0)} Log:{result.get('vuln_log',0)} | reports -> {result.get('reports_path','?')}")
+            elif status == "skipped":
+                self._db.skip(image, result.get("error", ""))
+                self._logger.debug(f"[SKIP] {image} — {result.get('error','')}")
             else:
                 self._db.fail(image, result.get("error", "unknown"))
                 self._logger.warning(f"[FAIL] {image} — {result.get('error','')}")
@@ -91,7 +95,11 @@ class MassScanner:
         s = self._db.stats()
         total = s["total"] or 1
         pct = s["done"] / total * 100
-        self._logger.info(f"Progress: {s['done']}/{s['total']} ({pct:.1f}%) | running={s['running']} failed={s['failed']} pending={s['pending']}")
+        self._logger.info(
+            f"Progress: {s['done']}/{s['total']} ({pct:.1f}%) | "
+            f"running={s['running']} failed={s['failed']} "
+            f"skipped={s['skipped']} pending={s['pending']}"
+        )
         self._write_status_file(s, pct)
 
     def _write_status_file(self, s: dict, pct: float):
@@ -105,6 +113,7 @@ class MassScanner:
             "done":    s["done"],
             "running": s["running"],
             "failed":  s["failed"],
+            "skipped": s["skipped"],
             "pending": s["pending"],
             "reports_dir": self._output_dir,
             "db_path":     str(Path(self._output_dir).parent / "mass_scan.db"),
