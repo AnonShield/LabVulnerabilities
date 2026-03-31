@@ -332,11 +332,12 @@ data/reports/
 {
   "updated_at": "2026-03-31T00:33:44",
   "progress_pct": 7.2,
-  "total": 217787,
+  "total": 315845,
   "done": 15680,
-  "running": 64,
-  "failed": 14983,
-  "pending": 187124,
+  "running": 40,
+  "failed": 6,
+  "skipped": 3210,
+  "pending": 296909,
   "reports_dir": "/home/cristhian/mass_scanner/data/reports",
   "db_path": "/home/cristhian/mass_scanner/data/mass_scan.db",
   "summary_csv": "/home/cristhian/mass_scanner/data/reports/all_scans_summary.csv",
@@ -345,9 +346,13 @@ data/reports/
 }
 ```
 
+`skipped` counts images permanently excluded from scanning (not a service, manifest not found, exited on startup). These never consume GVM resources or retry slots.
+
 ### `all_scans_summary.csv` columns
 
-`image, image_slug, container_id, container_ip, scan_date, scan_timestamp, gvm_task_id, gvm_target_id, gvm_report_id, vuln_high, vuln_medium, vuln_low, vuln_total, reports_saved, reports_dir, worker_id`
+`image, image_slug, container_id, container_ip, scan_date, scan_timestamp, gvm_task_id, gvm_target_id, gvm_report_id, vuln_high, vuln_medium, vuln_low, vuln_log, vuln_total, reports_saved, reports_dir, worker_id`
+
+`vuln_log` counts OpenVAS log-level findings (CVSS = 0, severity `g` in GVM filter `levels=chmlgf`). These are informational detections with no exploitability score — open ports, identified services, OS fingerprints — but are included for completeness.
 
 ---
 
@@ -400,7 +405,12 @@ CREATE TABLE jobs (
     image        TEXT NOT NULL UNIQUE,
     name         TEXT,
     status       TEXT DEFAULT 'pending',
-    -- pending | running | done | failed | skipped
+    -- pending  → waiting to be claimed
+    -- running  → actively being scanned (heartbeat updated every 60s)
+    -- done     → scan completed, reports saved
+    -- failed   → scan failed, will be retried up to 3 times
+    -- skipped  → permanent failure (image not a service, manifest not found,
+    --            exited immediately); never retried
     worker_id    TEXT,
     container_id TEXT,
     container_ip TEXT,
@@ -501,21 +511,39 @@ Configure `dockerhub_username` and `dockerhub_password` in `config/scanner.yaml`
 
 ### Redis `vm.overcommit_memory` warning
 
+Redis prints a warning and may fail to perform background saves (`BGSAVE`) when the Linux kernel has `vm.overcommit_memory = 0` (the default). In that mode the kernel refuses memory allocation if there is not enough free RAM to satisfy the full request, even though Redis only needs a fork for the snapshot. With `vm.overcommit_memory = 1` the kernel always grants the allocation optimistically, which is required for Redis's copy-on-write fork to succeed reliably.
+
+This setting must be applied on the **host machine** (not inside the container) because kernel parameters are shared across all containers on the same host.
+
 ```bash
-# On the host machine
-echo 1 | sudo tee /proc/sys/vm/overcommit_memory
-echo "vm.overcommit_memory = 1" | sudo tee -a /etc/sysctl.conf
+# Apply immediately (takes effect without reboot)
+sudo sysctl -w vm.overcommit_memory=1
+
+# Persist across reboots
+echo 'vm.overcommit_memory = 1' | sudo tee /etc/sysctl.d/99-vulnlab.conf
 ```
 
-### About the failure rate
+### About the failure and skip rate
 
-Approximately 5–8% of images in the queue are expected to fail:
-- Images deleted from DockerHub since the crawl (manifest not found)
-- Non-service images: CLI tools, build images, one-shot scripts that exit immediately
-- Images that crash on startup due to missing external dependencies
-- DockerHub rate limit hits (automatically retried up to 3 times)
+A significant portion of public DockerHub images are not network services and cannot be scanned. The scanner distinguishes two outcomes:
 
-Failed images are stored in the database with their error reason and can be retried with `--force`.
+**`skipped`** — permanent, never retried:
+- Images deleted from DockerHub since the crawl (`manifest unknown`)
+- Non-service images: CLI tools, build images, one-shot scripts that exit with code 0 or 1 immediately on startup
+- Images that crash on startup due to missing external dependencies or environment variables
+- Images too large to pull (> 10 GB, configurable via `max_image_size_mb`)
+
+**`failed`** — transient, retried up to 3 times:
+- Docker API errors (daemon overloaded, network hiccup)
+- DockerHub rate limit (HTTP 429) — backed off automatically
+- GVM connection errors (ospd socket lost, gvmd crash)
+
+The scanner first attempts to run the container with a read-only root filesystem. If the container exits immediately due to this restriction, it automatically retries with a writable filesystem (all other security restrictions remain — `cap_drop ALL`, `no-new-privileges`, network isolation, PID limit).
+
+```bash
+# Re-queue all failed (not skipped) jobs
+venv/bin/python3 bin/scanner --force --db data/mass_scan.db
+```
 
 ---
 
