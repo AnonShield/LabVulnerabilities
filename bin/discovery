@@ -1,0 +1,165 @@
+#!/usr/bin/env python3
+import requests
+import json
+import time
+import logging
+import argparse
+import sys
+from pathlib import Path
+from typing import List, Set, Optional
+
+# Industrial Path Setup
+ROOT_DIR = Path(__file__).parent.parent
+sys.path.insert(0, str(ROOT_DIR / "src"))
+
+from vulnlab.core.db import ScanDB
+from vulnlab.discovery.catalog import ImageSpec
+
+class DockerHubDFSCrawler:
+    BASE_URL = "https://hub.docker.com/v2/search/repositories"
+    LOGIN_URL = "https://hub.docker.com/v2/users/login/"
+    ALPHABET = "abcdefghijklmnopqrstuvwxyz0123456789"
+
+    def __init__(self, csv_out: str, jsonl_out: str, state_file: str,
+                 db_path: Optional[str] = None, delay: float = 0.2, limit: int = 10000000,
+                 username: str = "", password: str = ""):
+        self.csv_path = Path(csv_out)
+        self.jsonl_path = Path(jsonl_out)
+        self.state_path = Path(state_file)
+        self.delay = delay
+        self.limit = limit
+        self.count = 0
+        self.logger = logging.getLogger("DFS_Discovery")
+        self.seen_repos: Set[str] = set()
+        self.state = self._load_state()
+        self.db = ScanDB(db_path) if db_path else None
+        self._session = requests.Session()
+        self._token: Optional[str] = None
+
+        if username and password:
+            self._login(username, password)
+
+        # Initialize Files with Academic Headers
+        if not self.csv_path.exists():
+            with open(self.csv_path, "w") as f:
+                f.write("image,pull_count,star_count,is_official,is_automated,description\n")
+
+    def _login(self, username: str, password: str):
+        """Obtain JWT token from DockerHub for authenticated requests (enables ordering)."""
+        try:
+            r = self._session.post(
+                self.LOGIN_URL,
+                json={"username": username, "password": password},
+                timeout=15,
+            )
+            r.raise_for_status()
+            self._token = r.json().get("token")
+            if self._token:
+                self._session.headers.update({"Authorization": f"JWT {self._token}"})
+                self.logger.info(f"DockerHub: authenticated as '{username}'")
+            else:
+                self.logger.warning("DockerHub login returned no token — using anonymous")
+        except Exception as e:
+            self.logger.warning(f"DockerHub login failed ({e}) — using anonymous (no ordering)")
+
+    def _load_state(self) -> dict:
+        if self.state_path.exists():
+            try: return json.loads(self.state_path.read_text())
+            except: return {"completed_prefixes": []}
+        return {"completed_prefixes": []}
+
+    def _save_state(self, prefix: str):
+        if prefix not in self.state["completed_prefixes"]:
+            self.state["completed_prefixes"].append(prefix)
+        self.state_path.write_text(json.dumps(self.state))
+
+    def fetch_page(self, query: str, page: int = 1):
+        params: dict = {"query": query, "page_size": 100, "page": page}
+        if self._token:
+            params["ordering"] = "-pull_count"
+        try:
+            resp = self._session.get(self.BASE_URL, params=params, timeout=20)
+            if resp.status_code == 401:
+                self.logger.warning("Token expired or invalid — retrying without auth")
+                self._token = None
+                self._session.headers.pop("Authorization", None)
+                return self.fetch_page(query, page)
+            if resp.status_code == 429:
+                self.logger.warning("Rate limited. Sleeping 60s...")
+                time.sleep(60)
+                return self.fetch_page(query, page)
+            resp.raise_for_status()
+            return resp.json()
+        except Exception as e:
+            self.logger.error(f"Network error on prefix {query}: {e}")
+            return None
+
+    def crawl(self, prefix: str = ""):
+        if self.count >= self.limit or prefix in self.state["completed_prefixes"]:
+            return
+
+        self.logger.info(f"Prefix: [{prefix}]")
+        data = self.fetch_page(prefix)
+        if not data: return
+        
+        total = data.get("count", 0)
+        pages = min(100, (total // 100) + 1)
+        
+        for p in range(1, pages + 1):
+            if p > 1:
+                data = self.fetch_page(prefix, p)
+                if not data: break
+            self._process_results(data.get("results", []))
+            time.sleep(self.delay)
+
+        # DFS Collision Logic
+        if total >= 10000 and len(prefix) < 8:
+            self.logger.info(f"Collision on '{prefix}'. Deepening search space...")
+            for char in self.ALPHABET:
+                self.crawl(prefix + char)
+        
+        self._save_state(prefix)
+
+    def _process_results(self, results: List[dict]):
+        with open(self.csv_path, "a") as f_csv, open(self.jsonl_path, "a") as f_jsonl:
+            for r in results:
+                name = r.get("repo_name")
+                if name and name not in self.seen_repos:
+                    self.seen_repos.add(name)
+                    # 1. Save Full Metadata (JSONL)
+                    f_jsonl.write(json.dumps(r) + "\n")
+                    # 2. Save Structured Data (CSV)
+                    desc = str(r.get("short_description", "")).replace(",", " ").replace("\n", " ")
+                    f_csv.write(f"{name},{r.get('pull_count',0)},{r.get('star_count',0)},"
+                                f"{r.get('is_official',False)},{r.get('is_automated',False)},{desc}\n")
+                    # 3. Seed to DB for Live Auditing
+                    if self.db: 
+                        self.db.seed([ImageSpec.from_image(name)])
+                    self.count += 1
+
+def main():
+    parser = argparse.ArgumentParser(description="Academic DFS Discovery Engine")
+    parser.add_argument("--csv", default=str(ROOT_DIR / "data/discovery.csv"))
+    parser.add_argument("--jsonl", default=str(ROOT_DIR / "data/discovery.jsonl"))
+    parser.add_argument("--state", default=str(ROOT_DIR / "data/.dfs_state.json"))
+    parser.add_argument("--db", default=None)
+    parser.add_argument("--limit", type=int, default=10000000)
+    parser.add_argument("--username", default="")
+    parser.add_argument("--password", default="")
+    args = parser.parse_args()
+
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s │ %(levelname)-8s │ %(message)s')
+    crawler = DockerHubDFSCrawler(
+        args.csv, args.jsonl, args.state,
+        db_path=args.db, limit=args.limit,
+        username=args.username, password=args.password,
+    )
+    
+    try:
+        for char in "abcdefghijklmnopqrstuvwxyz0123456789":
+            crawler.crawl(char)
+    except KeyboardInterrupt:
+        print("\nShutdown by user. State preserved.")
+
+if __name__ == "__main__":
+    main()

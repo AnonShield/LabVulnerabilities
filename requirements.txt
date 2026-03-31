@@ -1,2 +1,6 @@
 pandas==3.0.0
 PyYAML==6.0.3
+docker>=7.0.0
+requests>=2.28.0
+gvm-tools>=22.7.0
+python-gvm>=22.7.0

@@ -1,0 +1,57 @@
+# ============================================================
+# scanner.yaml.example — Copy to config/scanner.yaml and fill in your values.
+# config/scanner.yaml is gitignored to prevent credential leaks.
+# ============================================================
+
+catalog:
+  source: "file"            # file | dockerhub | compose
+  file: "data/images_all.csv"
+  compose: "docker-compose.yml"
+  dockerhub_query: ""
+  limit: 100000
+
+openvas:
+  image: "immauss/openvas:latest"
+  container_name: "openvas_massscan"
+  startup_timeout: 3600     # seconds (first run takes 20-40min)
+
+container:
+  network: "trabalho_vulnnet"
+  network_subnet: "172.30.0.0/16"
+  startup_wait: 20
+  health_timeout: 90
+  pull_retries: 3
+  pull_retry_delay: 60
+  max_image_size_mb: 10240
+  remove_image_after: true
+  prune_every: 20
+
+  # DockerHub credentials (free account = 200 pulls/6h).
+  # Generate a Personal Access Token at hub.docker.com → Account Settings → Security.
+  # Leave blank to use anonymous pulls (100/6h per IP).
+  dockerhub_username: ""
+  dockerhub_password: ""
+
+execution:
+  workers: 40
+  max_retries: 3
+
+# GVM — local to each scanner machine
+host: "127.0.0.1"
+port: 9390
+username: "admin"
+password: ""              # Set your GVM admin password here
+
+scan_config_name: "Full and fast"
+port_list_name: "All IANA assigned TCP and UDP"
+scanner_name: "OpenVAS Default"
+cleanup_after_scan: true
+poll_interval: 30
+
+report_formats:
+  - "PDF"
+  - "XML"
+  - "CSV"
+  - "TXT"
+
+output_dir: "./reports_mass"

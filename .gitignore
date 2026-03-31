@@ -9,6 +9,23 @@
 .env.local
 *.env
 
+# Configuração local com credenciais — use config/scanner.yaml.example como base
+config/scanner.yaml
+
+# Banco de dados e estado local
+data/mass_scan.db
+data/.dfs_state.json
+data/.crawl_state*.json
+data/images_all.csv
+data/images*.csv
+data/images*.jsonl
+data/discovery.csv
+data/discovery.jsonl
+data/RESULTS.md
+
+# Relatórios gerados
+data/reports/
+
 # -----------------------------------------------------------------------------
 # Python
 # -----------------------------------------------------------------------------
