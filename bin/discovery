@@ -35,6 +35,8 @@ class DockerHubDFSCrawler:
         self.db = ScanDB(db_path) if db_path else None
         self._session = requests.Session()
         self._token: Optional[str] = None
+        self._username = username
+        self._password = password
 
         if username and password:
             self._login(username, password)
@@ -80,7 +82,14 @@ class DockerHubDFSCrawler:
         try:
             resp = self._session.get(self.BASE_URL, params=params, timeout=20)
             if resp.status_code == 401:
-                self.logger.warning("Token expired or invalid — retrying without auth")
+                if self._username and self._password:
+                    self.logger.warning("Token expired — re-authenticating...")
+                    self._session.headers.pop("Authorization", None)
+                    self._token = None
+                    self._login(self._username, self._password)
+                    if self._token:
+                        return self.fetch_page(query, page)
+                self.logger.warning("401 and no credentials to re-auth — falling back to anonymous")
                 self._token = None
                 self._session.headers.pop("Authorization", None)
                 return self.fetch_page(query, page)
@@ -137,6 +146,17 @@ class DockerHubDFSCrawler:
                         self.db.seed([ImageSpec.from_image(name)])
                     self.count += 1
 
+def _load_config_credentials(config_path: str) -> tuple:
+    """Read dockerhub_username/password from scanner.yaml if present."""
+    try:
+        import yaml
+        with open(config_path) as f:
+            cfg = yaml.safe_load(f) or {}
+        c = cfg.get("container", {})
+        return c.get("dockerhub_username", ""), c.get("dockerhub_password", "")
+    except Exception:
+        return "", ""
+
 def main():
     parser = argparse.ArgumentParser(description="Academic DFS Discovery Engine")
     parser.add_argument("--csv", default=str(ROOT_DIR / "data/discovery.csv"))
@@ -146,13 +166,19 @@ def main():
     parser.add_argument("--limit", type=int, default=10000000)
     parser.add_argument("--username", default="")
     parser.add_argument("--password", default="")
+    parser.add_argument("-c", "--config", default=str(ROOT_DIR / "config/scanner.yaml"))
     args = parser.parse_args()
+
+    # Fall back to scanner.yaml credentials if not provided on CLI
+    username, password = args.username, args.password
+    if not username or not password:
+        username, password = _load_config_credentials(args.config)
 
     logging.basicConfig(level=logging.INFO, format='%(asctime)s │ %(levelname)-8s │ %(message)s')
     crawler = DockerHubDFSCrawler(
         args.csv, args.jsonl, args.state,
         db_path=args.db, limit=args.limit,
-        username=args.username, password=args.password,
+        username=username, password=password,
     )
     
     try:

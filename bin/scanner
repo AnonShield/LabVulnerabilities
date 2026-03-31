@@ -79,7 +79,7 @@ class MassScanner:
             result = future.result()
             if result.get("status") == "done":
                 self._db.complete(image, result)
-                self._logger.info(f"[DONE] {image} | ip={result.get('container_ip','?')} | High:{result.get('vuln_high',0)} Med:{result.get('vuln_medium',0)} Low:{result.get('vuln_low',0)} | reports -> {result.get('reports_path','?')}")
+                self._logger.info(f"[DONE] {image} | ip={result.get('container_ip','?')} | High:{result.get('vuln_high',0)} Med:{result.get('vuln_medium',0)} Low:{result.get('vuln_low',0)} Log:{result.get('vuln_log',0)} | reports -> {result.get('reports_path','?')}")
             else:
                 self._db.fail(image, result.get("error", "unknown"))
                 self._logger.warning(f"[FAIL] {image} — {result.get('error','')}")

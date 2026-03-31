@@ -470,7 +470,9 @@ class GVMClient:
 
         try:
             with self._get_gmp() as gmp:
-                filter_term = "apply_overrides=0 levels=hmlgf rows=-1 min_qod=0"
+                # c=critical h=high m=medium l=low g=log f=false-positive
+                # min_qod=0 keeps all detections regardless of confidence
+                filter_term = "apply_overrides=0 levels=chmlgf rows=-1 min_qod=0"
                 response = gmp.get_report(
                     report_id=report_id,
                     report_format_id=format_id,

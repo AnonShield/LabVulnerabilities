@@ -14,7 +14,7 @@ CSV_FIELDS = [
     "image", "image_slug", "container_id", "container_ip",
     "scan_date", "scan_timestamp",
     "gvm_task_id", "gvm_target_id", "gvm_report_id",
-    "vuln_high", "vuln_medium", "vuln_low", "vuln_total",
+    "vuln_high", "vuln_medium", "vuln_low", "vuln_log", "vuln_total",
     "reports_saved", "reports_dir", "worker_id",
 ]
 
@@ -98,6 +98,7 @@ class ScanWorker:
                     "vuln_high":    vulns.get("high",   0),
                     "vuln_medium":  vulns.get("medium", 0),
                     "vuln_low":     vulns.get("low",    0),
+                    "vuln_log":     vulns.get("log",    0),
                     "vuln_total":   vulns.get("total",  0),
                 })
         except Exception as e:
@@ -158,6 +159,7 @@ class ScanWorker:
             "vuln_high":      vulns.get("high",   0),
             "vuln_medium":    vulns.get("medium", 0),
             "vuln_low":       vulns.get("low",    0),
+            "vuln_log":       vulns.get("log",    0),
             "vuln_total":     vulns.get("total",  0),
             "reports_saved":  "|".join(saved_formats),
             "reports_dir":    str(out.resolve()),

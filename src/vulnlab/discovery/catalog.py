@@ -13,11 +13,13 @@ import requests
 class ImageSpec:
     image: str
     name: str
+    pull_count: int = 0
+
     @classmethod
-    def from_image(cls, image: str) -> "ImageSpec":
+    def from_image(cls, image: str, pull_count: int = 0) -> "ImageSpec":
         if ":" not in image: image = image + ":latest"
         name = re.sub(r"[^\w-]", "_", image)[:60]
-        return cls(image=image, name=name)
+        return cls(image=image, name=name, pull_count=pull_count)
 
 class ImageSource(ABC):
     @abstractmethod
@@ -96,7 +98,7 @@ class DockerHubDFSSource(ImageSource):
                 if self.count >= self.limit: return
                 img_name = repo.get("repo_name", "").strip()
                 if img_name:
-                    yield ImageSpec.from_image(img_name)
+                    yield ImageSpec.from_image(img_name, pull_count=int(repo.get("pull_count") or 0))
                     self.count += 1
             time.sleep(0.1) # Courteous delay to prevent socket saturation
 
@@ -120,10 +122,12 @@ class FileSource(ImageSource):
             if "," in sample and "image" in sample.split("\n")[0].lower():
                 reader = csv.DictReader(f)
                 col = next((c for c in (reader.fieldnames or []) if c.lower() == "image"), None)
+                pc_col = next((c for c in (reader.fieldnames or []) if c.lower() == "pull_count"), None)
                 for row in reader:
                     img = (row.get(col) or "").strip()
                     if img:
-                        yield ImageSpec.from_image(img)
+                        pc = int(row.get(pc_col) or 0) if pc_col else 0
+                        yield ImageSpec.from_image(img, pull_count=pc)
             else:
                 for line in f:
                     img = line.strip()

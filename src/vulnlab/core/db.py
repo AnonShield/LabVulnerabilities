@@ -34,11 +34,14 @@ _SCHEMA = [
         vuln_high    INTEGER NOT NULL DEFAULT 0,
         vuln_medium  INTEGER NOT NULL DEFAULT 0,
         vuln_low     INTEGER NOT NULL DEFAULT 0,
+        vuln_log     INTEGER NOT NULL DEFAULT 0,
         vuln_total   INTEGER NOT NULL DEFAULT 0,
+        pull_count   INTEGER NOT NULL DEFAULT 0,
         created_at   TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%S','now'))
     )""",
-    "CREATE INDEX IF NOT EXISTS idx_jobs_status  ON jobs(status)",
-    "CREATE INDEX IF NOT EXISTS idx_jobs_worker  ON jobs(worker_id, status)",
+    "CREATE INDEX IF NOT EXISTS idx_jobs_status      ON jobs(status)",
+    "CREATE INDEX IF NOT EXISTS idx_jobs_worker      ON jobs(worker_id, status)",
+    "CREATE INDEX IF NOT EXISTS idx_jobs_pull_count  ON jobs(pull_count DESC, status)",
 ]
 
 
@@ -90,6 +93,13 @@ class ScanDB:
         with self._conn() as c:
             for stmt in _SCHEMA:
                 c.execute(stmt)
+            # Migrate: add columns added after initial schema
+            existing = {row[1] for row in c.execute("PRAGMA table_info(jobs)").fetchall()}
+            if "vuln_log" not in existing:
+                c.execute("ALTER TABLE jobs ADD COLUMN vuln_log INTEGER NOT NULL DEFAULT 0")
+            if "pull_count" not in existing:
+                c.execute("ALTER TABLE jobs ADD COLUMN pull_count INTEGER NOT NULL DEFAULT 0")
+                c.execute("CREATE INDEX IF NOT EXISTS idx_jobs_pull_count ON jobs(pull_count DESC, status)")
 
     # ------------------------------------------------------------------
     # Public API
@@ -101,8 +111,8 @@ class ScanDB:
         with self._wlock, self._conn() as c:
             for img in images:
                 c.execute(
-                    f"INSERT {kw} INTO jobs (image, name) VALUES (?, ?)",
-                    (img.image, img.name),
+                    f"INSERT {kw} INTO jobs (image, name, pull_count) VALUES (?, ?, ?)",
+                    (img.image, img.name, img.pull_count),
                 )
 
     def claim_job(self, worker_id: str, max_attempts: int = 3) -> Optional[dict]:
@@ -121,7 +131,7 @@ class ScanDB:
                 row = conn.execute(
                     """SELECT * FROM jobs
                        WHERE status='pending' AND attempt < ?
-                       ORDER BY id LIMIT 1""",
+                       ORDER BY pull_count DESC, id LIMIT 1""",
                     (max_attempts,),
                 ).fetchone()
                 if row is None:
@@ -161,7 +171,7 @@ class ScanDB:
                        container_id=?, container_ip=?,
                        task_id=?, target_id=?, report_id=?, reports_path=?,
                        error=NULL,
-                       vuln_high=?, vuln_medium=?, vuln_low=?, vuln_total=?
+                       vuln_high=?, vuln_medium=?, vuln_low=?, vuln_log=?, vuln_total=?
                    WHERE image=?""",
                 (
                     _now(),
@@ -174,6 +184,7 @@ class ScanDB:
                     int(result.get("vuln_high") or 0),
                     int(result.get("vuln_medium") or 0),
                     int(result.get("vuln_low") or 0),
+                    int(result.get("vuln_log") or 0),
                     int(result.get("vuln_total") or 0),
                     image,
                 ),
