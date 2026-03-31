@@ -197,8 +197,12 @@ class EnvironmentSetup:
             detach=True,
             ports=[GVM_INNER_PORT],
             environment={
-                "PASSWORD": self.cfg.gvm_password,
-                "GMP": str(GVM_INNER_PORT)
+                "PASSWORD":  self.cfg.gvm_password,
+                "GMP":       str(GVM_INNER_PORT),
+                # Skip the automatic NVT sync on every container start.
+                # Sync is triggered explicitly via _run_sync() after GVM is ready.
+                # Without this, every crash+restart runs a full 10-min feed sync.
+                "SKIPSYNC":  "true",
             },
             host_config=host_cfg,
         )
