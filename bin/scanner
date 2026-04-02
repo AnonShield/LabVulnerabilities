@@ -71,7 +71,7 @@ def main():
     log = setup_logging(args.verbose); raw = yaml.safe_load(open(args.config).read()) if Path(args.config).exists() else {}
     db = ScanDB(args.db)
     if args.force:
-        import sqlite3; c = sqlite3.connect(args.db); c.execute("UPDATE jobs SET status='pending' WHERE status='failed'"); c.commit(); c.close()
+        import sqlite3; c = sqlite3.connect(args.db); c.execute("UPDATE jobs SET status='pending' WHERE status IN ('failed', 'skipped')"); c.commit(); c.close()
     
     g_cfg = Config(host=args.host, port=args.port, username=args.user, password=args.pw, **{k:v for k,v in raw.items() if k in ["scan_config_name","port_list_name","scanner_name","report_formats","cleanup_after_scan","poll_interval"]})
     c_raw = raw.get("container",{})
