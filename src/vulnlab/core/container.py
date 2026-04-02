@@ -148,13 +148,25 @@ class ContainerManager:
                 c = self.client.containers.get(cid); c.reload()
                 if c.status != "running":
                     code = c.attrs.get("State", {}).get("ExitCode")
+                    # Capture exit logs for auditability before any retry
+                    try:
+                        exit_logs = c.logs(tail=100, timestamps=True).decode("utf-8", errors="replace").strip()
+                        if exit_logs:
+                            self.logger.warning(f"[EXIT-LOG] {image} exited:{code} stdout/stderr:\n{exit_logs}")
+                    except Exception: pass
                     # Fallback to RW if exited with typical permission/read-only codes
                     if self.cfg.read_only_rootfs and code in [1, 126, 127]:
                         self.logger.info(f"Retrying {image} in RW mode (exited with {code})")
                         self.stop_rm(cid); cid = self.run(image, name + "_rw", False)
                         c = self.client.containers.get(cid); c.reload()
-                    
+
                     if c.status != "running":
+                        # Capture RW retry exit logs too
+                        try:
+                            exit_logs = c.logs(tail=100, timestamps=True).decode("utf-8", errors="replace").strip()
+                            if exit_logs:
+                                self.logger.warning(f"[EXIT-LOG-RW] {image} exited:{code} stdout/stderr:\n{exit_logs}")
+                        except Exception: pass
                         skip = f"exited:{code}"; self.stop_rm(cid); cid = None
                 
                 if cid:

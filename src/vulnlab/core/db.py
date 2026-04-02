@@ -6,10 +6,15 @@ from typing import Iterable, Iterator, Optional
 from vulnlab.discovery.catalog import ImageSpec
 
 _SCHEMA = [
-    "CREATE TABLE IF NOT EXISTS jobs (id INTEGER PRIMARY KEY AUTOINCREMENT, image TEXT NOT NULL UNIQUE, name TEXT, status TEXT NOT NULL DEFAULT 'pending', worker_id TEXT, container_id TEXT, container_ip TEXT, task_id TEXT, target_id TEXT, report_id TEXT, reports_path TEXT, attempt INTEGER NOT NULL DEFAULT 0, started_at TEXT, finished_at TEXT, heartbeat_at TEXT, error TEXT, vuln_high INTEGER NOT NULL DEFAULT 0, vuln_medium INTEGER NOT NULL DEFAULT 0, vuln_low INTEGER NOT NULL DEFAULT 0, vuln_log INTEGER NOT NULL DEFAULT 0, vuln_total INTEGER NOT NULL DEFAULT 0, pull_count INTEGER NOT NULL DEFAULT 0, created_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%S','now')))",
+    "CREATE TABLE IF NOT EXISTS jobs (id INTEGER PRIMARY KEY AUTOINCREMENT, image TEXT NOT NULL UNIQUE, name TEXT, status TEXT NOT NULL DEFAULT 'pending', worker_id TEXT, container_id TEXT, container_ip TEXT, task_id TEXT, target_id TEXT, report_id TEXT, reports_path TEXT, attempt INTEGER NOT NULL DEFAULT 0, started_at TEXT, finished_at TEXT, heartbeat_at TEXT, error TEXT, vuln_critical INTEGER NOT NULL DEFAULT 0, vuln_high INTEGER NOT NULL DEFAULT 0, vuln_medium INTEGER NOT NULL DEFAULT 0, vuln_low INTEGER NOT NULL DEFAULT 0, vuln_log INTEGER NOT NULL DEFAULT 0, vuln_total INTEGER NOT NULL DEFAULT 0, pull_count INTEGER NOT NULL DEFAULT 0, created_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%S','now')))",
     "CREATE INDEX IF NOT EXISTS idx_jobs_status ON jobs(status)",
     "CREATE INDEX IF NOT EXISTS idx_jobs_worker ON jobs(worker_id, status)",
     "CREATE INDEX IF NOT EXISTS idx_jobs_pull_count ON jobs(pull_count DESC, status)"
+]
+
+# Migration: add vuln_critical to existing databases that predate this column
+_MIGRATIONS = [
+    "ALTER TABLE jobs ADD COLUMN vuln_critical INTEGER NOT NULL DEFAULT 0",
 ]
 
 def _now(): return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S")
@@ -19,6 +24,9 @@ class ScanDB:
         self._path, self._stale, self._lock = path, stale, threading.Lock()
         with self._conn() as c:
             for s in _SCHEMA: c.execute(s)
+            for m in _MIGRATIONS:
+                try: c.execute(m)
+                except sqlite3.OperationalError: pass  # column already exists
 
     @contextmanager
     def _conn(self) -> Iterator[sqlite3.Connection]:
@@ -48,8 +56,8 @@ class ScanDB:
 
     def done(self, img: str, res: dict):
         with self._conn() as c:
-            c.execute("UPDATE jobs SET status='done', finished_at=?, container_id=?, container_ip=?, task_id=?, target_id=?, report_id=?, reports_path=?, error=NULL, vuln_high=?, vuln_medium=?, vuln_low=?, vuln_log=?, vuln_total=? WHERE image=?",
-                (_now(), res.get("container_id"), res.get("container_ip"), res.get("task_id"), res.get("target_id"), res.get("report_id"), res.get("reports_path"), int(res.get("vuln_high") or 0), int(res.get("vuln_medium") or 0), int(res.get("vuln_low") or 0), int(res.get("vuln_log") or 0), int(res.get("vuln_total") or 0), img))
+            c.execute("UPDATE jobs SET status='done', finished_at=?, container_id=?, container_ip=?, task_id=?, target_id=?, report_id=?, reports_path=?, error=NULL, vuln_critical=?, vuln_high=?, vuln_medium=?, vuln_low=?, vuln_log=?, vuln_total=? WHERE image=?",
+                (_now(), res.get("container_id"), res.get("container_ip"), res.get("task_id"), res.get("target_id"), res.get("report_id"), res.get("reports_path"), int(res.get("vuln_critical") or 0), int(res.get("vuln_high") or 0), int(res.get("vuln_medium") or 0), int(res.get("vuln_low") or 0), int(res.get("vuln_log") or 0), int(res.get("vuln_total") or 0), img))
 
     def skip(self, img: str, err: str):
         with self._conn() as c: c.execute("UPDATE jobs SET status='skipped', finished_at=?, error=? WHERE image=?", (_now(), (err or "")[:2000], img))

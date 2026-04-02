@@ -133,8 +133,13 @@ class ColoredFormatter(logging.Formatter):
         return super().format(record)
 
 
-def setup_logging(verbose: bool = False) -> logging.Logger:
-    """Configura logging com cores e arquivo."""
+def setup_logging(verbose: bool = False, log_dir: str = "./logs") -> logging.Logger:
+    """Configura logging com cores e arquivo.
+
+    O arquivo de log é escrito em log_dir/scanner_YYYYMMDD_HHMMSS.log a nível
+    DEBUG independente da verbosidade do console, garantindo rastreabilidade
+    completa para reprodutibilidade científica.
+    """
     logger = logging.getLogger("openvas_scanner")
     logger.setLevel(logging.DEBUG if verbose else logging.INFO)
     logger.handlers.clear()
@@ -147,16 +152,17 @@ def setup_logging(verbose: bool = False) -> logging.Logger:
     ))
     logger.addHandler(console)
 
-    log_dir = Path("./logs")
-    log_dir.mkdir(exist_ok=True)
-    file_handler = logging.FileHandler(
-        log_dir / f"scanner_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
-    )
+    log_path = Path(log_dir)
+    log_path.mkdir(parents=True, exist_ok=True)
+    log_file = log_path / f"scanner_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
+    file_handler = logging.FileHandler(log_file)
     file_handler.setLevel(logging.DEBUG)
     file_handler.setFormatter(logging.Formatter(
         '%(asctime)s | %(levelname)-8s | %(message)s'
     ))
     logger.addHandler(file_handler)
+    # Inform user where logs are going (always, regardless of verbose flag)
+    print(f"[LOG] Arquivo de log: {log_file.resolve()}", flush=True)
 
     return logger
 
@@ -516,14 +522,17 @@ class GVMClient:
                     return {}
 
                 results = report.findall(".//results/result")
-                summary = {"high": 0, "medium": 0, "low": 0, "log": 0, "total": len(results)}
+                summary = {"critical": 0, "high": 0, "medium": 0, "low": 0, "log": 0, "total": len(results)}
 
                 for result in results:
                     severity_elem = result.find("severity")
                     if severity_elem is not None and severity_elem.text:
                         try:
                             severity = float(severity_elem.text)
-                            if severity >= 7.0:
+                            # CVSS v3 thresholds: Critical ≥9.0, High 7.0-8.9, Medium 4.0-6.9, Low 0.1-3.9
+                            if severity >= 9.0:
+                                summary["critical"] += 1
+                            elif severity >= 7.0:
                                 summary["high"] += 1
                             elif severity >= 4.0:
                                 summary["medium"] += 1

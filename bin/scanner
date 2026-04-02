@@ -68,7 +68,7 @@ def main():
     p.add_argument("--watch", action="store_true", help="Watch for new images in source file")
     p.add_argument("--wait-only", action="store_true", help="Only wait for GVM and exit")
     args = p.parse_args()
-    log = setup_logging(args.verbose); raw = yaml.safe_load(open(args.config).read()) if Path(args.config).exists() else {}
+    log = setup_logging(args.verbose, log_dir=str(Path(args.output) / "logs")); raw = yaml.safe_load(open(args.config).read()) if Path(args.config).exists() else {}
     db = ScanDB(args.db)
     if args.force:
         import sqlite3; c = sqlite3.connect(args.db); c.execute("UPDATE jobs SET status='pending' WHERE status IN ('failed', 'skipped')"); c.commit(); c.close()
