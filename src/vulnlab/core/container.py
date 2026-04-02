@@ -100,7 +100,8 @@ class ContainerManager:
                     ulimits=ulim, read_only=ro, tmpfs=_TMPFS if ro else {}, environment={"VULNLAB_AUDIT": "true"})
         try: return self.client.containers.run(**args).id
         except Exception as e:
-            if ro and any(x in str(e).lower() for x in ["read-only", "readonly"]):
+            err = str(e).lower()
+            if ro and any(x in err for x in ["read-only", "readonly", "permission", "permitted"]):
                 args.update(read_only=False, tmpfs={})
                 return self.client.containers.run(**args).id
             raise
@@ -147,7 +148,9 @@ class ContainerManager:
                 c = self.client.containers.get(cid); c.reload()
                 if c.status != "running":
                     code = c.attrs.get("State", {}).get("ExitCode")
-                    if self.cfg.read_only_rootfs:
+                    # Fallback to RW if exited with typical permission/read-only codes
+                    if self.cfg.read_only_rootfs and code in [1, 126, 127]:
+                        self.logger.info(f"Retrying {image} in RW mode (exited with {code})")
                         self.stop_rm(cid); cid = self.run(image, name + "_rw", False)
                         c = self.client.containers.get(cid); c.reload()
                     
