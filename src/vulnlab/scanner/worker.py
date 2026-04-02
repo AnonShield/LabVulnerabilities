@@ -35,8 +35,9 @@ class ScanWorker:
                 if stat != ScanStatus.DONE: return {**res, "error": str(stat), "task_id": tkid}
                 v = self.gvm.get_report_summary(rid)
                 p = self._save(img, rid, cid, ip, tkid, tid, v, ts)
+                vulns = {f"vuln_{k}": v.get(k, 0) for k in ["high", "medium", "low", "log", "total"]}
                 if self.gvm.config.cleanup_after_scan: self.gvm.delete_task(tkid); self.gvm.delete_target(tid)
-                res.update(status="done", task_id=tkid, target_id=tid, report_id=rid, reports_path=str(p), **v)
+                res.update(status="done", task_id=tkid, target_id=tid, report_id=rid, reports_path=str(p), **vulns)
         except Exception as e: res["error"] = str(e); raise
         finally: stop_hb.set()
         return res
@@ -61,7 +62,8 @@ class ScanWorker:
         for f in self.fmts:
             c = self.gvm.get_report(rid, f)
             if c: (out / f"scan_{slug}_{ts}.{f.lower()}").write_bytes(c); saved.append(f)
-        row = {"image":img, "image_slug":slug, "container_id":cid[:12] if cid else "", "container_ip":ip, "scan_date":datetime.now().strftime("%Y-%m-%d"), "scan_timestamp":ts, "gvm_task_id":tkid, "gvm_target_id":tid, "gvm_report_id":rid, "reports_saved":"|".join(saved), "reports_dir":str(out.resolve()), "worker_id":self.wid, **v}
+        vulns = {f"vuln_{k}": v.get(k, 0) for k in ["high", "medium", "low", "log", "total"]}
+        row = {"image":img, "image_slug":slug, "container_id":cid[:12] if cid else "", "container_ip":ip, "scan_date":datetime.now().strftime("%Y-%m-%d"), "scan_timestamp":ts, "gvm_task_id":tkid, "gvm_target_id":tid, "gvm_report_id":rid, "reports_saved":"|".join(saved), "reports_dir":str(out.resolve()), "worker_id":self.wid, **vulns}
         with open(out / "scan_info.csv", "w", newline="") as f:
             w = csv.DictWriter(f, FIELDS); w.writeheader(); w.writerow(row)
         g_csv = self.out_dir / "all_scans_summary.csv"
