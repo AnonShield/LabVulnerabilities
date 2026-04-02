@@ -11,7 +11,7 @@ VulnLab is an automated framework for large-scale discovery and vulnerability au
 3. [Requirements](#3-requirements)
 4. [Setup](#4-setup)
 5. [Configuration](#5-configuration)
-6. [Discovery (Crawler)](#6-discovery-crawler)
+6. [Discovery (DITector)](#6-discovery-ditector)
 7. [Scanner](#7-scanner)
 8. [Output Structure](#8-output-structure)
 9. [Security Model](#9-security-model)
@@ -25,7 +25,7 @@ VulnLab is an automated framework for large-scale discovery and vulnerability au
 VulnLab operates in two independent stages that can run on different machines:
 
 ```
-[CRAWLER — local machine]           [SCANNER — gpu1/gama]
+[CRAWLER — local machine]           [SCANNER — remote-host]
 bin/discovery                       bin/scanner
     │                                   │
     │  DFS over DockerHub API           │  For each image in the job queue:
@@ -132,7 +132,7 @@ State is saved to `data/.dfs_state.json` after each branch completes. The crawle
 - Python 3.10+
 - `requests`, `pyyaml`
 
-### Scanner machine (gpu1)
+### Scanner machine (remote-host)
 - Docker Engine 24+
 - Python 3.10+
 - `docker`, `python-gvm`, `pyyaml`, `requests`
@@ -180,74 +180,55 @@ Copy `config/scanner.yaml.example` to `config/scanner.yaml` (gitignored) and set
 
 ---
 
-## 6. Discovery (Crawler)
+## 6. Discovery (DITector)
 
-The crawler runs **locally** and collects images from DockerHub ordered by pull count (requires DockerHub authentication).
+VulnLab now integrates with **DITector** for prioritized image discovery. Instead of a simple BFS/DFS crawl, images are selected based on their position and impact within the Docker software supply chain.
 
-### Start
+### Methodology
+
+The discovery process follows a multi-stage prioritization strategy:
+
+1. **Ecosystem Crawling:** DITector performs a distributed crawl of DockerHub to map repositories and their metadata.
+2. **Supply Chain Mapping:** A dependency graph is constructed in Neo4j, linking images to their base layers and parent images.
+3. **Prioritization (Weighted Impact):** Images are not selected solely by popularity (pull count) or connectivity (dependency count). The methodology prioritizes:
+    - **Structural Criticality:** Images that serve as foundational blocks for a wide variety of downstream applications.
+    - **Exposure Risk:** Images with high deployment frequency that also act as significant nodes in the supply chain.
+4. **Prioritized Export:** DITector produces a prioritized JSONL file (`ditector_results.jsonl`) containing images ranked by their calculated "Dependency Weight".
+
+### Integration
+
+To feed DITector results into the scanner:
+
+1. Generate the prioritized list using DITector's `calculate-node-weights` script.
+2. Place the resulting `.jsonl` file in `data/ditector_results.jsonl`.
+3. Configure `scanner.yaml` to use the `ditector` source:
+
+```yaml
+catalog:
+  source: "ditector"
+  file: "data/ditector_results.jsonl"
+```
+
+4. Seed the scanner database:
 
 ```bash
-cd /path/to/LabVulnerabilities
-
-nohup python3 bin/discovery \
-  --username YOUR_DOCKERHUB_USERNAME \
-  --password YOUR_DOCKERHUB_PAT \
-  --csv data/discovery.csv \
-  --jsonl data/discovery.jsonl \
-  --state data/.dfs_state.json \
-  >> logs/discovery.log 2>&1 &
+python3 bin/scanner --seed --source ditector --file data/ditector_results.jsonl
 ```
 
-The crawler is fully resumable. If it stops for any reason (token expiry, network error), restarting with the same parameters continues from the last completed prefix.
-
-### Monitor
-
-```bash
-tail -f logs/discovery.log
-wc -l data/discovery.csv
-```
-
-### Push new images to the scanner
-
-```bash
-rsync -av data/discovery.csv gpu1:~/mass_scanner/data/
-ssh gpu1 'cd ~/mass_scanner && venv/bin/python3 bin/scanner \
-  --seed --file data/discovery.csv --db data/mass_scan.db'
-```
-
-### CLI options
-
-```
-bin/discovery [OPTIONS]
-
-  --csv PATH       Output CSV file (default: data/discovery.csv)
-  --jsonl PATH     Output JSONL file (default: data/discovery.jsonl)
-  --state PATH     Checkpoint file (default: data/.dfs_state.json)
-  --username STR   DockerHub username (enables pull_count ordering)
-  --password STR   DockerHub Personal Access Token
-  --limit N        Maximum images to collect (default: 10,000,000)
-```
-
-### Output files
-
-| File | Format | Contents |
-|------|--------|----------|
-| `data/discovery.csv` | CSV | `image,pull_count,star_count,is_official,is_automated,description` |
-| `data/discovery.jsonl` | JSON Lines | Full DockerHub API response object per line |
-| `data/.dfs_state.json` | JSON | `{"completed_prefixes": ["a", "aa", ...]}` |
+This approach ensures that the audit focuses on the most "consequential" images in the ecosystem, rather than just the most popular ones.
 
 ---
 
 ## 7. Scanner
 
-The scanner runs on **gpu1/gama** and uses OpenVAS running in Docker.
+The scanner runs on a **remote-host** and uses OpenVAS running in Docker.
 
 ### Seed the job queue
 
 Populate the database from an image list (idempotent — existing images are skipped):
 
 ```bash
-ssh gpu1
+ssh user@remote-host
 cd ~/mass_scanner
 venv/bin/python3 bin/scanner --seed --file data/images_all.csv --db data/mass_scan.db
 ```
@@ -338,11 +319,11 @@ data/reports/
   "failed": 6,
   "skipped": 3210,
   "pending": 296909,
-  "reports_dir": "/home/cristhian/mass_scanner/data/reports",
-  "db_path": "/home/cristhian/mass_scanner/data/mass_scan.db",
-  "summary_csv": "/home/cristhian/mass_scanner/data/reports/all_scans_summary.csv",
+  "reports_dir": "/home/user/mass_scanner/data/reports",
+  "db_path": "/home/user/mass_scanner/data/mass_scan.db",
+  "summary_csv": "/home/user/mass_scanner/data/reports/all_scans_summary.csv",
   "workers": 40,
-  "machine": "gama"
+  "machine": "remote-host"
 }
 ```
 

@@ -4,10 +4,9 @@
 # ============================================================
 
 catalog:
-  source: "file"            # file | dockerhub | compose
-  file: "data/images_all.csv"
+  source: "ditector"         # ditector | file | compose
+  file: "data/ditector_results.jsonl"
   compose: "docker-compose.yml"
-  dockerhub_query: ""
   limit: 100000
 
 openvas:

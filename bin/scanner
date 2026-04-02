@@ -1,20 +1,9 @@
 #!/usr/bin/env python3
-import argparse
-import logging
-import signal
-import socket
-import sys
-import threading
-import time
+import argparse, logging, signal, socket, sys, threading, time, yaml, json
 from concurrent.futures import Future, ThreadPoolExecutor
 from pathlib import Path
-
-import yaml
-
-# Industrial Path Setup
-ROOT_DIR = Path(__file__).parent.parent
-sys.path.insert(0, str(ROOT_DIR / "src"))
-
+ROOT = Path(__file__).parent.parent
+sys.path.insert(0, str(ROOT / "src"))
 from vulnlab.scanner.openvas_scanner import Config, setup_logging
 from vulnlab.discovery.catalog import get_source
 from vulnlab.core.container import ContainerConfig
@@ -23,209 +12,72 @@ from vulnlab.core.setup import EnvironmentSetup, SetupConfig
 from vulnlab.scanner.worker import ScanWorker
 
 class MassScanner:
-    def __init__(self, db: ScanDB, gvm_cfg: Config, container_cfg: ContainerConfig, workers: int, output_dir: str, report_formats: list, logger: logging.Logger):
-        self._db = db
-        self._gvm_cfg = gvm_cfg
-        self._container_cfg = container_cfg
-        self._workers = workers
-        self._output_dir = output_dir
-        self._report_formats = report_formats
-        self._logger = logger
-        self._shutdown = threading.Event()
-        self._hostname = socket.gethostname()
-        self._thread_local = threading.local()
+    def __init__(self, db, gvm_cfg, c_cfg, workers, out, fmts, log):
+        self.db, self.gvm, self.c, self.w, self.out, self.fmts, self.log = db, gvm_cfg, c_cfg, workers, out, fmts, log
+        self.sd, self.host, self.local = threading.Event(), socket.gethostname(), threading.local()
 
     def run(self):
-        reclaimed = self._db.reset_stale()
-        if reclaimed: self._logger.info(f"Reclaimed {reclaimed} stale jobs from previous run")
-        self._print_stats()
-        self._start_progress_thread()
-        signal.signal(signal.SIGINT,  self._on_signal)
-        signal.signal(signal.SIGTERM, self._on_signal)
-        with ThreadPoolExecutor(max_workers=self._workers) as pool:
-            in_flight: dict[Future, str] = {}
-            while not self._shutdown.is_set():
-                while len(in_flight) < self._workers and not self._shutdown.is_set():
-                    job = self._db.claim_job(worker_id=f"{self._hostname}-{threading.current_thread().ident}")
-                    if job is None: break
-                    f = pool.submit(self._run_job, job)
-                    in_flight[f] = job["image"]
-                for f in {f for f in in_flight if f.done()}:
-                    self._on_done(f, in_flight.pop(f))
-                s = self._db.stats()
-                if not in_flight and s["pending"] == 0: break
+        r = self.db.reset_stale(); 
+        if r: self.log.info(f"Reclaimed {r} jobs")
+        self._stats(); threading.Thread(target=self._prog, daemon=True).start()
+        signal.signal(signal.SIGINT, lambda *_: self.sd.set()); signal.signal(signal.SIGTERM, lambda *_: self.sd.set())
+        with ThreadPoolExecutor(self.w) as pool:
+            active = {}
+            while not self.sd.is_set():
+                while len(active) < self.w and not self.sd.is_set():
+                    job = self.db.claim(f"{self.host}-{threading.get_ident()}")
+                    if not job: break
+                    active[pool.submit(self._work, job)] = job["image"]
+                done = [f for f in active if f.done()]
+                for f in done: self._done(f, active.pop(f))
+                if not active and self.db.stats()["pending"] == 0: break
                 time.sleep(2)
-        self._shutdown.set()
-        self._print_stats()
+        self.sd.set(); self._stats()
 
-    def _get_worker(self) -> ScanWorker:
-        if not hasattr(self._thread_local, "worker"):
-            self._thread_local.worker = ScanWorker(
-                worker_id=f"{self._hostname}-{threading.current_thread().ident}",
-                gvm_cfg=self._gvm_cfg,
-                container_cfg=self._container_cfg,
-                db=self._db,
-                output_dir=self._output_dir,
-                report_formats=self._report_formats,
-                shutdown=self._shutdown,
-                logger=self._logger,
-            )
-        return self._thread_local.worker
+    def _work(self, job):
+        if not hasattr(self.local, "w"): self.local.w = ScanWorker(f"{self.host}-{threading.get_ident()}", self.gvm, self.c, self.db, self.out, self.fmts, self.sd, self.log)
+        return self.local.w.run(job)
 
-    def _run_job(self, job: dict) -> dict: return self._get_worker().run(job)
-
-    def _on_done(self, future: Future, image: str):
+    def _done(self, f, img):
         try:
-            result = future.result()
-            status = result.get("status")
-            if status == "done":
-                self._db.complete(image, result)
-                self._logger.info(f"[DONE] {image} | ip={result.get('container_ip','?')} | High:{result.get('vuln_high',0)} Med:{result.get('vuln_medium',0)} Low:{result.get('vuln_low',0)} Log:{result.get('vuln_log',0)} | reports -> {result.get('reports_path','?')}")
-            elif status == "skipped":
-                self._db.skip(image, result.get("error", ""))
-                self._logger.debug(f"[SKIP] {image} — {result.get('error','')}")
-            else:
-                self._db.fail(image, result.get("error", "unknown"))
-                self._logger.warning(f"[FAIL] {image} — {result.get('error','')}")
-        except Exception as e:
-            self._db.fail(image, str(e))
-            self._logger.error(f"[ERROR] {image} — {e}")
+            r = f.result(); s = r.get("status")
+            if s == "done": self.db.done(img, r); self.log.info(f"[DONE] {img} | {r.get('vuln_total')} vulns")
+            elif s == "skipped": self.db.skip(img, r.get("error")); self.log.debug(f"[SKIP] {img}")
+            else: self.db.fail(img, r.get("error")); self.log.warning(f"[FAIL] {img}")
+        except Exception as e: self.db.fail(img, str(e)); self.log.error(f"[ERR] {img}: {e}")
 
-    def _print_stats(self):
-        s = self._db.stats()
-        total = s["total"] or 1
-        pct = s["done"] / total * 100
-        self._logger.info(
-            f"Progress: {s['done']}/{s['total']} ({pct:.1f}%) | "
-            f"running={s['running']} failed={s['failed']} "
-            f"skipped={s['skipped']} pending={s['pending']}"
-        )
-        self._write_status_file(s, pct)
+    def _stats(self):
+        s = self.db.stats(); total = s["total"] or 1; pct = s["done"]/total*100
+        self.log.info(f"Progress: {s['done']}/{s['total']} ({pct:.1f}%) | R:{s['running']} F:{s['failed']} S:{s['skipped']} P:{s['pending']}")
+        try: (Path(self.out)/"scan_status.json").write_text(json.dumps({"at":time.ctime(), "pct":round(pct,2), **s, "machine":self.host}, indent=2))
+        except: pass
 
-    def _write_status_file(self, s: dict, pct: float):
-        """Write a human+machine readable status snapshot to output_dir/scan_status.json."""
-        import json as _json
-        from datetime import datetime as _dt
-        status = {
-            "updated_at":   _dt.now().isoformat(timespec="seconds"),
-            "progress_pct": round(pct, 2),
-            "total":   s["total"],
-            "done":    s["done"],
-            "running": s["running"],
-            "failed":  s["failed"],
-            "skipped": s["skipped"],
-            "pending": s["pending"],
-            "reports_dir": self._output_dir,
-            "db_path":     str(Path(self._output_dir).parent / "mass_scan.db"),
-            "summary_csv": str(Path(self._output_dir) / "all_scans_summary.csv"),
-            "workers": self._workers,
-            "machine": self._hostname,
-        }
-        try:
-            status_path = Path(self._output_dir) / "scan_status.json"
-            status_path.write_text(_json.dumps(status, indent=2))
-        except OSError:
-            pass
-
-    def _start_progress_thread(self):
-        def _loop():
-            while not self._shutdown.wait(30): self._print_stats()
-        threading.Thread(target=_loop, daemon=True).start()
-
-    def _on_signal(self, *_):
-        self._logger.warning("Shutdown requested — waiting for active scans to finish…")
-        self._shutdown.set()
-
-def _load_yaml(path: str) -> dict:
-    try:
-        with open(path) as f: return yaml.safe_load(f) or {}
-    except FileNotFoundError: return {}
-
-def _build_gvm_config(raw: dict, args: argparse.Namespace) -> Config:
-    return Config(
-        host     = args.host     or raw.get("host",     "127.0.0.1"),
-        port     = args.port     or raw.get("port",     9390),
-        username = args.username or raw.get("username", "admin"),
-        password = args.password or raw.get("password", "admin"),
-        scan_config_name = raw.get("scan_config_name", "Full and fast"),
-        port_list_name   = raw.get("port_list_name",   "All IANA assigned TCP and UDP"),
-        scanner_name     = raw.get("scanner_name",     "OpenVAS Default"),
-        report_formats   = raw.get("report_formats",   ["PDF", "XML", "CSV", "TXT"]),
-        cleanup_after_scan = raw.get("cleanup_after_scan", True),
-        poll_interval      = raw.get("poll_interval",      30),
-    )
-
-def _build_container_config(raw: dict) -> ContainerConfig:
-    c = raw.get("container", {})
-    return ContainerConfig(
-        network            = c.get("network",            "trabalho_vulnnet"),
-        startup_wait       = c.get("startup_wait",       20),
-        health_timeout     = c.get("health_timeout",     90),
-        pull_retries       = c.get("pull_retries",       3),
-        pull_retry_delay   = c.get("pull_retry_delay",   60),
-        max_image_size_mb  = c.get("max_image_size_mb",  10240),
-        remove_image_after = c.get("remove_image_after", True),
-        prune_every        = c.get("prune_every",        20),
-        dockerhub_username = c.get("dockerhub_username", ""),
-        dockerhub_password = c.get("dockerhub_password", ""),
-    )
-
-def _build_setup_config(raw: dict, args: argparse.Namespace) -> SetupConfig:
-    c = raw.get("container", {})
-    o = raw.get("openvas", {})
-    return SetupConfig(
-        network         = c.get("network",          "trabalho_vulnnet"),
-        network_subnet  = c.get("network_subnet",   "172.30.0.0/16"),
-        openvas_image   = o.get("image",            "immauss/openvas:latest"),
-        container_name  = o.get("container_name",   "openvas_massscan"),
-        gvm_password    = args.password or raw.get("password", "admin"),
-        gvm_port        = args.port     or raw.get("port",     9390),
-        startup_timeout = o.get("startup_timeout",  3600),
-    )
+    def _prog(self):
+        while not self.sd.wait(30): self._stats()
 
 def main():
-    p = argparse.ArgumentParser(description="VulnLab Mass Scanner")
-    p.add_argument("--source", choices=["file", "dockerhub", "dockerhub_dfs", "compose"], default="file")
-    p.add_argument("--file", default=str(ROOT_DIR / "data/images_all.csv"))
-    p.add_argument("--workers", type=int, default=40)
-    p.add_argument("--db", default=str(ROOT_DIR / "data/mass_scan.db"))
-    p.add_argument("--output", default=str(ROOT_DIR / "data/reports"))
-    p.add_argument("--host", default="")
-    p.add_argument("--port", type=int, default=0)
-    p.add_argument("--username", default="")
-    p.add_argument("--password", default="")
-    p.add_argument("-c", "--config", default=str(ROOT_DIR / "config/scanner.yaml"))
-    p.add_argument("--seed", action="store_true")
-    p.add_argument("--force", action="store_true")
-    p.add_argument("-v", "--verbose", action="store_true")
+    p = argparse.ArgumentParser()
+    p.add_argument("--source", default="file"); p.add_argument("--file", default=str(ROOT/"data/images_all.csv"))
+    p.add_argument("--workers", type=int, default=40); p.add_argument("--db", default=str(ROOT/"data/mass_scan.db"))
+    p.add_argument("--output", default=str(ROOT/"data/reports")); p.add_argument("--host", default="127.0.0.1")
+    p.add_argument("--port", type=int, default=9390); p.add_argument("--user", default="admin"); p.add_argument("--pw", default="admin")
+    p.add_argument("-c", "--config", default=str(ROOT/"config/scanner.yaml")); p.add_argument("--seed", action="store_true")
+    p.add_argument("--force", action="store_true"); p.add_argument("-v", "--verbose", action="store_true")
     args = p.parse_args()
-
-    logger = setup_logging(args.verbose)
-    raw = _load_yaml(args.config)
+    log = setup_logging(args.verbose); raw = yaml.safe_load(open(args.config).read()) if Path(args.config).exists() else {}
     db = ScanDB(args.db)
-
     if args.force:
-        import sqlite3 as _sq
-        with _sq.connect(args.db) as c:
-            c.execute("UPDATE jobs SET status='pending', error=NULL WHERE status='failed'")
-        logger.info("Re-queued failed jobs")
-
+        import sqlite3; c = sqlite3.connect(args.db); c.execute("UPDATE jobs SET status='pending' WHERE status='failed'"); c.commit(); c.close()
     if args.seed:
-        catalog_cfg = dict(raw.get("catalog", {}))
-        catalog_cfg["source"] = args.source
-        catalog_cfg["file"] = args.file
-        source = get_source(catalog_cfg)
-        db.seed(source.iter_images())
-
-    gvm_cfg = _build_gvm_config(raw, args)
-    container_cfg = _build_container_config(raw)
-    setup_cfg = _build_setup_config(raw, args)
-    
+        cfg = {**raw.get("catalog",{}), "source":args.source, "file":args.file}
+        db.seed(get_source(cfg).iter_images())
+    g_cfg = Config(host=args.host, port=args.port, username=args.user, password=args.pw, **{k:v for k,v in raw.items() if k in ["scan_config_name","port_list_name","scanner_name","report_formats","cleanup_after_scan","poll_interval"]})
+    c_raw = raw.get("container",{})
+    c_cfg = ContainerConfig(**{k:v for k,v in c_raw.items() if k in ["network","startup_wait","health_timeout","pull_retries","pull_retry_delay","max_image_size_mb","remove_image_after","prune_every","dockerhub_username","dockerhub_password"]})
+    o_raw = raw.get("openvas",{})
+    s_cfg = SetupConfig(network=c_raw.get("network","trabalho_vulnnet"), network_subnet=c_raw.get("network_subnet","172.30.0.0/16"), openvas_image=o_raw.get("image","immauss/openvas:latest"), container_name=o_raw.get("container_name","openvas_massscan"), gvm_password=args.pw, gvm_port=args.port, startup_timeout=o_raw.get("startup_timeout",3600))
     Path(args.output).mkdir(parents=True, exist_ok=True)
-    EnvironmentSetup(setup_cfg, logger).run()
+    EnvironmentSetup(s_cfg, log).run()
+    MassScanner(db, g_cfg, c_cfg, args.workers, args.output, g_cfg.report_formats, log).run()
 
-    scanner = MassScanner(db, gvm_cfg, container_cfg, args.workers, args.output, gvm_cfg.report_formats, logger)
-    scanner.run()
-
-if __name__ == "__main__":
-    main()
+if __name__ == "__main__": main()
