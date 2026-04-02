@@ -61,8 +61,12 @@ class EnvironmentSetup:
             )["Id"])
             c = self._get_c()
         elif c.status != "running": c.start()
-        self._connect(c); self._wait_gvm(c); try: c.exec_run("/scripts/sync.sh")
-        except: pass
+        self._connect(c)
+        self._wait_gvm(c)
+        try:
+            c.exec_run("/scripts/sync.sh")
+        except:
+            pass
 
     def _get_c(self):
         try: return self.client.containers.get(self.cfg.container_name)
