@@ -1,0 +1,3 @@
+{"repository_namespace": "library", "repository_name": "nginx", "tag_name": "latest", "weights": 5000}
+{"repository_namespace": "library", "repository_name": "redis", "tag_name": "6.0", "weights": 3000}
+{"repository_namespace": "", "repository_name": "my-app", "tag_name": "v1", "weights": 100}

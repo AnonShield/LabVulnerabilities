@@ -16,7 +16,7 @@ class MassScanner:
         self.db, self.gvm, self.c, self.w, self.out, self.fmts, self.log = db, gvm_cfg, c_cfg, workers, out, fmts, log
         self.sd, self.host, self.local = threading.Event(), socket.gethostname(), threading.local()
 
-    def run(self):
+    def run(self, watch=False):
         r = self.db.reset_stale(); 
         if r: self.log.info(f"Reclaimed {r} jobs")
         self._stats(); threading.Thread(target=self._prog, daemon=True).start()
@@ -30,7 +30,9 @@ class MassScanner:
                     active[pool.submit(self._work, job)] = job["image"]
                 done = [f for f in active if f.done()]
                 for f in done: self._done(f, active.pop(f))
-                if not active and self.db.stats()["pending"] == 0: break
+                if not active and self.db.stats()["pending"] == 0:
+                    if watch: time.sleep(10); continue
+                    break
                 time.sleep(2)
         self.sd.set(); self._stats()
 
@@ -63,14 +65,14 @@ def main():
     p.add_argument("--port", type=int, default=9390); p.add_argument("--user", default="admin"); p.add_argument("--pw", default="admin")
     p.add_argument("-c", "--config", default=str(ROOT/"config/scanner.yaml")); p.add_argument("--seed", action="store_true")
     p.add_argument("--force", action="store_true"); p.add_argument("-v", "--verbose", action="store_true")
+    p.add_argument("--watch", action="store_true", help="Watch for new images in source file")
+    p.add_argument("--wait-only", action="store_true", help="Only wait for GVM and exit")
     args = p.parse_args()
     log = setup_logging(args.verbose); raw = yaml.safe_load(open(args.config).read()) if Path(args.config).exists() else {}
     db = ScanDB(args.db)
     if args.force:
         import sqlite3; c = sqlite3.connect(args.db); c.execute("UPDATE jobs SET status='pending' WHERE status='failed'"); c.commit(); c.close()
-    if args.seed:
-        cfg = {**raw.get("catalog",{}), "source":args.source, "file":args.file}
-        db.seed(get_source(cfg).iter_images())
+    
     g_cfg = Config(host=args.host, port=args.port, username=args.user, password=args.pw, **{k:v for k,v in raw.items() if k in ["scan_config_name","port_list_name","scanner_name","report_formats","cleanup_after_scan","poll_interval"]})
     c_raw = raw.get("container",{})
     c_cfg = ContainerConfig(**{k:v for k,v in c_raw.items() if k in ["network","startup_wait","health_timeout","pull_retries","pull_retry_delay","max_image_size_mb","remove_image_after","prune_every","dockerhub_username","dockerhub_password"]})
@@ -78,6 +80,18 @@ def main():
     s_cfg = SetupConfig(network=c_raw.get("network","trabalho_vulnnet"), network_subnet=c_raw.get("network_subnet","172.30.0.0/16"), openvas_image=o_raw.get("image","immauss/openvas:latest"), container_name=o_raw.get("container_name","openvas_massscan"), gvm_password=args.pw, gvm_port=args.port, startup_timeout=o_raw.get("startup_timeout",3600))
     Path(args.output).mkdir(parents=True, exist_ok=True)
     EnvironmentSetup(s_cfg, log).run()
-    MassScanner(db, g_cfg, c_cfg, args.workers, args.output, g_cfg.report_formats, log).run()
+    if args.wait_only: return
+
+    def _seed():
+        if args.seed or args.watch:
+            cfg = {**raw.get("catalog",{}), "source":args.source, "file":args.file}
+            db.seed(get_source(cfg).iter_images())
+    _seed()
+    if args.watch:
+        def _watch_seed():
+            while True: time.sleep(60); _seed()
+        threading.Thread(target=_watch_seed, daemon=True).start()
+
+    MassScanner(db, g_cfg, c_cfg, args.workers, args.output, g_cfg.report_formats, log).run(watch=args.watch)
 
 if __name__ == "__main__": main()

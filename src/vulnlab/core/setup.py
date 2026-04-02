@@ -1,10 +1,6 @@
-import logging
-import time
-import socket as _sock
+import logging, time, socket as _sock
 from dataclasses import dataclass
-import docker
-import docker.errors
-import docker.types
+import docker, docker.errors, docker.types
 
 OPENVAS_IMAGE  = "immauss/openvas:latest"
 GVM_INNER_PORT = 9390
@@ -24,81 +20,75 @@ class SetupConfig:
 class EnvironmentSetup:
     def __init__(self, cfg: SetupConfig, logger: logging.Logger):
         self.cfg, self.logger = cfg, logger
-        try:
-            self.client = docker.from_env()
-        except Exception as e:
-            raise RuntimeError(f"Docker error: {e}")
+        try: self.client = docker.from_env()
+        except Exception as e: raise RuntimeError(f"Docker error: {e}")
 
     def run(self) -> str:
         self._ensure_net()
         if not self.cfg.skip_openvas:
             c = self._get_c()
-            if c and c.status == "running":
-                try:
-                    with _sock.create_connection((GVM_BIND_HOST, self.cfg.gvm_port), 2):
-                        self.logger.info("GVM ready.")
-                        self._connect(c)
-                        return f"127.0.0.1:{self.cfg.gvm_port}"
-                except OSError: pass
+            if c and c.status == "running" and self._check_gmp():
+                self.logger.info("GVM ready.")
+                self._connect(c)
+                return f"127.0.0.1:{self.cfg.gvm_port}"
             self._ensure_openvas()
         return f"127.0.0.1:{self.cfg.gvm_port}"
 
     def _ensure_net(self):
         try:
             net = self.client.networks.get(self.cfg.network)
-            if not net.attrs.get("Internal", False):
-                self.logger.warning(f"Recreating {self.cfg.network} as internal...")
-                net.remove()
-                raise docker.errors.NotFound("recreate")
+            if not net.attrs.get("Internal"):
+                self.logger.warning(f"Fixing {self.cfg.network}...")
+                net.remove(); raise docker.errors.NotFound("recreate")
         except docker.errors.NotFound:
-            self.client.networks.create(
-                self.cfg.network, driver="bridge", internal=True,
+            self.client.networks.create(self.cfg.network, driver="bridge", internal=True,
                 ipam=docker.types.IPAMConfig(pool_configs=[docker.types.IPAMPool(subnet=self.cfg.network_subnet)]),
-                options={"com.docker.network.bridge.enable_icc": "true"}
-            )
+                options={"com.docker.network.bridge.enable_icc": "true"})
 
     def _ensure_openvas(self):
         c = self._get_c()
         if not c:
             try: self.client.images.get(self.cfg.openvas_image)
-            except docker.errors.ImageNotFound:
-                self.logger.info(f"Pulling {self.cfg.openvas_image}...")
-                self.client.images.pull(self.cfg.openvas_image)
-            
+            except: self.client.images.pull(self.cfg.openvas_image)
             h_cfg = self.client.api.create_host_config(
                 port_bindings={f"{GVM_INNER_PORT}/tcp": [(GVM_BIND_HOST, self.cfg.gvm_port)]},
                 restart_policy={"Name": "unless-stopped"}
             )
-            resp = self.client.api.create_container(
+            self.client.api.start(self.client.api.create_container(
                 self.cfg.openvas_image, name=self.cfg.container_name, detach=True,
                 ports=[GVM_INNER_PORT], host_config=h_cfg,
                 environment={"PASSWORD": self.cfg.gvm_password, "GMP": str(GVM_INNER_PORT), "SKIPSYNC": "true"}
-            )
-            self.client.api.start(resp["Id"])
-            c = self.client.containers.get(resp["Id"])
-        elif c.status != "running":
-            c.start()
-        
-        self._connect(c)
-        self._wait_gvm()
-        try: c.exec_run("/scripts/sync.sh")
+            )["Id"])
+            c = self._get_c()
+        elif c.status != "running": c.start()
+        self._connect(c); self._wait_gvm(c); try: c.exec_run("/scripts/sync.sh")
         except: pass
 
     def _get_c(self):
         try: return self.client.containers.get(self.cfg.container_name)
         except: return None
 
+    def _check_gmp(self) -> bool:
+        try:
+            with _sock.create_connection((GVM_BIND_HOST, self.cfg.gvm_port), 2):
+                # GMP version check would be ideal, but requires gvm-tools.
+                # Just checking the port is a start, but we need the socket to be alive inside.
+                c = self._get_c()
+                if c:
+                    st, _ = c.exec_run("ls /run/ospd/ospd-openvas.sock")
+                    return st == 0
+        except: pass
+        return False
+
     def _connect(self, c):
         net = self.client.networks.get(self.cfg.network)
         c.reload()
-        if self.cfg.network not in c.attrs.get("NetworkSettings", {}).get("Networks", {}):
-            net.connect(c)
+        if self.cfg.network not in c.attrs.get("NetworkSettings", {}).get("Networks", {}): net.connect(c)
 
-    def _wait_gvm(self):
-        deadline = time.time() + self.cfg.startup_timeout
-        while time.time() < deadline:
-            try:
-                with _sock.create_connection((GVM_BIND_HOST, self.cfg.gvm_port), 5): return
-            except OSError:
-                time.sleep(10)
+    def _wait_gvm(self, c):
+        self.logger.info(f"Waiting for GVM (timeout {self.cfg.startup_timeout}s)...")
+        end = time.time() + self.cfg.startup_timeout
+        while time.time() < end:
+            if self._check_gmp(): self.logger.info("GVM ready."); return
+            time.sleep(15)
         raise TimeoutError("GVM timeout")
