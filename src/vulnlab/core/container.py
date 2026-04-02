@@ -136,50 +136,57 @@ class ContainerManager:
 
     @contextmanager
     def lifecycle(self, image: str) -> Iterator[Tuple[Optional[str], Optional[str], Optional[str]]]:
+        """Context manager that pulls, starts, probes and stops a container.
+
+        Guarantees exactly ONE yield regardless of errors — required by
+        @contextmanager. Setup errors are captured into `skip`; the caller's
+        `with` block always executes, then cleanup runs in `finally`.
+        """
         name = f"ms_{re.sub(r'[^a-zA-Z0-9_.-]+', '_', image)[:40].strip('_')}_{uuid.uuid4().hex[:8]}"
-        cid = None; ip = None; skip = None; stop_ev = threading.Event()
+        cid = None; ip = None; skip = None
+
+        # --- setup (errors stored in skip, never propagated before yield) ---
         try:
             with _API_SEM:
                 if not self.pull(image): skip = "pull_failed"
                 else: cid = self.run(image, name, self.cfg.read_only_rootfs)
-            
+
             if cid:
                 time.sleep(5)
                 c = self.client.containers.get(cid); c.reload()
                 if c.status != "running":
                     code = c.attrs.get("State", {}).get("ExitCode")
-                    # Capture exit logs for auditability before any retry
                     try:
-                        exit_logs = c.logs(tail=100, timestamps=True).decode("utf-8", errors="replace").strip()
-                        if exit_logs:
-                            self.logger.warning(f"[EXIT-LOG] {image} exited:{code} stdout/stderr:\n{exit_logs}")
+                        logs = c.logs(tail=100, timestamps=True).decode("utf-8", errors="replace").strip()
+                        if logs: self.logger.warning(f"[EXIT-LOG] {image} exited:{code}\n{logs}")
                     except Exception: pass
-                    # Fallback to RW if exited with typical permission/read-only codes
                     if self.cfg.read_only_rootfs and code in [1, 126, 127]:
-                        self.logger.info(f"Retrying {image} in RW mode (exited with {code})")
+                        self.logger.info(f"Retrying {image} RW (exited {code})")
                         self.stop_rm(cid); cid = self.run(image, name + "_rw", False)
                         c = self.client.containers.get(cid); c.reload()
-
                     if c.status != "running":
-                        # Capture RW retry exit logs too
                         try:
-                            exit_logs = c.logs(tail=100, timestamps=True).decode("utf-8", errors="replace").strip()
-                            if exit_logs:
-                                self.logger.warning(f"[EXIT-LOG-RW] {image} exited:{code} stdout/stderr:\n{exit_logs}")
+                            logs = c.logs(tail=100, timestamps=True).decode("utf-8", errors="replace").strip()
+                            if logs: self.logger.warning(f"[EXIT-LOG-RW] {image} exited:{code}\n{logs}")
                         except Exception: pass
                         skip = f"exited:{code}"; self.stop_rm(cid); cid = None
-                
+
                 if cid:
                     time.sleep(max(0, self.cfg.startup_wait - 5))
                     c.reload()
-                    if c.status != "running": skip = "exited_startup"; cid = None
+                    if c.status != "running":
+                        skip = "exited_startup"; cid = None
                     else:
                         ip = self.get_ip(cid)
                         if not ip: skip = "no_ip"; cid = None
                         else: self.probe(ip, self.cfg.health_timeout)
-            
+        except Exception as e:
+            self.logger.error(f"[LIFECYCLE-ERR] {image}: {e}")
+            skip = str(e)
+
+        # --- exactly one yield — always reached ---
+        try:
             yield ip, cid, skip
-        except Exception as e: self.logger.error(f"Lifecycle error: {e}"); yield None, None, str(e)
         finally:
             if cid: self.stop_rm(cid)
             with self._lock:
