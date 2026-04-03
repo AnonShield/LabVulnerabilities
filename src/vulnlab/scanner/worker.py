@@ -55,21 +55,26 @@ class ScanWorker:
             except: pass
 
     def _save(self, img, rid, cid, ip, tkid, tid, v, ts):
+        v = v or {}
         slug = re.sub(r"[^a-zA-Z0-9._-]+", "__", img).strip("_")
         out = self.out_dir / slug / f"scan_{slug}_{ts}"
         out.mkdir(parents=True, exist_ok=True)
         saved = []
         for f in self.fmts:
-            c = self.gvm.get_report(rid, f)
-            if c: (out / f"scan_{slug}_{ts}.{f.lower()}").write_bytes(c); saved.append(f)
+            try:
+                c = self.gvm.get_report(rid, f)
+                if c: (out / f"scan_{slug}_{ts}.{f.lower()}").write_bytes(c); saved.append(f)
+            except: pass
         vulns = {f"vuln_{k}": v.get(k, 0) for k in ["critical", "high", "medium", "low", "log", "total"]}
         row = {"image":img, "image_slug":slug, "container_id":cid[:12] if cid else "", "container_ip":ip, "scan_date":datetime.now().strftime("%Y-%m-%d"), "scan_timestamp":ts, "gvm_task_id":tkid, "gvm_target_id":tid, "gvm_report_id":rid, "reports_saved":"|".join(saved), "reports_dir":str(out.resolve()), "worker_id":self.wid, **vulns}
         with open(out / "scan_info.csv", "w", newline="") as f:
             w = csv.DictWriter(f, FIELDS); w.writeheader(); w.writerow(row)
         g_csv = self.out_dir / "all_scans_summary.csv"
-        ext = g_csv.exists()
-        with open(g_csv, "a", newline="") as f:
-            w = csv.DictWriter(f, FIELDS); 
-            if not ext: w.writeheader()
-            w.writerow(row)
+        try:
+            ext = g_csv.exists()
+            with open(g_csv, "a", newline="") as f:
+                w = csv.DictWriter(f, FIELDS); 
+                if not ext: w.writeheader()
+                w.writerow(row)
+        except: pass
         return out
