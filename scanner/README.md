@@ -537,7 +537,6 @@ rm scanner_state.json
 | XML | `.xml` | Integration with other tools, full data |
 | CSV | `.csv` | Spreadsheet analysis, data import |
 | TXT | `.txt` | Quick text-based review |
-| HTML | `.html` | Web-based viewing (optional) |
 
 ### Directory Structure
 
